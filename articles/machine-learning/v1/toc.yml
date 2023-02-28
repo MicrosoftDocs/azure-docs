@@ -71,7 +71,7 @@
     - name: Microsoft Power BI integration
       items:
         - name: "Part 1: Train and deploy models"
-          href: ../tutorial-power-bi-custom-model.md
+          href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Samples (v1)
@@ -106,9 +106,6 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
-    - name: Git integration
-      displayName: github gitlab
-      href: ../concept-train-model-git-integration.md
 - name: Infrastructure & security (v1)
   items:
 
@@ -128,7 +125,7 @@
       displayName: AKS, inference
       href: how-to-create-attach-kubernetes.md
     - name: Link to Azure Synapse Analytics workspace
-      href: ../how-to-link-synapse-ml-workspaces.md
+      href: how-to-link-synapse-ml-workspaces.md
   - name: Security
     items:
     - name: Use managed identities for access control
@@ -169,7 +166,7 @@
     href: how-to-use-environments.md
   - name: Set input & output directories
     displayName: large data, write, experiment files, size limit
-    href: ../how-to-save-write-experiment-files.md
+    href: how-to-save-write-experiment-files.md
   - name: Use private Python packages
     displayName: pip, Conda, anaconda
     href: how-to-use-private-python-packages.md
@@ -244,7 +241,7 @@
       - name: PyTorch
         href: how-to-train-pytorch.md
       - name: Train with custom Docker image
-        href: ../how-to-train-with-custom-image.md
+        href: how-to-train-with-custom-image.md
       - name: Migrate from Estimators to ScriptRunConfig
         href: how-to-migrate-from-estimators-to-scriptrunconfig.md
       - name: Use Key Vault when training
@@ -265,9 +262,14 @@
       - name: Auto-train a natural language processing model
         displayName: nlp, auto ML, automl, SDK
         href: how-to-auto-train-nlp-models-v1.md
-      - name: Auto-train a forecast model
-        displayName: time series
-        href: ../how-to-auto-train-forecast.md
+      - name: Time series forecasting
+        items:
+        - name: Auto-train a forecast model
+          displayName: time series
+          href: how-to-auto-train-forecast-v1.md
+        - name: Frequently asked questions
+          displayName: auto ML, time series, forecasting, FAQ
+          href: ../how-to-automl-forecasting-faq.md
       - name: Set up AutoML to train computer vision models with Python
         displayName: auto ML, automl, SDK
         href: how-to-auto-train-image-models-v1.md
@@ -297,7 +299,7 @@
       href: how-to-log-view-metrics.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: ../how-to-monitor-tensorboard.md
+      href: how-to-monitor-tensorboard.md
     - name: Log metrics with designer
       displayName: designer, logging
       href: ../how-to-track-designer-experiments.md
@@ -309,8 +311,6 @@
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
-    - name: Reinforcement learning
-      href: how-to-use-reinforcement-learning.md
     - name: Explain automated ML models
       displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
       href: how-to-machine-learning-interpretability-automl.md
@@ -446,3 +446,5 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: ../overview-what-happened-to-workbench.md
+- name: Python SDK (v1) release notes
+  href: azure-machine-learning-release-notes.md

@@ -91,7 +91,7 @@ When an Account Owner creates an Azure subscription within an enterprise agreeme
 
 * The Azure subscription is associated with the same Azure AD tenant of the Account Owner.
 
-* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment]../../azure-resource-manager/management/deployment-models.md).)
+* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md).)
 
 An enterprise agreement can be configured to support multiple tenants by setting the authentication type of "Work or school account cross-tenant" in the Azure EA Portal. Given the above, organizations can set multiple accounts for each tenant, and multiple subscriptions for each account, as shown in the diagram below.
 
@@ -101,7 +101,7 @@ It's important to note that the default configuration described above grants the
 
  To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription’s tenant can be [changed](../fundamentals/active-directory-how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
 
-To learn more, visit [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
+To learn more, visit [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
 
 ### Microsoft Customer Agreement
 
@@ -310,14 +310,14 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 ![Diagram that shows Azure AD authentication to Azure VMs.](media/secure-with-azure-ad-resource-management/sign-into-vm.png)
 
-**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux).
+**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../devices/howto-vm-sign-in-azure-ad-linux.md).
 
 **Credentials**: One of the key benefits of signing into virtual machines in Azure using Azure AD authentication is the ability to use the same federated or managed Azure AD credentials that you normally use for access to Azure AD services for sign-in to the virtual machine.
 
 >[!NOTE]
 >The Azure AD tenant that is used for sign-in in this scenario is the Azure AD tenant that is associated with the subscription that the virtual machine has been provisioned into. This Azure AD tenant can be one that has identities synchronized from on-premises AD DS. Organizations should make an informed choice that aligns with their isolation principals when choosing which subscription and Azure AD tenant they wish to use for sign-in to these servers.
 
-**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux) for more information.
+**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../devices/howto-vm-sign-in-azure-ad-linux.md) for more information.
 
 **Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure AD Portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
 

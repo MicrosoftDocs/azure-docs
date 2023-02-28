@@ -2,9 +2,81 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/22/2022
+ms.date: 11/29/2022
 ms.author: eur
 ---
+
+### 2023-February release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.11.0
+- Speech-to-text 3.11.0
+- Text-to-speech 2.10.0
+
+Fix vulnerability issues
+
+Regular upgrade for speech models
+
+Add new Abraic locales:
+- ar-IL
+- ar-PS
+
+Upgrade Hebrew and Turkish display models
+
+### 2023-January release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.10.0
+- Speech-to-text 3.10.0
+- Text-to-speech 2.9.0
+
+Fix Hypothesis mode issue
+
+Fix HTTP Proxy issue
+
+Custom Speech-to-Text container disconnected mode
+
+Add CNV Disconnected container support to TTS Frontend
+
+Add support for these locale-voices:
+- da-DK-ChristelNeural
+- da-DK-JeppeNeural
+- en-IN-PrabhatNeural
+
+### 2022-December release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.9.0
+- Speech-to-text 3.9.0
+- Text-to-speech 2.8.0
+
+Fix ipv4/ipv6 issue
+
+Fix vulnerability issue
+
+### 2022-November release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.8.0
+- Speech-to-text 3.8.0
+- Text-to-speech 2.7.0
+
+### 2022-October release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.7.0
+- Speech-to-text 3.7.0
+- Text-to-speech 2.6.0
 
 ### 2022-September release
 
@@ -43,7 +115,7 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 
 #### Neural text-to-speech v2.5.0
 
-Add support for these [prebuilt neural voices](../../language-support.md?tabs=stt-tts):
+Add support for these [prebuilt neural voices](../../language-support.md?tabs=tts):
    * `az-az-babekneural`
    * `az-az-banuneural`
    * `fa-ir-dilaraneural`
@@ -82,3 +154,4 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 Add support for these prebuilt neural voices: `am-et-amehaneural`, `am-et-mekdesneural`, `so-so-muuseneural` and `so-so-ubaxneural`.
 
 Regular monthly updates including security upgrades and vulnerability fixes.
+

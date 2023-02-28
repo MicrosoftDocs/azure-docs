@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor
 description: Learn how to monitor your Azure Synapse Link for Azure SQL Database link connections.
-author: sbahadur
+author: shaween18
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
@@ -13,10 +13,6 @@ ms.reviewer: imotiwala, yexu
 # Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor
 
 This article provides a guide on how to get started with monitoring your Azure Synapse Link for Azure SQL Database connections. Before you go through this article, you should know how to create and start an Azure Synapse Link for Azure SQL Database link connection from [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md). Once you've created and started your Synapse Link connection, you can monitor your link connection through Synapse Studio or Azure Monitor. 
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Monitor the status of an Azure Synapse Link for Azure SQL Database connection in Synapse Studio
 
@@ -42,7 +38,7 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
     | Status | **Initial**, **Starting**, **Running**, **Stopping**, **Stopped**, **Pausing**, **Paused**, or **Resuming**. Details of what each status means can be found here: [Azure Synapse Link for Azure SQL Database](sql-database-synapse-link.md)|
     | Start time | Start date and time for the link connection run (Month, Date, Year, HH:MM:SS AM/PM) |
     | End time | End date and time for the link connection run (Month, Date, Year, HH:MM:SS AM/PM) |
-    | Landing zone SAS token expire time | Expiration date/time for the SAS token that is used to access the landing zone storage. More details can be found here: [Configure an expiration policy for shared accessed signatures (SAS)](/azure/storage/common/sas-expiration-policy.md?context=/azure/synapse-analytics/context/context) |
+    | Landing zone SAS token expire time | Expiration date/time for the SAS token that is used to access the landing zone storage. More details can be found here: [Configure an expiration policy for shared accessed signatures (SAS)](../../storage/common/sas-expiration-policy.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) |
     | Continuous run ID | ID of the link connection run *Helpful when troubleshooting any issues and contacting Microsoft support. |
 
 1. You need to manually select the **Refresh** button to refresh the list of link connections and their corresponding monitoring details. Autorefresh is currently not supported.  
@@ -204,7 +200,7 @@ In this section, we're going to walk through how you can set up alerts for your 
  
 1. In this example, let's use the **Event Hubs** action type, so we'll need to input the **subscription name**, **Event Hub namespace**, and select an **Event Hub name**. Then click on **OK**. 
 
-    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/azure/event-hubs/event-hub-create.md?context=/azure/synapse-analytics/context/context)
+    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/rest/api/eventhub/create-event-hub)
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-create-action-group-2.png" alt-text="Screenshot that shows how to create an action group and specify an action type when an alert rule's conditions are met.":::
 

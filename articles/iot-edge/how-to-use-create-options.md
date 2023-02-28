@@ -13,7 +13,7 @@ services: iot-edge
 
 # How to configure container create options for IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 
@@ -49,7 +49,7 @@ The IoT Edge deployment manifest accepts create options formatted as JSON. For e
 
 This edgeHub example uses the **HostConfig.PortBindings** parameter to map exposed ports on the container to a port on the host device.
 
-If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Code, you can write the create options in JSON format in the **deployment.template.json** file. Then, when you use the extension to build the IoT Edge solution or generate the deployment manifest, it will stringify the JSON for you in the format that the IoT Edge runtime expects. For example:
+If you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio or Visual Studio Code, you can write the create options in JSON format in the **deployment.template.json** file. Then, when you use the extension to build the IoT Edge solution or generate the deployment manifest, it will stringify the JSON for you in the format that the IoT Edge runtime expects. For example:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -57,7 +57,7 @@ If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Cod
 
 One tip for writing create options is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON. For example:
 
-[![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+:::image type="content" source="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png" alt-text="Screenshot of the results of the command docker inspect edgeHub." lightbox="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png":::
 
 ## Common scenarios
 

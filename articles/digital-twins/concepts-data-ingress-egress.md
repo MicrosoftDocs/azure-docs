@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 07/01/2022
+ms.date: 01/12/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -29,9 +29,9 @@ Azure Digital Twins can be driven with data and events from any service—[IoT H
 
 Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service. You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose. This functionality gives you full access to all of the device management capabilities of IoT Hub.
 
-To ingest data from any source into Azure Digital Twins, use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). 
+To ingest data from any source into Azure Digital Twins, you can use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). 
 
-You can also learn how to connect Azure Digital Twins to a Logic Apps trigger in [Integrate with Logic Apps](how-to-integrate-logic-apps.md).
+You can also integrate Azure Digital Twins into a [Microsoft Power Platform](/power-platform) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md) flow, using the [Azure Digital Twins Power Platform connector](how-to-use-power-platform-logic-apps-connector.md). For more information about connectors, see [Connectors overview](/connectors/connectors).
 
 ## Data egress
 

@@ -21,7 +21,7 @@ Get started with the PyMongo package to create databases, collections, and docum
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
 
-In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using one of the open-source MongoDB client drivers for Python, [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/). Also, you'll use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands), which are designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](/azure/cosmos-db/account-databases-containers-items).
+In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using one of the open-source MongoDB client drivers for Python, [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/). Also, you'll use the [MongoDB extension commands](./custom-commands.md), which are designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../resource-model.md).
 
 ## Prerequisites
 
@@ -114,7 +114,13 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 ## Object model
 
-Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and documents.
+
+:::image type="complex" source="media/quickstart-nodejs/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+:::image-end:::
+
+Each type of resource is represented by a Python class. Here are the most common classes:
 
 * [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to Azure Cosmos DB's API for MongoDB. The client object is used to configure and execute requests against the service.
 
@@ -124,7 +130,7 @@ Let's look at the hierarchy of resources in the API for MongoDB and the object m
 
 * [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure. And common fields in a collection's documents may hold different types of data.
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../resource-model.md) article.
 
 ## Code examples
 
@@ -162,19 +168,19 @@ Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo
 
 ### Get database
 
-Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
+Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](./custom-commands.md#create-database) to create it with a specified provisioned throughput.
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database":::
 
 ### Get collection
 
-Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
+Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](./custom-commands.md#create-collection) to create it.
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="create_collection":::
 
 ### Create an index
 
-Create an index using the [update collection extension command](/azure/cosmos-db/mongodb/custom-commands#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
+Create an index using the [update collection extension command](./custom-commands.md#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="create_index":::
 
@@ -263,4 +269,4 @@ Remove-AzResourceGroup @parameters
 In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the PyMongo driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
 
 > [!div class="nextstepaction"]
-> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/migration-choices)
+> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md)

@@ -3,14 +3,14 @@ title: Roles and resource access control
 titleSuffix: Azure AD B2C
 description: Learn how to use roles to control resource access.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2021
-ms.author: kengaderdus
+ms.date: 02/24/2023
+ms.author: godonnell
 ms.subservice: B2C
 ---
 # Roles and resource access control
@@ -20,6 +20,7 @@ When planning your access control strategy, it's best to assign users the least 
 |Resource  |Description  |Role  |
 |---------|---------|---------|
 |[Application registrations](tutorial-register-applications.md) | Create and manage all aspects of your web, mobile, and native application registrations within Azure AD B2C.|[Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)|
+|Tenant Creator| Create new Azure AD or Azure AD B2C tenants.| [Tenant Creator](../active-directory/roles/permissions-reference.md#tenant-creator)|
 |[Identity providers](add-identity-provider.md)| Configure the [local identity provider](identity-provider-local.md) and external social or enterprise identity providers. | [External Identity Provider Administrator](../active-directory/roles/permissions-reference.md#external-identity-provider-administrator)|
 |[API connectors](add-api-connector.md)| Integrate your user flows with web APIs to customize the user experience and integrate with external systems.|[External ID User Flow Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
 |[Company branding](customize-ui.md#configure-company-branding)| Customize your user flow pages.| [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator)|

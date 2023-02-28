@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -314,7 +314,7 @@ This approach however will only snap to the road segments that are loaded within
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
-The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](http://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
+The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](https://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
 
 ## Retrieve a map image (Static Map)
 

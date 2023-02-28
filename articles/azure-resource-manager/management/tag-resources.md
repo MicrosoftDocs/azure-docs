@@ -19,6 +19,9 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 > [!WARNING]
 > Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, commands that return existing tag definitions, deployment histories, exported templates, and monitoring logs.
 
+> [!WARNING]
+> Please be careful while using non-English language in your tags. It can cause decoding progress failure while loading your VM's metadata from IMDS (Instance Metadata Service).
+
 > [!IMPORTANT]
 > Tag names are case-insensitive for operations. A tag with a tag name, regardless of the casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
 >
@@ -832,7 +835,7 @@ For examples of applying tags with SDKs, see:
 * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/samples/Sample2_ManagingResourceGroups.md)
 * [Java](https://github.com/Azure-Samples/resources-java-manage-resource-group/blob/master/src/main/java/com/azure/resourcemanager/resources/samples/ManageResourceGroup.java)
 * [JavaScript](https://github.com/Azure-Samples/azure-sdk-for-js-samples/blob/main/samples/resources/resources_example.ts)
-* [Python](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups)
+* [Python](https://github.com/MicrosoftDocs/samples/tree/main/Azure-Samples/azure-samples-python-management/resources)
 
 ## Inherit tags
 
@@ -868,6 +871,7 @@ The following limitations apply to tags:
    >     * Azure Automation
    >     * Azure Content Delivery Network (CDN)
    >     * Azure DNS (Zone and A records)
+   >     * Azure Log Analytics Saved Search
 
 ## Next steps
 

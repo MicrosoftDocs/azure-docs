@@ -382,10 +382,13 @@ Returns a list of all available plans for an existing SaaS subscription includin
 
 Response body example:
 
+
+
+
+
+
 ```json
 {
-  "plans": [
-    {
       "planId": "Platinum001",
       "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
       "isPrivate": true, //true or false
@@ -409,8 +412,7 @@ Response body example:
           "isStopSell": false,
           "market": "US",
     }
-  ]
-}
+
 ```
 
 Code: 404 Not Found.
@@ -440,7 +442,7 @@ This API can be called only for *Active* subscriptions.  Any plan can be changed
 | `subscriptionId`     | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API. |
 
 *Request headers:*
- 
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
@@ -510,7 +512,7 @@ The quantity of seats cannot be more than the quantity allowed in the current pl
 |  `subscriptionId`     | A unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
- 
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
@@ -585,7 +587,7 @@ The customer will be billed if a subscription is canceled after the preceding gr
 |  `subscriptionId`     | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
- 
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
@@ -610,7 +612,7 @@ Code: 400
 Bad request.  Delete is not in `allowedCustomerOperations` list for this SaaS subscription.
 
 Code: 403
-Forbidden.  The authorization token is invalid, expired, or is not available. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+Forbidden.  The authorization token is invalid, expired, or is not available.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -625,3 +627,9 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).
+
+
+
+
+
+

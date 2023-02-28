@@ -87,7 +87,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
 5. Restart the Device Update agent:
 
    ```sh
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 ### Set up mock components
@@ -102,7 +102,7 @@ For testing and demonstration purposes, we'll create the following mock componen
 > [!IMPORTANT]
 > The preceding component configuration is based on the implementation of an example component enumerator extension called *libcontoso-component-enumerator.so*. It also requires this mock component inventory data file: */usr/local/contoso-devices/components-inventory.json*.
 
-1. Copy the [demo](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM. Then, run the following command to copy required files to the right locations:
+1. Copy the [demo](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/demo) folder to your home directory on the test VM. Then, run the following command to copy required files to the right locations:
 
    ```sh
    `~/demo/tools/reset-demo-components.sh` 
@@ -110,7 +110,7 @@ For testing and demonstration purposes, we'll create the following mock componen
 
    The `reset-demo-components.sh` command takes the following steps on your behalf:
 
-   * It copies [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) and adds it to the */usr/local/contoso-devices* folder.
+   * It copies [components-inventory.json](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/demo/demo-devices/contoso-devices/components-inventory.json) and adds it to the */usr/local/contoso-devices* folder.
 
    * It copies the Contoso component enumerator extension (*libcontoso-component-enumerator.so*) from the [Assets folder](https://github.com/Azure/iot-hub-device-update/releases) and adds it to the */var/lib/adu/extensions/sources* folder.
 

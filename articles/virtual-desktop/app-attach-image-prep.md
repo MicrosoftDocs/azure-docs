@@ -85,7 +85,7 @@ To expand the MSIX image:
     >[!NOTE]
     > If you're using packages from the Microsoft Store for Business or Education on your network or on devices not connected to the internet, you'll need to download and install package licenses from the Microsoft Store to run the apps. To get the licenses, see [Use packages offline](app-attach.md#use-packages-offline).
 
-6. Go the mounted VHD and open the app folder to make sure the package contents are there.
+6. Go to the mounted VHD and open the app folder to make sure the package contents are there.
 
 7. Unmount the VHD.
 

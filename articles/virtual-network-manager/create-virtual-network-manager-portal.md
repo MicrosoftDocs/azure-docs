@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 09/22/2022
+ms.date: 01/10/2023
 ms.custom: template-quickstart, ignite-fall-2022, mode-ui
 ---
 
@@ -167,7 +167,7 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
 
 1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-menu.png" alt-text="Screenshot of configuration drop-down menu.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
 
 1. On the **Basics** page, enter the following information, and select **Next: Topology >**.
 

@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.date: 12/16/2022
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Read an item in Azure Cosmos DB for NoSQL using .NET
@@ -31,9 +31,9 @@ Every item in Azure Cosmos DB for NoSQL has a unique identifier specified by the
 
 To perform a point read of an item, call one of the following methods:
 
-* [``ReadItemAsync<>``](#read-an-item-asynchronously)
-* [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
-* [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
+- [``ReadItemAsync<>``](#read-an-item-asynchronously)
+- [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
+- [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
 
 ## Read an item asynchronously
 
@@ -63,7 +63,7 @@ In this example, a list of tuples containing unique identifier and partition key
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/275-read-item/Program.cs" id="read_multiple_items" :::
 
-[``Container.ReadManyItemsAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readmanyitemsasync) returns a list of items based on the unique identifiers and partition keys you provide. This operation is typically more performant than a query since you'll effectively perform a point read operation on all items in the list.
+[``Container.ReadManyItemsAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readmanyitemsasync) returns a list of items based on the unique identifiers and partition keys you provide. This operation is meant to perform better latency-wise than a query with `IN` statements to fetch a large number of independent items.
 
 ## Next steps
 

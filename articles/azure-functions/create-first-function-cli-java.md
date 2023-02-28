@@ -19,7 +19,7 @@ In this article, you use command-line tools to create a Java function that respo
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](./functions-create-first-java-gradle.md)
-+ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [IntelliJ IDEA](functions-create-maven-intellij.md)
 + [Visual Studio Code](create-first-function-vs-code-java.md)
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.

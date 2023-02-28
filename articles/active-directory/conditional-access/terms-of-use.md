@@ -38,7 +38,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy before getting access.
 - Require employees or guests to accept your terms of use policy on every device before getting access.
 - Require employees or guests to accept your terms of use policy on a recurring schedule.
-- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multi-Factor Authentication (MFA).
+- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multifactor Authentication (MFA).
 - Require employees to accept your terms of use policy before registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
 - Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
@@ -385,8 +385,11 @@ A: On the Terms of use blade, select the number under **Accepted**. You can also
 **Q: How long is information stored?**<br />
 A: The user counts in the terms of use report and who accepted/declined are stored for the life of the terms of use. The Azure AD audit logs are stored for 30 days.
 
-**Q: Why do I see a different number of consents in the terms of use report vs. the Azure AD audit logs?**<br />
-A: The terms of use report is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days. Also, the terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
+**Q: Why do I see a different number of consents in the terms of use details overview versus the Azure AD audit logs?**<br />
+A: The terms of use details overview data is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days.
+
+**Q: Why do I see a different number of consents in the terms of use details overview versus the exported CSV report?**<br />
+A: The terms of use details overview reflects aggregated acceptances of the current version of the policy (updated once every day).  If expiration is enabled or a TOU agreement is updated (with re-acceptance required), the count on the details overview is reset since the acceptances are expired, thereby showing the count of the current version. All acceptance history is still captured in the CSV report.
 
 **Q: If hyperlinks are in the terms of use policy PDF document, will end users be able to click them?**<br />
 A: Yes, end users are able to select hyperlinks to other pages but links to sections within the document aren't supported. Also, hyperlinks in terms of use policy PDFs don't work when accessed from the Azure AD MyApps/MyAccount portal.
@@ -413,7 +416,7 @@ A: You can [review previously accepted terms of use policies](#how-users-can-rev
 A: If you've configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you'll need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
+A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com, https://myaccount.microsoft.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you'll need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 

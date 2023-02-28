@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
-ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java
+ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-connector
 ---
 
 # Use a managed identity to connect Azure SQL Database to an Azure Spring Apps app
@@ -74,7 +74,7 @@ az spring connection create sql \
     --target-resource-group $SQL_RESOURCE_GROUP \
     --server $SQL_SERVER_NAME \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
 ---

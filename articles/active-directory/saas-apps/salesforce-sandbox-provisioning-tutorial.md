@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/26/2018
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Salesforce Sandbox for automatic user provisioning

@@ -26,7 +26,7 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
 
 1. On the **Select API option** page, select the **Create** option within the **NoSQL** section. Azure Cosmos DB has six APIs: NoSQL, MongoDB, PostgreSQL, Apache Cassandra, Apache Gremlin, and Table. [Learn more about the API for NoSQL](../index.yml).
 
-   :::image type="content" source="../media/create-account-portal/cosmos-api-choices.png" lightbox="../media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB.":::
+   :::image type="content" source="media/create-resources/choose-api.png" lightbox="media/create-resources/choose-api.png" alt-text="Screenshot of select API option page for Azure Cosmos DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -42,7 +42,7 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="../media/create-account-portal/new-cosmos-account-page.png" lightbox="../media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for API for NoSQL.":::
+   :::image type="content" source="media/create-resources/configuration-basics.png" alt-text="Screenshot of new account page for API for NoSQL.":::
 
 1. Select **Review + create**.
 
@@ -50,15 +50,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="../media/create-account-portal/cosmos-deployment-complete.png" lightbox="../media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for API for NoSQL resource.":::
+   :::image type="content" source="media/create-resources/deployment-complete.png" alt-text="Screenshot of deployment page for API for NoSQL resource.":::
 
 1. From the API for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-keys-option.png" lightbox="../media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/create-resources/select-resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an API for NoSQL account.":::
+   :::image type="content" source="media/create-resources/get-endpoint-credentials.png" alt-text="Screenshot of Keys page with various credentials for an API for NoSQL account.":::
 
 #### [Azure CLI](#tab/azure-cli)
 

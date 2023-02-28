@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters by submitting Azure Resource
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 08/05/2022
+ms.date: 11/17/2022
 ---
 
 # Create Apache Hadoop clusters using the Azure REST API
@@ -35,7 +35,6 @@ The following JSON document is a merger of the template and parameters files fro
                        "type": "string",
                        "allowedValues": ["hadoop",
                        "hbase",
-                       "storm",
                        "spark"],
                        "metadata": {
                            "description": "The type of the HDInsight cluster to create."

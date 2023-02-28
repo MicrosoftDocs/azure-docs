@@ -1,6 +1,6 @@
 ---
 title: Default service and SIM policy
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: Information on the default service and SIM policy that can be created as part of deploying a private mobile network.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Default service and SIM policy
 
-You're given the option of creating a default service and SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
+You're given the option of creating a default service and SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
 
 - The default service allows all traffic in both directions. 
 - The default SIM policy is automatically assigned to all SIMs you provision as part of creating the private mobile network, and applies the default service to these SIMs. 
@@ -79,4 +79,4 @@ The following tables provide the settings for the default SIM policy and its ass
 Once you've decided whether the default service and SIM policy are suitable, you can start deploying your private mobile network. 
 
 - [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md)
-- [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
+- [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)

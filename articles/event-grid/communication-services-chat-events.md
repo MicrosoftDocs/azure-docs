@@ -7,8 +7,9 @@ ms.author: vikramdh
 ---
 
 # Azure Communication Services - Chat events
+This article provides the properties and schema for communication services chat events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). These events are emitted for Azure Communication Services chats and Teams meeting chats.
 
-This article provides the properties and schema for communication services chat events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+Azure Communication Services emits chat events only when Azure Communication Services users are part of the meeting. Once all Azure Communication Services users leave the meeting, the communication services resource does not emit chat events.
 
 ## Event types
 
@@ -740,3 +741,4 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
+

@@ -81,11 +81,11 @@ Use this procedure to configure source control using the Azure portal.
     |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
     |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
-    |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository.        |
+    |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository or GitHub repo.        |
     |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
 
-    <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure DevOps, you must be a Project Administrator.</br>
+    <sup>1 To enable Auto Sync when configuring the source control integration with Azure DevOps, you must be the Project Administrator or the GitHub repo owner. Collaborators can only configure Source Control without Auto Sync.</sup></br>
     Auto Sync does not work with Automation Private Link. If you enable the Private Link, the source control webhook invocations will fail as it is outside the network.
 
    :::image type="content" source="./media/source-control-integration/source-control-summary-inline.png" alt-text="Screenshot that describes the Source control summary." lightbox="./media/source-control-integration/source-control-summary-expanded.png":::
@@ -230,5 +230,4 @@ Currently, you can't use the Azure portal to update the PAT in source control. W
 
 ## Next steps
 
-* For integrating source control in Azure Automation, see [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
 * For integrating runbook source control with Visual Studio Codespaces, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

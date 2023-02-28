@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/04/2022
+ms.date: 01/25/2023
 ms.author: shaas
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -20,7 +20,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -35,9 +35,7 @@ Only Blob storage data operations support the `--auth-mode` parameter. Managemen
 To begin, sign-in to to your Azure account with the [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
-az login \
-    --name <resource-group> \
-    --location <location>
+az login
 ```
 
 ## Create a resource group
@@ -76,7 +74,7 @@ The following example uses your Azure AD account to authorize the operation to c
 Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-az ad signed-in-user show --query objectId -o tsv | az role assignment create \
+az ad signed-in-user show --query Id -o tsv | az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee @- \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
@@ -110,8 +108,8 @@ In this example, you upload a blob to the container you created in the last step
 az storage blob upload \
     --account-name <storage-account> \
     --container-name <container> \
-    --name helloworld \
-    --file helloworld \
+    --name myFile.txt \
+    --file myFile.txt \
     --auth-mode login
 ```
 
@@ -139,8 +137,8 @@ Use the [az storage blob download](/cli/azure/storage/blob) command to download 
 az storage blob download \
     --account-name <storage-account> \
     --container-name <container> \
-    --name helloworld \
-    --file ~/destination/path/for/file \
+    --name myFile.txt \
+    --file <~/destination/path/for/file> \
     --auth-mode login
 ```
 
@@ -152,7 +150,7 @@ The following example uses AzCopy to upload a local file to a blob. Remember to 
 
 ```bash
 azcopy login
-azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+azcopy copy 'C:\myDirectory\myFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myFile.txt'
 ```
 
 ## Clean up resources

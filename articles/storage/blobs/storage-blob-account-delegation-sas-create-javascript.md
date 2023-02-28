@@ -2,14 +2,12 @@
 title: Create account SAS tokens - JavaScript
 titleSuffix: Azure Storage
 description: Create and use account SAS tokens in a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
-services: storage
 author: pauljewellmsft
-ms.author: pauljewell
 
+ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/05/2022
-
+ms.date: 11/30/2022
 ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js
 ---
@@ -94,10 +92,23 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 ## Use Blob service with account SAS token
 
+### [BlobServiceClient](#tab/blob-service-client)
+
 To use the account SAS token, you need to combine it with the account name to create the URI. Pass the URI to create the blobServiceClient. Once you have the blobServiceClient, you can use that client to access your Blob service. 
  
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_UseSas":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
 
+### [ContainerClient](#tab/container-client)
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
+
+### [BlobClient](#tab/blob-client)
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
+
+-----------------
+
+The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 
 ## See also
 

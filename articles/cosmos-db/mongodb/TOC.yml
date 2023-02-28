@@ -58,6 +58,14 @@
       href: tutorial-query.md
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution.md
+    - name: Aggregation pipeline
+      href: tutorial-aggregation.md
+    - name: Inserting data
+      href: tutorial-insert.md
+    - name: Updating data
+      href: tutorial-update.md
+    - name: Deleting data
+      href: tutorial-delete.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
 - name: Samples
@@ -124,7 +132,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Partitioning (sharding)
       items:
         - name: Partitioning overview
@@ -310,12 +318,14 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
-                - name: Run the emulator on Docker for Linux
-                  href: ../linux-emulator.md
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                - name: Run in Docker for Linux
+                  href: ../docker-emulator-linux.md
+                - name: Run in Docker for Windows
+                  href: ../docker-emulator-windows.md
+                - name: Access the REST API
+                  href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -344,6 +354,12 @@
               href: how-to-javascript-manage-documents.md
             - name: Manage queries
               href: how-to-javascript-manage-queries.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Manage databases
+              href: how-to-python-manage-databases.md
         - name: .NET
           items:
             - name: Get started
@@ -482,8 +498,8 @@
           href: ../how-to-configure-private-endpoints.md
         - name: Connect privately to an Azure Cosmos DB account
           href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Use Azure Key Vault to access data
-          href: ../access-secrets-from-keyvault.md
+        - name: Store credentials in Azure Key Vault
+          href: ../store-credentials-key-vault.md
         - name: Access Azure Key Vault with managed identity
           href: ../access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only

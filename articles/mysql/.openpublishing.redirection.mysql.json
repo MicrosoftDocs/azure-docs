@@ -759,6 +759,26 @@
         "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
         "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
         "redirect_document_id": true
-    }  
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-wordpress-app-service.md",
+        "redirect_url": "/azure/app-service/quickstart-wordpress",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal.md",
+        "redirect_url": "/azure/mysql/flexible-server/quickstart-create-server-portal",
+        "redirect_document_id": false
+    }
   ]
 }

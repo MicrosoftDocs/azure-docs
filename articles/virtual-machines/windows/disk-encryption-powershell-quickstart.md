@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 01/04/2023
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -18,7 +18,6 @@ ms.custom: devx-track-azurepowershell, mode-api
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to create a Windows virtual machine (VM), create a Key Vault for the storage of encryption keys, and encrypt the VM. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 
 ## Create a resource group
 
@@ -63,7 +62,7 @@ $KeyVault = Get-AzKeyVault -VaultName MyKV -ResourceGroupName MyResourceGroup
 Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName MyVM -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
 ```
 
-After a few minutes the process will return the following:
+After a few minutes the process will return the following output:
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -77,7 +76,7 @@ You can verify the encryption process by running [Get-AzVmDiskEncryptionStatus](
 Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
 ```
 
-When encryption is enabled, you will see the following in the returned output:
+When encryption is enabled, you will see the following fields in the returned output:
 
 ```
 OsVolumeEncrypted          : Encrypted

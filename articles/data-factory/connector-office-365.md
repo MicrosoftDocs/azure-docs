@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 11/28/2022
 ms.author: jianleishen
 ---
 # Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
@@ -26,9 +26,8 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
-|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312; &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -51,8 +50,8 @@ To copy and transform data from Microsoft 365 (Office 365) into Azure, you need 
 - Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Microsoft 365 (Office 365):
-  - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-  - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+  - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
+  - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
   - The user identity must be in the Microsoft 365 (Office 365) organization you are getting data from and must not be a Guest user.
 
@@ -361,10 +360,6 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 5. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

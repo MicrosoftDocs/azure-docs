@@ -2,8 +2,8 @@
 title: Show the correct map copyright attribution information
 titleSuffix: Microsoft Azure Maps
 description: The map copyright attribution information must be displayed in any applications that use the Render V2 API, including web and mobile applications. In this article, you'll learn how to display the correct attribution every time you display or update a tile. 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 3/16/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -53,7 +53,7 @@ You'll need the following information to run the `attribution` command:
 Run the following GET request to get the corresponding copyright attribution to display on the map:
 
 ```http
-https://atlas.microsoft.com/map/attribution?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
+https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
 ```
 
 ## Additional information

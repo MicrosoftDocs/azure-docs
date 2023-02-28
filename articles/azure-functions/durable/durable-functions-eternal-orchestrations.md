@@ -3,7 +3,7 @@ title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python, java
 ---
@@ -93,15 +93,13 @@ PowerShell doesn't support *continue-as-new*.
 
 ```java
 @FunctionName("Periodic_Cleanup_Loop")
-public String periodicCleanupLoop(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            ctx.callActivity("DoCleanup").await();
+public void periodicCleanupLoop(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    ctx.callActivity("DoCleanup").await();
 
-            ctx.createTimer(Duration.ofHours(1)).await();
+    ctx.createTimer(Duration.ofHours(1)).await();
 
-            ctx.continueAsNew(null);
-        });
+    ctx.continueAsNew(null);
 }
 ```
 

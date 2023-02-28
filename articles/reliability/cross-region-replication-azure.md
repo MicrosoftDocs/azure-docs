@@ -1,13 +1,12 @@
 ---
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
-author: awysza
+author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 3/01/2022
-ms.author: rarco
-ms.reviewer: cynthn
+ms.date: 12/12/2022
+ms.author: anaharris
 ms.custom: references_regions
 ---
 
@@ -83,10 +82,9 @@ Regions are paired for cross-region replication based on proximity and other fac
 | United Arab Emirates | UAE North | UAE Central\* |
 | US Department of Defense |US DoD East\* |US DoD Central\* |
 | US Government |US Gov Arizona\* |US Gov Texas\* |
-| US Government |US Gov Iowa\* |US Gov Virginia\* |
 | US Government |US Gov Virginia\* |US Gov Texas\* |
 
-(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request in the Azure portal](https://portal.azure.com/#blade/Microsoft\_Azure\_Support/HelpAndSupportBlade/newsupportrequest).
+(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
@@ -94,7 +92,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 ## Regions with availability zones and no region pair
 
-Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their RTO/RPO needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf)
+Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf)
 
 ## Next steps
 

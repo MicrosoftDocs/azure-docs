@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 02/17/2023
 ms.author: kgremban
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
 ---
@@ -14,6 +14,12 @@ ms.custom: mqtt, devx-track-js, devx-track-azurecli
 # Get started with device twins (Node.js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
+
+This article shows you how to:
+
+* Use a simulated device app to report its connectivity channel as a reported property on the device twin.
+
+* Query devices from your back-end app using filters on the tags and properties previously created.
 
 In this article, you create two Node.js console apps:
 
@@ -42,7 +48,7 @@ To complete this article, you need:
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
-## Create a device app with a direct method
+## Create a device app that updates reported properties
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
 
@@ -120,7 +126,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     ![Show myDeviceId in both query results](media/iot-hub-node-node-twin-getstarted/service2.png)
 
-## Create a service app to trigger a reboot
+## Create a service app that updates desired properties and queries twins
 
 In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
@@ -215,8 +221,6 @@ In this section, you create a Node.js console app that adds location metadata to
 
 In this article, you:
 
-* Configured a new IoT hub in the Azure portal
-* Created a device identity in the IoT hub's identity registry
 * Added device metadata as tags from a back-end app
 * Reported device connectivity information in the device twin
 * Queried the device twin information, using SQL-like IoT Hub query language

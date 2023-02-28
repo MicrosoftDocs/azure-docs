@@ -29,7 +29,7 @@ To learn more about VU Security and its complete set of solutions, visit
 
 To get started with the VU Identity Card, ensure the following prerequisites are met:
 
-- A tenant [configured](/azure/active-directory/verifiable-credentials/verifiablee-credentials-configure-tenant)
+- A tenant [configured](./verifiable-credentials-configure-tenant.md)
   for Entra Verified ID service.
 
   - If you don\'t have an existing tenant, you can [create an Azure
@@ -49,7 +49,7 @@ VU Identity Card works as a link between users who need to access an application
 
 Verifiable credentials can be used to enable faster and easier user onboarding by replacing some human interactions. For example, a user or employee who wants to create or remotely access an account can use a Verified ID through VU Identity Card to verify their identity without using vulnerable or overly complex passwords or the requirement to be on-site.
 
-Learn more about [account onboarding](/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
+Learn more about [account onboarding](./plan-verification-solution.md#account-onboarding).
 
 In this account onboarding scenario, Vu plays the Trusted ID proofing issuer role.
 

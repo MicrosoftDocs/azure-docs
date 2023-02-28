@@ -15,6 +15,76 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
 
+## January 2023
+
+### New articles
+
+- [Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy](partner-grit-app-proxy.md)
+- [Configure Grit's biometric authentication with Azure Active Directory B2C](partner-grit-authentication.md)
+
+### Updated articles
+
+- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md)
+- [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
+- [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](partner-datawiza.md)
+- [Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access](partner-ping-identity.md)
+- [Sign-in options in Azure AD B2C](sign-in-options.md)
+- [Quickstart: Set up sign in for an ASP.NET application using Azure Active Directory B2C](quickstart-web-app-dotnet.md)
+- [Enrich tokens with claims from external sources using API connectors](add-api-connector-token-enrichment.md)
+- [Identity verification and proofing partners](identity-verification-proofing.md)
+- [Configure complexity requirements for passwords in Azure Active Directory B2C](password-complexity.md)
+- [User profile attributes](user-profile-attributes.md)
+- [Azure Active Directory B2C: What's new](whats-new-docs.md)
+- [Tutorial: Configure Azure Active Directory B2C with the Arkose Labs platform](partner-arkose-labs.md)
+- [Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C](partner-zscaler.md)
+- [Tutorial to configure Azure Active Directory B2C with WhoIAM](partner-whoiam.md)
+- [Tutorial to configure Azure Active Directory B2C with Strata](partner-strata.md)
+- [Tutorial for configuring Onfido with Azure Active Directory B2C](partner-onfido.md)
+- [Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication](partner-nevis.md)
+- [Tutorial for configuring LexisNexis with Azure Active Directory B2C](partner-lexisnexis.md)
+- [Tutorial for configuring Jumio with Azure Active Directory B2C](partner-jumio.md)
+- [Tutorial for configuring HYPR with Azure Active Directory B2C](partner-hypr.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+
+## December 2022
+
+### New articles
+
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+- [Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
+- [Azure Active Directory B2C global identity framework proof of concept for region-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
+- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-region-based-design.md)
+- [Azure Active Directory B2C global identity framework](azure-ad-b2c-global-identity-solutions.md)
+
+### Updated articles
+
+- [Set up a resource owner password credentials flow in Azure Active Directory B2C](add-ropc-policy.md)
+- [Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources](api-connectors-overview.md)
+- [Azure Active Directory B2C: Region availability & data residency](data-residency.md)
+- [Tutorial: Configure Experian with Azure Active Directory B2C](partner-experian.md)
+- [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](partner-dynamics-365-fraud-protection.md)
+- [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](partner-datawiza.md)
+- [Configure TheAccessHub Admin Tool with Azure Active Directory B2C](partner-n8identity.md)
+- [Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C](partner-cloudflare.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [What is Azure Active Directory B2C?](overview.md)
+- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
+
+## November 2022
+
+### New articles
+
+- [Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access](partner-akamai-secure-hybrid-access.md)
+
+### Updated articles
+
+- [Manage your Azure Active Directory B2C tenant](tenant-management-manage-administrator.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Roles and resource access control](roles-resource-access-control.md)
+- [Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy](active-directory-technical-profile.md)
 
 ## October 2022
 
@@ -118,7 +188,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
 - [Azure Active Directory B2C service limits and restrictions](service-limits.md)
 - [Localization string IDs](localization-string-ids.md)
-- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Manage your Azure Active Directory B2C tenant](tenant-management-manage-administrator.md)
 - [Page layout versions](page-layout.md)
 - [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md)
 - [Azure Active Directory B2C: What's new](whats-new-docs.md)

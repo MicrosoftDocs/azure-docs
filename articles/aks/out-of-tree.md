@@ -1,7 +1,6 @@
 ---
 title: Enable Cloud Controller Manager 
 description: Learn how to enable the Out of Tree cloud provider
-services: container-service
 ms.topic: article
 ms.date: 04/08/2022
 ms.author: juda
@@ -27,40 +26,46 @@ We recently rolled out the Cloud Storage Interface (CSI) drivers to be the defau
 
 The Cloud Controller Manager is the default controller from Kubernetes 1.22, supported by AKS. If running < v1.22, follow instructions below.
 
-## Prerequisites 
-You must have the following resource installed:
+## Prerequisites
+You must have the following resources installed:
 
 * The Azure CLI
 * Kubernetes version 1.20.x or above
-* The `aks-preview` extension version 0.5.5 or later
 
-### Register the `EnableCloudControllerManager` feature flag
+## Install the aks-preview Azure CLI extension
 
-To use the Cloud Controller Manager feature, you must enable the `EnableCloudControllerManager` feature flag on your subscription. 
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --name EnableCloudControllerManager --namespace Microsoft.ContainerService
+az extension add --name aks-preview
 ```
-You can check on the registration status by using the [az feature list][az-feature-list] command:
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'EnableCloudControllerManager' feature flag
+
+Register the `EnableCloudControllerManager` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableCloudControllerManager')].{Name:name,State:properties.state}"
+az feature register --namespace "Microsoft.ContainerService" --name "EnableCloudControllerManager"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "EnableCloudControllerManager"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
-```
-
-### Install the aks-preview CLI extension
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
 ```
 
 ## Create a new AKS cluster with Cloud Controller Manager with version <1.22 
@@ -90,7 +95,7 @@ az aks upgrade -n aks -g myResourceGroup -k <version> --aks-custom-headers Enabl
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [csi-docs]: csi-storage-drivers.md
 
 <!-- LINKS - External -->

@@ -3,16 +3,16 @@
 title: Application management documentation
 summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
 
-metadata: 
-   title: Application management documentation
-   description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
-   ms.service: active-directory
-   ms.subservice: app-mgmt
-   ms.workload: identity
-   ms.topic: landing-page
-   ms.date: 07/08/2021
-   author: CelesteDG
-   ms.author: CelesteDG
+metadata:
+  title: Application management documentation
+  description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 07/08/2021
+  author: CelesteDG
+  ms.author: CelesteDG
 
 landingContent:
   - title: Fundamentals
@@ -133,10 +133,10 @@ landingContent:
             url: ../reports-monitoring/concept-provisioning-logs.md
       - linkListType: how-to-guide
         links:
+          - text: Access activity logs
+            url: ../reports-monitoring/howto-access-activity-logs.md
           - text: Download logs
             url: ../reports-monitoring/howto-download-logs.md
-          - text: Find activity report
-            url: ../reports-monitoring/howto-find-activity-reports.md
           - text: Set up access reviews
             url: ../governance/deploy-access-reviews.md
   - title: Remote access to on-premises apps

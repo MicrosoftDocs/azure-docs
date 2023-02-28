@@ -5,7 +5,7 @@ description: Learn how to work around, solve, and troubleshoot some common Docke
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 08/15/2022
+ms.date: 11/16/2022
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr

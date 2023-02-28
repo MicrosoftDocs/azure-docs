@@ -43,8 +43,8 @@ Private endpoints are created in a subnet. The subscription, resource group, and
 Select **Connect to an Azure resource in my directory** in the **Resource** tab. Select the **Subscription** that contains your Azure Synapse workspace. The **Resource type** for creating private endpoints to an Azure Synapse workspace is *Microsoft.Synapse/workspaces*.
 
 Select your Azure Synapse workspace as the **Resource**. Every Azure Synapse workspace has three **Target sub-resource** that you can create a private endpoint to: Sql, SqlOnDemand, and Dev.
-- Sql is for SQL query execution in SQL pool.
-- SqlOnDemand is for SQL built-in query execution.
+- Sql is for SQL query execution in dedicated SQL pools.
+- SqlOnDemand is SQL query execution in the built-in serverless SQL pool.
 - Dev is for accessing everything else inside Azure Synapse Analytics Studio workspaces.
 
 Select **Next: Configuration>** to advance to the next part of the setup.

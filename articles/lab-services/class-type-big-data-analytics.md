@@ -5,7 +5,7 @@ author: nicolela
 ms.topic: how-to
 ms.date: 03/08/2022
 ms.custom: devdivchpfy22
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform

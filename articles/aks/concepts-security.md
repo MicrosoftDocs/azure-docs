@@ -1,7 +1,6 @@
 ---
 title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
-services: container-service
 author: miwithro
 ms.topic: conceptual
 ms.date: 02/28/2023
@@ -22,21 +21,7 @@ Kubernetes includes security components, such as *pod security standards* and *S
 * Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
 * Provide secure pod traffic and access to sensitive credentials.
 
-This article introduces the core concepts that secure your applications in AKS:
-
-- [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
-  - [Build security](#build-security)
-  - [Registry security](#registry-security)
-  - [Cluster security](#cluster-security)
-  - [Node security](#node-security)
-    - [Compute isolation](#compute-isolation)
-  - [Cluster upgrades](#cluster-upgrades)
-    - [Cordon and drain](#cordon-and-drain)
-  - [Network security](#network-security)
-    - [Azure network security groups](#azure-network-security-groups)
-  - [Application Security](#application-security)
-  - [Kubernetes Secrets](#kubernetes-secrets)
-  - [Next steps](#next-steps)
+This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
@@ -58,7 +43,7 @@ You can control access to the API server using Kubernetes role-based access cont
 
 AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
 
-* Linux nodes run an optimized Ubuntu distribution using the `containerd` or Docker container runtime. 
+* Linux nodes run optimized versions of Ubuntu or Mariner.
 * Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
@@ -68,16 +53,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 > * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
 
-### Node security patches
-
-#### Linux nodes
-Each evening, Linux nodes in AKS get security patches through their distro security update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it. For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
-
-Nightly updates apply security updates to the OS on the node, but the node image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
-
-#### Windows Server nodes
-
-For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
 
 ### Node authorization
 
@@ -200,3 +176,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [network-policy]: use-network-policies.md
 [node-image-upgrade]: node-image-upgrade.md
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
+[aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes

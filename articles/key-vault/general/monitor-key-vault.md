@@ -83,6 +83,17 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
+* Are there any clients using old TLS version (<1.2)?
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(90d) 
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where isnotempty(tlsVersion_s) and strcmp(tlsVersion_s,"TLS1_2") <0
+    | project TimeGenerated,Resource, OperationName, requestUri_s, CallerIPAddress, OperationVersion,clientInfo_s,tlsVersion_s,todouble(tlsVersion_s)
+    | sort by TimeGenerated desc
+    ```
+
 * Are there any slow requests?
 
     ```Kusto
@@ -177,7 +188,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system preemptively. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md).  
 
-If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault -
 
@@ -193,4 +204,4 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 - See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- Seem [Alerting for Azure Key Vault](alert.md)
+- See [Alerting for Azure Key Vault](alert.md)

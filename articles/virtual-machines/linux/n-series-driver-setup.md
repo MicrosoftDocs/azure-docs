@@ -8,7 +8,7 @@ ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/11/2019
+ms.date: 12/16/2022
 ms.author: vikancha
 ---
 
@@ -110,14 +110,11 @@ sudo reboot
       ```
 
 3. Reconnect to the VM and continue installation with the following commands:
-
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-   sudo yum install dkms
-   
-   sudo wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo -O /etc/yum.repos.d/cuda-rhel7.repo
-
-   sudo yum install cuda-drivers
+   sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+   sudo yum clean all
+   sudo yum -y install nvidia-driver-latest-dkms cuda-drivers
    ```
 
    The installation can take several minutes. 

@@ -11,7 +11,7 @@ metadata:
   ms.workload: identity
   ms.tgt_pltfrm: na
   ms.topic: faq
-  ms.date: 08/23/2019
+  ms.date: 02/08/2023
   ms.subservice: hybrid
   ms.author: billmath
   
@@ -40,7 +40,7 @@ sections:
           * [Reducing the Active Directory attack surface](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
           
       - question: |
-          Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?  
+          Will installation work if the Azure Active Directory (Azure AD) Global Administrator has two-factor authentication (2FA) enabled?  
         answer: |
           As of the February 2016 builds, this scenario is supported.
 

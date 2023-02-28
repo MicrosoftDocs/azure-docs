@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot sync health and errors in Azure File Sync | Microsoft Docs
+title: Troubleshoot sync health and errors in Azure File Sync
 description: Troubleshoot common issues with monitoring sync health and resolving sync errors in an Azure File Sync deployment.
 author: khdownie
 ms.service: storage
@@ -920,5 +920,4 @@ if ($role -eq $null) {
 - [Troubleshoot Azure File Sync agent installation and server registration](file-sync-troubleshoot-installation.md)
 - [Troubleshoot Azure File Sync cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files problems](../files/files-troubleshoot.md)

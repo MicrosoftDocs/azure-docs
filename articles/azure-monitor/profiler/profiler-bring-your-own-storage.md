@@ -323,9 +323,9 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
 
 For general Profiler troubleshooting, refer to the [Profiler Troubleshoot documentation](profiler-troubleshooting.md).
 
-For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](../app/snapshot-debugger-troubleshoot.md).
+For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
-## FAQs
+## Frequently asked questions
 
 ### If I have enabled Profiler/Snapshot Debugger and BYOS, will my data be migrated into my Storage Account?
 

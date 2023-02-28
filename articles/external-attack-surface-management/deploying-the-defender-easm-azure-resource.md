@@ -20,7 +20,7 @@ Creating the EASM Azure resource involves two steps:
 
 ## Prerequisites
 
-Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure portal](https://ms.portal.azure.com/) and read the [Defender EASM Overview article](index.md) for key context on the product. You will need:
+Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure portal](https://portal.azure.com/) and read the [Defender EASM Overview article](index.md) for key context on the product. You will need:
 
 - A valid Azure subscription or free Defender EASM trial account. If you don’t have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a free Azure account before you begin.
 
@@ -49,6 +49,7 @@ Before you create a Defender EASM resource group, we recommend that you are fami
       -  swedencentral
       -  eastasia
       -  japaneast
+      -  westeurope
 
     ![Screenshot of create resource group basics tab](media/QuickStart-3.png)
 
@@ -80,7 +81,8 @@ After you create a resource group, you can create EASM resources within the grou
     - **Region**: Select an Azure location. The following regions are supported: 
     
       -  southcentralus
-      -  eastus, australiaeast
+      -  eastus
+      -  australiaeast
       -  westus3 
       -  swedencentral
       -  eastasia

@@ -1,17 +1,16 @@
 ---
 title: Azure resiliency terminology
 description: Understanding terms
-author: mamccrea
+author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: mamccrea
-ms.reviewer: cynthn
+ms.author: anaharris
 ms.custom: fasttrack-edit, mvc
 ---
 
-# Reliability erminology
+# Reliability terminology
 
 To better understand regions and availability zones in Azure, it helps to understand key terms or concepts.
 

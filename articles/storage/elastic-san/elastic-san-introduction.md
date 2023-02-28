@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN (preview), a service that enables 
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 10/12/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -28,7 +28,7 @@ Elastic SAN simplifies deploying and managing storage at scale through grouping 
 
 ### Performance
 
-With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes, as long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 64,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes. As long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 64,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -77,5 +77,7 @@ The status of items in this table may change over time.
 | Snapshots | ⛔ |
 
 ## Next steps
+
+For a video introduction to Azure Elastic SAN, see [Accelerate your SAN migration to the cloud](/shows/inside-azure-for-it/accelerate-your-san-migration-to-the-cloud).
 
 [Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)

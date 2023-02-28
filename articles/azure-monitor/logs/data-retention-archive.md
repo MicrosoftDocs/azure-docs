@@ -30,6 +30,8 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
 
+When you shorten an existing retention policy, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
+
 ## Configure the default workspace retention policy
 
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can set a different policy for specific tables by [configuring the retention and archive policy at the table level](#set-retention-and-archive-policy-by-table). If you're on the *free* tier, you'll need to upgrade to the paid tier to change the data retention period.
@@ -146,6 +148,22 @@ For example:
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --retention-time -1 --total-retention-time -1
 ```
 
+# [PowerShell](#tab/PowerShell-1)
+
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+
+```powershell
+Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
+```
+
+To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
+
+For example:
+
+```powershell
+Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName Syslog -RetentionInDays -1 -TotalRetentionInDays -1
+```
+
 ---
 
 ## Get retention and archive policy by table
@@ -185,11 +203,19 @@ For example:
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name SecurityEvent
 ``` 
 
+# [PowerShell](#tab/PowerShell-2)
+
+To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-9.1.0) cmdlet.
+
+For example:
+
+```powershell
+Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -tableName SecurityEvent
+``` 
+
 ---
 
 ## Purge retained data
-
-When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep.
 
 If you set the data retention policy to 30 days, you can purge older data immediately by using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal.
 

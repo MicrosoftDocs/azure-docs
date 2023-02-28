@@ -37,7 +37,9 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-quickstart.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## Create a Web PubSub instance
 

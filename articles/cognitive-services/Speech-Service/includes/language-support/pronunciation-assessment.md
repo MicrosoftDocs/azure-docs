@@ -7,18 +7,21 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Language | Locale (BCP-47) | Region |
-|--|--|--|
-|Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> | UAE North  |
-|Chinese (Mandarin, Simplified)|`zh-CN`|  [All Speech-to-text regions](../../regions.md#speech-service) |
-|English (Australia)|`en-AU`<sup>1</sup> | Australia East  |
-|English (India)|`en-IN`<sup>1</sup> | Central India    |
-|English (United Kingdom)|`en-GB`| [All Speech-to-text regions](../../regions.md#speech-service)  |
-|English (United States)|`en-US`|  [All Speech-to-text regions](../../regions.md#speech-service)  |
-|French (Canada)|`fr-CA`<sup>1</sup> | Canada Central  |
-|French (France)|`fr-FR`<sup>1</sup> |  West Europe  |
-|German (Germany)|`de-DE`<sup>1</sup>| West Europe   |
-|Spanish (Spain)|`es-ES`<sup>1</sup> | West Europe    |
-|Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> | Southeast Asia  |
+| Language | Locale (BCP-47) | 
+|--|--|
+|Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|English (Australia)|`en-AU`|
+|English (India)|`en-IN`<sup>1</sup> |
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|  
+|French (Canada)|`fr-CA`<sup>1</sup> | 
+|French (France)|`fr-FR`|  
+|German (Germany)|`de-DE`<sup>1</sup>|
+|Japanese (Japan)|`ja-JP`<sup>1</sup>|
+|Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
+|Spanish (Mexico)|`es-MX`<sup>1</sup> | 
+|Spanish (Spain)|`es-ES` | 
+|Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.

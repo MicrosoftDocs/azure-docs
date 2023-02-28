@@ -32,4 +32,4 @@ Once you've configured your OAuth 2.0 authorization server and configured your A
    Authorization: Bearer eyJ0eXAiOi[...]3pkCfvEOyA
    ```
 
-1. Select **Send** to call the API successfully.
+1. Configure the desired values for the remaining parameters, and select **Send** to call the API.

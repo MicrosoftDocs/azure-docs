@@ -3,7 +3,6 @@ title: Overview of IPv6 for Azure Virtual Network
 titlesuffix: Azure Virtual Network
 description: IPv6 description of IPv6 endpoints and data paths in an Azure virtual network.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
@@ -72,7 +71,6 @@ The current IPv6 for Azure virtual network release has the following limitations
 - The Azure platform (AKS, etc.) does not support IPv6 communication for Containers. 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets are not supported, each NIC must include at least one IPv4 IP configuration. 
 - When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.  
-- Forward DNS for IPv6 is supported for Azure public DNS today but Reverse DNS is not yet supported.
 - While it is possible to create NSG rules for IPv4 and IPv6 within the same NSG, it is not currently possible to combine an IPv4 Subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 - ICMPv6 is not currently supported in Network Security Groups.
 - Azure Virtual WAN currently supports IPv4 traffic only.
@@ -80,7 +78,7 @@ The current IPv6 for Azure virtual network release has the following limitations
 
 ## Pricing
 
-IPv6 Azure resources and bandwidth are charged at the same rates as IPv4. There are no additional or different charges for IPv6. You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+There is no charge to use Public IPv6 Addresses or Public IPv6 Prefixes.  Associated resources and bandwidth are charged at the same rates as IPv4.  You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Next steps
 

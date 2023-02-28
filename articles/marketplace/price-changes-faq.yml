@@ -58,6 +58,9 @@ sections:
 
           To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
 
+          > [!Note]
+          > Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md#how-we-convert-currency).
+
       - question: |
           Can I change a free or $0 offer to a paid offer?
         answer: |
@@ -116,7 +119,7 @@ sections:
       - question: |
           How do I cancel or modify a scheduled price change?
         answer: |
-          If the price change has not yet taken effect, submit a [support request](https://go.microsoft.com/fwlink/?linkid=2056405) to cancel the change, then schedule a new price change with needed modifications.
+          If the price change was configured  within the last 2 days, it can be canceled using the cancel button next to the price change expected on date and then publishing the changes. For a price change that was configured more than 2 days ago that has not yet taken effect, submit a [support request](https://go.microsoft.com/fwlink/?linkid=2056405) to cancel the change, then schedule a new price change with needed modifications.
 
       - question: |
           If there is already a price change scheduled, can I make additional price changes?

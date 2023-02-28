@@ -11,10 +11,11 @@ ms.author: duau
 
 # About Azure Front Door (classic) to Standard/Premium tier migration (Preview)
 
-> [!NOTE]
-> Migration capability for Azure Front Door is currently in Public Preview without an SLA and isn't recommended for production environments.
-
 Azure Front Door Standard and Premium tiers were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and advanced diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
+
+> [!IMPORTANT]
+> Migration capability for Azure Front Door is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure recommends migrating to the newer tiers to benefit from the new features and improvements over the Classic tier. To help with the migration process, Azure Front Door provides a zero-downtime migration to migrate your workload from Azure Front Door (class) to either Standard or Premium tier.
 
@@ -52,7 +53,7 @@ Azure Front Door zero-down time migration happens in three stages. The first sta
 > * Traffic to your Azure Front Door (classic) will continue to be serve until migration has been completed. 
 > * Each Azure Front Door (classic) profile can create one Azure Front Door Standard or Premium profile.
 
-Migration is only available can be completed using the Azure portal. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
+Migration is only available and can be completed using the Azure portal. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
 
 ## Breaking changes between tiers
 

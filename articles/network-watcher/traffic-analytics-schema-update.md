@@ -1,21 +1,17 @@
 ﻿---
-title: Azure Traffic Analytics schema update - March 2020
+title: Traffic analytics schema update - March 2020
+titleSuffix: Azure Network Watcher
 description: Sample queries with new fields in the Traffic Analytics schema. Use these three examples to replace the deprecated fields with the new ones.
 services: network-watcher
-documentationcenter: na
-author: Harsha-CS
-manager: vinigam
-editor: 
-
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 06/13/2022
-ms.author: harshacs
-
+ms.custom: kr2b-contr-experiment, engagement-fy23
+ms.workload: infrastructure-services
+ms.date: 06/20/2022
+ms.author: halkazwini
 ---
+
 # Sample queries with new fields in the Traffic Analytics schema (March 2020 schema update)
 
 The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields:

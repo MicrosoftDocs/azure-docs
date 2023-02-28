@@ -18,12 +18,9 @@
       href: quickstart-python.md
 - name: Tutorials
   items:
-    - name: 1 - Migrate data
-      displayName: import
-      href: import.md
-    - name: 2 - Query data
+    - name: Query data
       href: tutorial-query.md
-    - name: 3 - Distribute data globally
+    - name: Distribute data globally
       href: tutorial-global-distribution.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
@@ -110,7 +107,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Partitioning
       items:
         - name: Partitioning overview
@@ -355,8 +352,8 @@
           href: ../how-to-configure-private-endpoints.md
         - name: Connect privately to an Azure Cosmos DB account
           href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Use Azure Key Vault to access data
-          href: ../access-secrets-from-keyvault.md
+        - name: Store credentials in Azure Key Vault
+          href: ../store-credentials-key-vault.md
         - name: Access Azure Key Vault with managed identity
           href: ../access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only

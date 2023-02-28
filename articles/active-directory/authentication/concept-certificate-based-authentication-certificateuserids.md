@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
-manager: daveba
+author: justinha
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 # Certificate user IDs 
 
-You can add certificate user IDs to users in Azure AD can have certificate user IDs. a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
+Users in Azure AD can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
  
 ## Supported patterns for certificate user IDs
  
@@ -134,7 +134,7 @@ To map the pattern supported by certificateUserIds, administrators must use expr
 You can use the following expression for mapping to SKI and SHA1-PUKEY:
 
 ```
-IF(IsPresent([alternativeSecurityId]),
+IIF(IsPresent([alternativeSecurityId]),
                 Where($item,[alternativeSecurityId],BitOr(InStr($item, "x509:<SKI>"),InStr($item, "x509:<SHA1-PUKEY>"))>0),[alternativeSecurityId]
 )
 ```

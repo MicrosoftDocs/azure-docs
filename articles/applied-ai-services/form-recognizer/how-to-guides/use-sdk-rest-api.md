@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/07/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
