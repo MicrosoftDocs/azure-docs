@@ -94,7 +94,6 @@ The information in the rest of this document provides information on what featur
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
 | **Training** |   | | |
 | [Experimentation log streaming](how-to-track-monitor-analyze-runs.md)                                              | GA                   | YES                | YES         |
-| [Reinforcement Learning (SDK/CLI v1)](./v1/how-to-use-reinforcement-learning.md)                                                     | Public Preview       | NO                 | NO          |
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
