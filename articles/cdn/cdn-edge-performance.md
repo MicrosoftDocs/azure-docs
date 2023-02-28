@@ -47,8 +47,8 @@ This dashboard consists of:
 
 ### Accessing the edge performance dashboard
 1. From the CDN profile page, select the **Manage** button.
-   
-    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
+
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Verizon Premium profile.":::
    
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Select on **Dashboard**.
@@ -135,9 +135,10 @@ The purpose of these metrics is to track CDN performance for HTTPS traffic.
 Each report in this module contains a chart and statistics on bandwidth and traffic usage for different types of metrics. For example, HTTP status codes, cache status codes, request URL, and so on. This information may be used to delve deeper into how content is being served to your clients and to fine-tune CDN behavior to improve data delivery performance.
 
 ### Accessing the edge performance reports
+
 1. From the CDN profile page, select the **Manage** button.
    
-    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Verizon Premium profile.":::
    
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Select on **HTTP Large Object**.
