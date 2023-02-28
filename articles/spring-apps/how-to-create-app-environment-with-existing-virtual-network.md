@@ -27,17 +27,17 @@ The following procedure creates an App Environment using the Azure portal.
    - Select **Standard Consumption** for the **Pricing tier** option.
    - **App Environment**: Create a new App Environment with your own virtual network
 
-   :::image type="content" source="media/quickstart-provision-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/select-app-environment.png":::
+   :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png":::
 
 1. Select **Create new** under the App Environment
 
 1. Fill out the form on the App Environment **Create** page.
 
-    :::image type="content" source="media/quickstart-provision-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
+    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
 
 1. Navigate to **Networking** tab and select **Yes** for **Use your own virtual network**.
 1. Select a virtual network and a subnet.
-    :::image type="content" source="media/quickstart-provision-service-instance/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create App Environment in own vnet blade.":::
+    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create App Environment in own vnet blade.":::
 
 >[!NOTE]
 > The subnet associated with an App Environment requires a CIDR prefix of `/23` or larger.
