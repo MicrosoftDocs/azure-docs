@@ -58,14 +58,10 @@ In this tutorial, you learn how to:
 
 ## Create new or open existing notebook in Azure Machine Learning 
 
-1. To access an existing notebook from your workspace: 
-
-    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-    1. Select your workspace, if it isn't already open.    
-    1. From the menu on the left, select **Notebooks**. 
-
-1. To create a new notebook or upload an existing notebook.  
-1. Connect to a compute instance.  
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+1. Select your workspace, if it isn't already open.    
+1. [Create a notebook](/azure/machine-learning/how-to-manage-files) or [open an existing notebook](/azure/machine-learning/how-to-run-jupyter-notebooks#access-notebooks-from-your-workspace). 
+1. [Connect to a compute instance](/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script).  
     
     For this tutorial, select CPU type. 
     
@@ -74,6 +70,12 @@ In this tutorial, you learn how to:
 1. Verify Python kernel selected Python 3.8 or higher. 
 
 
- 
+ ## Install required Python tools
+
+1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/en-us/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you execute read-only queries on data in your Log Analytics workspace. 
+1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK. 
+1. Install Plotly, a popular Python visualization package.
+
+    Guy - show the screenshot from Anomalies_CL table (maybe to start the screenshot from AnomalyTimeGenerated, and not to show TimeGenerated which shows current date - it might confuse)
 
  
