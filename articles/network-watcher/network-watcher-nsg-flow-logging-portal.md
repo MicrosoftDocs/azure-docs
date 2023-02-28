@@ -282,6 +282,28 @@ The comma-separated information for **flowTuples** is as follows:
 | 12 | Packets received **Version 2 only** | The total number of TCP packets received from destination since the last update. |
 | 8143 | Bytes received **Version 2 only** | The total number of TCP packet bytes received from destination since the last update. Packet bytes include packet header and payload.|
 
+## Disable NSG flow log
+
+When no more logging is needed, you can disable the NSG flow log that you previously created.
+
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+
+1. Select **NSG flow logs** under **Logs**.
+
+1. Select the ellipsis **...** to the right of **myVM-nsg-myresourcegroup-flowlog** flow log or right-click it and select **Disable**. To resume logging, enable the flow log.
+
+1. In **Disable NSG flow log**, select **Disable**.
+
+   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-log-file.png" alt-text="Screenshot showing the nsg flow log disabled in the Azure portal.":::
+
+## Clean up resources
+
+you can longer needed, delete **myResourceGroup** and all of the resources it contains:
+
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+2. Select **Delete resource group**.
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+
 ## Next steps
 
 In this tutorial, you learned how to:
