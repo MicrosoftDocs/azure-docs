@@ -340,6 +340,9 @@
               href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
+            - name: CLI
+              displayName: device twins
+              href: twin-get-started-cli.md
             - name: .NET
               displayName: device twins
               href: iot-hub-csharp-csharp-twin-getstarted.md
