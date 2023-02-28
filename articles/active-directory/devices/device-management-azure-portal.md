@@ -118,6 +118,7 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - OS
 - Device type (printer, secure VM, shared device, registered device)
 - MDM
+- Autopilot
 - Extension attributes
 - Administrative unit
 - Owner
@@ -151,7 +152,7 @@ You must be assigned one of the following roles to view or manage device setting
 - Global Reader
 - Directory Reader
 
-![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/deviceSettings.jpg)
+![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Users may join devices to Azure AD**: This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
