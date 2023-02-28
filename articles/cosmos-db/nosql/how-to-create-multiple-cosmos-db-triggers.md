@@ -22,7 +22,7 @@ This article describes how you can configure multiple Azure Functions triggers f
 
 When building serverless architectures with [Azure Functions](../../azure-functions/functions-overview.md), it's [recommended](../../azure-functions/performance-reliability.md#avoid-long-running-functions) to create small function sets that work together instead of large long running functions.
 
-As you build event-based serverless flows using the [Azure Functions trigger for Azure Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos DB container](../account-databases-containers-items.md#azure-cosmos-db-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Azure Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos DB container.
+As you build event-based serverless flows using the [Azure Functions trigger for Azure Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos DB container](../resource-model.md#azure-cosmos-db-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Azure Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos DB container.
 
 ## Optimizing containers for multiple Triggers
 

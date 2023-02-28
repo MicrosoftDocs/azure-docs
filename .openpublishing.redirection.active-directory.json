@@ -1876,6 +1876,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-checklist-p2.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/app-based-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
       "redirect_document_id": false
