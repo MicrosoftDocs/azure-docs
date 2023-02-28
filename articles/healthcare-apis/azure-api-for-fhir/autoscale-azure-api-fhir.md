@@ -14,22 +14,26 @@ ms.author: kesheth
 
 Azure API for FHIR, as a managed service, allows customers to persist with Fast Healthcare Interoperability Resources (FHIR&#174;) compliant healthcare data and exchange it securely through the service API. To accommodate different transaction workloads, customers can use manual scale or autoscale.
 
-## Overview
+Azure API for FHIR provides scaling capabilities at database and compute level.
 
-By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
+##  Auto scale at Database level
 
-The autoscale feature is designed to scale computing resources including the database throughput `RU/s` up and down automatically according to the workloads, thus eliminating the manual steps of adjusting allocated computing resources. 
+By default, Azure API for FHIR is set to manual for database scaling. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
 
-## Guidance on to enable autoscale
+The autoscale feature is designed to scale Azure resources including the database throughput automatically according to the workloads, eliminating possible bottlenecks in the data layer.
+
+Lets understand how to enable autoscaling at database level with next sections
+
+### Guidance to enable autoscale
 
 In general, customers should consider autoscale when their workloads vary significantly and are unpredictable. 
 
-To enable the autoscale feature, customer needs to create a one-time support ticket to request it. The Microsoft support team will enable the autoscale feature based on the support priority.
+To enable the autoscale feature, customer needs to create a one-time support ticket to request it through Azure Portal. The Microsoft support team will enable the autoscale feature based on the support priority.
 
 > [!NOTE]
 > The autoscale feature isn't available from the Azure portal.
 
-## Autoscale for RU/s 
+### Autoscale for RU/s 
 
 When autoscale is enabled, the system calculates and sets the initial `Tmax` value. The scalability is governed by the maximum throughput `RU/s` value, or `Tmax`, and scales between `0.1 *Tmax` (or 10% `Tmax`) and `Tmax RU/s`. The `Tmax` increases automatically as the total data size grows. To ensure maximum scalability, the `Tmax` value should be kept as-is. However, customers can request that the value be changed to something between 10% and 100% of the `Tmax` value.
 
@@ -46,9 +50,9 @@ You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid
 >[!Note] 
 >As data storage grows, the system will automatically increase the max throughput to the next highest RU/s that can support that level of storage.
 
-## Autoscale for Compute Node
+## Autoscale at Compute Level
 
-Autoscaling policies defined for FHIR service compute nodes consists :
+Autoscaling policies defined for FHIR service compute level consists :
 
 * Scaling Trigger
 
@@ -58,15 +62,14 @@ Scaling Trigger describes when scaling of the service will be performed. Conditi
 
 Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met. There are three factors that determine when the service will be scaled:
 
-** Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
-
-** Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
+** Lower load threshold is a value that determines when the service will be scaled in, depending on scaling trigger.
+** Upper load threshold is a value that determines when the service will be scaled out, depending on scaling trigger.
 
 * Scaling interval
 
-Scaling Interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
+Scaling Interval is used to determine how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. Scaling trigger will not be checked before scaling interval expires, which is to set to 1 minute for Azure API for FHIR.
 
-We ask customer to not push all requests at the same time, but instead, adopting a linear growth until the expected push rate.
+We ask customer to not push all requests at the same time, but instead, adopt a linear growth until the expected push rate.
 
 ## FAQ
 
