@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 02/01/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -212,7 +212,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|WebApplicationFirewallLogs |Web Application Firewall Logs |No |
+|WebApplicationFirewallLogs |Web Appliation Firewall Logs |No |
 
 
 ## Microsoft.Cdn/profiles  
@@ -449,7 +449,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SSISPackageEventMessages |SSIS package event messages |No |
 |SSISPackageExecutableStatistics |SSIS package executable statistics |No |
 |SSISPackageExecutionComponentPhases |SSIS package execution component phases |No |
-|SSISPackageExecutionDataStatistics |SSIS package execution data statistics |No |
+|SSISPackageExecutionDataStatistics |SSIS package exeution data statistics |No |
 |TriggerRuns |Trigger runs log |No |
 
 
@@ -517,8 +517,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|FSPGPGBouncer |PostgreSQL Flexible Servers PGBouncer Logs |Yes |
-|PiiOBpgbouncerlog |PostgreSQL Flexible Servers PGBouncer Logs |Yes |
 |PostgreSQLLogs |PostgreSQL Server Logs |No |
 
 
@@ -1580,4 +1578,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Tue Jan 24 2023 08:57:30 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Wed Feb 01 2023 09:43:49 GMT+0200 (Israel Standard Time)-->

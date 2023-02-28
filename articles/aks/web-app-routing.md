@@ -1,30 +1,25 @@
 ---
 title: Web Application Routing add-on on Azure Kubernetes Service (AKS) (Preview)
 description: Use the Web Application Routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
-author: asudbring
+author: sabbour
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: allensu
+ms.author: asabbour
 ---
 
 # Web Application Routing (Preview)
 
-The Web Application Routing add-on configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. Optionally, it also integrates with Open Service Mesh (OSM) for end-to-end encryption of inter cluster communication using mutual TLS (mTLS). As applications are deployed, the add-on  creates publicly accessible DNS names for endpoints.
+The Web Application Routing add-on configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. Optionally, it also integrates with Open Service Mesh (OSM) for end-to-end encryption of inter cluster communication using mutual TLS (mTLS). When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## Limitations
-
-- Web Application Routing currently doesn't support named ports in ingress backend.
 
 ## Web Application Routing add-on overview
 
 The add-on deploys the following components:
 
 - **[nginx ingress controller][nginx]**: The ingress controller exposed to the internet.
-- **[external-dns controller][external-dns]**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone. Note that this is only deployed when you pass in the `--dns-zone-resource-id` argument.
+- **[external-dns controller][external-dns]**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone. This controller is only deployed when you pass in the `--dns-zone-resource-id` argument.
 
 ## Prerequisites
 
@@ -47,7 +42,7 @@ az extension update --name aks-preview
 
 ### Create and export a self-signed SSL certificate (if you don't already own one)
 
-If you already have an SSL certificate, you can skip this step, otherwise you can use these commands to create a self-signed SSL certificate to use with the Ingress. You will need to replace *`<Hostname>`* with the DNS name that you will be using.
+If you already have an SSL certificate, you can skip this step, otherwise you can use these commands to create a self-signed SSL certificate to use with the Ingress. You need to replace *`<Hostname>`* with the DNS name that you are using.
 
 ```bash
 # Create a self-signed SSL certificate
@@ -84,11 +79,29 @@ az network dns zone create -g <ResourceGroupName> -n <ZoneName>
  
 ## Enable Web Application Routing via the Azure CLI 
 
-The Web Application Routing routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument. You can also enable Web Application Routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. 
+The Web Application Routing routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the `[az aks create][az-aks-create]` command with the `--enable-addons` argument. You can also enable Web Application Routing on an existing AKS cluster using the `[az aks enable-addons][az-aks-enable-addons]` command. 
+
+# [Without Open Service Mesh (OSM)](#tab/without-osm)
+
+The following extra add-on is required:
+* **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
+
+> [!IMPORTANT]
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
+
+```azurecli-interactive
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
+```
+
+To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
+
+```azurecli-interactive
+az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
+```
 
 # [With Open Service Mesh (OSM)](#tab/with-osm)
 
-The following additional add-ons are required:
+The following extra add-ons are required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 * **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
@@ -108,10 +121,12 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyv
 > [!NOTE]
 > To use the add-on with Open Service Mesh, you should install the `osm` command-line tool. This command-line tool contains everything needed to configure and manage Open Service Mesh. The latest binaries are available on the [OSM GitHub releases page][osm-release].
 
+# [With service annotations (retired)](#tab/service-annotations)
 
-# [Without Open Service Mesh (OSM)](#tab/without-osm)
+> [!WARNING]
+> Configuring ingresses by adding annotations on the Service object is retired. Please consider [configuring via an Ingress object](?tabs=without-osm).
 
-The following additional add-on is required:
+The following extra add-on is required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
@@ -124,14 +139,14 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-add
 To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
 
 ```azurecli-interactive
-az aks enable-addons-g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
+az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
 ```
 
 ---
 
 ## Retrieve the add-on's managed identity object ID
 
-Retrieve user managed identity object ID for the add-on. This will be used in the next steps to grant permissions against the Azure DNS zone and the Azure Key Vault. Provide your *`<ResourceGroupName>`*, *`<ClusterName>`*, and *`<Location>`* in the script below which will retrieve the managed identity's object ID.
+Retrieve user managed identity object ID for the add-on. This identity is used in the next steps to grant permissions to manage the Azure DNS zone and retrieve certificates from the Azure Key Vault. Provide your *`<ResourceGroupName>`*, *`<ClusterName>`*, and *`<Location>`* in the script to retrieve the managed identity's object ID.
 
 ```azurecli-interactive
 # Provide values for your environment
@@ -149,7 +164,7 @@ MANAGEDIDENTITY_OBJECTID=$(az resource show --id $USERMANAGEDIDENTITY_RESOURCEID
 
 ## Configure the add-on to use Azure DNS to manage creating DNS zones
 
-If you are going to use Azure DNS, update the add-on to pass in the `--dns-zone-resource-id`.
+If you're going to use Azure DNS, update the add-on to pass in the `--dns-zone-resource-id`.
 
 Retrieve the resource ID for the DNS zone.
 
@@ -163,7 +178,7 @@ Grant **DNS Zone Contributor** permissions on the DNS zone to the add-on's manag
 az role assignment create --role "DNS Zone Contributor" --assignee $MANAGEDIDENTITY_OBJECTID --scope $ZONEID
 ```
 
-Update the add-on to enable the integration with Azure DNS. This will create the **external-dns** controller.
+Update the add-on to enable the integration with Azure DNS. This command installs the **external-dns** controller.
 
 ```azurecli-interactive
 az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_application_routing --dns-zone-resource-id=$ZONEID
@@ -172,7 +187,7 @@ az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_applicat
 
 
 ## Grant the add-on permissions to retrieve certificates from Azure Key Vault
-The Web Application Routing add-on creates a user created managed identity in the cluster resource group. This managed identity will need to be granted permissions to retrieve SSL certificates from the Azure Key Vault. 
+The Web Application Routing add-on creates a user created managed identity in the cluster resource group. This managed identity needs to be granted permissions to retrieve SSL certificates from the Azure Key Vault. 
 
 Grant `GET` permissions for the Web Application Routing add-on to retrieve certificates from Azure Key Vault:
 ```azurecli-interactive
@@ -197,164 +212,6 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 ## Deploy an application
 
 Web Application Routing uses annotations on Kubernetes Ingress objects to create the appropriate resources, create records on Azure DNS (when configured), and retrieve the SSL certificates from Azure Key Vault.
-
-# [With Open Service Mesh (OSM)](#tab/with-osm)
-
-### Create the application namespace
-
-For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
-
-```bash
-kubectl create namespace hello-web-app-routing
-```
-
-We also need to add the application namespace to the OSM control plane:
-
-```bash
-osm namespace add hello-web-app-routing
-```
-
-### Create the deployment
-
-Create a file named **deployment.yaml** and copy in the following YAML.
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: aks-helloworld  
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-helloworld
-  template:
-    metadata:
-      labels:
-        app: aks-helloworld
-    spec:
-      containers:
-      - name: aks-helloworld
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-        ports:
-        - containerPort: 80
-        env:
-        - name: TITLE
-          value: "Welcome to Azure Kubernetes Service (AKS)"
-```
-
-### Create the service
-
-Create a file named **service.yaml** and copy in the following YAML.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-helloworld
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-  selector:
-    app: aks-helloworld
-```
-
-### Create the ingress
-
-The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
-
-```azurecli-interactive
-az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
-```
-
-Create a file named **ingress.yaml** and copy in the following YAML.
-
-> [!NOTE]
-> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that going to be generated to store the certificate. This is the certificate that's going to be presented in the browser.
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
-    kubernetes.azure.com/use-osm-mtls: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    nginx.ingress.kubernetes.io/configuration-snippet: |2-
-
-      proxy_ssl_name "default.hello-web-app-routing.cluster.local";
-    nginx.ingress.kubernetes.io/proxy-ssl-secret: kube-system/osm-ingress-client-cert
-    nginx.ingress.kubernetes.io/proxy-ssl-verify: "on"
-  name: aks-helloworld
-  namespace: hello-web-app-routing
-spec:
-  ingressClassName: webapprouting.kubernetes.azure.com
-  rules:
-  - host: <Hostname>
-    http:
-      paths:
-      - backend:
-          service:
-            name: aks-helloworld
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-  tls:
-  - hosts:
-    - <Hostname>
-    secretName: keyvault-aks-helloworld
-```
-
-### Create the ingress backend 
-
-Open Service Mesh (OSM) leverages its [IngressBackend API](https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api) to configure a backend service to accept ingress traffic from trusted sources. To proxy connections to HTTPS backends, we will configure the Ingress and IngressBackend configurations to use https as the backend protocol, and have OSM issue a certificate that Nginx will use as the client certificate to proxy HTTPS connections to TLS backends. The client certificate and CA certificate will be stored in a Kubernetes secret that Nginx will use to authenticate service mesh backends. For more information, refer to [Open Service Mesh: Ingress with Kubernetes Nginx Ingress Controller](https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx/).
-
-Create a file named **ingressbackend.yaml** and copy in the following YAML.
-
-```yaml
-apiVersion: policy.openservicemesh.io/v1alpha1
-kind: IngressBackend
-metadata:
-  name: aks-helloworld
-  namespace: hello-web-app-routing
-spec:
-  backends:
-  - name: aks-helloworld
-    port:
-      number: 80
-      protocol: https
-    tls:
-      skipClientCertValidation: false
-  sources:
-  - kind: Service
-    name: nginx
-    namespace: app-routing-system
-  - kind: AuthenticatedPrincipal
-    name: ingress-nginx.ingress.cluster.local
-```
-
-### Create the resources on the cluster
-
-Use the [kubectl apply][kubectl-apply] command to create the resources.
-
-```bash
-kubectl apply -f deployment.yaml -n hello-web-app-routing
-kubectl apply -f service.yaml -n hello-web-app-routing
-kubectl apply -f ingress.yaml -n hello-web-app-routing
-kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
-```
-
-The following example output shows the created resources:
-
-```bash
-deployment.apps/aks-helloworld created
-service/aks-helloworld created
-ingress.networking.k8s.io/aks-helloworld created
-ingressbackend.policy.openservicemesh.io/aks-helloworld created
-```
-
 # [Without Open Service Mesh (OSM)](#tab/without-osm)
 
 ### Create the application namespace
@@ -374,6 +231,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld  
+  namespace: hello-web-app-routing
 spec:
   replicas: 1
   selector:
@@ -403,6 +261,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   type: ClusterIP
   ports:
@@ -413,7 +272,7 @@ spec:
 
 ### Create the ingress
 
-The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
+The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this activates the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
 az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
@@ -469,6 +328,249 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
+
+# [With Open Service Mesh (OSM)](#tab/with-osm)
+
+### Create the application namespace
+
+For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
+
+```bash
+kubectl create namespace hello-web-app-routing
+```
+
+We also need to add the application namespace to the OSM control plane:
+
+```bash
+osm namespace add hello-web-app-routing
+```
+
+### Create the deployment
+
+Create a file named **deployment.yaml** and copy in the following YAML.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld  
+  namespace: hello-web-app-routing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld
+    spec:
+      containers:
+      - name: aks-helloworld
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
+```
+
+### Create the service
+
+Create a file named **service.yaml** and copy in the following YAML.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld
+```
+
+### Create the ingress
+
+The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this activates the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
+
+```azurecli-interactive
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
+```
+
+Create a file named **ingress.yaml** and copy in the following YAML.
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that going to be generated to store the certificate. This is the certificate that's going to be presented in the browser.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
+    kubernetes.azure.com/use-osm-mtls: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/configuration-snippet: |2-
+
+      proxy_ssl_name "default.hello-web-app-routing.cluster.local";
+    nginx.ingress.kubernetes.io/proxy-ssl-secret: kube-system/osm-ingress-client-cert
+    nginx.ingress.kubernetes.io/proxy-ssl-verify: "on"
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - <Hostname>
+    secretName: keyvault-aks-helloworld
+```
+
+### Create the ingress backend 
+
+Open Service Mesh (OSM) uses its [IngressBackend API](https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api) to configure a backend service to accept ingress traffic from trusted sources. To proxy connections to HTTPS backends, you configure the Ingress and IngressBackend configurations to use https as the backend protocol. OSM issues a certificate that Nginx will use as the client certificate to proxy HTTPS connections to TLS backends. The client certificate and CA certificate are stored in a Kubernetes secret that Nginx will use to authenticate service mesh backends. For more information, see [Open Service Mesh: Ingress with Kubernetes Nginx Ingress Controller](https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx/).
+
+Create a file named **ingressbackend.yaml** and copy in the following YAML.
+
+```yaml
+apiVersion: policy.openservicemesh.io/v1alpha1
+kind: IngressBackend
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+spec:
+  backends:
+  - name: aks-helloworld
+    port:
+      number: 80
+      protocol: https
+    tls:
+      skipClientCertValidation: false
+  sources:
+  - kind: Service
+    name: nginx
+    namespace: app-routing-system
+  - kind: AuthenticatedPrincipal
+    name: ingress-nginx.ingress.cluster.local
+```
+
+### Create the resources on the cluster
+
+Use the [kubectl apply][kubectl-apply] command to create the resources.
+
+```bash
+kubectl apply -f deployment.yaml -n hello-web-app-routing
+kubectl apply -f service.yaml -n hello-web-app-routing
+kubectl apply -f ingress.yaml -n hello-web-app-routing
+kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
+```
+
+The following example output shows the created resources:
+
+```bash
+deployment.apps/aks-helloworld created
+service/aks-helloworld created
+ingress.networking.k8s.io/aks-helloworld created
+ingressbackend.policy.openservicemesh.io/aks-helloworld created
+```
+
+# [With service annotations (retired)](#tab/service-annotations)
+
+> [!WARNING]
+> Configuring ingresses by adding annotations on the Service object is retired. Please consider [configuring via an Ingress object](?tabs=without-osm).
+
+### Create the application namespace
+
+For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
+
+```bash
+kubectl create namespace hello-web-app-routing
+```
+
+### Create the deployment
+
+Create a file named **deployment.yaml** and copy in the following YAML.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld  
+  namespace: hello-web-app-routing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld
+    spec:
+      containers:
+      - name: aks-helloworld
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
+```
+
+### Create the service with the annotations (retired)
+
+Create a file named **service.yaml** and copy in the following YAML.
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. This is the certificate that's going to be presented in the browser.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    kubernetes.azure.com/ingress-host: <Hostname>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld
+```
+
+### Create the resources on the cluster
+
+Use the [kubectl apply][kubectl-apply] command to create the resources.
+
+```bash
+kubectl apply -f deployment.yaml -n hello-web-app-routing
+kubectl apply -f service.yaml -n hello-web-app-routing
+```
+
+The following example output shows the created resources:
+
+```bash
+deployment.apps/aks-helloworld created
+service/aks-helloworld created
+```
+
 ---
 
 
@@ -483,7 +585,7 @@ aks-helloworld   webapprouting.kubernetes.azure.com   myapp.contoso.com   20.51.
 
 ## Accessing the endpoint over a DNS hostname
 
-If you have not configured Azure DNS integration, you will need to configure your own DNS provider with an **A record** pointing to the ingress IP address and the host name you configured for the ingress, for example *myapp.contoso.com*.
+If you haven't configured Azure DNS integration, you need to configure your own DNS provider with an **A record** pointing to the ingress IP address and the host name you configured for the ingress, for example *myapp.contoso.com*.
  
 
 ## Remove Web Application Routing
@@ -494,7 +596,7 @@ First, remove the associated namespace:
 kubectl delete namespace hello-web-app-routing
 ```
 
-The Web Application Routing add-on can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentally disable them.
+You can remove the Web Application Routing add-on using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentally disable them.
 
 ```azurecli
 az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 

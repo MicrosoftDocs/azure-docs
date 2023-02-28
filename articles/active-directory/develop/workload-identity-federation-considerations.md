@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 02/17/2023
 ms.author: ryanwi
-ms.reviewer: shkhalid, udayh, vakarand, cbrooks
+ms.reviewer: shkhalid, udayh, cbrooks
 ms.custom: aaddev, references_regions
 
 ---
@@ -52,7 +52,7 @@ Resources in these regions can still use federated identity credentials created 
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but have not been tested.
+Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but haven't been tested.
 
 ## Azure Active Directory issuers aren't supported
 
@@ -81,9 +81,13 @@ To avoid this issue, wait a short time after adding the federated identity crede
 
 Creating multiple federated identity credentials under the same user-assigned managed identity concurrently triggers concurrency detection logic, which causes requests to fail with 409-conflict HTTP status code.  
 
+[Terraform Provider for Azure (Resource Manager)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) version 3.40.0 introduces an [update](https://github.com/hashicorp/terraform-provider-azurerm/pull/20003) which creates multiple federated identity credentials sequentially instead of concurrently.  Versions earlier than 3.40.0 can cause failures in pipelines when multiped federated identities are created. We recommend you use [Terraform Provider for Azure (Resource Manager) v3.40.0](https://github.com/hashicorp/terraform-provider-azurerm/tree/main) or later so that multiple federated identity credentials are created sequentially.
+
 When you use automation or Azure Resource Manager templates (ARM templates) to create federated identity credentials under the same parent identity, create the federated credentials sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
-The following Azure Resource Manager template (ARM template) example creates three new federated identity credentials sequentially on a user-assigned managed identity by using the *dependsOn* property: 
+If federated identity credentials are provisioned in a loop, you can [provision them serially](/azure/azure-resource-manager/templates/copy-resources#serial-or-parallel) by setting *"mode": "serial"*.
+
+You can also provision multiple new federated identity credentials sequentially using the *dependsOn* property. The following Azure Resource Manager template (ARM template) example creates three new federated identity credentials sequentially on a user-assigned managed identity by using the *dependsOn* property:
 
 ```json
 { 
@@ -158,7 +162,7 @@ The following Azure Resource Manager template (ARM template) example creates thr
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-It is possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
+It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
 
 ```json
 { 
@@ -196,7 +200,7 @@ The following error codes may be returned when creating, updating, getting, list
 | HTTP code         | Error message    | Comments    |
 |-------------------|----------------|----------------|
 | 405 | The request format was unexpected: Support for federated identity credentials not enabled. | Federated identity credentials aren't enabled in this region. Refer to “Currently Supported regions”. |
-| 400 | Federated identity credentials must have exactly 1 audience.| Currently, federated identity credentials support a single audience “api://AzureADTokenExchange”.| 
+| 400 | Federated identity credentials must have exactly one audience.| Currently, federated identity credentials support a single audience “api://AzureADTokenExchange”.| 
 | 400 | Federated Identity Credential from HTTP body has empty properties | All federated identity credential properties are mandatory. |
 | 400 | Federated Identity Credential name '{ficName}' is invalid. | Alphanumeric, dash, underscore, no more than 3-120 symbols. First symbol is alphanumeric. |
 | 404 | The parent user-assigned identity doesn't exist. | Check user assigned identity name in federated identity credentials resource path. |

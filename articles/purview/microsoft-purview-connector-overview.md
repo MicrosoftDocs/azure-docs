@@ -43,11 +43,11 @@ The table below shows the supported capabilities for each data source. Select th
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
 || [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)| [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
 || [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
 || [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
-|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
+|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | [Yes](register-scan-snowflake.md#scan) | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
 ||    [SQL Server on Azure-Arc](register-scan-azure-arc-enabled-sql-server.md)| [Yes](register-scan-azure-arc-enabled-sql-server.md#register) | [Yes](register-scan-azure-arc-enabled-sql-server.md#scan) | No* |[Yes](register-scan-azure-arc-enabled-sql-server.md#access-policy) | No |
 ||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
@@ -114,7 +114,7 @@ The following file types are supported for scanning, for schema extraction, and 
  > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiter. If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
  > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
-- The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
+- The Microsoft Purview Data Map also supports [custom file extensions and custom parsers](create-a-scan-rule-set.md#create-a-custom-file-type).
 
 ## Schema extraction
 

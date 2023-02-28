@@ -1,3 +1,9 @@
+Microsoft Dev Box and Azure Deployment Environments are complementary
+services that share certain architectural components. Dev centers and
+projects are common to both services and they help organize resources in
+an enterprise. You can configure dev centers and projects in the Azure
+portal.
+
 ## Common components
 
 The diagram shows the components of Dev Box and Deployments Environments. Dev centers and projects are common to both

@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 01/25/2023
+ms.date: 02/01/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -138,7 +138,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/blob1/`. To match the name pattern, omit the trailing forward slash, *e.g.*, `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -152,14 +152,18 @@ Lifecycle management supports tiering and deletion of current versions, previous
 > [!NOTE]
 > Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
-| Action                      | Current Version                            | Snapshot      | Previous Versions
-|-----------------------------|--------------------------------------------|---------------|---------------|
-| tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
-| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
-| tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| Action                                  | Current Version                            | Snapshot      | Previous Versions |
+|-----------------------------------------|--------------------------------------------|---------------|-------------------|
+| tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
+| tierToArchive                           | Supported for `blockBlob`                  | Supported     | Supported         |
+| delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
 
-<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+<sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
+
+<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+
+<sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
@@ -319,7 +323,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
 ```
 
 > [!NOTE]
-> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
+> Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ### Expire data based on age
 
@@ -411,7 +415,7 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
             "blockBlob"
           ],
           "prefixMatch": [
-            "activedata"
+            "activedata/"
           ]
         }
       }
@@ -479,3 +483,4 @@ Unfortunately, there's no way to track the time at which the policy will be exec
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)

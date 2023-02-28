@@ -3,7 +3,7 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 09/01/2022
+ms.date: 02/09/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -61,7 +61,9 @@ The certificate for custom domain suffix must be stored in an Azure Key Vault. A
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
 
-Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+
+If you rotate your certificate in Azure Key Vault, the App Service Environment will pick up the change within 24 hours.
 
 ::: zone pivot="experience-azp"
 

@@ -12,13 +12,6 @@ ms.date: 01/30/2022
 
 This article elaborates on the data lineage aspects of Power BI source in Microsoft Purview. The prerequisite to see data lineage in Microsoft Purview for Power BI is to [scan your Power BI.](../purview/register-scan-power-bi-tenant.md) 
 
->[!IMPORTANT]
-> Currently, supported sources for Power BI Lineage are:
-> * Azure SQL Database
-> * Azure Blob Storage
-> * Azure Data Lake Store Gen1
-> * Azure Data Lake Store Gen2
-
 ## Common scenarios
 
 1. After the Power BI source is scanned, data consumers can perform root cause analysis of a report or dashboard from Microsoft Purview. For any data discrepancy in a report, users can easily identify the upstream datasets and contact their owners if necessary.
@@ -38,24 +31,29 @@ Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is
 * Dataflows
 * Datamarts
 
-The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard.
-
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview.png" alt-text="Screenshot showing how Overview tab is rendered for Power BI assets." lightbox="./media/how-to-lineage-powerbi/powerbi-overview.png":::
 
 ## Lineage of Power BI artifacts in Microsoft Purview
 
 Users can search for the Power BI artifact by name, description, or other details to see relevant results. Under the asset overview & properties tab the basic details such as description, classification and other information are shown. Under the lineage tab, asset relationships are shown with the upstream and downstream dependencies.
 
+Microsoft Purview captures lineage among Power BI artifacts (e.g. Dataflow -> Dataset -> Report -> Dashboard) as well as external data assets.
+
+>[!NOTE]
+> For lineage between Power BI artifacts and external data assets, currently the supported source types are: Azure SQL Database, Azure Blob Storage, Azure Data Lake Store Gen1, and Azure Data Lake Store Gen2.
+
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage.png" alt-text="Screenshot showing how lineage is rendered for Power BI." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage.png":::
 
-The following is an example of column lineage and transformation inside of Power BI Datasets when using Azure SQL Database as source. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
+In addition, column level lineage (Power BI sub-artifact lineage) and transformation inside of Power BI datasets are captured when using Azure SQL Database as source. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
+
+>[!NOTE]
+> Column level lineage and transformations is supported when using Azure SQL Database as source. Other sources are currently not supported.
 
 :::image type="content" source="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png":::
 
 ## Known limitations
 
 * Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. For example, for SQL server source of Power BI dataset, only server/database name is captured.
-* Column lineage (Power BI sub-artifact lineage) and transformations inside of Power BI Datasets is supported when using Azure SQL Database as source in Power BI. Other sources are currently not supported.
 * Few measures aren't shown in the sub-artifact lineage, for example, `COUNTROWS`.
 * In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
 * If you used to scan Power BI before sub-artifact lineage is supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.

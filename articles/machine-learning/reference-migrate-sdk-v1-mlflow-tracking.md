@@ -64,7 +64,7 @@ __SDK v1__
 ```python
 from azureml.core import Experiment
 
-# create an AzureML experiment and start a run
+# create an Azure Machine Learning experiment and start a run
 experiment = Experiment(ws, "create-experiment-sdk-v1")
 azureml_run = experiment.start_logging()
 ```

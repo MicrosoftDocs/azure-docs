@@ -6,18 +6,21 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 1/20/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
 
 :::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
 
 > [!TIP]
-> To learn more about how the MedTech service transforms and persists device message data into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations, see [Understand the MedTech service device message data transformation](understand-service.md). 
+> To learn how the MedTech service transforms and persists device message data into the FHIR service as FHIR Observation resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
 
 
 In this tutorial, you learn how to:
@@ -30,7 +33,7 @@ In this tutorial, you learn how to:
 > - Review metrics for the test message.
 
 > [!TIP]
-> To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
+> To learn about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
 ## Prerequisites
 
@@ -40,7 +43,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
-- The Microsoft.HealthcareApis, Microsoft.EventHub, and Microsoft.Devices resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+- The `Microsoft.HealthcareApis`, `Microsoft.EventHub`, and `Microsoft.Devices` resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Visual Studio Code](https://code.visualstudio.com/Download) installed locally.
 
@@ -78,9 +81,9 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
   
       To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
-   - **Device Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Device mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
 
-   - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Destination mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
    
    :::image type="content" source="media\device-messages-through-iot-hub\deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\device-messages-through-iot-hub\deploy-template-options.png":::
 
@@ -138,13 +141,13 @@ When deployment is completed, the following resources and access roles are creat
 - Conforming and valid MedTech service [device](how-to-configure-device-mappings.md) and [FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 > [!IMPORTANT]
-> In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+> In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Create a device and send a test message
 
-With your resources successfully deployed, next, you connect to your IoT hub, create a device, and send a test message to the IoT hub. After you complete these steps, your MedTech service can:
+With your resources successfully deployed, you next connect to your IoT hub, create a device, and send a test message to the IoT hub. After you complete these steps, your MedTech service can:
 
 - Pick up the IoT hub-routed test message from the device message event hub.
 - Transform the test message into five FHIR observations.
@@ -203,7 +206,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
-   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png":::
 
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 

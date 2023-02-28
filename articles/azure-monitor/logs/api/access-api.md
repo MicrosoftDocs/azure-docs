@@ -10,7 +10,7 @@ ms.topic: article
 
 You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD). 
 >[!Note]
-> The `api.loganalytics.io` endpoint is being replaced by `api.loganalytics.azure.com`. `api.loganalytics.io` will continue to be be supported for the forseeable future.
+> The `api.loganalytics.io` endpoint is being replaced by `api.loganalytics.azure.com`. `api.loganalytics.io` will continue to be supported for the forseeable future.
 ## Authenticating with a demo API key
 
 To quickly explore the API without Azure Active Directory authentication, use the demonstration workspace with sample data, which supports API key authentication.
