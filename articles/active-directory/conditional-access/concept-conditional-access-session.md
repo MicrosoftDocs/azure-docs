@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of session controls to enable limited experiences within specific cloud applications.
 
-![Conditional Access policy with a grant control requiring multi-factor authentication](./media/concept-conditional-access-session/conditional-access-session.png)
+![Conditional Access policy with a grant control requiring multifactor authentication](./media/concept-conditional-access-session/conditional-access-session.png)
 
 ## Application enforced restrictions
 

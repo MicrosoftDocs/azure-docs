@@ -26,7 +26,7 @@ Conditional Access brings signals together, to make decisions, and enforce organ
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-Conditional Access policies at their simplest are if-then statements, if a user wants to access a resource, then they must complete an action. Example: A payroll manager wants to access the payroll application and is required to do multi-factor authentication to access it.
+Conditional Access policies at their simplest are if-then statements, if a user wants to access a resource, then they must complete an action. Example: A payroll manager wants to access the payroll application and is required to do multifactor authentication to access it.
 
 Administrators are faced with two primary goals:
 
@@ -55,7 +55,7 @@ Common signals that Conditional Access can take in to account when making a poli
 - Application
    - Users attempting to access specific applications can trigger different Conditional Access policies. 
 - Real-time and calculated risk detection
-   - Signals integration with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to change their password, do multi-factor authentication to reduce their risk level, or block access until an administrator takes manual action.
+   - Signals integration with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to change their password, do multifactor authentication to reduce their risk level, or block access until an administrator takes manual action.
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)
    - Enables user application access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities done within your cloud environment.
 
@@ -65,7 +65,7 @@ Common signals that Conditional Access can take in to account when making a poli
    - Most restrictive decision
 - Grant access
    - Least restrictive decision, can still require one or more of the following options:
-      - Require multi-factor authentication
+      - Require multifactor authentication
       - Require device to be marked as compliant
       - Require Hybrid Azure AD joined device
       - Require approved client app
@@ -75,10 +75,10 @@ Common signals that Conditional Access can take in to account when making a poli
 
 Many organizations have [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md) such as:
 
-- Requiring multi-factor authentication for users with administrative roles
-- Requiring multi-factor authentication for Azure management tasks
+- Requiring multifactor authentication for users with administrative roles
+- Requiring multifactor authentication for Azure management tasks
 - Blocking sign-ins for users attempting to use legacy authentication protocols
-- Requiring trusted locations for Azure AD Multi-Factor Authentication registration
+- Requiring trusted locations for Azure AD Multifactor Authentication registration
 - Blocking or granting access from specific locations
 - Blocking risky sign-in behaviors
 - Requiring organization-managed devices for specific applications
