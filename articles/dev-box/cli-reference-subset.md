@@ -44,7 +44,7 @@ az sig image-definition create --resource-group {resourceGroupName}
 
 ```azurecli
 az devcenter admin gallery create -g demo-rg
---devcenter-name contoso-devcenter -n SharedGallery
+--dev-center-name contoso-devcenter -n SharedGallery
 --gallery-resource-id "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{computeGalleryName}"
 ```
 
@@ -103,7 +103,7 @@ az devcenter admin network-connection create --location "centralus"
 
 ```azurecli
 az devcenter admin attached-network create --attached-network-connection-name westus3network
---devcenter-name contoso-devcenter -g demo-rg
+--dev-center-name contoso-devcenter -g demo-rg
 --network-connection-id /subscriptions/f141e9f2-4778-45a4-9aa0-8b31e6469454/resourceGroups/demo-rg/providers/Microsoft.DevCenter/networkConnections/netset99
 ```
 
@@ -113,7 +113,7 @@ az devcenter admin attached-network create --attached-network-connection-name we
 
 ```azurecli
 az devcenter admin devbox-definition list
---devcenter-name "Contoso" --resource-group "rg1"
+--dev-center-name "Contoso" --resource-group "rg1"
 ```
 
 #### List skus available in your subscription
@@ -125,7 +125,7 @@ az devcenter admin sku list
 
 ```azurecli
 az devcenter admin devbox-definition create -g demo-rg
---devcenter-name contoso-devcenter -n BaseImageDefinition
+--dev-center-name contoso-devcenter -n BaseImageDefinition
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/Default/images/MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365"
 --sku name="general_a_8c32gb_v1"
 ```
@@ -134,7 +134,7 @@ az devcenter admin devbox-definition create -g demo-rg
 
 ```azurecli
 az devcenter admin devbox-definition create -g demo-rg
---devcenter-name contoso-devcenter -n CustomDefinition
+--dev-center-name contoso-devcenter -n CustomDefinition
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/SharedGallery/images/CustomImageName"
 --os-storage-type "ssd_1024gb" --sku name=general_a_8c32gb_v1
 ```

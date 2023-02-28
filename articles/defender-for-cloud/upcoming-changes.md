@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 02/12/2023
+ms.date: 02/19/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,19 +18,20 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is will be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-will-be-deprecated) | February 2023 |
+| [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
 | [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | August 2023 |
 
-### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault will be deprecated
+### Changes in the recommendation "Machines should be configured securely"
 
-**Estimated date for change: February 2023**
+**Estimated date for change: March 2023**
 
-The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
+The recommendation "Machines should be configured securely" is going to be upgraded on March 20th to improve its performance and stability, and to align its experience with the generic behavior of MDC recommendations.
+As part of this update, the recommendation's ID will be changed from "181ac480-f7c4-544b-9865-11b8ffe87f47" to "c476dc48-8110-4139-91af-c8d940896b98".
+No action is required on the customer side, and there is no expected downtime nor impact on the secure score.
 
-The related [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1) will also be replaced by this new policy in all standards displayed in the regulatory compliance dashboard.
 
 ### Three alerts in Defender for Azure Resource Manager plan will be deprecated
 

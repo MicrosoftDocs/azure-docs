@@ -63,12 +63,12 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
 
 This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
 
-* Use the following commands to install Azure ML Python SDK v2:
+* Use the following commands to install Azure Machine Learning Python SDK v2:
    * Uninstall previous preview version:
    ```python
    pip uninstall azure-ai-ml
    ```
-   * Install the Azure ML Python SDK v2:
+   * Install the Azure Machine Learning Python SDK v2:
    ```python
    pip install azure-ai-ml
    ```
@@ -236,7 +236,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
 ## Upload data and create MLTable
-In order to use the data for training, upload data to default Blob Storage of your Azure ML Workspace and register it as an asset. The benefits of registering data are:
+In order to use the data for training, upload data to default Blob Storage of your Azure Machine Learning Workspace and register it as an asset. The benefits of registering data are:
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc.)
 - Lineage tracking

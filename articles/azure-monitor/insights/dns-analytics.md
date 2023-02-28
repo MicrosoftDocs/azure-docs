@@ -54,7 +54,7 @@ The solution starts collecting data without the need of further configuration. H
 
 ### Configure the solution
 
-From the Log Analytics workspace in the Azure portal, select **Workspace summary**. Then select the **DNS Analytics** tile. On the solution dashboard, select **Configuration** to open the **DNS Analytics Configuration** page. There are two types of configuration changes that you can make:
+From the Log Analytics workspace in the Azure portal, select **Workspace summary (deprecated)**. Then select the **DNS Analytics** tile. On the solution dashboard, select **Configuration** to open the **DNS Analytics Configuration** page. There are two types of configuration changes that you can make:
 
 - **Allowlisted Domain Names**: The solution doesn't process all the lookup queries. It maintains an allowlist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this allowlist aren't processed by the solution. Not processing allowlisted domain names helps to optimize the data sent to Azure Monitor. The default allowlist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 

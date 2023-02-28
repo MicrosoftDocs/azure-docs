@@ -7,7 +7,7 @@ metadata:
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 02/16/2023
+  ms.date: 02/23/2023
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -191,16 +191,16 @@ sections:
       - question: | 
           How does Front Door handle ‘domain fronting’ behavior? 
         answer: |
-          Beginning November 8, 2022, all newly created Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources will block any HTTP requests that exhibits domain fronting behavior. Requests where the host header in HTTP/HTTPS requests that doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+          Beginning November 8, 2022, all newly created Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibits domain fronting behavior. Requests where the host header in HTTP/HTTPS requests that doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
           
           If you wish to block domain fronting for an existing Azure Front Door or Azure CDN Standard from Microsoft (classic) resources, create a support request and provide your subscription and 
           resource information. Upon enabling the blocking of domain fronting, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP/HTTPS requests that exhibit this behavior.
          
           When Front Door blocks a request due to a mismatch: 
-          - The client will receive a HTTP "421 Misdirected Request" error code response. 
+          - The client will receive an HTTP "421 Misdirected Request" error code response. 
           - Azure Front Door will log the block in the diagnostic logs under the "Error Info" property with the value **SSLMismatchedSNI**.
           
-          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/en-us/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
+          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
  
       - question: |
           What TLS versions are supported by Azure Front Door?
@@ -236,8 +236,9 @@ sections:
       - question: |
           Can I set alerts with Azure Front Door?
         answer:  |
-          Yes, Azure Front Door does support alerts. Alerts are configured on metrics. For reference to create alerts, please check [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-azure-portal).
-          And for more information about metrics available on Front Door diagnostic monitoring refer to [Front Door metrics](./front-door-diagnostics.md#metrics).
+          Yes, Azure Front Door does support alerts. Alerts are configured based on [metrics or logs](front-door-diagnostics.md).
+          
+          For information about how to create alerts for Azure Front Door Standard and Premium, please see [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-the-azure-portal).
       
 additionalContent: |
 

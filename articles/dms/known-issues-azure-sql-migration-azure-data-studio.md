@@ -36,7 +36,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about this article, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).  
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`
@@ -225,6 +225,11 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
 
+- **Message**: DatabaseSizeMoreThanMax: `The source database size <Source Database Size> exceeds the maximum allowed size of the target database <Target Database Size>. Check if the target database has enough space.`
+
+- **Cause**: The target database doesn't have enough space.
+
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension).
 
 - **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
 

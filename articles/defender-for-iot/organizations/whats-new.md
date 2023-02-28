@@ -1,8 +1,8 @@
 ---
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
-ms.topic: overview
-ms.date: 02/09/2023
+ms.topic: whats-new
+ms.date: 02/22/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -19,8 +19,17 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
+### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
+
+[Version 2.0.2](release-notes-sentinel.md#version-202) of the Microsoft Defender for IoT solution is now available in the [Microsoft Sentinel content hub](/azure/sentinel/sentinel-solutions-catalog), with improvements in analytics rules for incident creation, an enhanced incident details page, and performance improvements for analytics rule queries.
+
+For more information, see:
+
+- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
+- [Microsoft Defender for IoT solution versions in Microsoft Sentinel](release-notes-sentinel.md)
 
 ### Download updates from the Sites and sensors page (Public preview)
 

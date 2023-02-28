@@ -177,7 +177,7 @@ This setting has an impact on access attempts made from the following mobile app
 - When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
-If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
+If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multifactor Authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
 
 For more information, see the following articles:
 

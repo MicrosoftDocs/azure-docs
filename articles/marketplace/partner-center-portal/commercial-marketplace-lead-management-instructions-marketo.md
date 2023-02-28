@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: urimsft
 ms.author: uridor
-ms.date: 06/08/2022
+ms.date: 01/26/2023
 ---
 
 # Use Marketo to manage commercial marketplace leads
@@ -32,7 +32,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png" alt-text="Screenshot showing Marketo Design Studio New Form creation.":::
     
-1. Ensure that the fields mappings are setup correctly. Here are the list of fields that the connector needs to be setup on the form. 
+1. Ensure that the fields mappings are set up correctly. Here's the list of fields that the connector needs to be entered on the form. 
 
    > [!NOTE]
    > The field with name "Lead Source" is expected to be configured in the form. It can be mapped to the **SourceSystemName** system field in Marketo or a custom field.
@@ -47,7 +47,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 1. On the **MarketplaceLeadBackend** tab, select **Embed Code**. 
 
-   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png" alt-text="Screenshot showing the Marketo Embed Code form.":::
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png" alt-text="Screenshot showing the Marketo Embed Code screen.":::
 
 1. Marketo Embed Code displays code similar to the following example.
 
@@ -61,16 +61,16 @@ This article describes how to set up your Marketo CRM system to process sales le
    - Munchkin ID = **123-PQR-789**
    - Form ID = **1179**
 
-   The following is another way to figure out these values:
+   The following method is another way to figure out these values:
 
-   - Get your subscription's Munchkin ID by going to your **Admin** > **Munchkin** menu in the **Munchkin Account ID** field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
+   - Get your subscription's Munchkin ID by going to your **Admin** > **Munchkin** menu in the **Munchkin Account ID** field, or from the first part of your Marketo REST API host subdomain (`https://{Munchkin ID}.mktorest.com`).
    - Form ID is the ID of the Embed Code form you created in step 7 to route leads from the marketplace.
 
-## Obtain a API access from your Marketo Admin
+## Obtain API access from your Marketo Admin
 
 1. See this [Marketo article on getting API access](https://aka.ms/marketo-api), specifically a **ClientID** and **Client Secret** needed for the new Marketo configuration. Follow the step-by-step guide to create an API-only user and a Launchpoint connection for the Partner Center lead management service.
 
-1. Ensure that the **Custom service created** indicates Partner Center as shown below.
+1. Ensure that the **Custom service created** indicates Partner Center.
 
    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-new-service.png" alt-text="Screenshot showing Marketo API new service form":::
 
@@ -90,11 +90,11 @@ When you're ready to configure the lead management information for your offer in
 
 1. Under the **Customer leads** section, select **Connect**.
 
-   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Screenshot showing the Partner Center customer leads page.":::
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Screenshot showing the Partner Center Customer leads page.":::
 
 1. On the **Connection details** pop-up window, select **Marketo** for the **Lead destination**.
 
-   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png" alt-text="Screenshot showing the Partner Center customer lead destination.":::
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png" alt-text="Screenshot showing the lead destination page.":::
 
 1. Provide the **Munchkin ID**, **Form ID**, **Client ID** and **Client Secret** fields.
 
@@ -104,5 +104,5 @@ When you're ready to configure the lead management information for your offer in
 1. Select **OK**.
 
    To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
-
+   
    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png" alt-text="Screenshot showing the Partner Center connection details.":::

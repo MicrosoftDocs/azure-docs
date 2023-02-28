@@ -1071,6 +1071,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: HawkeyeBSB
+        href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
       - name: Headspace
@@ -1779,6 +1781,8 @@
         href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md 
+      - name: Parallels Desktop
+        href: parallels-desktop-tutorial.md
       - name: Parkalot - Car park management
         href: parkalot-car-park-management-tutorial.md       
       - name: Parkable
@@ -2661,6 +2665,8 @@
         href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
+      - name: Windchill
+        href: windchill-tutorial.md
       - name: Wingspan eTMF
         href: wingspanetmf-tutorial.md
       - name: WireWheel
@@ -2834,6 +2840,8 @@
         href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Atmos
+        href: atmos-provisioning-tutorial.md
       - name: AuditBoard
         href: auditboard-provisioning-tutorial.md
       - name: Autodesk SSO
