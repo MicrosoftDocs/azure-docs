@@ -107,18 +107,16 @@ You should set these up in addition to the [ports required for Azure Stack Edge 
 
 Review and apply the firewall recommendations for the following services:
 
-- [Azure Stack Edge](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-system-requirements#url-patterns-for-firewall-rules)
-- [Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-gb/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
+- [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-system-requirements#url-patterns-for-firewall-rules)
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli%2Cazure-cloud#meet-network-requirements)
+- [Azure Network Function Manager](/azure/network-function-manager/requirements)
 
-The following table contains the ports you need to open and their URL patterns for Azure Private 5G Core's outbound traffic.
+The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.
 
-| Port | URL pattern | Description|
-|--|--|--|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| URL pattern | Description|
+|--|--|
+| `https://*.azurecr.io` | Required to pull container images for Azure Private 5G Core workloads. |
+| `https://*.microsoftmetrics.com` </br> `https://*.hot.ingestion.msftcloudes.com`| Required for monitoring and telemetry for the Azure Private 5G Core service. |
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
