@@ -115,7 +115,7 @@ The tables below summarize current availability:
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
+\** Phone numbers in Italy can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
 
 ## Customers with Sweden Azure billing addresses
 
