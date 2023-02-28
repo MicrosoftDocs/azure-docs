@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## February 2022
+## February 2023
 
 * Conversational language understanding and Orchestration workflow is now available in the following regions in the sovereign cloud for China:
   * China East 2 (Authoring and Prediction)
