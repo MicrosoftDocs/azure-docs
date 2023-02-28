@@ -74,6 +74,8 @@
           href: how-to-create-lockbox.md
         - name: Set up Managed Identity
           href: how-to-use-managed-identity.md  
+        - name: Set up Resource sharing (CORS)
+          href: how-to-enable-cors.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY

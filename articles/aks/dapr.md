@@ -96,6 +96,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
+- Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
 
 ### Set up the Azure CLI extension for cluster extensions
 
