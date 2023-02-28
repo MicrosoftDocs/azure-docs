@@ -44,7 +44,7 @@ For more information, see:
 > - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 >
 
-## Supported device classes
+## Supported devices
 
 Defender for IoT's device inventory supports the following device classes:
 
@@ -56,7 +56,19 @@ Defender for IoT's device inventory supports the following device classes:
 |**Network devices**     |  Switches, routers, controllers, or access points        |
 |**OT devices**     | Industrial and operational devices, such as PLCs, historian devices, HMIs, scales, pneumatic devices, or packaging systems        |
 
-A *transient* device type indicates a device that was connected to the network for a very short time before disconnecting. We recommend investigating these devices carefully to understand their impact on your network.
+
+|Devices  |For example ... |
+|---------|---------|
+|**Manufacturing**| Industrial and operational devices, such as pneumatic devices,  packaging systems, industrial packaging systems, industrial robots        |
+|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators , smart lighting systems    |
+|**Health care**     |  Glucose meters, monitors       |
+|**Transportation / Utilities**     |  Turnstiles, people counters, motion sensors, fire and safety systems, intercoms       |
+|**Energy and resources**     |  DCS controllers, PLCs, historian devices, HMIs      |
+|**Endpoint devices**     |  Workstations, servers, or mobile devices        |
+| **Enterprise** | Smart devices, printers,  communication devices, or audio/video devices |
+| **Retail** | Barcode scanners, humidity sensor, punch clocks | 
+
+A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
 *Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
 

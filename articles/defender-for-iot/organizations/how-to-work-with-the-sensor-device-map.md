@@ -177,7 +177,9 @@ For example, you might receive a notification about an inactive device that need
     - Select **Select All** to show which notifications can be [handled together](#handling-multiple-notifications-together). Clear selections for specific notifications, and then select **Accept All** or **Dismiss All** to handle any remaining selected notifications together.
 
 > [!NOTE]
-> Selected notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days. For more information, see the action indicated in the **Auto-resolve** column in the table [below](#device-notification-responses).
+> By default, selected notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days. Admin users can change this threshold in the OT sensor's system setting.
+> 
+> For more information, see the action indicated in the **Auto-resolve** column in the table [below](#device-notification-responses) and <xref>.
 > 
 
 ### Handling multiple notifications together
@@ -190,6 +192,7 @@ You may have situations where you'd want to handle multiple notifications togeth
 
 When you handle multiple notifications together, you may still have remaining notifications that need to be handled manually, such as for new IP addresses or no subnets detected.
 
+
 ### Device notification responses
 
 The following table lists available responses for each notification, and when we recommend using each one:
@@ -197,8 +200,7 @@ The following table lists available responses for each notification, and when we
 | Type | Description | Available responses | Auto-resolve|
 |--|--|--|--|
 | **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |**Dismiss** |
-| **Inactive devices** | Traffic wasn't detected on a device for more than 60 days. | - **Delete**: Delete any devices that aren't part of your network anymore.<br />- **Dismiss**:  Remove the notification if the device is still part of your network. You may want to reconnect the device if it's been disconnected by accident.|**Delete** |
-| **New OT devices** | A subnet includes an OT device that's not defined in an ICS subnet. <br><br>This may occur when a device is detected that can be defined as an ICS subnet. We recommend defining such devices as ICS subnets to differentiate between OT and IT devices on the map. | - **Set as ICS Subnet**: Define the device as an ICS subnet. <br>- **Dismiss**: Remove the notification if the device isn't part of the subnet. |No automatic handling|
+|  <!--check w meir and remove this-->**New OT devices** | A subnet includes an OT device that's not defined in an ICS subnet. <br><br>This may occur when a device is detected that can be defined as an ICS subnet. We recommend defining such devices as ICS subnets to differentiate between OT and IT devices on the map. | - **Set as ICS Subnet**: Define the device as an ICS subnet. <br>- **Dismiss**: Remove the notification if the device isn't part of the subnet. |No automatic handling|
 | **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
 | **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. |No automatic handling<!--Set with new operating system only if not already configured manually. <br><br>If the operating system has already been configured: **Dismiss**.-->|
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |**Dismiss** |

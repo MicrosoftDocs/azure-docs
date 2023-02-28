@@ -429,6 +429,20 @@ Maximum size for uploaded files is 2 GB.
 > [!TIP]
 > Select **Clear All** to clear the sensor of all PCAP files loaded.
 
+## Modify notification auto-resolve thresholds
+
+By default, selected device notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days. Admin users can change this threshold to more or fewer days in the OT sensor's system settings.
+
+**To modify auto-resolve thresholds**:
+
+1. Sign into your OT sensor as an **Admin** user.
+1. Select **System settings** > **Advanced configurations** > **Conflicts**.
+1. Locate the `notifications_resolve_threshold_days=14` line and change `14` to another integer.
+1. Select **Save** > **Close** to save your changes.
+
+For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map.md#manage-device-notifications).
+
+
 ## Adjust system properties
 
 System properties control various operations and settings in the sensor. Editing or modifying them might damage the operation of the sensor console.
