@@ -138,9 +138,9 @@ ms.topic: conceptual
        net use <drive-letter/share-path> /delete
 
 * <a id="ad-sid-to-upn"></a>
-**Is it possible to view the userPrincipalName (UPN) of a file/directory owner in Windows Explorer instead of the security identifier (SID)?**
+**Is it possible to view the userPrincipalName (UPN) of a file/directory owner in File Explorer instead of the security identifier (SID)?**
 
-    In Windows Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+    In File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
 
     ```PowerShell
     Get-ChildItem <Path> | Get-ACL | Select Path, Owner
@@ -189,6 +189,9 @@ ms.topic: conceptual
     If you have active share snapshots on your share, you can't delete your share. You can use an API to delete share snapshots, along with the share. You also can delete both the share snapshots and the share in the Azure portal.
 
 ## Billing and pricing
+
+**What are transactions in Azure Files, and how are they billed?**
+    Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For standard Azure file shares billed on a pay-as-you-go model, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for premium file shares, which are billed using a provisioned model. For more information, see [Understanding billing](understanding-billing.md).
 
 * <a id="share-snapshot-price"></a>
 **How much do share snapshots cost?**  
