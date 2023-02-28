@@ -94,9 +94,9 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ### 22.3.5
 
-**Release date**: 01/2023
+**Release date**: 02/2023
 
-**Supported until**: 12/2023
+**Supported until**: 01/2024
 
 <!--draft, needs better descriptions and links-->
 - Support for transient devices
