@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | The type of component. | `command` | `command` |
 | `name` | string | **Required.** Name of the component. Must start with lowercase letter. Allowed characters are lowercase letters, numbers, and underscore(_). Maximum length is 255 characters.| | |
-| `version` | string | Version of the component. If omitted, Azure ML will autogenerate a version. | | |
+| `version` | string | Version of the component. If omitted, Azure Machine Learning will autogenerate a version. | | |
 | `display_name` | string | Display name of the component in the studio UI. Can be non-unique within the workspace. | | |
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |

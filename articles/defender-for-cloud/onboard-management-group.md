@@ -57,7 +57,7 @@ There are various ways you might choose to modify the Azure Policy definition:
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
     > [!TIP]
-    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md). 
+    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads). 
 
     ```
     "existenceCondition": {

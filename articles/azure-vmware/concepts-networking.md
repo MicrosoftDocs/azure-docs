@@ -65,6 +65,7 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 > [!IMPORTANT]
 > Customers should not advertise bogon routes over ExpressRoute from on-premises or their Azure VNET.  Examples of bogon routes include 0.0.0.0/5 or 192.0.0.0/3.
 
+
 ## Route advertisement guidelines to Azure VMware Solution
  You need to follow these guidelines while advertising routes from your on-premises and Azure VNET to Azure VMware Solution over ExpressRoute:
 
@@ -76,6 +77,7 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 
 > [!NOTE]
 > The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
+
 
 ## Limitations
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
