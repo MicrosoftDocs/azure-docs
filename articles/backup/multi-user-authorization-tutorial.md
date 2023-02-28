@@ -3,9 +3,9 @@ title: Tutorial - Enable Multi-user authorization using Resource Guard
 description: In this tutorial, you'll learn about how create a resource guard and enable Multi-user authorization on Recovery Services vault for Azure Backup.
 ms.topic: tutorial
 ms.date: 05/05/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Tutorial: Create a Resource Guard and enable Multi-user authorization in Azure Backup
 

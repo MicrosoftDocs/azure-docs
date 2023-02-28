@@ -2,7 +2,6 @@
 title: GPU acceleration for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Learn about how to configure your Azure IoT Edge for Linux on Windows virtual machines to use host device GPUs.
 author: PatAltimore
-manager: kgremban
 ms.author: patricka
 ms.date: 6/7/2022
 ms.topic: conceptual
@@ -12,7 +11,7 @@ services: iot-edge
 
 # GPU acceleration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows (EFLOW) can expose a GPU to the virtual machine's Linux module.
 
@@ -84,7 +83,7 @@ For example, the following commands create a GPU-enabled virtual machine with ei
 Deploy-Eflow -gpuPassthroughType DirectDeviceAssignment -gpuCount 1 -gpuName "NVIDIA A2"
 
 #Deploys EFLOW with Intel(R) Iris(R) Xe Graphics assigned to the EFLOW VM
-Deploy-Eflow -gpuPassthroughType ParaVirtualization -gpuCount 1 -gpuName “Intel(R) Iris(R) Xe Graphics”
+Deploy-Eflow -gpuPassthroughType ParaVirtualization -gpuCount 1 -gpuName "Intel(R) Iris(R) Xe Graphics"
 ```
 
 To find the name of your GPU, you can run the following command or look for Display adapters in Device Manager.

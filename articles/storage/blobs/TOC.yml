@@ -86,8 +86,12 @@ items:
         href: storage-auth-abac-cli.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Analyze blob inventory reports
-      href: storage-blob-inventory-report-analytics.md
+    - name: Itemize and analyze your data estate
+      items:
+      - name: Analyze blob inventory reports
+        href: storage-blob-inventory-report-analytics.md
+      - name: Calculate container statistics
+        href: storage-blob-calculate-container-statistics-databricks.md
   - name: Samples
     items:
     - name: .NET
@@ -128,21 +132,22 @@ items:
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
-      - name: Authorizing data operations
+      - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Authorize with Azure AD
           items:
-          - name: Authorize with Azure roles
+          - name: Authorize with Azure AD and Azure RBAC
             href: authorize-access-azure-active-directory.md
-          - name: Authorize with conditions
+          - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
-          - name: Actions and attributes for conditions
-            href: storage-auth-abac-attributes.md
-          - name: Security for conditions
-            href: storage-auth-abac-security.md
-          - name: Example conditions
-            href: storage-auth-abac-examples.md
+            items:
+            - name: Actions and attributes for conditions
+              href: storage-auth-abac-attributes.md
+            - name: Security for conditions
+              href: storage-auth-abac-security.md
+            - name: Example conditions
+              href: storage-auth-abac-examples.md
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)
@@ -324,6 +329,8 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
+        - name: Migrate a classic account to Azure Resource Manager
+          href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
         items:
         - name: Manage containers (Azure portal)
@@ -564,22 +571,30 @@ items:
         href: network-file-system-protocol-support-how-to.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Develop applications
+    - name: Develop with Blob Storage
       items:
-      - name: Set up Azure AD
-        items:
-        - name: Get an access token for authorization with Azure AD
-          href: ../common/identity-library-acquire-token.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Authorize from an application running in Azure
-          href: authorize-managed-identity.md
-        - name: Authorize from a native or web application
-          href: ../common/storage-auth-aad-app.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Write code
         items:
+        - name: Create and manage client objects
+          href: storage-blob-client-management.md
         - name: .NET
           items:
           - name: Get started
             href: storage-blob-dotnet-get-started.md
+          - name: Authorize access from your application
+            items:
+            - name: Azure Active Directory
+              items:
+              - name: Overview
+                href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer service principals
+                href: /dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer accounts
+                href: /dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth from Azure-hosted apps
+                href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth from on-premises apps
+                href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
           - name: Container actions
             items:
             - name: Create a container
@@ -610,6 +625,16 @@ items:
               href: storage-blob-container-lease.md
             - name: Create and manage snapshots
               href: snapshots-manage-dotnet.md
+            - name: Create and list blob versions
+              href: versions-manage-dotnet.md  
+            - name: Generate a shared access signature (SAS)
+              items:
+              - name: Create a user delegation SAS
+                href: storage-blob-user-delegation-sas-create-dotnet.md
+              - name: Create a service SAS
+                href: sas-service-create-dotnet.md
+              - name: Create an account SAS
+                href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
           - name: Append blob actions
             items:
             - name: Append data to an append blob
@@ -630,6 +655,20 @@ items:
           items:
           - name: Get started
             href: storage-blob-java-get-started.md
+          - name: Authorize access from your application
+            items:
+            - name: Azure Active Directory
+              items:
+              - name: Overview
+                href: /azure/developer/java/sdk/identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth in development environments
+                href: /azure/developer/java/sdk/identity-dev-env-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth with user credentials
+                href: /azure/developer/java/sdk/identity-user-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth with service principals
+                href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth in Azure hosted applications
+                href: /azure/developer/java/sdk/identity-azure-hosted-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Container actions
             items:
             - name: Create a container
@@ -664,12 +703,28 @@ items:
           items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
-          - name: Work with SAS tokens
+          - name: Authorize access from your application
             items:
-            - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-javascript.md
-            - name: User SAS
-              href: storage-blob-create-user-delegation-sas-javascript.md
+            - name: Azure Active Directory
+              items:
+              - name: Overview
+                href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer service principals
+                href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer accounts
+                href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth from Azure-hosted apps
+                href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth from on-premises apps
+                href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            - name: Work with SAS tokens
+              items:
+              - name: User delegation SAS
+                href: storage-blob-create-user-delegation-sas-javascript.md
+              - name: Service SAS
+                href: sas-service-create-javascript.md  
+              - name: Account SAS
+                href: storage-blob-account-delegation-sas-create-javascript.md
           - name: Container actions
             items:
             - name: Create a container
@@ -700,6 +755,56 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+            - name: Use access tiers
+              href: storage-blob-use-access-tier-javascript.md
+        - name: Python
+          items:
+          - name: Get started
+            href: storage-blob-python-get-started.md
+          - name: Authorize access from your application
+            items:
+            - name: Azure Active Directory
+              items:
+              - name: Overview
+                href: /azure/developer/python/sdk/authentication-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer service principals
+                href: /azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer accounts
+                href: /azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth from Azure-hosted apps
+                href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth from on-premises apps
+                href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-python.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-python.md
+            - name: List containers
+              href: storage-blob-containers-list-python.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-python.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-python.md
+          - name: Blob actions
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-python.md
+            - name: Download blobs
+              href: storage-blob-download-python.md
+            - name: Copy blobs
+              href: storage-blob-copy-python.md
+            - name: List blobs
+              href: storage-blobs-list-python.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-python.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-python.md
+            - name: Manage blob leases
+              href: storage-blob-lease-python.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
@@ -990,21 +1095,22 @@ items:
     items:
     - name: Authorization
       items:
-      - name: Authorizing data operations
+      - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Authorize with Azure AD
           items:
-          - name: Authorize with Azure roles
+          - name: Authorize with Azure AD and Azure RBAC
             href: authorize-access-azure-active-directory.md
-          - name: Authorize with conditions
+          - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
-          - name: Actions and attributes for conditions
-            href: storage-auth-abac-attributes.md
-          - name: Security for conditions
-            href: storage-auth-abac-security.md
-          - name: Example conditions
-            href: storage-auth-abac-examples.md
+            items:
+            - name: Actions and attributes for conditions
+              href: storage-auth-abac-attributes.md
+            - name: Security for conditions
+              href: storage-auth-abac-security.md
+            - name: Example conditions
+              href: storage-auth-abac-examples.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration

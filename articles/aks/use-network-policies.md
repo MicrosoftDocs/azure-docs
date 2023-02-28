@@ -2,7 +2,6 @@
 title: Secure pod traffic with network policy
 titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 01/05/2023
 
@@ -261,7 +260,7 @@ kubectl run -it client -n demo --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -
 
 Now, in a separate window, run the following command to get the server IP:
 ```console
-kubectl get pod --output=wide
+kubectl get pod --output=wide -n demo
 ```
 The output should look like:
 

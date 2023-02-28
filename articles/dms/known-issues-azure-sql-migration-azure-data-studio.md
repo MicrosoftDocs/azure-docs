@@ -36,7 +36,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about this topic, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).  
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`
@@ -50,7 +50,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: The Azure SQL Managed Instance has reached its resource limits.
 
-- **Recommendation**: For more information about this topic, see [Overview of Azure SQL Managed Instance resource limits](/azure/azure-sql/managed-instance/resource-limits).  
+- **Recommendation**: For more information about storage limits, see [Overview of Azure SQL Managed Instance resource limits](/azure/azure-sql/managed-instance/resource-limits).  
 
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3634 The operating system returned the error '1450(Insufficient system resources exist to complete the requested service.)`
@@ -84,7 +84,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: Backups of multiple databases are in the same container folder.
 
-- **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. For more information about this topic, see [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations).
+- **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. For more information about LRS, see [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations).
 
 
     > [!NOTE]
@@ -96,7 +96,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is caused by network settings in the firewall.
 
-- **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. For more information about this topic, see [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md).
+- **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. For more information, see [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md).
 
 - **Message**: `Failed to test connections using provided Integration Runtime. 'Cannot connect to <File share>. Detail Message: The system could not find the environment option that was entered`
 
@@ -209,6 +209,48 @@ WHERE STEP in (3,4,6);
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
+
+## Error code: 2056 - SqlInfoValidationFailed
+
+- **Message**: CollationMismatch: `Source database collation <CollationOptionSource> is not the same as the target database <CollationOptionTarget>. Source database: <SourceDatabaseName> Target database: <TargetDatabaseName>.`
+
+- **Cause**: The source database collation isn't the same as the target database's collation.
+
+- **Recommendation**: Make sure to change the target Azure SQL Database collation to the same as the source SQL Server database. Azure SQL Database uses `SQL_Latin1_General_CP1_CI_AS` collation by default, in case your source SQL Server database uses a different collation you might need to re-create or select a different target database whose collation matches. For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
+
+
+- **Message**: DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
+
+- **Message**: DatabaseSizeMoreThanMax: `The source database size <Source Database Size> exceeds the maximum allowed size of the target database <Target Database Size>. Check if the target database has enough space.`
+
+- **Cause**: The target database doesn't have enough space.
+
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension).
+
+- **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
+  
+- **Message**: SqlVersionOutOfRange: `Source instance version is lower than 2008, which is not supported to migrate. Source instance: <InstanceName>`.
+
+- **Cause**: Azure Database Migration Service doesn't support migrating from SQL Server instances lower than 2008.
+
+- **Recommendation**: Upgrade your source SQL Server instance to a newer version of SQL Server. For more information, see [Upgrade SQL Server](/sql/database-engine/install-windows/upgrade-sql-server)
+
+
+- **Message**: TableMappingMismatch: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
 
 ## Azure SQL Database limitations 
 

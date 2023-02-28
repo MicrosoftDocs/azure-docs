@@ -31,7 +31,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest -- --typescript
+    npm init next-app@latest --typescript
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
@@ -206,6 +206,19 @@ Begin by adding an API route.
 1. The result from the API route will be displayed on the page.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
+
+## Enable standalone feature
+
+When your application size exceeds 100Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
+
+Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
+
+In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
+```bash
+module.exports ={
+    output:"standalone",
+}
+```
 
 ## Enable logging for Next.js
 

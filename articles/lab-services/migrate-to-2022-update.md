@@ -23,7 +23,7 @@ A significant part of the August 2022 update is centered around the fact that th
 If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
 
 For a full description of the update, read the article, [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
-## Transition path at-a-glace
+## Transition path at-a-glance
 
 There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
 

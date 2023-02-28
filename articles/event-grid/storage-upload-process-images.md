@@ -6,9 +6,8 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 04/04/2022
-ms.author: normesta
-ms.reviewer: dineshm
+ms.date: 02/09/2023
+ms.author: spelluru
 ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---

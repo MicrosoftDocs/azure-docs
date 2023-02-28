@@ -1,18 +1,17 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
-description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 06/02/2022
-ms.topic: article
+description: Learn about protocols that Microsoft Defender for IoT supports.
+ms.date: 01/30/2023
+ms.topic: concept-article
 ---
 
 # Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols
 
 This article lists the protocols that are supported by default in Microsoft Defender for IoT. If your organization uses proprietary protocols or other protocols not listed here, use the Defender for IoT Horizon SDK to extend support as needed.
 
-## Supported protocols for asset discovery
+## Supported protocols for OT device discovery
 
 Defender for IoT can detect the following protocols when identifying assets and devices in your network:
-
 
 |Brand / Vendor |Protocols  |
 |---------|---------|
@@ -48,13 +47,27 @@ Defender for IoT can detect the following protocols when identifying assets and 
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
+## Supported protocols for Enterprise IoT device discovery
+
+Enterprise IoT network sensors can detect the following protocols when identifying assets and devices in your network:
+
+|Brand / Vendor |Protocols  |
+|---------|---------|
+| **ALARIS** | BAXTER |
+|**ASHRAE**     |   BACnet BACapp     |
+| **Cisco** | CDP |
+| **IANA** | SIP |
+| **IETF** | BROWSE <br> DHCP <br> DNS <br> HTTP <br> LLDP <br> MDNS <br> SNMP<br> SSDP |
+|**Medical**     |DICOM <br>HL7 <br>POCT1        |
+| **SWARM** | swarm |
+
 ## Don't see your protocol here? 
 
-### Build support for proprietary protocols with the Horizon SDK
+### Build support for proprietary OT protocols with the Horizon SDK
 
-Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any protocol used in IoT and ICS environments that's not isn't already supported by default.
+Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any OT protocol used in IoT and ICS environments that's not isn't already supported by default.
 
-Horizon helps you to write plugins that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
+Horizon helps you to write plugins for OT sensors that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
 
 Horizon provides:
 

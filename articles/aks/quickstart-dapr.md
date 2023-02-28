@@ -3,7 +3,6 @@ title: Deploy an application with the Dapr cluster extension for Azure Kubernete
 description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes to deploy an application
 author: nickomang
 ms.author: nickoman
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 05/03/2022
 ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022

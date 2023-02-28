@@ -37,7 +37,7 @@ Aim to run the latest patch release of the minor version you're running. For exa
 ## Alias minor version
 
 > [!NOTE]
-> Alias minor version requires Azure CLI version 2.37 or above. Use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220201 or above. Use `az upgrade` to install the latest version of the CLI.
 
 With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
@@ -196,7 +196,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | Apr 2023 |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | Jul 2023
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
-| 1.26 | Dec 2022 | Jan 2023 | Feb 2023 | Feb 2024
+| 1.26 | Dec 2022 | Feb 2023 | Mar 2023 | Mar 2024
 | 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
 
 > [!NOTE]

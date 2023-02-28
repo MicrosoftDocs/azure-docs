@@ -51,11 +51,13 @@ Scaling is driven by three different categories of triggers:
     - Apache Kafka
     - Redis
 
+If you define more than one scale rule, the container app begins to scale once the first condition of any rules is met.
+
 ## HTTP
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
 
-In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent requests.
+In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
 ### Example
 
@@ -435,7 +437,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and all you have is the default limits and rule, then your container app will scale to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app will scale to zero and have no way of starting back up.
 
 ## Considerations
 

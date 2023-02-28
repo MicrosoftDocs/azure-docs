@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 04/20/2022
+ms.date: 01/25/2023
 ms.author: jfields
 ---
 
@@ -112,7 +112,7 @@ Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
-Customers with Global Admin role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
+Customers with Global Administrator role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
 
 ## How long does it take to deploy Permissions Management?
 
@@ -136,12 +136,24 @@ If a customer initiates a free Permissions Management 45-day trial, but does not
 
 If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
 
-We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
 
 ## Do I require a license to use Entra Permissions Management? 
 
 Yes, as of July 1st, 2022, new customers must acquire a free 45-day trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
- 
+
+## How is Permissions Management priced? 
+
+Permissions Management is $125 per resources/year ($10.40 per resource/month). Permissions Management requires licenses for workloads, which include any resource that uses compute or memory. 
+
+## Do I need to pay for all resources?
+
+Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+
+## How do I figure out how many resources I have? 
+
+To find out how many resources you have across your multicloud infrastructure, view the Billable Resources tab in Permissions Management.
+
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
 If you are using the Public Preview version of Entra Permissions Management, your current deployment(s) will continue to work through October 1st.  

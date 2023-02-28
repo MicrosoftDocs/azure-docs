@@ -1,11 +1,11 @@
 ---
 title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
-description: Debug or monitor your Machine Learning job as it runs on AzureML compute with your training application of choice. 
+description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice. 
 services: machine-learning
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to

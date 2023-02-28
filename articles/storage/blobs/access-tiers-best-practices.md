@@ -32,7 +32,7 @@ Choosing the most optimal tier up front can reduce costs. If you change the tier
 
 - For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). 
 
-- For offline data movement to the desired tier, see [Azure Data Box](/products/databox/).
+- For offline data movement to the desired tier, see [Azure Data Box](https://azure.microsoft.com/products/databox/).
 
 ## Move data into the most cost-efficient access tiers
 
@@ -65,6 +65,8 @@ The following chart shows the relative impact of packing files for the archive t
 
 > [!div class="mx-imgBorder"]
 > ![Chart that shows the impact on costs when you pack small files before uploading to the archive access tier.](./media/access-tiers-best-practices/packing-impact-archive.png)
+
+To model and analyze the cost saving of packing files, see **Packing Saving** tab in this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx).
 
 > [!TIP]
 > To facilitate search and read scenarios, consider creating an index that maps packed file paths with original file paths, and then storing these indexes as block blobs in the hot tier.

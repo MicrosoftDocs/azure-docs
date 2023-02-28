@@ -84,7 +84,7 @@ From the snippets panel, you can also submit a request to add new snippets.
 
 Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
-Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure ML studio. By default, your notebooks are in a folder with your username, and others can access them there.
+Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure Machine Learning studio. By default, your notebooks are in a folder with your username, and others can access them there.
 
 You can also copy the URL from your browser when you open a notebook, then send to others.  As long as they have appropriate access to your workspace, they can open the notebook.
 
@@ -171,12 +171,6 @@ To run a notebook or a Python script, you first connect to a running [compute in
 Once you're connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
-
-### View logs and output
-
-Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
-
-:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
 
 ## Explore variables in the notebook
 
@@ -344,7 +338,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
     * Use the Py 3.6 kernel on the existing compute instance.
     * From a terminal in the default py38 environment, run  ```pip install ipykernel==6.6.0``` OR ```pip install ipykernel==6.0.3```
 
-* **Expired token**: If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
+* **Expired token**: If you run into an expired token issue, sign out of your Azure Machine Learning studio, sign back in, and then restart the notebook kernel.
 
 * **File upload limit**: When uploading a file through the notebook's file explorer, you're limited files that are smaller than 5 TB. If you need to upload a file larger than this, we recommend that you use the SDK to upload the data to a datastore. For more information, see [Create data assets](how-to-create-data-assets.md?tabs=Python-SDK).
 

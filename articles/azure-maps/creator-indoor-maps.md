@@ -1,8 +1,8 @@
 ---
 title: Work with indoor maps in Azure Maps Creator 
 description: This article introduces concepts that apply to Azure Maps Creator services
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -14,10 +14,10 @@ services: azure-maps
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
-You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data.  Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:
+You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data. Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:
 
 - Map maker: responsible for curating and preparing the map data.
-- Creator map data user: leverages customer map data in applications.
+- Creator map data user: uses customer map data in applications.
 
 The following diagram illustrates the entire workflow.
 
@@ -159,7 +159,7 @@ The map configuration is an array of configurations. Each configuration consists
 
 The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration will be created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it will always point to the new map configuration.
 
-Below is an example of a map configuration JSON showing the default configurations. See the table below for a description of each element of the file:
+The following JSON is an example of a default map configuration. See the table below for a description of each element of the file:
 
 ```json
 {
@@ -218,7 +218,7 @@ Feature statesets are collections of dynamic properties (*states*) that are assi
 
 You can use the [Feature State service](/rest/api/maps/v2/feature-state/create-stateset) to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
-The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](/rest/api/maps/v2/feature-state/update-states), devices measuring space occupancy can systematically post the state change of a room.
+The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications. For example, using the [Feature State Update API](/rest/api/maps/v2/feature-state/update-states), devices measuring space occupancy can systematically post the state change of a room.
 
 An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module](#indoor-maps-module).
 
@@ -245,7 +245,7 @@ For wayfinding to work, the facility data must contain a [structure][structures]
 
 If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects such as stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
 
-The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
+The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can affect the path selection between floor levels.
 
 For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
@@ -310,7 +310,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [routeset]: /rest/api/maps/v20220901preview/routeset
 [wayfind]: /rest/api/maps/v20220901preview/wayfinding
-[wayfinding path] /rest/api/maps/v20220901preview/wayfinding/path
+[wayfinding path]: /rest/api/maps/v20220901preview/wayfinding/path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/map-configuration

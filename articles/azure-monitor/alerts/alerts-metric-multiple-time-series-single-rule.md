@@ -77,7 +77,7 @@ For example, assume we've set the preceding alert rule to monitor for CPU above 
 
 The alert rule triggers on *myVM1* but not *myVM2*. These triggered alerts are independent. They can also resolve at different times depending on the individual behavior of each of the virtual machines.
 
-For more information about multi-resource alert rules and the resource types supported for this capability, see [Monitoring at scale using metric alerts in Azure Monitor](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+For more information about multi-resource alert rules and the resource types supported for this capability, see [Monitoring at scale using metric alerts in Azure Monitor](alerts-types.md#monitor-multiple-resources).
 
 > [!NOTE]
 > In a metric alert rule that monitors multiple resources, only a single condition is allowed.

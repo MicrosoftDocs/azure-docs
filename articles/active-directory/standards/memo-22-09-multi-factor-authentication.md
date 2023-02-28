@@ -65,9 +65,7 @@ For more information on deploying this method, see the following resources:
 
 >[!NOTE]
 >
-> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices.
->
->**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join device or device marked as compliant.
+> Today, Microsoft Authenticator by itself is not phishing-resistant. You must additionally configure conditional access policy requiring managed device to gain protection from external phishing threats.
 
 ### Legacy
 

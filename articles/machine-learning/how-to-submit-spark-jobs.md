@@ -2,7 +2,7 @@
 title: Submit Spark jobs in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
-author: ynpandey
+author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
@@ -21,6 +21,8 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 - Azure Machine Learning CLI
 - Azure Machine Learning SDK
 
+See [this resource](./apache-spark-azure-ml-concepts.md) for more information about **Apache Spark in Azure Machine Learning** concepts.
+
 ## Prerequisites
 
 # [CLI](#tab/cli)
@@ -36,7 +38,7 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
-- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2).
+- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 # [Studio UI](#tab/ui)
@@ -78,7 +80,7 @@ If the CLI or SDK code defines an option to use managed identity, Azure Machine 
     ```
 
 ### Attach user assigned managed identity using `ARMClient`
-1. Install [DMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
+1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
 1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
     ```json
     {
@@ -339,7 +341,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
 You can submit a standalone Spark job from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
 - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
-- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
 This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning Managed (Automatic) Spark compute, using user identity.
 
@@ -396,9 +398,6 @@ ml_client.jobs.stream(returned_spark_job.name)
 > To use an attached Synapse Spark pool, define the `compute` parameter in the `azure.ai.ml.spark` function, instead of `resources`.
 
 # [Studio UI](#tab/ui)
-This functionality isn't available in the Studio UI. The Studio UI doesn't support this feature.
-
----
 
 ### Submit a standalone Spark job from Azure Machine Learning Studio UI
 To submit a standalone Spark job using the Azure Machine Learning Studio UI:
@@ -416,7 +415,7 @@ To submit a standalone Spark job using the Azure Machine Learning Studio UI:
     1. Select **Virtual machine size**.
     1. Select **Spark runtime version**.
 1. If you selected **Attached compute**:
-    1. Select an attached Synapse Spark pool from the **Select Azure ML attached compute** menu.
+    1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
 1. Select **Next**.
 1. On the **Environment** screen:
     1. Select one of the available environments from the list. Environment selection is optional.
@@ -483,6 +482,8 @@ To submit a standalone Spark job using the Azure Machine Learning Studio UI:
 1. On the **Review** screen:
     1. Review the job specification before submitting it.
     1. Select **Create** to submit the standalone Spark job.
+
+---
 
 ## Spark component in a pipeline job
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
@@ -615,7 +616,7 @@ To create an Azure Machine Learning pipeline with a Spark component, you should 
 You can submit a pipeline job with a Spark component from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
 - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
-- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
 This Python code snippet shows use of a managed identity, together with the creation of an Azure Machine Learning pipeline job. Additionally, it shows use of a Spark component and an Azure Machine Learning Managed (Automatic) Synapse compute:
 

@@ -262,6 +262,8 @@
   - name: Variables (var)
     href: variables.md
     displayName: configuration
+  - name: Import (import)
+    href: bicep-import-providers.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -354,6 +356,10 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Bicep extensibility
+      items:
+      - name: Kubernetes provider
+        href: ./bicep-extensibility-kubernetes-provider.md
     - name: Patterns
       items:
       - name: Configuration set
@@ -458,6 +464,9 @@
       - name: Use explicit values for module location parameters
         displayName: linter
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: Use parent property
+        displayName: linter
+        href: linter-rule-use-parent-property.md
       - name: use recent API versions
         displayName: linter
         href: linter-rule-use-recent-api-versions.md

@@ -2,14 +2,15 @@
 title: Assign users and groups
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/22/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.custom: contperf-fy22q2, contperf-fy22q3
 zone_pivot_groups: enterprise-apps-all
 
@@ -54,7 +55,7 @@ To assign a user or group account to an enterprise application:
 :::zone pivot="aad-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD -Scopes "Application.Read.All", "Directory.Read.All", "Application.ReadWrite.All", "Directory.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `Connect-AzureAD -Scopes "Application.Read.All", "Directory.Read.All", "Application.ReadWrite.All", "Directory.ReadWrite.All"` and sign in with a Global Administrator user account.
 1. Use the following script to assign a user and role to an application:
 
     ```powershell
@@ -116,7 +117,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 ## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
+1. Run `Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Administrator user account. Use the following script to remove a user and role from an application.
 
     ```powershell
     # Store the proper parameters
@@ -163,7 +164,7 @@ $assignments | ForEach-Object {
 :::zone pivot="ms-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Administrator user account.
 1. Use the following script to assign a user and role to an application:
 
 ```powershell    
@@ -192,7 +193,7 @@ New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
 ## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in with a Global Administrator user account. Use the following script to remove a user and role from an application.
 ```powershell
 # Get the user and the service principal
 

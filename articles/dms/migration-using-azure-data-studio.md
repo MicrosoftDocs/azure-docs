@@ -32,7 +32,7 @@ The Azure SQL Migration extension for Azure Data Studio offers these key benefit
 
 - You can run your migration online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the migration) depending on your business requirements.
 
-- You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and backups in your on-premises environment.
+- You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and existing full, differential and log backups in your on-premises environment.
 
 For information about specific migration scenarios and Azure SQL targets, see the list of tutorials in the following table:
 
@@ -145,20 +145,20 @@ To monitor database migrations in the Azure portal:
 
 - The following server objects aren't supported:
 
-  - Logins
   - SQL Server Agent jobs
   - Credentials
   - SQL Server Integration Services packages
-  - Server roles
   - Server audit
 
-  For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](https://learn.microsoft.com/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
+  For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
 
 - SQL Server 2008 and earlier as target versions aren't supported for migrations to SQL Server on Azure Virtual Machines.
 
 - If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure storage blob container instead of by using the network share option. Store the backup files as page blobs. Block blobs are supported only in SQL Server 2016 and later versions.
 
 - You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
+
+- Azure Data Studio currently supports both Azure Active Directory (Azure AD)/Windows authentication and SQL logins for connecting to the source SQL Server instance. For the Azure SQL targets, only SQL logins are supported.
 
 ## Pricing
 

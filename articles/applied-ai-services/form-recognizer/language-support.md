@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 01/06/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 ---
 
@@ -223,17 +223,18 @@ Language| Locale code |
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Receipt supports all English receipts and the following locales:
-
 |Language| Locale code |
 |:-----|:----:|
 |English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
+|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | `fr` |
-| Spanish | `es` |
+|French (France) | `fr` |
+|French (Canada)| `fr-ca`|
+|German | `de`|
+|Italian| `it`|
+|Spanish | `es` |
 
 ## Business card model
 
@@ -260,7 +261,7 @@ The **2022-06-30** and later releases  include Japanese language support:
 
 Language| Locale code |
 |:-----|:----:|
-|English (United States) |en-US|
+|English |en-US, en-IN, en-GB, en-CA, en-AU|
 |Spanish| es|
 |German (**2022-06-30** and later)| de|
 |French (**2022-06-30** and later)| fr|
@@ -505,23 +506,30 @@ This table lists the written languages supported by each Form Recognizer service
 ## Prebuilt receipt and business card
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
 Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
-|Language| Locale code |
+|Supported Languages| Details |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
+|English| United States (-us), Australia (-au), Great Britain (-gb), India (-in|
+|French | France (FR) |
+|Spanish | Spain (ES) |
 
 ## Prebuilt invoice
 
-Language| Locale code |
-|:-----|:----:|
-|English (United States)|en-us|
+>[!NOTE]
+ >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+| Supported languages | Details |
+|:----------------------|:---------|
+| <ul><li>English</li></ul>| United States (-us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| <ul><li>Spanish</li></ul>|Spain (ES)|
+| <ul><li>German</li></ul>| Germany (DE)|
+| <ul><li>French</li></ul>| France (FR) |
+| <ul><li>Italian</li></ul>| Italy (IT)|
+| <ul><li>Portuguese</li></ul>| Portugal (-pt), Brazil (-br)|
+| <ul><li>Dutch</li></ul>| Netherlands (DE)|
 
 ## Prebuilt identity documents
 

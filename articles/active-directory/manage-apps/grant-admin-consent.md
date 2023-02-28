@@ -2,14 +2,15 @@
 title: Grant tenant-wide admin consent to an application 
 description: Learn how to grant tenant-wide consent to an application so that end-users aren't prompted for consent when signing in to an application.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/07/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
@@ -72,13 +73,13 @@ When granting tenant-wide admin consent using either method described above, a w
 The tenant-wide admin consent URL follows the following format:
 
 ```http
-https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-id}
 ```
 
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{tenant-id}` is your organization's tenant ID or any verified domain name.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -69,7 +69,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group will be the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
@@ -141,6 +141,15 @@ An *access package* is a bundle of resources that a team or project needs and is
 1. Leave **Require approval** set to **No**.
 
 1. For **Enable requests**, select **Yes** to enable this access package to be requested as soon as it's created.
+
+1. To add a Verified ID requirement to the access package, select on **Add issuer** in the **Required Verified IDs** section. If you don't have the Verified ID service set up in your tenant, navigate to the **Verified ID** section of the Azure portal.
+
+    :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Screenshot of the Verified ID picker selection.":::
+
+1. Search for an issuer in the dropdown and select the credential type you want users to present when requesting access.
+
+    > [!NOTE]   
+    > If you select multiple issuers / credential types, users requesting access will be required to present **all** of the credential types you have included in this policy. To give users the option of presenting one of many credential types, please include each acceptable option in a separate policy. 
 
 1. Select **Next** to open the **Requestor information** tab.
 
