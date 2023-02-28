@@ -2,8 +2,8 @@
 title: Add controls to an iOS map
 titleSuffix: Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps iOS SDK.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
