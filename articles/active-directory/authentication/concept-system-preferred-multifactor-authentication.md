@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 02/27/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -124,7 +124,7 @@ For example, let's say an end user misplaces their FIDO2 security key. When they
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
 The system-preferred MFA also applies for users who are enabled for MFA push notifications in the legacy MFA policy.
-:::image type="content" border="true" source="./media/how-to-mfa-number-match/MFA-legacy-settings.png" alt-text="Legacy MFA settings.":::
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/mfa-legacy-settings.png" alt-text="Legacy MFA settings.":::
 
 ## Next steps
 
