@@ -17,14 +17,13 @@ March 2023 test release is now available.
 |Container images tag |`v1.17.0_2023-03-14 `|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
-|`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v6|
+|`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
 |`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`kafkas.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4|
 |`monitors.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`postgresqls.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
 |`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
-|`redis.arcdata.microsoft.com`| v1beta1|
 |`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10|
 |`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
 |`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
