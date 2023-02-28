@@ -1,8 +1,8 @@
 ---
 title: How to guide for running commands for Cluster Manager on Azure Operator Nexus
 description: Learn to create, view, list, update, delete commands for Cluster Manager on Operator Nexus
-author: krishnaposa
-ms.author: sriposa
+author: jaredr80
+ms.author: jaredro
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
