@@ -50,11 +50,11 @@ Emergency calling is automatically enabled for all users of the Azure Communicat
 
     - If you don't provide the country/region code to the SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
-      If the IP address can't provide reliable geo-location (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](/azure/communication-services/quickstarts/telephony/emergency-calling).
+      If the IP address can't provide reliable geolocation (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](/azure/communication-services/quickstarts/telephony/emergency-calling).
 
     - If the caller is dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
 
-    1. If the caller is outside the supported countries or regions, the call to 911 won't be permitted.
+    - If the caller is outside the supported countries or regions, the call to 911 won't be permitted.
 
 1. When you test your application in the United States, dial 933 instead of 911. The 933 number is enabled for testing purposes. 
 
