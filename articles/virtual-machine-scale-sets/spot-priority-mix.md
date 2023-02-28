@@ -51,9 +51,9 @@ You can set your Spot Priority Mix in the Scaling tab of the Virtual Machine Sca
 1. Log in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, search for and select **Virtual Machine Scale Sets**.
 1. Select **Create** on the **Virtual Machine Scale Sets** page.
-1. In the **Basics** tab, fill out the required fields and select **Flexible** as the **Orchestration** mode.
+1. In the **Basics** tab, fill out the required fields, select **Flexible** as the **Orchestration** mode, and select the checkbox for **Run with Azure Spot discount**.
 1. Fill out the **Disks** and **Networking** tabs.
-1. In the **Scaling** tab, select the check-box next to *Scale with VMs and Spot VMs* option under the **Scale with VMs and discounted Spot VMs** section.
+1. In the **Spot** tab, select the check-box next to *Scale with VMs and Spot VMs* option under the **Scale with VMs and discounted Spot VMs** section.
 1. Fill out the **Base VM (uninterruptible) count** and **Instance distribution** fields to configure your priorities.
 1. Continue through the Virtual Machine Scale Set creation process. 
 
@@ -168,7 +168,7 @@ Example walk-through:
 
 ## Troubleshooting 
 
-There is only one error that is specific to Spot Priority Mix. To avoid it, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in `the virtualMachineProfile`. All other potential errors are either the normal Virtual Machine Scale Set, Spot, or Autoscale errors.
+There is only one error that is specific to Spot Priority Mix. To avoid it, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. All other potential errors are either the normal Virtual Machine Scale Set, Spot, or Autoscale errors.
 
 ## Next steps
 
