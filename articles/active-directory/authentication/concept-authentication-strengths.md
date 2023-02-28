@@ -139,7 +139,27 @@ Users may register for authentications for which they are enabled, and in other 
 
 The authentication strength Conditional Access policy defines which methods can be used. Azure AD checks the policy during sign-in to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy. To be used, a method must be allowed, registered by the user (either before or as part of the access request), and satisfy the authentication strength. 
 
-### How mult
+ 
+### How multiple Conditional Access authentication strength policies are evaluated 
+
+In general, when there are multiple Conditional Access policies applicable for a single sign-in, all conditions from all policies must be met. In the same vein, when there are multiple Conditional Access policies which apply authentication strengths to the sign-in, the user must satisfy all of the authentication strength policies. For example, if two different authentication strength policies both require FIDO2, the user can use their FIDO2 security key and satisfy both policies. If the two authentication strength policies have different sets of methods, the user must use multiple methods to satisfy both policies. 
+
+#### How multiple Conditional Access authentication strength policies are evaluated for registering security info 
+
+For security info registration, the authentication strength evaluation is treated differently – authentication strengths that targets the user action of “registering security info” are preferred over other authentication strength policies that target “all cloud apps”. All other grant controls (such as “Require device to be marked as compliant”) from other Conditional Access policies in scope for the sign-in will apply as usual.  
+
+For example, let’s assume Contoso would like to require their users to always sign in with a phishing-resistant authentication method and from a compliant device. Contoso also wants to allow new employees to register these authentication methods using a Temporary Access Pass (TAP). TAP can’t be used on any other resource. To achieve this goal, the admin can take the following steps: 
+
+Create a custom authentication strength named "Bootstrap and recovery" that includes the Temporary Access Pass authentication combination, it can also include any of the phishing-resistant MFA methods.  
+
+Create a Conditional Access policy which targets “all cloud apps” and requires "Phishing-resistant MFA" authentication strength AND "Require compliant device" grant controls. 
+
+Create a Conditional Access policy that targets the "Register security information" user action and requires the "Bootstrap and recovery" authentication strength. 
+
+As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook) . 
+
+Note: if multiple conditional access policies target the “register security information” user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
+
 
 
 ## User experience
