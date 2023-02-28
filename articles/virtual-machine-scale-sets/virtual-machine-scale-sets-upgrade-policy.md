@@ -12,13 +12,28 @@ ms.custom:
 ---
 # Upgrade Policies for Virtual Machine Scale Sets
 
-Scale sets have an "upgrade policy" that determines how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
+Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are:
 
-- **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
-- **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
-    - **MaxSurge** True
-    - **MaxSurge** False 
-- **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs.
+### Automatic 
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. Upgrade Policy using Automatic is only suggested to be used on dev/test deployments. 
+
+### Rolling
+
+> [!IMPORTANT]
+> Rolling Upgrades with MaxSurge enabled is currently in Public Preview
+
+In this mode, the scale set rolls out the update in batches with an optional pause time between batches. Additionally, when selecting a Rolling Upgrade policy, users can select to enable **MaxSurge** via a true or false flag. When MaxSurge is set to true, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances will be added to the scale set and the old model instances will be removed. This will occur in multiple batches (batch size determined by customer) until all instances are brought up to date. 
+
+With MaxSurge set to false, the existing instances in a scale set are brought down to be upgraded. Once the upgrade is complete, the instances will begin taking traffic again. 
+
+
+### Manual
+In this mode, you choose when to update the scale set model. Nothing happens automatically to the existing VMs when changes occur to the scale model.
+
+
+## Deploy a new scale set
+
+## Update an existing scale set
  
 To update existing VMs, you must do a "manual upgrade" of each existing VM. You can do this manual upgrade with:
 
