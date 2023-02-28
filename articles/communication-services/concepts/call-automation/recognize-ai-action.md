@@ -14,7 +14,7 @@ ms.custom: private_preview
 
 
 
-With the release of ACS Recognize action, developers can now enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is playing a message for the user which prompts them to provide a response that then gets recognized by the application, once recognized the application then carries out a corresponding action. Input from callers can be received in several ways which include DTMF (user input via the digits on their calling device), speech or a combination of both DTMF and speech.
+With the release of ACS Call Automation Recognize action, developers can now enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is playing a message for the user which prompts them to provide a response that then gets recognized by the application, once recognized the application then carries out a corresponding action. Input from callers can be received in several ways which include DTMF (user input via the digits on their calling device), speech or a combination of both DTMF and speech.
 
 **Voice recognition with speech-to-text**
 
@@ -70,7 +70,7 @@ The recognize action can be used for many reasons, below are a few examples of h
 
 ## What's coming up next for Recognize action
 
-As we invest more into this functionality, we recommend developers sign up to our TAP program that allows you to get early access to the newest feature releases. Over the coming months the recognize action will add in new capabilities that use our integration with Azure Cognitive Services to provide AI capabilities such as Speech-To-Text. With these, you can improve customer interactions and recognize voice inputs from participants on the call. 
+As we invest more into this functionality, we recommend developers sign up to our TAP program that allows you to get early access to the newest feature releases. Over the coming months the recognize action will add in new capabilities that use our integration with Azure Cognitive Services to provide AI capabilities such as plain Speech-To-Text instead of pre-defined choices. With these, you can improve customer interactions and recognize voice inputs from participants on the call. 
 
 ## Next steps
 
