@@ -16,17 +16,17 @@ ms.collection: M365-identity-device-management
 ---
 # System-preferred multifactor authentication  - Authentication methods policy
 
-System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method they have registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
+System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method they registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
 
-For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method they registered. 
+For example, if a user registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they're first prompted to try the most secure method they registered. 
 
-System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the **default** state will only be disabled. If you want to turn it on for all users or a group of users during preview, you need to explicitly change the Microsoft managed state to **enabled** by using Microsoft Graph API. Sometime after general availability, the Microsoft managed state for system-preferred MFA will change to **enabled**. 
+System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the **default** state is disabled. If you want to turn it on for all users or a group of users during preview, you need to explicitly change the Microsoft managed state to **enabled** by using Microsoft Graph API. Sometime after general availability, the Microsoft managed state for system-preferred MFA will change to **enabled**. 
 
-After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system will always determine and present the most secure method they have registered. 
+After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
 
 ## Enable system-preferred MFA
 
-To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. 
+To enable system-preferred MFA in advance, you need to choose a single target group for the schema configuration, as shown in the [Request](#request) example. 
 
 ### Authentication method feature configuration properties
 
@@ -34,13 +34,13 @@ By default, system-preferred MFA is [Microsoft managed](concept-authentication-d
 
 | Property | Type | Description |
 |----------|------|-------------|
-| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA,which can be a dynamic or nested group.|
-| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA,,which can be a dynamic or nested group.|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA, which can be a dynamic or nested group.|
+| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA, which can be a dynamic or nested group.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
 ### Feature target properties
 
-System-preferred MFA can be enabled only for a single group. 
+System-preferred MFA can be enabled only for a single group, which can be a dynamic or nested group. 
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -54,7 +54,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
 ```
 
 >[!NOTE]
->In Graph Explorer, you'll need to consent to the **Policy.ReadWrite.AuthenticationMethod** permission. 
+>In Graph Explorer, you need to consent to the **Policy.ReadWrite.AuthenticationMethod** permission. 
 
 ### Request
 
@@ -111,15 +111,15 @@ When a user signs in, the authentication process checks which authentication met
 1. TwowayVoiceOffice
 1. TwowaySMSOverMobile
 
-### How does system-preferred MFA affect AD FS or NPS extension?
+### How does system-preferred MFA effect AD FS or NPS extension?
 
-System-preferred MFA has no affect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users will not see any change to their sign-in experience.
+System-preferred MFA has no effect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
 
 ### What if the most secure MFA method is not available? 
 
-If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
+If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they're redirected to their Security info page to remove the registration of the authentication method that isn't available. 
 
-For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page will appear and they will need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
+For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page appears and they need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
