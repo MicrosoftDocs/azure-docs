@@ -57,6 +57,8 @@ Use log files to investigate and monitor. See the following articles for more:
 * [Sign-in logs in Azure AD (preview)](../reports-monitoring/concept-all-sign-ins.md)
 * [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
 
+### Audit logs and automation tools
+
 From the Azure portal, you can view Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. Use the Azure portal to integrate Azure AD logs with other tools to automate monitoring and alerting:
 
 * **Microsoft Sentinel** – security analytics with security information and event management (SIEM) capabilities
@@ -77,7 +79,7 @@ Use the remainder of the article for recommendations on what to monitor and aler
 
 ## Consumer accounts
 
-| What to monitor | Risk Level | Where | Filter / subfilter | Notes |
+| What to monitor | Risk level | Where | Filter / subfilter | Notes |
 | - | - | - | - | - |
 | Large number of account creations or deletions | High | Azure AD Audit logs | Activity: Add user<br>Status = success<br>Initiated by (actor) = CPIM Service<br>-and-<br>Activity: Delete user<br>Status = success<br>Initiated by (actor) = CPIM Service | Define a baseline threshold, and then monitor and adjust to suite your organizational behaviors. Limit false alerts. |
 | Accounts created and deleted by non-approved users or processes| Medium | Azure AD Audit logs | Initiated by (actor) – USER PRINCIPAL NAME<br>-and-<br>Activity: Add user<br>Status = success<br>Initiated by (actor) != CPIM Service<br>and-or<br>Activity: Delete user<br>Status = success<br>Initiated by (actor) != CPIM Service | If the actors are non-approved users, configure to send an alert. |
@@ -91,7 +93,7 @@ Use the remainder of the article for recommendations on what to monitor and aler
 
 ## Privileged accounts
 
-| What to monitor | Risk Level | Where | Filter/sub-filter | Notes |
+| What to monitor | Risk level | Where | Filter / sub-filter | Notes |
 | - | - | - | - | - |
 | Sign-in failure, bad password threshold | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold and monitor and adjust to suit your organizational behaviors. Limit false alerts. |
 | Failure because of Conditional Access requirement | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = Blocked by Conditional Access | This event can indicate an attacker is trying to get into the account. |
@@ -109,7 +111,7 @@ Identity Provider deleted by non-approved actors | High | Azure AD Access Review
 
 ## Applications
 
-| What to monitor | Risk Level | Where | Filter/sub-filter | Notes |
+| What to monitor | Risk level | Where | Filter / sub-filter | Notes |
 | - | - | - | - | - |
 | Added credentials to applications | High | Azure AD Audit logs | Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application-Certificates and secrets management<br>-and-<br>Activity: Update Service principal/Update Application | Alert when credentials are: added outside normal business hours or workflows, types not used in your environment, or added to a non-SAML flow supporting service principal. |
 | App assigned to an Azure role-based access control (RBAC) role, or Azure AD Role | High to medium | Azure AD Audit logs | Type: service principal<br>Activity: “Add member to role”<br>or<br>“Add eligible member to role”<br>-or-<br>“Add scoped member to role.” |N/A|
