@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 ms.author: jasteppe
 ---
 
@@ -19,12 +19,11 @@ This article provides an overview of the device message data processing stages w
 
 The MedTech service device message data processing follows these steps and in this order:
 
-> [!div class="checklist"]
-> - Ingest
-> - Normalize - Device mappings applied.
-> - Group - (Optional)
-> - Transform - FHIR destination mappings applied.
-> - Persist
+* Ingest
+* Normalize - Device mappings applied.
+* Group - (Optional)
+* Transform - FHIR destination mappings applied.
+* Persist
 
 :::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
 
@@ -55,12 +54,11 @@ The normalization process not only simplifies data processing at later stages, b
 ## Group - (Optional)
 Group is the next *optional* stage where the normalized messages available from the MedTech service normalization stage are grouped using three different parameters:
 
-> [!div class="checklist"]
-> - Device identity
-> - Measurement type
-> - Time period
+* Device identity
+* Measurement type
+* Time period
 
-`Device identity` and `measurement type` grouping is optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation resource that represents a 1-hour period or a 24-hour period.
+Device identity and measurement type grouping are optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation resource that represents a 1-hour period or a 24-hour period.
 
 ## Transform
 Transform is the next stage where normalized messages are processed using user-selected/user-created conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored.
@@ -70,10 +68,10 @@ At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, alon
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to `Create`, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [**Resolution type**](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to **Lookup**, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to **Create**, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
 
 > [!NOTE]
-> The `Resolution Type` can also be adjusted post deployment of the MedTech service if a different `Resolution Type` is later required.
+> The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.
 
 The MedTech service provides near real-time processing and will also attempt to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after ~five minutes. This means that when there's fewer than 300 normalized messages to be processed, there may be a delay of ~five minutes before FHIR Observations are created or updated in the FHIR service.
 

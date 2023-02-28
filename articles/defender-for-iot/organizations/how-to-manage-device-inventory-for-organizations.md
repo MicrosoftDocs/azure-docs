@@ -93,14 +93,15 @@ The following device fields are supported for editing in the **Device inventory*
 |---------|---------|
 | **General information** | |
 |**Name** | Mandatory. Supported for editing only when editing a single device. |
-|**Authorization**     |Toggle on or off as needed as device security changes.         |
+|**Authorized device**     |Toggle on or off as needed as device security changes.         |
 |**Description**     |  Enter a meaningful description for the device.       |
 |**Location**     |   Enter a meaningful location for the device.      |
 |**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
-|**Business Function**     | Enter a meaningful description of the device's business function.        |
-|**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
-|**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
+|**Business function**     | Enter a meaningful description of the device's business function.        |
+|**Hardware model**     |   Select the device's hardware model from the dropdown menu.      |
+|**Hardware vendor**     | Select the device's hardware vendor from the dropdown menu.        |
 |**Firmware**      |   Device the device's firmware name and version. You can either select the **delete** button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+| **Purdue level** | The Purdue level in which the device exists. |
 |**Tags**     | Enter meaningful tags for the device. Select the **delete**  button to delete an existing tag, or select **+ Add** to add a new one.         |
 | **Settings** |
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |

@@ -209,7 +209,7 @@ az role assignment create --assignee $PRINCIPAL_ID  \
 ```azurepowershell
 Install-Module Az.Resources
 
-New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data Contributor' -Scope '/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName'
+New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data Contributor' -Scope "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName"
 ```
 
 ---

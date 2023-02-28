@@ -114,7 +114,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
 | Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-| REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+| REST API | [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
 Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 
@@ -166,4 +166,4 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 * [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
 * [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 * [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-* [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
