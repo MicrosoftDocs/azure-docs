@@ -196,7 +196,7 @@ Before you start, make sure you've completed the following steps:
 6.	Start the Stream Analytics job.
 7. On the **Monitor** page for your Azure function, you see that the function is invoked. 
 
-    :::image type="content" source="./media/stream-analytics-with-azure-functions/function-invocations.png" alt-text="Screenshot showing the Minitor page for Azure Functions with function invocations.":::
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/function-invocations.png" alt-text="Screenshot showing the Monitor page for Azure Functions with function invocations.":::
 1. On the **Azure Cache for Redis** page your cache, select **Metrics** on the left menu, add **Cache Write** metric, and set the duration to **last hour**. You see the chart similar to the following image.
 
     :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-cache-write-metric.png" alt-text="Screenshot showing the Metrics page for your Azure Cache for Redis.":::
@@ -230,7 +230,7 @@ log.LogInformation($"Object put in database. Key is {key} and value is {data[i].
 
    This command should print the value for the specified key:
 
-    :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-console.png" alt-text="Screenshot showing the Redit Cache console showing the output of the Get command.":::
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-console.png" alt-text="Screenshot showing the Redis Cache console showing the output of the Get command.":::
 
 ## Error handling and retries
 
