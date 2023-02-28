@@ -28,6 +28,8 @@
     items:
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
+    - name: ARM template
+      href: manage-ddos-protection-ip-template.md           
       expanded: true
 
 - name: Tutorials
