@@ -32,7 +32,7 @@ ms.author: aahi
 * You can see for each intent or entity the precision, recall, F1 score, number of training and testing labels. Entities that do not include a learned component will show no training labels. A learned component is added only by adding labels in your training set.
 
 
-    :::image type="content" source="../../media/entity-type-performance.png" alt-text="A screenshot of entity performance." lightbox="../../media/model-type-performance.png":::
+    :::image type="content" source="../../media/model-type-performance.png" alt-text="A screenshot of model performance." lightbox="../../media/model-type-performance.png":::
 
 ### [Test set details](#tab/test-set)
 
