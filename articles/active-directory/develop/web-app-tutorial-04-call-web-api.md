@@ -32,7 +32,7 @@ In this tutorial:
 
 1. Open *Index.cshtml* and add the following code to the bottom of the file. This will handle how the information received from the API is displayed:
 
-   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Index.cshtml" id="ms_docref_add_api_result_display" :::
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Index.cshtml" range="13-17" :::
 
 ## Test the application
 

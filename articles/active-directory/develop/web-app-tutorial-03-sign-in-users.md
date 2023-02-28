@@ -92,11 +92,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
 1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line should be placed between `</ul>` and `</div>`:
 
-    ```csharp
-      </ul>
-        <partial name="_LoginPartial" />
-    </div>
-    ```
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Shared/_Layout.cshtml" range="29-31" :::
 
 ## Next steps
 
