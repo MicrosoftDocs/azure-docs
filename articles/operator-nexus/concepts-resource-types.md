@@ -24,7 +24,7 @@ Your Operator Nexus Cluster (or simply instance) platform components include the
 
 ### Network fabric controller
 
-The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an Operator Nexus instance.
+The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices deployed in an Operator Nexus instance.
 The NFC resource is created in the Resource group specified by you in your Azure subscription.
 NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
 The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
@@ -39,15 +39,15 @@ It configures and bootstraps the network fabric resources.
 
 ### Cluster manager
 
-A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
+The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
-### Operator nexus cluster
+### Cluster
 
-An Operator Nexus cluster models a collection of racks, bare metal machines, storage, and networking.
-Each cluster (sometimes also referred as Operator Nexus instance) is mapped to the on-premises Network fabric. An Operator Nexus cluster provides a holistic view of the deployed capacity.
-Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. An Operator Nexus cluster is also the basic unit for compute and storage upgrades.
+The Cluster (or Compute Cluster) resource models a collection of racks, bare metal machines, storage, and networking.
+Each cluster is mapped to the on-premises Network fabric. A cluster provides a holistic view of the deployed compute capacity.
+Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. A cluster is also the basic unit for compute and storage upgrades.
 
 ### Network rack
 
