@@ -18,13 +18,13 @@ ms.custom: legacy
 
 This article covers the older managed image technology. For the most current technology, customers are encouraged to use [Azure Compute Gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted Launch, and Confidential VM  are only supported through Azure Compute Gallery.  If you have an existing managed image, you can use it as a source and create an Azure Compute Gallery image.  For more information, see [Create an image definition and image version](image-version.md).
 
-One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
 
 For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Prerequisites
 
-You need a [generalized](../generalize.md) VM in order to create an image.
+You need a [generalized](generalize.md) VM in order to create an image.
 
 ## Create a managed image from a VM using the portal 
 
@@ -39,7 +39,7 @@ You need a [generalized](../generalize.md) VM in order to create an image.
 4. For **Name**, either accept the pre-populated name or type your own name for the image.
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
-7. 7. If you want the ability to use the image in any [availability zone](../../availability-zones/az-overview.md), select **On** for **Zone resiliency**.
+7. 7. If you want the ability to use the image in any [availability zone](../availability-zones/az-overview.md), select **On** for **Zone resiliency**.
 
 8. Select **Create** to create the image.
 
@@ -55,7 +55,7 @@ Before you begin, make sure that you have the latest version of the Azure PowerS
 
 
 > [!NOTE]
-> If you would like to store your image in zone-redundant storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-ZoneResilient` parameter in the image configuration (`New-AzImageConfig` command).
+> If you would like to store your image in zone-redundant storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the `-ZoneResilient` parameter in the image configuration (`New-AzImageConfig` command).
 
 To create a VM image, follow these steps:
 
@@ -205,7 +205,7 @@ To create a managed image from a VM that doesn't use managed disks, you need the
 
 ## Create a VM from a managed image
 
-One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
 
 ### Portal
 
@@ -244,5 +244,5 @@ New-AzVm `
 
 	
 ## Next steps
-- [Create a VM from a managed image](create-vm-generalized-managed.md).	
-- Learn more about using an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery)
+
+- Learn more about using an [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)
