@@ -108,10 +108,6 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
-## Next steps
-
-Learn how to use feature statesets to define dynamic properties and values on specific features.
-
 > [!div class="nextstepaction"]
 > [How to create a feature stateset]
 
