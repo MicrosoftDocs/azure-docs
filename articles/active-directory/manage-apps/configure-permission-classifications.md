@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 2/23/2023
+ms.date: 2/24/2023
 ms.author: jomondi
 ms.reviewer: arvindh, luleon, phsignor, jawoods
 ms.custom: contperf-fy21q2
@@ -129,7 +129,7 @@ Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
 
 :::zone pivot="ms-powershell"
 
-You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?preserve-view=true&view=graph-powershell-1.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
 
 Run the following command to connect to Microsoft Graph PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
