@@ -71,7 +71,7 @@ Selected notifications on the OT sensor's **Device map** page are now automatica
 
 ### Device data retention updates
 
-<!--what is the update? Clarify heading. Yonina.>
+The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
