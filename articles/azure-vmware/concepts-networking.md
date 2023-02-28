@@ -68,7 +68,7 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 | **Supported** |**Not supported**|
 | ---------------| ---------------|
 | Default route – 0.0.0.0/0*| Bogon routes. For example: ``0.0.0.0/1, 128.0.0.0/1 0.0.0.0/5``, or ``192.0.0.0/3.``|
-|RFC-1918 address blocks. For example, (``10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16``) or its subnets ( ``10.1.0.0/16, 172.24.0.0/16, 192.168.1.0/24``).| Special address block reserved by IANA. E.g., 100.64.0.0/10 and its subnets. |
+|RFC-1918 address blocks. For example, (``10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16``) or its subnets ( ``10.1.0.0/16, 172.24.0.0/16, 192.168.1.0/24``).| Special address block reserved by IANA. For example,``RFC 6598-100.64.0.0/10`` and its subnets. |
 |Customer owned public-IP CIDR block or its subnets.||
 
 > [!NOTE]
