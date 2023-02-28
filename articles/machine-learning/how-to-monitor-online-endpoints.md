@@ -195,8 +195,8 @@ The following tables provide details on the data stored in each log:
 | Method | The requested method from client. 
 | Path | The requested path from client. 
 | SubscriptionId | The machine learning subscription ID of the online endpoint. 
-| WorkspaceId | The machine learning workspace ID of the online endpoint. 
-| WorkspaceName | The machine learning workspace name of the online endpoint. 
+| AzureMLWorkspaceId | The machine learning workspace ID of the online endpoint. 
+| AzureMLWorkspaceName | The machine learning workspace name of the online endpoint. 
 | EndpointName | The name of the online endpoint. 
 | DeploymentName | The name of the online deployment. 
 | Protocol | The protocol of the request. 
