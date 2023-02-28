@@ -276,7 +276,7 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 ## Clean up resources
 
-If you're no longer need the gateways and other resources created in this tutorial, delete the resource group and all of the resources it contains:
+When no longer needed, delete the resource group and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
