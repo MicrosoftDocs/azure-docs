@@ -42,7 +42,7 @@ Use Jupyter Notebook to:
 
 You can run Jupyter Notebook on log data in Azure Monitor Logs: 
 - In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Synapse Notebooks](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services. 
-- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance?view=azure-sqldw-latest) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
+- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
 
 For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
 
@@ -51,8 +51,8 @@ In this tutorial, you learn how to:
 1. Create a new or open existing notebook in Azure Machine Learning. 
 1. Connect to a Log Analytics workspace and run KQL queries and custom code. We will show two examples: 
 
-    - Custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme?view=azure-python) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
-    - Built-in KQL time series and machine learning functions: We'll use the [MSTICPY library](https://msticpy.readthedocs.io/en/latest/) to explorer data with KQL queries and visualizations, and run a built-in templated query (in Python) to invoke a native KQL function for anomaly detection, and we'll apply custom code to refine anomalies and save them into a pandas DataFrame. 
+    - Custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
+    - Built-in KQL time series and machine learning functions: We'll use the [MSTICPY library](https://msticpy.readthedocs.io) to explorer data with KQL queries and visualizations, and run a built-in templated query (in Python) to invoke a native KQL function for anomaly detection, and we'll apply custom code to refine anomalies and save them into a pandas DataFrame. 
 
 1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
@@ -65,14 +65,14 @@ In this tutorial, you learn how to:
     
     For this tutorial, select CPU type. 
     
-    To use distributed GPU training code, see [Distributed GPU training guide](azure/machine-learning/v1/how-to-train-distributed-gpu). 
+    To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu). 
  
 1. Verify Python kernel selected Python 3.8 or higher. 
 
 
  ## Install required Python tools
 
-1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/en-us/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you execute read-only queries on data in your Log Analytics workspace. 
+1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/python/api/overview/azure/monitor-query-readme), which lets you execute read-only queries on data in your Log Analytics workspace. 
 1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK. 
 1. Install [Plotly](https://plotly.com/python/), a popular Python visualization package.
 
