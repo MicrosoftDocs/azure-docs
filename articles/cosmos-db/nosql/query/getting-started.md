@@ -45,7 +45,7 @@ In your API for NoSQL Azure Cosmos DB account, use the [Data Explorer](../../dat
 The menu bar should now have the **New Item** option. You use this option to create the JSON items in this article.
 
 > [!TIP]
-> For this quick guide, you can use `/id` as the partition key. For a real-world container, you should consider your overall workload when selecting a partition key strategy. For more information, see [partitioning and horizontal scaling](../partitioning-overview.md).
+> For this quick guide, you can use `/id` as the partition key. For a real-world container, you should consider your overall workload when selecting a partition key strategy. For more information, see [partitioning and horizontal scaling](../../partitioning-overview.md).
 
 ### Create JSON items
 
