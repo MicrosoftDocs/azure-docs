@@ -41,11 +41,8 @@ You can test creating your own audio file using our [Speech synthesis with Audio
 
 ## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
-If you would like to use Text-To-Speech capabilities, then it's required for you to connect your Azure Cognitive Service to your Azure Communication Service.
-``` code
-az communication bind-cognitive-service --name “{Azure Communication resource name}” --resource-group “{Azure Communication resource group}” --resource-id “{Cognitive service resource id}” --subscription{subscription Name of Cognitive service} –identity{Cognitive Services Identity}
+If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
-```
 ## Establish a call
 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
@@ -66,7 +63,7 @@ Once the call has been established, there are multiple options for how you may w
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. 
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` csharp
 FileSource playSource = new FileSource (new Uri(<audioUri>));
@@ -74,16 +71,40 @@ FileSource playSource = new FileSource (new Uri(<audioUri>));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use.
+To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Cognitive Services, full list [here]().
 
 ```csharp
 String textToPlay = "Welcome to Contoso";
+
+//you can provide SourceLocale and VoiceGender as one option for playing audio
 TextSource playSource = new TextSource(textToPlay);
 {
     SourceLocale = "en-US",
-    VoiceGender = GenderType.Female,
-    VoiceName = "en-US-ElizabethNeural"
+    VoiceGender = GenderType.Female,    
  };
+```
+
+```csharp
+String textToPlay = "Welcome to Contoso";
+
+//you can provide VoiceName
+TextSource playSource = new TextSource(textToPlay);
+{
+    VoiceName = "en-US-ElizabethNeural" 
+ };
+```
+
+Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
+
+
+## Play audio to all participants
+
+In this scenario audio is played to all participants on the call.
+
+``` csharp
+var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
+var playResponse = await callMedia.PlayToAllAsync(playSource);
+Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
 ## Play audio to a specific participant
@@ -94,16 +115,6 @@ In this scenario audio is played to a specific participant.
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var playResponse = await callMedia.PlayAsync(playSource, new PhoneNumberIdentifier[] { targetUser });
-Assert.AreEqual(202, playResponse.Status) // The request was accepted.
-```
-
-## Play audio to all participants
-
-In this scenario audio is played to all participants on the call.
-
-``` csharp
-var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
-var playResponse = await callMedia.PlayToAllAsync(playSource);
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
