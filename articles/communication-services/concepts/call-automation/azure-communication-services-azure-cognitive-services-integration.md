@@ -83,7 +83,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 7.  Select the "Resource Group" containing the Cognitive Service 
 8.  Select the "Role" "Cognitive Services User"
 
-[![ACS role information](./media/acs-roles-cognitiveservices.png)](./media/acs-roles-cognitiveservices.png#lightbox)
+[![ACS role information](./media/acs-roles-cognitive-services.png)](./media/acs-roles-cognitive-services.png#lightbox)
 
 10.  Click Save 
 
