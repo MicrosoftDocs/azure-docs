@@ -26,6 +26,8 @@
       expanded: true
   - name: DDoS IP Protection
     items:
+    - name: Portal
+      href: manage-ddos-protection-portal-ip.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
       expanded: true
