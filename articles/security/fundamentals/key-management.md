@@ -2,16 +2,14 @@
 title: Overview of Key Management in Azure
 description: This article provides an overview of Key Management in Azure.
 services: security
-documentationcenter: na
 author: msmbaldwin
 
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
+ms.collection:
+  - zerotrust-services
 ---
 
 # Key management in Azure

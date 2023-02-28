@@ -7,10 +7,12 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/28/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
 author: msmbaldwin
+ms.collection:
+  - zerotrust-services
+
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
 ---

@@ -8,9 +8,10 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.custom: mvc
-ms.date: 12/12/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
+ms.collection:
+  - zerotrust-services
 
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
