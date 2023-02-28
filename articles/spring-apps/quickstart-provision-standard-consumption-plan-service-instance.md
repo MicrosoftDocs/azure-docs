@@ -33,7 +33,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
    - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-   - **Location**: Select the location for your service instance. For now, the following regions are supported: East US, West Europe, East Asia and Southeast Asia.
+   - **Location**: Select the location for your service instance. For now, the following regions are supported: Australia East, Central US, East US, East US 2, West Europe, East Asia, North Europe, South Central US, UK South, West US 3.
    - Select **Standard Consumption** for the **Pricing tier** option.
    - **App Environment**: Create a new App Environment or use an existing App Environment. 
 
@@ -42,8 +42,8 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
       > 2. Fill out the form on the App Environment **Create** page.
       > :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
 
->[!NOTE]
-> Optionally, you can also [create an App Environment with your own virtual network](./how-to-create-app-environment-with-existing-virtual-network.md).
+    >[!NOTE]
+    > Optionally, you can also [create an App Environment with your own virtual network](./how-to-create-app-environment-with-existing-virtual-network.md).
    
 
    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png":::
