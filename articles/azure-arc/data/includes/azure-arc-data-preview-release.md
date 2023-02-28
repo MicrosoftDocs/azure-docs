@@ -20,16 +20,16 @@ March 2023 test release is now available.
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
 |`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
-|`kafkas.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4|
+|`kafkas.arcdata.microsoft.com`| v1beta1 through v1beta4|
 |`monitors.arcdata.microsoft.com`| v1beta1, v1, v2|
-|`postgresqls.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
+|`postgresqls.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
-|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10|
+|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v10|
 |`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
 |`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
-|`telemetrycollectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
-|`telemetryrouters.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
+|`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2022-06-15-preview|
 |`arcdata` Azure CLI extension version|1.4.12 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.17.0|
