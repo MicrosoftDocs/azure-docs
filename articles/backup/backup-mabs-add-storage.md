@@ -2,7 +2,7 @@
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/01/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,7 +16,7 @@ Azure Backup Server V2 and later supports Modern Backup Storage that offers stor
 > To use Modern Backup Storage, you must run Backup Server V2 or later on Windows Server 2016 or later.
 > If you run Backup Server V2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server V1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
 >
-> To achieve enhanced backup performances we recommend deploying MABS v4 with tiered storage on Windows Server 2022. To configure tiered storage, see [Set up MBS with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage).
+> To achieve enhanced backup performance we recommend deploying MABS v4 with tiered storage on Windows Server 2022. To configure tiered storage, see [Set up MBS with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage).
 
 ## Volumes in Backup Server
 
