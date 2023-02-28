@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 02/22/2023
+ms.date: 02/28/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -48,7 +48,7 @@ For more information, see [Manage your OT device inventory from a sensor console
 
 ### Updated severity for all Suspicion of Malicious Activity alerts
 
-All alerts with the **Suspicion of Malicious Activity** category now have an alert of <!--Critical?-->.
+All alerts with the **Suspicion of Malicious Activity** category now have an severity of **Critical**.
 
 For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
 
@@ -72,6 +72,8 @@ Selected notifications on the OT sensor's **Device map** page are now automatica
 ### Device data retention updates
 
 The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
+
+For more information, see [Device data retention periods](references-data-retention.md#device-data-retention-periods).
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
