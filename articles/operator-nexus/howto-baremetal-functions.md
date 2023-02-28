@@ -60,7 +60,7 @@ parameter, the workloads that are running on the BMM are `stopped` and the BMM i
     --resource-group "resourceGroupName"
 ```
 
-The `evacuate "True"` removes wokrloads from that node while `evacuate "FALSE"` only prevents the scheduling of new workloads.
+The `evacuate "True"` removes workloads from that node while `evacuate "FALSE"` only prevents the scheduling of new workloads.
 
 ## Make a BMM schedulable (uncordon)
 
