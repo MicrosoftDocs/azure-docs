@@ -36,9 +36,8 @@ Follow these steps to register your application in the Azure portal:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-1. Navigate to the Portal's [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Select **New registration**.
-1. Enter a **Name** for your application, for example `python-webapp` . Users of your app might see this name, and you can change it later.
+1. Navigate to the portal's [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page, and select **New registration**.
+1. Enter a **Name** for your application, for example *python-webapp*. 
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Under **Redirect URIs**, select **Web** for the platform.
 1. Enter a redirect URI of `http://localhost:5000/getAToken`. This can be changed later.
@@ -48,8 +47,8 @@ Follow these steps to register your application in the Azure portal:
 
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select the **Certificates & secrets** and from the **Client secrets** section, select **New client secret**.
-1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
-1. Save the **Value** of the **Client Secret** in a safe location. You will need it to configure the code, and you can't retrieve it later.
+1. Enter a description for the client secret, leave the default expiration, and select **Add**.
+1. Save the **Value** of the **Client Secret** in a safe location. You'll need it to configure the code, and you can't retrieve it later.
 
 ## Step 3: Add a scope
 
@@ -63,7 +62,7 @@ Follow these steps to register your application in the Azure portal:
 
 [Download the Python code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip) or clone the repository:
 
-```shell
+```powershell
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
 ```
 
@@ -73,7 +72,7 @@ You can also use an integrated development environment to open the folder.
 
 1. Go to the application folder.
 
-1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
+1. Create an *.env* file in the root folder of the project using *.env.sample* as a guide.
 
     ```python
     TENANT_ID=<tenant id>
