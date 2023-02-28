@@ -20,19 +20,19 @@ In this tutorial, we'll demonstrate how you can create a machine learning model 
 This provides you with a number of advantages:
 
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
+- You can work with log data at big scales without have to export data to external services.  
+- Running custom code on using your web browser lets you get started quickly without having to install Python or other tools on your local computer.
 
-## Tools used
+## Tools you'll use
 
-Use Jupyter Notebook to: 
-- Run custom code on data in Azure Monitor Logs using your web browser, which lets you get started quickly without needing to install Python or other tools on your local computer. . 
-- Work with log data at big scales either by using in-memory processing using the [pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/latest/api/python/index.html), or by exporting data to external services.  
-
-
-by using Jupyter Notebook 
+- Jupyter Notebook
+- [Azure Monitor REST API](/rest/api/monitor/), [Azure Monitor libraries for Python](/python/api/overview/azure/monitor), which let you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
+- [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
+- Python libraries
+- 
 
 ## Benefits 
 
-- Run KQL power queries and custom code in any language, using the [Azure Monitor REST API](/rest/api/monitor/), [Azure Monitor libraries for Python](/python/api/overview/azure/monitor?view=azure-python) and other libraries, including custom machine learning algorithms. 
 - Create a multi-step process, running code in each step based on the results of the previous step with possibility for advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, performing advanced analysis, or creating troubleshooting guides for Support needs (TSGs). 
 - No user interface limits, and effective techniques for working with data at large scales.  
 - Avoid the costs and maintenance overhead exporting data and using external services. 
