@@ -6,7 +6,7 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
-### Speech SDK 1.26.0: February 2023 release
+### Speech SDK 1.26.0: March 2023 release
 
 ### Breaking changes
 
