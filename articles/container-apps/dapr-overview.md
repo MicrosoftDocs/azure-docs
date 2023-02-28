@@ -246,7 +246,7 @@ scopes:
 Once you've created a Dapr secret store using one of the above approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified above, where the `sb-root-connectionstring` is stored.
 
 ```yaml
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -269,7 +269,7 @@ az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group 
 
 ```yaml
 # pubsub.yaml for Azure Service Bus component
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -288,7 +288,7 @@ This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr 
 resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
-    componentType: 'pubsub.azure.servicebus'
+    componentType: 'pubsub.azure.servicebus.queue'
     version: 'v1'
     secretStoreComponent: 'my-secret-store'
     metadata: [
@@ -316,7 +316,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
       "type": "daprComponents",
       "name": "dapr-pubsub",
       "properties": {
-        "componentType": "pubsub.azure.servicebus",
+        "componentType": "pubsub.azure.servicebus.queue",
         "version": "v1",
         "secretScoreComponent": "my-secret-store",
         "metadata": [
