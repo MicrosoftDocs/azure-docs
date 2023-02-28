@@ -21,6 +21,8 @@ Learn how to use Python with [Azure Resource Manager](overview.md) to manage you
   * azure-mgmt-resource
   * azure-mgmt-storage
 
+  If you have older versions of these packages already installed in your virtual environment, you may need to update them with `pip install --upgrade {package-name}`
+
 * The examples in this article use CLI-based authentication (`AzureCliCredential`). Depending on your environment, you may need to run `az login` first to authenticate.
 
 * An environment variable with your Azure subscription ID. To get your Azure subscription ID, use:
@@ -112,7 +114,7 @@ for rg in rg_list:
     print(rg.name)
 ```
 
-To get one resource group, provide the name of the resource group.
+To get one resource group, use [ResourceManagementClient.resource_groups.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-get) and provide the name of the resource group.
 
 ```python
 import os
@@ -150,9 +152,11 @@ For more information about how Azure Resource Manager orders the deletion of res
 
 ## Deploy resources
 
-You can deploy Azure resources by using Python classes or by deploying an Azure Resource Manager (ARM) template.
+You can deploy Azure resources by using Python classes or by deploying an Azure Resource Manager template (ARM template).
 
-The following example creates a storage account. The name you provide for the storage account must be unique across Azure.
+### Deploy resources by using Python classes
+
+The following example creates a storage account by using [StorageManagementClient.storage_accounts.begin_create](/python/api/azure-mgmt-storage/azure.mgmt.storage.v2022_09_01.operations.storageaccountsoperations#azure-mgmt-storage-v2022-09-01-operations-storageaccountsoperations-begin-create). The name for the storage account must be unique across Azure.
 
 ```python
 import os
@@ -180,7 +184,9 @@ storage_account_result = storage_client.storage_accounts.begin_create(
 )
 ```
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update).
+### Deploy resources by using an ARM template
+
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
 
 ```python
 import os
@@ -214,7 +220,7 @@ rg_deployment_result = resource_client.deployments.begin_create_or_update(
 )
 ```
 
-The following example shows the ARM template you're deploying:
+The following example shows the ARM template named `storage.json` that you're deploying:
 
 ```json
 {
