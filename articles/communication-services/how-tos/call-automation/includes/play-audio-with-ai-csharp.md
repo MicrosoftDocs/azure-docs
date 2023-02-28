@@ -18,7 +18,7 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
-- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Create a new C# application
@@ -51,11 +51,13 @@ az communication bind-cognitive-service --name “{Azure Communication resource 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ``` csharp
-AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
-answerCallOptions.setAzureCognitiveServicesEndpointUrl("https://sample-cognitive-service-resource.cognitiveservices.azure.com/");
-Response<AnswerCallResult> answerCallResult = callAutomationClient
-                                               .answerCallWithResponse(answerCallOptions)
-                                               .block();
+var callAutomationClient = new CallAutomationClient("<ACS connection string>");
+
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
+    {
+        AzureCognitiveServicesEndpointUrl = new Uri("https://sample-cognitive-service-resource.cognitiveservices.azure.com/")
+    };
+    var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
 ```
 
 ## Play Audio

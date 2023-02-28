@@ -25,17 +25,17 @@ All this is possible with one-click where enterprises can access a secure soluti
 
 BYO Cognitive Services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the BYO option and provide the URL to the Cognitive Services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
+> Note:
+> This integration is only supported in limited regions, for more information about which regions are supported please view the limitations section at the bottom of this document.
+
 ## Common use cases
 
 ### Build applications that can play and recognize speech 
 
 With the ability to, connect your Cognitive Services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Cognitive Services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Cognitive services that are bespoke to your domain and region through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
-## Developer setup flow
-![Developer flow for connection](./media/azure-cognitive-services-flow.png)
-
 ## Run time flow
-![Run time flow](./media/azure-communication-integration-flow.png)
+![Run time flow](./media/run-time-flow.png)
 
 ## Azure portal experience
 You can also configure and bind your Communication Services and Cognitive Services through the Azure portal. 
@@ -87,6 +87,20 @@ You can also configure and bind your Communication Services and Cognitive Servic
 10.  Click Save 
 
 Your Communication Service has now been linked to your Azure Cognitive Service resource. 
+
+## Limitations
+
+This integration between Azure Communication Services and Azure Cognitive Services is only supported in the following regions at this point in time:
+- westus
+- westus2
+- westus3
+- eastuse
+- astus2
+- centralus
+- northcentralus
+- southcentralus
+- westcentralus
+- westeu
 
 ## Next Steps
 - Learn about [playing audio](../../concepts/call-automation/play-ai-action.md) to callers using Text-to-Speech.
