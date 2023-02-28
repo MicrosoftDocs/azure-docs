@@ -34,7 +34,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
 
-- **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
+- **Cause**: The source database is protected with Transparent Data Encryption (TDE). You need to migrate the Database Encryption Key (DEK) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before starting the migration.
 
 - **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
@@ -94,7 +94,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
 
-- **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is caused by network settings in the firewall.
+- **Cause**: DMS cannot connect to Self-Hosted Integration Runtime (SHIR) due to network settings in the firewall.
 
 - **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. For more information, see [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md).
 
@@ -253,14 +253,14 @@ WHERE STEP in (3,4,6);
 
 ## Error code: Ext_RestoreSettingsError
 
-- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.;The remote server returned an error: (403) Forbidden
+- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden. The remote server returned an error: (403) Forbidden
 
 - **Cause**: Target is unable to connect to blob storage.
 
-- **Recommendation**: Confirm that target network settings allow access to blob storage. For example, if migrating to SQL VM, ensure that outbound connections on VM are not being blocked.
+- **Recommendation**: Confirm that target network settings allow access to blob storage. For example, if migrating to SQL VM, ensure that outbound connections on VM aren't being blocked.
 
 
-- **Message**: Failed to create restore job.;Unable to read blobs in storage container, exception: The remote name could not be resolved.
+- **Message**: Failed to create restore job. Unable to read blobs in storage container, exception: The remote name could not be resolved.
 
 - **Cause**: Target is unable to connect to blob storage.
 
