@@ -146,6 +146,18 @@ sections:
         answer: |
           Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
 
+  - name: Pricing
+    questions:
+      - question: |
+          When does the meter start running?
+        answer: |
+          Container group duration is calculated from the time that we start to pull your first container's image (for a new deployment) or your container group is restarted (if already deployed), until the container group is stopped. See details at [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/).
+          
+      - question: |
+          Do I stop being charged when my containers are stopped?
+        answer: |
+          Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
+
   - name: Confidential containers on Azure Container Instances (Preview)
     questions:
       - question: | 
@@ -172,18 +184,6 @@ sections:
           Is there an additional cost for confidential container on Azure Container Instances?
         answer: |
           Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
-
-  - name: Pricing
-    questions:
-      - question: |
-          When does the meter start running?
-        answer: |
-          Container group duration is calculated from the time that we start to pull your first container's image (for a new deployment) or your container group is restarted (if already deployed), until the container group is stopped. See details at [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/).
-          
-      - question: |
-          Do I stop being charged when my containers are stopped?
-        answer: |
-          Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
 
 additionalContent: |
 
