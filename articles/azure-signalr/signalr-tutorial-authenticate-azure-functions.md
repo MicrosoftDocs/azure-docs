@@ -306,7 +306,7 @@ The chat application's UI is a simple single-page application (SPA) created with
 
 1. Open **http://localhost:7071/api/index** in your web browser. You should be able to see a web page as follows:
 
-    ![Local chat client web user interface](./media/signalr-tutorial-authenticate-azure-functions/local-chat-client-ui.png)
+    :::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/local-chat-client-ui.png" alt-text="Screenshot of local chat client web user interface.":::
 
 1. Enter a message in the chat box and press enter.
 
@@ -357,10 +357,10 @@ Azure Functions supports authentication with Azure Active Directory, Facebook, T
 1. Go to the resource page of your function app on Azure portal.
 1. Select **Settings** -> **Authentication**.
 1. Select  **Add identity provider**.
-    ![Screenshot of the Function App Authentication page.](./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png)
+    :::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png" alt-text="Screenshot of the Function App Authentication page.":::
 
 1. Select **Microsoft** from the **Identity provider** list.
-    ![Screenshot of "Add an identity provider" page.](media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png)
+    :::image type="content" source="media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png" alt-text="Screenshot of 'Add an identity provider' page.":::
 
     Azure Functions supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google.  For more information about the supported identity providers, see the following articles:
 
@@ -382,7 +382,7 @@ Azure Functions supports authentication with Azure Active Directory, Facebook, T
 
 1. Send private messages by clicking on a username in the chat history. Only the selected recipient will receive these messages.
 
-![Screenshot of the authenticated online client chat app using Azure SignalR Service and Azure Functions.](./media/signalr-tutorial-authenticate-azure-functions/online-chat-client-ui.png)
+:::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/online-chat-client-ui.png" alt-text="Screenshot of the authenticated online client chat app using Azure SignalR Service and Azure Functions.":::
 
 Congratulations! You've deployed a real-time, serverless chat app!
 
@@ -392,8 +392,8 @@ Congratulations! You've deployed a real-time, serverless chat app!
 
 To clean up the resources created in this tutorial, delete the resource group using the Azure portal.
 
-[!CAUTION]
-Deleting the resource group deletes all resources contained within it. If the resource group contains resources outside the scope of this tutorial, they will also be deleted.
+>[!CAUTION]
+> Deleting the resource group deletes all resources contained within it. If the resource group contains resources outside the scope of this tutorial, they will also be deleted.
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
