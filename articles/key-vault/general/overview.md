@@ -82,4 +82,4 @@ Key Vault itself can integrate with storage accounts, event hubs, and log analyt
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](../general/developers-guide.md)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

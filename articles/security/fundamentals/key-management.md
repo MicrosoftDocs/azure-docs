@@ -55,3 +55,11 @@ Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Ser
 ### APIs 
 
 Dedicated HSM and Payments HSM support the PKCS#11, JCE/JCA, and KSP/CNG APIs, but Azure Key Vault and Managed HSM do not. Azure Key Vault and  Managed HSM use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
+
+## What's next
+
+- [Azure Key Vault](../../key-vault/general/overview.md)
+- [Azure Managed HSM](../../key-vault/managed-hsm/overview.md)
+- [Azure Dedicated HSM](../../dedicated-hsm/overview.md)
+- [Azure Payment HSM](../../payment-hsm/overview.md)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

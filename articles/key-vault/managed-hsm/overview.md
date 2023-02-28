@@ -65,3 +65,4 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 - [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)
