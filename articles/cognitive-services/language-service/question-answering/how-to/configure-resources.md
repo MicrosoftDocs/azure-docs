@@ -15,7 +15,7 @@ You can configure question answering to use a different Cognitive Search resourc
 ## Change Cognitive Search resource
 
 > [!WARNING]
-> If you change the Azure Search service associated with your language resource, you will lose access to all the projects/knowledge bases already present in it. Make sure you export the existing projects before you change the Azure Search service.
+> If you change the Azure Search service associated with your language resource, you will lose access to all the projects already present in it. Make sure you export the existing projects before you change the Azure Search service.
 
 If you create a language resource and its dependencies (such as Search) through the Azure portal, a Search service is created for you and linked to the language resource. After these resources are created, you can update the Search resource in the **Features** tab.
 

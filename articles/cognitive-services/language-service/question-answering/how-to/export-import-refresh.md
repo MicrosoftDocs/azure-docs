@@ -1,6 +1,6 @@
 ---
-title: Export/import/refresh | question answering projects and knowledge bases
-description: Learn about backing up your question answering projects and knowledge bases
+title: Export/import/refresh | question answering projects and projects
+description: Learn about backing up your question answering projects and projects
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
@@ -75,9 +75,9 @@ The update sources example in the [Authoring API docs](./authoring.md#update-sou
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the following code sample, you would only need to add the region-specific portion of `southcentral` as the rest of the endpoint path is already present.|
-| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
-| `PROJECT-NAME` | The name of project/knowledge base where you would like to update sources.|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the following code sample, you would only need to add the region-specific portion of `southcentral` as the rest of the endpoint path is already present.|
+| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. The key value is part of the sample request.|
+| `PROJECT-NAME` | The name of project where you would like to update sources.|
 
 ```bash
 curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '[
@@ -95,15 +95,15 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
 
 ## Export questions and answers
 
-It’s also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific project of question and answers rather than the entire question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select the project that contains the knowledge base question and answer pairs you want to export.
+3. Select the project that contains the project question and answer pairs you want to export.
 
-4. Select **Edit knowledge base**.
+4. Select **Edit project**.
 
 5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown will reveal the option to export/import questions and answers.
 
@@ -114,15 +114,15 @@ It’s also possible to export/import a specific knowledge base of question and 
 
 ## Import questions and answers
 
-It’s also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific project of question and answers rather than the entire question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select the project that contains the knowledge base question and answer pairs you want to export.
+3. Select the project that contains the project question and answer pairs you want to export.
 
-4. Select **Edit knowledge base**.
+4. Select **Edit project**.
 
 5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown will reveal the option to export/import questions and answers.
 
