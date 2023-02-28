@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 02/28/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
@@ -216,7 +216,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2022-02-15-preview",
       "location": "West US",
       "properties": {
         "locations": [
