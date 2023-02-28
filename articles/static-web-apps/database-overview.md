@@ -98,8 +98,8 @@ The following the following [configuration](database-configuration.md) fragment 
         "actions": ["*"], 
         "role": "admin" 
       }
-    ], 
- }, 
+    ]
+ }
 }
 ...
 ```
