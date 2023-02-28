@@ -60,9 +60,9 @@ In this quickstart, you use a single-page application to sign in using a social 
 1. Select **Sign In** to start the user journey.
 1. Azure AD B2C presents a sign-in page for a fictitious company called "Fabrikam" for the sample web application. To sign up using a social identity provider, select the button of the identity provider you want to use.
 
-:::image type="content" source="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png" alt-text="Screenshot of Sign In or Sign Up page showing identity provider buttons" lightbox="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png":::
+    :::image type="content" source="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png" alt-text="Screenshot of Sign In or Sign Up page showing identity         provider buttons" lightbox="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png":::
 
-You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access,       the application can retrieve profile information from the social account such as your name and city.
 
 1. Finish the sign-in process for the identity provider.
 
