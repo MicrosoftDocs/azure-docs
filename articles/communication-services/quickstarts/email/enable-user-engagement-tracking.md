@@ -1,7 +1,7 @@
 ---
-title: How to connect a verified email domain with Azure Communication Service resource
+title: How to configure user engagement tracking to a email domain with Azure Communication Service resource.
 titleSuffix: An Azure Communication Services quick start guide
-description: Learn about how to connect verified email domains with Azure Communication Services Resource.
+description: Learn about how to enable user engagement for the email domains with Azure Communication Services resource.
 author: bashan-git
 manager: sundraman
 services: azure-communication-services
