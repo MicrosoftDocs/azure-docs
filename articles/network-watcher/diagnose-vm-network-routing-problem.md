@@ -19,7 +19,8 @@ When you deploy a virtual machine (VM), Azure creates several [system default ro
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network and deploy two virtual machines in it
+> * Create a virtual network and a Bastion host
+> * Create two virtual machines
 > * Test communication to different IPs using the next hop capability of Azure Network Watcher
 > * View the effective routes
 > * Create a custom route
@@ -27,16 +28,13 @@ In this tutorial, you learn how to:
 
 If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md) tutorials.
 
-
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
-
 
 ## Create a virtual network
 
@@ -81,11 +79,9 @@ In this section, you create a virtual network.
 
 1. Review the settings, and then select **Create**. 
 
-
 ## Create virtual machines
 
 In this section, you create two virtual machines: **myVM** and **myNVA**. You use **myVM** virtual machine to test the communication from. **myNVA** virtual machine is used as a network virtual appliance in the scenario.
-
 
 ### Create first virtual machine
 
@@ -141,11 +137,9 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/bing-allowed.png" alt-text="Screenshot showing Bing page in a web browser.":::
 
-
 ### Create second virtual machine
 
 Follow the previous steps that you used to create **myVM** virtual machine and enter *myNVA* for the virtual machine name.
-
 
 ## Test network communication using Network Watcher next hop
 
@@ -176,7 +170,6 @@ Use the next hop capability of Network Watcher to determine which route Azure is
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-none-system-route.png" alt-text="Screenshot showing Network Watcher next hop result when testing with a private IP outside the address space of the virtual network.":::
 
-
 ## View details of a route
 
 To further analyze routing, review the effective routes for **myVM** network interface.
@@ -197,11 +190,9 @@ To further analyze routing, review the effective routes for **myVM** network int
 
     However, when you ran the test using **10.1.0.5**, the result was **None** for the next hop type because this IP address is in the 10.0.0.0/8 address space. Azure default route for 10.0.0.0/8 address prefix has next hope type as **None**. If you add an address prefix that contains 10.1.0.5 to the virtual network address space, then the next hop type for 10.1.0.5 will change from **None** to **VirtualNetwork**. 
 
-
 ## Test a routing problem due to custom routes
 
 Next, you create a static custom route to override Azure default system routes and cause a routing problem to **myVM** virtual machine that prevents it from directly communicating with `www.bing.com`. Then, you'll use Network Watcher next hop to troubleshoot and diagnose the problem.
-
 
 ### Create a custom route
 
@@ -241,7 +232,6 @@ In this section, you create a static custom route (user-defined route) in a rout
 
 1. Select **Add**.
 
-
 ### Associate the route table with the subnet
 
 In this section, you associate the route table that you created in the previous section with **mySubnet** subnet.
@@ -257,13 +247,11 @@ In this section, you associate the route table that you created in the previous 
 
 1. Select **OK**.
 
-
 ### Go to `www.bing.com`
 
 In **myVM**, open the web browser and go to `www.bing.com` to verify if it's still reachable. The custom route that you created and associated with subnet of **myVM** forces the traffic to go to **myNVA**. The traffic is dropped as **myNVA** isn't set up to forward the traffic for the purposes of this tutorial to demonstrate a routing problem.
 
 :::image type="content" source="./media/diagnose-vm-network-routing-problem/bing-blocked.png" alt-text="Screenshot showing Bing page isn't reachable in a web browser.":::
-
 
 ###  Test network communication using next hop
 
@@ -281,7 +269,6 @@ The custom route with prefix 0.0.0.0/0 overrode Azure default route and caused a
  
 > [!NOTE]
 > In this tutorial, traffic to `www.bing.com` was dropped because **myNVA** was not set up to forward traffic. To learn how to set up a virtual machine to forward traffic, see [Turn on IP forwarding](/articles/virtual-network/tutorial-create-route-table-portal.md#turn-on-ip-forwarding).
-
 
 ## Clean up resources
 
