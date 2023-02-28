@@ -298,7 +298,7 @@ When no more logging is needed, you can disable the NSG flow log that you previo
 
 ## Clean up resources
 
-you can longer needed, delete **myResourceGroup** and all of the resources it contains:
+When no longer needed, delete **myResourceGroup** and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
