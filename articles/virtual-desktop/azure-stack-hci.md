@@ -65,10 +65,6 @@ The custom template helps you:
 - Create host pool, workspace, and application group
 - Add the VMs you created in [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) as session hosts to the host pool
 - Domain join the VMs
-- Install Azure Monitor agent on the VMs
-
-> [!NOTE]
-> If the host pool already exists, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
 
 After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy from a custom template:
 
@@ -138,25 +134,17 @@ For all other OS images (such as Windows Server or single-session OS), Azure Ben
 
 Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few extra things you can do depending on your deployment needs:
 
-### Create a profile container using a file share on Azure Stack HCI
+### Create a profile container
 
-To create a profile container using a file share:
+To create a profile container using a file share on Azure Stack HCI, do the following:
 
-1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be colocated on the same cluster where the session host VMs are deployed.
+1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be co-located on the same cluster where the session host VMs are deployed.
 
-2. Connect to the virtual machine with the credentials you provided when creating the virtual machine.
+1. Connect to the VM with the credentials you provided when creating the VM.
 
-3. On the virtual machine, launch **Control Panel** and select **System**.
+3. Join the VM to an Active Directory domain.
 
-4. Select Computer name, select **Change settings**, and then select **Change…**.
-
-5. Select **Domain**, then enter the Active Directory domain on the virtual network.
-
-6. Authenticate with a domain account that has privileges to domain-join machines.
-
-7. Follow the directions in [Prepare the VM to act as a file share](create-host-pools-user-profile.md#prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles) to prepare your VM for deployment.
-
-8. Follow the directions in [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container) to configure your profile container for use.
+7. Follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md) to prepare your VM and configure your profile container.
 
 ### Add session hosts
 
