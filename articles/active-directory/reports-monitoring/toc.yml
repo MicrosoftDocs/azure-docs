@@ -139,12 +139,12 @@ items:
 
 - name: Azure AD Recommendations
   items:
-    - name: Switch to Conditional Access MFA
-      href: recommendation-turn-off-per-user-mfa.md
-    - name: Migrate to Microsoft authenticator
-      href: recommendation-migrate-to-authenticator.md
     - name: Migrate apps from AD FS to Azure AD
       href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+    - name: Migrate to Microsoft authenticator
+      href: recommendation-migrate-to-authenticator.md
+    - name: Switch to Conditional Access MFA
+      href: recommendation-turn-off-per-user-mfa.md
     - name: Minimize MFA prompts from known devices
       href: recommendation-mfa-from-known-devices.md
     - name: Remove unused apps (preview)
