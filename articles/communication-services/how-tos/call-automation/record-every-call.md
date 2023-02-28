@@ -19,6 +19,7 @@ In this QuickStart, we focus on showcasing the processing of call started events
 The Call Started event when a call start is formatted in the following way:
 
 ```json
+
 [
   {
     "id": "a8bcd8a3-12d7-46ba-8cde-f6d0bda8feeb",
@@ -51,12 +52,13 @@ The Call Started event when a call start is formatted in the following way:
     "eventTime": "2021-09-22T17:02:38.6905856Z"
   }
 ]
+
 ```
 
 ## Setting up our local environment
 
 1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-2. With the extension, create an Azure Function following these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node).
+2. With the extension, create an Azure Function following these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp).
 
    Configure the function with the following instructions:
    - Language: C#
@@ -89,7 +91,7 @@ The Call Started event when a call start is formatted in the following way:
 
     ```
 
-## Configure Azure Function to receive call started event
+## Configure Azure Function to receive `CallStarted` event
 
 1. Configure switch statement within Azure Function to perform actions when the two different events we care about trigger. (Microsoft.Communication.CallStarted and Microsoft.Communication.RecordingFileStatus.Updated)
 
@@ -108,7 +110,7 @@ The Call Started event when a call start is formatted in the following way:
 
 ## Start recording
 
-1. Create a method to handle the call started events. This method trigger recording to start when the call started.
+1. Create a method to handle the `CallStarted` events. This method trigger recording to start when the call started.
 
 ```csharp
 
@@ -149,11 +151,11 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
+2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
 
     ```bash
 
-    az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>>/runtime/webhooks/EventGrid?functionName=<<FUNCTION NAME>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.SMSReceived 
+    az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>>/runtime/webhooks/EventGrid?functionName=<<FUNCTION NAME>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.CallStarted
 
     ```
 
