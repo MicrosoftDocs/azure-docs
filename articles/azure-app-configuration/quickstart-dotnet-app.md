@@ -36,7 +36,7 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
     |----------------------------|-------------------------------------|
     | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-    Leave **Label** and **Content Type** empty. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
+    Leave **Label** and **Content Type** empty. For more information about labels and content types, go to [Keys and values](concept-key-value.md#label-keys).
 
 ## Create a .NET Framework console app
 
