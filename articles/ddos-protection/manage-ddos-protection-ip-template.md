@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/pip-with-ddos-ip-protection/azuredeploy.json":::
 
@@ -35,7 +35,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The template defines one resources:
 
-- [Microsoft.Network/publicIPAddresses](azure/templates/microsoft.network/change-log/publicipaddresses)
+- [Microsoft.Network/publicIPAddresses](./azure/templates/microsoft.network/change-log/publicipaddresses)
 
 ## Deploy the template
 
