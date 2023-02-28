@@ -29,7 +29,7 @@ This property represents the severity of the occurred error. Here's a list of po
 |Severity|Description|
 |--------|-----------|
 |Non-blocking|An issue exists in the data flow process, but processing of device messages doesn't stop.|
-|Blocking|An issue exits in the data flow process, and no device messages are expected to process.|
+|Blocking|An issue exists in the data flow process, and no device messages are expected to process.|
 
 ## Operation being performed by the MedTech service
 
@@ -131,7 +131,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Severity**: Blocking
 
-**Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same typeName value in the FHIR destination mapping. Also, fix any validation errors that are shown when editing and saving the FHIR destination mapping in the **Destination** blade.
+**Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same `typeName` value in the FHIR destination mapping. Also, fix any validation errors that are shown when editing and saving the FHIR destination mapping in the **Destination** blade.
 
 ### FhirResourceNotFoundException
 
@@ -139,11 +139,11 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Severity**: Non-blocking
 
-**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIDExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
+**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIdExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
 
 ### IncompatibleDataException
 
-**Description**: There's an incompatibility between the device message and the device mapping (for example, a required property may be missing or blank in the device message and/or in the device mapping. The device mapping property with the error is specified in the error message.
+**Description**: There's an incompatibility between the device message and the device mapping (for example, a required property may be missing or blank in the device message and/or in the device mapping). The device mapping property with the error is specified in the error message.
 
 **Severity**: Non-blocking
 
@@ -151,9 +151,10 @@ The errors' names are listed in the following table, and the fixes for them are 
  
 * The key that is referenced by the device mapping property specified in the error message.
 
-*  A non-blank value for the key. 
+* A non-blank value for the key. 
 
-* Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the device mapping property specified in the error message has a value that correctly references the corresponding key in your device messages.
+
+Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the device mapping property specified in the error message has a value that correctly references the corresponding key in your device messages.
 
 ### InvalidDataFormatException
 
@@ -199,13 +200,13 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: There's an error with a template in the device mapping or the FHIR destination mapping. Errors include:
 
-* A template’s template type (represented by the templateType property) is missing or has a blank value.
+* A template’s template type (represented by the `templateType` property) is missing or has a blank value.
 
-* A template (represented by the template property) under the root collection template doesn't have a JSON object, which is identified by braces {}, as its value.
+* A template (represented by the `template` property) under the root collection template doesn't have a JSON object, which is identified by braces `{}`, as its value.
  
-* A template’s type (represented by the typeName property) is missing or has a blank value.
+* A template’s type (represented by the `typeName` property) is missing or has a blank value.
 
-* More than one template in the mappings has the same type (has the same value for its typeName property). 
+* More than one template in a mapping has the same type (has the same value for its `typeName` property). 
 
 The template’s type and line with the error are specified in the error message.
 
@@ -215,7 +216,7 @@ The template’s type and line with the error are specified in the error message
 
 ### ManagedIdentityCredentialNotFound
 
-**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or a user-assigned managed identity is not configured. **Note**: The system-assigned managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
+**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist, or a user-assigned managed identity isn't configured for the MedTech service. **Note**: This error may occur if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
 
 **Severity**: Blocking
 
@@ -257,7 +258,7 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Non-blocking
 
-**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (`deviceIdExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
+**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIdExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
 
 ### TemplateExpressionException
 
@@ -265,9 +266,9 @@ The template’s type and line with the error are specified in the error message
 
 * A required expression is missing.
 
-* An expression’s language (represented by the language property) isn't supported. All template types support expressions in JSONPath; only the [CalculatedContent](how-to-use-calculatedcontent-mappings.md) template type supports expressions in JMESPath.
+* An expression’s language (represented by the `language` property) isn't supported. All template types support expressions in JSONPath; only the [CalculatedContent](how-to-use-calculatedcontent-mappings.md) template type supports expressions in JMESPath.
 
-* An expression’s value (represented by the value property) is incorrectly formatted as per the syntax of the expression’s language. 
+* An expression’s value (represented by the `value` property) is incorrectly formatted as per the syntax of the expression’s language. 
 
 The expression and line with the error are specified in the error message.
 
@@ -281,7 +282,7 @@ The expression and line with the error are specified in the error message.
 
 **Severity**: Blocking
 
-**Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same typeName value within the FHIR destination mapping.
+**Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same `typeName` value within the FHIR destination mapping.
 
 ### UnauthorizedAccessEventHubException
 
