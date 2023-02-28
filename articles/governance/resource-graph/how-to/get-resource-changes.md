@@ -15,8 +15,6 @@ Resources change through the course of daily use, reconfiguration, and even rede
 
 This article shows how to query resource configuration changes through Resource Graph.
 
-> [!WARNING]
-> There has been a temporary reduction in lookback retention to **seven days**.
 
 ## Prerequisites
 
