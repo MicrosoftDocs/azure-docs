@@ -845,7 +845,7 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpRe
 
     try:
         req_body = req.get_json()
-        rows = list(map(lambda r: json.loads(r.to_json()), req_body))
+        rows = func.SqlRowList(map(lambda r: func.SqlRow.from_dict(r), req_body))
     except ValueError:
         pass
 
@@ -926,7 +926,7 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
 
     try:
         req_body = req.get_json()
-        rows = list(map(lambda r: json.loads(r.to_json()), req_body))
+        rows = func.SqlRowList(map(lambda r: func.SqlRow.from_dict(r), req_body))
     except ValueError:
         pass
 
