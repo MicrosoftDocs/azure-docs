@@ -165,19 +165,19 @@ This action will permanently delete your private offer. You can only delete priv
 
 Once a private offer has been accepted by the customer, ISVs will no longer be able to withdraw or edit the private offer. In some circumstances, where the private offer has been created with incorrect details ie. incorrect pricing, incorrect public plan used, incorrect terms or dates, the ISV (with the customer’s agreement) can request marketplace support team to cancel the private offer. 
 
-To do so, ISVs can create a support ticket in Partner Center and request the private offer to be cancelled. 
+To do so, ISVs can create a support ticket in Partner Center and request the private offer to be canceled. 
 
 The ISV will need to provide: 
 
-- The Private Offer Id 
+- The Private Offer ID
 - Customer Billing Account ID  
 - Reason for cancellation  
 - Screenshot with written confirmation from the customer that they agree to the cancellation. 
    
-Upon cancellation, the private offer will be removed from the ISV’s customer private offer dashboard view in Partner Center and will also be removed from the customer’s Private Offer Management view in the Azure portal. After the cancellation has been processed, the private offer price will no longer be applied if the customer was to purchase the plan that was contained in the cancelled private offer.  
+Upon cancellation, the private offer will be removed from the ISV’s customer private offer dashboard view in Partner Center and will also be removed from the customer’s Private Offer Management view in the Azure portal. After the cancellation has been processed, the private offer price will no longer be applied if the customer was to purchase the plan that was contained in the canceled private offer.  
 
 > [!NOTE]
-> If a private offer is cancelled containing a virtual machine offer type that has been deployed, the discount will not be applied to consumption charges in the month of cancellation. 
+> If a private offer is canceled containing a virtual machine offer type that has been deployed, the discount will not be applied to consumption charges in the month of cancellation. 
 
 ## View private offer status
 
