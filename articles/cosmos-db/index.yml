@@ -47,7 +47,7 @@ additionalContent:
         - title: Explore core concepts
           links:
           - text: Azure Cosmos DB resource model
-            url: account-databases-containers-items.md
+            url: resource-model.md
           - text: Distribute data globally
             url: distribute-data-globally.md
           - text: Partitioning
@@ -57,7 +57,7 @@ additionalContent:
         - title: Model your data
           links:
           - text: Data modeling and partitioning
-            url: how-to-model-partition-example.md
+            url: nosql/model-partition-example.md
           - text: Azure Cosmos DB service quotas
             url: concepts-limits.md
         - title: Analytics with Azure Synapse Link

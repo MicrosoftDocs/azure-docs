@@ -1,6 +1,6 @@
 ---
 title: Location condition in Azure Active Directory Conditional Access
-description: Use the location condition to control access based on user physical or network location.
+description: Learn about creating location-based Conditional Access policies using Azure AD.
 
 services: active-directory
 ms.service: active-directory
@@ -120,7 +120,7 @@ This option applies to:
 
 #### Multifactor authentication trusted IPs
 
-Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
+Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multifactor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
 
 If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
 

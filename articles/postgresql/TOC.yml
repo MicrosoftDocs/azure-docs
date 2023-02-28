@@ -511,6 +511,8 @@
       - name: Monitor and tune overview
         href: flexible-server/concepts-monitoring.md
         displayName: monitor, metrics
+      - name: Workbooks
+        href: flexible-server/concepts-workbooks.md 
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs

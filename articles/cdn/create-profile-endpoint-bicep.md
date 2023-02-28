@@ -46,14 +46,14 @@ One Azure resource is defined in the Bicep file:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters profileName=<profile-name> endpointName=<endpoint-name> originURL=<origin-url>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters profileName=<profile-name> endpointName=<endpoint-name> originUrl=<origin-url>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -profileName "<profile-name>" -endpointName "<endpoint-name>" -originURL "<origin-url>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -profileName "<profile-name>" -endpointName "<endpoint-name>" -originUrl "<origin-url>"
     ```
 
     ---
