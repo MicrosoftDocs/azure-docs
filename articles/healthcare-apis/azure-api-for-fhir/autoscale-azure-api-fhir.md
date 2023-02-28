@@ -28,7 +28,7 @@ Lets understand how to enable autoscaling at database level with next sections
 
 In general, customers should consider autoscale when their workloads vary significantly and are unpredictable. 
 
-To enable the autoscale feature, customer needs to create a one-time support ticket to request it through Azure Portal. The Microsoft support team will enable the autoscale feature based on the support priority.
+To enable the autoscale feature, customer needs to create a one-time support ticket to request it through Azure portal. The Microsoft support team enables the autoscale feature based on the support priority.
 
 > [!NOTE]
 > The autoscale feature isn't available from the Azure portal.
@@ -52,7 +52,7 @@ You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid
 
 ## Autoscale at Compute Level
 
-Autoscaling policies defined for FHIR service compute level consists :
+Autoscaling policies defined for FHIR service compute level consists:
 
 * Scaling Trigger
 
@@ -60,11 +60,7 @@ Scaling Trigger describes when scaling of the service will be performed. Conditi
 
 * Scaling mechanism
 
-Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met. There are three factors that determine when the service will be scaled:
-
-** Lower load threshold is a value that determines when the service will be scaled in, depending on scaling trigger.
-** Upper load threshold is a value that determines when the service will be scaled out, depending on scaling trigger.
-** Scaling Interval is used to determine how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. Scaling trigger will not be checked before scaling interval expires, which is to set to 1 minute for Azure API for FHIR.
+The scaling mechanism will only be applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger will not be evaluated again until the scaling interval has expired, which is set to one minute for Azure API for FHIR.
 
 To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
 
@@ -91,7 +87,7 @@ Keep in mind that this is only an estimate based on data size and that there are
 
 A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set it to is: `MAX (400, highest max RU/s ever provisioned / 100, current storage in GB * 40)`, rounded to the nearest 1000 `RU/s`. The numbers used here are different from those used in autoscale.
 
-Once the change is completed, the new billing rates will be based on manual scale.
+Once the change is completed, the new billing rates are based on manual scale.
 
 ### What is the cost impact of autoscale?
 
