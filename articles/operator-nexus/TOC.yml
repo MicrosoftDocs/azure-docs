@@ -24,16 +24,16 @@
     href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
-  - name: BareMetal Functions
-    href: howto-baremetal-functions.md
-  - name: Cluster Manager
-    href: howto-cluster-manager.md
-  - name: isolation-domain
-    href: howto-configure-isolation-domain.md
-  - name: Network fabric
-    href: howto-configure-network-fabric.md
   - name: Network fabric Controller
     href: howto-configure-network-fabric-controller.md
+  - name: Cluster Manager
+    href: howto-cluster-manager.md
+  - name: Network fabric
+    href: howto-configure-network-fabric.md
+  - name: BareMetal Functions
+    href: howto-baremetal-functions.md
+  - name: Isolation-domain
+    href: howto-configure-isolation-domain.md
   - name: AKS-Hybrid
     href: howto-hybrid-aks.md
   - name: Monitor AKS-Hybrid Cluster

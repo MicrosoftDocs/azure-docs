@@ -30,7 +30,7 @@ The minimum permissions needed to do basic sign-in are `openid`, `profile`, `ema
 To configure permission classifications, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: An administrator, or owner of the service principal.
+- One of the following roles: A global administrator, or owner of the service principal.
 
 ## Manage permission classifications
 
@@ -57,7 +57,7 @@ You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?preserv
 Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
 ```powershell
-Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All".
+Connect-AzureAD -Scopes "Policy.ReadWrite.PermissionGrant".
 ```
 
 ### List the current permission classifications
@@ -134,7 +134,7 @@ You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?
 Run the following command to connect to Microsoft Graph PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
 ```powershell
-Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All".
+Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant".
 ```
 
 ### List current permission classifications for an API
@@ -208,9 +208,7 @@ Remove-MgServicePrincipalDelegatedPermissionClassification -DelegatedPermissionC
 
 To configure permissions classifications for an enterprise application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-You need to consent to the following permissions: 
-
-`Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`.
+You need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
 
 Run the following queries on Microsoft Graph explorer to add a delegated permissions classification for an application.
 
