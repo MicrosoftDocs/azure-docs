@@ -130,7 +130,7 @@ Before you start, make sure you've completed the following steps:
                     // Parse items and send to binding
                     for (var i = 0; i < data.Count; i++)
                     {
-                        string key = data[i].time + " - " + data[i].callingnum1;
+                        string key = data[i].Time + " - " + data[i].CallingNum1;
 
                         db.StringSet(key, data[i].ToString());
                         log.LogInformation($"Object put in database. Key is {key} and value is {data[i].ToString()}");
@@ -194,18 +194,43 @@ Before you start, make sure you've completed the following steps:
    ```
 
 6.	Start the Stream Analytics job.
+7. On the **Monitor** page for your Azure function, you see that the function is invoked. 
+
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/function-invocations.png" alt-text="Screenshot showing the Minitor page for Azure Functions with function invocations.":::
+1. On the **Azure Cache for Redis** page your cache, select **Metrics** on the left menu, add **Cache Write** metric, and set the duration to **last hour**. You see the chart similar to the following image.
+
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-cache-write-metric.png" alt-text="Screenshot showing the Metrics page for your Azure Cache for Redis.":::
 
 ## Check Azure Cache for Redis for results
 
+### Get the key from Azure Functions logs
+First, get the key for a record inserted into Azure Cache for Redis. In the code, the key is calculated in the Azure function as shown in the following code snippet: 
+
+```csharp
+string key = data[i].Time + " - " + data[i].CallingNum1;
+
+db.StringSet(key, data[i].ToString());
+log.LogInformation($"Object put in database. Key is {key} and value is {data[i].ToString()}");
+```
+1. Browse to the Azure portal, and find your Azure Functions app. 
+1. Select **Functions** on the left menu.
+1. Select **HTTPTrigger1** from the list of functions. 
+1. Select **Monitor** on the left menu.
+1. Switch to the **Logs** tab. 
+1. Note down a key from the informational message as shown in the following screenshot. You use this key to find the value in Azure Cache for Redis.
+
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/key-azure-functions-log.png" alt-text="Screenshot showing the Monitor Logs page for the Azure function. ":::
+
+### Use the key to find the record in Azure Cache for Redis
+
 1. Browse to the Azure portal, and find your Azure Cache for Redis. Select **Console**.
+2. Use [Azure Cache for Redis commands](https://redis.io/commands) to verify that your data is in Azure Cache for Redis. (The command takes the format Get {key}.) Use the key you copied from the Monitor logs for the Azure function (in the previous section).
 
-2. Use [Azure Cache for Redis commands](https://redis.io/commands) to verify that your data is in Azure Cache for Redis. (The command takes the format Get {key}.) For example:
-
-   **Get "12/19/2017 21:32:24 - 123414732"**
+   **Get "KEY-FROM-THE-PREVIOUS-SECTION"**
 
    This command should print the value for the specified key:
 
-   ![Screenshot of Azure Cache for Redis output](./media/stream-analytics-with-azure-functions/image5.png)
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-console.png" alt-text="Screenshot showing the Redit Cache console showing the output of the Get command.":::
 
 ## Error handling and retries
 
