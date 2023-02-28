@@ -24,7 +24,10 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Support for transient devices
 
-<!--placeholder. What does this actually mean? Batami.-->
+Defender for IoT now identifies *transient* devices as a unique device type that represents devices that were detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
+
+For more information, see <!--fix xref-->[Defender for IoT device inventory](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/device-inventory?branch=pr-en-us-227891) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
 ### UI enhancements when uploading SSL/TLS certificates
 
 <!--placeholder. Sensor and CM? What exactly changed? Change heading to match. Shereen.-->
@@ -34,8 +37,6 @@ Features released earlier than nine months ago are described in the [What's new 
 <!--placeholder. what exactly does this mean? Shereen.-->
 
 ### UI enhancements for managing the device inventory
-
-<!--yonina-->
 
 The following enhancements were added to the OT sensor's device inventory in version 22.3.6:
 

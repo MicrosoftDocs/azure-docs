@@ -102,9 +102,9 @@ To understand whether a feature is supported in your sensor version, check the r
 - Support for transient devices
 - Auto-resolved notifications
 - Device data retention updated to 90 days
-- Merging and deleting devices now include confirmation messages
-- Support for deleting multiple devices
-- An enhanced editing device details process
+- [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages
+- Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices)
+- An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process, using an **Edit** button in the toolbar at the top of the page
 - Enhanced UI for uploading an SSL/TLS certificate
 - Activation files for cloud-connected sensors no longer expire
 - Severity of all Suspicion of Malicious Activity alerts updated from ? to ?
