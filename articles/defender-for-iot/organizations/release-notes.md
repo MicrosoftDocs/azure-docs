@@ -92,7 +92,7 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
-### 22.3.5
+### 22.3.6
 
 **Release date**: 02/2023
 
