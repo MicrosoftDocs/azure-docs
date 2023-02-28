@@ -32,7 +32,7 @@ The Azure SQL Migration extension for Azure Data Studio offers these key benefit
 
 - You can run your migration online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the migration) depending on your business requirements.
 
-- You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and backups in your on-premises environment.
+- You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and existing full, differential and log backups in your on-premises environment.
 
 For information about specific migration scenarios and Azure SQL targets, see the list of tutorials in the following table:
 
@@ -145,11 +145,9 @@ To monitor database migrations in the Azure portal:
 
 - The following server objects aren't supported:
 
-  - Logins
   - SQL Server Agent jobs
   - Credentials
   - SQL Server Integration Services packages
-  - Server roles
   - Server audit
 
   For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
