@@ -98,7 +98,7 @@ To create a dataset from data that's already stored in Blob Storage:
 
 To directly upload your data:
 
-1. Select **Create** .
+1. Select **Create**.
 1. For **Name**, enter a name for your dataset. Optionally, enter a description.
 1. Choose the **Dataset type**:
     * If you're using a *.csv* or *.tsv* file and each row contains a response, select **Tabular**.
