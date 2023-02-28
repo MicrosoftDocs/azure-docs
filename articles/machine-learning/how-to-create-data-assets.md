@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, ignite-2022
 ms.author: xunwan
-author: xunwan
+author: SturgeonMi
 ms.reviewer: franksolomon
 ms.date: 01/23/2023
 ---
@@ -45,13 +45,16 @@ Data assets can "bookmark" your frequently used data, to avoid the need to remem
 
 ## Data asset types
 
+> [!NOTE]
+> Make sure to check out the **canonical scenarios** below when deciding if you want to use uri_file, uri_folder or mltable for your use case.
+
 You can create three data asset types:
 
-|Type  |V2 API  |V1 API  |Canonical Scenarios | V2/V1 API Difference
+|Type  |V2 API  |V1 API  |V2/V1 API Difference  |**Canonical Scenarios**
 |---------|---------|---------|---------|---------|
-|**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |       Read/write a single file - the file can have any format.   |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |
-|**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`      |  You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder.       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |
-|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`    |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.     | In V1 APIs, the Azure ML back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure ML workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to Azure ML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. Read [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |
+|**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |       Read/write a single file - the file can have any format. |  
+|**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |      You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder. |
+|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`     | In V1 APIs, the Azure ML back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure ML workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to Azure ML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. Read [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables. |
 
 ## Supported paths
 

@@ -2,11 +2,9 @@
 title: 'Tutorial: View and configure Azure DDoS Protection diagnostic logging'
 description: Learn how to configure reports and flow logs.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022

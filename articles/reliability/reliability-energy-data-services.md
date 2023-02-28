@@ -1,5 +1,5 @@
 ---
-title: Reliability in Microsoft Azure Azure Data Manager for Energy Preview
+title: Reliability in Microsoft Azure Data Manager for Energy Preview
 description: Find out about reliability in Azure Data Manager for Energy Preview
 author: bharathim 
 ms.author: anaharris

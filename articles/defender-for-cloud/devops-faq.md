@@ -16,12 +16,15 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
 - [I don’t see generated SARIF file in the path I chose to drop it](#i-dont-see-generated-sarif-file-in-the-path-i-chose-to-drop-it)
 - [I don’t see the results for my ADO projects in Microsoft Defender for Cloud](#i-dont-see-the-results-for-my-ado-projects-in-microsoft-defender-for-cloud)
+- [Why is my Azure DevOps repository not refreshing to healthy?](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
 - [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
 - [I am not able to configure Pull Request Annotations](#i-am-not-able-to-configure-pull-request-annotations)
+- [What are the programing languages that are supported by Defender for DevOps?](#what-are-the-programing-languages-that-are-supported-by-defender-for-devops) 
+- [I'm getting the There's no CLI tool error in Azure DevOps](#im-getting-the-theres-no-cli-tool-error-in-azure-devops)
 
 
 ### I'm getting an error while trying to connect
@@ -38,9 +41,9 @@ Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quick
 
 ### Secret scan didn't run on my code 
 
-To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
-In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
+In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](./azure-devops-extension.md?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
 
 If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
 
@@ -55,6 +58,12 @@ If you don’t see SARIF file in the expected path, you may have chosen a differ
 Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code scanning vulnerabilities are only available for GitHub repositories. 
 
 Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
+
+### Why is my Azure DevOps repository not refreshing to healthy? 
+
+For a previously unhealthy scan result to be healthy again, updated healthy scan results need to be from the same build definition as the one that generated the findings in the first place.  A common scenario where this issue occurs is when testing with different pipelines.  For results to refresh appropriately, scan results need to be for the same pipeline(s) and branch(es). 
+
+If no scanning is performed for 14 days, the scan results would be revert to “N/A”. 
 
 ### I don’t see Recommendations for findings
 
@@ -74,6 +83,8 @@ Data is stored within the region your connector is created in. You should consid
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 
+Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
+
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
 Exemptions are not available for Defender for DevOps within Microsoft Defender for Cloud.
@@ -89,6 +100,23 @@ The ability to block developers from committing code with exposed secrets is not
 ### I am not able to configure Pull Request Annotations
 
 Make sure you have write (owner/contributor) access to the subscription. 
+
+### What are the programing languages that are supported by Defender for DevOps? 
+
+The following languages are supported by Defender for DevOps:
+
+- Python
+- Java Script
+- Type Script
+
+### I'm getting the There's no CLI tool error in Azure DevOps
+
+If when running the pipeline in Azure DevOps, you receive the following error: 
+"no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'".
+
+This error occurs if you are missing the dependency of `dotnet6` in the pipeline's YAML file. DotNet6 is required to allow the Microsoft Security DevOps extension to run. Include this as a task in your YAML file to eliminate the error.
+ 
+You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 
 
 ## Next steps

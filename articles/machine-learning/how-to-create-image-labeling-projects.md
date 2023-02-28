@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: kvijaykannan 
 ms.author: vkann 
-ms.reviewer: franksolomon
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
@@ -48,10 +48,10 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
 
-    * Choose **Image Classification Multi-class** for projects, when you want to apply only a *single label*, from a set of labels, to an image.
-    * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
-    * Choose **Object Identification (Bounding Box)** for those projects where you want to assign a label, and a bounding box, to each object within an image.
-    * Choose **Instance Segmentation (Polygon)** for projects where you want to both assign a label, and draw a polygon, around each object within an image.
+    * Choose **Image Classification Multi-class** for those projects that involve the application of only a *single label*, from a set of labels, to an image.
+    * Choose **Image Classification Multi-label** for projects that involve the application of *one or more* labels, from a set of labels, to an image. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
+    * Choose **Object Identification (Bounding Box)** for projects that involve the assignment of a label, and a bounding box, to each object within an image.
+    * Choose **Instance Segmentation (Polygon)** for projects that involve both the assignment of a label to, and a drawn polygon around, each object within an image.
 
 1. Select **Next** when you want to continue.
 
@@ -64,7 +64,7 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. You can also select **Create a dataset** to use an existing Azure datastore, or to upload local files.
 
 > [!NOTE]
-> A project cannot contain more than 500,000 files. If your dataset has more than this, only the first 500,000 files will be loaded.
+> A project cannot contain more than 500,000 files. If your dataset exceeds this file count, only the first 500,000 files will be loaded.
 
 ### Create a dataset from an Azure datastore
 
@@ -79,7 +79,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **From Azure storage**, then select **Next**.
 1. Select the datastore, then select **Next**.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
-    * Append "/**" to the path to include all the files in the subfolders of the selected path.
+    * Append "/**" to the path, to include all the files in the subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
 1. Select **Create**.
 1. Select the data asset you created.
@@ -127,7 +127,7 @@ For bounding boxes, important questions include:
 * How should labelers handle an object that isn't the object class of interest, but has visual similarities to a relevant object type?
 
 > [!NOTE]
-> labelers can select the first 9 labels with number keys 1-9.
+> Labelers can select the first 9 labels with number keys 1-9.
 
 ## Quality control (preview)
 
@@ -140,7 +140,7 @@ For bounding boxes, important questions include:
 
 To accelerate labeling tasks, the **ML-assisted labeling** page lets you trigger automatic machine learning models. Medical images (".dcm") aren't included in assisted labeling.
 
-At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model land in that class.
+At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model lands in that class.
 
 Select *Enable ML assisted labeling*, and specify a GPU to enable assisted labeling. If you don't have a GPU in your workspace, a GPU cluster is created for you and added to your workspace. The cluster is created with a minimum of zero nodes, which means it costs nothing when not in use.
 
@@ -186,13 +186,15 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
-The progress charts show how many items have been labeled, skipped, in need of review, or not yet complete. Hover over the chart to see the number of items in each section.
+The progress charts show how many items have been labeled, skipped, need review, or not yet complete. Hover over the chart to see the number of items in each section.
 
-Below the charts are a distribution of the labels for completed tasks. Remember that in some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
+Below the chart 's a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
 
 You also see a distribution of labelers, and how many items they've labeled.
 
-Finally, the middle section shows a table with a queue of tasks not yet assigned. When ML assisted labeling is off, this section shows the number of manual tasks not yet assigned. When ML assisted labeling is on, this section also shows:
+Finally, the middle section shows a table with a queue of unassigned tasks. When ML assisted labeling is off, this section shows the number of manual tasks awaiting assignment.
+
+When ML assisted labeling is on, this section also shows:
 
 * Tasks containing clustered items in the queue
 * Tasks containing prelabeled items in the queue
@@ -200,14 +202,14 @@ Finally, the middle section shows a table with a queue of tasks not yet assigned
 Additionally, when ML assisted labeling is enabled, you can scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
-* Validation - determines whether the prediction of this model will be used to pre-label the items
+* Validation - determines whether item pre-labeling uses the prediction of this model
 * Inference - prediction run for new items
 * Featurization - clusters items (only for image classification projects)
 
 
 ### Data tab
 
-On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, to remove the labels and put the data back into the unlabeled queue.
+On the **Data** tab, you can see your dataset, and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, to remove the labels and return the data to the unlabeled queue.
 
 If your project uses consensus labeling, you should review those images that have no consensus:
 
@@ -221,23 +223,22 @@ If your project uses consensus labeling, you should review those images that hav
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
 
-1. For each image in need of review, select the **Consensus label** dropdown, to view the conflicting labels.
+1. For each image to review, select the **Consensus label** dropdown, to view the conflicting labels.
 
     :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
 
-1. While you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
+1. Although you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
 
 ### Details tab
 
 View and change details of your project. In this tab, you can:
 
 * View project details and input datasets
-* Enable or disable incremental refresh at regular intervals, or request an immediate refresh
+* Enable or disable **incremental refresh at regular intervals**, or request an immediate refresh
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
 * Change settings for ML assisted labeling, and kick off a labeling task
-
 
 ### Access for labelers
 

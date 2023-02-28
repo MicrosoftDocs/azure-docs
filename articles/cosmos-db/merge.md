@@ -1,13 +1,14 @@
 ---
-title: Merge partitions in Azure Cosmos DB (preview)
-description: Learn more about the merge partitions capability in Azure Cosmos DB
+title: Merge partitions (preview)
+titleSuffix: Azure Cosmos DB
+description: Reduce the number of physical partitions used for your container with the merge capability in Azure Cosmos DB.
+ms.topic: conceptual
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022
-ms.topic: conceptual
 ms.reviewer: dech
-ms.date: 10/26/2022
+ms.service: cosmos-db
+ms.date: 02/07/2023
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Merge partitions in Azure Cosmos DB (preview)
@@ -70,13 +71,15 @@ Based on conditions 1 and 2, our container can potentially benefit from merging 
 ### Merging physical partitions
 
 In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a simulation and return the expected result of the merge, but won't run the merge itself. When the flag isn't passed in, the merge will execute against the resource. When finished, the command will output the current amount of storage in KB per physical partition post-merge.
+
 > [!TIP]
 > Before running a merge, it's recommended to set your provisioned RU/s (either manual RU/s or autoscale max RU/s) as close as possible to your desired steady state RU/s post-merge, to help ensure the system calculates an efficient partition layout.
 
 #### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-// Add the preview extension
+Use [`Install-Module`](/powershell/module/powershellget/install-module) to install the [Az.CosmosDB](/powershell/module/az.cosmosdb/) module with pre-release features enabled.
+
+```azurepowershell-interactive
 $parameters = @{
     Name = "Az.CosmosDB"
     AllowPrerelease = $true
@@ -85,8 +88,22 @@ $parameters = @{
 Install-Module @parameters
 ```
 
-```azurepowershell
-// API for NoSQL
+#### [Azure CLI](#tab/azure-cli)
+
+Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
+
+```azurecli-interactive
+az extension add \
+    --name cosmosdb-preview
+```
+
+---
+
+#### [API for NoSQL](#tab/nosql/azure-powershell)
+
+Use `Invoke-AzCosmosDBSqlContainerMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+
+```azurepowershell-interactive
 $parameters = @{
     ResourceGroupName = "<resource-group-name>"
     AccountName = "<cosmos-account-name>"
@@ -97,8 +114,35 @@ $parameters = @{
 Invoke-AzCosmosDBSqlContainerMerge @parameters
 ```
 
-```azurepowershell
-// API for MongoDB
+Start the merge by running the same command without the `-WhatIf` parameter.
+
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+}
+Invoke-AzCosmosDBSqlContainerMerge @parameters
+```
+
+#### [API for NoSQL](#tab/nosql/azure-cli)
+
+Start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
+
+```azurecli-interactive
+az cosmosdb sql container merge \
+    --resource-group '<resource-group-name>' \
+    --account-name '<cosmos-account-name>' \
+    --database-name '<cosmos-database-name>' \
+    --name '<cosmos-container-name>'
+```
+
+#### [API for MongoDB](#tab/mongodb/azure-powershell)
+
+Use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+
+```azurepowershell-interactive
 $parameters = @{
     ResourceGroupName = "<resource-group-name>"
     AccountName = "<cosmos-account-name>"
@@ -109,24 +153,23 @@ $parameters = @{
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 ```
 
-#### [Azure CLI](#tab/azure-cli)
+Start the merge by running the same command without the `-WhatIf` parameter.
 
-```azurecli
-// Add the preview extension
-az extension add --name cosmosdb-preview
+```azurepowershell-interactive
+$parameters = @{
+    ResourceGroupName = "<resource-group-name>"
+    AccountName = "<cosmos-account-name>"
+    DatabaseName = "<cosmos-database-name>"
+    Name = "<cosmos-container-name>"
+}
+Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 ```
 
-```azurecli
-// API for NoSQL
-az cosmosdb sql container merge \
-    --resource-group '<resource-group-name>' \
-    --account-name '<cosmos-account-name>' \
-    --database-name '<cosmos-database-name>' \
-    --name '<cosmos-container-name>'
-```
+#### [API for MongoDB](#tab/mongodb/azure-cli)
 
-```azurecli
-// API for MongoDB
+Start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+
+```azurecli-interactive
 az cosmosdb mongodb collection merge \
     --resource-group '<resource-group-name>' \
     --account-name '<cosmos-account-name>' \
@@ -145,6 +188,8 @@ While partition merge is running on your container, it isn't possible to change 
 You can track whether merge is still in progress by checking the **Activity Log** and filtering for the events **Merge the physical partitions of a MongoDB collection** or **Merge the physical partitions of a SQL container**.
 
 ## Limitations
+
+The following are limitations of the merge feature at this time.
 
 ### Preview eligibility criteria
 
@@ -202,15 +247,15 @@ Support for other SDKs is planned for the future.
 
 If you enroll in the preview, the following connectors will fail.
 
-- Azure Data Factory <sup>1</sup>
-- Azure Stream Analytics <sup>1</sup>
-- Logic Apps <sup>1</sup>
-- Azure Functions <sup>1</sup>
-- Azure Search <sup>1</sup>
-- Azure Cosmos DB Spark connector <sup>1</sup>
+- Azure Data Factory ¹
+- Azure Stream Analytics ¹
+- Logic Apps ¹
+- Azure Functions ¹
+- Azure Search ¹
+- Azure Cosmos DB Spark connector ¹
 - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET V3 SDK v3.27.0 or higher
 
-<sup>1</sup> Support for these connectors is planned for the future.
+¹ Support for these connectors is planned for the future.
 
 ## Next steps
 
