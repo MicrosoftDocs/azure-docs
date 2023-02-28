@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, engagement-fy23
 # Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.

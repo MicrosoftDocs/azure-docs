@@ -7,14 +7,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I want to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
 
-When you deploy a virtual machine (VM), Azure creates several [system default routes](/articles/virtual-network/virtual-networks-udr-overview.md#system-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) for it. You can create [custom routes](/articles/virtual-network/virtual-networks-udr-overview.md#custom-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) to override some of Azure's system routes. Sometimes, a custom route can result in a VM not being able to communicate with the intended destination. You can use Azure Network Watcher to troubleshoot and diagnose the VM routing problem that's preventing it from correctly communicating with other resources.
+When you deploy a virtual machine (VM), Azure creates several [system default routes](/articles/virtual-network/virtual-networks-udr-overview.md#system-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) for it. You can create [custom routes](/articles/virtual-network/virtual-networks-udr-overview.md#custom-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) to override some of Azure's system routes. Sometimes, a custom route can result in a VM not being able to communicate with the intended destination. You can use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) capability to troubleshoot and diagnose the VM routing problem that's preventing it from correctly communicating with other resources.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 In this section, you create a virtual network.
 
-1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -85,7 +85,7 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 ### Create first virtual machine
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
 
 2. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -174,7 +174,7 @@ Use the next hop capability of Network Watcher to determine which route Azure is
 
 To further analyze routing, review the effective routes for **myVM** network interface.
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
 
 1. Under **Settings**, select **Networking**, then select the network interface.
 
@@ -198,7 +198,7 @@ Next, you create a static custom route to override Azure default system routes a
 
 In this section, you create a static custom route (user-defined route) in a route table that forces all traffic destined outside the virtual network to a specific IP address. Forcing traffic to a virtual network appliance is a common scenario.
 
-1. In the search box at the top of the portal, enter *route table*. Select **Route tables** in the search results.
+1. In the search box at the top of the portal, enter *route tables*. Select **Route tables** in the search results.
 
 1. Select **+ Create** to create a new route table. In the **Create Route table** page, enter or select the following values:
 

@@ -5,7 +5,7 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
@@ -290,11 +290,11 @@ When no more logging is needed, you can disable the NSG flow log that you previo
 
 1. Select **NSG flow logs** under **Logs**.
 
-1. Select the ellipsis **...** to the right of **myVM-nsg-myresourcegroup-flowlog** flow log or right-click it and select **Disable**. To resume logging, enable the flow log.
+1. Select the ellipsis **...** to the right of **myVM-nsg-myresourcegroup-flowlog** flow log or right-click it and select **Disable**.
 
 1. In **Disable NSG flow log**, select **Disable**.
 
-   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-log-file.png" alt-text="Screenshot showing the nsg flow log disabled in the Azure portal.":::
+   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-flow-log-disabled.png" alt-text="Screenshot showing the nsg flow log disabled in the Azure portal.":::
 
 ## Clean up resources
 
