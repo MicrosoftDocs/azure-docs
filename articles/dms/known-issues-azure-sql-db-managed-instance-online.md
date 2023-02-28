@@ -24,7 +24,7 @@ Known issues and limitations that are associated with online migrations from SQL
 
 - **Backup media**
 
-    Make sure to take every backup on a separate backup media (backup files). Azure Database Migration Service doesn't support backups that are appended to a single backup file. Take full backup and log backups to separate backup files.
+    Make sure to take every backup on a separate backup media (backup files). Azure Database Migration Service doesn't support backups that are appended to a single backup file. Take full, differential and log backups to separate backup files.
 
 ## Data and log file layout
 

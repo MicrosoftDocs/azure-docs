@@ -80,4 +80,4 @@ Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 ## Next steps
 
-Learn about [Microsoft Defender for Cloud's basic and enhanced security features](enhanced-security-features-overview.md)
+Learn about Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).

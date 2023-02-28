@@ -152,6 +152,9 @@
     - name: Azure PowerShell
       displayName: create,list,open,delete,deploy,move,lock,tag,export
       href: manage-resource-groups-powershell.md
+    - name: Python
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-python.md
   - name: Manage resources
     items:
     - name: Azure portal
