@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add a PostgreSQL database connection in Azure Static Web Apps"
-description: Learn to add a database connection to a web application in Azure Static Web Apps
+description: Learn to add a PostgreSQL database connection to a web application in Azure Static Web Apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
