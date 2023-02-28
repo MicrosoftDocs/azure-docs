@@ -382,10 +382,13 @@ Returns a list of all available plans for an existing SaaS subscription includin
 
 Response body example:
 
+
+
+
+
+
 ```json
 {
-  "plans": [
-    {
       "planId": "Platinum001",
       "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
       "isPrivate": true, //true or false
@@ -409,8 +412,7 @@ Response body example:
           "isStopSell": false,
           "market": "US",
     }
-  ]
-}
+
 ```
 
 Code: 404 Not Found.
@@ -625,4 +627,9 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).
+
+
+
+
+
 
