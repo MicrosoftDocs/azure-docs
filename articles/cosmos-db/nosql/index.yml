@@ -107,5 +107,5 @@ landingContent:
             url: /training/modules/build-cosmos-db-java-app/
       - linkListType: video
         links:
-          - text: Azure Friday &colon; Extension for Azure Functions update with AAD support
+          - text: Azure Friday - Extension for Azure Functions update with AAD support
             url: /shows/azure-friday/azure-cosmos-db-extension-for-azure-functions-update-with-aad-support

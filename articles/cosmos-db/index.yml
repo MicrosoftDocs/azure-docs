@@ -27,7 +27,7 @@ highlightedContent:
     - title: Distributed NoSQL databases
       itemType: concept
       url: distributed-nosql.md
-    - title: Q&amp;A
+    - title: Q&A
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
     - title: Choose an API in Azure Cosmos DB
@@ -135,7 +135,7 @@ additionalContent:
               url: synapse-link-use-cases.md
             - text: Configure Azure Synapse Link
               url: configure-synapse-link.md
-    - title: Training &amp; certification
+    - title: Training & certification
       items:
         - title: Create an API for NoSQL application
           links:
@@ -159,9 +159,9 @@ additionalContent:
               url: /training/paths/azure-cosmos-db-for-postgresql/
         - title: Certifications
           links:
-            - text: Microsoft Certified &colon; Azure Cosmos DB Developer Specialty
+            - text: Microsoft Certified - Azure Cosmos DB Developer Specialty
               url: /certifications/azure-cosmos-db-developer-specialty/
-            - text: Microsoft Certified &colon; Azure Developer Associate
+            - text: Microsoft Certified - Azure Developer Associate
               url: /certifications/azure-developer/
     - title: Data Migration
       items:

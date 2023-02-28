@@ -103,5 +103,5 @@ landingContent:
             url: /training/modules/manage-performance-availability-azure-cosmos-db-postgresql/
       - linkListType: video
         links:
-          - text: Azure Friday &colon; Introducing API for PostgreSQL
+          - text: Azure Friday - Introducing API for PostgreSQL
             url: /azure-friday/introducing-azure-cosmos-db-for-postgresql
