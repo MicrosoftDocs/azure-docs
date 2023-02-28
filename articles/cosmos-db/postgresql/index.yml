@@ -17,7 +17,7 @@ metadata:
   ms.date: 02/28/2023
   ms.custom: ignite-2022
 landingContent:
-  - title: About API for PostgreSQL
+  - title: About Azure Cosmos DB for PostgreSQL
     linkLists:
       - linkListType: overview
         links:
@@ -69,6 +69,22 @@ landingContent:
             url: howto-scale-rebalance.md
           - text: Manage read replicas
             url: howto-read-replicas-portal.md
+  - title: Get training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Model data
+            url: /training/modules/model-data-azure-cosmos-db-postgresql/
+          - text: Ingest and query data
+            url: /training/modules/ingest-query-data-using-azure-cosmos-db-for-postgresql/
+          - text: Extend PostgreSQL functionality using extensions
+            url: /training/modules/extend-the-functionality-of-azure-cosmos-db-for-postgresql-using-extensions/
+          - text: Manage performance and availability
+            url: /training/modules/manage-performance-availability-azure-cosmos-db-postgresql/
+      - linkListType: video
+        links:
+          - text: Azure Friday - Introducing API for PostgreSQL
+            url: /azure-friday/introducing-azure-cosmos-db-for-postgresql
   - title: Security
     linkLists:
       - linkListType: concept
@@ -89,19 +105,3 @@ landingContent:
             url: howto-private-access.md
           - text: Configure SSL
             url: howto-ssl-connection-security.md
-  - title: Get training
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Model data
-            url: /training/modules/model-data-azure-cosmos-db-postgresql/
-          - text: Ingest and query data
-            url: /training/modules/ingest-query-data-using-azure-cosmos-db-for-postgresql/
-          - text: Extend PostgreSQL functionality using extensions
-            url: /training/modules/extend-the-functionality-of-azure-cosmos-db-for-postgresql-using-extensions/
-          - text: Manage performance and availability
-            url: /training/modules/manage-performance-availability-azure-cosmos-db-postgresql/
-      - linkListType: video
-        links:
-          - text: Azure Friday - Introducing API for PostgreSQL
-            url: /azure-friday/introducing-azure-cosmos-db-for-postgresql
