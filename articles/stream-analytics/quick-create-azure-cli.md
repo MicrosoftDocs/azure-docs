@@ -69,7 +69,7 @@ The following Azure CLI code blocks are commands that prepare the input data req
 
 The following Azure CLI code blocks create a blob storage account that's used for job output. Review the sections to understand the code.
 
-1. Define a variable to hold the name for storage account.
+1. Define a variable to hold the name for storage account. If this command gives an error, switch to the Bash shell in the Azure Cloud Shell.
 
     ```azurecli
     storageAccountName="asatutorialstorage$RANDOM"
@@ -87,16 +87,19 @@ The following Azure CLI code blocks create a blob storage account that's used fo
 
 2. Get the key for your storage account by running the [az storage account keys list](/cli/azure/storage/account/keys) command. 
 
-   ```azurecli
-   key=$(az storage account keys list -g streamanalyticsrg -n $storageAccountName --query "[0].value" -o tsv)
-   ```
-
-3. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. You use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../storage/blobs/authorize-data-operations-cli.md).
+    ```azurecli
+    key=$(az storage account keys list -g streamanalyticsrg -n $storageAccountName --query "[0].value" -o tsv)
+    echo $key
+    ```
+    
+    > [!NOTE]
+    > Note down the access key for the Azure storage account. You will use this key later in this quickstart. 
+3. Create a container named `state` for storing blobs with the [az storage container create](/cli/azure/storage/container) command. You use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../storage/blobs/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \
        --account-name $storageAccountName \
-       --name sample-container \
+       --name state \
        --account-key $key \
        --auth-mode key
    ```
@@ -122,10 +125,11 @@ az stream-analytics job create \
 Add an input to your job by using the [az stream-analytics input](/cli/azure/stream-analytics/input#az-stream-analytics-input-create) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job's input. In this example, you'll create an IoT Hub as an input.
 
 > [!IMPORTANT]
-> Replace `<IOT HUB ACCESS KEY>` with the value of Shared Access Key in the IOT Hub connection string you saved. For example, if the IOT Hub connection string is: `HostName=MyASAIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxxxxxxxxxxxxx=`, the Shared Access Key value is `xxxxxxxxxxxxxx=`.
+> Replace `IOT HUB ACCESS KEY` with the value of Shared Access Key in the IOT Hub connection string you saved. For example, if the IOT Hub connection string is: `HostName=MyASAIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxxxxxxxxxxxxx=`, the Shared Access Key value is `xxxxxxxxxxxxxx=`.
 
 ```azurecli
-az stream-analytics input create --properties "{\"type\":\"Stream\",\"datasource\":{\"type\":\"Microsoft.Devices/IotHubs\",\"properties\":{\"consumerGroupName\":\"$Default\",\"endpoint\":\"messages/events\",\"iotHubNamespace\":\"iothub\",\"sharedAccessPolicyKey\":\"<IOT HUB ACCESS KEY>",\"sharedAccessPolicyName\":\"iothubowner\"}},\"serialization\":{\"type\":\"Json\",\"encoding\":\"UTF8\"}}" --input-name "asaiotinput" --job-name "streamanalyticsjob" --resource-group "streamanalyticsrg"
+az stream-analytics input create \
+    --properties "{\"type\":\"Stream\",\"datasource\":{\"type\":\"Microsoft.Devices/IotHubs\",\"properties\":{\"consumerGroupName\":\"\sdkconsumergroup\\",\"endpoint\":\"messages/events\",\"iotHubNamespace\":\"MyASAIoTHub\",\"sharedAccessPolicyKey\":\"IOT HUB ACCESS KEY\",\"sharedAccessPolicyName\":\"iothubowner\"}},\"serialization\":{\"type\":\"Json\",\"encoding\":\"UTF8\"}}" --input-name "asaiotinput" --job-name "streamanalyticsjob" --resource-group "streamanalyticsrg"
 ```
 
 ## Configure output to the job
@@ -133,10 +137,15 @@ az stream-analytics input create --properties "{\"type\":\"Stream\",\"datasource
 Add an output to your job by using the [az stream-analytics output create](/cli/azure/stream-analytics/output#az-stream-analytics-output-create) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters.
 
 > [!IMPORTANT]
-> Replace `<STORAGE ACCOUNT NAME>` with the name of your Azure Storage account and `<ACCESS KEY>` with the access key for your storage account. 
+> Replace `STORAGEACCOUNTNAME>` with the name of your Azure Storage account and `STORAGEACCESSKEY>` with the access key for your storage account. If you didn't note down these values, run the following commands to get them: `echo $storageAccountName` and `echo $key`.
 
 ```azurecli
-az stream-analytics output create --job-name streamanalyticsjob --datasource "{\"type\":\"Microsoft.Storage/Blob\",\"properties\":{\"container\":\"state\",\"dateFormat\":\"yyyy/MM/dd\",\"pathPattern\":\"{date}/{time}\",\"storageAccounts\":[{\"accountKey\":\"<ACCESS KEY>",\"accountName\":\"<STORAGE ACCOUNT NAME>\"}],\"timeFormat\":\"HH\"}}" --serialization "{\"type\":\"Json\",\"properties\":{\"format\":\"Array\",\"encoding\":\"UTF8\"}}" --output-name asabloboutput --resource-group streamanalyticsrg
+az stream-analytics output create \
+    --job-name streamanalyticsjob \
+    --datasource "{\"type\":\"Microsoft.Storage/Blob\",\"properties\":{\"container\":\"state\",\"dateFormat\":\"yyyy/MM/dd\",\"pathPattern\":\"{date}/{time}\",\"storageAccounts\":[{\"accountKey\":\"STORAGEACCESSKEY\",\"accountName\":\"STORAGEACCOUNTNAME\"}],\"timeFormat\":\"HH\"}}" \
+    --serialization "{\"type\":\"Json\",\"properties\":{\"format\":\"Array\",\"encoding\":\"UTF8\"}}" \
+    --output-name asabloboutput \
+    --resource-group streamanalyticsrg
 ```
 
 ## Define the transformation query
@@ -174,6 +183,28 @@ az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime
+```
+
+You see entries similar to the following one in the blob container.
+
+```json
+{
+    "messageId": 229,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 31.85214010589595,
+    "humidity": 60.278830289656284,
+    "EventProcessedUtcTime": "2023-02-28T22:06:33.5567789Z",
+    "PartitionId": 3,
+    "EventEnqueuedUtcTime": "2023-02-28T22:05:49.6520000Z",
+    "IoTHub": {
+        "MessageId": null,
+        "CorrelationId": null,
+        "ConnectionDeviceId": "MyASAIoTDevice",
+        "ConnectionDeviceGenerationId": "638132150746523845",
+        "EnqueuedTime": "2023-02-28T22:05:49.6520000Z",
+        "StreamId": null
+    }
+}
 ```
 
 ## Clean up resources
