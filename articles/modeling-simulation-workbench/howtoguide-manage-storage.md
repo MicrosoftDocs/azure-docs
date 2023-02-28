@@ -1,6 +1,6 @@
 ---
 title: How to manage chamber storage in an Azure Modeling and Simulation Workbench chamber
-description: Learn how to download data from a chamber in Azure Modeling and Simulation Workbench
+description: Learn how to manage chamber storage within a Modeling and Simulation Workbench
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu

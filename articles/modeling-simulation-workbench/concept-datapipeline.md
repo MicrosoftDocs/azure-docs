@@ -41,8 +41,6 @@ Users with access to the chamber can extract data from the chamber via the data 
 
 Choose an article to know more:
 
-- [Chamber REST API documentation](./rest/api/Modeling and Simulation Workbench)
-
 - [Workbench](./concept-workbench.md)
 
 - [Chamber](./concept-chamber.md)

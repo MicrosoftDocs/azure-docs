@@ -67,8 +67,6 @@ Know more about reducing service costs using [Azure Advisor](/azure/advisor/advi
 
 Choose an article to know more:
 
-- [Chamber REST API documentation](./rest/api/ModSimWorkbench)
-
 - [Workbench](./concept-workbench.md)
 
 - [Connector](./concept-connector.md)
