@@ -58,6 +58,9 @@ Conversation transcription uses two types of inputs:
 - **Multi-channel audio stream:** For specification and design details, see [Microphone array recommendations](./speech-sdk-microphone.md). 
 - **User voice samples:** Conversation transcription needs user profiles in advance of the conversation for speaker identification. Collect audio recordings from each user, and then send the recordings to the [signature generation service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
+> [!NOTE]
+> Single channel audio configuration for Conversation is currently under private preview, please contact diarizationrequest@microsoft.com for more details.
+
 User voice samples for voice signatures are required for speaker identification. Speakers who don't have voice samples are recognized as *unidentified*. Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see the following example). The transcription output then shows speakers as, for example, *Guest_0* and *Guest_1*, instead of recognizing them as pre-enrolled specific speaker names.
 
 ```csharp
