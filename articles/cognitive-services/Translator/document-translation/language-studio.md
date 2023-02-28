@@ -66,7 +66,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
    :::image type="content" source="media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
-1. In the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next**:
+1. In the **Job** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next**:
 
    :::image type="content" source="media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
 
@@ -107,7 +107,7 @@ While still in the **files and destination** section, select **Download translat
 1. While still in the **files and destination** section, select **Upload to Azure blob storage**.
 1. Next, choose your *target* **Blob container** and select **Next**:
 
-   :::image type="content" source="media/language-studio/target-file-blob.png" alt-text="{alt-text}":::
+   :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="{alt-text}":::
 
 ---
 
@@ -123,7 +123,7 @@ While still in the **files and destination** section, select **Download translat
 
     > [!NOTE]
     > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
-  
+
    :::image type="content" source="media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
 
 That's it! You now know how to translate documents using Azure Cognitive Services Language Studio.
