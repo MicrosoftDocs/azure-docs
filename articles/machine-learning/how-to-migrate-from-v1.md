@@ -19,7 +19,7 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK intro
 
 ## Prerequisites
 
-- General familiarity with Azure ML and the v1 Python SDK.
+- General familiarity with Azure Machine Learning and the v1 Python SDK.
 - Understand [what is v2?](concept-v2.md)
 
 ## Should I use v2?
@@ -43,7 +43,7 @@ Some feature gaps in v2 include:
 You should then ensure the features you need in v2 meet your organization's requirements, such as being generally available. 
 
 > [!IMPORTANT]
-> New features in Azure ML will only be launched in v2.
+> New features in Azure Machine Learning will only be launched in v2.
 
 ## Should I upgrade existing code to v2
 
@@ -57,8 +57,8 @@ In v2 interfaces via REST API, CLI, and Python SDK are available. The interface 
 
 |API|Notes|
 |-|-|
-|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without an SDK provided, or per personal preference.|
-|CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure ML and ML model code.|
+|REST|Fewest dependencies and overhead. Use for building applications on Azure Machine Learning as a platform, directly in programming languages without an SDK provided, or per personal preference.|
+|CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure Machine Learning and ML model code.|
 |Python SDK|Recommended for complicated scripting (for example, programmatically generating large pipeline jobs) or per personal preference. Allows quick iteration with YAML files or development solely in Python.|
 
 ## Can I use v1 and v2 together?
@@ -73,7 +73,7 @@ We do not recommend using the v1 and v2 SDKs together in the same code. It is te
 
 ## Resources and assets in v1 and v2
 
-This section gives an overview of specific resources and assets in Azure ML. See the concept article for each entity for details on their usage in v2.
+This section gives an overview of specific resources and assets in Azure Machine Learning. See the concept article for each entity for details on their usage in v2.
 
 ### Workspace
 
@@ -171,17 +171,17 @@ For details about Key Vault, see [Use authentication credential secrets in Azure
 
 ## Scenarios across the machine learning lifecycle
 
-There are a few scenarios that are common across the machine learning lifecycle using Azure ML. We'll look at a few and give general recommendations for upgrading to v2.
+There are a few scenarios that are common across the machine learning lifecycle using Azure Machine Learning. We'll look at a few and give general recommendations for upgrading to v2.
 
 ### Azure setup
 
-Azure recommends Azure Resource Manager templates (often via Bicep for ease of use) to create resources. The same is a good approach for creating Azure ML resources as well.
+Azure recommends Azure Resource Manager templates (often via Bicep for ease of use) to create resources. The same is a good approach for creating Azure Machine Learning resources as well.
 
-If your team is only using Azure ML, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
+If your team is only using Azure Machine Learning, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
 
 ### Prototyping models
 
-We recommend v2 for prototyping models. You may consider using the CLI for an interactive use of Azure ML, while your model training code is Python or any other programming language. Alternatively, you may adopt a full-stack approach with Python solely using the Azure ML SDK or a mixed approach with the Azure ML Python SDK and YAML files.
+We recommend v2 for prototyping models. You may consider using the CLI for an interactive use of Azure Machine Learning, while your model training code is Python or any other programming language. Alternatively, you may adopt a full-stack approach with Python solely using the Azure Machine Learning SDK or a mixed approach with the Azure Machine Learning Python SDK and YAML files.
 
 ### Production model training
 

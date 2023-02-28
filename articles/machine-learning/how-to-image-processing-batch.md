@@ -165,7 +165,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
    # [Python](#tab/sdk)
    
@@ -254,13 +254,13 @@ One the scoring script is created, it's time to create a batch deployment for it
 
 1. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself, and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment - and hence changing the model serving the deployment - without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure Machine Learning CLI](#tab/cli)
    
    ```bash
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/sdk)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
