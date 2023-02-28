@@ -26,8 +26,6 @@ After you finish, you'll know how to make quick manual changes to each applicati
 
 ## Prerequisites
 
-To follow these procedures, you need:
-
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A deployed Azure Spring Apps service instance.  Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
@@ -36,15 +34,11 @@ To follow these procedures, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your Azure Spring Apps **Overview** page.
+1. Go to your Azure Spring Apps instance.
 
-1. Select the resource group that contains your service.
+1. Select **Apps** under **Settings** in the navigation pane.
 
-1. Select the **Apps** tab under **Settings** in the menu on the left side of the page.
-
-1. Select the application you want to scale. In this example, select the application named **account-service**. You should then see the application's **Overview** page.
-
-1. Go to the **Scale** tab under **Settings** in the menu on the left side of the page. You should see options for the scaling the attributes shown in the following section.
+1. Select the application you want to scale and then select **Scale up** in the navigation pane. You are provided with options for scaling the attributes of your application, as described in the following section.
 
 ## Scale your application
 
@@ -58,9 +52,9 @@ If you modify the scaling attributes, keep the following notes in mind:
 
 Be sure to select **Save** to apply your scaling settings.
 
-![The Scale service in the Azure portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
+:::image type="content" source="media/how-to-scale-manual/scale-up-out.png" alt-text="Screenshot of the Azure portal showing the Scale up page for an app in an Azure Spring Apps instance with Scale up highlighted in the navigation pane." lightbox="media/how-to-scale-manual/scale-up-out.png":::
 
-After a few seconds, the changes you made are displayed on the **Overview** page, with more details available in the **Application instances** tab. Scaling doesn't require any code changes or redeployment.
+After a few seconds, the changes you make are displayed on the **Overview** page of the app, with more details available on the **App instance** page available from the navigation pane. Scaling doesn't require any code changes or redeployment.
 
 ## Upgrade to the Standard tier
 
