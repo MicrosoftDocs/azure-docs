@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Log network traffic flow to and from a virtual machine - Azure portal'
-description: Learn how to log network traffic flow to and from a virtual machine using Network Watcher's NSG flow logs capability.
+description: Learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 02/27/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
+# Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
@@ -20,14 +20,14 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-This tutorial helps you use Azure Network Watcher NSG flow log capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
+This tutorial helps you use Azure Network Watcher [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and a Bastion host
 > * Create a virtual machine with a network security group associated to its network interface
-> * Register the Microsoft.Insights provider
+> * Register Microsoft.insights provider
 > * Enable flow logging for a network security group using Network Watcher NSG flow logs
 > * Download logged data
 > * View logged data
