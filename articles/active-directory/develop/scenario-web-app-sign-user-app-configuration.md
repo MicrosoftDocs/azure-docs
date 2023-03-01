@@ -55,7 +55,7 @@ You might want to refer to this sample for full implementation details.
 
 # [Python](#tab/python)
 
-Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample in MSAL Python.
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the identity package (a wrapper around MSAL Python).
 
 You might want to refer to this sample for full implementation details.
 
@@ -65,19 +65,19 @@ You might want to refer to this sample for full implementation details.
 
 Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. These are the values you're required to specify in the configuration:
 
-- The cloud instance (`Instance`) if you want your app to run in national clouds, for example. The different options include;
+- The cloud **instance** if you want your app to run in national clouds, for example. The different options include;
   - `https://login.microsoftonline.com/` for Azure public cloud
   - `https://login.microsoftonline.us/` for Azure US government
   - `https://login.microsoftonline.de/` for Azure AD Germany
   - `https://login.partner.microsoftonline.cn/common` for Azure AD China operated by 21Vianet
-- The audience in the tenant ID (`TenantId`). The options vary depending on whether your app is single tenant or multitenant.
-  - `TenantId` for a GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
+- The audience in the **tenant ID**. The options vary depending on whether your app is single tenant or multitenant.
+  - The tenant GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
   - `organizations` to sign in users in any work or school account
   - `common` to sign in users with any work or school account or Microsoft personal account
   - `consumers` to sign in users with a Microsoft personal account only
-- The client ID (`ClientId`) for your application, as copied from the Azure portal
+- The **client ID** for your application, as copied from the Azure portal
 
-You might also see references to the `Authority`. The `Authority` value is the concatenation of the `Instance` and `TenantId` values.
+You might also see references to the **authority**, a concatenation of the **instance** and **tenant ID** values.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -191,24 +191,28 @@ For simplicity in this article, the client secret is stored in the configuration
 
 # [Python](#tab/python)
 
-Here's the Python configuration file in [app_config.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
+The configuration parameters are set in *.env* as environment variables:
+
+```bash
+TENANT_ID=<tenant id>
+CLIENT_ID=<client id>
+CLIENT_SECRET=<client secret>
+```
+
+Those environment variables are referenced by *app_config.py*:
 
 ```Python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/common"
-CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+AUTHORITY = f"https://login.microsoftonline.com/{os.getenv('TENANT_ID')}"
+REDIRECT_PATH = "/getAToken"
 ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
 SCOPE = ["User.ReadBasic.All"]
-SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-side session
+# Store sessions in the filesystem
+SESSION_TYPE = "filesystem"
 ```
 
-For simplicity in this article, the client secret is stored in the configuration file. In the production app, consider using a key vault or an environment variable as described in [Flask's documentation](https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables) to store your secret.
-
-```python
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-if not CLIENT_SECRET:
-    raise ValueError("Need to define CLIENT_SECRET environment variable")
-```
+The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 
 ---
 
@@ -329,25 +333,37 @@ For details about the authorization code flow that this method triggers, see the
 
 # [Node.js](#tab/nodejs)
 
-Node sample the Express framework. MSAL is initialized in *auth* route handler:
+The Node sample uses the Express framework. MSAL is initialized in *auth* route handler:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-16":::
 
 # [Python](#tab/python)
 
-The Python sample uses Flask. The initialization of Flask and MSAL Python is done in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
+The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/TODO/app.py#L1-L28).
 
 ```Python
-import uuid
+import identity
+import identity.web
 import requests
-from flask import Flask, render_template, session, request, redirect, url_for
-from flask_session import Session  # https://pythonhosted.org/Flask-Session
-import msal
+from flask import Flask, redirect, render_template, request, session, url_for
+from flask_session import Session
+
 import app_config
 
 app = Flask(__name__)
 app.config.from_object(app_config)
 Session(app)
+```
+
+Then the code constructs an [`auth` object](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth) using the [identity package](https://identity-library.readthedocs.io/).
+
+```Python
+auth = identity.web.Auth(
+    session=session,
+    authority=app.config.get("AUTHORITY"),
+    client_id=app.config["CLIENT_ID"],
+    client_credential=app.config["CLIENT_SECRET"],
+)
 ```
 
 ---

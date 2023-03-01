@@ -104,14 +104,27 @@ This template is served via the main (index) route of the app:
 
 # [Python](#tab/python)
 
-In the Python quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app. See [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
+In the Python quickstart, the code for the sign-in link is located in *login.html* template file.
+See [login.html#TODO]().
+
+```Python
+    <li><a href='{{ auth_uri }}'>Sign In</a></li>
+```
+When an unauthenticated user visits the home page, the `index` route redirects the user to the `login` route, which figures out the appropriate `auth_uri` and renders the `login.html` template.
 
 ```Python
 @app.route("/")
 def index():
-    if not session.get("user"):
+    if not auth.get_user():
         return redirect(url_for("login"))
-    return render_template('index.html', user=session["user"])
+    return render_template('index.html', user=auth.get_user(), version=identity.__version__)
+
+@app.route("/login")
+def login():
+    return render_template("login.html", version=identity.__version__, **auth.log_in(
+        scopes=app_config.SCOPE,
+        redirect_uri=url_for("auth_response", _external=True),
+        ))
 ```
 
 ---
@@ -175,47 +188,17 @@ When the user selects the **Sign in** link, which triggers the `/auth/signin` ro
 
 # [Python](#tab/python)
 
-Unlike other platforms, MSAL Python takes care of letting the user sign in from the login page. See [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28).
+When the user selects the **Sign in** link, they're brought to the Microsoft Identity Platform authorization endpoint. 
+
+A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page.
 
 ```Python
-@app.route("/login")
-def login():
-    session["state"] = str(uuid.uuid4())
-    auth_url = _build_msal_app().get_authorization_request_url(
-        app_config.SCOPE,  # Technically we can use an empty list [] to just sign in
-                           # Here we choose to also collect user consent up front
-        state=session["state"],
-        redirect_uri=url_for("authorized", _external=True))
-    return "<a href='%s'>Login with Microsoft Identity</a>" % auth_url
-```
-
-The `_build_msal_app()` method is defined in [app.py#L81-L88](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L81-L88) as follows:
-
-```Python
-def _load_cache():
-    cache = msal.SerializableTokenCache()
-    if session.get("token_cache"):
-        cache.deserialize(session["token_cache"])
-    return cache
-
-def _save_cache(cache):
-    if cache.has_state_changed:
-        session["token_cache"] = cache.serialize()
-
-def _build_msal_app(cache=None):
-    return msal.ConfidentialClientApplication(
-        app_config.CLIENT_ID, authority=app_config.AUTHORITY,
-        client_credential=app_config.CLIENT_SECRET, token_cache=cache)
-
-def _get_token_from_cache(scope=None):
-    cache = _load_cache()  # This web app maintains one cache per session
-    cca = _build_msal_app(cache)
-    accounts = cca.get_accounts()
-    if accounts:  # So all accounts belong to the current signed-in user
-        result = cca.acquire_token_silent(scope, account=accounts[0])
-        _save_cache(cache)
-        return result
-
+@app.route(app_config.REDIRECT_PATH)
+def auth_response():
+    result = auth.complete_log_in(request.args)
+    if "error" in result:
+        return render_template("auth_error.html", result=result)
+    return redirect(url_for("index"))
 ```
 
 ---
@@ -328,21 +311,10 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 
 # [Python](#tab/python)
 
-In the Python quickstart, the sign-out button is located in the [templates/index.html#L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) file.
+In the Python quickstart, the sign-out button is located in [templates/index.html#L18](TODO) file.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Microsoft Identity Python web app</h1>
-    Welcome {{ user.get("name") }}!
-    <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
-    <li><a href="/logout">Logout</a></li>
-</body>
-</html>
+<li><a href="/logout">Logout</a></li>
 ```
 
 ---
@@ -406,15 +378,12 @@ When the user selects the **Sign out** button, the app triggers the `/signout` r
 
 # [Python](#tab/python)
 
-The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
+When the user selects **Logout**, the app triggers the `/logout` route, which redirects the browser to the Microsoft identity platform sign-out endpoint. See [app.py#L44-L46](TODO).
 
 ```Python
 @app.route("/logout")
 def logout():
-    session.clear()  # Wipe out the user and the token cache from the session
-    return redirect(  # Also need to log out from the Microsoft Identity platform
-        "https://login.microsoftonline.com/common/oauth2/v2.0/logout"
-        "?post_logout_redirect_uri=" + url_for("index", _external=True))
+    return redirect(auth.log_out(url_for("index", _external=True)))
 ```
 
 ---

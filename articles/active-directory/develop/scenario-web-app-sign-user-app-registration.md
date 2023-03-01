@@ -131,61 +131,61 @@ Here's an idea of the code. For a fully functioning code, see [this sample](http
 
 ```PowerShell
 # Connect to the Microsoft Graph API, non-interactive is not supported for the moment (Oct 2021)
-    Write-Host "Connecting to Microsoft Graph"
-    if ($tenantId -eq "") {
-        Connect-MgGraph -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
-    }
-    else {
-        Connect-MgGraph -TenantId $tenantId -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
-    }
-    
-    $context = Get-MgContext
-    $tenantId = $context.TenantId
+Write-Host "Connecting to Microsoft Graph"
+if ($tenantId -eq "") {
+   Connect-MgGraph -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+}
+else {
+   Connect-MgGraph -TenantId $tenantId -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+}
+   
+$context = Get-MgContext
+$tenantId = $context.TenantId
 
-    # Get the user running the script
-    $currentUserPrincipalName = $context.Account
-    $user = Get-MgUser -Filter "UserPrincipalName eq '$($context.Account)'"
+# Get the user running the script
+$currentUserPrincipalName = $context.Account
+$user = Get-MgUser -Filter "UserPrincipalName eq '$($context.Account)'"
 
-    # get the tenant we signed in to
-    $Tenant = Get-MgOrganization
-    $tenantName = $Tenant.DisplayName
-    
-    $verifiedDomain = $Tenant.VerifiedDomains | where {$_.Isdefault -eq $true}
-    $verifiedDomainName = $verifiedDomain.Name
-    $tenantId = $Tenant.Id
+# get the tenant we signed in to
+$Tenant = Get-MgOrganization
+$tenantName = $Tenant.DisplayName
+   
+$verifiedDomain = $Tenant.VerifiedDomains | where {$_.Isdefault -eq $true}
+$verifiedDomainName = $verifiedDomain.Name
+$tenantId = $Tenant.Id
 
-    Write-Host ("Connected to Tenant {0} ({1}) as account '{2}'. Domain is '{3}'" -f  $Tenant.DisplayName, $Tenant.Id, $currentUserPrincipalName, $verifiedDomainName)
+Write-Host ("Connected to Tenant {0} ({1}) as account '{2}'. Domain is '{3}'" -f  $Tenant.DisplayName, $Tenant.Id, $currentUserPrincipalName, $verifiedDomainName)
 
-   # Create the webApp AAD application
-   Write-Host "Creating the AAD application (WebApp)"
-   # create the application 
-   $webAppAadApplication = New-MgApplication -DisplayName "WebApp" `
-                                                      -Web `
-                                                      @{ `
-                                                          RedirectUris = "https://localhost:44321/", "https://localhost:44321/signin-oidc"; `
-                                                          HomePageUrl = "https://localhost:44321/"; `
-                                                          LogoutUrl = "https://localhost:44321/signout-oidc"; `
-                                                        } `
-                                                       -SignInAudience AzureADandPersonalMicrosoftAccount `
-                                                      #end of command
+# Create the webApp AAD application
+Write-Host "Creating the AAD application (WebApp)"
+# create the application 
+$webAppAadApplication = New-MgApplication -DisplayName "WebApp" `
+                                                   -Web `
+                                                   @{ `
+                                                         RedirectUris = "https://localhost:44321/", "https://localhost:44321/signin-oidc"; `
+                                                         HomePageUrl = "https://localhost:44321/"; `
+                                                         LogoutUrl = "https://localhost:44321/signout-oidc"; `
+                                                      } `
+                                                      -SignInAudience AzureADandPersonalMicrosoftAccount `
+                                                   #end of command
 
-    $currentAppId = $webAppAadApplication.AppId
-    $currentAppObjectId = $webAppAadApplication.Id
+$currentAppId = $webAppAadApplication.AppId
+$currentAppObjectId = $webAppAadApplication.Id
 
-    $tenantName = (Get-MgApplication -ApplicationId $currentAppObjectId).PublisherDomain
-    #Update-MgApplication -ApplicationId $currentAppObjectId -IdentifierUris @("https://$tenantName/WebApp")
-    
-    # create the service principal of the newly created application     
-    $webAppServicePrincipal = New-MgServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
+$tenantName = (Get-MgApplication -ApplicationId $currentAppObjectId).PublisherDomain
+#Update-MgApplication -ApplicationId $currentAppObjectId -IdentifierUris @("https://$tenantName/WebApp")
+   
+# create the service principal of the newly created application     
+$webAppServicePrincipal = New-MgServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
 
-    # add the user running the script as an app owner if needed
-    $owner = Get-MgApplicationOwner -ApplicationId $currentAppObjectId
-    if ($owner -eq $null)
-    { 
-        New-MgApplicationOwnerByRef -ApplicationId $currentAppObjectId  -BodyParameter = @{"@odata.id" = "htps://graph.microsoft.com/v1.0/directoryObjects/$user.ObjectId"}
-        Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($webAppServicePrincipal.DisplayName)'"
-    }
-    Write-Host "Done creating the webApp application (WebApp)"
+# add the user running the script as an app owner if needed
+$owner = Get-MgApplicationOwner -ApplicationId $currentAppObjectId
+if ($owner -eq $null)
+{
+   New-MgApplicationOwnerByRef -ApplicationId $currentAppObjectId  -BodyParameter = @{"@odata.id" = "htps://graph.microsoft.com/v1.0/directoryObjects/$user.ObjectId"}
+   Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($webAppServicePrincipal.DisplayName)'"
+}
+Write-Host "Done creating the webApp application (WebApp)"
 ```
 
 
