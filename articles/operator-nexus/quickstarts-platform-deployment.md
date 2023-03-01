@@ -27,7 +27,7 @@ These steps use commands and parameters that are detailed in the API documents.
 
 ## API guide and metrics
 
-The [API guide](/rest/api/azure/operator-nexus) provides
+The [API guide]((/rest/api/azure/azure-operator-distributed-services) provides
 information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
