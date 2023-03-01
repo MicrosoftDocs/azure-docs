@@ -3,7 +3,7 @@ title: Configure device redirection - Azure
 description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/03/2023
 ms.author: helohr
 manager: femila
 ---
@@ -173,6 +173,13 @@ Set the following RDP property to configure WebAuthn redirection:
 - `redirectwebauthn:i:0` disables WebAuthn redirection.
 
 When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication-preview).
+
+## Disable device redirection
+
+If you're making RDP connections from personal resources to corporate ones on the web or WIndows Desktop client, you'll need to disable device redirection for security purposes. To do this, go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client** and configure the following RDP property:
+
+- `DisableDriveRedirection:0` enables device redirection.
+- `DisableDriveRedirection:1` disables device redirection.
 
 ## Next steps
 
