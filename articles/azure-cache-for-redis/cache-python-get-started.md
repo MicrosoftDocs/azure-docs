@@ -34,7 +34,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 
 ## Install redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, `pip`, to install the `redis-py` package from a command prompt. 
+[Redis-py](https://pypi.org/project/redis/) is a Python interface to Azure Cache for Redis. Use the Python packages tool, `pip`, to install the `redis-py` package from a command prompt. 
 
 The following example used `pip3` for Python 3 to install `redis-py` on Windows 11 from an Administrator command prompt.
 
@@ -55,7 +55,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> For Azure Cache for Redis version 3.0 or higher, TLS/SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, ssl_ca_certs are in the */etc/pki/tls/certs/ca-bundle.crt* certificate module.
+> For Azure Cache for Redis version 3.0 or higher, TLS/SSL certificate check is enforced. `ssl_ca_certs` must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, `ssl_ca_certs` are in the `/etc/pki/tls/certs/ca-bundle.crt` certificate module.
 
 ## Create a Python sample app
 
