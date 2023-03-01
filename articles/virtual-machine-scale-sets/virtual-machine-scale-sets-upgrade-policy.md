@@ -90,6 +90,9 @@ The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in
 ```azurecli-interactive
 az vmss update \
     --upgrade-policy-mode Rolling \
+    --max-unhealthy-instance-percent 40 \
+    --max-unhealthy-upgraded-instance-percent 30 \
+    --pause-time-between-batches PT30S \
     --max-surge true
 ```
 
@@ -135,19 +138,13 @@ If you have the Upgrade Policy set to manual, you need to perform manual upgrade
 Using [az vmss update-instances](/cli/azure/vmss)
 
 ```azurecli
-az vmss update-instances \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
-    --instance-ids {instanceIds}
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
 ### PowerShell 
 Using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
 ```powershell
-Update-AzVmssInstance `
-    -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -InstanceId instanceId
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
 ### REST API 
@@ -161,24 +158,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
-### REST API 
-Using [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
-```
-
-### PowerShell 
-Using [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
-
-```powershell
-Set-AzVmssVM `
-    -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -InstanceId instanceId `
-    -Reimage
-```
-
 ### CLI 
 Using [az vmss reimage](/cli/azure/vmss):
 
@@ -186,12 +165,22 @@ Using [az vmss reimage](/cli/azure/vmss):
 > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
 ```azurecli
-az vmss reimage \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
-    --instance-id instanceId
+az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
+### PowerShell 
+Using [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
+
+```powershell
+Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+```
+
+### REST API 
+Using [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+```
 
 ## Next steps
 You can also perform common management tasks on scale sets with the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
