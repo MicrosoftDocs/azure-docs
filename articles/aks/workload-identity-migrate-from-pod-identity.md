@@ -1,15 +1,13 @@
 ---
-title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity (preview)
+title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
-ms.date: 02/08/2023
+ms.date: 03/01/2023
 ---
 
-# Modernize application authentication with workload identity (preview)
+# Modernize application authentication with workload identity
 
-This article focuses on pod-managed identity migration to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+This article focuses on pod-managed identity migration to Azure Active Directory (Azure AD) workload identity for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
 ## Before you begin
 
