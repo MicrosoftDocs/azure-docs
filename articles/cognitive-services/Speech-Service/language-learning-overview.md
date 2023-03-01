@@ -32,7 +32,7 @@ Azure [Speech-to-Text](speech-to-text.md) supports real-time language identifica
 
 ##  Text-to-Speech prebuilt voice
 
-[Text-to-Speech](text-to-speech.md) prebuilt neural voices can read out learning materials natively and empower self-served learning anytime anywhere.  Azure AI provides a broad portfolio of [languages and voices](language-support.md?tabs=tts) to enable users for AI teacher, content read aloud capabilities, and more. The Azure product team is continuously working on bringing new languages to the world. 
+[Text-to-Speech](text-to-speech.md) prebuilt neural voices can read out learning materials natively and empower self-served learning. A broad portfolio of [languages and voices](language-support.md?tabs=tts) are supported for AI teacher, content read aloud capabilities, and more. Microsoft is continuously working on bringing new languages to the world. 
 
 ##  Custom Neural Voice
 
