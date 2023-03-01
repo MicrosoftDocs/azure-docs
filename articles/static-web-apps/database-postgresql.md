@@ -44,11 +44,11 @@ Azure Static Web Apps must have network access to your database for database con
 
 1. Go to your Azure Database for PostgreSQL Server in the [Azure portal](https://portal.azure.com).
 
-1. If you are using Azure Database for PostgreSQL Flexible Server, under the *Settings* section, select **Networking**. If you are using Azure Database for PostgreSQL Single Server, under the *Settings* section, select **Connection security**.
+1. If you're using Azure Database for PostgreSQL Flexible Server, under the *Settings* section, select **Networking**. If you're using Azure Database for PostgreSQL Single Server, under the *Settings* section, select **Connection security**.
 
 1. Under the *Firewall rules* section, select the **Add your current client IP address** button. This step ensures that you can use this database for your local development.
 
-1. Under the *Firewall rules* section, select the **Allow public access from any Azure service within Azure to this server** checkbox. If you are using Azure Database for PostgreSQL Single Server, this toggle is labeled **Allow access to Azure services**. This step ensures that your deployed Static Web Apps resource can access your database.
+1. Under the *Firewall rules* section, select the **Allow public access from any Azure service within Azure to this server** checkbox. If you're using Azure Database for PostgreSQL Single Server, this toggle is labeled **Allow access to Azure services**. This step ensures that your deployed Static Web Apps resource can access your database.
 
 1. Select **Save**.
 
