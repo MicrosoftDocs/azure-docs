@@ -31,7 +31,8 @@ The following software must be installed:
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
-* GIT [(download)](https://git-scm.com/downloads)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 
 ## Clone the ARR samples repository
 

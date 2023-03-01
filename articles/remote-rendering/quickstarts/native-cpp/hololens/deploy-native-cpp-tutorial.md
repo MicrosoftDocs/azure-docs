@@ -33,7 +33,8 @@ The following software must be installed:
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are required:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
-* [GIT](https://git-scm.com/downloads).
+* [Git](https://git-scm.com/downloads).
+* [Git LFS plugin](https://git-lfs.github.com/)
 
 ## Clone the Remote Rendering samples repository
 
