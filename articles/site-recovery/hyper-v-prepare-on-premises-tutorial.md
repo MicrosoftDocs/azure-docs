@@ -4,10 +4,9 @@ description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery 
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 03/02/2023
-ms.custom: MVC
+ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.custom: engagement-fy23
 
 ---
 
