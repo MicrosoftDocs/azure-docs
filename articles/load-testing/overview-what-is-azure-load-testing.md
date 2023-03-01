@@ -67,7 +67,7 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture-large.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
