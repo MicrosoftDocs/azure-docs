@@ -60,7 +60,7 @@ Then, all users can view the list of IP addresses that are resolved to domains i
 
 For more information, see:
 
-- <!--add xref to procedure>
+- <!--add xref to procedure-->
 - [Create data mining queries](how-to-create-data-mining-queries.md)
 
 ### Automatically resolved device notifications
