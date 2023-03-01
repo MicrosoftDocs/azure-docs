@@ -85,7 +85,7 @@ Custom branding appears after users sign in. Users that start the sign-in proces
     > [!IMPORTANT]
     > Hyperlinks that are added to the sign-in page text render as text in native environments, such as desktop and mobile applications.
 
-- **Advanced settings**
+    - **Advanced settings**
             
     ![Configure company branding page, with advanced settings completed](media/customize-branding/legacy-customize-branding-configure-advanced.png)   
 
