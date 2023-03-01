@@ -124,8 +124,6 @@ output_location: "/dist"
 data_api_location: "db-config" # Folder holding the staticwebapps.database.config.json file
 ```
 
-> [!NOTE]
-> The `data_api_location` definition must immediately follow the `output_location` definition.
 
 ## Configure database connectivity
 
