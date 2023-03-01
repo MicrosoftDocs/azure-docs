@@ -1,7 +1,7 @@
 ---
 title: Gather user voice input
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for gathering user input from participants on a call.
+description: Provides a how-to guide for gathering user voice input from participants on a call.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
