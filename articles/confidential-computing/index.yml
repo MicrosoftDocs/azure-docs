@@ -131,6 +131,8 @@ landingContent:
             url: confidential-nodes-aks-faq.yml
       - linkListType: video
         links:
+          - text: Confidential VM worker nodes with AKS with remote attestation - Azure Friday
+            url: .../shows/azure-friday/azure-confidential-computing-with-confidential-vms-and-aks-nodes
           - text: Overview of confidential computing Intel SGX nodes on AKS
             url: https://www.youtube.com/watch?v=FYZxtHI_Or0
           - text: Python hello world demo with Intel SGX based confidential containers on AKS 
