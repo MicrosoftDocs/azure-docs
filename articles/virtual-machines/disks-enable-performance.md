@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Performance plus for managed disks
 
-You can increase the Input/Output Operations Per Second (IOPS) and throughput limits for Premium SSD, Standard SSD, and Standard HDD disks that are 1024 GB and larger using performance plus. Performance plus enhances performance for workloads that require high IOPS and throughput, such as database and transactional workloads. There is no additional charge for enabling performance plus on a disk.
+You can increase the Input/Output Operations Per Second (IOPS) and throughput limits for Premium SSD, Standard SSD, and Standard HDD disks that are 1024 GB and larger using performance plus. Performance plus enhances performance for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk.
 
 Once enabled, the IOPS and throughput limits for a disk are increased to the higher maximum limits. To see the eligible disks and their new limitations, see [Scalability and performance targets for VM disks](disks-scalability-targets.md).
 
@@ -25,7 +25,7 @@ Once enabled, the IOPS and throughput limits for a disk are increased to the hig
 
 ## Enable performance plus
 
-Performance plus can be enabled when creating a disk using either the Azure Powershell module or the Azure CLI.
+Performance plus can be enabled when creating a disk using either the Azure PowerShell module or the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -43,7 +43,7 @@ az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG
 ```
 
 
-The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot:
+The following is the command to create a new Azure disk with performance plus enabled with data from another disk or snapshot:
 
 ```azurecli
 myRG=yourResourceGroupName
@@ -78,7 +78,7 @@ $diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB
 $dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig 
 ```
 
-The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot:
+The following is the command to create a new Azure disk with performance plus enabled with data from another disk or snapshot:
 
 ```azurepowershell
 $myDisk=yourDiskOrSnapshotName
