@@ -278,7 +278,7 @@ You can get your policy assignment details using the following command:
 
 
 1. Sign in to your Azure account using the `az login` command.
-1. 
+
 1. Select the subscription where you want to apply the policy initiative using the `az account set` command.
 
 1. Assign the initiative using [`az policy assignment create`](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create).
@@ -319,7 +319,7 @@ You can get your policy assignment details using the following command:
     ```azurecli
     az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId
     ```
-    Remediate the resources using [`az policy remediation create`]https://learn.microsoft.com/cli/azure/policy/remediation?view=azure-cli-latest#az-policy-remediation-create)
+    Remediate the resources using [`az policy remediation create`](https://learn.microsoft.com/cli/azure/policy/remediation?view=azure-cli-latest#az-policy-remediation-create)
 
     ```azurecli
     az policy remediation create --resource-group <resource group name> --policy-assignment <assignment name> --name <remediation task name> --definition-reference-id  "policy specific reference ID"  --resource-discovery-mode ReEvaluateCompliance
