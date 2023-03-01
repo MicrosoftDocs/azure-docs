@@ -11,7 +11,7 @@ ms.author: azfuncdf
 
 Some issues users experience with Durable Functions can be resolved by upgrading to the latest version of the extension which contains important bug fixes and performance improvements. You can do the following to get the latest version of the Durable Functions extension. 
 
-## Reference the latest package (.NET apps only)
+## Reference the latest nuget packages (.NET apps only)
 .NET apps can get the latest version of the Durable Functions extension by referencing the latest [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). 
 
 ## Upgrade the extension bundle 
