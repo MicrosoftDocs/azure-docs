@@ -102,14 +102,17 @@ landingContent:
     linkLists:
       - linkListType: overview
         links: 
-        - text: Confidential containers on Azure
+        - text: Confidential containers on Azure overview
           url: confidential-containers.md
-        - text: App enclave nodes in AKS
-          url: confidential-nodes-aks-overview.md
-        - text: Confidential VM node pool in AKS
+        - text: Confidential VM with AMD SEV-SNP node pools in AKS
           url: confidential-node-pool-aks.md
+        - text: App enclave nodes with Intel SGX in AKS
+          url: confidential-nodes-aks-overview.md
+       
       - linkListType: quickstart
         links:
+          - text: Hello world with Confidential containers with Azure Container Insatnces (ACI)
+            url: ../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
