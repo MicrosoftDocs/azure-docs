@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway Private Link (preview)
+title: Azure Application Gateway Private Link
 description: This article is an overview of Application Gateway Private Link.
 services: application-gateway
 author: greg-lindsay
@@ -10,7 +10,7 @@ ms.author: greglin
 
 ---
 
-# Application Gateway Private Link (preview)
+# Application Gateway Private Link 
 
 Today, you can deploy your critical workloads securely behind Application Gateway, gaining the flexibility of Layer 7 load balancing features. Access to the backend workloads is possible in two ways:
 
@@ -21,8 +21,7 @@ Private Link for Application Gateway allows you to connect workloads over a priv
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
-> [!IMPORTANT]
-> Azure Application Gateway Private Link is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Features and capabilities
 
