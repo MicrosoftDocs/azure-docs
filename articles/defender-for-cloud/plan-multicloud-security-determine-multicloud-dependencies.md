@@ -80,7 +80,7 @@ The following components and requirements are needed to receive full protection 
   - The Azure Arc agent is needed to read security information on the host level and allow Defender for Cloud to deploy the agents/extensions required for complete protection.
 To auto-provision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
 - **Defender for Endpoint capabilities**: The [Microsoft Defender for Endpoint](./integration-defender-for-endpoint.md?tabs=linux) agent provides comprehensive endpoint detection and response (EDR) capabilities.
-- **Vulnerability assessment**: Using either the integrated [Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md), or the [Microsoft threat and vulnerability management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide) solution.
+- **Vulnerability assessment**: Using either the integrated [Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md), or the [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide) solution.
 - **Log Analytics agent/[Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) (in preview)**: Collects security-related configuration information and event logs from machines.
 
 #### Check networking requirements

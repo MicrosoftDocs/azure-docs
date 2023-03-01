@@ -15,7 +15,7 @@ ms.date: 01/24/2023
 
 - [1:22](/shows/mdc-in-the-field/defender-for-containers#time=01m22s) - Overview of the announcements for Microsoft Defender for Servers
 
-- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to Defender Vulnerability Management
+- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to Microsoft Defender Vulnerability Management
 
 - [7:12](/shows/mdc-in-the-field/defender-for-containers#time=07m12s) - Defender Vulnerability Management capabilities in Defender for Servers
 
@@ -29,7 +29,7 @@ ms.date: 01/24/2023
 
 ## Recommended resources
   
-Learn how to [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
+Learn how to [Investigate weaknesses with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 -  Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
 
