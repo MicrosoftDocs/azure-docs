@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
 ms.custom: passwordless-java, devx-track-java
-zone_pivot_group_filename: /articles/java/java-zone-pivot-groups.json
+zone_pivot_group_filename: java-zone-pivot-groups.json
 zone_pivot_groups: passwordless-postgresql
 ---
 
