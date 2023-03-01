@@ -119,7 +119,7 @@
   items:
   - name: Best practice
     items:
-    - name: Durable Functions best practice and diagnostic tools
+    - name: Durable Functions diagnostic tools
       href: durable-functions-best-practice-reference.md
     - name: Upgrade Durable Functions extension version
       href: durable-functions-extension-upgrade.md
