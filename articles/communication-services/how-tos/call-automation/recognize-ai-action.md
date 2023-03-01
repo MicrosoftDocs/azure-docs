@@ -40,6 +40,10 @@ This guide helps you get started recognizing user input in the forms of DTMF or 
 |RecognizeFailed|500|9999|Unspecified error.|
 |RecognizeCanceled|400|8508|Action failed, the operation was canceled. |
 
+## Limitations
+
+- You must either pass a tone for every single choice if you want to enable callers to use tones or voice inputs, otherwise no tone should be sent if you're expecting only voice input from callers. 
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
