@@ -150,6 +150,20 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ---
 
+### [Using PowerShell (Premium tier)](#tab/premium)
+
+
+### [Using PowerShell (Enterprise tier)](#tab/enterprise)
+The [New-AzRedisEnterpriseCache](../powershell/module/az.redisenterprisecache/new-azredisenterprisecache.md) command can be used to create a new Enterprise-tier cache using data persistence. Use the `RdbPersistenceEnabled`, `RdbPersistenceFrequency`, `AofPersistenceEnabled`, and `AofPersistenceFrequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency. 
+
+```powershell
+New-AzRedisEnterpriseCache -Name "MyCache" -ResourceGroupName "MyGroup" -Location "West US" -Sku "Enterprise_E10" -RdbPersistenceEnabled -RdbPersistenceFrequency "1h"
+```
+
+
+---
+
+
 ## Persistence FAQ
 
 The following list contains answers to commonly asked questions about Azure Cache for Redis persistence.
