@@ -33,7 +33,7 @@ VMs are also aligned with disk fault domains. This alignment ensures that all th
 
 Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. The following command will retreive a list of fault domains per region: 
 
-```cli
+```azurecli-interactive
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
