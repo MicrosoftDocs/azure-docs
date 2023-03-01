@@ -150,27 +150,36 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. An example of a successful play event update.
 
-```json 
-[{
-    "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
-    "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
-    "type": "Microsoft.Communication.PlayCompleted",
-    "data": {
-        "resultInfo": {
-            "code": 200,
-            "subCode": 0,
-            "message": "Action completed successfully."
-        },
-        "type": "playCompleted",
-        "callConnectionId": "<callConnectionId>",
-        "serverCallId": "<serverCallId>",
-        "correlationId": "<correlationId>"
-        },
-    "time": "2022-08-12T03:13:25.0252763+00:00",
-    "specversion": "1.0",
-    "datacontenttype": "application/json",
-    "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
-}]
+### Example of how you can deserialize the *PlayCompleted* event:
+
+``` csharp
+ if (@event is PlayCompleted { OperationContext: "PlayAudio" })
+        {
+            var playCompletedEvent = (PlayCompleted)@event;
+
+            if (ReasonCode.CompletedSuccessfully.Equals(playCompletedEvent.ReasonCode))
+            {
+                //Play audio succeeded, take action on success.
+                await callConnection.HangUpAsync(forEveryone: true);
+            }
+        }
+```
+
+### Example of how you can deserialize the *PlayFailed* event:
+
+``` csharp
+if (@event is PlayFailed { OperationContext: "PlayAudio" })
+        {
+            var playFailedEvent = (PlayFailed)@event;
+
+            if (ReasonCode.PlayDownloadFailed.Equals(playFailedEvent.ReasonCode) ||
+            ReasonCode.PlayInvalidFileFormat.Equals(playFailedEvent.ReasonCode))
+            {
+                //Play audio failed, Take some action on failed event.
+                logger.LogInformation($"PlayFailed event received for call connection id: {@event.CallConnectionId}");
+                await callConnection.HangUpAsync(forEveryone: true);
+            }
+        }
 ```
 
 To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/call-automation/call-automation.md#call-automation-webhook-events).
@@ -183,4 +192,17 @@ Cancel all media operations, all pending media operations are canceled. This act
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var cancelResponse = await callMedia.CancelAllMediaOperations();
 Assert.AreEqual(202, cancelResponse.Status) // The request was accepted.
+```
+
+### Example of how you can deserialize the *PlayCanceled* event:
+
+``` csharp
+if (@event is PlayCanceled { OperationContext: "PlayAudio" })
+        {
+            var playFailedEvent = (PlayCanceled)@event;
+
+            logger.LogInformation($"PlayCanceled event received for call connection id: {@event.CallConnectionId}");
+            //Take action on recognize canceled operation
+            await callConnection.HangUpAsync(forEveryone: true);
+        }
 ```
