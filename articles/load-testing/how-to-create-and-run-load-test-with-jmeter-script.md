@@ -22,7 +22,7 @@ Use cases for creating a load test with an existing JMeter script include:
 - You want to reuse existing JMeter scripts to test your application.
 - You want to test multiple endpoints in a single load test.
 - You have a data-driven load test. For example, you want to [read CSV data in a load test](./how-to-read-csv-data.md).
-- You want to test endpoints that are not HTTP-based, such as databases or message queues. Azure Load Testing supports all message protocols that JMeter supports.
+- You want to test endpoints that are not HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
 
 ## Prerequisites
 
