@@ -14,7 +14,7 @@ ms.custom: "include file"
 
 You can change the key that you are using for Azure Storage encryption at any time.
 
-If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](../articles/storage/common/customer-managed-keys-configure-existing-account.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you choose to manual updating of the key version, you will also need to [update the key vault URI](../articles/storage/common/customer-managed-keys-configure-existing-account.md#configure-encryption-for-manual-updating-of-key-versions).
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](../articles/storage/common/customer-managed-keys-configure-existing-account.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](../articles/storage/common/customer-managed-keys-configure-existing-account.md#configure-encryption-for-manual-updating-of-key-versions).
 
 # [Azure portal](#tab/azure-portal)
 
