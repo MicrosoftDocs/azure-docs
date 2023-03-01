@@ -330,7 +330,7 @@ Deploy the template with the parameter file using any valid method for deploying
 ## Enable windows metrics collection
 
 - For accessing windows metrics you must manually install the windows exporter on AKS nodes. Please enable the following collectors : `[defaults],container,memory,process,cpu_info`. You can deploy the following [YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file using `kubectl apply -f windows-exporter-daemonset.yaml`
-- Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.dm#metrics-addon-settings-configmap) and enable the `windowsexporter` boolean to true.
+- Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` boolean to true.
 
 
 ## Verify Deployment
