@@ -69,7 +69,7 @@ Once you have the **ObjectId** for the user and a custom role name, you can assi
 PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 ```
 
-In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following polices:
+In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following policies:
 
 * MaxVmsAllowedPerUser
 * MaxVmsAllowedPerLab
