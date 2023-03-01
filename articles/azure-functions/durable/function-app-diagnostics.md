@@ -13,7 +13,7 @@ Azure Functions App Diagnostics is a useful resource in the Azure portal for mon
 
 ## How to use Azure Functions app diagnostics
  
-1.	Go to your Function App resource. In the left menu, select “Diagnose and solve problems”. 
+1.	Go to your Function App resource. In the left menu, select **Diagnose and solve problems**. 
 
 2.	Search for “Durable Functions” and select on the result.
 
