@@ -33,7 +33,7 @@ Learn more:
 
 When your business acquires new applications, add them to the Azure AD tenant. Establish a company policy of adding new apps to Azure AD. 
 
-See, [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md
+See, [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md)
 
 Azure AD has a gallery of integrated applications to make it easy to get started. Add a gallery app to your Azure AD organization (see, previous link) and learn about integrating software as a service (SaaS) tutorials.
 
