@@ -15,7 +15,12 @@ This article details some best practices when using Durable Functions. It also d
 
 - **Use the latest version of Durable Functions extension and SDK**
 
-    Some issues users experience with Durable Functions can be resolved by upgrading to the latest version of the extension and SDK, which contain important bug fixes and performance improvements. Upgrading to the latest version also ensures that we collect the latest telemetry when we reproduce issues reported by customers and helps accelerate the investigation process. See [Upgrade durable functions extension version](durable-functions-extension-upgrade.md) for instructions on getting the latest extension. Check the package manager of the language you're using to get the latest SDK. 
+    There are two components that a function app uses to execute Durable Functions. One is the *Durable Functions SDK* that allows you to write orchestrator, activity, and entity functions using your target programming language. The other is the *Durable extension*, which is the runtime component that actually executes the code. With the exception of .NET in-process apps, the SDK and the extension are versioned independently.
+    
+    Some runtime issues that you may experience with Durable Functions can be resolved by upgrading to the latest version of the extension and SDK. Any release of the extension and SDK may contain important bug fixes and performance improvements and staying up-to-date ensures that your app always have the latest fixes. Upgrading to the latest versions also ensures that Microsoft can collect the latest diagnostic telemetry to help accelerate the investigation process when you open a support case with Azure.
+    
+    * See [Upgrade durable functions extension version](durable-functions-extension-upgrade.md) for instructions on getting the latest extension version.
+    * To ensure you're using the latest version of the SDK, check the package manager of the language you're using. 
 
 - **Adhere to Durable Functions [code constraints](durable-functions-code-constraints.md)**
 
