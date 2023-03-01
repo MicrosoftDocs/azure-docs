@@ -36,6 +36,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/web-app-extension-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/visual-studio.md",
             "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
             "redirect_document_id": false
