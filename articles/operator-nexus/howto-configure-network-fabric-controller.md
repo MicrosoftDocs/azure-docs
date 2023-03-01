@@ -76,10 +76,6 @@ You can create a resource group by running the following command:
 az group create -n NFCResourceGroupName -l "East US"
 ```
 
-```azurecli
-az group create -n NFResourceGroupName -l "East US"
-```
-
 ## Attributes for NFC creation
 
 | Parameter              | Description                                                                                                                                                                                                                                                                                             | values                                                                                                                                                                                                                                                                                                                            | Example                                                                                                                                                                                                                                                          | Required     | Type   |
@@ -142,7 +138,7 @@ Expected output:
 ## Get Network Fabric Controller
 
 ```azurecli
-nfacliuser:~$ az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:
