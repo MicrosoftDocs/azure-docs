@@ -4,7 +4,7 @@ description: Increase the performance of managed disks.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/01/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -19,6 +19,7 @@ Once enabled, the IOPS and throughput limits for a disk are increased to the hig
 
 - Can only be enabled on Standard HDD, Standard SSD, and Premium SSD managed disks that are 1024 GiB or larger.
 - Can only be enabled on new disks.
+    - To work around this, create a snapshot of your disk, then create a new disk from the snapshot.
 - Not supported for disks recovered with Azure Site Recovery or Azure Backup.
 - Can't be enabled in the Azure portal.
 
@@ -42,7 +43,8 @@ az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG
 ```
 
 
-The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot: 
+The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot:
+
 ```azurecli
 myRG=yourResourceGroupName
 myDisk=yourDiskName
@@ -52,8 +54,9 @@ region=desiredRegion
 sku=desiredSKU
 #Size must be 1024 or larger
 size=1024
+sourceURI=yourDiskOrSnapshotURI
 
-az disk create --name $myDisk --resource-group $myRG --size-gb $size -- --performance-plus true --sku $sku --source <<Another Disk or Snapshot>> --location $region
+az disk create --name $myDisk --resource-group $myRG --size-gb $size -- --performance-plus true --sku $sku --source $sourceURI --location $region
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -75,10 +78,10 @@ $diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB
 $dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig 
 ```
 
-The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot: 
-```azurepowershell
+The following is the command to create a new azure disk with performance plus enabled with data from another disk or snapshot:
 
-$myDisk=yourDiskName
+```azurepowershell
+$myDisk=yourDiskOrSnapshotName
 $myVM=yourVMName
 $region=desiredRegion
 # Valid values are Premium_LRS, Premium_ZRS, StandardSSD_LRS, StandardSSD_ZRS, or Standard_LRS
@@ -96,5 +99,6 @@ $dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk
 
 ## Next steps
 
+- [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md)
 - [Expand virtual hard disks on a Linux VM](linux/expand-disks.md)
 - [How to expand virtual hard disks attached to a Windows virtual machine](windows/expand-os-disk.md)
