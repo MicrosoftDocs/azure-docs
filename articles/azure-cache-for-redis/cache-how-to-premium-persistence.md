@@ -152,7 +152,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ### [Using PowerShell (Premium tier)](#tab/premium)
 
-The [New-AzRedisCache](../powershell/module/az.rediscache/new-azrediscache.md) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
+The [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache.md) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
 
 Existing caches can be updated using the [Set-AzRedisCache](../powershell/module/az.rediscache/set-azrediscache.md) command. See examples of [adding persistence to an existing cache](../powershell/module/az.rediscache/set-azrediscache.md#example-3-modify-azure-cache-for-redis-if-you-want-to-add-data-persistence-after-azure-redis-cache-created).
 
