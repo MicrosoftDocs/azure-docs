@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 03/15/2022
+ ms.date: 02/27/2023
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -17,6 +17,7 @@
 - [Azure Cache for Redis](../event-schema-azure-cache.md)
 - [Azure Communication Services](../event-schema-communication-services.md) 
 - [Azure Container Registry](../event-schema-container-registry.md)
+- [Azure Data Box](../event-schema-data-box.md)
 - [Azure Event Hubs](../event-schema-event-hubs.md)
 - [Azure Health Data Services](../event-schema-azure-health-data-services.md)
 - [Azure IoT Hub](../event-schema-iot-hub.md)

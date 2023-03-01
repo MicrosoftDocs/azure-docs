@@ -22,7 +22,7 @@ Azure AD Identity Protection has historically protected users in detecting, inve
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
-- Can’t perform multi-factor authentication.
+- Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 
@@ -86,6 +86,8 @@ Organizations can export data by configurating [diagnostic settings in Azure AD]
 ## Enforce access controls with risk-based Conditional Access
 
 Using [Conditional Access for workload identities](../conditional-access/workload-identity.md), you can block access for specific accounts you choose when Identity Protection marks them "at risk." Policy can be applied to single-tenant service principals that have been registered in your tenant. Third-party SaaS, multi-tenanted apps, and managed identities are out of scope.
+
+For improved security and resilience of your workload identities, Continuous Access Evaluation (CAE) for workload identities is a powerful tool that offers instant enforcement of your Conditional Access policies and any detected risk signals. CAE-enabled third party workload identities accessing CAE-capable first party resources are equipped with 24 hour Long Lived Tokens (LLT's) that are subject to continuous security checks. Refer to the [CAE for workload identities documentation](../conditional-access/concept-continuous-access-evaluation-workload.md) for information on configuring workload identity clients for CAE and up to date feature scope. 
 
 ## Investigate risky workload identities
 

@@ -4855,6 +4855,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/virtual-machines/overview#service-disruptions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false
@@ -4865,8 +4870,48 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/tag-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-portal.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-template.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-vm-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/upload-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
+            "redirect_url": "/azure/virtual-machines/linux/azure-hybrid-benefit-linux/",
             "redirect_document_id": false
         }
     ]

@@ -115,26 +115,14 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
-  - name: Cloud Foundry
-    href: ../cloudfoundry/index.yml
   - name: OpenShift
     items:
     - name: OpenShift overview
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
-    - name: OpenShift Container Platform 3.11 prerequisites
-      href: ./linux/openshift-container-platform-3x-prerequisites.md
-    - name: OpenShift Container Platform 3.11
-      href: ./linux/openshift-container-platform-3x.md
-    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: ./linux/openshift-container-platform-3x-post-deployment.md
-    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
@@ -735,9 +723,6 @@
     - name: Linux
       displayName: Azure Hybrid Benefit, Linux, AHB
       href: ./linux/azure-hybrid-benefit-linux.md
-    - name: Linux BYOS
-      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
-      href: ./linux/azure-hybrid-benefit-byos-linux.md
     - name: Windows
       displayName: Azure Hybrid Benefit, AHB
       href: ./windows/hybrid-use-benefit-licensing.md
@@ -1854,19 +1839,7 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
-    items:
-    - name: CLI
-      href: tag-cli.md
-      displayname: tag, tagging, tag a vm
-    - name: Portal
-      href: tag-portal.md
-      displayname: tag, tagging, tag a vm
-    - name: PowerShell
-      href: tag-powershell.md
-      displayname: tag, tagging, tag a vm
-    - name: Template
-      href: tag-template.md
-      displayname: tag, tagging, tag a vm
+    href: ../azure-resource-manager/management/tag-resources.md
   - name: Monitor metadata
     displayName: instance metadata service IMDS
     href: instance-metadata-service.md

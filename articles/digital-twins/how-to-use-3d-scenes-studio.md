@@ -284,7 +284,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png" alt-text="Screenshots showing the notification text being entered on the value widget dialog, and how the widget appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png":::
 
-* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-use-data-history.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
+* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-create-data-history-connection.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
     
     The widget will fill the **Connection string** field automatically, by targeting data in the Azure Data Explorer instance that's already connected to this Azure Digital Twins instance.
 

@@ -49,7 +49,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon indicates that the workspace or subscription isn't protected with Microsoft Defender for Servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
+    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon indicates that the workspace or subscription isn't protected with Microsoft Defender for Servers. To use the FIM features, your subscription must be protected with this plan. Learn about how to [enable Defender for Servers](plan-defender-for-servers-select-plan.md).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM isn't enabled for the workspace. If there's no enable or upgrade button, and the space is blank, it means that FIM is already enabled on the workspace.
 
