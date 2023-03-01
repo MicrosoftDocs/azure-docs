@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/15/2023
+ms.date: 03/01/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
