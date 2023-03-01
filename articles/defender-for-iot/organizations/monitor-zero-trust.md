@@ -9,11 +9,7 @@ ms.collection:
 
 # Tutorial: Monitor your OT networks with Zero Trust principles
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing the following sets of security principles:
-
-|Verify explicitly  |Use least privilege access  |Assume breach  |
-|---------|---------|---------|
-|Always authenticate and authorize based on all available data points.     | Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.        | Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses. 
+[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
 Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 
