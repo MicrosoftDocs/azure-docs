@@ -27,10 +27,11 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Pending Stop distribution | Publisher selected "Stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
 
-To ensure that you receive critical email notifications, you'll be required to verify your email address in Action Center. Go to [My Preferences](https://partner.microsoft.com/dashboard/actioncenter/mypreferences) in Action Center to verify. 
-
 > [!TIP]
 > After publishing an offer, the owner of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. In addition, you can add users with either the **developer** or **manager** role from your developer account to receive the notifications. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview). For more information about adding members, see [Notifications](#notifications). 
+
+> [!IMPORTANT]
+> To ensure that you receive critical email notifications, you'll be required to verify your email address in Action Center. Go to [My Preferences](https://partner.microsoft.com/dashboard/actioncenter/mypreferences) in Action Center to verify. 
 
 ## Validation and publishing steps
 
@@ -299,5 +300,6 @@ To add or remove: 
 ## Next steps
 
 - [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)
+
 
 
