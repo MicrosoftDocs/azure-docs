@@ -6,9 +6,9 @@ author: ningk
 manager: rogardle
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 02/28/2023
 ms.author: ningk
-ms.reviewer: azmetadata
+ms.reviewer: azmetadata, mattmcinnes
 ---
 
 # User Data for Azure Virtual Machine 
