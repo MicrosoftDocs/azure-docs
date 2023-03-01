@@ -20,10 +20,10 @@ The **Analytics** dashboard in Permissions Management provides details about ide
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
 - **Active Resources**: Tracks active resources (used in the last 90 days).
 - **Active Tasks**: Tracks active tasks (performed in the last 90 days).
-- **Access Keys**: Tracks the permission usage of access keys for a given user.*
+- **Access Keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless Functions**: Tracks assigned permissions and usage of the serverless functions.
 
-> *[!NOTE] Currently, Microsoft Azure and Google Cloud Platform (GCP) do not provide significant information about access keys to return access keys data. Access Keys analytics are currently only available for Amazon Web Services (AWS) accounts. 
+> [!NOTE] Currently, Microsoft Azure and Google Cloud Platform (GCP) do not provide significant information about access keys to return access keys data. Access Keys analytics are currently only available for Amazon Web Services (AWS) accounts. 
 
 This article describes how to view usage analytics about access keys.
 
