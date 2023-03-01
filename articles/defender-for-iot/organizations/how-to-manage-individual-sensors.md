@@ -67,24 +67,13 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
 
-A unique activation file is uploaded to each sensor that you deploy. For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
+A unique activation file is uploaded to each sensor that you deploy. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
 
-### About activation files for locally connected sensors
-
-Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
-
-You can continue to work with Defender for IoT features even if the activation file has expired.
-You can continue to work with Defender for IoT features even if the activation file has expired.
-
-### About activation files for cloud-connected sensors
-
-Sensors that are cloud connected aren't limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
+For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
 
 ### Upload new activation files
 
 You might need to upload a new activation file for an onboarded sensor when:
-
-- An activation file expires on a locally connected sensor.
 
 - You want to work in a different sensor management mode.
 
@@ -92,7 +81,7 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 **To add a new activation file:**
 
-1. Go to the Azure portal for Defender for IoT.
+1. Go to [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Use the search bar to find the sensor you need.  
 
 1. Select the three dots (...) on the row and select **Delete sensor**.
