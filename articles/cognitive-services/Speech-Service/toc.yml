@@ -238,6 +238,8 @@ items:
             - name: How to use Pronunciation Assessment
               href: how-to-pronunciation-assessment.md
               displayName: pronounce, learn language, assess pron
+    - name: Azure OpenAI speech to speech chat
+      href: openai-speech.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
