@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -43,15 +43,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 ## Supported regions 
 
-
-Azure VMware Solution are currently supported in the following regions: 
-**Asia**: East Asia, Japan East, Japan West, Southeast Asia. 
-**Australia**: Australia East, Australia Southeast. 
-**Brazil**: Brazil South. 
-**Europe**: France Central, Germany West Central, North Europe, Sweden Central, Sweden North, Switzerland West, UK South, UK West, West Europe 
-**North America**: Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2.
-
-Azure VMware Solution is currently supported in the following regions:  
+Azure NetApp Files datastores for Azure VMware Solution are currently supported in the following regions:
 
 * Australia East
 * Australia Southeast
@@ -72,7 +64,7 @@ Azure VMware Solution is currently supported in the following regions:
 * South Central US
 * Southeast Asia
 * Sweden Central
-* Sweden North
+* Switzerland North
 * Switzerland West
 * UK South
 * UK West
