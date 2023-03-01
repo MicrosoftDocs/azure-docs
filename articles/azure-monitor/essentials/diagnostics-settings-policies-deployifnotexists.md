@@ -55,12 +55,12 @@ To apply a policy using the CLI, use the following commands:
 1. Create a policy assignment using 
 ```azurecli
 
-  az policy assignment create --name <policy assignment name>  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope </subsciption/12345687-abcf-....> --params "{\"logAnalytics\": {\"value\": \"<log analytics workspace resource ID"}}" --mi-system-assigned --location <location>
+  az policy assignment create --name <policy assignment name>  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope <scope> --params "{\"logAnalytics\": {\"value\": \"<log analytics workspace resource ID"}}" --mi-system-assigned --location <location>
 ```
 For example, to apply the policy to send audit logs to a log analytics workspace
 
 ```azurecli
-  az policy assignment create --name "policy-assignment-1"  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg-001 --params "{\"logAnalytics\": {\"value\": \"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/rg-001/providers/microsoft.operationalinsights/workspaces/workspace001\"}}" --mi-system-assigned --location eastus
+  az policy assignment create --name "policy-assignment-1"  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg-001 --params "{\"logAnalytics\": {\"value\": \"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/rg-001/providers/microsoft.operationalinsights/workspaces/workspace-001\"}}" --mi-system-assigned --location eastus
 ```
 
 2. Assign the required role to the identity created for the policy assignment.
@@ -156,7 +156,7 @@ To create a remediation task for policies during the policy assignment, select t
 
 To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
  
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the policy remediation page.":::
 
 Select **Remediate**.
 Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
@@ -269,12 +269,11 @@ You can get your policy assignment details using the following command:
 
 ### [CLI](#tab/cli)
 
-Assign intitiatevs and remediatie policies using Azure CLI.
 
-1. Log in to your Azure account using the `az login` command.
+1. Sign in to your Azure account using the `az login` command.
 1. Select the subscription where you want to apply the policy initiative using the `az account` set command.
 
-1. Assign the initiative.
+1. Assign the initiative using [az policy assignment create](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create).
 
     ```azurecli
     az policy assignment create --name <assignment name> --resource-group <resource group name> --policy-set-definition <initiative name> --params <parameters object> --mi-system-assigned --location <location>
@@ -296,7 +295,7 @@ Assign intitiatevs and remediatie policies using Azure CLI.
           "deployment": {
             "properties": {...
     ```
-    Assign the required role:
+    Assign the required role using [az policy assignment identity assign](https://learn.microsoft.com/cli/azure/policy/assignment/identity?view=azure-cli-latest):
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group <resource group name> --role <role name or ID> --identity-scope <scope> --name <policy assignment name>
     ```
@@ -305,14 +304,14 @@ Assign intitiatevs and remediatie policies using Azure CLI.
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group "cli-example-01" --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope "/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/cli-example-01" --name assign-cli-example-01
     ```
-1. Create remediation tasks for the policies in the initiative    .
+1. Create remediation tasks for the policies in the initiative.
 
-    Remediation tasks are done on a per-policy basis. Each task is for a specific `definition-reference-id`, specified in the initiative as `policyDefinitionReferenceId`
-        To find the `definition-reference-id` parameter use the follwoing command:
+    Remediation tasks are created per-policy. Each task is for a specific `definition-reference-id`, specified in the initiative as `policyDefinitionReferenceId`. To find the `definition-reference-id` parameter, use the following command:
     ```azurecli
     az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId
     ```
-    Remediate the resources
+    Remediate the resources using [az policy remediation create](https://learn.microsoft.com/cli/azure/policy/remediation?view=azure-cli-latest#az-policy-remediati
+
     ```azurecli
     az policy remediation create --resource-group <resource group name> --policy-assignment <assignment name> --name <remediation task name> --definition-reference-id  "policy specific reference ID"  --resource-discovery-mode ReEvaluateCompliance
     ```
@@ -320,8 +319,7 @@ Assign intitiatevs and remediatie policies using Azure CLI.
     ```azurecli
     az policy remediation create --resource-group "cli-example-01" --policy-assignment assign-cli-example-01 --name "rem-assign-cli-example-01" --definition-reference-id  "keyvault-vaults"  --resource-discovery-mode ReEvaluateCompliance
     ```
-    To create a remediation task for all of the policies in the initiative, 
-
+    To create a remediation task for all of the policies in the initiative, use the following example:
     ```bash
     for policyDefinitionReferenceId in $(az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId |cut -d":" -f2|sed s/\"//g) 
     do 
