@@ -40,4 +40,4 @@ Azure Data Manager for Agriculture helps reduce data engineering investments thr
 ## Next Steps
 
 1. See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md)
-2. Understand our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/?branch=main)
+2. Understand our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)

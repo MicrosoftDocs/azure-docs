@@ -11,12 +11,12 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Weather data overview
 
-Weather is a highly democratized service in the agri industry. Data Manager for Agriculture wants to offer it's customers the ability to be able to work with weather provider of their choice. 
+Weather is a highly democratized service in the agriculture industry. Data Manager for Agriculture offers customers the ability to work with the weather provider of their choice. 
 
 Data Manager for Agriculture provides weather data through an extension-based and provider agnostic approach. 
-Customers can work with a provider of their choice by following the steps here](./how-to-write-weather-extension.md)
+Customers can work with a provider of their choice by following the steps [here](./how-to-write-weather-extension.md)
 
-Out of the box we are supporting IBM TWC weather provider.
+Out of the box we support IBM TWC.
 
 ## Design overview
 
@@ -24,17 +24,17 @@ Data Manager for Agriculture provides weather data through provider agnostic app
 
 Currently supported weather data provider is [**IBM TWC**](https://developer.ibm.com/components/weather-company/apis/)
 
-## Behaviour of provider agnostic APIs
+## Behavior of provider agnostic APIs
 
-* These APIs provide the ability to request weather data for upto 50 locations in a single call
-* The forecast data provided to the customers will not be older than 15 mins and the current conditions data will not be older than 10 mins
-* The SLA for pass-through calls will be IBM SLA+200 ms. A call will considered pass-through if there is no data cached for the requested locations. 
-* Once the initial call is made for a location, the data gets cached for the TTL defined above based on whether the data is current conditions or forecast.
-* To keep the cache warm, there is a parameter called `apiFreshnessTimeInMinutes` in extension that can be defined by the customer. The platform will keep a job running for the amount of time defined above and update the cache. The default value will be zero which means the cache will not be kept warm by default
+* Request weather data for up to 50 locations in a single call.
+* Forecast data provided is not older than 15 mins and the current conditions data is not than 10 mins.
+* The SLA for pass-through calls is provider SLA +200 ms. If no data is cached then call is considered pass-through. 
+* Once the initial call is made for a location, the data gets cached for the TTL defined.
+* To keep the cache warm, you can use the parameter called `apiFreshnessTimeInMinutes` in extension. The platform will keep a job running for the amount of time defined and update the cache. The default value is be zero that means the cache will not be kept warm by default
 
 ### Prerequisite to use IBM TWC weather APIs
 
-To start using IBM's APIs, please go through the documentation [here](https://developer.ibm.com/components/weather-company/apis/).
+To start using IBM's APIs go through the documentation [here](https://developer.ibm.com/components/weather-company/apis/).
 
 >[Tip]
 >If you are a customer of IBM TWC, then you can skip the above step and directly proceed to using the APIs.
@@ -44,7 +44,7 @@ The steps to fetch weather data and ingest into Data Manager for Agriculture pla
 
 ## Step 1: Install weather extension
 
-Run the install command through Azure Resource Manager ARMClient tool. Below is the command to install an extension. Refer to the extension API documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/controlplane-version2021-09-01-preview/extensions) for more information on all supported commands.
+Run the install command through Azure Resource Manager ARMClient tool. Below is the command to install an extension. for more information see API documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri).
 
 ### Install command
 ```azurepowershell-interactive
@@ -62,7 +62,7 @@ armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
       "type": "Microsoft.AgFoodPlatform/farmBeats/extensions",
       "systemData": {
         "createdBy": "testuser@abc.com",
-        "createdByType": "User",
+        "createdByType": "User",`        
         "createdAt": "2021-03-17T12:36:51Z",
         "lastModifiedBy": "testuser@abc.com",
         "lastModifiedByType": "User",
@@ -71,17 +71,17 @@ armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
       "properties": {
         "category": "Weather",
         "installedExtensionVersion": "1.0",
-        "extensionAuthLink": "https://www.dtn.com/dtn-content-integration/",
-        "extensionApiDocsLink": "https://docs.clearag.com/documentation/Weather_Data/Historical_and_Climatological_Weather/latest#_daily_historical_ag_weather_v1_0"
+        "extensionAuthLink": "https://www.<provider.com/integration/",
+        "extensionApiDocsLink": "https://docs.<provider>.com/documentation/Weather_Data/Historical_and_Climatological_Weather/latest#_daily_historical_ag_weather_v1_0"
       },
       "eTag": "92003c91-0000-0700-0000-804752e00000",
-      "name": "DTN.ClearAg"
+      "name": "<provider>"
 }
 ```
 
-Post successful completion of extension installation you will be able to ingest weather data (step 2) through the installed extension.
+You can ingest weather date after completing the extension installation.
 
-If you would like to update the `apiFreshnessTimeInMinutes` please update the extension using below PowerShell command
+If you would like to update the `apiFreshnessTimeInMinutes` update the extension using below PowerShell command
 
 ### Update command
 ```azurepowershell-interactive

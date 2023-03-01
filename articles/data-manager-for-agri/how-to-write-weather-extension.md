@@ -11,23 +11,22 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to write a weather extension
 
-In this section we will be providing a step-by-step guide to write your own weather extension.
-If you are a weather data provider or a Agri Data Service customer who wants to write a weather extension for Agri Data Service, this is the place to start.
+In this section you will see a step-by-step guide to write your own weather extension. 
 
 ## What is a weather extension
 
-Weather extension in Agri Data Service is a manifest (JSON) file providing the complete details on the APIs and a template for each APIs response (output). Therefore, extension file is essentially an API template structure as defined by Agri Data Service for it to understand the API input (request) and output (response) characteristics.
+Weather extension in Data Manager for Agriculture is a manifest (JSON) file providing the complete details on the APIs and a template for each APIs response (output). Therefore, extension file is essentially an API template structure as defined by Data Manager for Agriculture, for it to understand the API input (request) and output (response) characteristics.
 
 ## Weather extension structure
 
-On a very high-level the extension file is a JSON consisting of two things
+At a high-level the extension file is a JSON consisting of two things:
 
 * Provider metadata (JSON Object)
 * API Information (JSON Array)
 
 ### Provider Metadata
 
-It is a json object providing the details on the below fields which are necessary to uniquely identify an extension and it's versioning information. The details provided in this section of the extension will be shown to external customers in Agri Data Service marketplace. Therefore `extensionId` & `extensionName` (for easy identification) and `description` (for value-proposition) needs to be customer focused.
+It is a json object providing the details on the below fields that are necessary to uniquely identify an extension and it's versioning information. The details provided in this section of the extension will be shown to external customers in Data Manager for Agriculture marketplace. Therefore `extensionId` & `extensionName` (for easy identification) and `description` (for value-proposition) needs to be customer focused.
 
 #### Sample provider metadata
 
@@ -35,7 +34,7 @@ It is a json object providing the details on the below fields which are necessar
 "provider": {
     "extensionId": "abc.weather", 
     "extensionName": "ABC weather",
-    "description": "Get Weather data from ABC weather into Azure FarmBeats platform using this extension",
+    "description": "Get Weather data from ABC weather into Azure Data Manager for Agriculture platform using this extension",
     "dataCategory": "Weather",
     "farmBeatsSchemaVersion": "1.0",
     "extensionVersion": "1.0",
@@ -48,12 +47,12 @@ It is a json object providing the details on the below fields which are necessar
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| extensionId | string | The ID provided in the fashion of organization name (ABC) and service (weather) Ex: `org.service`. extensionId is the unique identifier of the extension and the one which users will be using on the Agri Data Service platform to interact with the extension APIs|
-| extensionName |  string | Name of the extension as to be used in Agri Data Service extension marketplace.|
+| extensionId | string | The ID provided in the fashion of organization name (ABC) and service (weather) Ex: `org.service`. extensionId is the unique identifier of the extension and the one which users will be using on the Data Manager for Agriculture platform to interact with the extension APIs|
+| extensionName |  string | Name of the extension as to be used in Data Manager for Agriculture extension marketplace.|
 | description | string | Description stating the capabilities and services offered by the extension.|
-| dataCategory | string | For weather extensions please use `weather`.|
-| farmBeatsSchemaVersion | string | The version of the manifest file on the Agri Data Service side. Any updates to the existing manifest file will lead to a new version update to this field.|
-| extensionVersion | string | The version of extension file. Starting with `1.0`. As there are updates to your extension file please increment this version number according to the convention of major & minor updates.|
+| dataCategory | string | For weather extensions use `weather`.|
+| farmBeatsSchemaVersion | string | The version of the manifest file on the Data Manager for Agriculture side. Any updates to the existing manifest file will lead to a new version update to this field.|
+| extensionVersion | string | The version of extension file. Starting with `1.0`. As there are updates to your extension file increment this version number according to the convention of major & minor updates.|
 | supportUrl | string | Website link to raise support queries & FAQs|
 | supportEmail | string | Email to send in the support queries.|
 
@@ -72,7 +71,7 @@ The API Information JSON array (`apiInfos`) can be further broken into the follo
 
 #### API metadata
 
-This section consists of basic information regarding the API. It is used by Agri Data Service to identify the `apiName` (called by users explicitly) and redirect the api request to the right `endpoint` based on the appropriate `requestType`.
+This section consists of basic information regarding the API. It is used by Data Manager for Agriculture to identify the `apiName` (called by users explicitly) and redirect the api request to the right `endpoint` based on the appropriate `requestType`.
 
 ##### Sample API metadata
 
@@ -98,18 +97,18 @@ This section consists of basic information regarding the API. It is used by Agri
 | apiInfos |  array | The JSON array of objects, where each API is an object within `apiInfos` array.|
 | apiName | string | The API Name as supported by the extension, this is the exact name using which the users would be calling into the extension APIs. Kindly follow the same naming convention as mentioned in your API documentation.|
 | description |  string | API description|
-| endpoint | string | API endpoint for Agri Data Service to call into the `apiName`.|
+| endpoint | string | API endpoint for Data Manager for Agriculture to call into the `apiName`.|
 | requestType | string | `GET` or `POST` or `PUT` request type as supported by the `apiName`.|
-| isLoadAPI | boolean | If the `apiName` is a pass-through API like current weather data, make this key as `false`. For all the load APIs (historical & forecast) keep this field as `true`. When the `isLoadAPI` key is `false`, the API response would be directly sent to the user and would not be stored in the Agri Data Service storage service.|
+| isLoadAPI | boolean | If the `apiName` is a pass-through API like current weather data, make this key as `false`. For all the load APIs (historical & forecast) keep this field as `true`. When the `isLoadAPI` key is `false`, the API response would be directly sent to the user and would not be stored in the Data Manager for Agriculture storage service.|
 | typeOfData | string | Currently supported values are `Historical` and `Forecast`.|
 | granularity | string | Currently supported values are `Daily` and `Hourly`.|
 | defaultUnitSystem | string | Provide the name of the default units system supported by the `apiName`.|
 
 #### Authentication parameters
 
-This section takes in the authentication related parameters as supported by the `apiName`. As Agri Data Service supports two types of auth-related keys (`x-ms-farmBeats-data-provider-id` & `x-ms-farmBeats-data-provider-key`) in the api header section, the extension file needs to explicitly provide the key name of its respective authentication keys as required by the `apiName`.
+This section takes in the authentication related parameters as supported by the `apiName`. As Data Manager for Agriculture supports two types of auth-related keys (`x-ms-farmBeats-data-provider-id` & `x-ms-farmBeats-data-provider-key`) in the api header section, the extension file needs to explicitly provide the key name of its respective authentication keys as required by the `apiName`.
 
-As Agri Data Service collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Agri Data Service can pass the key accordingly to the extension as required.
+As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
 
 ##### Sample Authentication parameters
 
@@ -145,7 +144,7 @@ As Agri Data Service collects the authentication information via the api header 
 | name | string | Name of the authentication key as supported by the `apiName`.|
 | isRequired | boolean | Is this `name` a required parameter to the `apiName`. Provide true or false values.|
 | providerDataType | string | Provide the datatype of the `name` parameter.|
-| description | string | FarmBeats description of what each of the `farmBeatsAuthMapping` means within each object .|
+| description | string | Data Manager for Agriculture description of what each of the `farmBeatsAuthMapping` means within each object .|
 | location | string | Where in the API should the `name` parameter be sent. Currently supported values are `apiQuery` & `apiHeader`.|
 
 #### API input parameters
@@ -202,7 +201,7 @@ This section provides the details about the API signature (input parameters) to 
 
 #### Extracted API Input parameters
 
-This section is for dedicated for Agri Data Service to extract certain set of input parameters passed during the API request for computation and storage purpose. In this example Agri Data Service would be extracting the location information (latitude and longitude) from the API Input request and store them as part of each weather output in Agri Data Service.
+This section is for dedicated for Data Manager for Agriculture to extract certain set of input parameters passed during the API request for computation and storage purpose. In this example Data Manager for Agriculture would be extracting the location information (latitude and longitude) from the API Input request and store them as part of each weather output in Data Manager for Agriculture.
 
 Hence the extension needs to provide a [**HandleBars template**](https://handlebarsjs.com/examples/simple-expressions.html) on how to extract location information. The below example suggests that the extension API collects location information as `"lat"` for `"latitude"` and `"lon"` for `"longitude"`.
 
@@ -221,17 +220,17 @@ Hence the extension needs to provide a [**HandleBars template**](https://handleb
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| extractedApiInputParameters | array | JSON array of extraction functionalities, where each object signifies what information needs to be extracted by Agri Data Service. Currently `location` is one such extraction.|
+| extractedApiInputParameters | array | JSON array of extraction functionalities, where each object signifies what information needs to be extracted by Data Manager for Agriculture. Currently `location` is one such extraction.|
 | name |  string | Name of the extraction, currently the supported value will be `location` .|
 | template | string |  HandleBars template depicting how is latitude and longitude information collected in the API input parameters.|
 
 #### Functional parameters
 
-This section is dedicated for the functionalities/capabilities built by Agri Data Service. In the case of weather extension, centroid calculation is one such functionality.
+This section is dedicated for the functionalities/capabilities built by Data Manager for Agriculture. In the case of weather extension, centroid calculation is one such functionality.
 
-When users don't provide the latitude/longitude coordinates, Agri Data Service will be using the primary boundary of the field (ID passed by user) to compute the centroid. The computed centroid coordinates will be passed as the latitude and longitude to the extension (data provider). Hence for Agri Data Service to be able to understand the usage of location coordinates the functional parameters section is used.
+When users don't provide the latitude/longitude coordinates, Data Manager for Agriculture will be using the primary boundary of the field (ID passed by user) to compute the centroid. The computed centroid coordinates will be passed as the latitude and longitude to the extension (data provider). Hence for Data Manager for Agriculture to be able to understand the usage of location coordinates the functional parameters section is used.
 
-For Agri Data Service to understand the usage of latitude and longitude in the `apiName` input parameters, the extension is expected to provide the `name` of key used for collecting location information followed by a **handlebar template** to imply how the latitude and longitude values need to be passed.
+For Data Manager for Agriculture to understand the usage of latitude and longitude in the `apiName` input parameters, the extension is expected to provide the `name` of key used for collecting location information followed by a **handlebar template** to imply how the latitude and longitude values need to be passed.
 
 ##### Sample Functional parameters
 
@@ -260,14 +259,14 @@ For Agri Data Service to understand the usage of latitude and longitude in the `
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| functionalParameters | array | JSON array of functionalities, where each object signifies a functionality supported by Agri Data Service. Currently `CentroidCalculation` is one such functionality.|
+| functionalParameters | array | JSON array of functionalities, where each object signifies a functionality supported by Data Manager for Agriculture. Currently `CentroidCalculation` is one such functionality.|
 | name |  string | Name of the functionality, currently the supported value will be `CentroidCalculation` .|
-| description | string |  Agri Data Service description of functionality.|
+| description | string |  Data Manager for Agriculture description of functionality.|
 | functionalParameterEntities | array | JSON array of objects, where each object is specific to the latitude & longitude.|
 
 #### Units system
 
-This section is used by Agri Data Service to understand the various types of unit systems supported by the extension. Hence the extension needs to provide the `key` name used for collecting units information (Ex: unitcode) in the API inputs and followed by the various units system names (Ex: us-std) as supported by the `apiName`.
+This section is used by Data Manager for Agriculture to understand the various types of unit systems supported by the extension. Hence the extension needs to provide the `key` name used for collecting units information (Ex: unitcode) in the API inputs and followed by the various units system names (Ex: us-std) as supported by the `apiName`.
 
 ##### Sample Units system
 
@@ -296,7 +295,7 @@ This section is used by Agri Data Service to understand the various types of uni
 
 In each weather API response, the weather measures which are sent as part of the output (ex: temperature, dewpoint etc.) are called as parameters.
 
-Hence, when it comes to parameters, Agri Data Service internally supports the following set of parameters and treats them as `Platform parameters`.
+Hence, when it comes to parameters, Data Manager for Agriculture internally supports the following set of parameters and treats them as `Platform parameters`.
 
 * cloudCover
 * dateTime
@@ -315,9 +314,9 @@ Hence, when it comes to parameters, Agri Data Service internally supports the fo
 * windGust
 * windSpeed
 
-Therefore, any extension sending weather parameters which does not fall under the platform parameters, will be sending them as part of `Custom parameters`. The key difference between platform & customer parameters is that, the users using Agri Data Service weather APIs will be able to query and filter on the platform parameters (Ex: temperature > 30) and not on custom parameters. However, custom parameters will be sent as part of the weather query output.
+Therefore, any extension sending weather parameters which does not fall under the platform parameters, will be sending them as part of `Custom parameters`. The key difference between platform & customer parameters is that, the users using Data Manager for Agriculture weather APIs will be able to query and filter on the platform parameters (Ex: temperature > 30) and not on custom parameters. However, custom parameters will be sent as part of the weather query output.
 
-In this section, the extension provides the units information for each of the parameters for every units system that is supported. This is done to ensure that Agri Data Service will know what is the underlying measurement unit for each weather parameter based on the information provided in this section of the extension.
+In this section, the extension provides the units information for each of the parameters for every units system that is supported. This is done to ensure that Data Manager for Agriculture will know what is the underlying measurement unit for each weather parameter based on the information provided in this section of the extension.
 
 > [!NOTE]
 >
@@ -412,9 +411,9 @@ In this section, the extension provides the units information for each of the pa
 |Name | Type | Description|
 |:-----:|:----:|----|
 | platformParameters | array | JSON array of platform parameters where each object is  one platform parameter.|
-| farmBeatsName |  string | Name of the parameter as provided by FarmBeats.|
-| farmBeatsDataType | string |  Data type of the parameter as provided by Agri Data Service.|
-| description | string |  Description of the parameter as provided by Agri Data Service.|
+| farmBeatsName |  string | Name of the parameter as provided by Data Manager for Agriculture.|
+| farmBeatsDataType | string |  Data type of the parameter as provided by Data Manager for Agriculture.|
+| description | string |  Description of the parameter as provided by Data Manager for Agriculture.|
 | measurementUnits | string |  JSON array of units for each of the unit system `values` supported by the extension.|
 | unitSystem | string |  Unit system `value` as supported by the extension.|
 | unit | string |  Unit of measurement for the specific weather parameter Ex: `F` for dewPoint.|
@@ -433,15 +432,15 @@ In this section, the extension provides the units information for each of the pa
 
 #### Platform & Custom template
 
-Template is the mapping information provided by the extension to convert the extension API output (JSON response) to the format which Agri Data Service expects. This is done to ensure that various weather data providers having different API output formats can now be uniformly mapped/converted to one single format.
+Template is the mapping information provided by the extension to convert the extension API output (JSON response) to the format which Data Manager for Agriculture expects. This is done to ensure that various weather data providers having different API output formats can now be uniformly mapped/converted to one single format.
 
-Template solution is found to be one of the most effective ways to parse the JSON output provided by the extension. In the case of weather extension, **Agri Data Service expects the extension to be written using [HandleBars](https://handlebarsjs.com/guide/#what-is-handlebars) template**. HandleBars is an open source templating language with simple to use expressions.
+Template solution is found to be one of the most effective ways to parse the JSON output provided by the extension. In the case of weather extension, **Data Manager for Agriculture expects the extension to be written using [HandleBars](https://handlebarsjs.com/guide/#what-is-handlebars) template**. HandleBars is an open source templating language with simple to use expressions.
 
 > [!NOTE]
 >
-> It is highly recommended to try-out the [HandleBars template](https://handlebarsjs.com/examples/simple-expressions.html) with the examples provided and learn how to make use of the helper functions to build your own parsing logic if it is not already provided by Agri Data Service.
+> It is highly recommended to try-out the [HandleBars template](https://handlebarsjs.com/examples/simple-expressions.html) with the examples provided and learn how to make use of the helper functions to build your own parsing logic if it is not already provided by Data Manager for Agriculture.
 
-On a high-level this is how templates will work, by taking the API response as the input and generating the output in the format expected by Agri Data Service.
+On a high-level this is how templates will work, by taking the API response as the input and generating the output in the format expected by Data Manager for Agriculture.
 
 ![template flow](./media/template_flow.PNG)
 
@@ -608,7 +607,7 @@ As shown in the above figure, validate your template against the respective API 
 
 #### Helper functions
 
-Helper functions are used by the templates to perform specific transformation on the data which is not supported natively. Below are few helper functions that are supported by Agri Data Service.
+Helper functions are used by the templates to perform specific transformation on the data which is not supported natively. Below are few helper functions that are supported by Data Manager for Agriculture.
 
 ##### Sample helper functions
 
@@ -652,4 +651,4 @@ In the below example, to pick the precipitation of `"type": "RAIN"` this functio
 
 > [!NOTE]
 >
-> If the extension you are writing requires additional helper functions to parse the API response, please write to us at FarmBeatsSupport@microsoft.com
+> If the extension you are writing requires additional helper functions to parse the API response write to us at madma@microsoft.com

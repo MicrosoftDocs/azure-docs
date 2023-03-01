@@ -61,4 +61,4 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ## Next Steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/?branch=main)
+* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
