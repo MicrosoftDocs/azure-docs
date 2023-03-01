@@ -48,8 +48,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Hardware.Identity|
-|:---|:---|
+|Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
 |Target Availability|2022|
@@ -61,8 +61,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Hardware.MemoryProtection|
-|:---|:---|
+|Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
 |Target Availability|2022|
@@ -74,8 +74,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Firmware.Protection|
-|:---|:---|
+|Name|SecuredCore.Firmware.Protection|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
 |Target Availability|2022|
@@ -87,8 +87,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Firmware.SecureBoot|
-|:---|:---|
+|Name|SecuredCore.Firmware.SecureBoot|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to validate the boot integrity of the device.|
 |Target Availability|2022|
@@ -100,8 +100,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Firmware.Attestation|
-|:---|:---|
+|Name|SecuredCore.Firmware.Attestation|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Target Availability|2022|
@@ -116,8 +116,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Encryption.Storage|
-|:---|:---|
+|Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
 |Target Availability|2022|
@@ -128,8 +128,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-|Name|SecuredCore.Encryption.TLS|
-|:---|:---|
+|Name|SecuredCore.Encryption.TLS|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
 |Target Availability|2022|
@@ -141,8 +141,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ---
 </br>
 
-|Name|SecuredCore.Protection.CodeIntegrity|
-|:---|:---|
+|Name|SecuredCore.Protection.CodeIntegrity|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of this test is to validate that code integrity is available on this device.|
 |Target Availability|2022|
@@ -154,8 +154,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ---
 </br>
 
-|Name|SecuredCore.Protection.NetworkServices|
-|:---|:---|
+|Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Required|
 |Description|The purpose of the test is to validate that services listening for input from the network are not running with elevated privileges.|
 |Target Availability|2022|
@@ -169,8 +169,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ---
 </br>
 
-|Name|SecuredCore.Built-in.Security|
-|:---|:---|
+|Name|SecuredCore.Built-in.Security|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Coming Soon June 2022|
 |Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Target Availability|2022|
@@ -181,8 +181,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ---
 </br>
 
-|Name|SecuredCore.Protection.Baselines|
-|:---|:---|
+|Name|SecuredCore.Protection.Baselines|x86/AMD64|Arm64|
+|:---|:---|:---|:---|
 |Status|Coming Soon June 2022|
 |Description|The purpose of the test is to validate that the system conforms to a baseline security configuration.|
 |Target Availability|2022|
@@ -276,12 +276,13 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 > * Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
 > * Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
 
+
 ---
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
 |Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
 |Requirements dependency||TPM v2.0 device|TPM v2.0,Secure Element|
+|Status|Required|2023|2023|
 |Validation Type|Manual/Tools|||
 |Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
 |Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|||
