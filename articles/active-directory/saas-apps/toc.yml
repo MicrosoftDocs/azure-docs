@@ -1071,6 +1071,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: HawkeyeBSB
+        href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
       - name: Headspace
@@ -1779,6 +1781,8 @@
         href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md 
+      - name: Parallels Desktop
+        href: parallels-desktop-tutorial.md
       - name: Parkalot - Car park management
         href: parkalot-car-park-management-tutorial.md       
       - name: Parkable
@@ -2546,9 +2550,7 @@
       - name: Useall
         href: useall-tutorial.md
       - name: UserEcho
-        href: userecho-tutorial.md
-      - name: UserTesting
-        href: usertesting-tutorial.md  
+        href: userecho-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
       - name: UserZoom

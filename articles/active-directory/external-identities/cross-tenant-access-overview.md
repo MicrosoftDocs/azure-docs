@@ -66,7 +66,7 @@ You can configure organization-specific settings by adding an organization and m
 ### Automatic redemption setting
 
 > [!IMPORTANT]
-> Automatic redemption is currently in PREVIEW.
+> Automatic redemption is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
@@ -78,7 +78,7 @@ For more information, see [Configure cross-tenant synchronization](../multi-tena
 ### Cross-tenant synchronization setting
 
 > [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
+> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [cross-tenant-synchronization-include](../includes/cross-tenant-synchronization-include.md)]
@@ -86,9 +86,6 @@ For more information, see [Configure cross-tenant synchronization](../multi-tena
 To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md).
 
 ## Microsoft cloud settings
-
-> [!NOTE]
-> Microsoft cloud settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
@@ -107,7 +104,7 @@ To set up B2B collaboration, both organizations configure their Microsoft cloud 
 > [!NOTE]
 > B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
 
-For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
+For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration](cross-cloud-settings.md).
 
 ### Default settings in cross-cloud scenarios
 
@@ -142,9 +139,6 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 ## Identify inbound and outbound sign-ins
 
 Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you should examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access isn't lost.
-
-> [!NOTE]
-> During the preview of Microsoft cloud settings, sign-in events for cross-cloud scenarios will be reported in the resource tenant, but not in the home tenant.
 
 ### Cross-tenant sign-in activity PowerShell script
 
