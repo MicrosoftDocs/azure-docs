@@ -26,9 +26,10 @@ This provides you with a number of advantages:
 ## Tools you'll use
 
 - Jupyter Notebook
-- [Azure Monitor REST API](/rest/api/monitor/), [Azure Monitor libraries for Python](/python/api/overview/azure/monitor), which let you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
+- [Azure Monitor REST API](/rest/api/monitor/)
+- [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
 - [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
-- Python libraries 
+- Python libraries. 
 
 ## Benefits 
 
