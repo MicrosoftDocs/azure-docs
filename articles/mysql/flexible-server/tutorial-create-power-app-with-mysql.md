@@ -11,9 +11,7 @@ ms.date: 03/01/2023
 
 # Tutorial: Create a Power app with Azure Database for MySQL Flexible Server
 
-Excerpt
-
-Power Apps is a low-code platform that enables you to build custom applications quickly and easily. You can create a Power App with MySQL database on Azure database for MySQL Flexible Server, to meet your business needs. You can establish a connection to your MySQL database, add data to your app, and customize it to meet your specific needs. With the Azure database for MySQL Connector, you'll have a fully functional app with your data that you can customize and share on any device.
+[Power Apps](/power-apps/) is a low-code platform that enables you to build custom applications quickly and easily. You can create a Power App with MySQL database on Azure database for MySQL Flexible Server(overview.md), to meet your business needs. You can establish a connection to your MySQL database, add data to your app, and customize it to meet your specific needs. With the Azure database for MySQL Connector, you'll have a fully functional app with your data that you can customize and share on any device.
 
 # Run CRUD operations
 
