@@ -11,7 +11,7 @@ ms.date: 02/28/2023
 # Customer intent:  As a data analyst, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
 
 ---
-# Train your own regression model for detecting anomalies in Azure Monitor Logs by using Jupyter Notebook
+# Train a regression model to detect anomalies in Azure Monitor Logs by using Jupyter Notebook
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
@@ -22,6 +22,20 @@ This provides you with a number of advantages:
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at big scales without have to export data to external services.  
 - Running custom code on using your web browser lets you get started quickly without having to install Python or other tools on your local computer.
+
+## Process overview
+
+In this tutorial, you'll: 
+
+1. Create a new [Jupyter Notebook](https://jupyter.org/) in Azure Machine Learning. 
+1. Connect to a Log Analytics workspace using the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/). 
+1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook using [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme).
+1. [Pandas library](https://pandas.pydata.org/)  
+
+    - Create a custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
+
+
+1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
 ## Tools you'll use
 
@@ -55,16 +69,6 @@ You can run Jupyter Notebook on log data in Azure Monitor Logs:
 - Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
 
 For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
-
-In this tutorial, you learn how to: 
-
-1. Create a new or open existing notebook in Azure Machine Learning. 
-1. Connect to a Log Analytics workspace and run KQL queries and custom code. We will show two examples: 
-
-    - Custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
-    - Built-in KQL time series and machine learning functions: We'll use the [MSTICPY library](https://msticpy.readthedocs.io) to explorer data with KQL queries and visualizations, and run a built-in templated query (in Python) to invoke a native KQL function for anomaly detection, and we'll apply custom code to refine anomalies and save them into a pandas DataFrame. 
-
-1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
 ## Create new or open existing notebook in Azure Machine Learning 
 
