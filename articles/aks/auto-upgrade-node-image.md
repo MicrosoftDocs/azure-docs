@@ -9,7 +9,7 @@ ms.date: 02/03/2023
 
 # Automatically upgrade Azure Kubernetes Service cluster node operating system images (preview)
 
-AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel, referred to as the node OS auto-upgrade channel, works in tandem with the existing [Autoupgrade][auto-upgrade] channel which is used for Kubernetes version upgrades. 
+AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel, referred to as the node OS auto-upgrade channel, works in tandem with the existing [auto-upgrade][Autoupgrade] channel which is used for Kubernetes version upgrades. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
