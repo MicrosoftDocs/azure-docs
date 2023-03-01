@@ -17,12 +17,11 @@ ms.custom:
 
 Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are Automatic, Rolling and Manual. 
 
->[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
-
-
 ### Automatic 
 In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
+
+>[!NOTE]
+> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Rolling
 
@@ -82,9 +81,6 @@ Add the following to your ARM template:
                 "pauseTimeBetweenBatches": "PT2S",
 	              "MaxSurge": "true"
 ```
-
-### REST
-
 
 ## Changing the Upgrade Policy
 
