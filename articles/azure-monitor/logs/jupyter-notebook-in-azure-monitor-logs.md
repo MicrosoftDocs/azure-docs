@@ -45,10 +45,10 @@ In this tutorial, you'll:
     
     For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
 
-- [Azure Monitor REST API](/rest/api/monitor/)
 - [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
 - [Pandas library](https://pandas.pydata.org/) for data tables.
 - [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).
+- [Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) to ingest data you process in Jupyter Notebook back to the Log Analytics workspace.
 
 ## Benefits 
 
