@@ -106,7 +106,8 @@ In this section, create a Python script to send events to the event hub that you
     * `EVENT_HUB_CONNECTION_STR`
     * `EVENT_HUB_NAME`
 
-    Make sure 'EVENT_HUB_NAME' is the name of the Event Hub and not the Event Hub Namespace.  If this value is incorrect, you will receive the error code "CBS Token authentication failed."
+[!NOTE]
+Make sure that **EVENT_HUB_NAME** is the name of the event hub and not the Event Hubs namespace. If this value is incorrect, you will receive the error code `CBS Token authentication failed.`.
 
     ```python
     import asyncio
