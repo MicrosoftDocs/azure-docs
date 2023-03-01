@@ -4,8 +4,8 @@ description: Understand VM reboots - maintenance vs downtime
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.author: mimckitt
+ms.date: 02/28/2023
+ms.author: mattmcinnes
 ms.reviewer: cynthn
 
 ---
