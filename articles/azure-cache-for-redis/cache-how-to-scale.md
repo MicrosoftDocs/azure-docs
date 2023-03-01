@@ -119,7 +119,18 @@ For more information on scaling with PowerShell, see [To scale an Azure Cache fo
 
 #### Scale up and down using Azure CLI
 
-To scale your Azure Cache for Redis instances using Azure CLI, call the `azure rediscache set` command and pass in the configuration changes you want that include a new size, sku, or cluster size, depending on the scaling operation you wish.
+To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis.md#az-redis-update) command. Use the `sku.capcity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache:
+
+
+```azurecli
+az redis update --cluster-name myCache --resource-group myGroup --set "sku.capacity"="2"
+```
+
+Use the 'sku.name' and 'sku.family' properties to scale up to a different tier, for instance from a Standard C1 cache to a Premium P1 cache:
+
+```azurecli
+az redis update --cluster-name myCache --resource-group myGroup --set "sku.name"="Premium" "sku.capacity"="1" "sku.family"="P"
+```
 
 For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
 
@@ -133,31 +144,9 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 
 Clustering is enabled  **New Azure Cache for Redis** on the left during cache creation.
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Besides creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Use the [_Create an open-source Redis cache_ quickstart guide](quickstart-create-redis.md) to start creating a new cache using the Azure portal. 
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
-
-1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
-
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
-
-1. On the **New Redis Cache** page, configure the settings for your new premium cache.
-
-   | Setting      | Suggested value  | Description |
-   | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can only contain numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
-   | **Subscription** | Drop-down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
-   | **Resource group** | Drop-down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **Location** | Drop-down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-   | **Cache type** | Drop-down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
-
-1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
-
-1. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
-
-1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
-
-1. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, select **Enable**.
+1. In the **Advanced** tab for a **premium** cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, select **Enable**.
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
 
@@ -169,13 +158,7 @@ Clustering is enabled  **New Azure Cache for Redis** on the left during cache cr
 
     Once the cache is created, you connect to it and use it just like a non-clustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics), metrics are captured separately for each shard, and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis on the left.
 
-1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
-
-1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
-
-1. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
-
-1. After the green Validation passed message appears, select **Create**.
+1. Finish creating the cache using the [quickstart guide](quickstart-create-redis.md).
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
@@ -186,7 +169,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 >
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-#### Scale in or out on a running premium cache
+#### Scale a running Premium cache in or out
 
 To change the cluster size on a premium cache that you created earlier, and is already running with clustering enabled, select **Cluster size** from the Resource menu.
 
@@ -211,7 +194,7 @@ For more information on scaling with PowerShell, see [To scale an Azure Cache fo
 To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis.md#az-redis-update) command and use the `shard-count` property. The following example shows how to scale out a cache named `myCache` to use three shards (i.e. scale out by a factor of three).
 
 ```azurecli
-az redis update --cluster-name "myCache" --resource-group "myGroup" --shard-count 3
+az redis update --cluster-name myCache --resource-group myGroup --set shard-count=3
 ```
 
 For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
@@ -308,7 +291,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 - [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 - [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
-- [What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?](#What-is-the-difference-between-oss-clustering-and-enterprise-clustering-on-enterprise-tier-caches)
+- [What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?](#what-is-the-difference-between-oss-clustering-and-enterprise-clustering-on-enterprise-tier-caches)
 - [How many shards do Enterprise tier caches use?](#how-many-shards-do-enterprise-tier-caches-use)
 
 ### Can I scale to, from, or within a Premium cache?
