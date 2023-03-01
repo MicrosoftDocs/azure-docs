@@ -11,9 +11,9 @@ items:
       href: overview.md
     - name: Create a Communication Services resource
       href: quickstarts/create-communication-resource.md
-    - name: Create an access tokens
+    - name: Create an access token
       href: quickstarts/access-tokens.md
-    - name: Get a phone numbers
+    - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
@@ -23,15 +23,23 @@ items:
     expanded: true
     items:
     - name: SMS
-    - name: Voice and Video Calling
+      href: concepts/sms/concepts.md
+    - name: Voice and Video
+      href: concepts/voice-video-calling/calling-sdk-features.md
+    - name: Phone Calling
+      href: concepts/telephony/telephony-concept.md
     - name: Chat
+      href: concepts/chat/concepts.md
     - name: Email
-    - name: TURN
-  - name: Common Scenarios
+      href: concepts/email/prepare-email-communication-resource.md
+    - name: Network Traversal
+      href: concepts/network-traversal.md    
+
+  - name: Common scenarios
     items:
-    - name: Virtual visit scenarios
+    - name: Virtual visit
       href: tutorials/virtual-visits.md
-    - name: Virtual event scenarios
+    - name: Virtual event
       href: tutorials/events-playbook.md
   - name: Service limits
     href: concepts/service-limits.md
@@ -117,7 +125,7 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
-  - name: TURN Relays 
+  - name: Network Traversal
     items:
     - name: Access TURN relays
       href: quickstarts/relay-token.md  
@@ -140,6 +148,14 @@ items:
       - name: View SMS events
         href: quickstarts/sms/handle-sms-events.md
       - name: Log SMS events
+    - name: Analytics
+      items:
+      - name: Enable logging with Azure Monitor
+        href: concepts/analytics/enable-logging.md
+      - name: Visualize logs
+        href: concepts/analytics/insights.md
+      - name: Export SDK telemetry to Application Insights
+        href: quickstarts/telemetry-application-insights.md
   - name: Voice and Video Calling
     items:
     - name: Prepare a Node.js web app for Calling
@@ -172,10 +188,28 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
     - name: Diagnostics
       items:
+      - name: Diagnose your network
+        href: concepts/developer-tools/network-diagnostic.md 
+      - name: Diagnose client issues
+        href: concepts/voice-video-calling/user-facing-diagnostics.md
+      - name: Diagnose media quality issues
+        href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Ensure pre-call readiness
+        href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Get users ready for their call with UI Library
+        items:
+        - name: Call Readiness Overview
+          href: tutorials/call-readiness/call-readiness-overview.md
+        - name: 1. Ensure user is on a supported browser
+          href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+        - name: 2. Request camera and microphone permissions
+          href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+        - name: 3. Microphone and camera setup before a call
+          href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -196,6 +230,16 @@ items:
       items:
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
+    - name: Analytics
+      items:
+      - name: Enable logging with Azure Monitor
+        href: concepts/analytics/enable-logging.md
+      - name: Visualize logs
+        href: concepts/analytics/insights.md
+      - name: Query call logs
+        href: concepts/analytics/log-analytics.md
+      - name: Export SDK telemetry to Application Insights
+        href: quickstarts/telemetry-application-insights.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
@@ -223,6 +267,14 @@ items:
           href: how-tos/ui-library-sdk/data-model.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
+    - name: Analytics
+      items:
+      - name: Enable logging with Azure Monitor
+        href: concepts/analytics/enable-logging.md
+      - name: Visualize logs
+        href: concepts/analytics/insights.md
+      - name: Export SDK telemetry to Application Insights
+        href: quickstarts/telemetry-application-insights.md
   - name: Phone Calling
     items:
     - name: Add emergency calling to your app
@@ -243,10 +295,30 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with Recognize action 
         href: how-tos/call-automation/recognize-action.md
+    - name: Analytics
+      items:
+      - name: Enable logging with Azure Monitor
+        href: concepts/analytics/enable-logging.md
+      - name: Query call logs
+        href: concepts/analytics/log-analytics.md
+      - name: Visualize logs
+        href: concepts/analytics/insights.md
+      - name: Export SDK telemetry to Application Insights
+        href: quickstarts/telemetry-application-insights.md
   - name: Email
     items:
-    - name: View email events
-      href: quickstarts/email/handle-email-events.md
+    - name: Events
+      items:
+      - name: View email events
+        href: quickstarts/email/handle-email-events.md
+    - name: Analytics
+      items:
+      - name: Enable logging with Azure Monitor
+        href: concepts/analytics/enable-logging.md
+      - name: Visualize logs
+        href: concepts/analytics/insights.md
+      - name: Export SDK telemetry to Application Insights
+        href: quickstarts/telemetry-application-insights.md
 - name: Samples 
   items:
   - name: SMS
@@ -270,7 +342,6 @@ items:
     items:
     - name: Call Automation appointment reminder sample
       href: samples/call-automation-appointment-reminder.md
-  - name: Email
 - name: Concepts 
   items:
   - name: Identity
@@ -311,36 +382,18 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: SMS Events
         href: ../event-grid/communication-services-telephony-sms-events.md
+    - name: Analytics
+      items:
+      - name: Logs overview
+        href: concepts/logging-and-diagnostics.md
+      - name: Metrics overview
+        href: concepts/metrics.md
   - name: Voice and Video Calling
     items:
     - name: Overview
       href: concepts/voice-video-calling/calling-sdk-features.md
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
-    - name: Call recording
-      href: concepts/voice-video-calling/call-recording.md
-    - name: Media access
-      href: concepts/voice-video-calling/media-access.md
-    - name: Simulcast
-      href: concepts/voice-video-calling/simulcast.md
-    - name: Service Events (Event Grid)
-      items:
-      - name: Overview
-        href: ../event-grid/event-schema-communication-services.md
-      - name: Voice and video calling Events
-        href: ../event-grid/communication-services-voice-video-events.md
-    - name: Networking
-      items:
-      - name: Network recommendations
-        href: concepts/voice-video-calling/network-requirements.md
-      - name: Web best practices
-        href: concepts/best-practices.md
-      - name: Call networking internals
-        href: concepts/call-flows.md
-      - name: Call flow topologies
-        href: concepts/detailed-call-flows.md
-    - name: Known issues
-      href: concepts/known-issues.md
     - name: Teams interoperability
       items:
       - name: Overview
@@ -393,18 +446,62 @@ items:
       items:
       - name: Overview
         href: concepts/rooms/room-concept.md
+    - name: Call recording
+      href: concepts/voice-video-calling/call-recording.md
+    - name: Media access
+      href: concepts/voice-video-calling/media-access.md
+    - name: Simulcast
+      href: concepts/voice-video-calling/simulcast.md
+    - name: Events
+      items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+      - name: Voice and Video events
+        href: ../event-grid/communication-services-voice-video-events.md
+    - name: Networking
+      items:
+      - name: Network recommendations
+        href: concepts/voice-video-calling/network-requirements.md
+      - name: Web best practices
+        href: concepts/best-practices.md
+      - name: Call networking internals
+        href: concepts/call-flows.md
+      - name: Call flow topologies
+        href: concepts/detailed-call-flows.md
+    - name: Mobile integrations
+      items:
+      - name: Push notifications
+        href: concepts/notifications.md
+    - name: Analytics
+      items:
+      - name: Call logs overview
+        href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Metrics overview
+        href: concepts/metrics.md
+    - name: Known issues
+      href: concepts/known-issues.md
   - name: Chat
     items:
     - name: Overview
       href: concepts/chat/concepts.md
-    - name: SDK Features
+    - name: SDK features
       href: concepts/chat/sdk-features.md
-    - name: Service Events (Event Grid)
+    - name: Events
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
       - name: Chat Events
         href: ../event-grid/communication-services-chat-events.md
+    - name: Mobile integrations
+      items:
+      - name: Push notifications
+        href: concepts/notifications.md
+    - name: Analytics
+      items:
+      - name: Logs overview
+        href: concepts/logging-and-diagnostics.md
+      - name: Metrics overview
+        href: concepts/metrics.md
   - name: Phone Calling
     items:
     - name: Telephony
@@ -427,6 +524,12 @@ items:
         href: concepts/telephony/inbound-calling-capabilities.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
+      - name: Analytics
+        items:
+        - name: Call logs overview
+          href: concepts/analytics/call-logs-azure-monitor.md
+        - name: Metrics overview
+          href: concepts/metrics.md
     - name: Call Automation
       items:
       - name: Overview
@@ -445,13 +548,19 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and video calling Events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Analytics
+      items:
+      - name: Recording logs overview
+        href: concepts/analytics/recording-logs.md
+      - name: Metrics overview
+        href: concepts/metrics.md
   - name: Email
     items:
-    - name: What is Email Communication Service
+    - name: Overview
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Email concepts
+    - name: Concepts
       href: concepts/email/email-overview.md
-    - name: Email client library
+    - name: SDK features
       href: concepts/email/sdk-features.md
     - name: Domains
       items:
@@ -467,77 +576,32 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Email Events
         href: ../event-grid/communication-services-email-events.md
-  - name: TURN Relays 
+    - name: Analytics
+      items:
+      - name: Logs overview
+        href: concepts/logging-and-diagnostics.md
+      - name: Metrics overview
+        href: concepts/metrics.md
+  - name: Network Traversal
     items:
     - name: Overview
       href: concepts/network-traversal.md    
-- name: Resources 
-  items:
-  - name: Voice and Video Calling
-    items:
-    - name: Diagnostic Tooling
-      items:
-      - name: Network Diagnostic Tool 
-        href: concepts/developer-tools/network-diagnostic.md 
-      - name: User-facing diagnostics
-        href: concepts/voice-video-calling/user-facing-diagnostics.md
-      - name: Media quality statistics
-        href: concepts/voice-video-calling/media-quality-sdk.md
-      - name: Pre-Call diagnostics
-        href: concepts/voice-video-calling/pre-call-diagnostics.md
-    - name: UI Library
-      items:
-      - name: UI Library overview
-        href: concepts/ui-library/ui-library-overview.md
-      - name: UI Library use cases
-        href: concepts/ui-library/ui-library-use-cases.md
-  - name: Chat
-    items:
-    - name: UI Library
-      items:
-      - name: UI Library overview
-        href: concepts/ui-library/ui-library-overview.md
-      - name: UI Library use cases
-        href: concepts/ui-library/ui-library-use-cases.md
-  - name: Phone Calling
-    items:
-    - name: Diagnostic Tooling
-      items:
-      - name: Network Diagnostic Tool 
-        href: concepts/developer-tools/network-diagnostic.md 
-      - name: User-facing diagnostics
-        href: concepts/voice-video-calling/user-facing-diagnostics.md
-      - name: Media quality statistics
-        href: concepts/voice-video-calling/media-quality-sdk.md
-      - name: Pre-Call diagnostics
-        href: concepts/voice-video-calling/pre-call-diagnostics.md
-  - name: Email
-  - name: Monitoring and analytics
-    items:
-    - name: Enable logging in Diagnostic Settings
-      href: concepts/analytics/enable-logging.md
-    - name: Call Summary and Call Diagnostic logs
-      href: concepts/analytics/call-logs-azure-monitor.md
-    - name: Log Analytics
-      href: concepts/analytics/log-analytics.md
-    - name: Insights
-      href: concepts/analytics/insights.md
-    - name: Logging and diagnostics
-      href: concepts/logging-and-diagnostics.md
-    - name: Recording Logs
-      href: concepts/analytics/recording-logs.md
-    - name: Metrics
-      href: concepts/metrics.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government
-    href: concepts/government.md   
-  - name: Push notifications
-    href: concepts/notifications.md
+    href: concepts/government.md  
   - name: Azure Advisor
     href: concepts/advisor-overview.md
+- name: Resources 
+  items:
+  - name: UI Library
+    items:
+    - name: UI Library overview
+      href: concepts/ui-library/ui-library-overview.md
+    - name: UI Library use cases
+      href: concepts/ui-library/ui-library-use-cases.md
+    - name: Design with UI Library Design Kit
+      href: quickstarts/ui-library/get-started-ui-kit.md  
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules
@@ -550,7 +614,7 @@ items:
     href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
-  - name: Calling libraries
+  - name: Calling 
     items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
@@ -558,13 +622,13 @@ items:
       href: /java/api/com.azure.android.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
-  - name: Call Automation libraries
+  - name: Call Automation
     items:
     - name: Call Automation (.NET)
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
-  - name: Chat libraries
+  - name: Chat 
     items:
     - name: Chat (JavaScript)
       href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat
@@ -576,7 +640,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
     - name: Chat (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
-  - name: SMS libraries
+  - name: SMS 
     items:
     - name: SMS (JavaScript)
       href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms
@@ -586,7 +650,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
     - name: SMS (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
-  - name: Email libraries
+  - name: Email 
     items:
     - name: Email (JavaScript)
       href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
@@ -596,7 +660,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
     - name: Email (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
-  - name: Identity libraries
+  - name: Identity 
     items:
     - name: Identity (JavaScript)
       href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity
@@ -606,7 +670,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
-  - name: Common libraries
+  - name: Common 
     items:
     - name: Common (JavaScript)
       href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common
@@ -624,12 +688,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library for Calling (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html 
-- name: Not sure where it goes 
-  items:
-  - name: Design with UI Library Design Kit
-    href: quickstarts/ui-library/get-started-ui-kit.md  
-  - name: Sign an HTTP request with HMAC
-    href: tutorials/hmac-header-tutorial.md  
 - name: To be removed / consolidated 
   items: 
   - name: Send an SMS in Azure Logic Apps
