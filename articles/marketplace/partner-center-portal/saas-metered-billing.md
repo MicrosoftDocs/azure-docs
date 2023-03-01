@@ -22,13 +22,12 @@ For a SaaS offer to use metered billing, it must first:
 - Be configured for the **flat rate** pricing model when charging customers for your service. Dimensions are an optional extension to the flat rate pricing model.
 
 Then the SaaS offer can integrate with the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) to inform Microsoft of billable events.
-
->[!Note]
->Marketplace metering service is available only to the flat rate billing model, and does not apply to the per user billing model.
+> [!Note]
+>Marketplace metering service is available only to the flat rate billing model and does not apply to the per user billing model.
 
 ## How metered billing fits in with pricing
 
-Understanding the offer hierarchy is important, when it comes to defining the offer along with its pricing models.
+Understanding the offer hierarchy is important when it comes to defining the offer along with its pricing models.
 
 - Each SaaS offer is configured to sell either through Microsoft or not. Once an offer is published, this option cannot be changed.
 - Each SaaS offer, configured to sell through Microsoft, can have one or more plans. A user subscribes to the SaaS offer, but it is purchased through Microsoft within the context of a plan.
@@ -40,7 +39,8 @@ Understanding the offer hierarchy is important, when it comes to defining the of
 
 > [!IMPORTANT]
 > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
-
+> [!Note]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](../marketplace-geo-availability-currencies.md).
 ## Sample offer
 
 As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS lets its customers send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers. There are three plans associated with CNS, outlined below:

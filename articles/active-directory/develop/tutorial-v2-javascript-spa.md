@@ -165,7 +165,7 @@ sampleApp/
 In the next steps, you'll create a new folder for the JavaScript SPA and set up the user interface (UI).
 
 > [!TIP]
-> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](/azure/active-directory/develop/application-model).
+> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](./application-model.md).
 
 ## Create the SPA UI
 

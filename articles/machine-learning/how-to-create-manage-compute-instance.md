@@ -117,7 +117,7 @@ Where the file *create-instance.yml* is:
     * Enable idle shutdown (preview). Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#enable-idle-shutdown-preview).
     * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. See [schedule details](#schedule-automatic-start-and-stop) below.
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
+    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
   
@@ -178,7 +178,7 @@ To avoid getting charged for a compute instance that is switched on but inactive
 A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter Kernel sessions (which translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
 * No active Jupyter terminal sessions
-* No active AzureML runs or experiments
+* No active Azure Machine Learning runs or experiments
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
 
@@ -379,7 +379,7 @@ from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, 
 from azure.identity import DefaultAzureCredential
 from dateutil import tz
 import datetime
-# Enter details of your AML workspace
+# Enter details of your Azure Machine Learning workspace
 subscription_id = "<guid>"
 resource_group = "sample-rg"
 workspace = "sample-ws"
@@ -519,16 +519,11 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## Assign managed identity (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Assign managed identity
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure ML Studio:
+You can create compute instance with managed identity from Azure Machine Learning Studio:
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.	Select **Next: Advanced Settings**.
@@ -545,7 +540,7 @@ az ml compute create --name myinstance --identity-type SystemAssigned --type Com
 You can also use V2 CLI with yaml file, for example to create a compute instance with user-assigned managed identity:
 
 ```azurecli
-azure ml compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
+Azure Machine Learning compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
 ```
 
 The identity definition is contained in compute.yaml file:
@@ -579,8 +574,13 @@ def get_access_token_msi(resource):
 arm_access_token = get_access_token_msi("https://management.azure.com")
 ```
 
+To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: 
+```azurecli
+az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
+```
+
 > [!NOTE]
-> To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
+> You cannot use ```azcopy``` when trying to use managed identity. ```azcopy login --identity``` will not work.
 
 ## Add custom applications such as RStudio or Posit Workbench (preview)
 

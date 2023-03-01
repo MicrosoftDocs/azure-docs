@@ -4,7 +4,8 @@ description: Learn how to use Apache Spark to stream data into or out of Apache 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/17/2022
+ROBOTS: NOINDEX
+ms.date: 02/16/2023
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight

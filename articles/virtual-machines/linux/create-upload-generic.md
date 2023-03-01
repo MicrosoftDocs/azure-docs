@@ -5,7 +5,7 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -27,18 +27,27 @@ This article focuses on general guidance for running your Linux distribution on 
 
 2. Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
 
-3. The maximum size allowed for the VHD is 1,023 GB.
+3. The vfat kernel module must be enabled in the kernel
 
-4. When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
+4. The maximum size allowed for the VHD is 1,023 GB.
 
-5. Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
+5. When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
 
-6. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
-7. Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
+6. Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 
-8. All VHDs on Azure must have a virtual size aligned to 1 MB (1024 &times; 1024 bytes). When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
-9. Use the most up-to-date distribution version, packages, and software.
-8. Remove users and system accounts, public keys, sensitive data, unnecessary software and application.
+7. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+
+8. Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
+
+10. All VHDs on Azure must have a virtual size aligned to 1 MB (1024 &times; 1024 bytes). When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
+
+11. Use the most up-to-date distribution version, packages, and software.
+
+12. Remove users and system accounts, public keys, sensitive data, unnecessary software and application.
+
+
+> [!NOTE]
+> **(_Cloud-init >= 21.2 removes the udf requirement._)** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
 
@@ -62,7 +71,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
-   ```outout
+   ```output
    The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
    ```
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
@@ -171,8 +180,10 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 1. Add Hyper-V modules both initrd and initramfs instructions (Dracut).
-1. Rebuild initrd or initramfs
+1. Rebuild `initrd` or `initramfs`.
+
    **Initramfs**
+
    ```bash
    cp /boot/initramfs-$(uname -r).img /boot/initramfs-[latest kernel version ].img.bak 
    dracut -f -v /boot/initramfs-[latest kernel version ].img  [depending on the version of grub] 
@@ -181,6 +192,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    ```
 
    **Initrd**
+
    ```bash
    mv /boot/[initrd kernel] /boot/[initrd kernel]-old 
    mkinitrd /boot/initrd.img-[initrd kernel]-generic /boot/[initrd kernel]-generic-old 
@@ -188,8 +200,13 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    update-grub 
    ```
 1. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
+
 1. Install the Azure Linux Agent.
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
+   
+   > [!NOTE]
+   > Make sure 'udf' and 'vfat' modules are enable. Blocklisting or removing the udf module will cause a provisioning failure.  Blocklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
@@ -211,15 +228,61 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    sudo systemctl enable cloud-init.service
    ```
 
+1. Swap: Do not create swap space on the OS disk.
 
-1. Don't create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent, modify the following parameters in /etc/waagent.conf as needed.
+   The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
+
+   Azure Linux Agent 
+   Modify the following parameters in /etc/waagent.conf
+
+   ```
+   ResourceDisk.Format=y
+   ResourceDisk.Filesystem=ext4
+   ResourceDisk.MountPoint=/mnt/resource
+   ResourceDisk.EnableSwap=y
+   ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
+   ```
+
+   Cloud-init
+   Configure cloud-init to handle the provisioning:
+    
+   ```bash
+   sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
+   sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+   sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+   ```
+
+   Configure Cloud-init to create swap.
+
+   To format and create swap you have 2 options either:
+
+   1. Pass this in as a cloud-init config every time you create a VM through `customdata`. This is the recommended method.
+
+   2. Use a cloud-init directive baked into the image that will do this every time the VM is created.
+
+   Create cfg file to configure swap using Cloud-init:
+
     ```
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
+    echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
+    cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+    #cloud-config
+    # Generated by Azure cloud image build
+    disk_setup:
+      ephemeral0:
+        table_type: mbr
+        layout: [66, [33, 82]]
+        overwrite: True
+    fs_setup:
+      - device: ephemeral0.1
+        filesystem: ext4
+      - device: ephemeral0.2
+        filesystem: swap
+    mounts:
+      - ["ephemeral0.1", "/mnt"]
+      - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
+    EOF
     ```
+       
 
 9.	Configure cloud-init to handle the provisioning:
     1. Configure waagent for cloud-init:
@@ -266,37 +329,6 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
          EOF
          ```
 
-10.	Swap configuration. Do not create swap space on the operating system disk.
-     Previously, the Azure Linux Agent automatically configured swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you must not use the Linux Agent to format the resource disk create the swap file, modify the following parameters in /etc/waagent.conf appropriately:
-     ``` 
-     ResourceDisk.Format=n
-     ResourceDisk.EnableSwap=n
-     ```
-     If you want to mount, format and create swap you can either:
-        1. Pass this in as a cloud-init config every time you create a VM through `customdata`. This is the recommended method.
-        2. Use a cloud-init directive baked into the image that will do this every time the VM is created.
-           
-	```
-           echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
-           cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
-           #cloud-config
-           # Generated by Azure cloud image build
-           disk_setup:
-             ephemeral0:
-               table_type: mbr
-               layout: [66, [33, 82]]
-               overwrite: True
-           fs_setup:
-             - device: ephemeral0.1
-               filesystem: ext4
-             - device: ephemeral0.2
-               filesystem: swap
-           mounts:
-             - ["ephemeral0.1", "/mnt"]
-             - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
-           EOF
-	   
-         ```
 	
 1. Deprovision.
    > [!CAUTION]

@@ -48,7 +48,7 @@ An Azure CLI environment:
 
 This section shows how to import an update using either the Azure portal or the Azure CLI. You can also use the [Device Update for IoT Hub APIs](#if-youre-importing-using-apis-instead) to import an update instead.
 
-To import an update, you first upload the update files and import manifest into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub.
+To import an update, you first upload the update files and import manifest into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub, where it will be stored for you to deploy to devices.
 
 # [Azure portal](#tab/portal)
 

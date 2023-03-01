@@ -104,6 +104,36 @@
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
             "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/disconnected-mode.md",
+            "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/connect-windows-7-10-2019.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/connect-windows-2019",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-windows-7-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/deploy-windows-server-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/powershell-module.md",
+            "redirect_url": "/azure/virtual-desktop/cli-powershell",
+            "redirect_document_id": true
         }
     ]
 }

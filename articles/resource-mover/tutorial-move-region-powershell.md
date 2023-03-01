@@ -70,7 +70,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Sign in to your Azure subscription with the Connect-AzAccount cmdlet:
 
 ```azurepowershell-interactive
-Connect-AzAccount – Subscription "<subscription-id>"
+Connect-AzAccount –Subscription "<subscription-id>"
 ```
 
 ## Set up the move collection

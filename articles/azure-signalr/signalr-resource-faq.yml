@@ -93,10 +93,10 @@ sections:
       - question: |
           Where does my data reside?
         answer: |
-          Azure SignalR Service works as a data processor service. It won't store any customer content, and data residency is included by design. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+          Azure SignalR service works as a data processor service and doesn't store any customer data. Azure SignalR service processes customer data within the region the customer deploys the service instance in. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
 
       - question: |
-          How do I choose between Azure SignalR Service and Azure Web PubSub service?
+          How do I choose between Azure SignalR service and Azure Web PubSub service?
         answer: |
           Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time applications. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service isn't a replacement for Azure SignalR Service and vice-versa; they target different scenarios. The following guidance will help you decide which service to use for your scenario.
           

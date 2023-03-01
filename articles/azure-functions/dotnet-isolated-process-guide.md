@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 11/01/2022
+ms.date: 01/16/2023
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
@@ -157,7 +157,7 @@ The following example performs clean-up actions if a cancellation request has be
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.1, .NET 6 (both in-process and isolated worker process), and .NET 7, and it requires [version 3.0 or later](functions-versions.md) of the Azure Functions runtime.
+ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
@@ -184,7 +184,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Because .NET isolated projects run in a separate worker process, bindings can't take advantage of rich binding classes, such as `ICollector<T>`, `IAsyncCollector<T>`, and `CloudBlockBlob`. There's also no direct support for types inherited from underlying service SDKs, such as [DocumentClient] and [BrokeredMessage]. Instead, bindings rely on strings, arrays, and serializable types, such as plain old class objects (POCOs). 
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types-preview).
 
 For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
 
@@ -207,6 +207,28 @@ The data written to an output binding is always the return value of the function
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
+
+### SDK types (preview)
+
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage.
+
+To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version] and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+
+The following service-specific bindings are currently included in the preview:
+
+| Service | Trigger | Input binding | Output binding |
+|-|-|-|-|
+| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported | 
+
+[blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+
+The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
+
+> [!NOTE]
+> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself are not supported.
+
+[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
+[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
 
 ### HTTP trigger
 

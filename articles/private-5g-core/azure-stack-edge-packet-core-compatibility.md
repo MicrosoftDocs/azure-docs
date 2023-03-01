@@ -18,6 +18,7 @@ The following table provides information on which versions of the ASE device are
 
 | Packet core version  | Compatible ASE versions  |
 |-----|-----|
+| 2301 | 2210, 2301  |
 | 2211 | 2210  |
 | 2210 | 2209, 2210  |
 | 2209 | 2209  |
@@ -25,5 +26,5 @@ The following table provides information on which versions of the ASE device are
 
 ## Next steps
 
-- Refer to [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update) for the latest available version of ASE and for more information on how to upgrade your device.
+- Refer to [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md) for the latest available version of ASE and for more information on how to upgrade your device.
 - Refer to the packet core release notes for more information on the packet core version you're using or plan to use.

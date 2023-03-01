@@ -320,6 +320,12 @@
       - name: NGINX
         tocHref: /azure/partner-solutions/nginx/
         topicHref: /azure/partner-solutions/nginx/nginx-overview
+      - name: Qumulo
+        tocHref: /azure/partner-solutions/qumulo/
+        topicHref: /azure/partner-solutions/qumulo/qumulo-overview
+      - name: New Relic
+        tocHref: /azure/partner-solutions/new-relic/
+        topicHref: /azure/partner-solutions/new-relic/new-relic-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -354,6 +360,9 @@
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
+  - name: SAP on Azure
+    tocHref: /azure/sap/
+    topicHref: /azure/sap/index
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
@@ -485,6 +494,9 @@
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
+  - name: Communications Gateway
+    tocHref: /azure/communications-gateway/
+    topicHref: /azure/communications-gateway/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -1039,16 +1051,12 @@
         tocHref: /azure/virtual-machines/workloads/
         topicHref: /azure/virtual-machines/workloads/workloads
         items:
+          - name: Azure VMs for SAP workloads
+            tocHref: /azure/virtual-machines/workloads/sap/
+            topicHref: /azure/virtual-machines/workloads/sap/index
           - name: High Performance Computing
             tocHref: /azure/virtual-machines/workloads/hpc/
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
-          - name: SAP
-            tocHref: /azure/virtual-machines/workloads/sap/
-            topicHref: /azure/virtual-machines/workloads/sap/get-started
-            items:
-              - name: Azure Center for SAP solutions
-                tocHref: /azure/center-sap-solutions/
-                topicHref: /azure/center-sap-solutions/index
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
             topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
@@ -1137,3 +1145,6 @@
   - name: Azure Deployment Environments
     tocHref: /azure/deployment-environments/
     topicHref: /azure/deployment-environments/index
+  - name: Operator Nexus
+    tocHref: /azure/operator-nexus/
+    topicHref: /azure/operator-nexus/index

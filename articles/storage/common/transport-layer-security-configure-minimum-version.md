@@ -38,11 +38,11 @@ To log requests to your Azure Storage account and determine the TLS version used
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, and tables. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings (preview)**.
+1. In the Monitoring section, select **Diagnostic settings**.
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
@@ -53,7 +53,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
 ### Query logged requests by TLS version
 
@@ -178,7 +178,7 @@ To configure the minimum TLS version for a storage account with a template, crea
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the minimum TLS version to TLS 1.2. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json
@@ -379,7 +379,7 @@ Role assignments must be scoped to the level of the storage account or higher to
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

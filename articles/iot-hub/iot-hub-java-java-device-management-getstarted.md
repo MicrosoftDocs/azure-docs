@@ -16,6 +16,8 @@ ms.custom: mqtt, devx-track-java, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
+[!INCLUDE [iot-hub-include-dm-getstarted](../../includes/iot-hub-include-dm-getstarted.md)]
+
 This article shows you how to create:
 
 * **simulated-device**: a simulated device app with a direct method that reboots the device and reports the last reboot time. Direct methods are invoked from the cloud.

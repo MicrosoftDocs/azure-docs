@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 1/30/2023
 ms.author: jasteppe
 ---
 
@@ -20,13 +20,13 @@ This article provides steps for creating copies of your MedTech service's device
 > [!NOTE]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for your MedTech service, include copies of your device and FHIR destination mappings to assist in the troubleshooting process.
 
-## Device mapping copy creation process
+## Device mappings copy creation process
 
 1. Select **"MedTech service"** on the left side of your Azure Health Data Services workspace under **Services**.
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-button-in-workspace.png" alt-text="Screenshot of select MedTech service within the workspace." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service-button-in-workspace.png":::
 
-2. Select the name of the **MedTech service** that you'll be copying the device mapping from. In this example, we'll be making a copy of the device mapping from a MedTech service named **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
+2. Select the name of the **MedTech service** that you'll be copying the device mappings from. In this example, we'll be making a copy of the device mappings from a MedTech service named **mt-azuredocsdemo**. You'll be selecting your own MedTech service as part of this process.
 
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png" alt-text="Screenshot of select the MedTech service that you'll be making mappings copies from." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-medtech-service.png":::  
 
@@ -35,15 +35,15 @@ This article provides steps for creating copies of your MedTech service's device
    :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping.png" alt-text="Screenshot of select Device mapping button." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping.png":::
 
    > [!TIP]
-   > This process can also be used for copying and saving the contents of the **Destination** (also know as the FHIR destination) mapping which is also under **Settings** within your workspace.
+   > This process can also be used for copying and saving the contents of the also know as the FHIR destination mappings found in **Destination** which is also under **Settings** within your MedTech service.
 
-4. Select the contents of the device mapping (for example: press **Ctrl + a**) and do a copy operation (for example: press **Ctrl + c**). 
+4. Select the contents of the device mappings (for example: press **Ctrl + a**) and do a copy operation (for example: press **Ctrl + c**). 
 
-   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png" alt-text="Screenshot of select and copy contents of the mapping." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png":::
+   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png" alt-text="Screenshot of select and copy contents of the device mappings." lightbox="media/iot-mappings-copies/iot-mappings-copies-select-device-mapping-contents.png":::
 
-5. Open an editor application like Notepad or [Microsoft Visual Studio Code](https://code.visualstudio.com/) and do a paste operation (for example: press **Ctrl + v**) and a save operation (for example: press **Ctrl + s**) to create a file copy of your MedTech service device mapping. For this example, we'll be using Notepad. 
+5. Open an editor application like Notepad or [Microsoft Visual Studio Code](https://code.visualstudio.com/) and do a paste operation (for example: press **Ctrl + v**) and a save operation (for example: press **Ctrl + s**) to create a file copy of your MedTech service device mappings. For this example, we'll be using Notepad. 
 
-   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png" alt-text="Screenshot of using Notepad with the device mapping copy." lightbox="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png":::
+   :::image type="content" source="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png" alt-text="Screenshot of using Notepad with the device mappings copy." lightbox="media/iot-mappings-copies/iot-mappings-copies-save-in-notepad.png":::
 
    1. Select a folder to save the file in.
    2. Select a name for your file.
@@ -54,9 +54,9 @@ This article provides steps for creating copies of your MedTech service's device
 
 In this article, you learned about how to make copies of your MedTech service device and FHIR destination mappings. 
 
-To learn how to troubleshoot device and FHIR destination mappings, see
+To learn how to troubleshoot MedTech service errors, see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot the MedTech service device and FHIR destination mappings](troubleshoot-mappings.md)
+> [Troubleshoot MedTech service errors](troubleshoot-errors.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -147,7 +147,7 @@ Navigate to your job in the studio and select the Monitoring tab. This view prov
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab showing resources the selected job has used.":::
 
 >[!NOTE] 
->This view supports only compute that is managed by AzureML.
+>This view supports only compute that is managed by Azure Machine Learning.
 >Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
 
 

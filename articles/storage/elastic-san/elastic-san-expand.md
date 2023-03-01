@@ -4,7 +4,7 @@ description: Learn how to increase the size of an Azure Elastic SAN (preview) an
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022

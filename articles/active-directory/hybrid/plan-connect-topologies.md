@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -142,7 +142,7 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 
 This topology implements the following use cases:
 
-* AADConnect can synchronize the users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. For more details on options, see https://docs.microsoft.com/azure/azure-government/documentation-government-plan-identity.
+* AADConnect can synchronize the users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. For more details on options, see [Planning identity for Azure Government applications] (/azure/azure-government/documentation-government-plan-identity).
 *	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant). (The verified domain can't be the same in two tenants. More details are needed to enable the same object to have two UPNs.)
 *	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
 *	It is supported to have different sync scopes and different sync rules for different tenants.

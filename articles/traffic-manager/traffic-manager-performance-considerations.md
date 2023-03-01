@@ -8,7 +8,7 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 01/27/2023
 ms.author: greglin
 ---
 
@@ -45,12 +45,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
     Because the results are cached, the second test for the same Traffic Manager endpoint the DNS lookup takes 0.002 sec.
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
-
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
-
-    Formerly known as the Watch-mouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
-
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
 * [Pingdom](https://tools.pingdom.com/)
 

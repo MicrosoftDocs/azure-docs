@@ -1,7 +1,6 @@
 ---
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
-services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 
@@ -127,17 +126,17 @@ Although you can sign in to and change agent nodes, doing this operation is disc
 
 You may only customize the NSGs on custom subnets. You may not customize NSGs on managed subnets or at the NIC level of the agent nodes. AKS has egress requirements to specific endpoints, to control egress and ensure the necessary connectivity, see [limit egress traffic](limit-egress-traffic.md). For ingress, the requirements are based on the applications you have deployed to cluster.
 
-## Stopped or de-allocated clusters
+## Stopped, de-allocated, and "Not Ready" nodes
 
-As stated earlier, manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal renders the cluster out of support. The only supported way to stop/de-allocate all nodes is to [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster), which preserves the cluster state for up to 12 months.
+If you do not need your AKS workloads to run continuously, you can [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster) which stops all nodepools and the control plane, and start it again when needed. When you stop a cluster using the `az aks stop` command, the cluster state will be preserved for up to 12 months. After 12 months the cluster state and all of its resources will be deleted.
 
-Clusters that are stopped for more than 12 months will no longer preserve state. 
+Manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal is not a supported way to stop an AKS cluster or nodepool. The cluster will be considered out of support and will be stopped by AKS after 30 days. The clusters will then be subject to the same 12 month preservation policy as a correctly stopped cluster.
 
-Clusters that are de-allocated outside of the AKS APIs have no state preservation guarantees. The control planes for clusters in this state will be archived after 30 days, and deleted after 12 months.
+Clusters with 0 "Ready" nodes (or all "Not Ready") and 0 Running VMs will be stopped after 30 days. 
 
 AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
-If your subscription is suspended or deleted, your cluster's control plane and state will be deleted after 90 days.
+All clusters in a suspended or deleted subscription will be stopped immediately and deleted after 30 days
 
 ## Unsupported alpha and beta Kubernetes features
 

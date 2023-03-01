@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 01/25/2023
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -34,11 +34,11 @@ Several features of Azure NetApp Files require that you have an Active Directory
     The AD connection is visible only through the NetApp account it's created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use the same AD connection. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). 
 
 * The Azure NetApp Files AD connection admin account must have the following properties: 
-    * It must be an AD DS domain user account in the same domain where the Azure NetApp Files machine accounts are created. 
-    * It must have the permission to create machine accounts (for example, AD domain join) in the AD DS organizational unit path specified in the **Organizational unit path option** of the AD connection. 
+    * It must be an AD DS domain user account in the same domain where the Azure NetApp Files computer accounts are created. 
+    * It must have the permission to create computer accounts (for example, AD domain join) in the AD DS organizational unit path specified in the **Organizational unit path option** of the AD connection. 
     * It cannot be a [Group Managed Service Account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-* The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files machine account creation (for example, AD domain join operations).
+* The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files computer account creation (for example, AD domain join operations).
 
 * To enable the AES encryption on the Azure NetApp Files AD connection admin account, you must use an AD domain user account that is a member of one of the following AD DS groups: 
 
@@ -106,17 +106,17 @@ Several features of Azure NetApp Files require that you have an Active Directory
          > See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md). Ensure that your AD DS site design and configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
 
     * **SMB server (computer account) prefix (required)**  
-        This is the naming prefix for new machine accounts created in AD DS for Azure NetApp Files SMB, dual protocol, and NFSv4.1 Kerberos volumes. 
+        This is the naming prefix for new computer accounts created in AD DS for Azure NetApp Files SMB, dual protocol, and NFSv4.1 Kerberos volumes. 
 
         For example, if the naming standard that your organization uses for file services is `NAS-01`, `NAS-02`, and so on, then you would use `NAS` for the prefix. 
     
-        Azure NetApp Files will create additional machine accounts in AD DS as needed. 
+        Azure NetApp Files will create additional computer accounts in AD DS as needed. 
     
         >[!IMPORTANT]
         >Renaming the SMB server prefix after you create the Active Directory connection is disruptive. You will need to re-mount existing SMB shares after renaming the SMB server prefix. 
 
     * **Organizational unit path**  
-        This is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, `OU=second level, OU=first level`. For example, if you want to use an OU called `ANF` created at the root of the domain, the value would be `OU=ANF`.
+        This is the LDAP path for the organizational unit (OU) where SMB server computer accounts will be created. That is, `OU=second level, OU=first level`. For example, if you want to use an OU called `ANF` created at the root of the domain, the value would be `OU=ANF`.
 
         If no value is provided, Azure NetApp Files will use the `CN=Computers` container. 
 
@@ -136,6 +136,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
         This option enables LDAP signing. This functionality enables integrity verification for Simple Authentication and Security Layer (SASL) LDAP binds from Azure NetApp Files and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). 
         
         Azure NetApp Files supports LDAP Channel Binding if both LDAP Signing and LDAP over TLS settings options are enabled in the Active Directory Connection. For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+
+        >[!NOTE]
+        >DNS PTR records for the AD DS computer account(s) must be created in the AD DS **Organizational Unit** specified in the Azure NetApp Files AD connection for LDAP Signing to work.
 
         ![Screenshot of the LDAP signing checkbox.](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 

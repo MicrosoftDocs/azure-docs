@@ -3,10 +3,10 @@ title: Integrate Splunk with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
 ms.topic: tutorial
 ms.date: 02/07/2022
-ms.custom: template-tutorial
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate Splunk with Microsoft Defender for IoT
+# Integrate Splunk with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
 
@@ -24,6 +24,7 @@ The Splunk application can be installed locally ('Splunk Enterprise') or run on 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Download the Defender for IoT application in Splunk
 > * Send Defender for IoT alerts to Splunk
 
@@ -35,17 +36,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following versions are required for the application to run.
 
-- Defender for IoT version 2.4 and above.
+* Defender for IoT version 2.4 and above.
 
-- Splunkbase version 11 and above.
+* Splunkbase version 11 and above.
 
-- Splunk Enterprise version 7.2 and above.
+* Splunk Enterprise version 7.2 and above.
 
 ### Splunk permission requirements
 
 The following Splunk permission is required:
 
-- Any user with an *Admin* level user role.
+* Any user with an *Admin* level user role.
 
 ## Download the Defender for IoT application in Splunk
 
@@ -65,15 +66,15 @@ To access the Defender for IoT application within Splunk, you will need to downl
 
 The Defender for IoT alerts provides information about an extensive range of security events. These events include:
 
-- Deviations from the learned baseline network activity.
+* Deviations from the learned baseline network activity.
 
-- Malware detections.
+* Malware detections.
 
-- Detections based on suspicious operational changes.
+* Detections based on suspicious operational changes.
 
-- Network anomalies.
+* Network anomalies.
 
-- Protocol deviations from protocol specifications.
+* Protocol deviations from protocol specifications.
 
     :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="A screen capture if an Address Scan Detected alert.":::
 
@@ -82,6 +83,8 @@ You can also configure Defender for IoT to send alerts to the Splunk server, whe
 :::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details." lightbox="media/tutorial-splunk/alerts-and-details-expanded.png":::
 
 To send alert information to the Splunk servers from Defender for IoT, you will need to create a Forwarding Rule.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 **To create the forwarding rule**:
 

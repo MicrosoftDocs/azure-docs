@@ -1,9 +1,8 @@
 ---
 title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 09/12/2022
+ms.date: 01/19/2023
 ---
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
@@ -18,6 +17,10 @@ This article shows you how certificate rotation works in your AKS cluster.
 ## Before you begin
 
 This article requires that you are running the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+## Limitation
+
+Certificate rotation is not supported for stopped AKS clusters. 
 
 ## AKS certificates, Certificate Authorities, and Service Accounts
 
@@ -75,7 +78,7 @@ For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Servi
 
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths:
 
-* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig*
+* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
 * On a Windows node: *C:\k\bootstrap-config*
 
 To access agent nodes, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access] for more information.

@@ -3,8 +3,11 @@ title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 07/12/2022
+author: bmansheim
+ms.author: benmansheim
 ms.topic: overview
 ---
+
 # Overview of Microsoft Defender for Storage
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
@@ -19,6 +22,13 @@ Defender for Storage doesn't access the Storage account data and has no impact o
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Defender for Storage in the field](episode-thirteen.md)
+
+> [!NOTE]
+> Microsoft Defender for Storage customers can now choose to move to a new predictable pricing plan. The pricing model is per-storage account, where high-volume transactions may incur additional overage charges. This new pricing plan will also include all new security features and detections.
+>
+> Customers using the legacy per-transaction pricing plan need to migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges are based on the number of analyzed transactions in the storage account.
+>
+> For further details, please refer to the [Microsoft Defender for Storage FAQ](../storage/common/azure-defender-storage-configure.md#faq---microsoft-defender-for-storage-pricing).
 
 ## Availability
 
@@ -111,7 +121,7 @@ To optimize costs, you might want to exclude specific Storage accounts associate
 
 ### Can I exclude a specific Azure Storage account from a protected subscription? 
 
-To exclude a specific Storage account when Defender for Storage is enabled on a subscription, follow the instructions in [Exclude a storage account from Microsoft Defender for Storage protections](defender-for-storage-exclude.md). 
+Excluding specific storage accounts from protection is only possible on the per-transaction pricing plan. The per-storage account pricing plan will support exclusion in the future. To exclude a storage account, follow instructions in [Exclude a storage account from a protected subscription in the per-transaction plan](defender-for-storage-exclude.md).
 
 ### How do I configure automatic responses for security alerts? 
 

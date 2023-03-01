@@ -1,7 +1,6 @@
 ---
 title: Abort an Azure Kubernetes Service (AKS) long running operation (preview)
-description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level. 
-services: container-service
+description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level.
 ms.topic: article
 ms.date: 11/23/2022
 

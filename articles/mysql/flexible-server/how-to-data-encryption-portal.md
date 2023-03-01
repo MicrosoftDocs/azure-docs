@@ -95,5 +95,5 @@ After your Azure Database for MySQL flexible server is encrypted with a customer
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
-- [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
+- [Customer managed keys data encryption](concepts-customer-managed-key.md)
+- [Data encryption with Azure CLI](how-to-data-encryption-cli.md)

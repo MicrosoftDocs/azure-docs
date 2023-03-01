@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: automl, sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: cesardl
 author: CESARDELATORRE
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 11/15/2021
 ---
 

@@ -83,7 +83,7 @@ The service runs community version of PostgreSQL. This allows full application c
 
 ## Frequently Asked Questions
 
-Will Flexible Server replace Single Server or Will Single Server be retired soon?
+Will Flexible Server replace Single Server or will Single Server be retired soon?
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
 

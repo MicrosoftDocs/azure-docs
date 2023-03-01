@@ -1,12 +1,11 @@
 ---
-title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity
+title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity (preview)
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
-services: container-service
 ms.topic: article
-ms.date: 11/3/2022
+ms.date: 02/08/2023
 ---
 
-# Modernize application authentication with workload identity
+# Modernize application authentication with workload identity (preview)
 
 This article focuses on pod-managed identity migration to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
@@ -121,7 +120,7 @@ If your application is using managed identity and still relies on IMDS to get an
 To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You inject the following [annotation][pod-annotations] values to use the sidecar in your pod specification:
 
 * `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
-* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8080`.
+* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8000`.
 
 When a pod with the above annotations is created, the Azure Workload Identity mutating webhook automatically injects the init-container and proxy sidecar to the pod spec.
 
@@ -149,7 +148,7 @@ spec:
       runAsUser: 0
     env:
     - name: PROXY_PORT
-      value: "8080"
+      value: "8000"
   containers:
   - name: nginx
     image: nginx:alpine
@@ -158,13 +157,13 @@ spec:
   - name: proxy
     image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
     ports:
-    - containerPort: 8080
+    - containerPort: 8000
 ```
 
 This configuration applies to any configuration where a pod is being created. After updating or deploying your application, you can verify the pod is in a running state using the [kubectl describe pod][kubectl-describe] command. Replace the value `podName` with the image name of your deployed pod.
 
 ```bash
-kubectl describe pods podName -c azwi-proxy
+kubectl describe pods podName
 ```
 
 To verify that pod is passing IMDS transactions, use the [kubectl logs][kubelet-logs] command. Replace the value `podName` with the image name of your deployed pod:
@@ -211,3 +210,4 @@ This article showed you how to set up your pod to authenticate using a workload 
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs

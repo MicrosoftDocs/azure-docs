@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 01/06/2023
+ms.date: 02/22/2023
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -562,8 +562,7 @@ related resources to match and the template deployment to execute.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)

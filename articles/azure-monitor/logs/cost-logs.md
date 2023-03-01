@@ -141,7 +141,7 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 - [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
-- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/enhanced-security-features-overview.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).
+- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq).
 
 The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 

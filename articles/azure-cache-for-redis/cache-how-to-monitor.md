@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 02/06/2022
 
 ---
 # Monitor Azure Cache for Redis
@@ -127,7 +127,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 
 For non-clustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
 
-In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`, Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric "Server Load (Instance Based)", then apply filter `ShardId = 1`.
+In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric "Server Load (Instance Based)", then apply filter `ShardId = 1`.
 
 ## List of metrics
 
@@ -168,34 +168,38 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 >
 
-- Geo Replication Connectivity Lag (preview)
+> [!NOTE]
+> The [Geo-Replication Dashboard](#organize-with-workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard will pull together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
+>
+
+- Geo Replication Connectivity Lag
   - Depicts the time, in seconds, since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.
   - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
-- Geo Replication Data Sync Offset (preview)
+- Geo Replication Data Sync Offset
   - Depicts the approximate amount of data, in bytes, that has yet to be synchronized to geo-secondary cache.
-  - This metric is only emitted **from the geo-primary** cache instance. On the geo-secondary instance, this metric has no value.
+  - This metric is only emitted _from the geo-primary_ cache instance. On the geo-secondary instance, this metric has no value.
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
-- Geo Replication Full Sync Event Finished (preview)
+- Geo Replication Full Sync Event Finished
   - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-   - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-   - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+   - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+   - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
    - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
-- Geo Replication Full Sync Event Started (preview)
-  - Depicts the start of full synchronization between geo-replicated caches. When there are a lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-  - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
-  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+- Geo Replication Full Sync Event Started
+  - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+  - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+  - The metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
+  - The metric is only available in the Premium tier for caches with geo-replication enabled.
 
 - Geo Replication Healthy
   - Depicts the status of the geo-replication link between caches. There can be two possible states that the replication link can be in:
     - 0 disconnected/unhealthy
     - 1 – healthy
-  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
-  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+  - The metric is available in the Enterprise, Enterprise Flash tiers, and Premium tier caches with geo-replication enabled.
+  - In caches on the Premium tier, this metric is only emitted *from the geo-secondary* cache instance. On the geo-primary instance, this metric has no value.
   - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
-  - A value of 0 does not mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
+  - A value of 0 doesn't mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
@@ -233,9 +237,18 @@ For more information about configuring and using Alerts, see [Overview of Alerts
 
 ## Organize with workbooks
 
-Once you've defined a metric, you can send it to a workbook. Workbooks provide a way to organize your metrics into groups that provide the information in coherent way.
+Once you've defined a metric, you can send it to a workbook. Workbooks provide a way to organize your metrics into groups that provide the information in coherent way. Azure Cache for Redis provides two workbooks by default in the **Azure Cache for Redis Insights** section:
+
+   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
 
 For information on creating a metric, see [Create your own metrics](#create-your-own-metrics).
+
+The two workbooks provided are: 
+- **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
+    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
+
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary. 
+    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ## Next steps
 

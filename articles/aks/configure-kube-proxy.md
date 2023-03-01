@@ -2,11 +2,11 @@
 title: Configure kube-proxy (iptables/IPVS) (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kube-proxy to utilize different load balancing configurations with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 10/25/2022
-ms.author: pahealy
-author: phealy
+ms.author: allensu
+author: asudbring
 
 #Customer intent: As a cluster operator, I want to utilize a different kube-proxy configuration.
 ---

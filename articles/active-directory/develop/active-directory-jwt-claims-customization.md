@@ -11,11 +11,13 @@ ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: davidmu
 ms.custom: aaddev
+ms.reviewer: rahulnagraj, alamaral
 ---
 
 # Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)
 
-The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application
+ through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
 These JSON Web tokens (JWT) used by OIDC & OAuth applications (preview) contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
 
@@ -23,7 +25,7 @@ In an [OIDC response](v2-protocols-oidc.md), *claims* data is typically containe
 
 ## View or edit claims
 
-Besides [optional claims](active-directory-optional-claims.md), you can view, create or edit the attributes and claims issued in the OIDC token to the application. To edit claims, open the application in Azure portal through the Enterprise Applications experience. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
+You can view, create or edit the attributes and claims issued in the JWT token to the application. To edit claims, open the application in Azure portal through the Enterprise Applications experience. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
 
 :::image type="content" source="./media/active-directory-jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
 

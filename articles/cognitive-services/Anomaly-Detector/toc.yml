@@ -9,6 +9,8 @@
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: Service limits
+      href: service-limits.md
     - name: FAQ
       href: faq.yml
 - name: Quickstarts
@@ -122,14 +124,14 @@
           href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: Learn modules
-      href: /training/modules/identify-abnormal-time-series-data-anomaly-detector/
+    - name: Training modules
+      href: /training/modules/intro-to-anomaly-detector/
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture (univariate)
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
     - name: Azure updates
-      href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+      href: https://azure.microsoft.com/updates/?product=cognitive-services
     - name: Error codes (multivariate)
       href: concepts/troubleshoot.md
     - name: Technical articles

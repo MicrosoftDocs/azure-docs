@@ -1,7 +1,6 @@
 ---
-title: Configure Teams to access lab plans
-titleSuffix: Azure Lab Services
-description: Learn how to configure Microsoft Teams to access Azure Lab Services lab plans.
+title: Configure Teams to use Azure Lab Services
+description: Learn how to configure Microsoft Teams to use Azure Lab Services.
 ms.topic: how-to
 ms.date: 11/15/2022
 author: ntrogh
@@ -9,9 +8,9 @@ ms.author: nicktrog
 ms.custom: engagement-fy23
 ---
 
-# Configure Microsoft Teams to access Azure Lab Services lab plans
+# Configure Microsoft Teams to use Azure Lab Services
 
-In this article, you learn how to configure Microsoft Teams to access Azure Lab Services lab plans. Add the Azure Lab Services Teams app to a team channel to let educators and students access to their labs directly without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
+In this article, you learn how to configure Microsoft Teams to use Azure Lab Services. Add the Azure Lab Services Teams app to a team channel to let educators and students access to their labs directly without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
 
 For information about creating and managing labs in Microsoft Teams, see [Create and manage labs in Microsoft Teams](./how-to-manage-labs-within-teams.md).
 

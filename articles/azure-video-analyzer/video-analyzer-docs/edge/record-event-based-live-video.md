@@ -35,7 +35,7 @@ Prerequisites for this tutorial are:
     [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 

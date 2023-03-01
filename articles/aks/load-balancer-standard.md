@@ -2,11 +2,11 @@
 title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
-ms.date: 12/19/2022
-ms.author: jpalma
-author: palma21
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.date: 02/22/2023
+ms.author: allensu
+author: asudbring
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -53,6 +53,18 @@ spec:
   selector:
     app: public-app
 ```
+
+### Specify the load balancer IP address
+
+If you want to use a specific IP address with the load balancer, there are two ways:
+
+> [!IMPORTANT]
+> Adding the *LoadBalancerIP* property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead.
+
+* **Set service annotations**: Use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address.
+* **Add the *LoadBalancerIP* property to the load balancer YAML manifest**: Add the *Service.Spec.LoadBalancerIP* property to the load balancer YAML manifest. This field is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235), and it can't support dual-stack. Current usage remains the same and existing services are expected to work without modification.
+
+### Deploy the service manifest
 
 Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and specify the name of your YAML manifest.
 
@@ -113,6 +125,80 @@ You can customize different settings for your standard public load balancer at c
 
 > [!IMPORTANT]
 > Only one outbound IP option (managed IPs, bring your own IP, or IP prefix) can be used at a given time.
+
+### Change the inbound pool type (PREVIEW)
+
+AKS nodes can be referenced in the load balancer backend pools by either their IP configuration (VMSS based membership) or by their IP address only. Utilizing the IP address based backend pool membership provides higher efficiencies when updating services and provisioning load balancers, especially at high node counts. Provisioning new clusters with IP based backend pools and converting existing clusters is now supported. When combined with NAT Gateway or user-defined routing egress types, provisioning of new nodes and services will be more performant.
+
+Two different pool membership types are available:
+
+- `nodeIPConfiguration` - legacy VMSS IP configuration based pool membership type
+- `nodeIP` - IP-based membership type
+
+#### Requirements
+
+* The `aks-preview` extension must be at least version 0.5.103.
+* The AKS cluster must be version 1.23 or newer.
+* The AKS cluster must be using standard load balancers and virtual machine scale sets.
+
+#### Limitations
+
+* Clusters using IP based backend pools are limited to 2500 nodes.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+#### Register the `IPBasedLoadBalancerPreview` preview feature
+
+To create an AKS cluster with IP based backend pools, you must enable the `IPBasedLoadBalancerPreview` feature flag on your subscription.
+
+Register the `IPBasedLoadBalancerPreview` feature flag by using the `az feature register` command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "IPBasedLoadBalancerPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/IPBasedLoadBalancerPreview')].{Name:name,State:properties.state}"
+```
+
+When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Create a new AKS cluster with IP-based inbound pool membership
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-backend-pool-type=nodeIP
+```
+
+#### Update an existing AKS cluster to use IP-based inbound pool membership
+
+> [!WARNING]
+> This operation will cause a temporary disruption to incoming service traffic in the cluster. The impact time will increase with larger clusters that have many nodes.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-backend-pool-type=nodeIP
+```
 
 ### Scale the number of managed outbound public IPs
 
@@ -226,7 +312,10 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
+>
 > If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you may have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
+>
+> For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
 

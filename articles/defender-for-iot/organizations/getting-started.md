@@ -1,7 +1,7 @@
 ---
 title: Get started with OT network security monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
-ms.topic: quickstart
+ms.topic: get-started
 ms.date: 12/25/2022
 ---
 
@@ -37,11 +37,11 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 **To add your plan**:
 
-1. In the Azure portal, go to **Defender for IoT** and select **Plans and pricing** > **Add plan**.
+1. In the Azure portal, go to [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) and select **Plans and pricing** > **Add plan**.
 
 1. In the **Plan settings** pane, define the following settings:
 
-   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the selected subscription.
+   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 
         > [!TIP]
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
@@ -71,4 +71,3 @@ Your new plan is listed under the relevant subscription on the **Plans and prici
 
 > [!div class="nextstepaction"]
 > [Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/)
-

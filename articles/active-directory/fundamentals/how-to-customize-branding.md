@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 01/31/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -20,11 +20,24 @@ ms.collection: M365-identity-device-management
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
-The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding will appear in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
-For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Instructions for the legacy company branding customization process can be found in the [Customize branding](customize-branding.md) article.
+
+## User experience
+
+You can customize the sign-in pages when users access your organization's tenant-specific apps. For Microsoft and SaaS applications (multi-tenant apps) such as <https://myapps.microsoft.com>, or <https://outlook.com> the customized sign-in page appears only after the user types their **Email**, or **Phone**, and select **Next**. 
+
+Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page will appear immediately in the first step. 
+
+In the following examples replace the contoso.com with your own tenant name, or verified domain name:
+
+- For Microsoft Outlook `https://outlook.com/contoso.com` 
+- For SharePoint online `https://contoso.sharepoint.com`
+- For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
+- Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
 ## License requirements
 
@@ -39,10 +52,6 @@ For more information about licensing and editions, see the [Sign up for Azure AD
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
 
 ## Before you begin
-
-You can customize the sign-in pages when users access your organization's tenant-specific apps, such as `https://outlook.com/woodgrove.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=woodgrove.com`.
-
-Custom branding appears after users authenticate for the first time. Users that start the sign-in process at a site like www\.office.com won't see the branding. After the first sign-in, the branding may take at least 15 minutes to appear.
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests authenticate using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
@@ -74,7 +83,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
 
-- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page. [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template.css).
+- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page. [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
 
 ## Header
 

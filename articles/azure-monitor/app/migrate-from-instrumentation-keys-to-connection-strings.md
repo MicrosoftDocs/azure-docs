@@ -120,7 +120,7 @@ Follow the [migration steps](#migration) in this article to resolve this alert.
 
  If you hardcode an instrumentation key in your application code, that programming might take precedence before environment variables.
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 

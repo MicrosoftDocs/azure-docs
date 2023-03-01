@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure CLI'
+title: 'Tutorial: Create a cross-region load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure CLI.
 author: mbender-ms
@@ -7,6 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
+ms.custom: template-tutorial
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 

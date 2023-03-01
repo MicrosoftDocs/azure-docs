@@ -193,14 +193,12 @@ Query expressions can have a maximum length of 8192 characters.
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
-We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. This field does not guarantee an accurate gauge of device status. Instead, please use IoT Device Lifecycle events to manage device state and activities.  More information on how to use IoT Hub Lifecycle events in your solution, please visit [React to IoT Hub events by using Event Grid to trigger actions](/azure/iot-hub/iot-hub-event-grid).
+We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. This field does not guarantee an accurate gauge of device status. Instead, please use IoT Device Lifecycle events to manage device state and activities.  More information on how to use IoT Hub Lifecycle events in your solution, please visit [React to IoT Hub events by using Event Grid to trigger actions](./iot-hub-event-grid.md).
 
 
 > [!Note]
-> Avoid making any assumptions about the maximum latency of this operation.  Please refer to [Latency Solutions](/azure/iot-hub/iot-hub-devguide-quotas-throttling) for more information on how to build your solution taking latency into account.
+> Avoid making any assumptions about the maximum latency of this operation.  Please refer to [Latency Solutions](./iot-hub-devguide-quotas-throttling.md) for more information on how to build your solution taking latency into account.
 
 ## Next steps
 
 * Understand the basics of the [IoT Hub query language](iot-hub-devguide-query-language.md)
-
-

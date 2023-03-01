@@ -3,7 +3,7 @@ title: Cloud security explorer and attack path analysis | Defender for Cloud in 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about cloud security explorer and attack path analysis.
 ms.topic: reference
-ms.date: 11/24/2022
+ms.date: 01/24/2023
 ---
 
 # Cloud security explorer and attack path analysis | Defender for Cloud in the Field
@@ -27,7 +27,7 @@ ms.date: 11/24/2022
 
 
 ## Recommended resources
-  - [Learn more](/azure/defender-for-cloud/concept-attack-path) about Attack path.
+  - [Learn more](./concept-attack-path.md) about Attack path.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)

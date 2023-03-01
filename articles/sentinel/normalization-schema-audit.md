@@ -95,7 +95,7 @@ The following list mentions fields that have specific guidelines for Audit Event
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details, which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reporting device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limits the usability of the event and should be avoided if possible.   |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details, which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reporting device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other` <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limits the usability of the event and should be avoided if possible.   |
 | <a name="eventsubtype"></a> **EventSubType** | Optional | String | Provides further details, which the normalized value in [EventType](#eventtype) does not convey. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `AuditEvent`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`.  |
@@ -123,7 +123,7 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 | <a name="oldvalue"></a> **OldValue** | Optional | String |  The old value of [Object](#object) prior to the operation, if applicable. |
 | <a name="newvalue"></a>**NewValue** | Optional | String | The new value of [Object](#object) after the operation was performed, if applicable. |
 | <a name="value"></a>**Value** | Alias |  | Alias to [NewValue](#newvalue) |
-| **ValueType** | Optional | Enumerated | The type of the old and new values. Allowed values are<br>- Other. |
+| **ValueType** | Conditional | Enumerated | The type of the old and new values. Allowed values are<br>- Other |
 
 ### Actor fields
 
@@ -131,11 +131,11 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 |---------------|--------------|------------|-----------------|
 | <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for other IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
 | **ActorScope** | Optional | String | The scope, such as Azure AD Domain Name, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
-| **ActorUserIdType**| Optional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorUserIdType**| Conditional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="actorusername"></a>**ActorUsername**  | Recommended    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
 | **User** | Alias | | Alias to [ActorUsername](#actorusername) | 
-| **ActorUsernameType**              | Recommended    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
+| **ActorUsernameType**              | Conditional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | **ActorUserType** | Optional | UserType | The type of the Actor. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
 | **ActorOriginalUserType** | Optional | UserType | The user type as reported by the reporting device. |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
@@ -156,16 +156,16 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
+| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targethostname"></a>**TargetHostname** | Recommended | Hostname | The target device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
-| <a name="targetdomaintype"></a>**TargetDomainType** | Recommended | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
+| <a name="targetdomaintype"></a>**TargetDomainType** | Conditional | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
 | **TargetFQDN** | Optional | String | The target device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [TargetDomainType](#targetdomaintype) reflects the format used.   |
 | <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
-| <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| **TargetDvcIdType** | Optional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
+| <a name="targetdvcscope"></a>**TargetDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
+| **TargetDvcIdType** | Conditional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
 | **TargetDeviceType** | Optional | Enumerated | The type of the target device.  For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
@@ -186,19 +186,19 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="src"></a>**Src** | Recommended       | Alias     |    A unique identifier of the source device. <br><br>This field might alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
+| <a name="src"></a>**Src** | Alias       | String     |    A unique identifier of the source device. <br><br>This field might alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. <br><br>Example: `77.138.103.108` |
 | **IpAddr** | Alias || Alias to [SrcIpAddr](#srcipaddr), or to [TargetIpAddr](#targetipaddr) if [SrcIpAddr](#srcipaddr) is not provided. |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. Might not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
 | <a name="srchostname"></a> **SrcHostname** | Recommended | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
+| <a name="srcdomaintype"></a>**SrcDomainType** | Conditional | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String |  The ID of the source device. If multiple IDs are available, use the most important one, and store the others in the fields `SrcDvc<DvcIdType>`.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="srcdvcscopeid"></a>**SrcDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **SrcDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
+| **SrcDvcIdType** | Conditional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="srcsubscriptionid"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
@@ -216,7 +216,7 @@ The following fields are used to represent that inspection performed by a securi
 | --- | --- | --- | --- |
 | <a name="rulename"></a>**RuleName** | Optional | String | The name or ID of the rule by associated with the inspection results. |
 | <a name="rulenumber"></a>**RuleNumber** | Optional | Integer | The number of the rule associated with the inspection results. |
-| **Rule** | Mandatory | String | Either the value of [RuleName](#rulename) or the value of [RuleNumber](#rulenumber). If the value of [RuleNumber](#rulenumber) is used, the type should be converted to string. |
+| **Rule** | Alias | String | Either the value of [RuleName](#rulename) or the value of [RuleNumber](#rulenumber). If the value of [RuleNumber](#rulenumber) is used, the type should be converted to string. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the audit activity. |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the audit activity. |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in audit file activity. |
@@ -224,7 +224,7 @@ The following fields are used to represent that inspection performed by a securi
 | <a name="threatoriginalriskleveloriginal"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
-| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 
 | **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
 | **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 | **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. |
