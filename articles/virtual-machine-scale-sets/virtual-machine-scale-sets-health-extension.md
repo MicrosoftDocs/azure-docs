@@ -143,7 +143,7 @@ This state only applies to Rich Health States. The *Unknown* state is only repor
 
 An instance in an *Unknown* state is treated similar to an *Unhealthy* instance. If enabled, instance repairs will be carried out on an *Unknown* instance while rolling upgrades will be paused until the instance falls back into a *Healthy* state.
 
-The following table shows the health status interpretation for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) and [Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md): 
+The following table shows the health status interpretation for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-policy.md) and [Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md): 
 
 | Health State | Rolling Upgrade interpretation | Instance Repairs trigger |
 | ------------ | ------------------------------ | ------------------------ |

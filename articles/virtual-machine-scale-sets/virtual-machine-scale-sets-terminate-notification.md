@@ -193,7 +193,7 @@ If you are not getting any **Terminate** events through Scheduled Events, then c
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### Getting Terminate event with incorrect NotBefore time  
-After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
+After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-policy.md) to reflect the changes.
 
 ## Next steps
 Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on Virtual Machine Scale Sets.
