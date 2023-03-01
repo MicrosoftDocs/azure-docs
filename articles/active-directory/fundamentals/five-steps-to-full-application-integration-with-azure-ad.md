@@ -1,17 +1,17 @@
 ---
-title: Five steps for integrating all your apps with Azure AD
-description: This guide explains how to integrate all your applications with Azure AD. In each step, we explain the value and provide links to resources that will explain the technical details. 
+title: Five steps to integrate your apps with Azure AD
+description: Learn to integrate your applications with Azure AD by adding apps, discovery, and integration methods.
 services: active-directory
-author: janicericketts
+author: jricketts
 ms.author: jricketts
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 03/01/2023
 ---
 
-# Five steps for integrating all your apps with Azure AD
+# Five steps to integrate your apps with Azure AD
 
 Azure Active Directory (Azure AD) is the Microsoft cloud-based identity and access management service. Azure AD provides secure authentication and authorization solutions so that customers, partners, and employees can access the applications they need. With Azure AD, [conditional access](../conditional-access/overview.md), [multi-factor authentication](../authentication/concept-mfa-howitworks.md), [single-sign on](../hybrid/how-to-connect-sso.md), and [automatic user provisioning](../app-provisioning/user-provisioning.md) make identity and access management easy and secure.
 
