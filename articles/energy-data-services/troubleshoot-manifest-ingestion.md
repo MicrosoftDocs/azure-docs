@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot manifest ingestion in Microsoft Energy Data Services Preview #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
+title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energy Preview #Required; this page title is displayed in search results; Always include the word "troubleshoot" in this line.
 description: Find out how to troubleshoot manifest ingestion using Airflow task logs #Required; this article description is displayed in search results.
 author: bharathim #Required; your GitHub user alias — correct capitalization is needed.
 ms.author: bselvaraj #Required; Microsoft alias of the author.
@@ -9,7 +9,7 @@ ms.date: 02/06/2023
 ---
 
 # Troubleshoot manifest ingestion issues using Airflow task logs
-This article helps you troubleshoot manifest ingestion workflow issues in Microsoft Energy Data Services Preview instance using the Airflow task logs.
+This article helps you troubleshoot manifest ingestion workflow issues in Azure Data Manager for Energy Preview instance using the Airflow task logs.
 
 ## Manifest ingestion DAG workflow types
 The Manifest ingestion workflow is of two types:
@@ -88,7 +88,7 @@ The workflow run has failed and the data records weren't ingested.
         data_partition_id = ctx_payload['data-partition-id']
     KeyError: 'data-partition-id'
     
-    requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://it1672283875.oep.ppe.azure-int.net/api/workflow/v1/workflow/Osdu_ingest/workflowRun/e9a815f2-84f5-4513-9825-4d37ab291264
+    requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://contoso.energy.azure.com/api/workflow/v1/workflow/Osdu_ingest/workflowRun/e9a815f2-84f5-4513-9825-4d37ab291264
 ```
 
 ## Cause 2: Schema validation failures
@@ -118,10 +118,10 @@ Records weren't ingested due to schema validation failures.
 **Sample trace output**
 ```md
     Error traces to look out for
-    [2023-02-05, 14:55:37 IST] {connectionpool.py:452} DEBUG - https://it1672283875.oep.ppe.azure-int.net:443 "GET /api/schema-service/v1/schema/osdu:wks:work-product-component--WellLog:2.2.0 HTTP/1.1" 404 None
+    [2023-02-05, 14:55:37 IST] {connectionpool.py:452} DEBUG - https://contoso.energy.azure.com:443 "GET /api/schema-service/v1/schema/osdu:wks:work-product-component--WellLog:2.2.0 HTTP/1.1" 404 None
     [2023-02-05, 14:55:37 IST] {authorization.py:137} ERROR - {"error":{"code":404,"message":"Schema is not present","errors":[{"domain":"global","reason":"notFound","message":"Schema is not present"}]}}
     [2023-02-05, 14:55:37 IST] {validate_schema.py:170} ERROR - Error on getting schema of kind 'osdu:wks:work-product-component--WellLog:2.2.0'
-    [2023-02-05, 14:55:37 IST] {validate_schema.py:171} ERROR - 404 Client Error: Not Found for url: https://it1672283875.oep.ppe.azure-int.net/api/schema-service/v1/schema/osdu:wks:work-product-component--WellLog:2.2.0
+    [2023-02-05, 14:55:37 IST] {validate_schema.py:171} ERROR - 404 Client Error: Not Found for url: https://contoso.energy.azure.com/api/schema-service/v1/schema/osdu:wks:work-product-component--WellLog:2.2.0
     [2023-02-05, 14:55:37 IST] {validate_schema.py:314} WARNING - osdu:wks:work-product-component--WellLog:2.2.0 is not present in Schema service.
     [2023-02-05, 15:01:23 IST] {validate_schema.py:322} ERROR - Schema validation error. Data field.
     [2023-02-05, 15:01:23 IST] {validate_schema.py:323} ERROR - Manifest kind: osdu:wks:work-product-component--WellLog:1.1.0
@@ -166,12 +166,12 @@ Since there are no such error logs specifically for referential integrity tasks,
 
 For instance, the output shows record queried using the Search service for referential integrity 
 ```md
-    [2023-02-05, 19:14:40 IST] {search_record_ids.py:75} DEBUG - Search query "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e140838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559" OR "it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a"
+    [2023-02-05, 19:14:40 IST] {search_record_ids.py:75} DEBUG - Search query "contoso-dp1:work-product-component--WellLog:5ab388ae0e140838c297f0e6559" OR "contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559" OR "contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a"
 ```
 The records that were retrieved and were in the system are shown in the output. The related manifest object that referenced a record would be dropped and no longer be ingested if we noticed that some of the records weren't present.
 
 ```md
-    [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'it1672283875-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
+    [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
 ```
 In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons
 
@@ -202,14 +202,14 @@ Records weren't ingested due to invalid legal tags or ACLs present in the manife
 
 ```md
     "PUT /api/storage/v2/records HTTP/1.1" 400 None
-    [2023-02-05, 16:57:05 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Invalid legal tags","message":"Invalid legal tags: it1672283875-dp1-R3FullManifest-Legal-Tag-Test779759112"}
+    [2023-02-05, 16:57:05 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Invalid legal tags","message":"Invalid legal tags: contoso-dp1-R3FullManifest-Legal-Tag-Test779759112"}
     
 ```
 and the output indicates records that were retrieved. Manifest entity records corresponding to missing search records will get dropped and not ingested.
 
 ```md
     "PUT /api/storage/v2/records HTTP/1.1" 400 None
-    [2023-02-05, 16:58:46 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Validation error.","message":"createOrUpdateRecords.records[0].acl: Invalid group name 'data1.default.viewers@it1672283875-dp1.dataservices.energy'"}
+    [2023-02-05, 16:58:46 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Validation error.","message":"createOrUpdateRecords.records[0].acl: Invalid group name 'data1.default.viewers@contoso-dp1.dataservices.energy'"}
     [2023-02-05, 16:58:46 IST] {single_manifest_processor.py:83} WARNING - Can't process entity SRN: surrogate-key:0ef20853-f26a-456f-b874-3f2f5f35b6fb
 ```
 

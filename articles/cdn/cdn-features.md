@@ -2,11 +2,10 @@
 title: Compare Azure Content Delivery Network (CDN) product features
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
-documentationcenter: ''
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 11/15/2019
+ms.date: 02/21/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -34,7 +33,7 @@ The following table compares the features available with each product.
 | Change optimization type | |**&#x2713;** | | |
 | Origin Port |All TCP ports |[Allowed origin ports](/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |All TCP ports |All TCP ports |
 | [Global server load balancing (GSLB)](../traffic-manager/traffic-manager-load-balancing-azure.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Fast purge](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Purge all and Wildcard purge are not supported by Azure CDN from Akamai currently |**&#x2713;** |**&#x2713;** |
+| [Fast purge](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Purge all and Wildcard purge aren't supported by Azure CDN from Akamai currently |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Cache/header settings (using [caching rules](cdn-caching-rules.md))  |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
 | Customizable, rules based content delivery engine |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  | | |**&#x2713;** using [rules engine](./cdn-verizon-premium-rules-engine.md) |

@@ -63,7 +63,7 @@ As a content delivery network (CDN), Front Door caches the content at its global
 
 #### Authentication
 
-Front Door is designed to be internet-facing, and this scenario is optimized for publicly available blobs. If you need to authenticate access to blobs, consider using [shared access signatures](../storage/common/storage-sas-overview.md), and ensure that you enable the [*Cache every unique URL* query string behavior](front-door-caching.md#query-string-behavior) to avoid Front Door from serving requests to unauthenticated clients. However, this approach might not make effective use of the Front Door cache, because each request with a different shared access signature must be sent to the origin separately.
+Front Door is designed to be internet-facing, and this scenario is optimized for publicly available blobs. If you need to authenticate access to blobs, consider using [shared access signatures](../storage/common/storage-sas-overview.md), and ensure that you enable the [*Use Query String* query string behavior](front-door-caching.md#query-string-behavior) to avoid Front Door from serving requests to unauthenticated clients. However, this approach might not make effective use of the Front Door cache, because each request with a different shared access signature must be sent to the origin separately.
 
 #### Origin security
 

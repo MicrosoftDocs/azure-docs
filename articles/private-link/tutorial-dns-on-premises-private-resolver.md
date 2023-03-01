@@ -149,7 +149,7 @@ You'll peer the virtual networks together to simulate an on-premises network. In
     | Peering link name | Enter **myPeer-cloud**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual Network | Select **myPeer-onprem**. |
+    | Virtual Network | Select **myVNet-onprem**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None (default)**. |
@@ -187,9 +187,15 @@ You'll create an Azure web app for the cloud resource accessed by the on-premise
 
 6. Select **Apply**.
 
-7. Select **Review + create**.
+7. Select **Next: Deployment**.
 
-8. Select **Create**.
+8. Select **Next: Networking**.
+
+9. Change 'Enable public access' to false.
+
+10. Select **Review + create**.
+
+11. Select **Create**.
 
 ## Create private endpoint
 

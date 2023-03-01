@@ -11,7 +11,7 @@ This article describes how to view and manage sensors with [Microsoft Defender f
 
 ## Prerequisites
 
-Before you can use the procedures in this article, you'll need to have network sensors onboarded to Defender for IoT. For more information, see:
+Before you can use the procedures in this article, you need to have network sensors onboarded to Defender for IoT. For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 - [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
@@ -34,7 +34,7 @@ Details about each sensor are listed in the following columns:
 |**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on an OT sensor. The name of the version is based on the day the package was built by Defender for IoT. |
-|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages are automatically installed on all OT, cloud-connected sensors. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is *manual* or *automatic*. *Manual* means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages are automatically installed on all OT, cloud-connected sensors. |
 |**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package on an OT sensor. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
@@ -113,17 +113,17 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
-- **Change your plan commitment**: If you make changes to your plan, such as changing your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
+- **Change your plan commitment**: If you make changes to your plan, such as changing your price plan from a trial to a monthly commitment, you need to reactivate your sensors to reflect the new changes.
 
 In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
-1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
+1. [Onboard the sensor again](onboard-sensors.md#onboard-an-ot-sensor), registering it with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
 ### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
 
-If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
+If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you need a different activation procedure than for earlier releases.
 
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 

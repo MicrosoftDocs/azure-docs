@@ -45,40 +45,36 @@
   items:
   - name: Linux
     items:
-    - name: 1 - Create / manage VMs
+    - name: Create / manage VMs
       href: ./linux/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./linux/tutorial-manage-disks.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./linux/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./linux/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./linux/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
-      href: ./linux/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./linux/tutorial-load-balancer.md
-    - name: 8 - Manage networking
+    - name: Manage networking
       href: ./linux/tutorial-virtual-network.md
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
+    - name: Create a scale set
+      href: ./linux/tutorial-create-vmss.md
   - name: Windows
     items:
-    - name: 1 - Create / manage a VM
+    - name: Create / manage a VM
       href: ./windows/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./windows/tutorial-manage-data-disk.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./windows/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./windows/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./windows/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
+    - name: Manage networking
+      href: ./windows/tutorial-virtual-network.md  
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
+    - name: Create a scale set
       href: ./windows/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./windows/tutorial-load-balancer.md
-    - name: 8 - Manage networking
-      href: ./windows/tutorial-virtual-network.md
 - name: Develop
   items:
   - name: REST API
@@ -119,26 +115,14 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
-  - name: Cloud Foundry
-    href: ../cloudfoundry/index.yml
   - name: OpenShift
     items:
     - name: OpenShift overview
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
-    - name: OpenShift Container Platform 3.11 prerequisites
-      href: ./linux/openshift-container-platform-3x-prerequisites.md
-    - name: OpenShift Container Platform 3.11
-      href: ./linux/openshift-container-platform-3x.md
-    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: ./linux/openshift-container-platform-3x-post-deployment.md
-    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
@@ -217,6 +201,8 @@
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
         href: dplsv5-dpldsv5-series.md
+      - name: Dlsv5 and Dldsv5-series
+        href: dlsv5-dldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -349,10 +335,6 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -1112,12 +1094,6 @@
     - name: Overview
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: ./windows/change-availability-set.md
@@ -1585,7 +1561,7 @@
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports and filter traffic
     items:
-    - name: CLI 
+    - name: CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
@@ -1866,27 +1842,10 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
-    items:
-    - name: CLI
-      href: tag-cli.md
-      displayname: tag, tagging, tag a vm
-    - name: Portal
-      href: tag-portal.md
-      displayname: tag, tagging, tag a vm
-    - name: PowerShell
-      href: tag-powershell.md
-      displayname: tag, tagging, tag a vm
-    - name: Template
-      href: tag-template.md
-      displayname: tag, tagging, tag a vm
+    href: ../azure-resource-manager/management/tag-resources.md
   - name: Monitor metadata
-    items:
-    - name: CLI
-      displayName: Monitor metadata
-      href: ./linux/instance-metadata-service.md
-    - name: PowerShell
-      displayName: Monitor metadata
-      href: ./windows/instance-metadata-service.md
+    displayName: instance metadata service IMDS
+    href: instance-metadata-service.md
   - name: Get usage metrics with REST
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
