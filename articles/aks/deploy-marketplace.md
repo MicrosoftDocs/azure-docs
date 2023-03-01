@@ -98,6 +98,10 @@ You can delete a purchased plan for an Azure container offer by deleting the ext
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
+## Troubleshooting
+
+If you experience issues, see the [troubleshooting checklist for failed deployments of a Kubernetes offer][marketplace-troubleshoot].
+
 ## Next steps
 
 - Learn more about [exploring and analyzing costs][billing].
@@ -106,3 +110,4 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 [azure-marketplace]: /marketplace/azure-marketplace-overview
 [cluster-extensions]: ./cluster-extensions.md
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
+[marketplace-troubleshoot]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
