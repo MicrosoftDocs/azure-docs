@@ -8,7 +8,7 @@ ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.date: 02/28/2023
 
-# Customer intent:  As a data analyst, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
+# Customer intent:  As a data scientist, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
 
 ---
 # Train a regression model to detect anomalies in Azure Monitor Logs by using Jupyter Notebook
@@ -49,12 +49,6 @@ In this tutorial, you'll:
 - [Pandas library](https://pandas.pydata.org/) for data tables.
 - [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).
 - [Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) to ingest data you process in Jupyter Notebook back to the Log Analytics workspace.
-
-## Benefits 
-
-- Create a multi-step process, running code in each step based on the results of the previous step with possibility for advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, performing advanced analysis, or creating troubleshooting guides for Support needs (TSGs). 
-- No user interface limits, and effective techniques for working with data at large scales.  
-- Avoid the costs and maintenance overhead exporting data and using external services. 
 
 ## Limitations 
 
