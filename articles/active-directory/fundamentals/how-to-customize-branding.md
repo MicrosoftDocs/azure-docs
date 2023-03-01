@@ -83,7 +83,9 @@ The sign-in experience process is grouped into sections. At the end of each sect
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
 
-- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page. [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
+- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page.
+    - [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
+    - View the [CSS template reference guide](reference-company-branding-css-template.md).
 
 ## Header
 
@@ -153,8 +155,10 @@ To create an inclusive experience for all of your users, you can customize the s
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
+Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the language selected.
+
 ## Next steps
 
+- [View the CSS template reference guide](reference-company-branding-css-template.md).
 - [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
-
 - [Manage the 'stay signed in' prompt](active-directory-users-profile-azure-portal.md#learn-about-the-stay-signed-in-prompt)

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # CSS template reference guide
 
-Configuring your company branding for the user sign-in process provides a seamless experience in your applications that use Azure Active Directory (Azure AD) as the identity and access management service. Use this CSS reference guide if you're using the [CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
+Configuring your company branding for the user sign-in process provides a seamless experience in your applications that use Azure Active Directory (Azure AD) as the identity and access management service. Use this CSS reference guide if you're using the [CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css) as part of the [customize company branding](reference-company-branding-css-template.md) process.
 
 
 ## HTML selectors
@@ -40,18 +40,18 @@ Use the following CSS selectors to configure the details of the sign-in experien
 - `.ext-header` - Header at the top of the page
 - `.ext-header-logo` - Header logo at the top of the page
 
-    ![Screenshot of the sign-in screen with the .ext-header and .ext-header-logo areas highlighted.](media/how-to-customize-branding/ext-header-and-logo.png)
+    ![Screenshot of the sign-in screen with the .ext-header and .ext-header-logo areas highlighted.](media/reference-company-branding-css-template/ext-header-and-logo.png)
 
 - `.ext-middle` - Style for the full-screen background that aligns the sign-in box vertically to the middle and horizontally to the center
 - `.ext-vertical-split-main-section` - Style for the container of the partial-screen background in the vertical split, or Active Directory Federation Services (ADFS), template that contains both a sign in box and a background
 - `.ext-vertical-split-background-image-container` - Sign-in box background in the vertical split (ADFS) template
 - `.ext-sign-in-box` - Sign-in box container
 
-    ![Screenshot of the sign-in box, with the portion of the box that is styled with the .ext-sign-in-box selector.](media/how-to-customize-branding/ext-sign-in-box.png)
+    ![Screenshot of the sign-in box, with the portion of the box that is styled with the .ext-sign-in-box selector.](media/reference-company-branding-css-template/ext-sign-in-box.png)
 
 - `.ext-title` - Ttitle text
 
-    ![Screenshot of the sign-in box, with the "Sign in" text highlighted.](media/how-to-customize-branding/ext-sign-in-text.png)
+    ![Screenshot of the sign-in box, with the "Sign in" text highlighted.](media/reference-company-branding-css-template/ext-sign-in-text.png)
 
 - `.ext-subtitle` - Subtitle text
 
@@ -62,7 +62,7 @@ Use the following CSS selectors to configure the details of the sign-in experien
     - `.ext-button.ext-primary:focus:hover` - When the button has focus and the mouse is over the button
     - `.ext-button.ext-primary:active` - When the button is being clicked
 
-    ![Screenshot of the sign-in box with the primary - Next - button highlighted.](media/how-to-customize-branding/ext-primary-button.png)
+    ![Screenshot of the sign-in box with the primary - Next - button highlighted.](media/reference-company-branding-css-template/ext-primary-button.png)
 
 - Styles for secondary buttons:
     - `.ext-button.ext-secondary` - Secondary buttons
@@ -71,11 +71,11 @@ Use the following CSS selectors to configure the details of the sign-in experien
     - `.ext-button.ext-secondary:focus:hover` - When the button has focus and the mouse is over the button
     - `.ext-button.ext-secondary:active` - When the button is being clicked
 
-    ![Screenshot of the sign-in box at the Sign-in options step, with the secondary - Back - button highlighted.](media/how-to-customize-branding/ext-secondary-button.png)
+    ![Screenshot of the sign-in box at the Sign-in options step, with the secondary - Back - button highlighted.](media/reference-company-branding-css-template/ext-secondary-button.png)
 
 - `.ext-error` - Error text.
 
-    ![Screenshot of the sign-in box with error text highlighted.](media/how-to-customize-branding/ext-error-text.png)
+    ![Screenshot of the sign-in box with error text highlighted.](media/reference-company-branding-css-template/ext-error-text.png)
 
 - Styles for text boxes:
     - `.ext-input.ext-text-box` - Text boxes
@@ -84,15 +84,15 @@ Use the following CSS selectors to configure the details of the sign-in experien
     - `.ext-input.ext-text-box:focus` - When the text box has focus
     - `.ext-input.ext-text-box:focus:hover` - When the text box has focus and the mouse is over the text box
 
-    ![Screenshot of the sign-in box with the text box with sample text highlighted.](media/how-to-customize-branding/ext-text-box.png)
+    ![Screenshot of the sign-in box with the text box with sample text highlighted.](media/reference-company-branding-css-template/ext-text-box.png)
 
 - `.ext-boilerplate-text` - Custom message text at the bottom of the sign in box
 
-    ![Screenshot of the sign-in box with the optional boilerplate text area highlighted](media/how-to-customize-branding/ext-boilerplate-text.png)
+    ![Screenshot of the sign-in box with the optional boilerplate text area highlighted](media/reference-company-branding-css-template/ext-boilerplate-text.png)
 
 - `.ext-promoted-fed-cred-box` - Sign-in options text box
 
-    ![Screenshot of the sign-in box with the federated sign-in option highlighted.](media/how-to-customize-branding/ext-promoted-fed-cred-box.png)
+    ![Screenshot of the sign-in box with the federated sign-in option highlighted.](media/reference-company-branding-css-template/ext-promoted-fed-cred-box.png)
  
 -  Styles for the footer:
     - `.ext-footer` - Footer area at the bottom of the page
