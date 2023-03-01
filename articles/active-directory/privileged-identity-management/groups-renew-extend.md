@@ -27,7 +27,7 @@ Only Global Administrators, Privileged Role Administrators, or group owners can 
 
 ## When notifications are sent
 
-Privileged Identity Management sends email notifications to administrators and affected users of privileged access group assignments that are expiring:
+Privileged Identity Management sends email notifications to administrators and affected users of PIM for Groups assignments that are expiring:
 
 - Within 14 days prior to expiration
 - One day prior to expiration

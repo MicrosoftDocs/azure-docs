@@ -641,7 +641,9 @@
       href: azure-stack-edge-migrate-fpga-gpu.md  
   - name: Release notes
     items:
-      - name: 2101 - Current
+      - name: 2301 - Current
+        href: azure-stack-edge-2301-release-notes.md
+      - name: 2101
         href: azure-stack-edge-2101-release-notes.md
       - name: 2007
         href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json

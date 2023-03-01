@@ -43,14 +43,14 @@ In addition to your solution domain, your engineering team should have knowledge
 
 - The application must be deployable to Linux environment.
 
-- If running the CNAB packaging tool manually, you will need docker installed on your local machine.
+- If running the CNAB packaging tool manually, you'll need docker installed on your local machine.
 
 ## Limitations
 
 - Container Marketplace supports only Linux platform-based AMD64 images.
 - Managed AKS only.
-- Single containers are not supported.
-- Linked Azure Resource Manager templates are not supported.
+- Single containers aren't supported.
+- Linked Azure Resource Manager templates aren't supported.
 
 > [!IMPORTANT]
 > The Kubernetes application-based offer experience is in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -221,25 +221,35 @@ Ensure the Helm chart adheres to the following rules:
 
 ### Make updates based on your billing model
 
-After reviewing the billing models available, select one appropriate for your use case and complete the following steps:
+After reviewing the [available billing models][available billing models], select one appropriate for your use case and complete the following steps:
 
-Complete the following steps to add identifier in the *Per core* billing model:
+Complete the following steps to add identifier in the *Per core*, *Per pod*, *Per node* billing models:
 
-- Add a billing identifier label and cpu cores request to your `deployment.yaml` file.
+- Add a billing identifier label `azure-extensions-usage-release-identifier` to the Pod spec in your [workload][workload] yaml files.
+    - If the workload is specified as Deployments or Replicasets or Statefulsets or Daemonsets specs, add this label under **.spec.template.metadata.labels**.
+    - If the workload is specified directly as Pod specs, add this label under **.metadata.labels**.
 
-    :::image type="content" source="./media/azure-container/billing-identifier-label.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article":::
 
-    :::image type="content" source="./media/azure-container/resources.png" alt-text="A screenshot of CPU resource requests in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article.":::
 
-- Add a billing identifier value for `global.azure.billingidentifier` in `values.yaml`.
+    :::image type="content" source="./media/azure-container/billing-depoyment.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article.":::
 
-    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > Azure > billingIdentifier field.":::
 
-Complete the following steps to add a billing identifier label in the *Per pod* and *Per node* billing model:
 
-- Add a billing identifier label `azure-extensions-usage-release-identifier` to your `deployment.yaml` file (Under **Template** > **Metadata** > **Labels**>).
+    :::image type="content" source="./media/azure-container/billing-statefulsets.png" alt-text="A screenshot of a properly formatted billing identifier label in a statefulsets.yaml file. The content resembles the sample statefulsets.yaml file linked in this article.":::
 
-Note that at deployment time, the cluster extensions feature will replace the billing identifier value with the extension type name you provide while setting up plan details.
+
+
+    :::image type="content" source="./media/azure-container/billing-daemonsets.png" alt-text="A screenshot of CPU resource requests in a daemonsets.yaml file. The content resembles the sample daemonsets.yaml file linked in this article.":::
+
+
+
+    :::image type="content" source="./media/azure-container/billing-pods.png" alt-text="A screenshot of CPU resource requests in a pods.yaml file. The content resembles the sample pods.yaml file linked in this article."::: 
+
+- For *perCore* billing model, specify [CPU Request][CPU Request] by including the `resources:requests` field in the container resource manifest. Note that this step is only required for *perCore* billing model.  
+
+   :::image type="content" source="./media/azure-container/percorebilling.png" alt-text="A screenshot of CPU resource requests in a pods.yaml file. The content resembles the sample per core billing model file linked in this article."::: 
+
+Note that at deployment time, the cluster extensions feature will replace the billing identifier value with the extension instance name.
 
 For examples configured to deploy the [Azure Voting App][azure-voting-app], see the following:
 
@@ -385,7 +395,9 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 - [Create your Kubernetes offer](azure-container-offer-setup.md)
 
 <!-- LINKS -->
-
+[available billing models]: azure-container-technical-assets-kubernetes.md#available-billing-models
+[workload]:https://kubernetes.io/docs/concepts/workloads/
+[CPU Request]:https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/#specify-a-cpu-request-and-a-cpu-limit
 [cnab]: https://cnab.io/
 [cluster-extensions]: ../aks/cluster-extensions.md
 [azure-voting-app]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/k8s-offer-azure-vote/azure-vote

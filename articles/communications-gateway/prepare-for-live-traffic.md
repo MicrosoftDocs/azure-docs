@@ -43,7 +43,7 @@ In some parts of this article, the steps you must take depend on whether your de
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
     - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).
-1. Meet any other requirements in the _Network Connectivity Specification_ for Operator Connect or Teams Phone Mobile.
+1. Meet any other requirements in the _Network Connectivity Specification_ for Operator Connect or Teams Phone Mobile. If you don't have access to this specification, contact your onboarding team.
 
 ## 2. Ask your onboarding team to register your test enterprise tenant
 

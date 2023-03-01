@@ -74,6 +74,8 @@
           href: how-to-create-lockbox.md
         - name: Set up Managed Identity
           href: how-to-use-managed-identity.md  
+        - name: Set up Resource sharing (CORS)
+          href: how-to-enable-cors.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
@@ -96,3 +98,7 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshoot manifest ingestion
+      href: troubleshoot-manifest-ingestion.md

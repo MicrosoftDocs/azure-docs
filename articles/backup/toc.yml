@@ -136,6 +136,12 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
+    - name: Private endpoints
+      items:
+      - name: V1 experience
+        href: private-endpoints-overview.md
+      - name: V2 experience
+        href: backup-azure-private-endpoints-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -620,10 +626,10 @@
       href: backup-azure-security-feature.md
     - name: Private Endpoints
       items:
-      - name: Overview
-        href: private-endpoints-overview.md
-      - name: Create and use
+      - name: V1 experience
         href: private-endpoints.md
+      - name: V2 experience
+        href: backup-azure-private-endpoints-configure-manage.md
     - name: Encryption in Azure Backup
       href: backup-encryption.md
     - name: Encryption using customer-managed keys

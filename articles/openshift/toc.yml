@@ -84,10 +84,10 @@
       items:
         - name: Azure Monitor for containers
           items:
-            - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
-              href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
-              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
+            - name: Configure Azure Monitor container insights for Azure Red Hat OpenShift 4
+              href : ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            - name: Disable Azure Monitor container insights in Azure Red Hat OpenShift 4 
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md#delete-extension-instance
     - name: Develop and run applications
       items:
         - name: Deploy an application from source code

@@ -81,12 +81,13 @@ You may need to merge duplicate devices if the sensor has discovered separate ne
 Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
 > [!NOTE]
+>
 > - You can only merge authorized devices.
 > - Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
 > - Alternately, merge devices from the [Device map](how-to-work-with-the-sensor-device-map.md) page.
 When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. 
+For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window.
 
 **To merge devices from the device inventory:**
 
@@ -98,7 +99,7 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 ## View inactive devices
 
-You may want to view devices in your network that have been inactive and delete them. 
+You may want to view devices in your network that have been inactive and delete them.
 
 For example, devices may become inactive because of misconfigured SPAN ports, changes in network coverage, or by unplugging them from the network
 
@@ -178,3 +179,4 @@ For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods)

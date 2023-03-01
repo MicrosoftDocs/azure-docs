@@ -1,20 +1,19 @@
 ---
-title: Create Connection Monitor - ARM template
+title: Create connection monitor - ARM template
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor using the ARMClient.
+description: Learn how to create Azure Network Watcher connection monitor using the ARMClient.
 services: network-watcher
-documentationcenter: na
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 02/08/2021
 ms.custom: engagement-fy23
 ms.author: halkazwini
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor using the ARM template
+
+# Create an Azure Network Watcher connection monitor using ARM template
 
 > [!IMPORTANT]
 > Starting 1 July 2021, you'll not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You'll also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.

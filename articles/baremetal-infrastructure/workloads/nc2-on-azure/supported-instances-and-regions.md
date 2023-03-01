@@ -22,15 +22,17 @@ Nutanix Clusters on Azure supports:
 
 ## Supported regions
 
-NC2 on Azure supports the following region using AN36:
+NC2 on Azure supports the following regions using AN36:
 
 * East US
 * West US 2
 
-NC2 on Azure supports the following region using AN36P:
+NC2 on Azure supports the following regions using AN36P:
 
 * North Central US
 * East US 2
+* Southeast Asia
+* Australia East
 
 ## Next steps
 

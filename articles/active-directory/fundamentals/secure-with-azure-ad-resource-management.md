@@ -91,7 +91,7 @@ When an Account Owner creates an Azure subscription within an enterprise agreeme
 
 * The Azure subscription is associated with the same Azure AD tenant of the Account Owner.
 
-* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment]../../azure-resource-manager/management/deployment-models.md).)
+* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md).)
 
 An enterprise agreement can be configured to support multiple tenants by setting the authentication type of "Work or school account cross-tenant" in the Azure EA Portal. Given the above, organizations can set multiple accounts for each tenant, and multiple subscriptions for each account, as shown in the diagram below.
 
@@ -101,7 +101,7 @@ It's important to note that the default configuration described above grants the
 
  To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription’s tenant can be [changed](../fundamentals/active-directory-how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
 
-To learn more, visit [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
+To learn more, visit [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
 
 ### Microsoft Customer Agreement
 

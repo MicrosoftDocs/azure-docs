@@ -183,18 +183,16 @@ items:
       href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
-    - name: Pattern matching overview
+    - name: Pattern matching concepts
       href: pattern-matching-overview.md
-    - name: Recognize speech intents with LUIS
-      href: get-started-intent-recognition.md
-    - name: Recognize speech intents with simple pattern matching
+    - name: Intent recognition with simple pattern matching quickstart
       href: how-to-use-simple-language-pattern-matching.md
-    - name: Recognize speech intents with custom entity pattern matching
+    - name: Intent recognition with custom entity pattern matching
       href: how-to-use-custom-entity-pattern-matching.md
-    - name: LUIS developer resources
-      href: ../luis/developer-reference-resource.md
-    - name: Language support
-      href: ../luis/luis-language-support.md
+    - name: Intent recognition with CLU quickstart
+      href: get-started-intent-recognition-clu.md
+    - name: Recognize speech intents with LUIS (deprecated)
+      href: get-started-intent-recognition.md
 - name: Speaker recognition
   items:
     - name: Speaker recognition overview
@@ -232,14 +230,16 @@ items:
       href: gaming-concepts.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment with speech to text
-          items:
-            - name: Pronunciation Assessment in Speech Studio
-              href: pronunciation-assessment-tool.md
-              displayName: pronounce, learn language, assess pron
-            - name: How to use Pronunciation Assessment
-              href: how-to-pronunciation-assessment.md
-              displayName: pronounce, learn language, assess pron
+      - name: Overview
+        href: language-learning-overview.md
+      - name: Pronunciation Assessment with speech to text
+        items:
+        - name: Pronunciation Assessment in Speech Studio
+          href: pronunciation-assessment-tool.md
+          displayName: pronounce, learn language, assess pron
+        - name: How to use Pronunciation Assessment
+          href: how-to-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview

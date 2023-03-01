@@ -1,6 +1,6 @@
 ---
 title: Associate peer ASN to Azure subscription - Azure portal
-description: Associate peer ASN to Azure subscription using the Azure portal
+description: Associate peer ASN to Azure subscription using the Azure portal.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering

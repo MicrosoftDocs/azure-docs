@@ -1,7 +1,6 @@
 ---
 title: Customize CoreDNS for Azure Kubernetes Service (AKS)
 description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 author: asudbring
 ms.topic: how-to

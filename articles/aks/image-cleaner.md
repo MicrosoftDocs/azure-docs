@@ -3,17 +3,16 @@ title: Use Image Cleaner on Azure Kubernetes Service (AKS)
 description: Learn how to use Image Cleaner to clean up stale images on Azure Kubernetes Service (AKS)
 ms.author: nickoman
 author: nickomang
-services: container-service
 ms.topic: article
-ms.date: 12/14/2022
+ms.date: 02/07/2023
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which Image Cleaner can mitigate via automatic image identification and removal. 
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which Image Cleaner can mitigate via automatic image identification and removal.
 
 > [!NOTE]
-> Image Cleaner is a feature based on [Eraser](https://github.com/Azure/eraser). 
+> Image Cleaner is a feature based on [Eraser](https://github.com/Azure/eraser).
 > On an AKS cluster, the feature name and property name is `Image Cleaner` while the relevant Image Cleaner pods' names contain `Eraser`.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -92,8 +91,7 @@ When enabled, an `eraser-controller-manager` pod is deployed on each agent node,
 
 Once an `ImageList` is generated, Image Cleaner will remove all the images in the list from node VMs.
 
-
-:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="A diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
 ## Configuration options
 
@@ -167,7 +165,58 @@ az aks update -g MyResourceGroup -n MyManagedCluster
 
 ## Logging
 
-The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can check these via `kubectl logs` or via the Container Insights pod log table if the [Azure Monitor add-on](./monitor-aks.md) is enabled.
+Deletion image logs are stored in `eraser-aks-nodepool-xxx` pods for manually deleted images, and in `collector-aks-nodes-xxx` pods for automatically deleted images.
+
+You can view these logs by running `kubectl logs <pod name> -n kubesystem`. However, this command may return only the most recent logs, since older logs are routinely deleted. To view all logs, follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table.
+
+1. Ensure that Azure monitoring is enabled on the cluster. For detailed steps, see [Enable Container Insights for AKS cluster](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
+
+1. Get the Log Analytics resource ID:
+
+   ```azurecli
+   az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
+   ```
+
+   After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:
+
+   ```json
+   "addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+   }
+   ```
+
+1. In the Azure portal, search for the workspace resource ID, then select **Logs**.
+
+1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool-xxx` (for manual mode) or `collector-aks-nodes-xxx` (for automatic mode).
+
+   ```kusto
+      let startTimestamp = ago(1h);
+   KubePodInventory
+   | where TimeGenerated > startTimestamp
+   | project ContainerID, PodName=Name, Namespace
+   | where PodName contains "name" and Namespace startswith "kube-system"
+   | distinct ContainerID, PodName
+   | join
+   (
+       ContainerLog
+       | where TimeGenerated > startTimestamp
+   )
+   on ContainerID
+   // at this point before the next pipe, columns from both tables are available to be "projected". Due to both
+   // tables having a "Name" column, we assign an alias as PodName to one column which we actually want
+   | project TimeGenerated, PodName, LogEntry, LogEntrySource
+   | summarize by TimeGenerated, LogEntry
+   | order by TimeGenerated desc
+   ```
+
+1. Select **Run**. Any deleted image logs will appear in the **Results** area.
+
+   :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
 
 <!-- LINKS -->
 

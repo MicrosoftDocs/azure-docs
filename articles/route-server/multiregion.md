@@ -1,5 +1,5 @@
 ---
-title: 'Multi-region designs with Azure Route Server'
+title: Multi-region designs with Azure Route Server
 description: Learn about how Azure Route Server enables multi-region designs.
 services: route-server
 author: halkazwini
@@ -7,6 +7,7 @@ ms.service: route-server
 ms.topic: conceptual
 ms.date: 02/03/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
 # Multi-region networking with Azure Route Server

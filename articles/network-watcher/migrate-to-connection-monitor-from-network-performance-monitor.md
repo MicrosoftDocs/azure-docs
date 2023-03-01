@@ -5,7 +5,7 @@ description: Learn how to migrate to Connection Monitor from Network Performance
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 06/30/2021
 ms.author: halkazwini
 ms.custom: engagement-fy23
