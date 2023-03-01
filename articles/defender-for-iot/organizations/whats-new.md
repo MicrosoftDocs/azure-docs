@@ -30,6 +30,9 @@ For more information, see <!--fix xref-->[Defender for IoT device inventory](htt
 
 ### UI enhancements when uploading SSL/TLS certificates
 
+The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
+
+For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 <!--placeholder. Sensor and CM? What exactly changed? Change heading to match. Shereen.-->
 
 ### Activation files for cloud-connected sensors no longer expire
@@ -54,15 +57,16 @@ For more information, see [Malware engine alerts](alert-engine-messages.md#malwa
 
 ### Configuration for DNS allowlists
 
-The OT sensor now allows the *support* user to configure a DNS allowlist that resolves IP addresses to domains.
+Now, the *support* user on an OT sensor can define a list of allowed DNS domains. Alerts are not triggered on the OT sensor for any traffic on a listed domain. 
 
-Then, all users can view the list of IP addresses that are resolved to domains in the OT sensor's data mining report.
+All OT sensor users can view the list of allowed DNS domains and their resolved IP addresses in data mining reports.  
 
-For more information, see:
-
-- <!--add xref to procedure-->
-- [Create data mining queries](how-to-create-data-mining-queries.md)
-
+For example: <screenshot> 
+    
+For more information, see <!--xref to configuration procedure--> and [Create data mining queries](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-create-data-mining-queries).
+    
+ <!--xrefs and screenshot - shereen-->
+   
 ### Automatically resolved device notifications
 
 Selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days. 
