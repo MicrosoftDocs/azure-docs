@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Azure Functions app diagnostics 
 
-Azure Functions App Diagnostics is a useful resource on Azure portal for monitoring and diagnosing potential issues in your Durable Functions application. Not only does it help diagnose problems, but it also provides potential solutions and/or relevant documentations to help you resolve issues faster. 
+Azure Functions App Diagnostics is a useful resource in the Azure portal for monitoring and diagnosing potential issues in your Durable Functions application. Not only does it help diagnose problems, but it also provides potential solutions and/or relevant documentation to help you resolve issues faster. 
 
 ## How to use Azure Functions app diagnostics
  
