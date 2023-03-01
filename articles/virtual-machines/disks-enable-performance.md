@@ -11,9 +11,9 @@ ms.subservice: disks
 
 # Enable performance plus
 
-Performance Plus allows users to increase their Azure Disks’ Input/Output Operations Per Second (IOPS) and throughput limits for Premium SSD, Standard SSD, and Standard HDD disks sized 1024 GB and larger. This feature is designed to provide enhanced performance for workloads that require high IOPS and throughput, such as database and transactional workloads. 
+You can increase the Input/Output Operations Per Second (IOPS) and throughput limits for Premium SSD, Standard SSD, and Standard HDD disks that are 1024 GB and larger using performance plus. Performance plus enhances performance for workloads that require high IOPS and throughput, such as database and transactional workloads. There is no additional charge for enabling performance plus on a disk.
 
-Performance Plus can be enabled on eligible disks through the Azure portal or via Azure Resource Manager templates. Once enabled, the IOPS and throughput limits for the disk will be increased to the higher maximum limits. To see the eligible disks and their new limitations, see [Scalability and performance targets for VM disks](disks-scalability-targets.md).
+Once enabled, the IOPS and throughput limits for a disk will be increased to the higher maximum limits. To see the eligible disks and their new limitations, see [Scalability and performance targets for VM disks](disks-scalability-targets.md).
 
 ## Limitations
 
