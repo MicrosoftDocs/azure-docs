@@ -107,7 +107,7 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
     | Setting | Value |
     | --- | --- |
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
-    | Assign access to | StorageCache Resource Provider |
+    | Assign access to | "HPC Cache Resource Provider" or "StorageCache Resource Provider" |
 
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
