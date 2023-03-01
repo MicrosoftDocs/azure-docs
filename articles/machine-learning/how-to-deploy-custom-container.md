@@ -1,7 +1,7 @@
 ---
-title: Deploy a custom container as an online endpoint
+title: Deploy a model in a custom container to an online endpoint
 titleSuffix: Azure Machine Learning
-description: Learn how to use a custom container to use open-source servers in Azure Machine Learning.
+description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -14,17 +14,17 @@ ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Deploy a TensorFlow model served with TensorFlow Serving using a custom container in an online endpoint
+# Use a custom container to deploy a model to an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
+Learn how to use a custom container for deploying a model to an online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
 
-You can find [various examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) for TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and Azure Machine Learning Inference Minimal image as below:
+The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and AzureML Inference Minimal image.
 
 |Example|Script (CLI)|Description| 
 |-------|------|---------|
@@ -38,7 +38,7 @@ You can find [various examples](https://github.com/Azure/azureml-examples/tree/m
 |[torchserve/huggingface-textgen](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/torchserve/huggingface-textgen)|[deploy-custom-container-torchserve-huggingface-textgen](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-torchserve-huggingface-textgen.sh)|Deploy Hugging Face models to an online endpoint and follow along with the Hugging Face Transformers TorchServe example.| 
 |[triton/single-model](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/triton/single-model)|[deploy-custom-container-triton-single-model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-triton-single-model.sh)|Deploy a Triton model using a custom container|
 
-This article focuses on serving a TensorFlow model with TensorFlow (TF) Serving. 
+This article focuses on serving a TensorFlow model with TensorFlow (TF) Serving.
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.

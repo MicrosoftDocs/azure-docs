@@ -42,8 +42,6 @@
   items:
     - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
-    - name: Multi-region app
-      href: tutorial-multi-region-app.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
@@ -68,6 +66,10 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
+    - name: Multi-region app
+      href: tutorial-multi-region-app.md
+    - name: N-tier app
+      href: tutorial-secure-ntier-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
     - name: Connect to Azure resource as app
