@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 02/28/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -90,7 +90,7 @@ In the project's root directory, follow these steps:
 
     ```shell
     FLASK_DEBUG=True
-    TENANT_ID=<tenant id>
+    TENANT_NAME=<tenant name>
     CLIENT_ID=<client id>
     CLIENT_SECRET=<client secret>
     SIGNUPSIGNIN_USER_FLOW=B2C_1_profile_editing
@@ -100,7 +100,7 @@ In the project's root directory, follow these steps:
 
     |Key  |Value  |
     |---------|---------|
-    |`TENANT_ID`| The Directory (tenant) ID of the registered application, available on the overview page. |
+    |`TENANT_NAME`| The first part of your Azure AD B2C [tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`). |
     |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
     |`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). |
     |`*_USER_FLOW`|The user flows you created in [step 1](#step-1-configure-your-user-flow).|
