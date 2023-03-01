@@ -44,7 +44,7 @@ Follow these steps to create a new console application.
     pip install openai
     ```
     > [!NOTE]
-    > This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
+    > This library is maintained by OpenAI (not Microsoft Azure). Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 1. Copy the following code into `openai-speech.py`: 
 
@@ -72,18 +72,17 @@ Follow these steps to create a new console application.
     speech_config.speech_recognition_language="en-US"
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_output_config)
     
-    # The language of the voice that responds on behalf of OpenAI.
+    # The language of the voice that responds on behalf of Azure OpenAI.
     speech_config.speech_synthesis_voice_name='en-US-JennyMultilingualNeural'
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
     
-    # Prompts OpenAI with a request and synthesizes the response.
+    # Prompts Azure OpenAI with a request and synthesizes the response.
     def ask_openai(prompt):
     
-        # Ask OpenAI
-        print('OpenAI prompt:' + prompt)
-        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=10)
+        # Ask Azure OpenAI
+        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=50)
         text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-        print('OpenAI response:' + text)
+        print('Azure OpenAI response:' + text)
         
         # Azure text-to-speech output
         speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
@@ -100,13 +99,17 @@ Follow these steps to create a new console application.
     # Continuously listens for speech input to recognize and send as text to Azure OpenAI
     def chat_with_open_ai():
         while True:
-            print("OpenAI is listening. Ctrl-Z to exit")
+            print("Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.")
             try:
                 # Get audio from the microphone and then send it to the TTS service.
                 speech_recognition_result = speech_recognizer.recognize_once_async().get()
     
-                # If speech is recognized, send it to OpenAI and listen for the response.
+                # If speech is recognized, send it to Azure OpenAI and listen for the response.
                 if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
+                    if speech_recognition_result.text == "Stop.": 
+                        print("Conversation ended.")
+                        break
+                    print("Recognized speech: {}".format(speech_recognition_result.text))
                     ask_openai(speech_recognition_result.text)
                 elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
                     print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
@@ -141,16 +144,16 @@ Speak into your microphone when prompted. The console output will include the pr
 
 ```console
 PS C:\dev\openai\python> python.exe .\openai-speech.py
-OpenAI is listening. Ctrl-Z to exit
-OpenAI prompt:How can artificial intelligence help technical writers?
-OpenAI response:Artificial intelligence (AI) can help improve the efficiency of a technical writer's workflow in several ways. For example, AI can be used to generate information maps of documentation sets, analyze customer feedback to identify areas that need improvement, or suggest new topics for documentation based on customer queries. Additionally, AI-powered search engines can help technical writers find relevant information more quickly and easily.
-Speech synthesized to speaker for text [Artificial intelligence (AI) can help improve the efficiency of a technical writer's workflow in several ways. For example, AI can be used to generate information maps of documentation sets, analyze customer feedback to identify areas that need improvement, or suggest new topics for documentation based on customer queries. Additionally, AI-powered search engines can help technical writers find relevant information more quickly and easily.]
-OpenAI is listening. Ctrl-Z to exit
-OpenAI prompt:Write a tagline for an ice cream shop.
-OpenAI response:Your favorite ice cream, made fresh!
-Speech synthesized to speaker for text [Your favorite ice cream, made fresh!]
-OpenAI is listening. Ctrl-Z to exit
-No speech could be recognized: NoMatchDetails(reason=NoMatchReason.InitialSilenceTimeout)
+Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.
+Recognized speech:Make a comma separated list of all continents.
+Azure OpenAI response:Africa, Antarctica, Asia, Australia, Europe, North America, South America
+Speech synthesized to speaker for text [Africa, Antarctica, Asia, Australia, Europe, North America, South America]
+Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.
+Recognized speech:Make a comma separated list of 1 Astronomical observatory for each continent. The list should include each continent name in parentheses.
+Azure OpenAI response:Mauna Kea Observatory (North America), European Southern Observatory (Europe), Atacama Large Millimeter Array (South America), Siding Spring Observatory (Australia), and South African Astronomical Observatory (Africa)
+Speech synthesized to speaker for text [Mauna Kea Observatory (North America), European Southern Observatory (Europe), Atacama Large Millimeter Array (South America), Siding Spring Observatory (Australia), and South African Astronomical Observatory (Africa)]
+Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.
+Conversation ended.
 PS C:\dev\openai\python> 
 ```
 
