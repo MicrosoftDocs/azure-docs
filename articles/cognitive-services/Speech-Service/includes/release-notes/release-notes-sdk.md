@@ -17,20 +17,19 @@ ms.author: eur
 
 * Embedded (on-device) Speech Recognition now supports both 8 and 16 kHz sampling rate input audio (16-bit per sample, mono PCM).
 * Speech Synthesis now reports connection, network and service latencies in the result to help end-to-end latency optimization.
-* Intent Recognition with simple patter matching has a new tie breaking priority around bytes matched. More bytes matched will break ties. Example: Pattern "Click {something} in the top right" will win over "Click {something}"
+* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more characters that are matched will win over pattern matches with lower character count. Example: Pattern "Click {something} in the top right" will win over "Click {something}"
+* [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md): The JSON result is now available via the property ID `LanguageUnderstandingServiceResponse_JsonResult`.
 
 #### Bug fixes
 
 * Speech Synthesis: fix a bug where the emoji is not correct in word boundary events.
-* Intent Recognition with with Conversational Language Understanding (CLU)
-  * Intents from the Orchestrator level should appear correctly.
-  * CLU json will appear with the LanguageUnderstandingServiceResponse_JsonResult propertyId.
+* [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md): Intents from the Orchestrator level should appear correctly.
 * Speech recognition with keyword activation: Fix for missing ~150ms audio after a keyword recognition.
-* Fix for Speech SDK NuGet iOS MAUI Release build ([customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1835))
+* Fix for Speech SDK NuGet iOS MAUI Release build, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1835))
 
 #### Samples
 
-* Fix for Swift iOS sample ([customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
+* Fix for Swift iOS sample, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
 
 
 ### Speech SDK 1.25.0: January 2023 release
