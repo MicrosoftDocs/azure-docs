@@ -1456,7 +1456,7 @@ items:
         items:
         - name: Detect and analyze anomalies in log data with KQL
           href: logs/kql-machine-learning-azure-monitor.md
-        - name: Integrate Jupyter Notebook and bring your own ML 
+        - name: Bring your own ML using Jupyter Notebook 
           href: logs/jupyter-notebook-in-azure-monitor-logs.md      
 - name: Reference
   items:
