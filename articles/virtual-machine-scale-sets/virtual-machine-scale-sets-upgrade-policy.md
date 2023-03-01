@@ -13,7 +13,7 @@ ms.custom:
 # Upgrade Policy for Virtual Machine Scale Sets
 
 > [!NOTE]
-> Upgrade Policy currently only apply to Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> Upgrade Policy currently only applies to Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are **Automatic**, **Rolling** and **Manual**. 
 
