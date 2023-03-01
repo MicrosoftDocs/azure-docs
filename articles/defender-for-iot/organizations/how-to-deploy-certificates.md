@@ -37,40 +37,44 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 ### Import the SSL/TLS certificate
 
-**To deploy a certificate on an OT sensor**:
+#### Deploy a certificate on an OT sensor
 
 1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**
 
-1. In the **SSL/TLS certificate** pane, select one of the following:
+1. In the **SSL/TLS certificate** pane, select either **Import a trusted CA certificate (recommended)** or **Use Locally generated self-signed certificate (Not recommended)** and follow the instructions in the appropriate tab:
 
-# [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate)
+    # [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate)
+    
+    1. Enter the following parameters:
+    
+        | Parameter  | Description  |
+        |---------|---------|
+        | **Certificate Name**     |   Enter your certificate name.      |
+        | **Passphrase**     |  Enter a passphrase.       |
+        | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
+        | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
+        | **Certificate Chain (PEM file)** *Optional*     |  Upload a Certificate Chain (PEM file).       |
+    
+        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
 
-1. Enter the following parameters:
+        For example:
 
-    | Parameter  | Description  |
-    |---------|---------|
-    | **Certificate Name**     |   Enter your certificate name.      |
-    | **Passphrase**     |  Enter a passphrase.       |
-    | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
-    | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
-    | **Certificate Chain (PEM file)** *Optional*     |  Upload a Certificate Chain (PEM file).       |
+        :::image type="content" source="media/how-to-deploy-certificates/SSL-recommended.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/SSL-recommended.png":::
+    
+    # [Use Locally generated self-signed certificate (Not recommended)](#tab/locally-generated-self-signed-certificate)
+    
+    > [!NOTE]
+    > This option is not recommended - Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.
+    
+    Select the **Confirm** checkbox.
+    
+    ---
 
-    Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
-
-# [Use Locally generated self-signed certificate (Not recommended)](#tab/locally-generated-self-signed-certificate)
-
-> [!NOTE]
-> This option is not recommended - Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.
-
-Select the **Confirm** checkbox.
-
----
-
-1. For **Validation for on-premises management console certificates** select either **Required**  or **None**.
+1. If **Validation for on-premises management console certificates** is required then select **Required**. Otherwise, select **None**.
 
 1. Select **Save** to save your certificate settings.
 
-**To deploy a certificate on an on-premises management console sensor**:
+#### Deploy a certificate on an on-premises management console sensor
 
 1. Sign into your OT sensor and select **System settings** > **SSL/TLS certificates**.
 
