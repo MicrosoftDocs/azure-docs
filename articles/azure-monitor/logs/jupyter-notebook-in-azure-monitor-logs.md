@@ -28,8 +28,7 @@ This provides you with a number of advantages:
 - Jupyter Notebook
 - [Azure Monitor REST API](/rest/api/monitor/), [Azure Monitor libraries for Python](/python/api/overview/azure/monitor), which let you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
 - [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
-- Python libraries
-- 
+- Python libraries 
 
 ## Benefits 
 
@@ -91,7 +90,89 @@ In this tutorial, you learn how to:
 1. Authenticate using `DefaultAzureCredential` from the `azure-identity` package.
 1. Define your variables and functions.
 1. 
-1. 
+
+## Explore and visualize data
+
+
+```rest
+UsageQuery_AllTypes = """
+Usage 
+| project TimeGenerated, DataType, Quantity 
+| summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
+"""
+
+num_days = 7; ##FILL YOUR 
+end_time = datetime.now()
+start_time = end_time - timedelta(days=num_days)
+
+
+df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
+```
+
+```rest
+showGraph(df_allTypes, "All Data Types - last week usage")
+```
+
+## Train the model
+
+1. For simplicity, we'll query only five data types (5 time series). Run Query to bring usage data of selected datatypes, at timeframe of 1 hour. the period we picked for training is three weeks, starting one week back.
+
+    In reality it iterative process with data preparation/cleaning and running several models until find the best. we will skip data cleaning and run only two models and will pick the best between these two.
+
+
+    ```rest
+    datatypes = ["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs", "AzureDiagnostics", "Perf"]
+    
+    datatypesStr = ''
+     
+    # using loop to add string followed by delim
+    for ele in datatypes:
+        datatypesStr = datatypesStr + "'" + str(ele) +"'" + ','
+    
+    datatypesStr = datatypesStr[:-1] ##remove last ,
+    #UsageQuery_SelectedDataTypes = "Usage | project TimeGenerated, DataType, Quantity | where DataType in (" + datatypesStr + ") | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType"
+    
+    
+    UsageQuery_SelectedDataTypes = f"""
+    Usage 
+    | project TimeGenerated, DataType, Quantity 
+    | where DataType in ({datatypesStr}) 
+    | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
+    """
+    
+    
+    num_days = 21; ##3 weeks period fot training
+    end_time = datetime.now()-timedelta(days=7)
+    start_time = end_time - timedelta(days=num_days)
+    
+    my_data = execQuery(UsageQuery_SelectedDataTypes,start_time,end_time)
+    #showGraph(my_data)
+    ```
+
+
+    This function returns the results of the query for the selected data types
+     
+    ```rest
+    def getSelectedDataTypesQuery(datatypesStr, start, end):
+        UsageQuery_SelectedDataTypes = f"""
+        let starttime = {start}d; // Start date for the time series, counting back from the current date
+        let endtime = {end}d; //Jan 13 morning ISR
+        Usage 
+        | project TimeGenerated, DataType, Quantity 
+        | where TimeGenerated between (ago(starttime)..ago(endtime))
+        | where DataType in ({datatypesStr}) 
+        | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
+        """
+        return UsageQuery_SelectedDataTypes
+    ```
+1. Create a graph that shows the usage for the selected data types.
+
+    ```rest
+    showGraph(my_data, "Selected Data Types - Hystorical Data Usage (3 weeks)")
+    ```
+
+1. Since time information present as a date column, we need expand it into Year, Month, Day, Hour columns using pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components
+
     Guy - show the screenshot from Anomalies_CL table (maybe to start the screenshot from AnomalyTimeGenerated, and not to show TimeGenerated which shows current date - it might confuse)
 
  
