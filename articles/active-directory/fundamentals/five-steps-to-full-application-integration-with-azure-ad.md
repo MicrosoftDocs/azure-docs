@@ -142,7 +142,7 @@ In addition, integrate application delivery controllers like F5 BIG-IP APM, or Z
 
 See, [Secure hybrid access: Protect legacy apps with Azure AD](../manage-apps/secure-hybrid-access.md)
 
-For the following services, there Azure AD integration tutorials.
+For the following services, there are Azure AD integration tutorials.
 
 * [Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)
 * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
