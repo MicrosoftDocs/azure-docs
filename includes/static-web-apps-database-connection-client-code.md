@@ -471,28 +471,6 @@ The browser's console window now displays a table showing the response from the 
 
 Now that you've worked with your site locally, you can now deploy it to Azure.
 
-## Connect the database to your static web app
-
-Before you deploy your site, you first need to create a connection between the Static Web Apps instance of your site and your database.
-
-1. Open your static web app in the Azure portal.
-
-1. In the *Settings* section, select **Database connection**.
-
-1. Under the *Production* section, select the **Link existing database** link.
-
-1. In the *Link existing database* window, enter the following values:
-
-    | Property | Value |
-    |---|---|
-    | Database Type | Select your database type from the dropdown list. |
-    | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select the database server name that has your desired database. |
-    | Database Name | Select the name of the database you want to link to your static web app. |
-    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
-
-1. Select **OK**.
-
 ## Deploy your site
 
 To deploy this site to production, you just need to commit the configuration file and push your changes to the server.
@@ -518,3 +496,26 @@ To deploy this site to production, you just need to commit the configuration fil
     The output should resemble what's shown in this screenshot.
 
     :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+
+
+## Connect the database to your static web app
+
+Use the following steps to create a connection between the Static Web Apps instance of your site and your database.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Settings* section, select **Database connection**.
+
+1. Under the *Production* section, select the **Link existing database** link.
+
+1. In the *Link existing database* window, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Database Type | Select your database type from the dropdown list. |
+    | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Name | Select the database server name that has your desired database. |
+    | Database Name | Select the name of the database you want to link to your static web app. |
+    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
+
+1. Select **OK**.
