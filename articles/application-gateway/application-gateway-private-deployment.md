@@ -270,10 +270,10 @@ To create these rules:
 
 | Rule # |    Source   | Source service tag | Source port ranges | Destination | Service | Dest port ranges | Protocol | Action | Priority |       Name       |
 | ------ | ----------- | ------------------ | ------------------ | ----------- | ------- | ---------------- | -------- | ------ | -------- | ---------------- |
-|   1    |     Any     |         N/A        |          *         |     Any     |  HTTP   |        80        |   TCP    | Allow  |   1028   |     AllowWeb     |
-|   2    |     Any     |         N/A        |          *         |     Any     | Custom  |       8080       |   TCP    | Allow  |   1029   |   AllowWeb8080   |
+|   1    |     Any     |                    |          *         |     Any     |  HTTP   |        80        |   TCP    | Allow  |   1028   |     AllowWeb     |
+|   2    |     Any     |                    |          *         |     Any     | Custom  |       8080       |   TCP    | Allow  |   1029   |   AllowWeb8080   |
 |   3    | Service Tag |  AzureLoadBalancer |          *         |     Any     | Custom  |        *         |   Any    | Allow  |   1045   |     AllowLB      |
-|   4    |     Any     |         N/A        |          *         |     Any     | Custom  |        *         |   Any    | Deny   |   4095   |  DenyAllInbound  |
+|   4    |     Any     |                    |          *         |     Any     | Custom  |        *         |   Any    | Deny   |   4095   |  DenyAllInbound  |
 
 
 Select **Refresh** to review all rules when provisioning is complete.
@@ -304,42 +304,11 @@ To create these rules:
 - When you have entered the information, select **Add** to create the rule. 
 - Creation of each rule takes a moment.
 
-Rule 1:
- - Source: IP Addresses
- - Source IP addresses/CIDR ranges: 10.10.4.0/24 
- - Source port ranges: *
- - Destination: IP Addresses
- - Destination IP addresses/CIDR ranges: 20.63.8.49
- - Service: HTTPS
- - Destination port ranges: 443
- - Protocol: TCP
- - Action: Allow
- - Priority: 400
- - Name: AllowToBackendTarget
-
-Rule 2:
- - Source: IP Addresses
- - Source IP addresses/CIDR ranges: 10.10.4.0/24 
- - Source port ranges: *
- - Destination: IP Addresses
- - Destination IP addresses/CIDR ranges: 10.13.0.4
- - Service: HTTP
- - Destination port ranges: 80
- - Protocol: TCP
- - Action: Allow
- - Priority: 401
- - Name: AllowToPeeredVnetVM
-
- Rule 3:
- - Source: Any
- - Source port ranges: *
- - Destination: Any
- - Service: Custom
- - Destination port ranges: *
- - Protocol: Any
- - Action: Deny
- - Priority: 4096
- - Name: DenyAll
+| Rule # |     Source   | Source IP addresses/CIDR ranges | Source port ranges | Destination  | Destination IP addresses/CIDR ranges | Service | Dest port ranges | Protocol | Action | Priority |         Name         |
+| ------ | ------------ | ------------------------------- | ------------------ | ------------ | ------------------------------------ | ------- | ---------------- | -------- | ------ | -------- | -------------------- |
+|   1    | IP Addresses |         10.10.4.0/24            |          *         | IP Addresses |              20.63.8.49              |  HTTPS  |        443       |   TCP    | Allow  |   400    | AllowToBackendTarget |
+|   2    | IP Addresses |         10.10.4.0/24            |          *         | IP Addresses |              10.13.0.4               |  HTTP   |        80        |   TCP    | Allow  |   401    | AllowToPeeredVnetVM  |
+|   3    |      Any     |                                 |          *         |     Any      |                                      | Custom  |        *         |   Any    | Deny   |   4096   |        DenyAll       |
 
 Select **Refresh** to review all rules when provisioning is complete.
 
