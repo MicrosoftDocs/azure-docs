@@ -48,10 +48,10 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
         | Parameter  | Description  |
         |---------|---------|
         | **Certificate Name**     |   Enter your certificate name.      |
-        | *Optional* **Passphrase**     |  Enter a passphrase.       |
+        | **Passphrase** - *Optional*    |  Enter a passphrase.       |
         | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
         | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
-        | *Optional* **Certificate Chain (PEM file)**     |  Upload a Certificate Chain (PEM file).       |
+        | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
     
         Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
 
@@ -62,10 +62,11 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
     # [Use Locally generated self-signed certificate (Not recommended)](#tab/locally-generated-self-signed-certificate)
     
     > [!NOTE]
-    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only.
+    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment.
+    > We recommend using self-signed certificates in test environments only.
     > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
 
-    Select **I CONFIRM** to acknowledge the warning.
+    Select **Confirm** to acknowledge the warning.
 
     ---
 
@@ -87,10 +88,10 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
         | Parameter  | Description  |
         |---------|---------|
         | **Certificate Name**     |   Enter your certificate name.      |
-        | *Optional* **Passphrase**     |  Enter a passphrase.       |
+        | **Passphrase** - *Optional*    |  Enter a passphrase.       |
         | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
         | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
-        | *Optional* **Certificate Chain (PEM file)**     |  Upload a Certificate Chain (PEM file).       |
+        | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
     
         Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
 
@@ -101,10 +102,11 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
     # [Use Locally generated self-signed certificate (Insecure, not recommended)](#tab/cm-locally-generated-self-signed-certificate)
     
     > [!NOTE]
-    > This option is not recommended - Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.
-    
-    Select the **Confirm** checkbox.
-    
+    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only.
+    > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
+
+    Select **I CONFIRM** to acknowledge the warning.
+
     ---
 
 1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload the files you'd created earlier.
