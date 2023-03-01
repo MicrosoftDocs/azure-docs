@@ -2047,3 +2047,11 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+- id: deploy-python-web-app-postgressql
+  title: Workflows
+  prompt: Choose your path
+  pivots:
+  - id: deploy-azd
+    title: Azure Developer CLI
+  - id: deploy-manual
+    title: Manual steps

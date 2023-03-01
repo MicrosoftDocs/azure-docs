@@ -5,6 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/28/2023
 ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
+zone_pivot_groups: deploy-python-web-app-postgressql
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
@@ -17,6 +18,24 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
+
+:::zone pivot="deploy-azd"
+
+## This is azd
+
+Testing the azd approach.
+
+:::zone-end
+
+:::zone pivot="deploy-manual"
+
+## This is manual
+
+Testing the manual approach.
+
+:::zone-end
+
+:::zone-end
 
 ## Sample application
 
