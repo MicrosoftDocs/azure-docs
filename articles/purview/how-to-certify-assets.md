@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/17/2023
+ms.date: 03/01/2023
 ---
 # Asset certification in the Microsoft Purview data catalog
 
