@@ -43,13 +43,13 @@ Use the following CSS selectors to configure the details of the sign-in experien
     ![Screenshot of the sign-in screen with the .ext-header and .ext-header-logo areas highlighted.](media/reference-company-branding-css-template/ext-header-and-logo.png)
 
 - `.ext-middle` - Style for the full-screen background that aligns the sign-in box vertically to the middle and horizontally to the center
-- `.ext-vertical-split-main-section` - Style for the container of the partial-screen background in the vertical split, or Active Directory Federation Services (ADFS), template that contains both a sign in box and a background
+- `.ext-vertical-split-main-section` - Style for the container of the partial-screen background in the vertical split, or Active Directory Federation Services (ADFS), template that contains both a sign-in box and a background
 - `.ext-vertical-split-background-image-container` - Sign-in box background in the vertical split (ADFS) template
 - `.ext-sign-in-box` - Sign-in box container
 
     ![Screenshot of the sign-in box, with the portion of the box that is styled with the .ext-sign-in-box selector.](media/reference-company-branding-css-template/ext-sign-in-box.png)
 
-- `.ext-title` - Ttitle text
+- `.ext-title` - Title text
 
     ![Screenshot of the sign-in box, with the "Sign in" text highlighted.](media/reference-company-branding-css-template/ext-sign-in-text.png)
 
@@ -86,7 +86,7 @@ Use the following CSS selectors to configure the details of the sign-in experien
 
     ![Screenshot of the sign-in box with the text box with sample text highlighted.](media/reference-company-branding-css-template/ext-text-box.png)
 
-- `.ext-boilerplate-text` - Custom message text at the bottom of the sign in box
+- `.ext-boilerplate-text` - Custom message text at the bottom of the sign-in box
 
     ![Screenshot of the sign-in box with the optional boilerplate text area highlighted](media/reference-company-branding-css-template/ext-boilerplate-text.png)
 

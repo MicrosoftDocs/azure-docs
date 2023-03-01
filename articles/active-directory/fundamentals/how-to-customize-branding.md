@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding will appear in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
 The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ Instructions for the legacy company branding customization process can be found 
 
 You can customize the sign-in pages when users access your organization's tenant-specific apps. For Microsoft and SaaS applications (multi-tenant apps) such as <https://myapps.microsoft.com>, or <https://outlook.com> the customized sign-in page appears only after the user types their **Email**, or **Phone**, and select **Next**. 
 
-Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page will appear immediately in the first step. 
+Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page appears immediately in the first step. 
 
 In the following examples replace the contoso.com with your own tenant name, or verified domain name:
 
@@ -60,7 +60,7 @@ Azure AD Premium editions are available for customers in China using the worldwi
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
-    - If you currently have a customized sign-in experience, you'll see an **Edit** button.
+    - If you currently have a customized sign-in experience, the **Edit** button is available.
 
     ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
 
@@ -72,7 +72,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
-- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image will scale and crop according to the window size, but may be partially blocked by the sign-in prompt.
+- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but may be partially blocked by the sign-in prompt.
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
 
@@ -135,7 +135,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
 - **Self-service password reset**:
     - Show self-service password reset (SSPR): Select the checkbox to turn on SSPR. 
-    - Common URL: Enter the destination URL for where your users will reset their passwords. This URL appears on the username and password collection screens.
+    - Common URL: Enter the destination URL for where your users reset their passwords. This URL appears on the username and password collection screens.
     - Username collection display text: Replace the default text with your own custom username collection text.
     - Password collection display text: Replace the default text with your own customer password collection text.
 
@@ -156,6 +156,8 @@ To create an inclusive experience for all of your users, you can customize the s
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
 Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the language selected.
+
+![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/righ-to-left-language-example.png)
 
 ## Next steps
 
