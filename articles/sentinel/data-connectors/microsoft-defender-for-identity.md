@@ -3,7 +3,7 @@ title: "Microsoft Defender for Identity connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft Defender for Identity to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -20,6 +20,8 @@ Connect Microsoft Defender for Identity to gain visibility into the events and u
 [Try now >](https://aka.ms/AtpTryNow)
 
 [Deploy now >](https://aka.ms/AzureATP_Deploy)
+
+For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2220069&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

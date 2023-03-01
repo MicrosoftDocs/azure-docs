@@ -3,7 +3,7 @@ title: "Windows DNS Events via AMA (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Windows DNS Events via AMA (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -21,7 +21,9 @@ You can get the following insights into your Windows DNS servers from Microsoft 
 - Request load on DNS servers.
 - Dynamic DNS registration failures.
 
-Windows DNS events are supported by Advanced SIEM Information Model (ASIM) and stream data into the ASimDnsActivityLogs table. [Learn more](https://docs.microsoft.com/azure/sentinel/normalization)
+Windows DNS events are supported by Advanced SIEM Information Model (ASIM) and stream data into the ASimDnsActivityLogs table. [Learn more](https://docs.microsoft.com/azure/sentinel/normalization).
+
+For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2225993&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 
