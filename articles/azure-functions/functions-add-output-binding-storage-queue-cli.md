@@ -57,7 +57,7 @@ For more information on the details of bindings, see [Azure Functions triggers a
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
 ::: zone pivot="programming-language-python"     
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"  
