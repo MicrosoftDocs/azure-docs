@@ -63,43 +63,29 @@ In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defe
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-## Manage sensor activation files
+## Upload a new activation file
 
-Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
+Each OT sensor is onboarded as a cloud-connected or locally-managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-A unique activation file is uploaded to each sensor that you deploy. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
-
-For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
-
-### Upload new activation files
-
-You might need to upload a new activation file for an onboarded sensor when you want to work in a different sensor management mode.
+You'll need to upload a new activation file to your senor if you want to switch sensor management modes, such as moving from a locally-managed sensor to a cloud-connected sensor. Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
-1. Go to [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
-1. Use the search bar to find the sensor you need.  
+1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-1. Select the three dots (...) on the row and select **Delete sensor**.
+1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch. For more information, see [Onboard OT sensors](onboard-sensors.md)
 
-1. Onboard the sensor again by selecting **Getting Started**>  **Set up OT/ICS Security** > **Register this sensor with Microsoft Defender for IoT**.
+1. On the **sites and sensors** page locate the sensor you just added. 
 
-1. Go to the **Sites and sensors** page.
-
-1. Use the search bar to find the sensor you just added, and select it.
-1. Select the three dots (...) on the row and select **Download activation file**.
+1. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Save the file.
+1. Sign in to the Defender for IoT sensor console and select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
 
-1. Sign in to the Defender for IoT sensor console.
+1. Select **Upload** and browse to the file that you downloaded from the Azure portal.
 
-1. Select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
-
-1. Select **Upload** and select the file that you saved.
-
-1. Select **Activate**.
+1. Select **Activate** to upload your new activation file.
 
 ### Troubleshoot activation file upload
 
