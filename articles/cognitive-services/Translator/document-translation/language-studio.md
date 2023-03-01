@@ -45,7 +45,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 ## Get started
 
-1. At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
+At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
@@ -110,7 +110,7 @@ While still in the **files and destination** section, select **Download translat
 1. While still in the **files and destination** section, select **Upload to Azure blob storage**.
 1. Next, choose your *target* **Blob container** and select **Next**:
 
-   :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="{alt-text}":::
+   :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="Screenshot of target file upload drop-down menu.":::
 
 ---
 
