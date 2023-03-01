@@ -279,6 +279,6 @@ For more information, see:
 
 - [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
-- [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
+- [Manage sensor activation files](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
