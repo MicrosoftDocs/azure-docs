@@ -369,15 +369,15 @@ The FQDN list will remain intact through version upgrades.
 
 **To define an FQDN allowlist:**
 
-- Sign in to your OT network sensor console as the **support** [user](references-work-with-defender-for-iot-cli-commands.md), then select **Support**.
+1. Sign in to your OT network sensor console as the **support** [user](references-work-with-defender-for-iot-cli-commands.md), then select **Support**.
 
-- In the search bar, search for "DNS", then look for "Internet Domain Allowlist" under **Description**.
+1. In the search bar, search for "DNS", then look for "Internet Domain Allowlist" under **Description**.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-manage-individual-sensors/dns-edit-configuration.png":::
 
-- Select the :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: icon under **Edit**.
+1. Select the :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: icon under **Edit**.
 
-- In the **Edit configuration** pane, enter a domain name that you don't want the sensor to trigger alerts for, then select **Submit**.
+1. In the **Edit configuration** pane, enter a domain name that you don't want the sensor to trigger alerts for, then select **Submit**.
 
 You can view to the FQDN allowlist in the advanced configurations and in a [data mining report](how-to-create-data-mining-queries.md). A custom Data mining report will present the FQDN, IP addresses, and last resolution time.
 
