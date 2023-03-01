@@ -28,7 +28,7 @@ Additional details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
+\* In some countries, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this purchases for CSP and LSP customers is not allowed.
 
 \** Applications from all other subscription types will be reviewed and approved on a case-by-case basis. Please reach out to acstns@microsoft.com for assistance with your application.
 
@@ -115,7 +115,7 @@ The tables below summarize current availability:
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
+\** Phone numbers in Italy can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
 
 ## Customers with Sweden Azure billing addresses
 

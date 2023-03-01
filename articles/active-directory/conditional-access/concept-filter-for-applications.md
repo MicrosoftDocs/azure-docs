@@ -80,7 +80,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    1. Set **Operator** to **Contains**.
    1. Set **Value** to **requireMFA**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 

@@ -87,7 +87,7 @@ Check for updates in the following Microsoft security products, and implement an
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
-- [Microsoft Defender for IoT](/defender-for-iot/organizations)
+- [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 

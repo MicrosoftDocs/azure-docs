@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 02/15/2023
 ---
 
 # Microsoft Purview backup and recovery for migration best practices  
@@ -45,9 +45,9 @@ The backup should allow saving a point in time copy of the following configurati
 Backup strategy is determined by restore strategy, or more specifically how long it will take to restore things when a disaster occurs. To answer that, you may need to engage with the affected stakeholders (the business owners) and understand what the required recovery objectives are.
 
 There are three main requirements to take into consideration:
-* **Recover Time Objective (RTO)** – This defines the maximum allowable downtime following a disaster for which ideally the system should be back operational.
-* **Recovery Point Objective (RPO)** – This defines the acceptable amount of data loss that is ok following a disaster. Normally this is expressed as a timeframe in hours or minutes.
-* **Recovery Level Object (RLO)** – This defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
+* **Recover Time Objective (RTO)** – Defines the maximum allowable downtime following a disaster for which ideally the system should be back operational.
+* **Recovery Point Objective (RPO)** – Defines the acceptable amount of data loss that is ok following a disaster. Normally RPO is expressed as a timeframe in hours or minutes.
+* **Recovery Level Object (RLO)** – Defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
 
 ### High availability
 In computing, the term availability is used to describe the period of time when a service is available, and the time required by a system to respond to a request made by a user. For Microsoft Purview, high availability means ensuring that Microsoft Purview instances are available if there's a problem that is local to a data center or single region in the cloud region.

@@ -193,7 +193,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement) library.
+In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) library.
 
 - Learn more about [feature management](./concept-feature-management.md)
 - [Manage feature flags](./manage-feature-flags.md)

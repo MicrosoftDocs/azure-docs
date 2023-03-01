@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/01/2023
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
