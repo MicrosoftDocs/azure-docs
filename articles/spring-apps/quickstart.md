@@ -142,13 +142,10 @@ Deploying the application can take a few minutes.
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Install the spring extension specifically designed for StandardGen2 Azure Spring Apps, remove az spring if already installed.
-    ```shell
-    az extension remove -n spring
-    ```
+- [Azure CLI](/cli/azure/install-azure-cli). Install the spring extension specifically designed for StandardGen2 Azure Spring Apps.
 
-    ```Shell
-    az extension add --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl
+    ```shell
+    az extension add --upgrade --name spring
     ```
 
 - Install the Azure Container Apps extension for the CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights` and `Microsoft.AppPlatform`
