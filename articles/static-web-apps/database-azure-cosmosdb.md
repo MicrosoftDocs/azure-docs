@@ -125,7 +125,7 @@ Next, create the configuration file that your static web app uses to interface w
     # [Bash](#tab/bash)
 
     ```bash
-    DATABASE_CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
+    export DATABASE_CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
     ```
 
     # [PowerShell](#tab/powershell)
