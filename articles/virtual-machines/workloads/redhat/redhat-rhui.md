@@ -235,19 +235,10 @@ southeastasia - 20.24.186.80
 
 ### Update expired RHUI client certificate on a VM
 
-If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired TLS/SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_ or _"Error: Cannot retrieve repository metadata (repomd.xml) for repository: ... Please verify its path and try again"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
+If you experience problem with RHUI certificates from your Azure RHEL PAYG VM, refer to the following troubleshooting article.
 
-```bash
-sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
-```
-
-Alternatively, running `sudo yum update` may also update the client certificate package (depending on your RHEL version), despite "expired SSL certificate" errors you will see for other repositories. If this update is successful, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
-
-If you run into a 404 error while running a `yum update`, try the following to refresh your yum cache:
-```bash
-sudo yum clean all;
-sudo yum makecache
-```
+> * [Troubleshoot RHUI certificate issues in Azure](/troubleshoot/azure/virtual-machines/troubleshoot-linux-rhui-certificate-issues)
+ 
 
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:
