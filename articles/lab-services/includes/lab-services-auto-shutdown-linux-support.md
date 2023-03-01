@@ -19,4 +19,4 @@ Azure Lab Services supports automatic shutdown for many Linux distristributions 
 - CentOS-based 8.5 (Gen2)
 
 > [!IMPORTANT]
-> Prior to the [August 2022 Update](lab-services-whats-new.md), Linux-based labs only support automatic shut down when users disconnect and when VMs are started but users don't connect. Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
+> Prior to the [August 2022 Update](../lab-services-whats-new.md), Linux-based labs only support automatic shut down when users disconnect and when VMs are started but users don't connect. Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
