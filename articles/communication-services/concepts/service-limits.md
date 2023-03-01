@@ -124,6 +124,9 @@ This sandbox setup is to help developers start building the application. You can
 |Send typing indicator|User and chat thread|5|15|
 |Send typing indicator|Chat thread|10|30|
 
+### Chat storage
+Chat messages are stored for 90 days. Submit a support request to if you require storage for longer. If the time frame is less than 90 days for chat messages, use our delete chat thread APIs.
+
 ## Voice and video calling
 
 ### Call maximum limitations
