@@ -89,7 +89,7 @@ Any constant (static) value can be assigned to any claim that is defined in Azur
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
 
-### Multivalued Extension Attributes (Preview)
+### Directory Schema extensions (Preview)
 
 You can also configure directory schema extension attribute as non-conditional/conditional attribute in Azure AD. The following steps outline how to configure the single or multi-valued directory schema extension attribute as claim:
 
