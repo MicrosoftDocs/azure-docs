@@ -37,7 +37,7 @@ You can provide the following key resource configurations for the failover VM wh
 
 1. Go to **Replicated Items**. 
 2. Select the desired Azure VM.
-3. Select **Network** and select **Edit**. Notice that the NIC configuration settings include the corresponding resources at the source. 
+3. Select **Network** and select **Edit**. Notice that the NIC configuration settings include the corresponding resources at the source.
 
     :::image type="content" source="./media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="Customize the failover networking configurations" lightbox="./media/azure-to-azure-customize-networking/edit-networking-properties-expanded.png":::
 
