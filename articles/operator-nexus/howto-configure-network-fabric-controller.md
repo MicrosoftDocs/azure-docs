@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus : How to configure Network fabric Controller"
-description: How to configure Network fabric Controller
+title: "Azure Operator Nexus : How to configure Network Fabric Controller"
+description: How to configure Network Fabric Controller
 author: surajmb #Required
 ms.author: surmb #Required
 ms.service: azure  #Required
@@ -8,10 +8,10 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
-# Create and modify a network fabric Controller using Azure CLI
+# Create and modify a Network Fabric Controller using Azure CLI
 
-This article describes how to create a Network fabric Controller by using the Azure Command Line Interface (AzureCLI).
-This document also shows you how to check the status, or delete a Network fabric Controller.
+This article describes how to create a Network Fabric Controller by using the Azure Command Line Interface (AzureCLI).
+This document also shows you how to check the status, or delete a Network Fabric Controller.
 
 ## Prerequisites
 
@@ -37,13 +37,13 @@ Check the subscriptions for the account.
 az account list
 ```
 
-Select the subscription for which you want to create a Network fabric Controller. This subscription will be used across all Operator Nexus resources.
+Select the subscription for which you want to create a Network Fabric Controller. This subscription will be used across all Operator Nexus resources.
 
 ```azurecli
 az account set --subscription "<subscription ID>"
 ```
 
-## Register providers for managed network fabric
+## Register providers for Managed Network Fabric
 
 You can skip this step if your subscription is already registered with the Microsoft.ManagedNetworkFabric Resource Provider. Otherwise, proceed with the following steps:
 
@@ -63,11 +63,13 @@ Once registered, you should see the RegistrationState state for the namespace ch
 
 If you've already registered, you can verify using the `show` command.
 
-## Create a network fabric controller
+## Create a Network Fabric Controller
 
-If you don't have a resource group created already, you must create a resource group before you create your Network fabric Controller.
+If you don't have a resource group created already, you must create a resource group before you create your Network Fabric Controller.
 
-**Note**: You should create a separate Resource Group for Network fabric Controller (NFC) and a separate one for Network fabric (NF). The value (\_) underscore isn't supported for any of the naming conventions, for example (Resource Name or Resource Group.
+> [!NOTE]
+> You should create a separate Resource Group for Network Fabric Controller (NFC) and a separate one for Network fabric (NF). The value (\_) underscore is not supported for any of the naming conventions, for example (Resource Name or Resource Group.
+
 You can create a resource group by running the following command:
 
 ```azurecli
@@ -88,7 +90,7 @@ az group create -n NFResourceGroupName -l "East US"
 | NFC IP Block           | This Block is the NFC IP subnet, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the Express Route Circuits.                                                                                                                                                         | 10.0.0.0/19                                                                                                                                                                                                                                                                                                                       | 10.0.0.0/19                                                                                                                                                                                                                                                      | Not Required | String |
 | Express Route Circuits | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute Circuit ID and Auth key for an NFC to successfully provision. There are two Express Route Circuits, one for the Infrastructure services and other one for Workload (Tenant) services | --workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' <br /><br /> --infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' | subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}] | True         | string |
 
-Here is an example of how you can create a Network fabric Controller using the Azure CLI.
+Here is an example of how you can create a Network Fabric Controller using the Azure CLI.
 For more information, see [attributes section](#attributes-for-nfc-creation).
 
 ```azurecli
@@ -102,7 +104,8 @@ az nf controller create \
 --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 ```
 
-**Note:** The NFC creation takes between 30-45 mins. Start using the show commands to monitor the progress of the NFC creation. You'll start to see different provisioning states while monitoring the progress of NFC creation such as, Accepted, updating and Succeeded/Failed.
+> [!NOTE]
+> The NFC creation takes between 30-45 mins. Start using the show commands to monitor the progress of the NFC creation. You'll start to see different provisioning states while monitoring the progress of NFC creation such as, Accepted, updating and Succeeded/Failed.
 
 Expected output:
 
@@ -136,7 +139,7 @@ Expected output:
     "lastModifiedBy": "email@address.com",
 ```
 
-## Get network fabric controller
+## Get Network Fabric Controller
 
 ```azurecli
 nfacliuser:~$ az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
@@ -194,13 +197,14 @@ Expected output:
 }
 ```
 
-## Delete network fabric controller
+## Delete Network Fabric Controller
 
 ```azurecli
 az nf controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
-**NOTE:**: if NF is created, then make sure the NF is deleted first before you delete the NFC.
+> [!NOTE]
+> If NF is created, then make sure the NF is deleted first before you delete the NFC.
 
 Expected output:
 
@@ -214,8 +218,9 @@ Expected output:
       "createdAt": "2022-10-31T10:47:08.072025+00:00",
 ```
 
-**NOTE:** It will take 30 mins to delete the NFC. Verify the hosted resources in Azure portal whether or not it's deleted. Delete and recreate NFC if you run into NFC provisioning issue (Failed).
+> [!NOTE]
+> It will take 30 mins to delete the NFC. Verify the hosted resources in Azure portal whether or not it's deleted. Delete and recreate NFC if you run into NFC provisioning issue (Failed).
 
 ### Next steps
 
-Once you've successfully created a Network fabric Controller, the next step is to create a [Cluster Manager](./howto-cluster-manager.md).
+Once you've successfully created a Network Fabric Controller, the next step is to create a [Cluster Manager](./howto-cluster-manager.md).
