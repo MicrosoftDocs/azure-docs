@@ -18,6 +18,18 @@ Configure outbound voice routing rules for Azure Communication Services direct r
 [!INCLUDE [Configuring with C#](./includes/voice-routing-sdk-csharp.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [Configuring with C#](./includes/voice-routing-sdk-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-jscript"
+[!INCLUDE [Configuring with C#](./includes/voice-routing-sdk-jscript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Configuring with C#](./includes/voice-routing-sdk-python.md)]
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
