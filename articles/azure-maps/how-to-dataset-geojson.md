@@ -37,7 +37,7 @@ For more information on the GeoJSON package, see the [Geojson zip package requir
 
 ### Upload the GeoJSON package
 
-Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the Drawing package to Azure Maps Creator account.
+Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the drawing package to Azure Maps Creator account.
 
 The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2](creator-long-running-operation-v2.md).
 
@@ -70,7 +70,7 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
 
 > [!IMPORTANT]
-> This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted Drawing package.
+> This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted drawing package.
 
 To create a dataset:
 
@@ -116,7 +116,7 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 
 | Identifier   | Description                                                       |
 |--------------|-------------------------------------------------------------------|
-| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a Drawing package][conversion]. |
+| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package][conversion]. |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package). |
 
 ## Geojson zip package requirements
