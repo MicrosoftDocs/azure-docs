@@ -220,7 +220,7 @@ To relocate the database files from the target restore server, you can frame a T
     GO
   ```
 
-If there are more than two files for the database, you can add additional move clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more]( /sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
+If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
 
 >[!Note]
 >For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.

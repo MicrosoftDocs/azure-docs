@@ -33,6 +33,7 @@ To create a custom table, you need:
     ``` 
     
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
+
 ## Create a custom table
 
 Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
@@ -181,6 +182,10 @@ To delete a table using PowerShell:
 ## Add or delete a custom column
 
 You can modify the schema of custom tables and add custom columns to, or delete columns from, a standard table.  
+
+> [!NOTE]
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+
 # [Portal](#tab/azure-portal-3)
 
 To add a custom column to a table in your Log Analytics workspace, or delete a column:

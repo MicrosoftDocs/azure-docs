@@ -77,9 +77,9 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
 
 ### [Azure CLI](#tab/cli)
 
-Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that will create the necessary resources and deploy your application in a single step.
+Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that will create the necessary resources and deploy your application in a single step.
 
-In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 az webapp up --runtime "PHP:8.0" --os-type=linux

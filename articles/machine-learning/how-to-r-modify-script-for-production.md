@@ -120,11 +120,11 @@ library(ggplot2)
 myplot <- ggplot(...)
 
 ggsave(myplot, 
-       filename = "./outputs/myplot.png")
+       filename = file.path(args$output,"forecast-plot.png"))
 
 
 # save an rds serialized object
-saveRDS(myobject, file = "./outputs/myobject.rds")
+saveRDS(myobject, file = file.path(args$output,"myobject.rds"))
 
 ```
 

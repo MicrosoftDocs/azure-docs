@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
-services: container-service
 ms.topic: tutorial
 ms.date: 12/20/2021
 

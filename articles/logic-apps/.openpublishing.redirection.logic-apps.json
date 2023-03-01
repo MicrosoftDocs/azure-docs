@@ -727,6 +727,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-outlook.md",
+            "redirect_url": "/connectors/outlook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-salesforce.md",
+            "redirect_url": "/connectors/salesforce",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-sharepoint.md",
+            "redirect_url": "/connectors/sharepoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-slack.md",
+            "redirect_url": "/connectors/slack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-onedrive.md",
+            "redirect_url": "/connectors/onedriveconnector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-onedriveforbusiness.md",
+            "redirect_url": "/connectors/onedriveforbusinessconnector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-sftp.md",
+            "redirect_url": "/azure/connectors/connectors-sftp-ssh",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/connectors/connectors-schema-migration.md",
             "redirect_url": "/azure/logic-apps/update-consumption-workflow-schema",
             "redirect_document_id": false

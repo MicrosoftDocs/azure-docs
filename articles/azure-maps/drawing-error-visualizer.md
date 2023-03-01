@@ -27,9 +27,9 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Download
 
-1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Upload your drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
-2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
+2. Now that the drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
     >[!NOTE]
     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
@@ -79,7 +79,7 @@ The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the 
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 
-Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. To view detailed information about an error or warning, click on the **Details** link. An intractable section will then appear below the list. You may now navigate to each error to learn more details on how to resolve the error.
+Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. To view detailed information about an error or warning, click on the **Details** link. An intractable section will then appear below the list. You may now navigate to each error to learn more details on how to resolve the error.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error Visualizer App - Errors and Warnings":::
 

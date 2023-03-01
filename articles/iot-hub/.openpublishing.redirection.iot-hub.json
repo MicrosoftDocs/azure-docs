@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messages-read-custom.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-d2c",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md",
       "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
@@ -232,7 +237,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-device-sdk-c-intro",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-intro.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-iothubclient.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
       "redirect_document_id": false
     },
     {
@@ -1112,6 +1127,46 @@
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-certificates.md",
       "redirect_url": "/azure/iot-hub/reference-x509-certificates",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-self-sign.md",
+      "redirect_url": "/azure/iot-hub/reference-x509-certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-scripts.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-openssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-reliability-features-in-sdks.md",
+      "redirect_url": "/azure/iot-develop/how-to-use-reliability-features-in-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-embedded-c-sdk.md",
+      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-develop-for-constrained-devices.md",
+      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-develop-for-mobile-devices.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-android-things.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-android.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
     }
   ]
 }
