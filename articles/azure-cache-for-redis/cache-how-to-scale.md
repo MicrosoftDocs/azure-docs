@@ -20,7 +20,7 @@ Azure Cache for Redis has different cache offerings that provide flexibility in 
 There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 - **Scaling up** increases the size of the VM running Redis, adding additional memory, vCPUs, and network bandwidth. This is also called _vertical scaling_. The opposite of scaling up is **Scaling down**. 
-- **Scaling out** divides the cache instance into additional nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. This is also referred to as _horizontal scaling_ or _sharding_, and in the Redis world is often called [_clustering_](https://redis.io/docs/management/scaling/). The opposite of scaling out is **Scaling in**.  
+- **Scaling out** divides the cache instance into additional nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. This is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis world, scaling out is frequently called [**clustering**](https://redis.io/docs/management/scaling/).
 
 
 ## Scope of availability
@@ -428,7 +428,8 @@ Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
 ...
 Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 ```
-For TLS, replace `1300N` with `1500N`. For Enterprise and Enterprise Flash caches using OSS clustering, replace `1300N` with `1000N`. 
+- For TLS, replace `1300N` with `1500N`. 
+- For Enterprise and Enterprise Flash caches using OSS clustering, the primary connection is through port 10000. Connecting to individual nodes can be done using ports in the 8500-8599 range. Use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used. 
 
 ### Can I configure clustering for a previously created cache?
 
