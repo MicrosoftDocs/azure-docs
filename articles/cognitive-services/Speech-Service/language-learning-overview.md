@@ -34,7 +34,6 @@ Azure [Speech-to-Text](speech-to-text.md) supports real-time language identifica
 
 [Text-to-Speech](text-to-speech.md) prebuilt neural voices can read out learning materials natively and empower self-served learning. A broad portfolio of [languages and voices](language-support.md?tabs=tts) are supported for AI teacher, content read aloud capabilities, and more. Microsoft is continuously working on bringing new languages to the world. 
 
-##  Custom Neural Voice
 
 [Custom Neural Voice](custom-neural-voice.md) is a feature offered by Azure AI that enables users to create a customized synthetic voice for their applications. Education companies are using this technology to personalize language learning, by creating unique characters with distinct voices that match the culture and background of their target audience. 
 
