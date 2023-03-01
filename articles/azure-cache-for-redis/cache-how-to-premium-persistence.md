@@ -9,38 +9,53 @@ ms.topic: conceptual
 ms.date: 01/23/2023
 
 ---
-# Configure data persistence for a Premium Azure Cache for Redis instance
+# Configure data persistence for an Azure Cache for Redis instance
 
-[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data. If there's a hardware failure, you load the data. The ability to persist data is a huge advantage over the Basic or Standard tiers where all the data is stored in memory. Data loss is possible if a failure occurs where Cache nodes are down.
+[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. If there's a hardware failure, the cache instance will be rehydrated with data from the persistence file when it comes back online. The ability to persist data is a hugely important way to boost the durability of a Redis instance, since all the data is stored in memory. Data loss is possible if a failure occurs where Cache nodes are down. Persistence can be a key part of your [high availability and disaster recovery](cache-high-availability.md) strategy in Redis.
 
-> [!IMPORTANT]
+> [!WARNING]
 >
-> Check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
+> If you are using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
 >
+
+## Scope of availability
+
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Available  | No         | Yes        |  Yes (preview)  |
+
+
+## Types of data persistence in Redis
 
 Azure Cache for Redis offers Redis persistence using the Redis database (RDB) and Append only File (AOF):
 
 - **RDB persistence** - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - **AOF persistence** - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss and the RDB/AOF persisted data files can't be imported to a new cache.
-
-To move data across caches, use the Import/Export feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache. To move data across caches, use the Import/Export feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
 To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI to export data periodically.
 
-> [!NOTE]
-> Persistence features are intended to be used to restore data to the same cache after data loss.
->
-> - RDB/AOF persisted data files cannot be imported to a new cache.
-> - Use the Import/Export feature to move data across caches.
-> - Write automated scripts using PowerShell or CLI to create a backup of data that can be added to a new cache.
+## Prerequisites and limitations
 
-Persistence writes Redis data into an Azure Storage account that you own and manage. You configure the **New Azure Cache for Redis** on the left during cache creation. For existing premium caches, use the **Resource menu**.
+Persistence features are intended to be used to restore data to the same cache after data loss.
 
-> [!NOTE]
+- RDB/AOF persisted data files cannot be imported to a new cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
+- Persistence is not supported with caches using [passive geo-replication](cache-how-to-geo-replication.md) or [active geo-replication](cache-how-to-active-geo-replication.md).
+- On the _Premium_ tier, AOF persistence is not supported with [multiple replicas](cache-how-to-multi-replicas.md). 
+- On the _Premium_ tier, data must be persisted to a storage account in the same region as the cache instance. 
+
+## Differences between persistence in the Premium and Enterprise tiers
+
+On the **Premium** tier, data is persisted directly to an [Azure Storage](../storage/common/storage-introduction.md) account that you own and manage. Azure Storage automatically encrypts data when it is persisted, but you can also use your own keys for the encryption. For more information, see [Customer-managed keys for Azure Storage encryption](../storage/common/customer-managed-keys-overview.md).
+
+> [!WARNING]
 >
-> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md).
+> If you are using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
+>
+
+On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a managed disk attached directly to the cache instance. The location is not configurable nor accessible to the user. Using a managed disk increases the performance of persistence. The disk is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. See [managing data encryption](#managing-data-encryption) for more information. 
 
 ## Set up data persistence
 
