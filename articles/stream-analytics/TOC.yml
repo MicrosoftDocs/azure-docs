@@ -37,7 +37,7 @@
     href: event-hubs-parquet-capture-tutorial.md
   - name: Write output data to delta table in ADLS Gen2
     href: write-to-delta-table-adls-gen2.md
-  - name: Build near-real time dashboards with no code editor
+  - name: Build real-time dashboards with no code editor
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
@@ -235,6 +235,8 @@
       href: move-cluster.md  
   - name: Build with no code editor
     items:
+    - name: Build real-time dashboard with Power BI dataset
+      href: no-code-build-power-bi-dashboard.md
     - name: Capture Event Hubs data in Delta Lake format
       href: capture-event-hub-data-delta-lake.md
     - name: Capture Event Hubs data in Parquet format

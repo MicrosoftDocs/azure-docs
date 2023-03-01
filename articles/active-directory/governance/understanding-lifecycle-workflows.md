@@ -3,7 +3,7 @@ title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfreyATL
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -33,10 +33,10 @@ For delegated scenarios, the admin needs one of the following [Azure AD roles](/
 - Global reader
 - Lifecycle workflows administrator
 
-## Restrictions
+## Limits
 
 
-|Column1  |Limit  |
+|Category  |Limit  |
 |---------|---------|
 |Number of Workflows     |   50 per tenant      |
 |Number of Tasks     |  25 per workflow       |

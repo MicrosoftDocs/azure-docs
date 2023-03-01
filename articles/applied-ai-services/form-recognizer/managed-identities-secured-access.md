@@ -113,7 +113,7 @@ To ensure that the Form Recognizer resource can access the training dataset, you
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assign-role.png" alt-text="Screenshot of add role assignment window.":::
 
-1. On the **Role** tab, search for and select the**Storage Blob Reader** permission and select **Next**.
+1. On the **Role** tab, search for and select the **Storage Blob Data Reader** permission and select **Next**.
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of choose a role tab.":::
 

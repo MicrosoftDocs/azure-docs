@@ -22,8 +22,6 @@
             href: migrate/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible server migration tool (Preview)- Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
-          - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
-            href: migrate/how-to-set-up-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -486,8 +484,6 @@
       href: flexible-server/concepts-security.md
     - name: Azure AD Authentication
       href: flexible-server/concepts-azure-ad-authentication.md
-    - name: Major Version Upgrade
-      href: flexible-server/concepts-major-version-upgrade.md
     - name: Compliance
       href: flexible-server/concepts-compliance.md
     - name: Limits
@@ -515,6 +511,8 @@
       - name: Monitor and tune overview
         href: flexible-server/concepts-monitoring.md
         displayName: monitor, metrics
+      - name: Workbooks
+        href: flexible-server/concepts-workbooks.md 
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
@@ -635,6 +633,12 @@
         href: flexible-server/how-to-restart-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-restart-server-cli.md
+    - name: Major Version Upgrade
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-perform-major-version-upgrade-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-perform-major-version-upgrade-cli.md
     - name: Restore a server
       items:
       - name: Azure portal
@@ -653,6 +657,10 @@
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Major version upgrade
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-perform-major-version-upgrade-portal.md
     - name: Replication
       items:
       - name: Azure portal
@@ -741,4 +749,4 @@
   - name: Partners
     href: partners-migration-postgresql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/
+    href: /data-migration/
