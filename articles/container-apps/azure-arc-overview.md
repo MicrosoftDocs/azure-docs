@@ -51,7 +51,7 @@ Optionally, you can choose to have the extension install [KEDA](https://keda.sh/
 The following table describes the role of each revision created for you:
 
 | Pod | Description | Number of Instances | CPU | Memory |
-|---|---|---|---|---|
+|----|----|----|----|----|
 | `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB |
 | `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB |
 | `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 500 MB |

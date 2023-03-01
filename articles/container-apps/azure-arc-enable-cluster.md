@@ -330,7 +330,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     The following table describes the various `--configuration-settings` parameters when running the command:
 
     | Parameter | Description |
-    | - | - |
+    | --- | --- |
     | `Microsoft.CustomLocation.ServiceAccount` | The service account created for the custom location. It's recommended that it 's set to the value `default`. |
     | `appsNamespace` | The namespace used to create the app definitions and revisions. It **must** match that of the extension release namespace. |
     | `clusterName` | The name of the Container Apps extension Kubernetes environment that will be created against this extension. |
