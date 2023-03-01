@@ -374,6 +374,9 @@ You can configure a Conditional Access policy for the Microsoft Intune Enrollmen
 > [!NOTE]
 > The Intune Enrollment app is not supported for [Per-device terms of use](#per-device-terms-of-use).
 
+> [!NOTE]
+> For iOS/iPadOS Automated device enrollment, adding a custom URL to the Azure AD Terms of Use policy doesn't allow for users to open the policy from the URL in Setup Assistant to read it. The policy can be read by the user after Setup Assistant is completed from the Company Portal website, or in the Company Portal app. 
+
 ## Frequently asked questions
 
 **Q: I cannot sign in using PowerShell when terms of use is enabled.**<br />
