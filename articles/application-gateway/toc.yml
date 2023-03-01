@@ -107,6 +107,8 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
+    - name: SSL certificate management (preview)
+      href: ssl-certificate-management.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring
