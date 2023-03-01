@@ -120,14 +120,14 @@ It's also recommended to check that you enabled the ICF ports.
     2.	Open DEFAULT profile, select Extended Maintenance and click change.
     3.	Below configuration is for TLS1.2 the bit mask will be 544: PFS. If TLS version is higher, then bit mask will be greater than 544.
     
-    ![image](https://user-images.githubusercontent.com/74435183/219510020-0b26dacd-be34-4441-bf44-f3198338d416.png)
+    ![tlsimage1](https://user-images.githubusercontent.com/74435183/219510020-0b26dacd-be34-4441-bf44-f3198338d416.png)
 
     **Check HTTPS port to be provided during the create provide process**  
     1.	Go to transaction SMICM.
     2.	Choose from the menu GOTO -> Services.
     3.	Verify if HTTPS protocol is in Active status.
     
-    ![image](https://user-images.githubusercontent.com/74435183/219510068-45f9e083-209c-4f33-86fc-488eb1e73a32.png)
+    ![tlsimage2](https://user-images.githubusercontent.com/74435183/219510068-45f9e083-209c-4f33-86fc-488eb1e73a32.png)
     
 ### Adding NetWeaver provider
 
