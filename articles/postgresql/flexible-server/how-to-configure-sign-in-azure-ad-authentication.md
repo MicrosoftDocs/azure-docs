@@ -22,59 +22,8 @@ You can have multiple Azure AD admin users with Azure Database for PostgreSQL - 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: **Global Administrator**, **Privileged Role Administrator**, **Tenant Creator**,**Application Owner**.
-- Installation of the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Install the Azure AD PowerShell module
-
-The following steps are mandatory to use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server.
-
-### Connect to the user's tenant
-
-```powershell
-Connect-AzureAD -TenantId <customer tenant id>
-```
-
-A successful output looks similar to the following.
-
-```output
-Account          Environment TenantId          TenantDomain                       AccountType
--------          ----------- --------          ------------                       -----------
-<your account>   AzureCloud  <your tenant Id>  <your tenant name>.onmicrosoft.com    User
-```
-
-Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. **The ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.**
-
-> [!NOTE]  
-> The following script is an example of a created Azure App Registration you can use for testing. If you want to apply your ids, you need to use your own App Registration object and application id.
-
-```powershell
-Get-AzureADServicePrincipal -ObjectId 97deb67a-332c-456a-9ef4-3a95eb59c74b
-```
-
-If the service principal exists, you'll see the following output.
-
-```output
-ObjectId                             AppId                                DisplayName
---------                             -----                                -----------
-0049e2e2-fcea-4bc4-af90-bdb29a9bbe98 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9 FSPG MS Graph App
-```
-
-> [!IMPORTANT]  
-> If you are not a **Global Administrator**, **Tenant Creator**, or **Application Owner**, you can't proceed past this step.
-
-### Create Azure Database for PostgreSQL Flexible Server service principal and grant read access
-
-If the Azure Database for PostgreSQL Flexible Server service principal doesn't exist, the following command creates it and grants it read access to your customer tenant to request Graph API tokens for Azure AD validation tasks:
-
-```powershell
-New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
-```
-
-In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
-
-### Configure network requirements
+**Configure network requirements**
 
 Azure AD is a multitenant application. It requires outbound connectivity to perform certain operations, like adding Azure AD admin groups. Additionally, you need network rules for Azure AD connectivity to work, depending on your network topology:
 

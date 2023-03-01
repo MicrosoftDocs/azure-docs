@@ -6,6 +6,7 @@ manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/07/2022

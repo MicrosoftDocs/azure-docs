@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 02/16/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
@@ -189,7 +189,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277c53620db299f57e3ac5a65569e9720f06190a245476810b36bf651c8b795b
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 1E48D6ACDD8BCD3290F6E1E33705C7AFAAC0745E3295ED56BEF5AC019C0FD760
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.

@@ -348,7 +348,7 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 ## Additional resources
 
-For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](/data-migration/).
 
 ## Next steps
 

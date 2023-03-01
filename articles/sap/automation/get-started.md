@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 1/2/2023
 ms.topic: how-to
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ---
 
 # Get started with SAP automation framework on Azure

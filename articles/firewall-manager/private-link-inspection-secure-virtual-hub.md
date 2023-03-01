@@ -32,7 +32,7 @@ A secured virtual hub is managed by Microsoft and it cannot be linked to a [Priv
 
 SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). *Proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
 
-## Filter traffic network or application rules in Azure Firewall
+## Filter traffic using network or application rules in Azure Firewall
 
 The following steps enable Azure Firewall to filter traffic using either network rules (FQDN or IP address-based) or application rules:
 
@@ -164,6 +164,6 @@ In most cases, these problems are caused by one of the following issues:
 
 - [Use Azure Firewall to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md)
 
-[private-endpoint-overview]: ../private-link/private-endpoint-overview.md
+[private-endpoint-overview]: ../private-link/private-endpoint-overview.md#limitations
 [firewall-snat-private-ranges]: ../firewall/snat-private-range.md
 [network-policies-overview]: ../private-link/disable-private-endpoint-network-policy.md

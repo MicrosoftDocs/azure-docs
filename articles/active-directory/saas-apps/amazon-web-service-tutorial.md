@@ -400,7 +400,7 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Known issues
 
-* AWS Single-Account Access provisioning integration can be used only to connect to AWS public cloud endpoints. AWS Single-Account Access provisioning integration can't be used to access AWS Government environments, or the AWS China regions.
+* AWS Single-Account Access provisioning integration cannot be used in the the AWS China regions.
  
 * In the **Provisioning** section, the **Mappings** subsection shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
 

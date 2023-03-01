@@ -1,7 +1,6 @@
 ---
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
-services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 

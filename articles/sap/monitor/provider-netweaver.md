@@ -3,6 +3,7 @@ title: Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
 description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
+ms.subservice: sap-monitor
 ms.topic: article
 ms.date: 11/02/2022
 ms.author: sujaj

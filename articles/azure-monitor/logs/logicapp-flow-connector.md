@@ -13,7 +13,7 @@ ms.date: 03/22/2022
 # Azure Monitor Logs connector for Logic Apps and Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) and [Power Automate](https://make.powerautomate.com) allow you to create automated workflows using hundreds of actions for various services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
-For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
+For example, you can create a logic app workflow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
 ## Connector limits
 The Azure Monitor Logs connector has these limits:
@@ -44,25 +44,24 @@ The following tutorial illustrates the use of the Azure Monitor Logs connector i
 ### Create a Logic App
 
 1. Go to **Logic Apps** in the Azure portal and select **Add**. 
-1. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
+1. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-workflows-collect-diagnostic-data.md). This setting isn't required for using the Azure Monitor Logs connector.
 
-    ![Screenshot that shows the Basics tab on the Logic App creation screen.](media/logicapp-flow-connector/create-logic-app.png)
-
+   ![Screenshot that shows the Basics tab on the logic app creation screen.](media/logicapp-flow-connector/create-logic-app.png)
 
 1. Select **Review + create** > **Create**. 
 1. When the deployment is complete, select **Go to resource** to open the **Logic Apps Designer**.
 
-### Create a trigger for the logic app
+### Create a trigger for the logic app workflow
 1. Under **Start with a common trigger**, select **Recurrence**. 
 
-    This creates a logic app that automatically runs at a regular interval. 
+    This creates a logic app workflow that automatically runs at a regular interval. 
 
 1. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.
 
     ![Screenshot that shows the Logic Apps Designer "Recurrence" window on which you can set the interval and frequency at which the logic app runs.](media/logicapp-flow-connector/recurrence-action.png)
 
 ## Walkthrough: Mail visualized results
-This tutorial shows how to create a logic app that sends the results of an Azure Monitor log query by email. 
+This tutorial shows how to create a logic app workflow that sends the results of an Azure Monitor log query by email. 
 
 ### Add Azure Monitor Logs action
 1. Select **+ New step** to add an action that runs after the recurrence action. 
@@ -112,23 +111,23 @@ This tutorial shows how to create a logic app that sends the results of an Azure
 
 1. Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. 
 
-    ![Screenshot of the settings for the new Send an email (V2) action, showing the subject line and email recepients being defined.](media/logicapp-flow-connector/mail-action.png)
+    ![Screenshot of the settings for the new Send an email (V2) action, showing the subject line and email recipients being defined.](media/logicapp-flow-connector/mail-action.png)
 
-### Save and test your logic app
-1. Select **Save** and then **Run** to perform a test run of the logic app.
+### Save and test your workflow
+1. Select **Save** and then **Run** to perform a test run of the workflow.
 
     ![Save and run](media/logicapp-flow-connector/save-run.png)
 
 
-    When the logic app completes, check the mail of the recipient that you specified.  You should receive a mail with a body similar to the following:
+    When the workflow completes, check the mail of the recipient that you specified.  You should receive a mail with a body similar to the following:
 
     ![An image of a sample email.](media/logicapp-flow-connector/sample-mail.png)
 
     > [!NOTE]
-    > The log app generates an email with a JPG file that depicts the query result set. If your query doesn't return results, the logic app won't create a JPG file.  
+    > The workflow generates an email with a JPG file that depicts the query result set. If your query doesn't return results, the workflow won't create a JPG file.  
 
 ## Next steps
 
 - Learn more about [log queries in Azure Monitor](./log-query-overview.md).
-- Learn more about [Logic Apps](../../logic-apps/index.yml)
+- Learn more about [Azure Logic Apps](../../logic-apps/index.yml)
 - Learn more about [Power Automate](https://make.powerautomate.com).

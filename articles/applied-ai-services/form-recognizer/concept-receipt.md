@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/22/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,7 +27,7 @@ The Form Recognizer receipt model combines powerful Optical Character Recognitio
 
 ## Receipt data extraction
 
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR-powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR-powered receipt data extraction helps to automate the conversion and save time and effort.
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -48,7 +48,7 @@ Receipt digitization is the process of converting scanned receipts into digital 
 ## Development options
 
 ::: moniker range="form-recog-3.0.0"
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 Supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -58,7 +58,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -77,14 +77,14 @@ The following tools are supported by Form Recognizer v2.1:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* For PDF and TIFF, Form Recognizer can process up to 2000 pages for standard tier subscribers or only the first two pages for free-tier subscribers.
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
 ### Try receipt data extraction
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts. You'll need the following resources:
+See how Form Recognizer extracts data, including time and date of transactions, merchant information, and amount totals from receipts. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -141,7 +141,7 @@ See how data, including time and date of transactions, merchant information, and
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of the select-form-type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -163,12 +163,14 @@ The receipt model supports all English receipts and the following locales:
 
 |Supported Languages| Details |
 |:-----|:----:|
-|&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
-|&bullet; Dutch| Netherlands (nl)|
-|&bullet; French | France (fr) |
-|&bullet; Japanese | Japan (ja)|
-|&bullet; Portuguese| Portugal (-pt), Brazil (-br)|
-|&bullet; Spanish | Spain (es) |
+|&bullet; English| United States (-US), Australia (-AU), Great Britain (-GB), India (-IN), United Arab Emirates (-AE)|
+|&bullet; Dutch| Netherlands (nl-NL)|
+|&bullet; French | France (fr-FR), Canada (fr-CA) |
+|&bullet; German | Germany (de-DE) |
+|&bullet; Italian | Italy (it-IT) |
+|&bullet; Japanese | Japan (ja-JP)|
+|&bullet; Portuguese| Portugal (pt-PT), Brazil (pt-BR)|
+|&bullet; Spanish | Spain (es-ES) |
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"

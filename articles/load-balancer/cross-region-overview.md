@@ -3,17 +3,15 @@ title: Cross-region load balancer (preview)
 titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2022
 ms.author: mbender
-ms.custom: references_regions
-
+ms.custom: template-concept, references_regions
 ---
+
 # Cross-region load balancer (Preview)
 
 Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
@@ -85,6 +83,9 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 ### Floating IP
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
 
+### Health Probes
+Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. These health checks by the cross-region load balancer are done automatically every 20 seconds, given that a user has set up health probes on their regional load balancer.  
+
 ## Build cross region solution on existing Azure Load Balancer
 The backend pool of cross-region load balancer contains one or more regional load balancers. 
 
@@ -112,6 +113,8 @@ A **participating region** is where the Global public IP of the load balancer is
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 
 Cross-region load balancer routes the traffic to the appropriate regional load balancer.
+
+:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
 
 ### Participating regions
 * East US 
@@ -146,8 +149,6 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
 * UDP traffic isn't supported on Cross-region Load Balancer. 
-
-* A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
 
 

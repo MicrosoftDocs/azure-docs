@@ -1027,7 +1027,7 @@ In the rest of this section, you'll use your Windows command prompt.
 4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
     ```
 
    The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
@@ -1057,7 +1057,7 @@ In the rest of this section, you'll use your Windows command prompt.
 5. To register your second device, rerun the sample using its full chain certificate.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end

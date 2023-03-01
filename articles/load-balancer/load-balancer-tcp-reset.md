@@ -3,15 +3,13 @@ title: Load Balancer TCP Reset and idle timeout in Azure
 titleSuffix: Azure Load Balancer
 description: With this article, learn about Azure Load Balancer with bidirectional TCP RST packets on idle timeout.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
-ms.custom: FY23 content-maintenance
 ms.service: load-balancer
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/19/2022
 ms.author: mbender
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
