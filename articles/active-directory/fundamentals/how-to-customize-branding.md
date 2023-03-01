@@ -59,7 +59,7 @@ The **Global Administrator** role is required to customize company branding.
 
 **Images have different image and file size requirements.** Take note of the image requirements for each option. You may need to use a photo editor to create the right size images. The preferred image type for all images is PNG, but JPG is accepted. 
 
-**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](graph/api/resources/organizationalbranding.md).
+**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
 
 ## How to navigate the company branding process
 

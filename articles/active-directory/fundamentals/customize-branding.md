@@ -46,9 +46,9 @@ Custom branding appears after users sign in. Users that start the sign-in proces
 
 **Images have different image and file size requirements.** Take note of the requirements for each option. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted. 
 
-**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](graph/api/resources/organizationalbranding.md).
+**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
 
-## How to navigate the company branding process
+## How to configure company branding
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
@@ -117,13 +117,13 @@ To create an inclusive experience for all of your users, you can customize the s
 
 2. Select **Azure Active Directory** > **Company branding** > **+ New language**.
 
-The process for customizing the experience is the same as the [Default sign-in experience](#customize-the-default-sign-in-experience), except you select a **Language** from the dropdown list.
+The process for customizing the experience is the same as the main [configure company branding](#configure-your-company-branding) process, except you select a **Language** from the dropdown list.
 
 We recommend adding **Sign-in page text** in the selected language.
 
 ## Edit custom branding
 
-If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [Add custom branding](#customize-the-default-sign-in-experience) section of this article.
+If custom branding has been added to your tenant, you can edit the details already provided. Refer to the details and descriptions of each setting in the [configure your company branding](#configure-your-company-branding) section of this article.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
 
