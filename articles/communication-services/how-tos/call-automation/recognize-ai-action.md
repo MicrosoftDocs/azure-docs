@@ -38,6 +38,7 @@ This guide helps you get started recognizing user input in the forms of DTMF or 
 |RecognizeFailed|400|8547|Action failed, speech option not matched.|
 |RecognizeFailed|500|8534|Action failed, incorrect tone entered.|
 |RecognizeFailed|500|9999|Unspecified error.|
+|RecognizeCanceled|400|8508|Action failed, the operation was cancelled. |
 
 ## Clean up resources
 
