@@ -97,9 +97,9 @@ public static float GetCosineSimilarity(float[] vector1, float[] vector2)
         dotProduct += vector1[i] * vector2[i]; 
     } 
     float magnitude1 = Math.Sqrt(vector1.Select(x => x * x).Sum());
-    float magnitude1 = Math.Sqrt(vector2.Select(x => x * x).Sum());
+    float magnitude2 = Math.Sqrt(vector2.Select(x => x * x).Sum());
     
-    return dotProduct / (magnitudeA * magnitudeB);
+    return dotProduct / (magnitude1 * magnitude2);
 }
 ```
 
