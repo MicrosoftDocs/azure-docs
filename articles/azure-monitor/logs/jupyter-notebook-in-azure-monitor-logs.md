@@ -15,7 +15,7 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
-In this tutorial, we'll demonstrate how you can create a machine learning model that detects anomalies, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). Instead of using the native machine learning capabilities of KQL, you'll train and evaluate a regression model for detecting anomalies in Azure Monitor Logs on your own. 
+In this tutorial, we'll demonstrate how you can create a machine learning model that detects anomalies, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, in this tutorial, you'll train and evaluate a custom regression model for detecting anomalies in Azure Monitor Logs on your own. 
 
 This provides you with a number of advantages:
 
@@ -33,8 +33,6 @@ In this tutorial, you'll:
 1. [Pandas library](https://pandas.pydata.org/)  
 
     - Create a custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
-
-
 1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
 ## Tools you'll use
