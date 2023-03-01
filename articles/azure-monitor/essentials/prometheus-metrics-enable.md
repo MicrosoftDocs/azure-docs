@@ -330,7 +330,7 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Verify Deployment
 
-Run the following command to verify that the daemon set was deployed properly:
+Run the following command to verify that the daemon set was deployed properly on the linux nodepools:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
@@ -342,6 +342,20 @@ The output should resemble the following:
 User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
 NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 ama-metrics-node   1         1         1       1            1           <none>          10h
+```
+
+Run the following command to verify that the daemon set was deployed properly on the windows nodepools:
+
+```
+kubectl get ds ama-metrics-win-node --namespace=kube-system
+```
+
+The output should resemble the following:
+
+```
+User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-metrics-win-node   3         3         3       3            3           <none>          10h
 ```
 
 Run the following command to which verify that the replica set was deployed properly:
@@ -372,6 +386,9 @@ Currently, Azure CLI is the only option to remove the metrics addon and stop sen
 If you don't already have it, install the aks-preview extension with the following command.
 
 The `aks-preview` extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+> [!NOTE]
+> Please upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is greater than '0.5.106'. You can find out the version using the `az version` command.
 
 ```azurecli
 az extension add --name aks-preview
