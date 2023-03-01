@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 03/01/2023
 ms.author: jfields
 ---
 
@@ -20,8 +20,10 @@ The **Analytics** dashboard in Permissions Management provides details about ide
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
 - **Active Resources**: Tracks active resources (used in the last 90 days).
 - **Active Tasks**: Tracks active tasks (performed in the last 90 days).
-- **Access Keys**: Tracks the permission usage of access keys for a given user.
+- **Access Keys**: Tracks the permission usage of access keys for a given user.*
 - **Serverless Functions**: Tracks assigned permissions and usage of the serverless functions.
+
+> *[!NOTE] Currently, Microsoft Azure and Google Cloud Platform (GCP) do not provide significant information about access keys to return access keys data. Access Keys analytics are currently only available for Amazon Web Services (AWS) accounts. 
 
 This article describes how to view usage analytics about access keys.
 
@@ -33,8 +35,8 @@ When you select **Access keys**, the **Analytics** dashboard provides a high-lev
 
     The following components make up the **Access Keys** dashboard:
 
-    - **Authorization System Type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization System**: Select from a **List** of accounts and **Folders***.
+    - **Authorization System Type**: Select **AWS**.
+    - **Authorization System**: Select from a **List** of accounts and **Folders**.
     - **Key Status**: Select **All**, **Active**, or **Inactive**.
     - **Key Activity State**: Select **All**, how long the access key has been used, or **Not Used**.
     - **Key Age**: Select **All** or how long ago the access key was created.
@@ -68,7 +70,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by authorization system type
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset Filter** to discard your changes.
@@ -76,7 +78,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by authorization system
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
@@ -84,7 +86,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by key status
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
 1. From the **Key Status** dropdown, select the type of key: **All**, **Active**, or **Inactive**.
 1. Select **Apply** to run your query and display the information you selected.
@@ -93,7 +95,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by key activity status
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
 1. From the **Key Activity State** dropdown, select **All**, the duration for how long the access key has been used, or **Not Used**.
 
@@ -103,7 +105,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by key age
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
 1. From the **Key Age** dropdown, select  **All** or how long ago the access key was created.
 
@@ -113,7 +115,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ### Apply filters by task type
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
 1. From the **Task Type** dropdown, select  **All** tasks, **High Risk Tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
 1. Select **Apply** to run your query and display the information you selected.
