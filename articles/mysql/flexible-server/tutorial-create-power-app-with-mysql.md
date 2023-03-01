@@ -13,7 +13,7 @@ ms.date: 03/01/2023
 
 [Power Apps](/power-apps/) is a low-code platform that enables you to build custom applications quickly and easily. You can create a Power App with MySQL database on Azure database for MySQL Flexible Server(overview.md), to meet your business needs. You can establish a connection to your MySQL database, add data to your app, and customize it to meet your specific needs. With the Azure database for MySQL Connector, you'll have a fully functional app with your data that you can customize and share on any device.
 
-# Run CRUD operations
+## Run CRUD operations
 
 The connector allows you to perform read, write, and delete operations with data stored in Azure Database for MySQL in addition to connecting to the database.
 
@@ -28,9 +28,9 @@ The connector allows you to perform read, write, and delete operations with data
 
 You may experience throttling limits if you hit the threshold of running 200 API calls per connection within 60 seconds.
 
-# Create a connection to your MySQL database
+## Create a connection to your MySQL database
 
-1. Sign in to [Power Apps](https://make.powerapps.com/) and, if necessary, [switch environments](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/intro-maker-portal#choose-an-environment).
+1. Sign in to [Power Apps](https://make.powerapps.com/) and, if necessary, [switch environments](/power-apps/maker/canvas-apps/intro-maker-portal.md#choose-an-environment).
 2. In left-hand navigation menu go to **Connections** and select **New connection.**
 3. Select **Azure database for MySQL (preview)** to add a new connection.
    :::image type="content" source="./media/tutorial-create-power-app-with-mysql/powerapp-select-azure-db-for-mysql-connector.png" alt-text="Screenshot of selecting Azure database for MySQL connector to add a connection":::
@@ -40,7 +40,7 @@ You may experience throttling limits if you hit the threshold of running 200 API
    
 Note that newly created connections are shareable, so that if a Power App is shared with another user, the connection is also shared. In addition, you don't need to set up a data gateway to connect to the server, as it is required to connect to an on-premises MySQL server.
 
-# Create a new Power App
+## Create a new Power App
 
 You can create a new Power App from scratch or use Dataverse to get started quickly.
 
@@ -58,6 +58,6 @@ With your data added to your app, you can now customize it to meet your specific
 ## Next Steps
 
 Learn more about Power apps and Azure database for MySQL connector. 
-- [Azure Database for MySQL - Connectors documentation](https://learn.microsoft.com/connectors/azuremysql/)
-- [Power Apps documentation](https://learn.microsoft.com/en-us/power-apps/)
+- [Azure Database for MySQL - Connectors documentation](/connectors/azuremysql/)
+- [Power Apps documentation](/power-apps/)
 
