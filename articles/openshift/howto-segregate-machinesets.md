@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, machine set, openshift, red hat
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/01/2023
 ms.custom: template-how-to
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 This article shows you how to segregate worker nodes into different private subnets as part of an ARO deployment. Separating worker nodes into different private subnets allows you to meet specific access control requirements for various services and applications deployed on ARO.
 
-For example, you might want to run specific ingress controllers on dedicated worker nodes within a specific subnet, while the rest of the Kubernetes nodes for workloads (infra and other workers) sit within a completely different subnet, as shown below:
+For example, you might want to run specific ingress controllers on dedicated worker nodes within a specific subnet, while the rest of the Kubernetes nodes for workloads (infra and other workers) are within a different subnet, as shown below:
 
 :::image type="content" source="media/howto-segregate-machinesets/subnet-configuration.png" alt-text="Screen shot of an example subnet configuration.":::
 
@@ -43,7 +43,7 @@ Create the subnets as part of the current virtual network in which ARO is deploy
 
 :::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted." lightbox="media/howto-segregate-machinesets/subnets-window.png":::
 
-### Step 2: Log into the jumphost
+### Step 2: Sign-in to the jumphost
 
 > [!NOTE]
 > This step is optional if you have an alternate method for logging into the ARO cluster.
