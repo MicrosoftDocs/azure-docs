@@ -100,10 +100,10 @@ The following table lists common and recommended alert rules for Functions.
 | Metric | Average connections| When number of connections exceed a set value|
 | Metric | HTTP 404| When HTTP 404 responses exceed a set value|
 | Metric | HTTP Server Errors| When HTTP 5xx errors exceed a set value|
-| Activity Log | Create or Update Web App | When app is created or updated|
-| Activity Log | Delete Web App | When app is deleted|
-| Activity Log | Restart Web App| When app is restarted|
-| Activity Log | Stop Web App| When app is stopped|
+| Activity Log | Create or Update Function App | When app is created or updated|
+| Activity Log | Delete Function App | When app is deleted|
+| Activity Log | Restart Function App| When app is restarted|
+| Activity Log | Stop Function App| When app is stopped|
 
 ## Next steps
 
