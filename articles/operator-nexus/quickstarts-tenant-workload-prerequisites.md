@@ -74,7 +74,7 @@ This is a paper-exercise example of an anonymous pull of an image from Azure Con
 It assumes that you already have an existing VM instance image in `qcow2` format and that the image is set up to boot with cloud-init. A working docker build and runtime environment  is required.
 
 Create a dockerfile that copies the `qcow2` image file into the container's /disk directory. Place in an expected directory with correct permissions.
-For example, a Dockerfile named `aods-vm-img-dockerfile`:
+For example, a Dockerfile named `workload-vm-img-dockerfile`:
 
 ```bash
 FROM scratch
@@ -85,7 +85,7 @@ Using the docker command, build the image and tag to a Docker registry (such as 
 The docker command assumes the `qcow2` file is in the same directory as your Dockerfile.
 
 ```bash
-  docker build -f aods-vm-img-dockerfile -t devtestacr.azurecr.io/your-favorite-image:v1 .
+  docker build -f workload-vm-img-dockerfile -t devtestacr.azurecr.io/your-favorite-image:v1 .
   FROM scratch
   ADD --chown=107:107 your-favorite-image.qcow2 /disk/
 ```

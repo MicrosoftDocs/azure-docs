@@ -37,6 +37,21 @@ For a detailed list of differences, see [PowerShell differences on non-Windows p
 
    ![Screenshot showing how to select the PowerShell environment for the Azure Cloud Shell.][08]
 
+## Registering your subscription with Azure Cloud Shell
+
+Azure Cloud Shell needs access to manage resources. Access is provided through namespaces that must
+be registered to your subscription. Use the following commands to register the Microsoft.CloudShell
+RP namespace in your subscription:
+
+```azurepowershell-interactive
+Select-AzSubscription -SubscriptionId <SubscriptionId>
+Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
+```
+
+> [!NOTE]
+> You only need to register the namespace once per subscription. You will not be able to manage
+> resources using Azure Cloud Shell without registering the namespace.
+
 ## Run PowerShell commands
 
 Run regular PowerShell commands in the Cloud Shell, such as:
