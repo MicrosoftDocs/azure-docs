@@ -91,7 +91,7 @@ To make the connection, take the following steps:
 
     :::image type="content" source="./media/connect-with-powerbi-desktop/power-query-service-signin.png" alt-text="Screenshot of MySQL connection with power query online."::: 
 
-**Note that data gateway is not needed for Azure database for MySQL Flexible Server.**
+   **Note that data gateway is not needed for Azure database for MySQL Flexible Server.**
 
 3. Select the **Basic** authentication kind and input your MySQL credentials in the **Username** and **Password** boxes.
 
