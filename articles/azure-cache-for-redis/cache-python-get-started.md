@@ -24,7 +24,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3
-   - For MacOS or Linux, download from [python.org](https://www.python.org/downloads/).
+   - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
    - For Windows 11, use the [Windows Store](https://www.microsoft.com/en-us/p/python-3/9nblggh083nz?activetab=pivot:overviewtab).
 
 ## Create an Azure Cache for Redis instance
@@ -38,7 +38,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 
 The following example used `pip3` for Python 3 to install `redis-py` on Windows 11 from an Administrator command prompt.
 
-:::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Install the redis-py Python interface to Azure Cache for Redis.":::
+:::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
 ## Read and write to the cache
 
@@ -87,7 +87,7 @@ for c in result:
 
 Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Run Python script to test cache access.":::
+:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ## Clean up resources
 
@@ -106,7 +106,7 @@ To delete the resource group and its Redis Cache for Azure instance:
 
 1. Type the resource group name, and then select **Delete**.
    
-   :::image type="content" source="./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png" alt-text="Delete your resource group for Azure Cache for Redis":::
+   :::image type="content" source="./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png" alt-text="Screenshot of the Azure portal showing how to delete the resource group for Azure Cache for Redis.":::
 
 ## Next steps
 
