@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/06/2023
-ms.author: ryanwi
+ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
 #Customer intent: As an application developer, I want to find errors and issues in my custom claims provider API.
@@ -79,12 +79,12 @@ Use the following table to diagnose an error code.
 
 ## Call your REST API directly
 
-Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent-and-copy-the-ids) associated with the custom extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
+Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure administrator account.
 1. Select **Azure Active Directory** > **App registrations**.
 1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-extension). 
-1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent-and-copy-the-ids).
+1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent).
 1. If you haven't created an app secret, follow these steps:
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
     1. Add a description for your client secret.
@@ -172,10 +172,10 @@ To test your API directly from the Postman, follow these steps:
 
 ## Common performance improvements
 
-One of the most common issues is that your custom claims provider API doesn't respond within the two-seconds timeout. If your REST API doesn't respond in subsequent retries, then the authentication fails and the token won't be issued. To improve the performance of your REST  API, follow the below suggestions:
+One of the most common issues is that your custom claims provider API doesn't respond within the two-seconds timeout. If your REST API doesn't respond in subsequent retries, then the authentication fails. To improve the performance of your REST API, follow the below suggestions:
 
 1. If your API accesses any downstream APIs, cache the access token used to call these APIs, so a new token doesn't have to be acquired on every execution.
-1. Performance issues will often be in a downstream service. Add logging, which records the process time to call to any downstream services. 
+1. Performance issues are often been in a downstream service. Add logging, which records the process time to call to any downstream services. 
 1. If you use a cloud provider to host your API, use a hosting plan that keeps the API always "warm". For Azure Functions, it can be either [the Premium plan or Dedicated plan](../../azure-functions/functions-scale.md).
 1. [Run automated integration tests](test-automate-integration-testing.md) for your authentications. You can also use Postman or other tools to test just your API performance.
 
