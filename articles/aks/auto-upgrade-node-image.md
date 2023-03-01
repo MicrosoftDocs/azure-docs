@@ -1,18 +1,19 @@
 ---
 title: Automatically upgrade Azure Kubernetes Service (AKS) cluster node operating system images
 description: Learn how to automatically upgrade Azure Kubernetes Service (AKS) cluster node operating system images.
-services: container-service
 ms.topic: article
 ms.author: nickoman
 author: nickomang
 ms.date: 02/03/2023
 ---
 
-# Automatically upgrade Azure Kubernetes Service cluster node operating system images
+# Automatically upgrade Azure Kubernetes Service cluster node operating system images (preview)
 
 AKS supports upgrading the images on a node so your cluster is up to date with the newest operating system (OS) and runtime updates. AKS regularly provides new node OS images with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest AKS features and to maintain security. Before learning about auto-upgrade, make sure you understand upgrade fundamentals by reading [Upgrade an AKS cluster][upgrade-aks-cluster].
 
 The latest AKS node image information can be found by visiting the [AKS release tracker][release-tracker].
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Why use node OS auto-upgrade
 
@@ -64,7 +65,7 @@ The following upgrade channels are available:
 | `None`| Your nodes won't have security updates applied automatically. This means you're solely responsible for your security updates|N/A|
 | `Unmanaged`|OS updates will be applied automatically through the OS built-in patching infrastructure. Newly allocated machines will be unpatched initially and will be patched at some point by the OS's infrastructure|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows and Mariner don't apply security patches automatically, so this option behaves equivalently to `None`|
 | `SecurityPatch`|AKS will update the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only" on a regular basis. Where possible, patches will also be applied without disruption to existing nodes. Some patches, such as kernel patches, can't be applied to existing nodes without disruption. For such patches, the VHD will be updated and existing machines will be upgraded to that VHD following maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group.|N/A|
-| `NodeImage`|AKS will update the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades] will be disabled by default.|
+| `NodeImage`|AKS will update the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default.|
 
 To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
 

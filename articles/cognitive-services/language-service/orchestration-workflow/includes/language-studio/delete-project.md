@@ -10,5 +10,5 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
- When you don't need your project anymore, you can delete your project using Language Studio. Select projects from the left navigation menu, select project you want to delete and click on **Delete** from the top menu.
+ When you don't need your project anymore, you can delete your project using Language Studio. Select **Projects** from the left navigation menu, select the project you want to delete, and then select **Delete** from the top menu.
  

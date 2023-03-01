@@ -77,7 +77,7 @@ Cost by resource | Which resources cost the most so far this month?
 Invoice details | What charges did I have on my last invoice?
 Resources (preview)	| Which resources cost the most so far this month? Are there any subscription cost anomalies?
 Resource groups (preview) | Which resource groups cost the most so far this month?
-Subscriptions (preview)	| Which subscriptions the most so far this month?
+Subscriptions (preview)	| Which subscriptions cost the most so far this month?
 Services (preview)	| Which services cost the most so far this month?
 Reservations (preview)	| How much are reservations being used? Which resources are utilizing reservations?
 

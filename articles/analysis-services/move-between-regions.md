@@ -2,7 +2,7 @@
 title: Move Azure Analysis Services to a different region | Microsoft Docs
 description: Describes how to move an Azure Analysis Services resource to a different region.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: owend

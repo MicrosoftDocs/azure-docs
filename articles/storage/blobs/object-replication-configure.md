@@ -225,6 +225,9 @@ If you don't have permissions to the source storage account or if you want to us
 > [!NOTE]
 > Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
 
+> [!NOTE]
+> When authoring the policy definition, make sure to omit the `ruleId` field from each rule definition in the JSON file. A Rule ID is automatically generated for each new rule on destination account.
+
 The examples in this section show how to configure the object replication policy on the destination account, and then get the JSON file for that policy that another user can use to configure the policy on the source account.
 
 # [Azure portal](#tab/portal)

@@ -498,7 +498,7 @@ items:
             href: logs/workspace-design.md
           - name: Dedicated clusters
             href: logs/logs-dedicated-clusters.md
-          - name: Availability zones
+          - name: Enhance data and service resiliency
             href: logs/availability-zones.md
         - name: Monitor
           items:
@@ -665,10 +665,8 @@ items:
           href: app/javascript-feature-extensions.md
         - name: Upgrade
           href: app/javascript-sdk-upgrade.md
-        - name: Troubleshoot
-          items:
-          - name: SDK load failure
-            href: app/javascript-sdk-load-failure.md
+        - name: Troubleshooting
+          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
       - name: Application Insights API summary
         displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
@@ -727,14 +725,8 @@ items:
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL ping tests
-        displayName: ping, ping tests, availability, GSM, up/down
-        href: app/monitor-web-app-availability.md
       - name: Standard tests
         href: app/availability-standard-tests.md
-      - name: Multi-step tests
-        displayName: availability, GSM, visual studio web test, web test
-        href: app/availability-multistep.md
       - name: Private testing
         href: app/availability-private-test.md
       - name: Availability + Azure Functions
@@ -864,7 +856,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: snapshot-debugger/snapshot-debugger-troubleshoot.md
+          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
     - name: Advanced configuration
       items:
       - name: Access control
@@ -918,20 +910,6 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-    - name: Export
-      items:
-      - name: Continuous export
-        href: app/export-telemetry.md
-    - name: Visual Studio
-      items:
-      - name: F5 insights
-        href: app/visual-studio.md
-      - name: CodeLens
-        href: app/visual-studio-codelens.md
-    - name: Other platforms
-      items:
-      - name: SharePoint sites
-        href: app/sharepoint.md
   - name: Container insights
     items:
     - name: Overview
@@ -968,6 +946,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Enable ContainerLogv2 (preview)
         href: containers/container-insights-logging-v2.md
+      - name: Enable cost optimization settings (preview)
+        href: containers/container-insights-cost-config.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -1638,8 +1618,16 @@ items:
             href: insights/azure-key-vault-deprecated.md
     - name: Application Insights Java 2.x
       href: ./app/deprecated-java-2x.md
+    - name: Continuous export
+      href: app/export-telemetry.md
+    - name: SharePoint sites
+      href: app/sharepoint.md
     - name: Create a new App Insights resource (classic)
       href: app/create-new-resource.md
+    - name: URL ping tests
+      href: app/monitor-web-app-availability.md
+    - name: Multi-step tests
+      href: app/availability-multistep.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics
@@ -1671,6 +1659,8 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
+    - name: Legacy Application Insights pricing
+      href: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/legacy-pricing
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

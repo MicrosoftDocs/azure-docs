@@ -39,6 +39,8 @@ landingContent:
             url: ./tutorial-discover-physical.md
           - text: Assess servers using imported data
             url: ./tutorial-discover-import.md
+          - text: Assess SQL instances for migration to Azure SQL
+            url: ./tutorial-assess-sql.md
           - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
           - text: Migrate Hyper-V VMs with Migration and modernization

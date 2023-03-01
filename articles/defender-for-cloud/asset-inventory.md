@@ -12,7 +12,7 @@ The asset inventory page of Microsoft Defender for Cloud shows the [security pos
 
 Use this view and its filters to address such questions as:
 
-- Which of my subscriptions with [Defender plans](defender-for-cloud-introduction.md#cwp---identify-unique-workload-security-requirements) enabled have outstanding recommendations?
+- Which of my subscriptions with [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines tagged with a specific tag have outstanding recommendations?
 - Which machines in a specific resource group have a known vulnerability (using a CVE number)?

@@ -525,5 +525,5 @@ def test_train_model():
 Now that you understand how to convert from an experiment to production code, see the following links for more information and next steps:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
-+ [Monitor Azure ML experiment jobs and metrics](how-to-log-view-metrics.md)
++ [Monitor Azure Machine Learning experiment jobs and metrics](how-to-log-view-metrics.md)
 + [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)
