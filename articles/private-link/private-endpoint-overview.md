@@ -99,7 +99,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | Microsoft Purview | Microsoft.Purview/accounts | account |
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
-| Azure Backup | Microsoft.RecoveryServices/vaults | vault |
+| Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
 | Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |

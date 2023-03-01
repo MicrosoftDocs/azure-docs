@@ -1,7 +1,6 @@
 ---
 title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 11/04/2022
 

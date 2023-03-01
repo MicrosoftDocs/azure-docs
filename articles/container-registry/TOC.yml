@@ -50,6 +50,16 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
+    - name: Caching for ACR (preview)
+      items:
+      - name: Caching for ACR - Overview
+        href: tutorial-registry-cache.md
+      - name: Enable Caching for ACR- Azure portal
+        href: tutorial-enable-registry-cache.md
+      - name: Enable Caching for ACR with authentication- Azure portal
+        href: tutorial-enable-registry-cache-auth.md
+      - name: Troubleshoot 
+        href: tutorial-troubleshoot-registry-cache.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries

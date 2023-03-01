@@ -175,4 +175,4 @@ After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API
 
 ## Next steps
 
-* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](/data-migration/).

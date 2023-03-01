@@ -814,7 +814,7 @@ items:
     items:
     - name: Migrate from QnA Maker to Question Answering
       href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
-    - name: Migrate knowledgebases from QnA Maker
+    - name: Migrate projects from QnA Maker
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
@@ -824,7 +824,7 @@ items:
       href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
-    - name: Move knowledge base
+    - name: Move projects
       href: question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
       href: question-answering/how-to/chit-chat.md
@@ -834,7 +834,7 @@ items:
       href: question-answering/how-to/configure-resources.md
     - name: Analytics
       href: question-answering/how-to/analytics.md
-    - name: Manage knowledge base
+    - name: Manage projects
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md

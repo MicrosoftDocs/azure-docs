@@ -625,6 +625,8 @@ items:
               href: storage-blob-container-lease.md
             - name: Create and manage snapshots
               href: snapshots-manage-dotnet.md
+            - name: Create and list blob versions
+              href: versions-manage-dotnet.md  
             - name: Generate a shared access signature (SAS)
               items:
               - name: Create a user delegation SAS
@@ -753,6 +755,8 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+            - name: Use access tiers
+              href: storage-blob-use-access-tier-javascript.md
         - name: Python
           items:
           - name: Get started

@@ -3,11 +3,10 @@ title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS) 
 description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 author: asudbring
 ms.author: allensu
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/07/2023
+ms.date: 02/24/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -18,10 +17,8 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 
 > [!NOTE]
 > Azure CNI Overlay is currently **_unavailable_** in the following regions:
-> - East US 2
 > - South Central US
 > - West US
-> - West US 2
 
 
 ## Overview of overlay networking
@@ -48,7 +45,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows                                                | Linux only                                                                    |
+| OS platforms supported       | Linux and Windows Server 2022                                            | Linux only                                                                    |
 
 ## IP address planning
 
@@ -93,6 +90,7 @@ The overlay solution has the following limitations:
 
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
+* Windows Server 2019 node pools are not supported for overlay.
 
 ## Install the aks-preview Azure CLI extension
 

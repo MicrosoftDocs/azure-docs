@@ -6,14 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 02/10/2023
 ms.author: lajanuar
 recommendations: false
 ---
+<!-- markdownlint-disable MD051 -->
 
 ## Set up your C#/.NET environment
 
-For this quickstart, we'll use the latest version of [Visual Studio](https://visualstudio.microsoft.com/vs/) IDE to build and run the application.
+For this quickstart, we use the latest version of [Visual Studio](https://visualstudio.microsoft.com/vs/) IDE to build and run the application.
 
 1. Start Visual Studio.
 
@@ -33,6 +34,9 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
     :::image type="content" source="../../media/visual-studio/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
 
+  > [!div class="nextstepaction"]
+  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+
 ## Install Newtonsoft.Json
 
 1. Right-click on your **document-translation-qs** project and select **Manage NuGet Packages...** .
@@ -46,6 +50,9 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 1. Select the latest stable version from the dropdown menu and install the package in your project.
 
     :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected NuGet package window.":::
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue installing the NuGet package.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Install-package)
 
 ## Translate all documents in a storage container
 
@@ -70,7 +77,6 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
   > [!IMPORTANT]
   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
-
 
 ```csharp
 
@@ -130,6 +136,9 @@ class Program
 
 * The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service.
 
-* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. 
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents will be listed in your target container.
+* The translated documents are listed in your target container.
+
+  > [!div class="nextstepaction"]
+  > [I successfully translated my document.](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
