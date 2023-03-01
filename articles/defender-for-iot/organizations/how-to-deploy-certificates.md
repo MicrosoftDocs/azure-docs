@@ -43,7 +43,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. In the **SSL/TLS certificate** pane, select one of the following:
 
-# [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate).
+# [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate)
 
 1. Enter the following parameters:
 
