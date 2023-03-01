@@ -97,9 +97,9 @@ If you haven't already set the defaults for the Azure CLI, save your default set
    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
    ```
 
-### Clone the sample repository
+### Clone the examples repository
 
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
+To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the repository's `cli/` directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -110,9 +110,14 @@ cd cli
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
+The commands in this tutorial are in the files `deploy-local-endpoint.sh` and `deploy-managed-online-endpoint.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
+
+> [!NOTE]
+> The YAML configuration files for Kubernetes online endpoints are in the `endpoints/online/kubernetes/` subdirectory.
+
 # [Python](#tab/python)
 
-### Clone the sample repository
+### Clone the examples repository
 
 To run the training examples, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and change into the `azureml-examples/sdk/python/endpoints/online/managed` directory:
 
@@ -128,7 +133,7 @@ The information in this article is based on the [online-endpoints-simple-deploym
 
 ### Connect to Azure Machine Learning workspace
 
-The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks. To follow along, open your `online-endpoints-simple-deployment.ipynb` notebook.
 
 1. Import the required libraries:
 
@@ -144,6 +149,9 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     )
     from azure.identity import DefaultAzureCredential
     ```
+
+    > [!NOTE]
+    > If you're using the Kubernetes online endpoint, import the `KubernetesOnlineEndpoint` and `KubernetesOnlineDeployment` class from the `azure.ai.ml.entities` library.
 
 1. Configure workspace details and get a handle to the workspace:
 
@@ -165,9 +173,9 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 # [Studio](#tab/azure-studio)
 
-If you have Git installed on your local machine, you can follow the instructions to clone the sample repository. Otherwise, follow the instructions to download files from the sample repository.
+If you have Git installed on your local machine, you can follow the instructions to clone the examples repository. Otherwise, follow the instructions to download files from the examples repository.
 
-### Clone the sample repository
+### Clone the examples repository
 
 To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and then change into the `azureml-examples/cli/endpoints/online/model-1` directory.
 
@@ -187,9 +195,9 @@ cd azureml-examples/cli/endpoints/online/model-1
 1. Select **Open terminal**.
  -->
 
-### Download files from the sample repository
+### Download files from the examples repository
 
-If you cloned the sample repo, your local machine already has copies of the files for this example, and you can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
+If you cloned the examples repo, your local machine already has copies of the files for this example, and you can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
 
 1. Go to [https://github.com/Azure/azureml-examples/](https://github.com/Azure/azureml-examples/).
 1. Go to the **<> Code** button on the page, and then select **Download ZIP** from the **Local** tab.
@@ -222,9 +230,9 @@ A couple of the template examples require you to upload files to the Azure Blob 
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
 
-### Clone the sample repository
+### Clone the examples repository
 
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
+To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the examples directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -764,8 +772,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 
 > [!IMPORTANT]
-> The `--all-traffic` flag in the above `az ml online-deployment create` allocates 100% of the traffic to the endpoint to the newly created deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example,
-> `az ml online-endpoint update -n $ENDPOINT_NAME --traffic "blue=100"` 
+> The `--all-traffic` flag in the above `az ml online-deployment create` allocates 100% of the endpoint traffic to the newly created blue deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example, `az ml online-endpoint update -n $ENDPOINT_NAME --traffic "blue=100"`.
 
 # [Python](#tab/python)
 
