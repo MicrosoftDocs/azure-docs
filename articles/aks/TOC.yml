@@ -75,6 +75,8 @@
       href: concepts-clusters-workloads.md
     - name: Security
       items:
+        - name: Vulnerability management
+          href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Container Security

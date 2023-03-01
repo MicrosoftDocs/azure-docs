@@ -15,7 +15,7 @@ This article helps understand the different logs available for VPN Gateway diagn
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-The following logs are available in Azure:
+The following logs are available* in Azure:
 
 |***Name*** | ***Description*** |
 |---		| ---				|
@@ -24,6 +24,8 @@ The following logs are available in Azure:
 |**RouteDiagnosticLog** | Logs changes to static routes and BGP events that occur on the gateway. |
 |**IKEDiagnosticLog** | Logs IKE control messages and events on the gateway. |
 |**P2SDiagnosticLog** | Logs point-to-site control messages and events on the gateway. |
+
+*for Policy Based gateways, only GatewayDiagnosticLog and RouteDiagnosticLog are available.
 
 Notice that there are several columns available in these tables. In this article, we are only presenting the most relevant ones for easier log consumption.
 
