@@ -97,7 +97,7 @@ To delete a lab:
    ![Screenshot of the Delete button on the lab Overview page.](media/devtest-lab-delete-lab-vm/delete-button.png)
 
 1. On the **Are you sure you want to delete it?** page, under **Type the lab name**, type the lab name, and then select **Delete**.</br>
-   The deletion of the lab and all it's resources is permanent, and cannot be undone.
+   The deletion of the lab and all its resources is permanent, and cannot be undone.
 
    ![Screenshot of the lab deletion confirmation page.](media/devtest-lab-delete-lab-vm/confirm-delete.png) 
 
