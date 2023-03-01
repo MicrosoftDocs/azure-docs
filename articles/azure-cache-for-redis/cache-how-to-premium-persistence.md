@@ -57,7 +57,9 @@ On the **Premium** tier, data is persisted directly to an [Azure Storage](../sto
 
 On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a managed disk attached directly to the cache instance. The location is not configurable nor accessible to the user. Using a managed disk increases the performance of persistence. The disk is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. See [managing data encryption](#managing-data-encryption) for more information. 
 
-## Set up data persistence
+## How to set up data persistence
+
+### [Using the portal (Premium tier)](#tab/premium)
 
 1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -118,6 +120,35 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 13. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+
+### [Using the portal (Enterprise tiers)](#tab/enterprise)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and start following the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
+
+1. When you reach the **Advanced** tab, select either _RDB_ or _AOF_ options in the **(PREVIEW) Data Persistence** section.
+
+:::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
+**FRAN--Need to update this screenshot. Potentially just by adding a red box around the persistence section**
+
+1. To enable RDB persistence, select **RDB** and configure the settings.
+
+ | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Backup Frequency** | Drop-down and select a backup interval. Choices include **60 Minutes**, **6 hours**, and **12 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
+
+1. To enable AOF persistence, select **AOF* and configure the settings.
+
+ | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Backup Frequency** | Drop-down and select a backup interval. Choices include **Write every second** and **Always write**. | The _Always write_ option will append new entries to the AOF file after every write to the cache. This choice offers the best durability but will lower cache performance. |
+   
+1. Finish creating the cache by following the rest of the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md). 
+
+> [!NOTE]
+> You can add persistence to a previously created Enterprise tier cache at any time by navigating to the **Advanced settings** blade.
+>
+
+---
 
 ## Persistence FAQ
 
