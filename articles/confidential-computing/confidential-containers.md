@@ -6,7 +6,8 @@ author: agowdamsft
 ms.topic: article
 ms.date: 3/1/2023
 ms.author: amgowda
-ms.service: container-service
+ms.service: virtual machines 
+ms.subservice: confidential-computing
 ms.custom: ignite-fall-2021
 ---
 
