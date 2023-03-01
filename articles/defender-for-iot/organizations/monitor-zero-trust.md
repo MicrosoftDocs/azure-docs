@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * [Look for alerts on unknown devices](#look-for-alerts-on-unknown-devices)
 > * [Look for vulnerable systems](#look-for-vulnerable-systems)
 > * [Look for alerts on cross-subnet traffic](#look-for-alerts-on-cross-subnet-traffic)
-> * [Simulate traffic to test your network](#simulate-traffic-to-test-your-network)
+> * [Simulate malicious traffic to test your network](#simulate-malicious-traffic-to-test-your-network)
 
 > [!IMPORTANT]
 > The **Recommendations** page in the Azure portal is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
