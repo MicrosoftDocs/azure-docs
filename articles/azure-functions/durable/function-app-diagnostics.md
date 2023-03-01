@@ -24,28 +24,27 @@ Azure Functions App Diagnostics is a useful resource in the Azure portal for mon
     :::image type="content" source="media/durable-functions-best-practice/durable-functions-detector.png" alt-text="Screenshot of Durable Functions detector.":::
  
  
-**Other useful detectors**
-On the left side of the window, there is a list of detectors designed to check for different problems. This section highlights a few. 
+### Other useful detectors
+On the left side of the window, there's a list of detectors designed to check for different problems. This section highlights a few. 
 
-- Functions App Down or Report Errors detector
-    This detector pulls results from different detectors checking key areas of your application that may be the cause of your application being down or reporting errors. The screenshot below shows the checks performed (not all 15 are captured in the screenshot) and the two issues requiring attention. 
+The *Functions App Down or Report Errors* detector pulls results from different detectors checking key areas of your application that may be the cause of your application being down or reporting errors. The screenshot below shows the checks performed (not all 15 are captured in the screenshot) and the two issues requiring attention. 
 
     :::image type="content" source="media/durable-functions-best-practice/functions-app-down-report-errors.png" alt-text="Screenshot of Durable Functions App Down or Report Errors detector.":::
 
-    - High CPU Analysis
-        Maximizing *High CPU Analysis* shows that one app is causing high CPU usage. 
-    
-        :::image type="content" source="media/durable-functions-best-practice/high-cpu-analysis.png" alt-text="Screenshot of Durable Functions high CPU analysis detector.":::
 
-        The following is suggested when click on "View Solutions". If you decide follow the second option, you can easily restart your site by clicking the button. 
+Maximizing *High CPU Analysis* shows that one app is causing high CPU usage. 
 
-        :::image type="content" source="media/durable-functions-best-practice/high-cpu-solution.png" alt-text="Screenshot of suggested solution from high CPU analysis detector.":::
+    :::image type="content" source="media/durable-functions-best-practice/high-cpu-analysis.png" alt-text="Screenshot of Durable Functions high CPU analysis detector.":::
 
-    - Memory Analysis
-        Maximizing *Memory Analysis* shows the following warning and graph. (Note that there's more content not captured in the screenshot.)
+The following is suggested when clicking "View Solutions". If you decide follow the second option, you can easily restart your site by clicking the button. 
 
-        :::image type="content" source="media/durable-functions-best-practice/memory-analysis.png" alt-text="Screenshot of Durable Functions memory analysis detector.":::
+    :::image type="content" source="media/durable-functions-best-practice/high-cpu-solution.png" alt-text="Screenshot of suggested solution from high CPU analysis detector.":::
+
  
-        The following is suggested when click on "View Solutions". You can easily scale up by clicking a button. 
+Maximizing *Memory Analysis* shows the following warning and graph. (Note that there's more content not captured in the screenshot.)
 
-        :::image type="content" source="media/durable-functions-best-practice/memory-analysis-solution.png" alt-text="Screenshot of suggested solution from memory analysis detector.":::
+    :::image type="content" source="media/durable-functions-best-practice/memory-analysis.png" alt-text="Screenshot of Durable Functions memory analysis detector.":::
+
+The following is suggested when clicking "View Solutions". You can easily scale up by clicking a button. 
+
+    :::image type="content" source="media/durable-functions-best-practice/memory-analysis-solution.png" alt-text="Screenshot of suggested solution from memory analysis detector.":::
