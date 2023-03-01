@@ -17,9 +17,13 @@ ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
-Azure NetApp Files provides regular updates. This article provides a summary about the latest new features and enhancements. 
+Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## February 2023
+
+* [Cross region replication enhancement: snapshot revert on replication source volume](snapshots-revert-volume.md)
+
+    When using cross-region replication, reverting a snapshot in a source or destination volume with an active replication configuration was not initially supported. Restoring a snapshot on the source volume from the latest local snapshot was not possible. Instead you had to use either client copy using the .snapshot directory, single file snapshot restore, or needed to break the replication in order to apply a volume revert. With this new feature, a snapshot revert on a replication source volume is possible provided you select a snapshot that is newer than the latest SnapMirror snapshot. This enables data recovery (revert) from a snapshot while cross region replication stays active, improving data protection SLA.
 
 * [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (Preview)
 
