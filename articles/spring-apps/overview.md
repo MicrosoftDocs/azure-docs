@@ -15,7 +15,7 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard Consumption ✔️ Basic/Standard ✔️ Enterprise
 
 Azure Spring Apps makes it easy to deploy Spring Boot applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
@@ -65,13 +65,17 @@ The following documents will help you migrate existing Spring Boot apps to Azure
 * [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
 * [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
 
-The following quickstarts apply to Basic/Standard tier only. For Enterprise tier quickstarts, see the next section.
+The following quickstarts apply to Basic/Standard only. For Enterprise quickstarts, see the next section.
 
 * [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)
 * [Set up the configuration server](quickstart-setup-config-server.md)
 * [Build and deploy apps](quickstart-deploy-apps.md)
+## Standard Consumption Plan
+Standard Consumption plan provides a flexible billing model where you can pay only for compute time used instead of provisioning resources. Start with as little as 0.25 vCPU and dynamically scale out based on Http or events powered by Kubernetes Event-Driven Autoscaling (KEDA). Additionally, you can scale your app instance to zero and stop all charges related to the app when there are no requests to process.
 
-## Enterprise Tier overview
+Standard Consumption simplifies the VNet network experience for running polyglot apps. All your apps will share the same VNet when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard Consumption, in the same Azure Container Apps environment. No need to create disparate subnets and Network Security Groups for frontend apps, Spring apps and Spring service runtime.
+
+## Enterprise Plan
 
 Based on our learnings from customer engagements, we built Azure Spring Apps Enterprise tier with commercially supported Spring runtime components to help enterprise customers to ship faster and unlock Spring’s full potential, including feature parity and region parity with Standard tier.
 
