@@ -160,7 +160,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
+  "$schema": "https://go.microsoft.com/fwlink/?linkid=2226079",
   "data-source": {
     "database-type": "mssql",
     "options": {

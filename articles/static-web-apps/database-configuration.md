@@ -45,7 +45,7 @@ The following sample configuration file shows you how to connect to an Azure SQL
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
+  "$schema": "https://go.microsoft.com/fwlink/?linkid=2226079",
   "data-source": {
     "database-type": "mssql",
     "options": {
