@@ -22,7 +22,7 @@ zone_pivot_groups: passwordless-postgresql
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 
-::: zone pivot="mysql-passwordless-flexible-server"
+::: zone pivot="postgresql-passwordless-flexible-server"
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ Use the following steps to bind your app using a secret.
 
 ::: zone-end
 
-::: zone pivot="mysql-passwordless-single-server"
+::: zone pivot="postgresql-passwordless-single-server"
 
 ## Prerequisites
 
