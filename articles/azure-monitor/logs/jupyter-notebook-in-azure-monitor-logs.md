@@ -39,7 +39,14 @@ In this tutorial, you'll:
 
 ## Tools you'll use
 
-- [Jupyter Notebook](https://jupyter.org/).
+- [Jupyter Notebook](https://jupyter.org/):
+
+    You can run Jupyter Notebook on log data in Azure Monitor Logs: 
+    - In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or public services. 
+    - Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
+    
+    For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
+
 - [Azure Monitor REST API](/rest/api/monitor/)
 - [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
 - [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
@@ -61,14 +68,6 @@ In this tutorial, you'll:
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
 - The following roles and permissions: Azure Machine Learning (???). 
 - Familiarity with data science concepts.  
-
-## Activate Jupyter Notebook 
-
-You can run Jupyter Notebook on log data in Azure Monitor Logs: 
-- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Synapse Notebooks](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services. 
-- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
-
-For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
 
 ## Create new or open existing notebook in Azure Machine Learning 
 
