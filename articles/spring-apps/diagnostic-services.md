@@ -227,6 +227,59 @@ AppPlatformBuildLogs
 | sort by TimeGenerated
 ```
 
+### Show VMware Spring Cloud Gateway logs in Enterprise tier
+
+To review log entries for VMware Spring Cloud Gateway logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "SpringCloudGateway"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+To review log entries for VMware Spring Cloud Gateway Operator in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "SpringCloudGatewayOperator"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show Application Configuration Service for Tanzu logs in Enterprise tier
+
+To review log entries for Application Configuration Service for Tanzu logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ApplicationConfigurationService"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show Tanzu Service Registry logs in Enterprise tier
+
+To review log entries for Tanzu Service Registry logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ServiceRegistry"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show API portal for VMware Tanzu logs in Enterprise tier
+
+To review log entries for API portal for VMware Tanzu logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ApiPortal"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
 ### Learn more about querying application logs
 
 Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
