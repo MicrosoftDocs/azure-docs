@@ -124,13 +124,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    A successful status response shows the `aziot` services as running or ready.
 
-If you need to troubleshoot the service, retrieve the service logs.
+1. If you need to troubleshoot the service, retrieve the service logs.
 
    ```bash
    sudo iotedge system logs
    ```
 
-Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device.
 
    ```bash
    sudo iotedge check
