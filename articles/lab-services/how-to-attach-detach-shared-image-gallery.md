@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 03/01/2023
 ---
 
 # Attach or detach an Azure compute gallery to a lab plan in Azure Lab Services
