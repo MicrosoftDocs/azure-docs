@@ -64,7 +64,7 @@ For example, to apply the policy to send audit logs to a log analytics workspace
 ```
 
 2. Assign the required role to the identity created for the policy assignment.
-Find the role in the policy definition by searching for *role*
+Find the role in the policy definition by searching for *roleDefinitionIds*
 
 ```json
        ...},
@@ -171,9 +171,9 @@ For more information on remediation tasks, see [Remediate non-compliant resource
 ## Assign initiatives
 
 Initiatives are collections of policies. There are three initiatives for Azure Monitor Diagnostics settings:
-+ [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
-+ [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
-+ [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
++ [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
++ [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
++ [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
 
@@ -269,23 +269,65 @@ You can get your policy assignment details using the following command:
 
 ### [CLI](#tab/cli)
 
-Log in to your Azure account using the `az login` command.
-Select the subscription where you want to apply the policy initiative using the `az account` set command.
+Assign intitiatevs and remediatie policies using Azure CLI.
 
-az policy assignment create --name <my-policy-assignment> --policy my-policy-initiative --scope /subscriptions/<subscription-id>
+1. Log in to your Azure account using the `az login` command.
+1. Select the subscription where you want to apply the policy initiative using the `az account` set command.
 
-Assign the initiative.
+1. Assign the initiative.
 
-```azurecli
-az policy assignment create --name <assignment name> --resource-group <resource group name> --policy-set-definition <initiative name> --params <parameters object> --mi-system-assigned --location <location>
-```
-for example:
-```azurecli
-az policy assignment create --name "my assignment" --resource-group "rg-001" --policy-set-definition 'f5b29bc4-feca-4cc6-a58a-772dd5e290a5' --params '{"logAnalytics":{"value":"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001/providers/microsoft.operationalinsights/workspaces/rg-001-workspace"}, "diagnosticSettingName":{"value":"AssignedByMyAssignment"}}' --mi-system-assigned --location eastus
-```
-Remediate the resources
-you can find the definition-reference-id in the initiative definition.
-az policy remediation create -g "ed-cli-initiative-01" --policy-assignment ed-cli-assignment-03 --name "rem-ed-cli-assignment-03" --definition-reference-id  "keyvault-vaults"  --resource-discovery-mode ReEvaluateCompliance
+    ```azurecli
+    az policy assignment create --name <assignment name> --resource-group <resource group name> --policy-set-definition <initiative name> --params <parameters object> --mi-system-assigned --location <location>
+    ```
+    For example:
+
+    ```azurecli
+    az policy assignment create --name "assign-cli-example-01" --resource-group "cli-example-01" --policy-set-definition 'f5b29bc4-feca-4cc6-a58a-772dd5e290a5' --params '{"logAnalytics":{"value":"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/cli-example-01/providers/microsoft.operationalinsights/workspaces/cli-example-01-ws"}, "diagnosticSettingName":{"value":"AssignedBy-cli-example-01"}}' --mi-system-assigned --location eastus
+    ```
+1. Assign the required role to the system managed identity
+
+    Find the roles to assign in any of the policy definitions in the initiative by searching the definition for *roleDefinitionIds*, for example:
+
+    ```json
+       ...},
+          "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+          ],
+          "deployment": {
+            "properties": {...
+    ```
+    Assign the required role:
+    ```azurecli
+    az policy assignment identity assign --system-assigned --resource-group <resource group name> --role <role name or ID> --identity-scope <scope> --name <policy assignment name>
+    ```
+
+    For example:
+    ```azurecli
+    az policy assignment identity assign --system-assigned --resource-group "cli-example-01" --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope "/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/cli-example-01" --name assign-cli-example-01
+    ```
+1. Create remediation tasks for the policies in the initiative    .
+
+    Remediation tasks are done on a per-policy basis. Each task is for a specific `definition-reference-id`, specified in the initiative as `policyDefinitionReferenceId`
+        To find the `definition-reference-id` parameter use the follwoing command:
+    ```azurecli
+    az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId
+    ```
+    Remediate the resources
+    ```azurecli
+    az policy remediation create --resource-group <resource group name> --policy-assignment <assignment name> --name <remediation task name> --definition-reference-id  "policy specific reference ID"  --resource-discovery-mode ReEvaluateCompliance
+    ```
+    For example:
+    ```azurecli
+    az policy remediation create --resource-group "cli-example-01" --policy-assignment assign-cli-example-01 --name "rem-assign-cli-example-01" --definition-reference-id  "keyvault-vaults"  --resource-discovery-mode ReEvaluateCompliance
+    ```
+    To create a remediation task for all of the policies in the initiative, 
+
+    ```bash
+    for policyDefinitionReferenceId in $(az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId |cut -d":" -f2|sed s/\"//g) 
+    do 
+        az policy remediation create --resource-group "cli-example-01" --policy-assignment assign-cli-example-01 --name remediate-$policyDefinitionReferenceId --definition-reference-id $policyDefinitionReferenceId; 
+    done 
+    ```
 
 ---
 
