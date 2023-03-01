@@ -28,7 +28,7 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 > [!IMPORTANT]
 > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
-In this mode, the scale set rolls out the update in batches with an optional pause time in between. Additionally, when selecting a **Rolling**, users can select to enable **MaxSurge**. When MaxSurge is enabled, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances will be added to the scale set and the old model instances will be removed. This will occur in multiple batches (batch size determined by customer) until all instances are brought up to date. 
+In this mode, the scale set rolls out the update in batches with an optional pause time in between. Additionally, when selecting a **Rolling**, users can select to enable **MaxSurge**. When MaxSurge is enabled, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances are added to the scale set and the old model instances are removed. This occurs in multiple batches (batch size determined by customer) until all instances are brought up to date. 
 
 With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded rather than new ones being created. Once the upgrade is complete, the instances will begin taking traffic again. Rolling upgrades with MaxSurge enabled allows the scale set instances to continue to take traffic while upgrades are being done. 
 
@@ -86,7 +86,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
 
 ## Changing the Upgrade Policy
 
-The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in time. 
+The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
 ### CLI
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
@@ -153,7 +153,7 @@ Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "mySc
 ```
 
 ### REST API 
-Update Virtual Machine Scale Set instances using [updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances).
+Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
@@ -161,7 +161,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Exceptions to Upgrade Policy
 
-There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
+There's' one type of modification to global scale set properties that doesn't follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
