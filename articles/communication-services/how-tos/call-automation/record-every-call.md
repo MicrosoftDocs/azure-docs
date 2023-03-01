@@ -195,7 +195,7 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     ```
 
-3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](../calling-sdk/record-calls?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
+3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](../calling-sdk/record-calls.md?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
 
 ### Deploy to Azure
 

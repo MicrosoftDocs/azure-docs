@@ -49,7 +49,7 @@ To start generating the events, we must configure Azure Event Grid for our Azure
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 - An SMS-enabled telephone number. [Get a phone number](../telephony/get-phone-number.md).
-- Enable Event Grid resource provide on your subscription. See [instructions](../sms/handle-sms-events#register-an-event-grid-resource-provider).
+- Enable Event Grid resource provide on your subscription. See [instructions](../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Receive SMS with Azure Function (JS)](./includes/receive-sms-js.md)]
