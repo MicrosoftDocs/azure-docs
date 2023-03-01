@@ -16,11 +16,11 @@ High availability (HA) avoids database downtime by maintaining standby replicas 
 
 ## How it works
 
-When HA is enabled, all primary nodes in a cluster are provisioned into one availability zone for better latency between the nodes. The replica nodes, similar to standbys in this case (since they don't receive database requests), are provisioned into another zone, if the region supports multiple zones and has available capacity.
+When HA is enabled, all primary nodes in a cluster are provisioned in one availability zone for better latency between nodes. The HA replica nodes, which do not receive requests, are provisioned in a different zone, if the region supports multiple zones and has available capacity.
 
 Even without HA enabled, each node has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, it’s detected by Azure Storage service and is transparently re-created. For LRS storage durability, see metrics on [this page](../../../storage/common/storage-redundancy.md#summary-of-redundancy-options).
 
-When HA is enabled, Azure Cosmos DB for MongoDB vCore runs one replica node for each primary node in the cluster. The primary and its replica use synchronous replication. In a nutshell, our service detects a failure on primary nodes and fails over to the replica node with zero data loss. The MongoDB connection string remains the same during node failures.
+When HA is enabled, Azure Cosmos DB for MongoDB vCore runs one replica node for each primary node in the cluster. The primary and its replica use synchronous replication. The services detects failures on primary nodes and fails over to the replica nodes with zero data loss. The MongoDB connection string remains the same. 
 
 ## Configure high availability
 
