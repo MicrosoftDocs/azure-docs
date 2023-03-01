@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 10/04/2022
+ms.date: 03/01/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,17 @@ manager: CelesteDG
 # Azure Active Directory External Identities: What's new
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## February 2023
+
+### Updated articles
+
+- [Add Google as an identity provider for B2B guest users](google-federation.md)
+- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md)
+- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
+- [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
+- [Email one-time passcode authentication](one-time-passcode.md)
 
 ## January 2023
 
@@ -35,15 +46,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
 - [Azure Active Directory External Identities: What's new](whats-new-docs.md)
 - [Auditing and reporting a B2B collaboration user](auditing-and-reporting.md)
-
-## November 2022
-
-### Updated articles
-
-- [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
-- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
-- [Reset redemption status for a guest user](reset-redemption-status.md)
-- [Language customization in Azure Active Directory](user-flow-customize-language.md)
-- [B2B collaboration overview](what-is-b2b.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
