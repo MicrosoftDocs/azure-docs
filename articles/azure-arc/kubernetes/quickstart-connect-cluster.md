@@ -238,6 +238,13 @@ Helm release deployment succeeded
 > [!IMPORTANT]
 > In some cases, deployment may fail due to a timeout error. Please see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
 
+> [!IMPORTANT]
+> If you are using ARO(Openshift) on Azure, you need to pass two more parameters the distribution and infrastructure as the command below.
+
+```azurecli
+az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --distribution openshift --infrastructure azure
+```
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
