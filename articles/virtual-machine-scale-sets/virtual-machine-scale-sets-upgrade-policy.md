@@ -137,13 +137,13 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 ### CLI
 Using [az vmss update-instances](/cli/azure/vmss)
 
-```azurecli
+```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
 ### PowerShell 
 Using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
-```powershell
+```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
@@ -165,15 +165,14 @@ There is one type of modification to global scale set properties that does not f
 ### CLI 
 Using [az vmss reimage](/cli/azure/vmss):
 
-
-```azurecli
+```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
 ### PowerShell 
 Using [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
-```powershell
+```azurepowershell-interactive
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
 ```
 
