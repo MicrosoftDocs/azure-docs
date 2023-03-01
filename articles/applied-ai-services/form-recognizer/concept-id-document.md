@@ -308,7 +308,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument` field extracted
+#### `idDocument` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
