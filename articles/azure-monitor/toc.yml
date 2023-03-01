@@ -725,14 +725,8 @@ items:
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL ping tests
-        displayName: ping, ping tests, availability, GSM, up/down
-        href: app/monitor-web-app-availability.md
       - name: Standard tests
         href: app/availability-standard-tests.md
-      - name: Multi-step tests
-        displayName: availability, GSM, visual studio web test, web test
-        href: app/availability-multistep.md
       - name: Private testing
         href: app/availability-private-test.md
       - name: Availability + Azure Functions
@@ -916,14 +910,6 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-    - name: Export
-      items:
-      - name: Continuous export
-        href: app/export-telemetry.md
-    - name: Other platforms
-      items:
-      - name: SharePoint sites
-        href: app/sharepoint.md
   - name: Container insights
     items:
     - name: Overview
@@ -1632,8 +1618,16 @@ items:
             href: insights/azure-key-vault-deprecated.md
     - name: Application Insights Java 2.x
       href: ./app/deprecated-java-2x.md
+    - name: Continuous export
+      href: app/export-telemetry.md
+    - name: SharePoint sites
+      href: app/sharepoint.md
     - name: Create a new App Insights resource (classic)
       href: app/create-new-resource.md
+    - name: URL ping tests
+      href: app/monitor-web-app-availability.md
+    - name: Multi-step tests
+      href: app/availability-multistep.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics

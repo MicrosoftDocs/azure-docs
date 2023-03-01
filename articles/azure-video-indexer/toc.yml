@@ -133,7 +133,6 @@
     - name: Person
       href: customize-person-model-overview.md
       displayName: multiple Person model support, multiple custom Person models, Azure Video Indexer website, top LinkedIn influencers, to 1 million people, multiple Person models, specific custom model, celebrity recognition feature, separate Person model, specific Person model, one million faces, Person model ID, default Person model, 50 Person models, Azure  description, ms.author, Gate notice, data source, image files, different use-cases, different channels, ms.topic, new face, title, article, overview, conceptual, videos, IMDB, Wikipedia, Customers, name, account, example, content, NOTE, limit, API
-
   - name: Use insights
     items:
     - name: Detect textual logo
@@ -188,7 +187,7 @@
       - name: Animated characters
         href: animated-characters-recognition-how-to.md
         displayName: Azure Video Indexer paid account, Azure Video Indexer access token, Azure Video Indexer platform, The Custom Vision integration, Connect Custom Vision Account, one custom vision model, Azure Video Indexer API, Animated character detection, Prediction resource ID, Custom Vision website, two separate resources, animated characters model, model customization section, good recognition model, animated model, paid accounts, Azure portal, ms.custom, animated content, animated series, two videos, trial account, content model, same region, Japan region, question mark, top-right corner, next step, required fields, relevant documentation, 200 OK response, best practice, unintended results, shorter epis, API Management, Juliako manager, developer portal, other information, initial training, title, description, topic, author, femila, references_regions, date, INCLUDE, deprecation, announcement, grouping, functionality, overview, article, following, cognitive-services, vision-service, NOTE, models, images, classifier, steps, customvision, keys, Endpoint, page, api-details, Operations, apis, call, connection, addition, changes, left, content-model-customization, name, 15 minutes
-      - name: Perbrands-model-with-api.mdson
+      - name: Person
         displayName: customizing
         items:
         - name: using the website

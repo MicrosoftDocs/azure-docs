@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 02/28/2023
 ms.author: malev
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
@@ -36,7 +36,7 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
     |----------------------------|-------------------------------------|
     | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-    Leave **Label** and **Content Type** empty.
+    Leave **Label** and **Content Type** empty. For more information about labels and content types, go to [Keys and values](concept-key-value.md#label-keys).
 
 ## Create a .NET Framework console app
 
