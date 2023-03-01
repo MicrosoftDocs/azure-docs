@@ -8,7 +8,6 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 02/15/2023
 ms.author: kpunjabi
-ms.custom: private_preview
 ms.custom: references_regions
 services: azure-communication-services
 ---
