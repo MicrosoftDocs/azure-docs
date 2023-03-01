@@ -52,7 +52,7 @@ The following columns are exposed in Airflow task logs for you to debug the prob
 |Parameter name  |Description  |
 |---------|---------|
 |`RunID`    |  Unique run ID of the triggered DAG run.  |
-|`CorrelationID`     | Unique correlation ID of the DAG run (same as run ID).        |
+|`CorrelationID`     | Unique correlation ID of the DAG run (same as the run ID).        |
 |`DagName`     |  DAG workflow name. For instance, `Osdu_ingest` is the workflow name for manifest ingestion.       |
 |`DagTaskName`     | Task name for the DAG workflow. For instance, `update_status_running_task` is the task name for manifest ingestion.        |
 |`Content`     |  Error log messages (errors or exceptions) that Airflow emits during the task execution.|
@@ -61,7 +61,7 @@ The following columns are exposed in Airflow task logs for you to debug the prob
 
 ## Failed DAG run
 
-The workflow run has failed in `Update_status_running_task` or `Update_status_finished_task`, and the data records weren't ingested.
+The workflow run failed in `Update_status_running_task` or `Update_status_finished_task`, and the data records weren't ingested.
 
 ### Possible reasons
 
