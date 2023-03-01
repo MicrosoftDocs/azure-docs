@@ -26,6 +26,8 @@ Install the following Python libraries: `os`, `requests`, `json`
 
 ### Set environment variables
 
+This example requires environment variables named `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
+
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 ## Recognize speech from a microphone
@@ -157,6 +159,7 @@ Now that you've completed the quickstart, here are some additional consideration
 
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 - To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). If the voice does not speak the language of the text returned from Azure OpenAI, the Speech service won't output synthesized audio.
+- To use a different [deployed](/azure/cognitive-services/openai/how-to/create-resource#deploy-a-model) Azure OpenAI model, replace `text-davinci-002` with another [model](/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability). For example, `text-davinci-003` for the latest version of the Davinci model.
 - The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/cognitive-services/openai/concepts/content-filter) article.
 
 ## Clean up resources

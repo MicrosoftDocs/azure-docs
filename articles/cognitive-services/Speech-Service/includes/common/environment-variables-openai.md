@@ -13,16 +13,16 @@ Your application must be authenticated to access Cognitive Services resources. F
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](../../../security-features.md) article for more authentication options like [Azure Key Vault](../../../use-key-vault.md). 
 
 To set the environment variables, open a console window, and follow the instructions for your operating system and development environment. 
-- To set the `LANGUAGE_KEY` environment variable, replace `your-language-key` with one of the keys for your resource.
-- To set the `LANGUAGE_ENDPOINT` environment variable, replace `your-language-endpoint` with one of the regions for your resource.
+- To set the `OPEN_AI_KEY` environment variable, replace `your-openai-key` with one of the keys for your resource.
+- To set the `OPEN_AI_ENDPOINT` environment variable, replace `your-openai-endpoint` with one of the regions for your resource.
 - To set the `SPEECH_KEY` environment variable, replace `your-speech-key` with one of the keys for your resource.
 - To set the `SPEECH_REGION` environment variable, replace `your-speech-region` with one of the regions for your resource.
 
 #### [Windows](#tab/windows)
 
 ```console
-setx LANGUAGE_KEY your-language-key
-setx LANGUAGE_ENDPOINT your-language-endpoint
+setx OPEN_AI_KEY your-openai-key
+setx OPEN_AI_ENDPOINT your-openai-endpoint
 setx SPEECH_KEY your-speech-key
 setx SPEECH_REGION your-speech-region
 ```
@@ -35,8 +35,8 @@ After you add the environment variables, you may need to restart any running pro
 #### [Linux](#tab/linux)
 
 ```bash
-export LANGUAGE_KEY=your-language-key
-export LANGUAGE_ENDPOINT=your-language-endpoint
+export OPEN_AI_KEY=your-openai-key
+export OPEN_AI_ENDPOINT=your-openai-endpoint
 export SPEECH_KEY=your-speech-key
 export SPEECH_REGION=your-speech-region
 ```
@@ -50,8 +50,8 @@ After you add the environment variables, run `source ~/.bashrc` from your consol
 Edit your .bash_profile, and add the environment variables:
 
 ```bash
-export LANGUAGE_KEY=your-language-key
-export LANGUAGE_ENDPOINT=your-language-endpoint
+export OPEN_AI_KEY=your-openai-key
+export OPEN_AI_ENDPOINT=your-openai-endpoint
 export SPEECH_KEY=your-speech-key
 export SPEECH_REGION=your-speech-region
 ```
