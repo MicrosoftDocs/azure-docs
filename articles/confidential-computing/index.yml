@@ -112,27 +112,27 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Hello world with Confidential containers with Azure Container Insatnces (ACI)
-            url: ../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+            url: ..\container-instances\container-instances-tutorial-deploy-confidential-containers-cce-arm.md
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
             url: confidential-containers-enclaves.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
-          - text: Confidential node pools on AKS
-            url: confidential-nodes-aks-addon.md
+          - text: Confidential VM node pools on AKS
+            url: ..\aks\use-cvm.md
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios
             url: /search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
-          - text: About Azure Kubernetes Service (AKS) 
-            url: ..\aks\intro-kubernetes.md
-          - text: App enclave nodes on AKS FAQ 
+          - text: Confidential containers with ACC Azure Samples
+            url: https://github.com/Azure-Samples/confidential-container-samples
+          - text: App Intel enclave AKS nodes FAQ 
             url: confidential-nodes-aks-faq.yml
       - linkListType: video
         links:
           - text: Confidential VM worker nodes with AKS with remote attestation - Azure Friday
-            url: .../shows/azure-friday/azure-confidential-computing-with-confidential-vms-and-aks-nodes
+            url: ...\shows\azure-friday/azure-confidential-computing-with-confidential-vms-and-aks-nodes
           - text: Overview of confidential computing Intel SGX nodes on AKS
             url: https://www.youtube.com/watch?v=FYZxtHI_Or0
           - text: Python hello world demo with Intel SGX based confidential containers on AKS 
@@ -141,10 +141,9 @@ landingContent:
             url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
-          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
+          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Public preview 
             url: https://aka.ms/ccaci
-          - text: Confidential VM AMD SEV-SNP node pools on AKS
-            url: https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA
+
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves
