@@ -33,7 +33,7 @@ To get started using burst capacity, navigate to the **Features** page in your A
 
 Before enabling the feature, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#limitations-preview-eligibility-criteria). Once you've enabled the feature, it will take 15-20 minutes to take effect.
 
-:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure Portal.":::
+:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure portal.":::
 
 ## Limitations (preview eligibility criteria)
 
