@@ -70,7 +70,7 @@ For example:
 :::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false":::
 
 ## Example of a *Type* definition
-
+ 
 To better understand the Type system, let's look at an example and see how an **Azure SQL Table** is defined.
 
 You can get the complete type definition by sending a `GET` request to the Type Definition [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name):
@@ -213,13 +213,15 @@ Below you can see a simplified JSON result:
 
 * **enDef1** is the first end of the definition and contains the attributes:
 
-  * **type** is the type of the entity that this relationship expects as end1
+  * **type** is the type of the entity that this relationship expects as end1.
 
-  * **name** is the attribute that will appear on this entity's relationship attribute
+  * **name** is the attribute that will appear on this entity's relationship attribute.
 
   * **cardinality** is either SINGLE, SET or LIST.
 
-  * **isContainer** is a boolean and is related to the *cardinality* of this relationship. If the *cardinality* is set to **SET** or **LIST**, then *isContainer* should be set to True. This describes whether the relationship is a one-to-one relationship or one-to-many. For example, in a SQL Table, *columns* relationship (of type *azure_sql_table_columns*) is a one-to-many relationship between a table and its columns.
+  * **isContainer** is a boolean and applies to containment relationship category. When set to true in one end, it indicates that this end is the container of the other end. Therefore:
+     * Ony *Composition* or *Aggregation* category relationship can and should have in one end *isContainer* set to true.
+     * *Association* category relationship should not have *isContainer* property set to true in any end.
 
 * **endDef2** is the second end of the definition and describes, similarly to endDef1, the properties of the second part of the relationship.
 
