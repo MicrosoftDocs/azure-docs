@@ -139,7 +139,7 @@ Complete the following prerequisites to run the [C# SDK sample code](https://git
 1. Get your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 1. Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 1. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions -
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 1. [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
 1. A recorded video in the Video Analyzer account, or an [RTSP camera](../quotas-limitations.md#supported-cameras-1) accessible over the internet. Alternatively, you can deploy an [RTSP camera simulator](get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator).

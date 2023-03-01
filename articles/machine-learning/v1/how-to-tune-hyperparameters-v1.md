@@ -185,7 +185,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](../how-to-log-view-metrics.md).
+For more information on logging values in model training runs, see [Enable logging in Azure Machine Learning training runs](../how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 

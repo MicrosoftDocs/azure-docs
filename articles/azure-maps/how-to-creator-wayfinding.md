@@ -2,8 +2,8 @@
 title: Indoor Maps wayfinding service
 titleSuffix: Microsoft Azure Maps Creator
 description: How to use the wayfinding service to plot and display routes for indoor maps in Microsoft Azure Maps Creator
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/25/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -23,7 +23,7 @@ The Azure Maps Creator [wayfinding service][wayfinding service] allows you to na
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL. For more information, see [Access to Creator Services][how to manage access to creator services].
 > - In the URL examples in this article you will need to:
->   - Replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>   - Replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 >   - Replace `{datasetId`} with your `datasetId`. For more information, see the [Check the dataset creation status][check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
 ## Create a routeset
@@ -54,14 +54,14 @@ To check the status of the routeset creation process and retrieve the routesetId
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routsets/operations/{operationId}?api-version=2022-09-01-preview0&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 
     > [!NOTE]
     > Get the `operationId` from the Operation-Location key in the response header when creating a new routeset.
 
-1. Copy the value of the **Resource-Location** key from the responses header. This is the resource location URL and contains the `routsetId`, as shown below:
+1. Copy the value of the **Resource-Location** key from the responses header. This is the resource location URL and contains the `routesetId`, as shown below:
 
    > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2022-09-01-preview
 
@@ -74,7 +74,7 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routsets/{routesetId}?api-version=2022-09-01-preview0&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/{routesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 

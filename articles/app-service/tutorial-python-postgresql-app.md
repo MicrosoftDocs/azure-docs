@@ -27,7 +27,7 @@ To run the application locally, make sure you have [Python 3.7 or higher](https:
 ### [Flask](#tab/flask)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
 ```
 
 ### [Django](#tab/django)
@@ -40,10 +40,19 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 Go to the application folder:
 
+### [Flask](#tab/flask)
+
 ```bash
 cd msdocs-python-flask-webapp-quickstart
 ```
 
+### [Django](#tab/django)
+
+```bash
+cd msdocs-django-postgresql-sample-app
+```
+
+-----
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
@@ -327,6 +336,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row:::
     :::column span="2":::
         **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
@@ -349,6 +359,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row:::
     :::column span="2":::
         **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
@@ -508,15 +519,15 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 - Django validates the HTTP_HOST header in incoming requests. The sample code uses the [`WEBSITE_HOSTNAME` environment variable in App Service](reference-app-settings.md#app-environment) to add the app's domain name to Django's [ALLOWED_HOSTS](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6-8" highlight="3":::
 
 - Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="14":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-16" highlight="14":::
 
     Then the static file settings are configured according to the Django documentation.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 
@@ -530,10 +541,10 @@ If you encounter any errors related to connecting to the database, check if the 
 
 ## Next steps
 
-Learn how to map a custom DNS name to your app:
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Learn how App Service runs a Python app:
 

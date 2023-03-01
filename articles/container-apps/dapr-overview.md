@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 01/25/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -39,6 +39,9 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Actors**][dapr-actors]                             | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
+
+> [!NOTE]
+> The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see limitations](#unsupported-dapr-capabilities).
 
 ## Dapr concepts overview
 
@@ -175,6 +178,9 @@ There are a few approaches supported in container apps to securely establish con
 
 For Azure-hosted services, Dapr can use the managed identity of the scoped container apps to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
+> [!NOTE]
+> The `azureClientId` metadata field (the client ID of the managed identity) is **required** for any component authenticating with user-assigned managed identity.
+
 #### Using a Dapr secret store component reference
 
 When you create Dapr components for non-AD enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
@@ -199,7 +205,7 @@ metadata:
     value: [your_keyvault_name]
   - name: azureEnvironment
     value: "AZUREPUBLICCLOUD"
-  - name: azureClientId # Only required if using user-assigned managed identity
+  - name: azureClientId # Only required for authenticating user-assigned managed identity
     value: [your_managed_identity_client_id]
 scopes:
   - publisher-app
@@ -240,7 +246,7 @@ scopes:
 Once you've created a Dapr secret store using one of the above approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified above, where the `sb-root-connectionstring` is stored.
 
 ```yaml
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -263,7 +269,7 @@ az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group 
 
 ```yaml
 # pubsub.yaml for Azure Service Bus component
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -282,7 +288,7 @@ This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr 
 resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
-    componentType: 'pubsub.azure.servicebus'
+    componentType: 'pubsub.azure.servicebus.queue'
     version: 'v1'
     secretStoreComponent: 'my-secret-store'
     metadata: [
@@ -310,7 +316,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
       "type": "daprComponents",
       "name": "dapr-pubsub",
       "properties": {
-        "componentType": "pubsub.azure.servicebus",
+        "componentType": "pubsub.azure.servicebus.queue",
         "version": "v1",
         "secretScoreComponent": "my-secret-store",
         "metadata": [
@@ -336,6 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
+- **Alpha APIs and components**: Azure Container Apps does not guarantee the availability of Dapr alpha APIs and features. If available to use, they are on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
 
 ### Known limitations
 

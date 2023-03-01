@@ -21,6 +21,7 @@ You can create host pools in the following Azure regions:
 - Australia East
 - Canada Central
 - Canada East
+- Central India
 - Central US
 - East US
 - East US 2
@@ -34,6 +35,7 @@ You can create host pools in the following Azure regions:
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## Create a host pool
 

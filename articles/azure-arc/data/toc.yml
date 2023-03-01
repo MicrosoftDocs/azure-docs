@@ -11,6 +11,8 @@ items:
       href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
+    - name: Support policy
+      href: support-policy.md
 - name: Quickstarts
   items:
     - name: Directly connected | Azure portal example
@@ -30,6 +32,8 @@ items:
       href: sizing-guidance.md
     - name: Operate with least privilege
       href: least-privilege.md
+    - name: Automated validation testing
+      href: automated-integration-testing.md
 - name: How-to guides
   items:
     - name: Install tools
@@ -86,6 +90,8 @@ items:
           href: monitor-grafana-kibana.md
         - name: Deploy telemetry router 
           href: deploy-telemetry-router.md
+        - name: Adding Exporters and Pipelines 
+          href: adding-exporters-and-pipelines.md
         - name: Upload to Azure Monitor
           items:
             - name: Upload prerequisites
@@ -210,6 +216,8 @@ items:
           items:
             - name: Turn on transparent data encryption manually
               href: configure-transparent-data-encryption-manually.md
+            - name: Turn on transparent data encryption (preview)
+              href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
             - name: Overview
@@ -246,6 +254,10 @@ items:
       items:
         - name: Manage
           items:
+            - name: Active Directory
+              items:
+                - name: Deploy PostgresSQL server - CLI
+                  href: deploy-active-directory-postgresql-server-cli.md
             - name: Back up and restore
               href: backup-restore-postgresql.md
             - name: Change PostgreSQL port
@@ -292,7 +304,3 @@ items:
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md
-    - name: Support policy
-      href: support-policy.md
-    - name: Automated validation testing
-      href: automated-integration-testing.md

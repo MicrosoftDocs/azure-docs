@@ -3,14 +3,13 @@ title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the pre migration or seamless migration methods.
 services: active-directory-b2c
-author: garrodonnell
+author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/24/2022
-ms.author: godonnell
+ms.date: 12/29/2022
+ms.author: kengaderdus
 ms.custom: engagement-fy23
 ms.subservice: B2C
 ---
@@ -21,6 +20,10 @@ Migrating from another identity provider to Azure Active Directory B2C (Azure AD
 Watch this video to learn about Azure AD B2C user migration strategies and steps to consider.
 
 >[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
+
+
+> [!NOTE]
+> Before you start the migration, make sure your Azure AD B2C tenant's unused quota can accommodate all the users you expect to migrate. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage). If you need to increase your tenant's quota limit, contact [Microsoft Support](find-help-open-support-ticket.md).
 
 ## Pre migration
 

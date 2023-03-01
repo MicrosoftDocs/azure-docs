@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: larryfr
-author: Blackmist
+ms.author: vaidyas
+author: vaidya-s
+ms.reviewer: larryfr
 ms.date: 09/09/2022
 ---
 
@@ -182,7 +183,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 ### Example: Data drift triggers retraining
 
 > [!IMPORTANT]
-> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure ML CLI & SDK v2](concept-v2.md).
+> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure Machine Learning CLI & SDK v2](concept-v2.md).
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 

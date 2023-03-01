@@ -2,9 +2,7 @@
 title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
 titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
-services: vpn-gateway
 author: chadmath
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
@@ -101,6 +99,10 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
     <?xml version="1.0"?>
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
     ```
+
+> [!Note]
+> Basic SKU VPN gateways do not reply to health probe.
+> They are not recommended for [production workloads](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#workloads).
 
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 

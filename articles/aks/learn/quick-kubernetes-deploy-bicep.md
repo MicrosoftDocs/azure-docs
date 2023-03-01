@@ -1,7 +1,6 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
 ms.date: 11/01/2022
 ms.custom: mvc, subject-armbicep

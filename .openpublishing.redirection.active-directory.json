@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/trello-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/atlassian-cloud-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -67,6 +72,11 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/usertesting-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
@@ -1868,6 +1878,11 @@
     {
       "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-password-hash-sync.md",
       "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-checklist-p2.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers",
       "redirect_document_id": true
     },
     {
@@ -4362,6 +4377,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/faqs.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-baseline-protection.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
       "redirect_document_id": false
@@ -4387,6 +4407,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendations-integrate-third-party-apps.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",
       "redirect_document_id": false
@@ -4407,8 +4432,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendation-integrate-third-party-apps.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-reporting-api.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-reports-latencies.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-ad-sla-performance",
       "redirect_document_id": false
     },
     {
@@ -10902,6 +10937,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tenant-management.md",
+      "redirect_url": "/azure/active-directory-b2c/tenant-management-add-administrator",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
       "redirect_document_id": false
@@ -11054,6 +11094,26 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/microsoft-graph-intro.md",
       "redirect_url": "/graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/concept-privileged-access-versus-role-assignable.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/groups-features.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-data-inventory.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/product-data-billable-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/create-access-review-privileged-access-groups.md",
+      "redirect_url": "/azure/active-directory/governance/create-access-review-pim-for-groups",
       "redirect_document_id": false
     }
   ]

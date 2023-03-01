@@ -335,6 +335,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
@@ -734,19 +736,19 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
   prompt: Choose a tool or API
   pivots:
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -915,6 +917,17 @@ groups:
   title: App Service platform
   prompt: Choose a hosting platform
   pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-platform-windows-linux-sphere-rtos
+  #CBroad
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-sphere
+    title: Sphere
   - id: platform-linux
     title: Linux
   - id: platform-windows
@@ -1847,6 +1860,15 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
+## Template without portal and Azure AD Graph
+- id: enterprise-apps-minus-portal-aad
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 ## template without graph
 - id: enterprise-apps-minus-graph
   title: Manage Enterprise apps
@@ -1984,10 +2006,12 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: jorgegarc
-- id: acs-xamarin-react
+- id: acs-maui-xamarin-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
+  - id: platform-maui
+    title: .NET MAUI
   - id: platform-xamarin
     title: Xamarin
   - id: platform-react
@@ -2014,3 +2038,12 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: rolyon
+- id: app-provisioning-cross-tenant-synchronization
+  title: Application provisioning or cross-tenant synchronization
+  prompt: Choose an option
+  pivots:
+  - id: app-provisioning
+    title: Application provisioning
+  - id: cross-tenant-synchronization
+    title: Cross-tenant synchronization

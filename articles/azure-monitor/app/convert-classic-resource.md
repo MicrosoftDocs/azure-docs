@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 02/14/2023
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
@@ -21,6 +21,11 @@ Workspace-based resources:
 > - Eliminate the need for cross-app/workspace queries.
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
+
+> [!IMPORTANT]
+> * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
+> * When you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+> * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
 
 ## New capabilities
 
@@ -42,7 +47,7 @@ Workspace-based Application Insights resources allow you to take advantage of th
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate changes the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
-Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
+Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
@@ -55,13 +60,13 @@ If you don't need to migrate an existing resource, and instead want to create a 
     - Workspace-based Application Insights resources aren't compatible with workspaces set to the dedicated **workspace-based permissions** setting. To learn more about Log Analytics workspace access control, see the [Access control mode guidance](../logs/manage-access.md#access-control-mode).
     - If you don't already have an existing Log Analytics workspace, see the [Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
-- **Continuous export** isn't supported for workspace-based resources and must be disabled. After the migration is finished, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hubs.
+- **Continuous export** isn't compatible with workspace-based resources and must be disabled. After the migration is finished, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hubs.
 
     > [!CAUTION]
     > * Diagnostic settings use a different export format/schema than continuous export. Migrating breaks any existing integrations with Azure Stream Analytics.
     > * Diagnostic settings export might increase costs. For more information, see [Export telemetry from Application Insights](export-telemetry.md#diagnostic-settings-based-export).
 
-- Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
+- Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
     > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table).
@@ -111,7 +116,7 @@ You might have multiple Application Insights resources that store telemetry in o
 - Go to your Application Insights resource and select the **Logs** tab. All queries from this tab automatically pull data from the selected Application Insights resource.
 - Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and select the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in `_ResourceId` property that's available in all application-specific tables.
 
-If you query directly from the Log Analytics workspace, you'll only see data that's ingested post migration. To see both your classic Application Insights data and the new data ingested after migration in a unified query experience, use the **Logs** tab from within your migrated Application Insights resource.
+When you query directly from the Log Analytics workspace, you only see data that's ingested post migration. To see both your classic Application Insights data and the new data ingested after migration in a unified query experience, use the **Logs** tab from within your migrated Application Insights resource.
 
 > [!NOTE]
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
@@ -128,7 +133,7 @@ To access the preview Application Insights Azure CLI commands, you first need to
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command, you'll see an error message that states `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you see an error message that states `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Now you can run the following code to create your Application Insights resource:
 
@@ -248,7 +253,7 @@ This section provides answers to common questions.
 There's usually no difference, with a couple of exceptions:
 
  - Migrated Application Insights resources can use [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
- - Grandfathered Application Insights resources will no longer get 1 GB per month free from the original Application Insights pricing model.
+ - Grandfathered Application Insights resources no longer get 1 GB per month free from the original Application Insights pricing model.
 
 ### How will telemetry capping work?
 
@@ -260,23 +265,23 @@ There's no strict billing capping available.
 
 There are no changes to ingestion-based sampling.
 
-### Will there be any gap in data collected during migration?
+### Are there gaps in data collected during migration?
 
 No. We merge data during query time.
 
-### Will my old log queries continue to work?
+### Do old log queries continue to work?
 
-Yes, they'll continue to work.
+Yes, they continue to work.
 
 ### Will my dashboards that have pinned metric and log charts continue to work after migration?
 
-Yes, they'll continue to work.
+Yes, they continue to work.
 
-### Will migration affect AppInsights API accessing data?
+### Does migration affect AppInsights API accessing data?
 
-No. Migration won't affect existing API access to data. After migration, you can access data directly from a workspace by using a [slightly different schema](#workspace-based-resource-changes).
+No. Migration doesn't affect existing API access to data. After migration, you can access data directly from a workspace by using a [slightly different schema](#workspace-based-resource-changes).
 
-### Will there be any impact on Live Metrics or other monitoring experiences?
+### Is there be any impact on Live Metrics or other monitoring experiences?
 
 No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 
@@ -312,7 +317,7 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
     ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
 
-   - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings won't be saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
+   - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings aren't saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
 
    - After you've successfully migrated your Application Insights resource to workspace based, you can use diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostics settings** > **Add diagnostic setting** in your Application Insights resource. You can select all tables, or a subset of tables, to archive to a storage account or stream to Azure Event Hubs. For more information on diagnostic settings, see the [Azure Monitor diagnostic settings guidance](../essentials/diagnostic-settings.md).
 
@@ -322,7 +327,7 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
 You don't have to make any changes prior to migrating. This message alerts you that your current Application Insights retention settings aren't set to the default 90-day retention period. This warning message means you might want to modify the retention settings for your Log Analytics workspace prior to migrating and starting to ingest new data.
 
-You can check your current retention settings for Log Analytics under **General** > **Usage and estimated costs** > **Data Retention** in the Log Analytics UI. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
+You can check your current retention settings for Log Analytics under **Settings** > **Usage and estimated costs** > **Data Retention** in the Log Analytics UI. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
 ## Workspace-based resource changes
 
@@ -566,7 +571,7 @@ Legacy table: customMetrics
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 |value|real|(removed)||
-|valueCount|int|ValueCount|int|
+|valueCount|int|ItemCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
 |valueSum|real|ValueSum|real|

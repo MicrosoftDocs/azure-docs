@@ -246,7 +246,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
 1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), and then do the following:
 
-   a. Sign in to the Microsoft Graph Explorer site with the Global Admin or Co-admin credentials for your tenant.
+   a. Sign in to the Microsoft Graph Explorer site with the Global Administrator or Co-admin credentials for your tenant.
 
    b. You need sufficient permissions to create the roles. Select **modify permissions**.
 

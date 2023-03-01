@@ -72,9 +72,9 @@
       - name: ECasv5 and ECadsv5-series
         href: ../virtual-machines/ecasv5-ecadsv5-series.md
       - name: Pricing
-        href: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+        href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
-        href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machine
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
   - name: Virtual Machines with App Enclaves
     items:
     - name: App enclaves overview

@@ -2,9 +2,7 @@
 title: 'Upload or download files using a native client connection'
 titleSuffix: Azure Bastion
 description: Learn how to upload or download files using Azure Bastion and a native client when connected to a VM using Azure Bastion.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 03/17/2022
@@ -54,7 +52,7 @@ The steps in this section apply when connecting to a target VM from a Windows lo
 ## <a name="tunnel-command"></a>Upload files - SSH and RDP
 
 The steps in this section apply to native clients other than Windows, as well as Windows native clients that want to connect over SSH to upload files.
-This section helps you upload files from your local computer to your target VM over SSH or RDP using the **az network bastion tunnel** command. This command doesn't support file download from the target VM to your local computer. To learn more about the tunnel command and how to connect, see [Connect to a VM using a native client](connect-native-client-windows.md).
+This section helps you upload files from your local computer to your target VM over SSH or RDP using the **az network bastion tunnel** command. To learn more about the tunnel command and how to connect, see [Connect to a VM using a native client](connect-native-client-windows.md).
 
 > [!NOTE]
 > This command can be used to upload files from your local computer to the target VM. File download is not supported.

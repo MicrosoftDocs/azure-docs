@@ -177,7 +177,7 @@ The following sample code shows you how to send a message to a queue. Open your 
                 # send a batch of messages
                 await send_batch_message(sender)
     
-        # Close credential when no longer needed.
+            # Close credential when no longer needed.
             await credential.close()
     ```
 
@@ -323,7 +323,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
                         # complete the message so that the message is removed from the queue
                         await receiver.complete_message(msg)
     
-        # Close credential when no longer needed.
+            # Close credential when no longer needed.
             await credential.close()
     ```
 

@@ -72,12 +72,50 @@ Now we'll walk through each step:
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
-## Single-factor certificate-based authentication
+## Certificate-based authentication is MFA capable
 
-Azure AD CBA supports second factors to meet MFA requirements with single-factor certificates. Users can use either passwordless sign-in or FIDO2 security keys as second factors when the first factor is single-factor CBA. Users need to register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
+Azure AD CBA is an MFA (Multi factor authentication) capable method, that is Azure AD CBA can be either Single (SF) or Multi-factor (MF) depending on the tenant configuration. Enabling CBA for a user indicates the user is potentially capable of MFA. This means a user may need additional configuration to get MFA and proof up to register other authentication methods when the user is in scope for CBA.
+
+If CBA enabled user only has a Single Factor (SF) certificate and need MFA
+   1. Use Password + SF certificate.
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user has not yet been issued a certificate and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. User Register another MFA method (when user can use MF cert)
+   1. Use Password + MF cert (when user can use MF cert)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user
+
+
+## MFA with Single-factor certificate-based authentication
+
+Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. The supported combintaions are
+
+CBA (first factor) + passwordless phone sign-in (PSI as second factor)
+CBA (first factor) + FIDO2 security keys
+Password (first factor) + CBA (second factor) 
+
+Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
+
+>[!IMPORTANT]
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+
+**Steps to set up passwordless phone signin(PSI) with CBA**
+
 For passwordless sign-in to work, users should disable legacy notification through mobile app.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
+
+   >[!IMPORTANT]
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA.
+
 1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/configure.png" alt-text="Screenshot of how to configure multifactor authentication settings.":::

@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
     [!INCLUDE [azure-subscription-permissions](../../common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
     
     [!INCLUDE [install-docker-prompt](../../common-includes/install-docker-prompt.md)]   
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)

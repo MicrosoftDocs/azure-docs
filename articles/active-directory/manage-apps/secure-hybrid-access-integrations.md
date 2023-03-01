@@ -255,7 +255,7 @@ After the SaaS applications are registered in Azure AD, the applications need to
 
 ### Connect apps to Azure AD with legacy authentication
 
-Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply Azure AD Conditional Access policies. Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
+Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply [Azure AD Conditional Access policies](../conditional-access/overview.md). Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
 
 #### Create a SAML application registration
 
@@ -355,10 +355,10 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply Conditional Access policies to customer applications. For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
 
-- Assign the application to a Conditional Access policy
-- Create a new Conditional Access policy and assign the application to it
+- [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
+- [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
 
 #### Use a Conditional Access policy
 

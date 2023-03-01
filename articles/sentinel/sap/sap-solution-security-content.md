@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Solution for SAP - security content reference | Microsoft Docs
-description: Learn about the built-in security content provided by the Microsoft Sentinel Solution for SAP.
+title: Microsoft Sentinel solution for SAP® applications - security content reference | Microsoft Docs
+description: Learn about the built-in security content provided by the Microsoft Sentinel solution for SAP® applications.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
@@ -8,14 +8,14 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 04/27/2022
 ---
 
-# Microsoft Sentinel Solution for SAP: security content reference
+# Microsoft Sentinel solution for SAP® applications: security content reference
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article details the security content available for the Microsoft Sentinel Solution for SAP.
+This article details the security content available for the Microsoft Sentinel solution for SAP® applications.
 
 > [!IMPORTANT]
-> While the Microsoft Sentinel Solution for SAP is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> While the Microsoft Sentinel solution for SAP® applications is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 Available security content includes built-in workbooks and analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
@@ -32,13 +32,13 @@ Use the following built-in workbooks to visualize and monitor data ingested via 
 | **SAP - Persistency &  Data Exfiltration** | Displays data such as: <br><br>Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br><br> Insecure operations, including both function modules and programs <br><br>Direct access to sensitive tables | Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log-preview)<br><br>[ABAPSpoolLog_CL](sap-solution-log-reference.md#abap-spool-log)<br><br>[ABAPSpoolOutputLog_CL](sap-solution-log-reference.md#apab-spool-output-log)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
 
 
-For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md).
+For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
 
 ## Built-in analytics rules
 
 ### Built-in SAP analytics rules for monitoring the SAP audit log
 
-The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel Solution for SAP. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
+The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel solution for SAP® applications. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
 In addition, there are two analytics rules which are designed to accommodate the entire set of standard SAP audit log events (183 different events), and any other custom events you may choose to log using the SAP audit log.
 
 Both SAP audit log monitoring analytics rules share the same data sources and the same configuration but differ in one critical aspect. While the “SAP - Dynamic Deterministic Audit Log Monitor” requires deterministic alert thresholds and user exclusion rules, the “SAP - Dynamic Anomaly-based Audit Log Monitor Alerts (PREVIEW)” applies additional machine learning algorithms to filter out background noise in an unsupervised manner. For this reason, by default, most event types (or SAP message IDs) of the SAP audit log are being sent to the "Anomaly based" analytics rule, while the easier to define event types are sent to the deterministic analytics rule. This setting, along with other related settings, can be further configured to suit any system conditions. 
@@ -59,7 +59,7 @@ Learn more:
 - [Configure the rule with the SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](#available-watchlists) 
 - Learn more about how to [configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842#feedback-success) (full procedure)
 
-The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel Solution for SAP, deployed from the Microsoft Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel solution for SAP® applications, deployed from the Microsoft Sentinel Solutions marketplace.
 
 ### Built-in SAP analytics rules for initial access
 
@@ -149,9 +149,9 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 
 ## Available watchlists
 
-The following table lists the [watchlists](deploy-sap-security-content.md) available for the Microsoft Sentinel Solution for SAP, and the fields in each watchlist.
+The following table lists the [watchlists](deploy-sap-security-content.md) available for the Microsoft Sentinel solution for SAP® applications, and the fields in each watchlist.
 
-These watchlists provide the configuration for the Microsoft Sentinel Solution for SAP. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
+These watchlists provide the configuration for the Microsoft Sentinel solution for SAP® applications. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
 | Watchlist name | Description and fields |
 | --------- | --------- |
@@ -180,9 +180,9 @@ These watchlists provide the configuration for the Microsoft Sentinel Solution f
 
 For more information, see:
 
-- [Deploying Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Solution for SAP logs reference](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

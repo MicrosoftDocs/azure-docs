@@ -62,12 +62,10 @@ items:
     href: concept-fundamentals-mfa-get-started.md
   - name: Identity secure score
     href: identity-secure-score.md
-  - name: Secure remote workers
+  - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
     href: five-steps-to-full-application-integration-with-azure-ad.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -87,6 +85,8 @@ items:
     items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
+    - name: What's deprecated in Azure Active Directory?
+      href: whats-deprecated-azure-ad.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
@@ -98,6 +98,10 @@ items:
     items:
     - name: Azure AD and data residency
       href: azure-ad-data-residency.md
+    - name: Data operational considerations
+      href: data-operational-considerations.md
+    - name: Data protection considerations
+      href: data-protection-considerations.md
     - name: Customer data storage and processing for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
@@ -163,30 +167,34 @@ items:
         href: multi-tenant-common-considerations.md
       - name: Common solutions
         href: multi-tenant-common-solutions.md
-    - name: Authentication and provisioning protocols
+    - name: Authentication protocols
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: SAML authentication
+        href: auth-saml.md
+      - name: Open ID Connect authentication
+        href: auth-oidc.md
+      - name: OAuth 2.0 authentication
+        href: auth-oauth2.md
       - name: Header-based authentication
         href: auth-header-based.md
       - name: LDAP authentication
         href: auth-ldap.md
-      - name: OAuth 2.0 authentication
-        href: auth-oauth2.md
-      - name: Open ID Connect authentication
-        href: auth-oidc.md
       - name: Password-based authentication
         href: auth-password-based-sso.md
       - name: RADIUS authentication
         href: auth-radius.md
       - name: Remote desktop gateway authentication
         href: auth-remote-desktop-gateway.md
-      - name: SAML authentication
-        href: auth-saml.md
       - name: SSH authentication
         href: auth-ssh.md
       - name: Windows authentication - KCD
         href: auth-kcd.md
+    - name: Provisioning protocols
+      items:
+      - name: Overview
+        href: auth-prov-overview.md
       - name: Directory synchronization
         href: sync-directory.md
       - name: LDAP synchronization

@@ -2,13 +2,11 @@
 title: 'View BGP status and metrics'
 titleSuffix: Azure VPN Gateway
 description: Learn how to view important BGP-related information for troubleshooting.
-services: vpn-gateway
-author: anzaman
-
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 03/10/2021
-ms.author: alzam 
+ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---

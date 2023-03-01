@@ -2,8 +2,8 @@
 title: REST SDK Developer Guide
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the various SDK Developer how-to articles.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -30,7 +30,6 @@ Azure Maps C# SDK supports any .NET version that is compatible with [.NET standa
 For more information, see the [C# SDK Developers Guide](how-to-dev-guide-csharp-sdk.md).
 
 ## Python  SDK
-
 Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure SDK for Python policy planning][Python-version-support-policy] for more details on future Python versions.
 
 | Service Name  | PyPi package            |  Samples     |
@@ -48,8 +47,10 @@ Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js]
 
 | Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
+| [Search][js search readme] | [@azure-rest/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
+| [Render][js render readme] | [@azure-rest/maps-render][js render package]|[render sample][js render sample] |
+| [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
 
 For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).
 
@@ -63,10 +64,10 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
-| [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
+| [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
+| [Elevation][java elevation readme] | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
-<!--For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).-->
+For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).
 
 <!--  C# SDK Developers Guide  --->
 [Rest API]: /rest/api/maps/
@@ -101,17 +102,21 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 
 <!--  JavaScript/TypeScript SDK Developers Guide  --->
 [Node.js]: https://nodejs.org/en/download/
-[js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
-[js search package]: https://www.npmjs.com/package/@azure/maps-search
-[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta/javascript
+[js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
+[js search package]: https://www.npmjs.com/package/@azure-rest/maps-search
+[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta/javascript
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
 [js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
 
-[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
-[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
-[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
+[js render readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-render-rest/README.md
+[js render package]: https://www.npmjs.com/package/@azure-rest/maps-render
+[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v1-beta
+
+[js Geolocation readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-geolocation-rest/README.md
+[js Geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation
+[js Geolocation sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-geolocation-rest/samples/v1-beta
 
 <!--  Java SDK Developers Guide  --->
 [Java 8]: https://www.java.com/en/download/java8_update.jsp

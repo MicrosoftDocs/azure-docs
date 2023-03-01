@@ -1,5 +1,5 @@
 items:
-- name: Azure OpenAI Documentation
+- name: Azure OpenAI Service Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -8,6 +8,8 @@ items:
       href: overview.md
     - name: Quotas and limits
       href: quotas-limits.md
+    - name: Models
+      href: ./concepts/models.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
@@ -16,8 +18,6 @@ items:
   href: quickstart.md
 - name: Concepts
   items:
-    - name: Azure OpenAI models
-      href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
@@ -44,6 +44,10 @@ items:
       href: encrypt-data-at-rest.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
+    - name: Monitor Azure OpenAI
+      href: ./how-to/monitoring.md
+    - name: Plan and manage costs
+      href: ./how-to/manage-costs.md
 - name: Tutorials
   items:
     - name: Embeddings
@@ -72,10 +76,14 @@ items:
   items: 
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
+    - name: Intro to Azure OpenAI training
+      href: /training/modules/explore-azure-openai/
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
       href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
+    - name: Azure compliance offerings
+      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     
 
 

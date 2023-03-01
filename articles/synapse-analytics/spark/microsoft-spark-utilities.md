@@ -122,7 +122,7 @@ var blob_relative_path = "";  // replace with your relative folder path
 var linked_service_name = "";    // replace with your linked service name
 var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
 
-spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+spark.Conf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
 
 var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
 

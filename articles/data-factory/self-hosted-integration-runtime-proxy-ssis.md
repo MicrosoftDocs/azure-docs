@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 08/18/2022
+ms.date: 02/28/2023
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
@@ -180,6 +180,7 @@ If you need to access data stores that have been configured to use only the stro
 - Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
 - Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview blob container. Using Azure Storage Explorer, you can connect to our public preview blob container by entering the above SAS URI.
+- To enable/disable SSIS package executions on self-hosted integration runtime nodes, please refer to this document [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell) to manage self-hosted IR via powershell. ExecuteSsisPackage property is true by default if self-hosted IR upgrades to the version equal to or higher than 5.28.0. If self-hosted IR is newly installed with a version equal to or higher than 5.28.0, then ExecuteSsisPackage property is by default false.
 
 ## Next steps
 
