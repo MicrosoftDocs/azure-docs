@@ -177,7 +177,7 @@ Initiatives are collections of policies. There are three initiatives for Azure M
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
 
-### [Azure portal](#tab/portal1)
+### [Azure portal](#tab/portal)
 
 1. From the policy **Definitions** page, select your scope.
 
@@ -211,7 +211,7 @@ Change the default name in the **Parameters** tab of the **Assign initiative** o
 
 :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
 
-### [PowerShell](#tab/Powershell1)
+### [PowerShell](#tab/Powershell)
 
 
 1. Set up your environment variables
@@ -267,10 +267,27 @@ You can get your policy assignment details using the following command:
     $policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
   ```
 
+### [CLI](#tab/cli)
+
+Log in to your Azure account using the `az login` command.
+Select the subscription where you want to apply the policy initiative using the `az account` set command.
+
+az policy assignment create --name <my-policy-assignment> --policy my-policy-initiative --scope /subscriptions/<subscription-id>
+
+Assign the initiative.
+
+```azurecli
+az policy assignment create --name <assignment name> --resource-group <resource group name> --policy-set-definition <initiative name> --params <parameters object> --mi-system-assigned --location <location>
+```
+for example:
+```azurecli
+az policy assignment create --name "my assignment" --resource-group "rg-001" --policy-set-definition 'f5b29bc4-feca-4cc6-a58a-772dd5e290a5' --params '{"logAnalytics":{"value":"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001/providers/microsoft.operationalinsights/workspaces/rg-001-workspace"}, "diagnosticSettingName":{"value":"AssignedByMyAssignment"}}' --mi-system-assigned --location eastus
+```
+Remediate the resources
+you can find the definition-reference-id in the initiative definition.
+az policy remediation create -g "ed-cli-initiative-01" --policy-assignment ed-cli-assignment-03 --name "rem-ed-cli-assignment-03" --definition-reference-id  "keyvault-vaults"  --resource-discovery-mode ReEvaluateCompliance
+
 ---
-
-
-
 
 
 ## Common parameters
