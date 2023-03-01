@@ -43,7 +43,7 @@ This article details some best practices when using Durable Functions. It also d
 
     The only exception is if you deploy *copies* of the same app in multiple regions; in this case, you can use the same task hub for the copies. 
 
-- **Handle versioning correctly**
+- **Handle code changes correctly**
 
     It's inevitable that functions will be added, removed, and changed over the lifetime of an application. Examples of [common breaking changes](durable-functions-versioning.md) include changing activity or entity function signatures and changing orchestrator logic. These changes are a problem when they affect workflows that are still in process. If deployed incorrectly, they could lead to orchestrations failing with non-deterministic error, getting stuck indefinitely, performance degradation, etc. Refer to recommended [mitigation strategies](durable-functions-versioning.md#mitigation-strategies) when dealing with breaking changes. 
 
