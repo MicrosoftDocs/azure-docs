@@ -28,7 +28,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](/azure/azure-functions/functions-reference-python.md?pivots=python-mode-decorators).
+> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
 >
 > In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
 

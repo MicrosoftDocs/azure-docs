@@ -12,10 +12,6 @@ ms.author: tarcher
 
 This article shows how to use Terraform to create a Windows Server 2019 Datacenter virtual machine in a lab within [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) using [Terraform](/azure/developer/terraform).
 
-
-This quickstart uses Bicep to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
-
-
 In this article, you learn how to:
 
 > [!div class="checklist"]

@@ -28,12 +28,14 @@ Versioning with Lifecycle Workflows provides many benefits over the alternative 
 
 ## Workflow properties and versions
 
-While updates to workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows, known as basic properties, that can be updated without a new version of the workflow being created. The list of these parameters are as follows:
+While updates to workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows known as basic properties, that 's changeable without creating a new version of the workflow. The list of these parameters are as follows:
 
 - displayName     
 - description    
 - isEnabled    
 - IsSchedulingEnabled  
+- task name
+- task description
 
 
 You'll find these corresponding parameters in the Azure portal under the **Properties** section of the workflow you're updating.
