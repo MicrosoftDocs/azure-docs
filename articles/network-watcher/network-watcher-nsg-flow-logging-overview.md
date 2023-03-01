@@ -14,7 +14,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Flow logs for network security groups
 
-NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group (NSG)](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage accounts. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group (NSG)](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it as well as export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 :::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
 
@@ -73,7 +73,7 @@ Core concepts for flow logs include:
 
 NSG flow logs include the following properties:
 
-* `time`: Time when the event was logged.
+* `time`: Time in UTC when the event was logged.
 * `systemId`: System ID of the network security group.
 * `category`: Category of the event. The category is always `NetworkSecurityGroupFlowEvent`.
 * `resourceid`: Resource ID of the network security group.
@@ -84,23 +84,23 @@ NSG flow logs include the following properties:
         * `rule`: Rule for which the flows are listed.
             * `flows`: Collection of flows.
                 * `mac`: MAC address of the NIC for the VM where the flow was collected.
-                * `flowTuples`: String that contains multiple properties for the flow tuple in comma-separated format:
-                    * `Time Stamp`: Time stamp of when the flow occurred, in UNIX epoch format.
+                * `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
+                    * `Time stamp`: Time stamp of when the flow occurred in UNIX epoch format.
                     * `Source IP`: Source IP address.
                     * `Destination IP`: Destination IP address.
-                    * `Source Port`: Source port.
-                    * `Destination Port`: Destination port.
+                    * `Source port`: Source port.
+                    * `Destination port`: Destination port.
                     * `Protocol`: Protocol of the flow. Valid values are `T` for TCP and `U` for UDP.
-                    * `Traffic Flow`: Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound.
-                    * `Traffic Decision`: Whether traffic was allowed or denied. Valid values are `A` for allowed and `D` for denied.
+                    * `Traffic flow`: Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound.
+                    * `Traffic decision`: Whether traffic was allowed or denied. Valid values are `A` for allowed and `D` for denied.
                     * `Flow State - Version 2 Only`: State of the flow. Possible states are:
                         * `B`: Begin, when a flow is created. Statistics aren't provided.
                         * `C`: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals.
                         * `E`: End, when a flow is terminated. Statistics are provided.
-                    * `Packets - Source to destination - Version 2 Only`: Total number of TCP packets sent from source to destination since the last update.
-                    * `Bytes sent - Source to destination - Version 2 Only`: Total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload.
-                    * `Packets - Destination to source - Version 2 Only`: Total number of TCP packets sent from destination to source since the last update.
-                    * `Bytes sent - Destination to source - Version 2 Only`: Total number of TCP packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.
+                    * `Packets sent - Version 2 Only`: Total number of TCP packets sent from source to destination since the last update.
+                    * `Bytes sent - Version 2 Only`: Total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload.
+                    * `Packets received - Version 2 Only`: Total number of TCP packets sent from destination to source since the last update.
+                    * `Bytes received - Version 2 Only`: Total number of TCP packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.
 
 Version 2 of NSG flow logs introduces the concept of flow state. You can configure which version of flow logs you receive.
 
@@ -511,5 +511,5 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 
 ## Next steps
 
-- Learn how to [Log network traffic to and from a virtual machine using the Azure portal](./network-watcher-nsg-flow-logging-portal.md)
+- Learn how to [Log network traffic to and from a virtual machine](./network-watcher-nsg-flow-logging-portal.md)
 - Learn how to [Read NSG flow logs](./network-watcher-read-nsg-flow-logs.md)
