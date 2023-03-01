@@ -22,7 +22,7 @@ Most non-.NET applications, unless they reference a .NET assembly that has all A
 ## Upgrade the Durable Functions extension 
 If upgrading the extension bundle did not resolve your problem, and you noticed a newer release of the Durable Functions extension containing a potential fix to your problem, then you could try to manually upgrade the extension itself. 
 
-First, remove from your host.json the section about extension bundle. 
+First, remove the `extensionBundle` section from your host.json file.
 
 Then run the following to upgrade the Durable Functions extension:
 
