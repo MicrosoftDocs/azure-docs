@@ -38,17 +38,11 @@ If both auto-instrumentation monitoring and manual SDK-based instrumentation are
 > [!NOTE]
 > Snapshot Debugger and Profiler are only available in .NET and .NET Core.
 
-## Release notes for Azure Web App extension for Application Insights
+## Release notes
 
-This section contains the release notes for Azure Web Apps Extension for runtime instrumentation with Application Insights. It's applicable only for pre-installed extensions.
+This section contains the release notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 
-### Frequently asked questions
-
-- How to find which version of the extension I'm currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit the step by step troubleshooting guide for extension/agent based monitoring for [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting), or [Node.js](./azure-web-apps-nodejs.md#troubleshooting) ) for more information.
-
-- What if I'm using private extensions?
-    - Uninstall private site extensions since it's no longer supported.
+To find which version of the extension you're currently using, go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`.
 
 ### Release notes
 
