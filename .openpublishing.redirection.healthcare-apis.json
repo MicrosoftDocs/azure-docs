@@ -667,7 +667,7 @@
       },
       {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
-          "redirect_document_id": false
+          "redirect_document_id": true
       }
     ]
   }
