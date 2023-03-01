@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 03/01/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -29,9 +29,11 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change: March 2023**
 
-The recommendation "Machines should be configured securely" is going to be upgraded on March 20th to improve its performance and stability, and to align its experience with the generic behavior of MDC recommendations.
-As part of this update, the recommendation's ID will be changed from "181ac480-f7c4-544b-9865-11b8ffe87f47" to "c476dc48-8110-4139-91af-c8d940896b98".
-No action is required on the customer side, and there is no expected downtime nor impact on the secure score.
+The recommendation `Machines should be configured securely` is set to be updated. This update will improve the performance and stability of the recommendation and align its experience with the generic behavior of Defender for Cloud's recommendations.
+
+As part of this update, the recommendation's ID will be changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
+
+No action is required on the customer side, and there's no expected downtime nor impact on the secure score.
 
 
 ### Three alerts in Defender for Azure Resource Manager plan will be deprecated
@@ -45,7 +47,7 @@ As we continue to improve the quality of our alerts, the following three alerts 
 
 You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
 
-In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for Azure Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
+In the scenario where an activity from a suspicious IP address is detected, one of the following Defenders for Azure Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
 
 ### Alerts automatic export to Log Analytics workspace will be deprecated
 
@@ -76,7 +78,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 ### Deprecation of App Service language monitoring policies
 
-The following App Service language monitoring policies are set to be deprecated because they are only scoped to Linux apps. Additionally, their monitoring capabilities are not fully accurate. This has led to false-negatives and inaccurate compliance scores.
+The following App Service language monitoring policies are set to be deprecated because they're only scoped to Linux apps. Additionally, their monitoring capabilities aren't fully accurate. This has led to false-negatives and inaccurate compliance scores.
 
 | Policy name | Policy ID |
 |--|--|
@@ -88,7 +90,7 @@ The following App Service language monitoring policies are set to be deprecated 
 
 Customers that rely on these policies to check for the latest language version for their App Services, need to find a different solution to confirm that their apps are using the intended language version. 
 
-Defender for Cloud will be adding built-in policies that will allow customers to specify the language version their apps are using, which in some cases may not even be the latest version. The new policies will have similar names to the ones that are being deprecated, however the text will change from `use the latest` to `use a specified`.  
+Defender for Cloud will have built-in policies available that can be used to monitor a specified version. However, Defender for Cloud won't add these as built-in recommendations. Customers will have the ability to assign them as policies, or add them to Defender for Cloud as part of a custom initiative.
 
 ### Multiple changes to identity recommendations
 
