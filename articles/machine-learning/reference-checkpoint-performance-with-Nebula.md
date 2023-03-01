@@ -9,156 +9,175 @@ ms.custom: ----, ----, ----
 
 author: ziqiwang
 ms.author: ziqiwang
-ms.date: 02/16/2023
+ms.date: 02/28/2023
 ms.reviewer: franksolomon
 ---
 
 # Large-model Checkpoint Optimization Matters
 
---> CORRECT INCLUDE(S) TBD
-
-Learn how to boost checkpoint speed and shrink checkpoint cost for large Azure ML training models.
+Learn how to boost checkpoint speed and shrink checkpoint cost for large Azure Machine Learning training models.
 
 ## Overview
 
-The Azure Container for PyTorch (ACPT) now offers **Nebula**, a fast, disk-less, model-aware checkpointing method. Nebula offers simple, high-speed checkpointing for large model training jobs. It levers the latest distributed computing technologies to boost checkpoint speeds hundreds to thousands of times faster compared to conventional checkpointing methods. Nebula can reduce checkpoint operation time from hours to seconds. In some cases, checkpoint time can shrink by 95% to as much as 99.5%.
+Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk-less, model-aware checkpoint tool. With Nebula, you can checkpoint distributed large-scale model training jobs with PyTorch. Nebula levers the latest distributed computing technologies to shrink checkpoint times from hours to seconds - a potential 95% to 99.9% time savings. Large-scale training jobs especially benefit from Nebula checkpoint performance.
 
-The Nebula API also offers a simple way to monitor and view checkpointing lifecycles. This API supports various model types, and ensures checkpoint consistency and reliability.  
+To make Nebula available for your training jobs, import the `torch_nebula` python package in your script. Nebula has full compatibility with different distributed PyTorch training strategies, including PyTorch Lightning, DeepSpeed, and more. The Nebula API offers a simple way to monitor and view checkpoint lifecycles. The APIs support various model types, and ensure checkpoint consistency and reliability.  
 
-In this document, you'll learn how to use Nebula with ACPT on Azure ML, to quickly checkpoint your model training jobs. Additionally, you'll learn how to view and manage Nebula checkpoint data. You'll also learn how to resume the model training jobs from the last available checkpoint if Azure ML suffers interruption, failure, or termination.
+> [!IMPORTANT] 
+> The `torch-nebula` package is not available in the public PyPI python package index. This package is only available in the Azure Machine Learning ACPT. To avoid problems, please don't try to install `torch-nebula` from PyPI, or the `pip` command.
+
+In this document, you'll learn how to use Nebula with ACPT on Azure Machine Learning, to quickly checkpoint your model training jobs. Additionally, you'll learn how to view and manage Nebula checkpoint data. You'll also learn how to resume the model training jobs from the last available checkpoint if Azure Machine Learning suffers interruption, failure, or termination.
+
+> [!NOTE]
+> Nebula is currently under preview. This means Nebula is not production-ready. At this time, Nebula has no support as a generally-available product. Nebula will have constant updates and improvements to its functions and features. Feel free to offer feedback and suggestions to us at nebulasupport@microsoft.com.
+>
+> Please visit [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) to learn more.
 
 ## Why checkpoint optimization for large model training matters
 
-Machine learning models have become more complex because of the format and growing size of data. Training these complex models can become challenging because of GPU memory capacity limits and lengthy training times. As a result, training complex models on large datasets usually involves distributed training. However, distributed architectures often enough have faults and node failures. These faults and node failures become increasingly painful as the machine learning model node counts increase.
+Machine learning models have become more complex because of growing volumes of data, and the format of that data. Training these complex models can become challenging because of GPU memory capacity limits and lengthy training times. As a result, complex model training, on large datasets, usually involves distributed training. However, distributed architectures often have unexpected faults and node failures. These faults and node failures become increasingly painful as the machine learning model node counts increase.
 
-Checkpointing can help deal with these problems. Checkpoint periodically snapshots the complete model state at a given time. After a failure, the system can use that snapshot to rebuild the model in its state at the time of the snapshot. The training process can then resume at a given epoch.
+Checkpoints can help deal with these problems. Periodic checkpoints snapshot the complete model state at a given time. After a failure, the system can use that snapshot to rebuild the model in its state at the time of the snapshot. The training process can then resume at a given epoch.
 
-However, systems need heavy resources to save checkpoints. Research shows that on average, checkpointing-related overheads can take up to 12% of total training time, and sometimes as much as 43% [1]. Additionally, when training large models, like GPT-3, systems often save TB-scale checkpoints in a synchronized way. In these cases, serialization stops the training process for a long time - 1 to 2 hours, maybe more for mounted storage.
+When large model training operations experience failures and terminations, data scientists and researchers can restore the training process from a previously saved checkpoint. Unfortunately, the process between the checkpoint and the termination itself is wasted, because the computation must re-execute operations to cover the unsaved, intermediate results. Shorter checkpoint intervals could solve this problem. The following diagram shows the time cost to restore a training process from checkpoints:
 
-When large model training operations experience failures and terminations, data scientists and researchers can restore the training process from a previously saved checkpoint. Unfortunately, the process between the checkpoint and the termination itself is wasted, because the computation must re-execute operations to cover the unsaved, intermediate results.
+:::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time cost to restore a training process from checkpoints.":::
 
-To summarize, large model checkpoint management involves heavy job recover time and storage overheads.
+However, the checkpoint save process itself generates large overheads. A TB-sized checkpoint save can often become a training process bottleneck. The synchronized checkpoint process blocks the training process for hours. Checkpoint-related overheads can take up 12% of total training time, on average, and can rise to 43% [(Maeng et al., 2021)](https://cs.stanford.edu/people/trippel/pubs/cpr-mlsys-21.pdf).
 
-:::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time waste of duplicated data training.":::
+To summarize, large model checkpoint management involves heavy storage, and job recovery time overheads. Frequent checkpoint saves, combined with training job resumptions from the latest available checkpoints, become a great challenge.
 
 ## Nebula to the Rescue
 
-Nebula reduces checkpoint save and process recovery times, to reduce training GPU hour demands. In turn, this reduction helps shrinks large-scale model training time demands. We can expect Nebula to increase large model training process resilience and stability after a training process failure. Instead of a recovery process that restarts from the very beginning - the time when nodes experience failures - Nebula allows for a recovery from a more recent checkpoint. The recovery reduces both E2E training time, and AzureML GPU time resource demands when nodes fail.
+To train large, distributed models, a reliable and efficient way to save and resume training progress, that avoids data loss and resource waste, becomes helpful. Nebula reduces checkpoint save times and training GPU hour demands. For large model Azure Machine Learning training jobs, Nebula offers faster and easier checkpoint management and saves. In turn, it helps shrink large-scale model training time demands.
 
 Nebula can
 
-* **Boost checkpoint speeds as much as 1000 times** with a simple API that asynchronously works with your training process. Nebula can reduce checkpoint times from hours to seconds - a potential reduction of 95% to 99.5%.
+* **Boost checkpoint speeds as much as 1000 times** with a simple API that asynchronously works with your training process. Nebula can reduce checkpoint times from hours to seconds - a potential reduction of 95% to 99%.
 
-:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" lightbox="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" alt-text="Screenshot that shows the time savings benefit of Nebula.":::
+  :::image type="content" source="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" lightbox="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" alt-text="Screenshot that shows the time savings benefit of Nebula.":::
 
-* **Shrink end-to-end training time and computation costs**. Nebula can help you complete large-scale model training jobs faster and cheaper by reducing checkpoint and recovery time demands.
+  This example shows the reduction of checkpoint and end-to-end training time needed for four checkpoint saves of Huggingface GPT2, GPT2-Large, and GPT-XL training jobs. For the medium-sized Huggingface GPT2-XL checkpoint saves (20.6 GB), Nebula achieved a 96.9% time reduction for one checkpoint.
+  
+  The checkpoint speed gain can still increase with model size and GPU numbers. For example, testing a training point checkpoint save of 97 GB on 128 A100 Nvidia GPUs can shrink from 20 minutes to 1 second.
 
-* **Reduce large model training costs** through checkpoint overhead reduction, and reduction of GPU hours wasted on job recovery. Nebula allows more frequent checkpoint saves, with zero effect on your training process or training accuracy. You can resume your training from the latest checkpoint if the training process suffers an interruption, and you'll save time and money.
+* **Reduce end-to-end large model training time and computation costs** through checkpoint overhead reduction, and reduction of GPU hours wasted on job recovery. Nebula saves checkpoints asynchronously, and unblocks the training process, to shrink the end-to-end training time. It also allows for more frequent checkpoint saves. This way, you can resume your training from the latest checkpoint after any interruption, and save time and money wasted on job recovery and GPU training hours.
 
-* **Provide a more stable and resilient experience** training large models on Azure Machine Learning. Nebula avoids data loss and resource waste due to interruptions, which can improve the reliability and performance of your training process.
+* **Provide full compatibility in PyTorch**. Nebula offers full compatibility with PyTorch, and offers full integration with distributed training frameworks, including DeepSpeed (>=0.7.3), and PyTorch-Lightning (>=1.5.0). You can also use it with different Azure Machine Learning compute targets, such as AmlCompute or AKS.
 
-* **Easily manage your checkpoints** with a Python package that helps list, get, save and load your checkpoints. To show the checkpointing lifecycle, Nebula also provides more comprehensive logs on Azure Machine Learning studio. You can choose to save your checkpoints to a local or remote storage location
+* **Easily manage your checkpoints** with a Python package that helps list, get, save and load your checkpoints. To show the checkpoint lifecycle, Nebula also provides comprehensive logs on Azure Machine Learning studio. You can choose to save your checkpoints to a local or remote storage location
 
   - Azure Blob Storage
   - Azure Data Lake Storage
   - NFS
 
-and access them at any time with a few lines of code.
+  and access them at any time with a few lines of code.
 
-  **LARGER img-3 VERSION NEEDED**
+THIS DOCUMENT ALREADY USED THESE IMAGES:
 
-:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-3.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-3.png" alt-text="LARGER img-3 VERSION NEEDED":::
+  The following images show the Nebula checkpointing lifecycle on Azure Machine Learning studio as an example.
 
-  **LARGER img-4 VERSION NEEDED**
-
-:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-4.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-4.png" alt-text="LARGER img-4 VERSION NEEDED":::
-
-
-  **LARGER img-5 VERSION NEEDED**
-
-:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-5.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-5.png" alt-text="LARGER img-5 VERSION NEEDED":::
-
-Nebula offers full compatibility with any distributed training framework that supports PyTorch, and any compute target that supports ACPT. Nebula is designed to work with different distributed training strategies. You can use Nebula with PyTorch, PyTorch Lightning, DeepSpeed, and more. You can also use it with different Azure Machine Learning compute target, such as AmlCompute or AKS.
+  ![image](https://user-images.githubusercontent.com/42362331/220549552-5a6b4ec7-c422-4cf6-87f9-29ae9570e097.png)
+  ![image](https://user-images.githubusercontent.com/42362331/220549754-506f0352-a8e2-4942-bdbc-319c26dae85a.png)
 
 ## Prerequisites
 
-* An Azure subscription and an Azure ML workspace. See [Create workspace resources](./quickstart-create-resources.md) for more information about workspace resource creation
+* An Azure subscription and an Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md) for more information about workspace resource creation
+* An Azure Machine Learning compute target. See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
+* A training script that uses **PyTorch**.
+* ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to obtain the ACPT image. Learn how to use the curated environment [here](./how-to-use-environments.md)
+* An Azure Machine Learning script run configuration file. If you don’t have one, you can follow [this resource](./how-to-set-up-training-targets.md)
 
-* An Azure ML compute target
-  - VM
-  - cluster
-  - instance
+## How to Use Nebula
 
-  See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
+Nebula provides a fast, easy checkpoint experience, right in your existing training script.
+Nebula use involves:
+- [The ACPT environment](#using-acpt-environment)
+- [Nebula initialization](#initializing-nebula)
+- [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
-* The required dependency included in an ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to obtain the ACPT image. Learn how to use the curated environment [here](./how-to-use-environments.md)
+### Using ACPT environment
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](https://learn.microsoft.com/en-us/azure/machine-learning/resource-curated-environments#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+            
+### Initializing Nebula
 
-* An Azure ML script run configuration file, which defines the
-- source directory
-- the entry script
-- environment
-- compute target
-for your model training job. To create a compute target, see [this resource](./how-to-set-up-training-targets.md)
+To enable Nebula in the ACPT environment, you must only modify your training script to import the `torch_nebula` package, and then call the Nebula APIs in the appropriate places. That's it. You can avoid Azure Machine Learning SDK or CLI modification. You can also avoid modification of other steps to train your large model on Azure Machine Learning Platform.
 
-## Save Nebula checkpoints
+Nebula needs initialization to run in your training script. At the initialization phase, specify the variables that determine the checkpoint save location and frequency, as shown in this code snippet:
 
-To save checkpoints with Nebula, you must modify your training scripts in two ways. That's it:
+```python
+  import torch_nebula as tn
+  tn.init(persistent_storage_path=<YOUR STORAGE PATH>) # initialize Nebula
+```
 
-* Initialize Nebula
+We plan to integrate Nebula into some trainers, to make initialization simple and easy. If you use a distributed trainer like DeepSpeed, or PyTorch Lightning, this process becomes easier. See these [examples](#examples) to learn how to integrate Nebula in your training scripts.
 
-    At the initialization phase, specify the variables that determine the checkpoint save location and frequency. A distributed trainer - like DeepSpeed - makes this process easier.
+### Call APIs to save and load checkpoints
 
-* Call the save APIs to save the checkpoints
+Nebula provides APIs to handle checkpoint saves. You can use these APIs in your training scripts, similar to the PyTorch `torch.save()` API. These [examples](#examples) show how to use Nebula in your training scripts.
 
-    Similar to the way that the PyTorch `torch.save()` API works, Nebula provides checkpoint save APIs that you can use in your training scripts.
+### View your checkpointing histories
+When your training job finishes, navigate to the Job `Name> Outputs + logs` pane. In the left panel, expand the **Nebula** folder, and select checkpointHistories.csv. This shows detailed information about Nebula checkpoint saves - duration, throughput, and checkpoint size.
 
-You don't need to modify other steps to train your large model on Azure Machine Learning Platform. You only need to use the [Azure Container PyTorch (ACPT) curated environment](how-to-manage-environments-v2.md?tabs=cli#curated-environments)
-
+:::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-save-metadata.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-save-metadata.png" alt-text="Screenshot that shows metadata about the checkpoint saves.":::
 
 ## Examples
 
-* Example 1 - natively use PyTorch
+These examples show how to use Nebula with different framework types. You can choose the example that best fits your training script.
 
-  To enable full Nebula compatibility with PyTorch-based training scripts, modify a few lines in your training script.
+# [Using PyTorch Natively](#tab/PYTORCH)
 
-  First, import the required `torch_nebula` package:
+To enable full Nebula compatibility with PyTorch-based training scripts, modify your training script as needed.
 
-  ```python
-    # Import the Nebula package for fast-checkpointing 
-    import torch_nebula as tn
-  ```
+1. First, import the required `torch_nebula` package:
 
-  To initialize Nebula, call the `tn.init()` function in `main()`, as shown here:
+```python
+  # Import the Nebula package for fast-checkpointing 
+  import torch_nebula as tn
+```
 
-  ```python  
-    # Initialize Nebula with variables that helps Nebula to know where and how often to save your checkpoints
-    persistent_storage_path="/tmp/test",
-    tn.init(persistent_storage_path, persistent_time_interval=2)
-  ```
+1. To initialize Nebula, call the `tn.init()` function in `main()`, as shown here:
 
-  After initialization, replace the original `torch.save()` statement to save your checkpoint with Nebula:
+```python  
+  # Initialize Nebula with variables that helps Nebula to know where and how often to save your checkpoints
+  persistent_storage_path="/tmp/test",
+  tn.init(persistent_storage_path, persistent_time_interval=2)
+```
 
-  ```python
-  checkpoint = tn.Checkpoint()
-  checkpoint.save(<'CKPT_NAME'>, model)
-  ```
+1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula:
 
-  You can use other APIs to handle checkpoint management
+```python
+checkpoint = tn.Checkpoint()
+checkpoint.save(<'CKPT_NAME'>, model)
+```
+> [!NOTE]
+> ``<'CKPT_TAG_NAME'>`` is the unique ID for the checkpoint. A tag is usually the number of steps, the epoch number, or any user-defined name. The optional ``<'NUM_OF_FILES'>`` optional parameter specifies the state number which you would save for this tag.
 
-  - list all checkpoints
-  - get latest checkpoints
+1. Load the latest valid checkpoint, as shown here:
 
-  ```python
-  # Managing checkpoints
-  ## List all checkpoints
-  ckpts = tn.list_checkpoints()
-  ## Get Latest checkpoint path
-  latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
-  ```
+```python
+latest_ckpt = tn.get_latest_checkpoint()
+p0 = latest_ckpt.load(<'CKPT_NAME'>)
+```
 
-* Example 2 - use DeepSpeed
+Since a checkpoint or snapshot may contain many files, you can load one or more of them by the name. In this way, the training state would become the last one saved.
 
-  A training script based on DeepSpeed (>=0.7.3) can lever Nebula if you enable Nebula in your `ds_config.json` configuration file, as shown:
+Other APIs can handle checkpoint management
+
+- list all checkpoints
+- get latest checkpoints
+
+```python
+# Managing checkpoints
+## List all checkpoints
+ckpts = tn.list_checkpoints()
+## Get Latest checkpoint path
+latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
+```
+
+# [Using DeepSpeed](#tab/DEEPSPEED)
+
+  A training script based on DeepSpeed (>=0.7.3) can lever Nebula, if you enable Nebula in your `ds_config.json` configuration file, as shown:
 
   ```python
   "nebula": {
@@ -172,11 +191,10 @@ You don't need to modify other steps to train your large model on Azure Machine 
 
   This JSON snippets function works like the `torch_nebula.init()` function.
 
-  Initialization with ds_config.json file configuration enables Nebula, so you can save checkpoints. The original DeepSpeed saving method `model_engine.save_checkpoint()` automatically uses Nebula, which avoids the need for code modification.
+  Initialization with `ds_config.json` file configuration enables Nebula, which enables checkpoint saves in turn. The original DeepSpeed save method, with the model checkpointing API `model_engine.save_checkpoint()`, automatically uses Nebula. This save method avoids the need for code modification.  
 
-* Example 3 - PyTorch Lightning
-
-  There are two easy ways to enable Nebula for a PyTorch (>=0.15.0) training script.
+# [Using PyTorch Lightning](#tab/LIGHTNING)
+  Pytorch Lightning **(Nebula supports version >=1.5.0)** checkpoints automatically when Trainer is used. As you would often save checkpoints with customized behaviors for fine-grained control, Pytorch Lightning provides two ways to save checkpoint: conditional saves with ``ModelCheckpoint()``, and manual saves with ``trainer.save_checkpoint()``. These techniques apply to PyTorch (>=0.15.0) training scripts.
 
   If you use `ModelCheckpoint` to conditionally save your checkpoints, you can use `NebulaCallback` instead of `ModelCheckpoint` for initialization.
 
@@ -198,6 +216,13 @@ You don't need to modify other steps to train your large model on Azure Machine 
   Next, add `tn.NebulaCheckpointIO()` as a plugin to your `Trainer`, and modify the `trainer.save_checkpoint()` storage parameters as shown:
 
   ```python
+  trainer = Trainer(plugins=[tn.NebulaCheckpointIO()],   # add NebulaCheckpointIO as a plugin
+                    callbacks=[nebula_checkpoint_callback]) # use NebulaCallback as a plugin
+  ```
+
+  If you use `trainer.save_checkpoint()` to manually save your checkpoints, you can use the `NebulaCheckpointIO` plugin in your `Trainer`, and modify the storage parameters in `trainer.save_checkpoint()` as follows:
+
+  ```python
   # import Nebula package
   import torch_nebula as tn
   
@@ -214,403 +239,31 @@ You don't need to modify other steps to train your large model on Azure Machine 
   trainer.save_checkpoint("example.ckpt",
     storage_options=storage_options, # customize the config of Nebula saving checkpoint
   )
-
-
-
-
   ```
+**Load Checkpoint**
+                
+We load checkpoints consistent with PyTorch and Pytorch Lightning. The only modification specifies the storage path.
 
-
-
-adding tn.NebulaCheckpointIO() in your Trainer as a plugin enables Nebula to save and load checkpoints.
-
-
-
-
-
-If the training script is based on DeepSpeed (>=0.7.3), you can enjoy Nebula by enabling Nebula in your configuration file ds_config.json as follows as an example:
-
-## Why MLflow?
-
-MLflow, with over 13 million monthly downloads, has become the standard platform for end-to-end MLOps, enabling teams of all sizes to track, share, package and deploy any model for batch or real-time inference. Because of MLflow integration, your training code can avoid any specific code related to Azure Machine Learning, achieving true portability and seamless integration with other open-source platforms.
-
-## Prepare for migrating to MLflow
-
-To use MLflow tracking, you must install the `mlflow` and `azureml-mlflow` Python packages. All Azure Machine Learning environments have these packages already available for you but you must include them if creating your own environment.
-
-```bash
-pip install mlflow azureml-mlflow
-```
-
-> [!TIP]
-> You can use the [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
-
-## Connect to your workspace
-
-Azure Machine Learning allows users to perform tracking in training jobs running on your workspace or running remotely (tracking experiments running outside Azure Machine Learning). For remote tracking, you must indicate the workspace to which you want to connect to MLflow.
-
-# [Azure Machine Learning compute](#tab/aml)
-
-You already connected to your workspace when running on Azure Machine Learning compute.
-
-# [Remote compute](#tab/remote)
-
-**Configure tracking URI**
-
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
-
-**Configure authentication**
-
-Once you configure the tracking, you must configure the way that the authentication to the associated workspace happens. By default, the Azure Machine Learning plugin opens the default browser, and prompts for credentials, to handle interactive authentication. See [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) for more ways to configure authentication for MLflow in Azure Machine Learning workspaces.
-
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
-
----
-
-## Experiments and runs
-
-__SDK v1__
+To load the latest checkpoint, ``MyLightningModule.load_from_checkpoint()`` still works, as shown:
 
 ```python
-from azureml.core import Experiment
-
-# create an AzureML experiment and start a run
-experiment = Experiment(ws, "create-experiment-sdk-v1")
-azureml_run = experiment.start_logging()
+  persistent_path = "/tmp/tier3/checkpoint"
+  latest_ckpt_path = torch_nebula.get_latest_checkpoint_path("checkpoint", persist_path)
+  model = MyLightningModule.load_from_checkpoint(latest_ckpt_path)
 ```
 
-__SDK v2 with MLflow__
+If you used ``nebula_checkpoint_callback`` in your ``Trainer()``, your original unchanged script, as shown,  still works:
 
 ```python
-# Set the MLflow experiment and start a run
-mlflow.set_experiment("logging-with-mlflow")
-mlflow_run = mlflow.start_run()
+  trainer = Trainer(
+      default_root_dir=tmpdir, 
+      max_steps=100,
+      plugins=[NebulaCheckpointIO()],
+      callbacks=[nebula_checkpoint_callback],
+  )
+  trainer.fit(model, ckpt_path="/path/example.ckpt")
 ```
 
-## Logging API comparison
-
-### Log an integer or float metric
-
-__SDK v1__
-
-```python
-azureml_run.log("sample_int_metric", 1)
-```
-
-__SDK v2 with MLflow__
-
-```python
-mlflow.log_metric("sample_int_metric", 1)
-```
-
-### Log a boolean metric
-
-__SDK v1__
-
-```python
-azureml_run.log("sample_boolean_metric", True)
-```
-
-__SDK v2 with MLflow__
-
-```python
-mlflow.log_metric("sample_boolean_metric", 1)
-```
-
-### Log a string metric
-
-__SDK v1__
-
-```python
-azureml_run.log("sample_string_metric", "a_metric")
-```
-
-__SDK v2 with MLflow__
-
-```python
-mlflow.log_text("sample_string_text", "string.txt")
-```
-
-* The string logs as an _artifact_, not as a metric. In Azure Machine Learning studio, the value displays in the __Outputs + logs__ tab.
-
-### Log an image to a PNG or JPEG file
-
-__SDK v1__
-
-```python
-azureml_run.log_image("sample_image", path="Azure.png")
-```
-
-__SDK v2 with MLflow__
-
-```python
-mlflow.log_artifact("Azure.png")
-```
-
-The image logs as an artifact, and appears in the Azure Machine Learning studio __Images__ tab.
-
-### Log a matplotlib.pyplot
-
-__SDK v1__
-
-```python
-import matplotlib.pyplot as plt
-
-plt.plot([1, 2, 3])
-azureml_run.log_image("sample_pyplot", plot=plt)
-```
-
-__SDK v2 with MLflow__
-
-```python
-import matplotlib.pyplot as plt
-
-plt.plot([1, 2, 3])
-fig, ax = plt.subplots()
-ax.plot([0, 1], [2, 3])
-mlflow.log_figure(fig, "sample_pyplot.png")
-```
-
-* The image logs as an artifact, and appears in the Azure Machine Learning studio __Images__ tab.
-* The `mlflow.log_figure` method is __experimental__.
-
-
-### Log a list of metrics
-
-__SDK v1__
-
-```python
-list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
-azureml_run.log_list('sample_list', list_to_log)
-```
-
-__SDK v2 with MLflow__
-
-```python
-list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
-from mlflow.entities import Metric
-from mlflow.tracking import MlflowClient
-import time
-
-metrics = [Metric(key="sample_list", value=val, timestamp=int(time.time() * 1000), step=0) for val in list_to_log]
-MlflowClient().log_batch(mlflow_run.info.run_id, metrics=metrics)
-```
-* Metrics appear in the __metrics__ tab in Azure Machine Learning studio.
-* Text values are not supported.
-
-### Log a row of metrics
-
-__SDK v1__
-
-```python
-azureml_run.log_row("sample_table", col1=5, col2=10)
-```
-
-__SDK v2 with MLflow__
-
-```python
-metrics = {"sample_table.col1": 5, "sample_table.col2": 10}
-mlflow.log_metrics(metrics)
-```
-
-* Metrics don't render as a table in Azure Machine Learning studio.
-* Text values are not supported.
-* Logged as an _artifact_, not as a metric.
-
-### Log a table
-
-__SDK v1__
-
-```python
-table = {
-"col1" : [1, 2, 3],
-"col2" : [4, 5, 6]
-}
-azureml_run.log_table("table", table)
-```
-
-__SDK v2 with MLflow__
-
-```python
-# Add a metric for each column prefixed by metric name. Similar to log_row
-row1 = {"table.col1": 5, "table.col2": 10}
-# To be done for each row in the table
-mlflow.log_metrics(row1)
-
-# Using mlflow.log_artifact
-import json
-
-with open("table.json", 'w') as f:
-json.dump(table, f)
-mlflow.log_artifact("table.json")
-```
-
-* Logs metrics for each column.
-* Metrics don't render as a table in Azure Machine Learning studio.
-* Text values are not supported.
-* Logged as an _artifact_, not as a metric.
-
-### Log an accuracy table
-
-__SDK v1__
-
-```python
-ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "data": {"probability_tables": ' +\
-        '[[[114311, 385689, 0, 0], [0, 0, 385689, 114311]], [[67998, 432002, 0, 0], [0, 0, ' + \
-        '432002, 67998]]], "percentile_tables": [[[114311, 385689, 0, 0], [1, 0, 385689, ' + \
-        '114310]], [[67998, 432002, 0, 0], [1, 0, 432002, 67997]]], "class_labels": ["0", "1"], ' + \
-        '"probability_thresholds": [0.52], "percentile_thresholds": [0.09]}}'
-
-azureml_run.log_accuracy_table('v1_accuracy_table', ACCURACY_TABLE)
-```
-
-__SDK v2 with MLflow__
-
-```python
-ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "data": {"probability_tables": ' +\
-        '[[[114311, 385689, 0, 0], [0, 0, 385689, 114311]], [[67998, 432002, 0, 0], [0, 0, ' + \
-        '432002, 67998]]], "percentile_tables": [[[114311, 385689, 0, 0], [1, 0, 385689, ' + \
-        '114310]], [[67998, 432002, 0, 0], [1, 0, 432002, 67997]]], "class_labels": ["0", "1"], ' + \
-        '"probability_thresholds": [0.52], "percentile_thresholds": [0.09]}}'
-
-mlflow.log_dict(ACCURACY_TABLE, 'mlflow_accuracy_table.json')
-```
-
-* Metrics don't render as an accuracy table in Azure Machine Learning studio.
-* Logged as an _artifact_, not as a metric.
-* The `mlflow.log_dict` method is _experimental_.
-
-### Log a confusion matrix
-
-__SDK v1__
-
-```python
-CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data": {"class_labels": ' + \
-    '["0", "1", "2", "3"], "matrix": [[3, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0], [0, 0, 0, 1]]}}'
-
-azureml_run.log_confusion_matrix('v1_confusion_matrix', json.loads(CONF_MATRIX))
-```
-
-__SDK v2 with MLflow__
-
-```python
-CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data": {"class_labels": ' + \
-    '["0", "1", "2", "3"], "matrix": [[3, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0], [0, 0, 0, 1]]}}'
-
-mlflow.log_dict(CONF_MATRIX, 'mlflow_confusion_matrix.json')
-```
-
-* Metrics don't render as a confusion matrix in Azure Machine Learning studio.
-* Logged as an _artifact_, not as a metric.
-* The `mlflow.log_dict` method is _experimental_.
-
-### Log predictions
-
-__SDK v1__
-
-```python
-PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"bin_averages": [0.25,' + \
-    ' 0.75], "bin_errors": [0.013, 0.042], "bin_counts": [56, 34], "bin_edges": [0.0, 0.5, 1.0]}}'
-
-azureml_run.log_predictions('test_predictions', json.loads(PREDICTIONS))
-```
-
-__SDK v2 with MLflow__
-
-```python
-PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"bin_averages": [0.25,' + \
-    ' 0.75], "bin_errors": [0.013, 0.042], "bin_counts": [56, 34], "bin_edges": [0.0, 0.5, 1.0]}}'
-
-mlflow.log_dict(PREDICTIONS, 'mlflow_predictions.json')
-```
-
-* Metrics don't render as a confusion matrix in Azure Machine Learning studio.
-* Logged as an _artifact_, not as a metric.
-* The `mlflow.log_dict` method is _experimental_.
-
-### Log residuals
-
-__SDK v1__
-
-```python
-RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_edges": [100, 200, 300], ' + \
-'"bin_counts": [0.88, 20, 30, 50.99]}}'
-
-azureml_run.log_residuals('test_residuals', json.loads(RESIDUALS))
-```
-
-__SDK v2 with MLflow__
-
-```python
-RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_edges": [100, 200, 300], ' + \
-'"bin_counts": [0.88, 20, 30, 50.99]}}'
-
-mlflow.log_dict(RESIDUALS, 'mlflow_residuals.json')
-```
-
-* Metrics don't render as a confusion matrix in Azure Machine Learning studio.
-* Logged as an _artifact_, not as a metric.
-* The `mlflow.log_dict` method is _experimental_.
-
-## View run info and data
-
-You can access run information using the MLflow run object's `data` and `info` properties. For more information, see [mlflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) reference.
-
-The following example shows how to retrieve a finished run:
-
-```python
-from mlflow.tracking import MlflowClient
-
-# Use MlFlow to retrieve the run that was just completed
-client = MlflowClient()
-finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
-```
-
-The following example shows how to view the `metrics`, `tags`, and `params`:
-
-```python
-metrics = finished_mlflow_run.data.metrics
-tags = finished_mlflow_run.data.tags
-params = finished_mlflow_run.data.params
-```
-
-> [!NOTE]
-> The `metrics` will only have the most recently logged value for a given metric. For example, if you log in order a value of `1`, then `2`, `3`, and finally `4` to a metric named `sample_metric`, only `4` will be present in the `metrics` dictionary. To get all metrics logged for a specific named metric, use [MlFlowClient.get_metric_history](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history):
->
-> ```python
-> with mlflow.start_run() as multiple_metrics_run:
->     mlflow.log_metric("sample_metric", 1)
->     mlflow.log_metric("sample_metric", 2)
->     mlflow.log_metric("sample_metric", 3)
->     mlflow.log_metric("sample_metric", 4)
-> 
-> print(client.get_run(multiple_metrics_run.info.run_id).data.metrics)
-> print(client.get_metric_history(multiple_metrics_run.info.run_id, "sample_metric"))
-> ```
-> 
-> For more information, see the [MlFlowClient](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient) reference.
-
-The `info` field provides general information about the run, such as start time, run ID, experiment ID, etc.:
-
-```python
-run_start_time = finished_mlflow_run.info.start_time
-run_experiment_id = finished_mlflow_run.info.experiment_id
-run_id = finished_mlflow_run.info.run_id
-```
-
-## View run artifacts
-
-To view the artifacts of a run, use [MlFlowClient.list_artifacts](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.list_artifacts):
-
-```python
-client.list_artifacts(finished_mlflow_run.info.run_id)
-```
-
-To download an artifact, use [MlFlowClient.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
-
-```python
-client.download_artifacts(finished_mlflow_run.info.run_id, "Azure.png")
-```
 ## Next steps
 
 * [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md)
