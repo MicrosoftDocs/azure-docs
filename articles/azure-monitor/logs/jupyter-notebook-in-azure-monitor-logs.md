@@ -30,7 +30,7 @@ In this tutorial, you'll:
 1. Create a new [Jupyter Notebook](https://jupyter.org/) in Azure Machine Learning. 
 1. Connect to a Log Analytics workspace using the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/). 
 1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook using [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme).
-1. [Pandas library](https://pandas.pydata.org/)  
+1. Use the [Pandas library](https://pandas.pydata.org/) to   
 
     - Create a custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
 1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
@@ -92,8 +92,8 @@ In this tutorial, you'll:
     credential = DefaultAzureCredential()
     logs_query_client = LogsQueryClient(credential)
     ```
-1. Define your variables and functions.
-
+1. Define your variables and functions.  
+    
     ```python
     import os
     import pandas as pd
@@ -153,28 +153,35 @@ In this tutorial, you'll:
      graph.show()
     ```
 
+    This script defines three functions:
+
+    - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a a pandas DataFrame (`my_data`).  
+    - `execQueryDemoWorkspace(query)` - Calls the Azure Log Analytics POST API with the given query and returns a pandas DataFrame containing the data from the response.
+    - `showGraph(df, title)` - Creates a graph that plots `TimeGenerated` on the x-axis and `ActualUsage` on the y-axis using Plotly.
 ## Explore and visualize data
 
+1. Query the use of all data types in the last week:
+    
+    ```python
+    UsageQuery_AllTypes = """
+    Usage 
+    | project TimeGenerated, DataType, Quantity 
+    | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
+    """
+    
+    num_days = 7; ##FILL YOUR 
+    end_time = datetime.now()
+    start_time = end_time - timedelta(days=num_days)
+    
+    
+    df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
+    ```
+1. Present the data your query returns in a graph:
 
-```python
-UsageQuery_AllTypes = """
-Usage 
-| project TimeGenerated, DataType, Quantity 
-| summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
-"""
-
-num_days = 7; ##FILL YOUR 
-end_time = datetime.now()
-start_time = end_time - timedelta(days=num_days)
-
-
-df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
-```
-
-```python
-showGraph(df_allTypes, "All Data Types - last week usage")
-```
-
+    ```python
+    showGraph(df_allTypes, "All Data Types - last week usage")
+    ```
+    
 ## Train the model
 
 1. For simplicity, we'll query only five data types (5 time series). Run Query to bring usage data of selected datatypes, at timeframe of 1 hour. the period we picked for training is three weeks, starting one week back.
