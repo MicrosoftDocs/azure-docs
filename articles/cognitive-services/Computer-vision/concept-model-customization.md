@@ -57,6 +57,22 @@ The **Dataset** object is a data structure stored by the Image Analysis service 
 
 The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-version` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
 
+## Quota limits
+
+The following table describes the limits on the scale of your custom model projects.
+
+|    Category   | Generic image classifier                      | Generic object detector                      |
+| ------------------------- | ------------------------------- | ------------------------------- |
+| Max # training hours      | 288 (12 days)                   | 288 (12 days)                   |
+| Max # images              | 1,000,000                       | 200,000                         |
+| Min # images per category | 2                               | 2                               |
+| Max # tags per image      | multilabel: 100, multiclass: 1  | N/A                              |
+| Max # regions per image   | N/A                              | 1,000                           |
+| Max # categories          | 2,000                           | 1,000                           |
+| Max image size            | 20MB                            | 20MB                            |
+| Max image width/height    | 10,240                          | 10,240                          |
+| Available regions         | West US 2, East US, West Europe | West US 2, East US, West Europe |
+
 ## Frequently asked questions
 
 ### Why does training take longer/shorter than my specified budget?
@@ -66,6 +82,8 @@ The specified training budget is the calibrated **compute time**, not the **wall
 - **Longer than specified budget:**
    - Image Analysis experiences a high training traffic, and GPU resources may be tight. Your job may wait in the queue or be put on hold during training.
    - The backend training process ran into unexpected failures, which resulted in retrying logic. The failed runs don't consume your budget, but this can lead to longer training time in general.
+   - Your data is stored in a different region than your created Computer Vision resource, which will lead to longer data transmission time.
+
 - **Shorter than specified budget:** The following factors speed up training at the cost of using more budget in certain wall-clock time.
    - Image Analysis sometimes trains with multiple GPUs depending on your data. 
    - Image Analysis sometimes trains multiple exploration trials on multiple GPUs at the same time.
