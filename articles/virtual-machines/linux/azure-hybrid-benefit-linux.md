@@ -381,9 +381,9 @@ If you use Azure Hybrid Benefit BYOS to PAYG capability for SLES and want more i
 
     - A: Yes. You can use the license type of RHEL_BYOS for RHEL virtual machines and SLES_BYOS for conversions of virtual machines deployed from Azure Marketplace RHEL and SLES SAP images.
 
-- Q: Can I use Azure Hybrid Benefit for pay-as-you-go virtual machines on virtual machine scale sets for RHEL and SLES?
+- Q: Can I use Azure Hybrid Benefit for pay-as-you-go virtual machines on Virtual Machine Scale Sets for RHEL and SLES?
 
-    - A: Yes. Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is available to all users. Learn more about this benefit and how to use it.
+    - A: Yes. Azure Hybrid Benefit on Virtual Machine Scale Sets for RHEL and SLES is available to all users. Learn more about this benefit and how to use it.
 
 - Q: Can I use Azure Hybrid Benefit for pay-as-you-go virtual machines on reserved instances for RHEL and SLES?
 
