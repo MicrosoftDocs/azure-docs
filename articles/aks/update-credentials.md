@@ -54,10 +54,7 @@ Use the variable *SP_ID* containing the service principal ID to reset the creden
 SP_SECRET=$(az ad app credential reset --id "$SP_ID" --query password -o tsv)
 ```
 
-Next, you [update AKS cluster with new service principal credentials][update-cluster-new-service-principal-credentials]. This step is necessary to update the service principal on your AKS cluster.
-
->[!IMPORTANT]
->For large clusters, updating your AKS cluster with a new service principal may take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during the update. For small and midsize clusters, it takes a several minutes for the new credentials to update in the cluster.
+Next, you [update AKS cluster with existing service principal credentials][update-cluster-new-service-principal-credentials]. This step is necessary to update the service principal on your AKS cluster.
 
 ### Create a new service principal
 
@@ -81,21 +78,21 @@ The output is similar to the following example output. Make a note of your own `
 }
 ```
 
-Define variables for the service principal ID and client secret using your output from running the [`az ad sp create-for-rbac`][az-ad-sp-create] command. The *SP_ID* is your *appId*, and the *SP_SECRET* is your *password*.
+Define variables for the service principal ID and client secret using your output from running the [`az ad sp create-for-rbac`][az-ad-sp-create] command. The *SP_ID* is the *appId*, and the *SP_SECRET* is your *password*.
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
 
-Next, you can [update AKS cluster with new service principal credentials][update-cluster-new-service-principal-credentials]. This step is necessary for the Service Principal changes to reflect on the AKS cluster.
+Next, you [update AKS cluster with new service principal credentials][update-cluster-new-service-principal-credentials]. This step is necessary for the Service Principal changes to reflect on the AKS cluster.
 
-## Update AKS cluster with new service principal credentials
+## Update AKS cluster with service principal credentials
 
-> [!IMPORTANT]
-> For large clusters, updating the AKS cluster with a new service principal may take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during cluster updates and upgrades. For small and midsize clusters, it takes a few moments for the new credentials to update in the cluster.
+>[!IMPORTANT]
+>For large clusters, updating your AKS cluster with a new service principal may take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during the update. For small and midsize clusters, it takes a several minutes for the new credentials to update in the cluster.
 
-Update the AKS cluster with your new credentials using the [`az aks update-credentials`][az-aks-update-credentials] command.
+Update the AKS cluster with your new or existing credentials by running the [`az aks update-credentials`][az-aks-update-credentials] command.
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -136,5 +133,5 @@ In this article, you learned how to update or rotate service principal and Azure
 [az-ad-app-credential-reset]: /cli/azure/ad/app/credential#az_ad_app_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
 [node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade
-[update-cluster-new-service-principal-credentials]: #update-aks-cluster-with-new-service-principal-credentials
+[update-cluster-new-service-principal-credentials]: #update-aks-cluster-with-service-principal-credentials
 [reset-existing-service-principal-credentials]: #reset-the-existing-service-principal-credentials
