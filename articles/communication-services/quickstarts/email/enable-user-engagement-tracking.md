@@ -10,7 +10,7 @@ ms.date: 02/15/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-# Quickstart: How to enable user enagagment tracking for the email domain with Azure Communication Service resource
+# Quickstart: How to enable user engagement tracking for the email domain with Azure Communication Service resource
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
