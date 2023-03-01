@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## February 2023
+
+* The [Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) features are now generally available (GA).
+
+    You no longer need to register the features before using them.
 
 * The `Vaults` API is deprecated starting with Azure NetApp Files REST API version 2022-09-01.  
 
