@@ -35,7 +35,7 @@ With entitlement management, you can define a policy that allows users from orga
 
 Typically, when a request is approved, entitlement management will provision the user with the necessary access. If the user isn't already in your directory, entitlement management will first invite the user. When the user is invited, Azure AD will automatically create a B2B guest account for them but won't send the user an email. An administrator may have previously limited which organizations are allowed for collaboration, by setting a [B2B allow or blocklist](../external-identities/allow-deny-list.md) to allow or block invites to other organization's domains.  If the user's domain isn't allowed by those lists, then they won't be invited and can't be assigned access until the lists are updated.
 
-Since you don't want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access isn't extended, entitlement management will remove all access associated with that access package. By default, if the user who was invited through entitlement management has no other access package assignments, then when they lose their last assignment, their guest account will be blocked from signing in for 30 days, and later removed. This prevents the proliferation of unnecessary accounts. As described in the following sections, these settings are configurable.
+Since you don't want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access isn't extended, entitlement management will remove all access associated with that access package. By default, if the user who was invited through entitlement management has no other access package assignments, then when they lose their last assignment, their guest account is blocked from signing in for 30 days, and later removed. This prevents the proliferation of unnecessary accounts. As described in the following sections, these settings are configurable.
 
 ## How access works for external users
 
@@ -55,7 +55,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. The request goes into the [delivering state](entitlement-management-process.md).
 
-1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If an [allowlist or a blocklist](../external-identities/allow-deny-list.md) is defined, the list setting will be applied.
+1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If an [allowlist or a blocklist](../external-identities/allow-deny-list.md) is defined, the list setting is applied.
 
 1. The guest user is assigned access to all of the resources in the access package. It can take some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When changes are applied](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -81,7 +81,7 @@ To ensure people outside of your organization can request access packages and ge
 
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
 - If you have been previously using the B2B allowlist, you must either remove that list, or make sure all the domains of all the organizations you want to partner with using entitlement management are added to the list. Alternatively, if you're using the B2B blocklist, you must make sure no domain of any organization you want to partner with is present on that list.
-- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. However, any B2B [allow or blocklist](../external-identities/allow-deny-list.md) settings you have will take precedence. Therefore, you'll want to remove the allowlist, if you were using one, so that **All users** can request access, and exclude all authorized domains from your blocklist if you're using a blocklist.
+- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. However, any B2B [allow or blocklist](../external-identities/allow-deny-list.md) settings you have will take precedence. Therefore, you want to remove the allowlist, if you were using one, so that **All users** can request access, and exclude all authorized domains from your blocklist if you're using a blocklist.
 - If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication](../external-identities/one-time-passcode.md).
 - For more information about Azure AD B2B external collaboration settings, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
@@ -90,11 +90,22 @@ To ensure people outside of your organization can request access packages and ge
     > [!NOTE]
     > If you create a connected organization for an Azure AD tenant from a different Microsoft cloud, you also need to configure cross-tenant access settings appropriately. For more information on how to configure these settings, see [Configure cross-tenant access settings](../external-identities/cross-cloud-settings.md).
 
-### Review your Conditional Access policies
+### Review your Conditional Access policies (Preview)
 
 - Make sure to exclude guests from any Conditional Access policies that new guest users won't be able to meet as this will block them from being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Azure AD Conditional Access policy exclude settings](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+- A common policy for entitlement management customers to have is to block all apps from guests except entitlement management for guests. This policy allows guests to enter MyAccess, and request an access package. This package should contain a group, called **guests** from MyAccess in the following screenshot, which should be excluded from the block all apps policy. Once the package is approved, the guest is in the directory. Given that the end user has the access package assignment, and is part of the group, the end user is able to access all other apps. Other common policies include excluding entitlement management app from multi-factor authentication (MFA) and compliant devices.
+
+    :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests.png" alt-text="Screenshot of exclude app options.":::
+
+    :::image type="content" source="media/entitlement-management-external-users/exclude-cloud-apps.png" alt-text="Screenshot of selection to exclude cloud apps.":::
+
+    :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
+
+> [!NOTE]
+> Entitlement management app includes the entitlement management part of MyAccess, entitlement management in Azure portal and entitlement management in Graph. Given that the latter two require not only authentication enabled by Conditional Access, but also authorization to use, the entitlement management app can be used to apply Conditional Access to the entitlement management part of MyAccess.
 
 ### Review your SharePoint Online external sharing settings
 
