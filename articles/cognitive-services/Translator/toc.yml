@@ -138,9 +138,6 @@ items:
     - name: Quickstart
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage,domain,custom domain
       href: document-translation/quickstarts/get-started-with-rest-api.md
-    - name: Translate documents in Language Studio
-      displayName: quickstart, how to, interface
-      href: document-translation/language-studio.md
     - name: How-to guides
       items:
       - name: Use REST APIs programmatically
@@ -177,6 +174,9 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: Document Translation FAQ
       href: document-translation/faq.md
+    - name: Translate documents in Language Studio
+      displayName: quickstart, how to, interface
+      href: document-translation/language-studio.md  
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
