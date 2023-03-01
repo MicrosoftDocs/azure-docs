@@ -133,8 +133,8 @@ Azure Static Web Apps must have network access to your database for database con
 
 - Go to your database in the [Azure portal](https://portal.azure.com).
 - Go to the Networking tab.
-- Under the Firewall rules section, select **Add your client IPv4 address**. This ensures that you can use this database for your local development.
-- Select the **Allow Azure services and resources to access this server** checkbox. This ensures that your deployed Static Web Apps resource can access your database.
+- Under the Firewall rules section, select **Add your client IPv4 address**. This step ensures that you can use this database for your local development.
+- Select the **Allow Azure services and resources to access this server** checkbox. This step ensures that your deployed Static Web Apps resource can access your database.
 - Select **Save**.
 
 ## Connect a database

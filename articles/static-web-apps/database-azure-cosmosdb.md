@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps"
-description: Learn to add a  Azure Cosmos DB database connection to a web application in Azure Static Web Apps
+description: Learn to add an  Azure Cosmos DB database connection to a web application in Azure Static Web Apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
@@ -32,7 +32,7 @@ To complete this tutorial, you need to have an existing Azure Cosmos DB for NoSQ
 
 | Resource | Description |
 |---|---|
-| [Azure CosmosDB for NoSQL Database/azure/cosmos-db/nosql/quickstart-portal) | If you don't already have one, follow the steps in the [Create an Azure Cosmos DB database](/azure/cosmos-db/nosql/quickstart-portal) guide. |
+| [Azure Cosmos DB for NoSQL Database](/azure/cosmos-db/nosql/quickstart-portal) | If you don't already have one, follow the steps in the [Create an Azure Cosmos DB database](/azure/cosmos-db/nosql/quickstart-portal) guide. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app. |
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
@@ -41,7 +41,7 @@ Begin by configuring your database to work with the Azure Static Web Apps databa
 
 Azure Static Web Apps must have network access to your database for database connections to work. Additionally, to use an Azure database for local development, you need to configure your database to allow requests from your own IP address.
 
-1. Go to your Azure CosmosDB for NoSQL account in the [Azure portal](https://portal.azure.com).
+1. Go to your Azure Cosmos DB for NoSQL account in the [Azure portal](https://portal.azure.com).
 
 1. Under the *Settings* section, select **Networking**.
 
@@ -69,7 +69,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Enter the Container ID of `MyTestPersonTable`.
 
-1. Enter a partition key of `Id` (this will be prefixed by `/`).
+1. Enter a partition key of `Id` (this value is prefixed with `/`).
 
 1. Select **OK**.
 
@@ -79,12 +79,12 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Select **New Item** and enter the following value:
 
-```
-{
-    "id": "1",
-    "Name": "Sunny"
-}
-```
+    ```
+    {
+        "id": "1",
+        "Name": "Sunny"
+    }
+    ```
 
 ## Configure the static web app
 
@@ -147,7 +147,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 1. Paste in this sample schema into the *staticwebapp.schema.config.json* file you generated.
 
-    Since Cosmos DB for NoSQL is a document database, Azure Static Web Apps database connections cannot extract the schema of your database. The *staticwebapp.schema.config.json* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
+    Since Cosmos DB for NoSQL is a document database, Azure Static Web Apps database connections can't extract the schema of your database. The *staticwebapp.schema.config.json* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
 
     ```gql
     type Person @model {
@@ -156,7 +156,7 @@ Next, create the configuration file that your static web app uses to interface w
     }
     ```
 
-1. Paste in this sample configuration into file *staticwebapp.database.config.json* you generated. Notice that CosmosDB for NoSQL has additional options in the `data-source` object to indicate the CosmosDB database and the schema file needed for database connections to understand the schema of the database.
+1. Paste in this sample configuration into file *staticwebapp.database.config.json* you generated. Notice that Cosmos DB for NoSQL has more options in the `data-source` object to indicate the Cosmos DB database and the schema file needed for database connections to understand the schema of the database.
 
 ```json
 {
@@ -205,14 +205,12 @@ Next, create the configuration file that your static web app uses to interface w
 }
 ```
 
-
-
 Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).
 
 | Feature | Explanation |
 |---|---|
 | **Database connection** | In development, the runtime reads the connection string from the value of the connection string in the configuration file. While you can specify your connection string directly in the configuration file, a best practice is to store connection strings in a local environment variable. You can refer to environment variable values in the configuration file via the `@env('DATABASE_CONNECTION_STRING')` notation. The value of the connection string gets overwritten by Static Web Apps for the deployed site with the information collected when you connect your database. |
-| **API endpoint** | The REST endpoint is available via `/data-api/rest` while the GraphQL endpoint is available through `/data-api/graphql` as configured in this configuration file. You may configure the REST and GraphQL paths, but the `/data-api` prefix is not configurable. |
+| **API endpoint** | The REST endpoint is available via `/data-api/rest` while the GraphQL endpoint is available through `/data-api/graphql` as configured in this configuration file. You may configure the REST and GraphQL paths, but the `/data-api` prefix isn't configurable. |
 | **API Security** | The `runtime.host.cors` settings allow you to define allowed origins that can make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
 | **Entity model** | Defines the entities exposed via routes in the REST API, or as types in the GraphQL schema. In this case, the name *Person*, is the name exposed to the endpoint while `entities.<NAME>.source` is the database schema and table mapping. Notice how the API endpoint name doesn't need to be identical to the table name. |
 | **Entity security** | Permissions rules listed in the `entity.<NAME>.permissions` array control the authorization settings for an entity. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |

@@ -32,9 +32,9 @@ To complete this tutorial, you need to have an existing Azure Database for MySQL
 
 | Resource | Description |
 |---|---|
-| [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) | If you don't already have one, follow the steps in the [create an Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) guide.If you plan to use a connection string authentication for Static Web Apps' database connections, ensure that you create your Azure Database for MySQL Flexible Server with MySQL authentication. You can change this later if you want to use managed identity later on. |
+| [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) | If you need to create a database, follow the steps in the [create an Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) guide. If you plan to use a connection string authentication for your web app, ensure that you create your database with MySQL authentication. You can change this setting later if you want to use managed identity later on. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app.  |
-| [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql) | If you don't already have this installed, follow the guide to install [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql). Alternatively, you may use any other tool to query your MySQL database, such as MySQL Workbench. |
+| [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql). Alternatively, you may use any other tool to query your MySQL database, such as MySQL Workbench. |
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
@@ -46,9 +46,9 @@ Azure Static Web Apps must have network access to your database for database con
 
 1. Under the *Settings* section, select **Networking**.
 
-1. Under the *Firewall rules* section, select the **Add your current client IP address** button. This ensures that you can use this database for your local development.
+1. Under the *Firewall rules* section, select the **Add your current client IP address** button. This step ensures that you can use this database for your local development.
 
-1. Under the *Firewall rules* section, select the **Allow public access from any Azure service within Azure to this server** checkbox. This ensures that your deployed Static Web Apps resource can access your database.
+1. Under the *Firewall rules* section, select the **Allow public access from any Azure service within Azure to this server** checkbox. This step ensures that your deployed Static Web Apps resource can access your database.
 
 1. Select **Save**.
 
@@ -62,7 +62,7 @@ To use your Azure database for local development, you need to retrieve the conne
 
 1. In the *Connect from your app* section, select the ADO.NET connection string and set it aside in a text editor.
 
-Make sure to replace the `{your_password}` placeholder in the connection string with your password, and the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You'll create the `MyTestPersonDatabase` in the coming steps. Delete the *SslMode* and the *SslCa* sections of the connection string, since these require additional steps and are intended for production purposes.
+Make sure to replace the `{your_password}` placeholder in the connection string with your password, and the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You create the `MyTestPersonDatabase` in the coming steps. Delete the *SslMode* and the *SslCa* sections of the connection string, since these require extra steps and are intended for production purposes.
 
 ## Create sample data
 
@@ -70,11 +70,11 @@ Create a sample table and seed it with sample data to match the tutorial. Here, 
 
 1. In Azure Data Studio, [create a connection to your Azure MySQL Flexible Server](/sql/azure-data-studio/quickstart-mysql#connect-to-mysql).
 
-1. Right click your server, and create a new database. Enter `MyTestPersonDatabase` as the database name, and select the charset to be `utf8mb4` and the collation of `utf8mb4_0900_ai_ci`.
+1. Right-click your server, and create a new database. Enter `MyTestPersonDatabase` as the database name, and select the charset to be `utf8mb4` and the collation of `utf8mb4_0900_ai_ci`.
 
-1. Right click your server and select **Refresh**. 
+1. Right-click your server and select **Refresh**.
 
-1. Right click your `MyTestPersonDatabase` database and select **New Query**. Run the following script to create a new table named `MyTestPersonTable`.
+1. Right-click your `MyTestPersonDatabase` database and select **New Query**. Run the following script to create a new table named `MyTestPersonTable`.
 
     ```sql
     CREATE TABLE MyTestPersonTable (
@@ -94,7 +94,7 @@ Create a sample table and seed it with sample data to match the tutorial. Here, 
     VALUES ('Dheeraj');
     ```
 
-1. Right click your `MyTestPersonTable` table and select **Select Top 1000** to verify there's data in your database.
+1. Right-click your `MyTestPersonTable` table and select **Select Top 1000** to verify there's data in your database.
 
 ## Configure the static web app
 
@@ -207,7 +207,7 @@ Before moving on to the next step, review the following table that explains diff
 | Feature | Explanation |
 |---|---|
 | **Database connection** | In development, the runtime reads the connection string from the value of the connection string in the configuration file. While you can specify your connection string directly in the configuration file, a best practice is to store connection strings in a local environment variable. You can refer to environment variable values in the configuration file via the `@env('DATABASE_CONNECTION_STRING')` notation. The value of the connection string gets overwritten by Static Web Apps for the deployed site with the information collected when you connect your database. |
-| **API endpoint** | The REST endpoint is available via `/data-api/rest` while the GraphQL endpoint is available through `/data-api/graphql` as configured in this configuration file. You may configure the REST and GraphQL paths, but the `/data-api` prefix is not configurable. |
+| **API endpoint** | The REST endpoint is available via `/data-api/rest` while the GraphQL endpoint is available through `/data-api/graphql` as configured in this configuration file. You may configure the REST and GraphQL paths, but the `/data-api` prefix isn't configurable. |
 | **API Security** | The `runtime.host.cors` settings allow you to define allowed origins that can make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
 | **Entity model** | Defines the entities exposed via routes in the REST API, or as types in the GraphQL schema. In this case, the name *Person*, is the name exposed to the endpoint while `entities.<NAME>.source` is the database schema and table mapping. Notice how the API endpoint name doesn't need to be identical to the table name. |
 | **Entity security** | Permissions rules listed in the `entity.<NAME>.permissions` array control the authorization settings for an entity. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
