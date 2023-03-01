@@ -191,6 +191,12 @@ speechConfig.speechRecognitionLanguage = "it-IT";
 
 The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
 
+## Language identification
+
+You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text).
+
 ## Use a custom endpoint
 
 With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.

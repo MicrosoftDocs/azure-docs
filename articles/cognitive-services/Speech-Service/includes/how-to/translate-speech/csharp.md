@@ -306,7 +306,7 @@ For more information about speech synthesis, see [the basics of speech synthesis
 
 ## Multi-lingual translation with language identification
 
-In many scenarios, you might not know which input languages to specify. Using language identification you can detect up to 10 possible input languages and automatically translate to your target languages. 
+In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
 
 The following example uses continuous translation from an audio file. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they're defined in `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
@@ -317,7 +317,7 @@ var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguage
 var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, autoDetectSourceLanguageConfig, audioConfig)
 ```
 
-For the complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-translation).
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-translation).
 
 [speechtranslationconfig]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig
 [audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig
