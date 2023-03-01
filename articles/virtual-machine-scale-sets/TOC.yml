@@ -124,7 +124,7 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
-  - name: Upgrade Policies
+  - name: Upgrade Policy
     href: virtual-machine-scale-sets-upgrade-policy.md
   - name: Common management tasks
     items:
