@@ -63,7 +63,7 @@ Mariner currently has the following limitations:
 [mariner-doc]: https://microsoft.github.io/CBL-Mariner/docs/#cbl-mariner-linux
 [mariner-capabilities]: https://microsoft.github.io/CBL-Mariner/docs/#key-capabilities-of-cbl-mariner-linux
 [mariner-cluster-config]: cluster-configuration.md
-[mariner-node-pool]: https://learn.microsoft.com/azure/aks/use-multiple-node-pools#add-a-mariner-node-pool
-[ubuntu-to-mariner]: https://learn.microsoft.com/azure/aks/use-multiple-node-pools#migrate-ubuntu-nodes-to-mariner
+[mariner-node-pool]: use-multiple-node-pools.md#add-a-mariner-node-pool
+[ubuntu-to-mariner]: use-multiple-node-pools.md#migrate-ubuntu-nodes-to-mariner
 [auto-upgrade-aks]: auto-upgrade-cluster.md
 [kured]: node-updates-kured.md
