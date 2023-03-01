@@ -1145,3 +1145,6 @@
   - name: Azure Deployment Environments
     tocHref: /azure/deployment-environments/
     topicHref: /azure/deployment-environments/index
+  - name: Operator Nexus
+    tocHref: /azure/operator-nexus/
+    topicHref: /azure/operator-nexus/index

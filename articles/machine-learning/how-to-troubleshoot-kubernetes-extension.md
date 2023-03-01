@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot AzureML extension
-description: Learn how to troubleshoot some common AzureML extension deployment or update errors. 
+title: Troubleshoot Azure Machine Learning extension
+description: Learn how to troubleshoot some common Azure Machine Learning extension deployment or update errors. 
 titleSuffix: Azure Machine Learning
 author: zhongj
 ms.author: jinzhong
@@ -12,24 +12,24 @@ ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# Troubleshoot AzureML extension
+# Troubleshoot Azure Machine Learning extension
 
-In this article, learn how to troubleshoot common problems you may encounter with [AzureML extension](./how-to-deploy-kubernetes-extension.md) deployment in your AKS or Arc-enabled Kubernetes.
+In this article, learn how to troubleshoot common problems you may encounter with [Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md) deployment in your AKS or Arc-enabled Kubernetes.
 
-## How is AzureML extension installed
-AzureML extension is released as a helm chart and installed by Helm V3. All components of AzureML extension are installed in `azureml` namespace. You can use the following commands to check the extension status. 
+## How is Azure Machine Learning extension installed
+Azure Machine Learning extension is released as a helm chart and installed by Helm V3. All components of Azure Machine Learning extension are installed in `azureml` namespace. You can use the following commands to check the extension status. 
 ```bash
 # get the extension status
 az k8s-extension show --name <extension-name>
 
-# check status of all pods of AzureML extension
+# check status of all pods of Azure Machine Learning extension
 kubectl get pod -n azureml
 
 # get events of the extension
 kubectl get events -n azureml --sort-by='.lastTimestamp'
 ```
 
-## Troubleshoot AzureML extension deployment error
+## Troubleshoot Azure Machine Learning extension deployment error
 
 ### Error: can't reuse a name that is still in use
 This error means the extension name you specified already exists. If the name is used by Azureml extension, you need to wait for about an hour and try again. If the name is used by other helm charts, you need to use another name. Run ```helm list -Aa``` to list all helm charts in your cluster. 
@@ -44,7 +44,7 @@ This error happens when an uninstallation operation isn't finished and another i
 This error happens when you specify a wrong extension version. You need to make sure the specified version exists. If you want to use the latest version, you don't need to specify ```--version```  .
 
 ### Error: can't be imported into the current release: invalid ownership metadata 
-This error means there's a conflict between existing cluster resources and AzureML extension. A full error message could be like the following text: 
+This error means there's a conflict between existing cluster resources and Azure Machine Learning extension. A full error message could be like the following text: 
 ```
 CustomResourceDefinition "jobs.batch.volcano.sh" in namespace "" exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key "meta.helm.sh/release-name": must be set to "amlarc-extension"; annotation validation error: missing key "meta.helm.sh/release-namespace": must be set to "azureml"
 ```
@@ -52,14 +52,14 @@ CustomResourceDefinition "jobs.batch.volcano.sh" in namespace "" exists and cann
 Use the following steps to mitigate the issue.
 
 * Check who owns the problematic resources and if the resource can be deleted or modified. 
-* If the resource is used only by AzureML extension and can be deleted, you can manually add labels to mitigate the issue. Taking the previous error message as an example, you can run commands as follows,
+* If the resource is used only by Azure Machine Learning extension and can be deleted, you can manually add labels to mitigate the issue. Taking the previous error message as an example, you can run commands as follows,
 
     ```bash 
     kubectl label crd jobs.batch.volcano.sh "app.kubernetes.io/managed-by=Helm" 
     kubectl annotate crd jobs.batch.volcano.sh "meta.helm.sh/release-namespace=azureml" "meta.helm.sh/release-name=<extension-name>"
     ``` 
-    By setting the labels and annotations to the resource, it means the resource is managed by helm and owned by AzureML extension. 
-* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings) to see if there's a configuration setting to disable the conflict resource. 
+    By setting the labels and annotations to the resource, it means the resource is managed by helm and owned by Azure Machine Learning extension. 
+* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings) to see if there's a configuration setting to disable the conflict resource. 
 
 ## HealthCheck of extension
 When the installation failed and didn't hit any of the above error messages, you can use the built-in health check job to make a comprehensive check on the extension. Azureml extension contains a `HealthCheck` job to pre-check your cluster readiness when you try to install, update or delete the extension. The HealthCheck job will output a report, which is saved in a configmap named `arcml-healthcheck` in `azureml` namespace. The error codes and possible solutions for the report are listed in [Error Code of HealthCheck](#error-code-of-healthcheck). 
@@ -90,17 +90,17 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
 |E45002 | PROMETHEUS_CONFLICT | The Prometheus Operator installed is conflict with your existing Prometheus Operator. For more information, see [Prometheus operator](#prometheus-operator) |
 |E45003 | BAD_NETWORK_CONNECTIVITY | You need to meet [network-requirements](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).|
-|E45004 | AZUREML_FE_ROLE_CONFLICT |AzureML extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install AzureML extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
-|E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | AzureML extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install AzureML extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
+|E45004 | AZUREML_FE_ROLE_CONFLICT |Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
+|E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
 
 ## Open Source components integration
 
-AzureML extension uses some open source components, including Prometheus Operator, Volcano Scheduler, and DCGM exporter. If the Kubernetes cluster already has some of them installed, you can read following sections to integrate your existing components with AzureML extension.
+Azure Machine Learning extension uses some open source components, including Prometheus Operator, Volcano Scheduler, and DCGM exporter. If the Kubernetes cluster already has some of them installed, you can read following sections to integrate your existing components with Azure Machine Learning extension.
 
 ### Prometheus operator
-[Prometheus operator](https://github.com/prometheus-operator/prometheus-operator) is an open source framework to help build metric monitoring system in kubernetes. AzureML extension also utilizes Prometheus operator to help monitor resource utilization of jobs.
+[Prometheus operator](https://github.com/prometheus-operator/prometheus-operator) is an open source framework to help build metric monitoring system in kubernetes. Azure Machine Learning extension also utilizes Prometheus operator to help monitor resource utilization of jobs.
 
-If the Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable the Prometheus operator in AzureML extension to avoid a conflict between two Prometheus operators.
+If the Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable the Prometheus operator in Azure Machine Learning extension to avoid a conflict between two Prometheus operators.
 In this case, all Prometheus instances will be managed by the existing prometheus operator. To make sure Prometheus works properly, the following things need to be paid attention to when you disable prometheus operator in Azureml extension.
 1. Check if prometheus in azureml namespace is managed by the Prometheus operator. In some scenarios, prometheus operator is set to only monitor some specific namespaces. If so, make sure azureml namespace is in the allowlist. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L165).
 2. Check if kubelet-service is enabled in prometheus operator. Kubelet-service contains all the endpoints of kubelet. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L149). And also need to make sure that kubelet-service has a label`k8s-app=kubelet`.
@@ -206,7 +206,7 @@ In this case, all Prometheus instances will be managed by the existing prometheu
 ### Volcano Scheduler
 If your cluster already has the volcano suite installed, you can set `installVolcano=false`, so the extension won't install the volcano scheduler. Volcano scheduler and volcano controller are required for training job submission and scheduling.
 
-The volcano scheduler config used by AzureML extension is:
+The volcano scheduler config used by Azure Machine Learning extension is:
 
 ```yaml
 volcano-scheduler.conf: |
@@ -225,12 +225,12 @@ volcano-scheduler.conf: |
         - name: nodeorder
         - name: binpack
 ```
-You need to use the same config settings as above, and you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**, so that AzureML training workloads can perform properly.
+You need to use the same config settings as above, and you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**, so that Azure Machine Learning training workloads can perform properly.
 
 #### Volcano scheduler integration supporting cluster autoscaler
 As discussed in this [thread](https://github.com/volcano-sh/volcano/issues/2558) , the **gang plugin** is not working well with the cluster autoscaler(CA) and also the node autoscaler in AKS. 
 
-If you use the volcano that comes with the AzureML extension via setting `installVolcano=true`, the extension will have a scheduler config by default, which configures the **gang** plugin to prevent job deadlock. Therefore, the cluster autoscaler(CA) in AKS cluster will not be supported with the volcano installed by extension.
+If you use the volcano that comes with the Azure Machine Learning extension via setting `installVolcano=true`, the extension will have a scheduler config by default, which configures the **gang** plugin to prevent job deadlock. Therefore, the cluster autoscaler(CA) in AKS cluster will not be supported with the volcano installed by extension.
 
 For the case above, if you prefer the AKS cluster autoscaler could work normally, you can configure this `volcanoScheduler.schedulerConfigMap` parameter through updating extension, and specify a custom config of **no gang** volcano scheduler to it, for example:
 
@@ -254,7 +254,7 @@ volcano-scheduler.conf: |
 ```
 
 To use this config in your AKS cluster, you need to follow the steps below:  
-1. Create a configmap file with the above config in the azureml namespace. This namespace will generally be created when you install the AzureML extension.
+1. Create a configmap file with the above config in the azureml namespace. This namespace will generally be created when you install the Azure Machine Learning extension.
 1. Set `volcanoScheduler.schedulerConfigMap=<configmap name>` in the extension config to apply this configmap. And you need to skip the resource validation when installing the extension by configuring `amloperator.skipResourceValidation=true`. For example:
     ```azurecli
     az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config volcanoScheduler.schedulerConfigMap=<configmap name> amloperator.skipResourceValidation=true --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster

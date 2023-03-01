@@ -34,8 +34,8 @@ We recommend not to install both versions of the SDK on the same environment, si
 
 ## How do I know which SDK version I have?
 
-* To find out whether you have Azure ML Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
-* To find out whether you have Azure ML Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
+* To find out whether you have Azure Machine Learning Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
+* To find out whether you have Azure Machine Learning Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
 
 Based on the results of `pip show` you can determine which version of SDK you have.
 

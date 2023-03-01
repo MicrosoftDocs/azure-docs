@@ -117,7 +117,7 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 ## 3. Enable storage endpoint for the subnet
 
-1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
+1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure Machine Learning workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
 1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
 1. Apply the service endpoint policy to your workspace subnet.
@@ -126,9 +126,9 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 ## 4. Curated environments
 
-When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
+When using Azure Machine Learning curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
-1. From [Azure ML studio](https://ml.azure.com), select your workspace and then select __Environments__.
+1. From [Azure Machine Learning studio](https://ml.azure.com), select your workspace and then select __Environments__.
 1. Verify that the __Azure container registry__ begins with a value of `mcr.microsoft.com`.
 
     > [!IMPORTANT]

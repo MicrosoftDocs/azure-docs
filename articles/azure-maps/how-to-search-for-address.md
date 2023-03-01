@@ -1,8 +1,8 @@
 ---
 title: Search for a location using Azure Maps Search services
 description: Learn about the Azure Maps Search service. See how to use this set of APIs for geocoding, reverse geocoding, fuzzy searches, and reverse cross street searches.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps

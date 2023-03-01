@@ -22,7 +22,7 @@ Azure AD Identity Protection has historically protected users in detecting, inve
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
-- Can’t perform multi-factor authentication.
+- Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 

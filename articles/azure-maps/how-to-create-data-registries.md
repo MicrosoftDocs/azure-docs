@@ -2,7 +2,7 @@
 title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
-author: stevemunk
+author: eriklindeman
 ms.author: eriklind
 ms.date: 2/14/2023
 ms.topic: how-to

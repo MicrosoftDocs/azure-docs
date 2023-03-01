@@ -138,7 +138,7 @@ For AKS clusters:
 * Check if the AKS cluster is shut down. 
     * If the cluster isn't running, you need to start the cluster first.
 * Check if the AKS cluster has enabled selected network by using authorized IP ranges. 
-    * If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
+    * If the AKS cluster has enabled authorized IP ranges, please make sure all the **Azure Machine Learning control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
 For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
@@ -207,15 +207,15 @@ The host name of the node which the job pod is running on will be indicated in t
 
 ### UserError
 
-#### AzureML Kubernetes job failed. E45004
+#### Azure Machine Learning Kubernetes job failed. E45004
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
+Azure Machine Learning Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
 ```
 
-Please check whether you have `enableTraining=True` set when doing the AzureML extension installation. More details could be found at [Deploy AzureML extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
+Please check whether you have `enableTraining=True` set when doing the Azure Machine Learning extension installation. More details could be found at [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
 
 #### Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 
@@ -235,12 +235,12 @@ You can check the following items to troubleshoot the issue:
 *  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
 *  Make sure the workspace has a system assigned managed identity.
 
-### Encountered an error when attempting to connect to the Azure ML token service
+### Encountered an error when attempting to connect to the Azure Machine Learning token service
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure ML token service","Code":400}
+Azure Machine Learning Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure Machine Learning token service","Code":400}
 ```
 You can follow [Private Link troubleshooting section](#private-link-issue) to check your network settings.
 
@@ -248,16 +248,16 @@ You can follow [Private Link troubleshooting section](#private-link-issue) to ch
 
 #### Job pod get stuck in Init state
 
-If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because AzureML extension doesn't support download mode for input data. 
+If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because Azure Machine Learning extension doesn't support download mode for input data. 
 
 To resolve this issue, change to mount mode for your input data.
 
-#### AzureML Kubernetes job failed
+#### Azure Machine Learning Kubernetes job failed
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
+Azure Machine Learning Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
 ```
 
 Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-range when using `az connectedk8s connect` by following this [network configuring](how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
