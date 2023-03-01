@@ -30,7 +30,7 @@ The following parameters are available to customize the Recognize function:
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf and choices. | Required |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices)| Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
@@ -143,74 +143,6 @@ Logger.logMessage(
 
 Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the aforementioned events occurs. 
 
-### Example of DTMF *RecognizeCompleted* event:
-``` json
-[
-    {
-        "id": "e9cf1c71-f119-48db-86ca-4f2530a2004d",
-        "source": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
-        "type": "Microsoft.Communication.RecognizeCompleted",
-        "data": {
-            "eventSource": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
-            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
-            "resultInformation": {
-                "code": 200,
-                "subCode": 8531,
-                "message": "Action completed, max digits received."
-            },
-            "recognitionType": "dtmf",
-            "collectTonesResult": {
-                "tones": [
-                    "nine",
-                    "eight",
-                    "zero",
-                    "five",
-                    "two"
-                ]
-            },
-            "callConnectionId": "411f0b00-d97f-49ad-a6ff-3f8c05dc64d7",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
-            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
-        },
-        "time": "2022-09-13T00:55:08.2240104+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted"
-    }
-]
-```
-
-### Example of Choices *RecognizeCompleted* event:
-``` json
-[
-    {
-        "id": "cf41d1b3-663d-45ab-94d6-7ff130f41839",
-        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-        "type": "Microsoft.Communication.RecognizeCompleted",
-        "data": {
-            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "operationContext": "ReminderMenu",
-            "resultInformation": {
-                "code": 200,
-                "subCode": 8545,
-                "message": "Action completed, Recognized phrase matches a valid option."
-            },
-            "recognitionType": "choices",
-            "choiceResult": {
-                "label": "Confirm",
-                "recognizedPhrase": "confirm"
-            },
-            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGerteeqwertrtertsdfrYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNk1VxTjNtajc5M2w2eXc/aTyJmU9N45dfg4MDg5MDEyOTMyODg1OTY5",
-            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
-        },
-        "time": "2023-01-10T00:28:56.7369845+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
-    }
-]
-```
 ### Example of how you can deserialize the *RecognizeCompleted* event:
 ``` java
 if (callEvent instanceof RecognizeCompleted) {
@@ -230,61 +162,6 @@ if (callEvent instanceof RecognizeCompleted) {
                     List<DtmfTone> tones = collectTonesResult.getTones();
                 }
             }
-```
-
-
-### Example of DTMF *RecognizeFailed* event:
-``` json
-[
-    {
-        "id": "47d9cb04-7039-427b-af50-aebdd94db054",
-        "source": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
-        "type": "Microsoft.Communication.RecognizeFailed",
-        "data": {
-            "eventSource": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
-            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
-            "resultInformation": {
-                "code": 500,
-                "subCode": 8511,
-                "message": "Action failed, encountered failure while trying to play the prompt."
-            },
-            "callConnectionId": "411f0b00-bb72-4d5b-9524-ae1c29713335",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
-            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
-        },
-        "time": "2022-09-13T00:55:37.0660233+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed"
-    }
-]
-```
-
-### Example of Choices *RecognizeFailed* event:
-``` json
-[
-    {
-        "id": "264be623-5915-415e-bf06-2165e3fa0a08",
-        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-        "type": "Microsoft.Communication.RecognizeFailed",
-        "data": {
-            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "operationContext": "AppointmentChoiceMenu",
-            "resultInformation": {
-                "code": 400,
-                "subCode": 8547,
-                "message": "Action failed, recognized phrase does not match a valid option."
-            },
-            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
-            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
-        },
-        "time": "2023-01-10T00:29:30.300373+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
-    }
-]
 ```
 
 ### Example of how you can deserialize the *RecognizeFailed* event:
@@ -311,28 +188,6 @@ if (callEvent instanceof RecognizeFailed) {
                     Response<?> response = callMedia.playToAllWithResponse(playSource, new PlayOptions(), null);
                 }
             }
-```
-
-### Example of *RecognizeCanceled* event:
-``` json 
-[
-    {
-        "id": "d4f2e476-fb8f-43c2-abf8-0981f8e70df9",
-        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-        "type": "Microsoft.Communication.RecognizeCanceled",
-        "data": {
-            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "operationContext": "AppointmentChoiceMenu",
-            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
-            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
-        },
-        "time": "2023-01-10T00:31:15.3606572+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
-    }
-]
 ```
 
 ### Example of how you can deserialize the *RecognizeCanceled* event:

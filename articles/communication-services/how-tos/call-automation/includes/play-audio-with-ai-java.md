@@ -71,12 +71,7 @@ You can test creating your own audio file using our [Speech synthesis with Audio
 
 ## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
-If you would like to use Text-To-Speech capabilities, then it's required for you to connect your Azure Cognitive Service to your Azure Communication Service.
-
-``` code
-az communication bind-cognitive-service --name “{Azure Communication resource name}” --resource-group “{Azure Communication resource group}” --resource-id “{Cognitive service resource id}” --subscription{subscription Name of Cognitive service} –identity{Cognitive Services Identity}
-
-```
+If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
 ## Update App.java with code
 
@@ -171,27 +166,30 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. An example of a successful play event update.
 
-```json 
-[{
-    "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
-    "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
-    "type": "Microsoft.Communication.PlayCompleted",
-    "data": {
-        "resultInfo": {
-            "code": 200,
-            "subCode": 0,
-            "message": "Action completed successfully."
-        },
-        "type": "playCompleted",
-        "callConnectionId": "<callConnectionId>",
-        "serverCallId": "<serverCallId>",
-        "correlationId": "<correlationId>"
-        },
-    "time": "2022-08-12T03:13:25.0252763+00:00",
-    "specversion": "1.0",
-    "datacontenttype": "application/json",
-    "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
-}]
+### Example of how you can deserialize the *PlayCompleted* event:
+
+``` java
+if (callEvent instanceof PlayCompleted) {
+     CallAutomationEventWithReasonCodeBase playCompleted= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playCompleted.getReasonCode();
+     ResultInformation = playCompleted.getResultInformation();
+     //Play audio completed, Take some action on completed event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
+```
+
+### Example of how you can deserialize the *PlayFailed* event:
+
+``` java
+if (callEvent instanceof PlayFailed) {
+     CallAutomationEventWithReasonCodeBase playFailed = (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playFailed.getReasonCode();
+     ResultInformation = playFailed.getResultInformation();
+     //Play audio failed, Take some action on failed event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
 ```
 
 To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/call-automation/call-automation.md#call-automation-webhook-events).
@@ -204,4 +202,17 @@ Cancel all media operations, all pending media operations are canceled. This act
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var cancelResponse = callConnection.getCallMediaAsync().cancelAllMediaOperationsWithResponse().block();
 assertEquals(202, cancelResponse.getStatusCode()); // The request was accepted
+```
+
+### Example of how you can deserialize the *PlayCanceled* event:
+
+``` java
+if (callEvent instanceof PlayCanceled {
+     CallAutomationEventWithReasonCodeBase playCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playCanceled.getReasonCode();
+     ResultInformation = playCanceled.getResultInformation();
+     //Play audio completed, Take some action on canceled event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
 ```

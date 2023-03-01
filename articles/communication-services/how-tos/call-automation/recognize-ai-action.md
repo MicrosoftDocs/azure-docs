@@ -1,7 +1,7 @@
 ---
 title: Gather user voice input
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for gathering user input from participants on a call.
+description: Provides a how-to guide for gathering user voice input from participants on a call.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -38,6 +38,11 @@ This guide helps you get started recognizing user input in the forms of DTMF or 
 |RecognizeFailed|400|8547|Action failed, speech option not matched.|
 |RecognizeFailed|500|8534|Action failed, incorrect tone entered.|
 |RecognizeFailed|500|9999|Unspecified error.|
+|RecognizeCanceled|400|8508|Action failed, the operation was canceled. |
+
+## Limitations
+
+- You must either pass a tone for every single choice if you want to enable callers to use tones or voice inputs, otherwise no tone should be sent if you're expecting only voice input from callers. 
 
 ## Clean up resources
 

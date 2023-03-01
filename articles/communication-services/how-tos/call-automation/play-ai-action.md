@@ -29,6 +29,14 @@ This guide will help you get started with playing audio to participants by using
 [!INCLUDE [Play audio with Java](./includes/play-audio-with-ai-java.md)]
 ::: zone-end
 
+## Event codes
+|Status|Code|Subcode|Message|
+|----|--|-----|-----|
+|PlayCompleted|200|0|Action completed successfully.|
+|PlayFailed|400|8535|Action failed, file format is invalid.|
+|PlayFailed|400|8536|Action failed, file could not be downloaded.|
+|PlayCanceled|400|8508|Action failed, the operation was canceled.|
+
 ## Clean up resources
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
