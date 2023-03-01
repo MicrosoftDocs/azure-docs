@@ -334,6 +334,10 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ---
 
+## Release cadence for Dapr
+
+We aim to have the latest version of Dapr in Azure Container apps up to 4 weeks after [the Dapr OSS release][dapr-release].
+
 ## Limitations
 
 ### Unsupported Dapr capabilities
@@ -374,3 +378,4 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
