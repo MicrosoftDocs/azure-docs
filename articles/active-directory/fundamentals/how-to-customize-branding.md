@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/01/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -30,7 +30,7 @@ The default sign-in experience is the global look and feel that applies across a
 
 You can customize the sign-in pages when users access your organization's tenant-specific apps. For Microsoft and SaaS applications (multi-tenant apps) such as <https://myapps.microsoft.com>, or <https://outlook.com> the customized sign-in page appears only after the user types their **Email**, or **Phone**, and select **Next**. 
 
-Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page will appear immediately in the first step. 
+Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page appears immediately in the first step. 
 
 In the following examples replace the contoso.com with your own tenant name, or verified domain name:
 
@@ -39,7 +39,7 @@ In the following examples replace the contoso.com with your own tenant name, or 
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-## License requirements
+## Role and license requirements
 
 Adding custom branding requires one of the following licenses:
 
@@ -51,20 +51,22 @@ For more information about licensing and editions, see the [Sign up for Azure AD
 
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
 
+The **Global Administrator** role is required to customize company branding.
+
 ## Before you begin
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests authenticate using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
 **Images have different image and file size requirements.** Take note of the image requirements for each option. You may need to use a photo editor to create the right size images. The preferred image type for all images is PNG, but JPG is accepted. 
 
-**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` rescource type. For more information, see the [organizational branding API documentation](graph/api/resources/organizationalbranding.md).
+**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](graph/api/resources/organizationalbranding.md).
 
 ## How to navigate the company branding process
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
-    - If you currently have a customized sign-in experience, you'll see an **Edit** button.
+    - If you currently have a customized sign-in experience, the **Edit** button is available.
 
     ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
 
@@ -76,7 +78,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
-- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image will scale and crop according to the window size, but may be partially blocked by the sign-in prompt.
+- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but may be partially blocked by the sign-in prompt.
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
 
@@ -137,7 +139,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
 - **Self-service password reset**:
     - Show self-service password reset (SSPR): Select the checkbox to turn on SSPR. 
-    - Common URL: Enter the destination URL for where your users will reset their passwords. This URL appears on the username and password collection screens.
+    - Common URL: Enter the destination URL for where your users reset their passwords. This URL appears on the username and password collection screens.
     - Username collection display text: Replace the default text with your own custom username collection text.
     - Password collection display text: Replace the default text with your own customer password collection text.
 
