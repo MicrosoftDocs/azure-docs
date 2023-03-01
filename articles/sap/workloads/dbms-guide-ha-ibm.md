@@ -3,6 +3,7 @@ title: Set up IBM Db2 HADR on Azure virtual machines (VMs) | Microsoft Docs
 description: Establish high availability of IBM Db2 LUW on Azure virtual machines (VMs).
 author: msjuergent
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 12/06/2022
 ms.author: juergent

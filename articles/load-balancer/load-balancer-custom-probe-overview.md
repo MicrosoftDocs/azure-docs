@@ -1,11 +1,12 @@
 ---
 title: Azure Load Balancer health probes
-description: Learn about the different types of health probes and configuration for Azure Load Balancer
+description: Learn about the different types of health probes and configuration for Azure Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/10/2022
 ms.author: mbender
+ms.custom: template-concept
 ---
 
 # Azure Load Balancer health probes

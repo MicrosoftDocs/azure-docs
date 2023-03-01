@@ -4,6 +4,7 @@ description: Learn about configuring SAP Principal Propagation for live OData fe
 author: MartinPankraz
 
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/10/2022

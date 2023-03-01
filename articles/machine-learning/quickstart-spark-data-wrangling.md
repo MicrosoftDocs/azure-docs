@@ -8,14 +8,13 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: quickstart 
-ms.date: 02/06/2023
+ms.date: 02/10/2023
 #Customer intent: As a Full Stack ML Pro, I want to perform interactive data wrangling in Azure Machine Learning, with Apache Spark.
 ---
 
 # Quickstart: Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 
 To handle interactive Azure Machine Learning notebook data wrangling, Azure Machine Learning integration, with Azure Synapse Analytics (preview), provides easy access to the Apache Spark framework. This access allows for Azure Machine Learning Notebook interactive data wrangling.
 
@@ -37,7 +36,15 @@ We must ensure that the input and output data paths are accessible, before we st
 
 To assign appropriate roles to the user identity:
 
-1. In the Microsoft Azure portal, navigate to the Azure Data Lake Storage (ADLS) Gen 2 storage account page
+1. Open the [Microsoft Azure portal](https://portal.azure.com).
+1. Search and select the **Storage accounts** service.
+
+    :::image type="content" source="media/quickstart-spark-data-wrangling/find-storage-accounts-service.png" lightbox="media/quickstart-spark-data-wrangling/find-storage-accounts-service.png" alt-text="Expandable screenshot showing Storage accounts service search and selection, in Microsoft Azure portal.":::
+
+1. On the **Storage accounts** page, select the Azure Data Lake Storage (ADLS) Gen 2 storage account from the list. A page showing the storage account **Overview** will open.
+
+    :::image type="content" source="media/quickstart-spark-data-wrangling/storage-accounts-list.png" lightbox="media/quickstart-spark-data-wrangling/storage-accounts-list.png" alt-text="Expandable screenshot showing selection of the Azure Data Lake Storage (ADLS) Gen 2 storage account  Storage account.":::
+
 1. Select **Access Control (IAM)** from the left panel
 1. Select **Add role assignment**
 
@@ -66,16 +73,16 @@ Once the user identity has the appropriate roles assigned, data in the Azure sto
 
 ## Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
 
-A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, start in the **Compute** selection menu, and select **AzureML Spark Compute** under **Azure Machine Learning Spark**.
+A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, start in the **Compute** selection menu, and select **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark**.
 
 :::image type="content" source="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" lightbox="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option, located at the Compute selection menu.":::
 
 ## Interactive data wrangling with Titanic data
 
 > [!TIP]
-> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough for data access in a Azure Data Lake Storage (ADLS) Gen 2 storage account, both require the lowest number of configuration steps.
+> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough for data access in an Azure Data Lake Storage (ADLS) Gen 2 storage account, both require the lowest number of configuration steps.
 
-The data wrangling code shown here uses the `titanic.csv` file, available [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/spark/data/titanic.csv). Upload this file to a container created in the Azure Data Lake Storage (ADLS) Gen 2 storage account. This Python code snippet shows interactive data wrangling with an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and an input/output data URI, in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`:
+The data wrangling code shown here uses the `titanic.csv` file, available [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/spark/data/titanic.csv). Upload this file to a container created in the Azure Data Lake Storage (ADLS) Gen 2 storage account. This Python code snippet shows interactive data wrangling with an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and an input/output data URI, in the `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>` format. Here, `<FILE_SYSTEM_NAME>` matches the container name.
 
 ```python
 import pyspark.pandas as pd
@@ -105,6 +112,7 @@ df.to_csv(
 
 ## Next steps
 - [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
+- [Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)](./quickstart-spark-jobs.md)
 - [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
 - [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)

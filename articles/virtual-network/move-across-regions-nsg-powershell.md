@@ -1,5 +1,5 @@
 ---
-title: Move Azure network security group (NSG) to another Azure region using Azure PowerShell
+title: Move Azure network security group (NSG) to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: virtual-network

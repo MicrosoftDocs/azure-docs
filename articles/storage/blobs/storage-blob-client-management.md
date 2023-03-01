@@ -60,11 +60,9 @@ Working with any Azure resource using the SDK begins with creating a client obje
 
 ### Create a BlobServiceClient object
 
-An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. 
+An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account.
 
-A common scenario is to instantiate a single service client, then create container clients and blob clients from the service client, as needed. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. 
-
-To work with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration, including client options and credentials.
+A common scenario is to instantiate a single service client, then create container clients and blob clients from the service client, as needed. To work with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration, including client options and credentials.
 
 The following examples show how to create a `BlobServiceClient` object:
 

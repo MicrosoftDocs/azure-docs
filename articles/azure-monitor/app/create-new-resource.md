@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and create an Applicatio
    | **Resource mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see [Workspace-based Application Insights resources](create-workspace-resource.md).
 
 > [!NOTE]
-> You can use the same resource name across different resource groups, but it can be beneficial to use a globally unique name. If you plan to [perform cross-resource queries](../logs/cross-workspace-query.md#identifying-an-application), using a globally unique name simplifies the required syntax.
+> You can use the same resource name across different resource groups, but it can be beneficial to use a globally unique name. If you plan to [perform cross-resource queries](../logs/cross-workspace-query.md#identify-an-application), using a globally unique name simplifies the required syntax.
 
 Enter the appropriate values in the required fields. Select **Review + create**.
 

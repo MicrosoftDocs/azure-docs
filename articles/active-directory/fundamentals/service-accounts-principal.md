@@ -21,7 +21,7 @@ An Azure Active Directory (Azure AD) service principals are the local representa
 
 Learn more: [Application and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
 
-### Tenant-service principal relationships
+## Tenant-service principal relationships
 
 A single-tenant application has one service principal in its home tenant. A multi-tenant web application or API requires a service principal in each tenant. A service principal is created when a user from that tenant consents to use of the application or API. This consent creates a one-to-many relationship between the multi-tenant application and its associated service principals.
 
@@ -36,14 +36,14 @@ An application instance has two properties: the ApplicationID (or ClientID) and 
  
 The ApplicationID represents the global application and is the same for application instances, across tenants. The ObjectID is a unique value for an application object. As with users, groups, and other resources, the ObjectID helps to identify an application instance in Azure AD.
 
-To learn more, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md)
+To learn more, see [Application and service principal relationship in Azure AD](../develop/app-objects-and-service-principals.md)
 
 ### Create an application and its service principal object
 
 You can create an application and its service principal object (ObjectID) in a tenant using:
 
 * Azure PowerShell
-* Azure command-line interface (CLI)
+* Azure command-line interface (Azure CLI)
 * Microsoft Graph
 * The Azure portal
 * Other tools
@@ -69,7 +69,7 @@ For more information on Azure Key Vault and how to use it for certificate and se
 * [About Azure Key Vault](../../key-vault/general/overview.md)
 * [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy.md) 
 
- ### Challenges and mitigations
+### Challenges and mitigations
  
 When using service principals, use the following table to match challenges and mitigations.
 
@@ -133,4 +133,4 @@ Conditional Access:
 
 Use Conditional Access to block service principals from untrusted locations. 
 
-See, [Conditional Access for workload identities](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)
+See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)

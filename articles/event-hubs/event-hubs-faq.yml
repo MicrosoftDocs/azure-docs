@@ -17,6 +17,11 @@ sections:
           A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
           
       - question: |
+          Is it possible to change pricing tier after deployment?
+        answer: |
+          No. Once deployed, it is not possible to change (for example) from Standard Tier to Premium Tier without deploying a new resource.
+          
+      - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
           Capacity allocations throughput units (TUs) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.

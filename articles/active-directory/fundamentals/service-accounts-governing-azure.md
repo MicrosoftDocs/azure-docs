@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 02/09/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -27,7 +27,7 @@ Learn more:
 > [!NOTE] 
 > We do not recommend user accounts as service accounts because they are less secure. This includes on-premises service accounts synced to Azure AD, because they aren't converted to service principals. Instead, we recommend managed identities, or service principals, and the use of Conditional Access.
 
-[What is Conditional Access?](../conditional-access/overview.md)
+Lear more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Plan your service account
 
@@ -53,20 +53,20 @@ We recommend the following practices for service account privileges.
 ### Permissions
 
 * Don't assign built-in roles to service accounts
-  * Instead, use the [OAuth2 permission grant model for Microsoft Graph](/graph/api/resources/oauth2permissiongrant)
+  * See, [oAuth2PermissionGrant resource type](/graph/api/resources/oauth2permissiongrant)
 * The service principal is assigned a privileged role
   * [Create and assign a custom role in Azure Active Directory](../roles/custom-create.md)
 * Don't include service accounts as members of any groups with elevated permissions
-* [Use PowerShell to enumerate members of privileged roles](/powershell/module/azuread/get-azureaddirectoryrolemember):
+  * See, [Get-AzureADDirectoryRoleMember](/powershell/module/azuread/get-azureaddirectoryrolemember):
    
 >`Get-AzureADDirectoryRoleMember`, and filter for objectType "Service Principal", or use</br>
 >`Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource
+* See, [Introduction to permissions and consent](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource
 * Service principals and managed identities can use OAuth 2.0 scopes in a delegated context impersonating a signed-on user, or as service account in the application context. In the application context, no one is signed in.
 * Confirm the scopes service accounts request for resources
   * If an account requests Files.ReadWrite.All, evaluate if it needs File.Read.All
-  * [Overview of Microsoft Graph permissions](/graph/permissions-reference)
+  * [Microsoft Graph permissions reference](/graph/permissions-reference)
 * Ensure you trust the application developer, or API, with the requested access
 
 ### Duration
@@ -96,8 +96,8 @@ Use one of the following monitoring methods:
 
 * Azure AD Sign-In Logs in the Azure AD portal
 * Export the Azure AD Sign-In Logs to 
-  * [Azure Storage](../../storage/index.yml)
-  * [Azure Event Hubs](../../event-hubs/index.yml), or 
+  * [Azure Storage documentation](../../storage/index.yml)
+  * [Azure Event Hubs documentation](../../event-hubs/index.yml), or 
   * [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)
 
 Use the following screenshot to see service principal sign-ins.
@@ -117,13 +117,14 @@ We recommend you export Azure AD sign-in logs, and then import them into a secur
 
 Regularly review service account permissions and accessed scopes to see if they can be reduced or eliminated.
 
-* Use [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) to [build automation to check and document](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
-* Use PowerShell to [review service principal credentials](https://github.com/AzureAD/AzureADAssessment) and confirm validity
+* See, [Get-AzureADServicePrincipalOAuth2PermissionGrant](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant)
+  * [Script to list all delegated permissions and application permissions in Azure AD](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
+* See, [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment) and confirm validity
 * Don't set service principal credentials to **Never expire**
 * Use certificates or credentials stored in Azure Key Vault, when possible
-  * [what is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
+  * [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
 
-The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [Microsoft Azure AD Assessment, Assessor Guide](https://github.com/AzureAD/AzureADAssessment).
+The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment).
 
 ### Recertify service account use
 
@@ -160,7 +161,7 @@ Deprovisioning includes the following tasks:
 
 After the associated application or script is deprovisioned:
 
-* [Monitor sign-ins](../reports-monitoring/concept-sign-ins.md) and resource access by the service account
+* [Sign-in logs in Azure AD](../reports-monitoring/concept-sign-ins.md) and resource access by the service account
   * If the account is active, determine how it's being used before continuing
 * For a managed service identity, disable service account sign-in, but don't remove it from the directory
 * Revoke service account role assignments and OAuth2 consent grants

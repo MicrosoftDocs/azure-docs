@@ -21,6 +21,8 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+      - name: STMicroelectronics U585I-IOT02A
+        href: quickstart-devkit-stm-b-u585i-iot-hub.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
@@ -95,6 +97,9 @@
     href: ../iot-fundamentals/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
+  - name: Manage connectivity and reliable messaging
+    displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
+    href: how-to-use-reliability-features-in-sdks.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
   - name: Azure RTOS samples
@@ -131,8 +136,6 @@
         href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
-    - name: Libraries and SDKs
-      href: libraries-sdks.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell

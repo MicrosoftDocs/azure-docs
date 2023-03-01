@@ -41,7 +41,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors-reference.md#windows-dns-server-preview) (Public preview)        |
 
 > [!IMPORTANT]
-> The AMA **for Windows** currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
+> The Azure Monitor agent provides a throughput that is 25% better than legacy Log Analytics agents. Migrate to the new AMA connectors to get higher performance, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
 
 ### Linux logs
 
@@ -59,7 +59,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Migration plan considerations](../azure-monitor/agents/azure-monitor-agent-migration.md#migration-plan-considerations) in the Azure Monitor documentation.
+1. Make sure that you've reviewed necessary prerequisites and other considerations as [documented here](../azure-monitor/agents/azure-monitor-agent-migration.md#before-you-begin) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 

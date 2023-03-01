@@ -88,7 +88,7 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 # [Studio](#tab/azure-studio)
 
-Open the [Azure ML studio portal](https://ml.azure.com) and sign in using your credentials.
+Open the [Azure Machine Learning studio portal](https://ml.azure.com) and sign in using your credentials.
 
 ---
 
@@ -96,7 +96,7 @@ Open the [Azure ML studio portal](https://ml.azure.com) and sign in using your c
 
 Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
 
-Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
+This article uses a compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>` or create one as shown.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -220,7 +220,6 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     | --- | ----------- |
     | `name` | The name of the batch endpoint. Needs to be unique at the Azure region level.|
     | `description` | The description of the batch endpoint. This property is optional. |
-    | `auth_mode` | The authentication method for the batch endpoint. Currently only Azure Active Directory token-based authentication (`aad_token`) is supported. |
     | `defaults.deployment_name` | The name of the deployment that will serve as the default deployment for the endpoint. |
     
     # [Studio](#tab/azure-studio)
@@ -245,22 +244,6 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     *You'll create the endpoint in the same step you are creating the deployment later.*
 
-## Create a scoring script
-
-Batch deployments require a scoring script that indicates how the given model should be executed and how input data must be processed.
-
-> [!NOTE]
-> For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-
-> [!WARNING]
-> If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
-
-In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
-
-__mnist/code/batch_driver.py__
-
-:::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
-
 ## Create a batch deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a batch deployment, you need all the following items:
@@ -269,6 +252,18 @@ A deployment is a set of resources required for hosting the model that does the 
 * The code to score the model.
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
+
+1. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+
+   > [!NOTE]
+   > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+
+   > [!WARNING]
+   > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+
+   __mnist/code/batch_driver.py__
+
+   :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
 
 1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
@@ -300,7 +295,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Studio](#tab/azure-studio)
     
-    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
@@ -388,7 +383,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Studio](#tab/azure-studio)
    
-    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
@@ -409,7 +404,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On the section __Compute__, select the compute cluster you created in a previous step.
 
         > [!WARNING]
-        > Azure Kubernetes cluster are supported in batch deployments, but only when created using the Azure ML CLI or Python SDK.
+        > Azure Kubernetes cluster are supported in batch deployments, but only when created using the Azure Machine Learning CLI or Python SDK.
 
     1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we'll use 2.
     1. Select __Next__.
@@ -480,7 +475,7 @@ A deployment is a set of resources required for hosting the model that does the 
         
         :::image type="content" source="./media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
-## Invoke the batch endpoint to start a batch job
+## Run endpoint and configure inputs and outputs
 
 Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. The batch scoring job runs for some time. It splits the entire inputs into multiple `mini_batch` and processes in parallel on the compute cluster. The batch scoring job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
 
@@ -493,7 +488,7 @@ Invoking a batch endpoint triggers a batch scoring job. A job `name` will be ret
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    inputs=Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist", type=AssetTypes.URI_FOLDER)
+    inputs=Input(path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", type=AssetTypes.URI_FOLDER)
 )
 ```
 
@@ -511,7 +506,7 @@ job = ml_client.batch_endpoints.invoke(
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
 
 1. Select __Next__.
-1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Notice that this only works because the given path has public access enabled. In general, you'll need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
+1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://azuremlexampledata.blob.core.windows.net/data/mnist/sample`. Notice that this only works because the given path has public access enabled. In general, you'll need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
 
@@ -524,7 +519,7 @@ job = ml_client.batch_endpoints.invoke(
 Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
 
 > [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure ML CLI or Azure ML SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
+> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
 
 > [!IMPORTANT]
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
@@ -541,38 +536,53 @@ Use `output-path` to configure any folder in an Azure Machine Learning registere
 
 # [Python](#tab/python)
 
-Use `output_path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. Use `output_file_name=<your-file-name>` to configure a new output file name.
+Use `params_override` to configure any folder in an Azure Machine Learning registered data store. Only registered data stores are supported as output paths. In this example we will use the default data store:
+
+```python
+batch_ds = ml_client.datastores.get_default()
+```
+
+Once you identified the data store you want to use, configure the output as follows:
 
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    inputs={ 
-        "input": Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist", type=AssetTypes.URI_FOLDER) 
-    },
-    output_path={ 
-        "score": Input(path=f"azureml://datastores/workspaceblobstore/paths/{endpoint_name}") 
-    },
-    output_file_name="predictions.csv"
+    input=Input(
+        path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/", 
+        type=AssetTypes.URI_FOLDER
+    ),
+    params_override=[
+        { "output_dataset.datastore_id": f"azureml:{batch_ds.id}" },
+        { "output_dataset.path": "/mnist-batch-results" }
+        { "output_file_name": "mnist-predictions.csv" },
+    ]
 )
 ```
 
 # [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
+
 1. Select the tab __Batch endpoints__.
+
 1. Select the batch endpoint you just created.
+
 1. Select __Create job__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
+
 1. Select __Next__.
+
 1. Check the option __Override deployment settings__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. You can now configure __Output file name__ and some extra properties of the deployment execution. Just this execution will be affected.
+
 1. On __Select data source__, select the data input you want to use.
+
 1. On __Configure output location__, check the option __Enable output configuration__.
 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
@@ -604,7 +614,9 @@ Some settings can be overwritten when invoke to make best use of the compute res
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint_name,
-    input=Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist"),
+    input=Input(
+        path="https://azuremlexampledata.blob.core.windows.net/data/mnist/sample/"
+    ),
     params_override=[
         { "mini_batch_size": "20" },
         { "compute.instance_count": "5" }
@@ -643,7 +655,7 @@ You can use CLI `job show` to view the job. Run the following code to check job 
 
 # [Python](#tab/python)
 
-The following code checks the job status and outputs a link to the Azure ML studio for further details.
+The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
 
 ```python
 ml_client.jobs.get(job.name)
@@ -694,7 +706,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    *No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file as an anonymous environment.*
    
     # [Python](#tab/python)
    
