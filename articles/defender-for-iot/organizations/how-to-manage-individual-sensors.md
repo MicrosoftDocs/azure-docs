@@ -359,34 +359,6 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
 ---
 
-## Reduce DNS alerts
-
-*Learn* unauthorized internet alerts in bulk by FQDN - fully qualified domain names - to reduce the noise of triggered internet alerts in the OT network.
-
-By defining an FQDN allowlist, the system checks each instance of unauthorized internet connectivity attempt against it. If the FQDN is included in the allowlist, then the network will *learn* this alert automatically without triggering it. 
-
-The FQDN list will remain intact through version upgrades.
-
-**To define an FQDN allowlist:**
-
-1. Sign in to your OT network sensor console as the **support** [user](references-work-with-defender-for-iot-cli-commands.md), then select **Support**.
-
-1. In the search bar, search for "DNS", then look for "Internet Domain Allowlist" under **Description**.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-manage-individual-sensors/dns-edit-configuration.png":::
-
-1. Select the :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: icon under **Edit**.
-
-1. In the **Edit configuration** pane, enter a domain name that you don't want the sensor to trigger alerts for, then select **Submit**.
-
-You can view to the FQDN allowlist in the advanced configurations and in a [data mining report](how-to-create-data-mining-queries.md). A custom Data mining report will present the FQDN, IP addresses, and last resolution time.
-
-**To view in a data mining report:**
-
-[Create a custom data mining report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report) and make sure to select **Internet Domain Allowlist** under **DNS** when choosing a category in the **Create new report** pane.
-
-:::image type="content" source="media/how-to-manage-individual-sensors/data-mining-allowlist.png" alt-text="Screenshot of how to create a custom data mining report to show fqdn allowlist in the sensor console." lightbox="media/how-to-manage-individual-sensors/data-mining-allowlist.png":::
-
 ## Configure SMTP settings
 
 Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers.
