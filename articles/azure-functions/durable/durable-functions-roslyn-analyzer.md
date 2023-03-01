@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Rosyln Analyzer (C# only)
+title: Durable Functions Roslyn Analyzer (C# only)
 description: Learn about how to use the Roslyn Analyzer to help adhere to Durable Functions specific code constraints.
 author: amdeel
 ms.topic: conceptual
