@@ -7,7 +7,7 @@ ms.date: 01/24/2023
 
 # Microsoft Defender for Servers
 
-**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with Microsoft Defender Vulnerability Management (formerly TVM). Aviv explains how this new integration with Defender Vulnerability Management works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multicloud connector for AWS.
+**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with Microsoft Defender Vulnerability Management (formerly TVM). Aviv explains how this new integration with Defender Vulnerability Management works and the advantages of this integration. Aviv covers the easy experience to onboard, software inventory, the integration with MDE for Linux, and the Defender for Servers support for the new multicloud connector for AWS.
 
 <br>
 <br>
