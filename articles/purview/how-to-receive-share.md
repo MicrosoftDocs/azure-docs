@@ -77,7 +77,7 @@ This registration is only needed the first time when sharing or receiving data i
 
     :::image type="content" source="./media/how-to-receive-share/view-invites.png" alt-text="Screenshot showing the Share invites page in the Microsoft Purview governance portal." border="true":::  
 
-1. Alternately, within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to receive the share into using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md). Select the **Data Share** drop down, and then select **+Manage Shares**. You can see all the invitations in the **Share invites** tab.
+1. Alternately, within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to receive the share into using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md). Select the **Data Share** button. You can see all the invitations in the **Share invites** tab.
 
 1. Select name of the share invite you want to view or configure.
 
@@ -120,9 +120,9 @@ You can find and edit received share asset one of two ways:
 
 * Access the blob storage or ADLS Gen2 asset where the data was received in the data catalog and open it, then select **Data Share** and **Manage data shares**. There you're able to see all the shares for that asset. Select the **Received shares** tab, select a share, and then select your share.
 
-    :::image type="content" source="./media/how-to-receive-share/manage-data-shares.png" alt-text="Screenshot of the blob storage account where the share was received, with Data Share select and Manage data shares highlighted." border="true":::
+    :::image type="content" source="./media/how-to-receive-share/manage-data-shares-inline.png" alt-text="Screenshot of the blob storage account where the share was received, with Data Share select and Manage data shares highlighted." border="true" lightbox="./media/how-to-receive-share/manage-received-share.png":::
 
-    :::image type="content" source="./media/how-to-receive-share/manage-received-share.png" alt-text="Screenshot of the list of received data shares, showing the name of the share highlighted." border="true":::
+    :::image type="content" source="./media/how-to-receive-share/manage-received-share.png" alt-text="Screenshot of the list of received data shares, showing the name of the share highlighted.":::
 
 * [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) the data catalog for data share assets and select your received share. Then select the **Edit** button.
 
