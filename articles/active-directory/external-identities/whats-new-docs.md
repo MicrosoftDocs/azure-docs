@@ -19,12 +19,11 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 ### Updated articles
 
-- [Add Google as an identity provider for B2B guest users](google-federation.md)
-- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md)
-- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
-- [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
 - [Email one-time passcode authentication](one-time-passcode.md)
+- [Secure your API used an API connector in Azure AD External Identities self-service sign-up user flows](self-service-sign-up-secure-api-connector.md)
+- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
+- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
 
 ## January 2023
 
