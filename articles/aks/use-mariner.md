@@ -2,7 +2,6 @@
 
 title: Use the Mariner container host on Azure Kubernetes Service (AKS)
 description: Learn how to use the Mariner container host on Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.custom: ignite-2022
 ms.date: 12/08/2022

@@ -2,7 +2,6 @@
 title: Handle AKS node upgrades with GitHub Actions
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
-services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 

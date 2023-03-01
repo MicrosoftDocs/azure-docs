@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a feature stateset'
 titleSuffix: Microsoft Azure Maps
 description: The third tutorial on Microsoft Azure Maps Creator. How to create a feature stateset.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps

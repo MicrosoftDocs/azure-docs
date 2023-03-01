@@ -9,7 +9,7 @@ ms.author: jordanselig
 
 # Tutorial: Create a secure n-tier app in Azure App Service
 
-Many applications have more than a single component. For example, you may have a front end that is publicly accessible and connects to a back-end database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up an N-tier application. It's important that applications like this are architected to protect back-end resources to the greatest extent possible.
+Many applications have more than a single component. For example, you may have a front end that is publicly accessible and connects to a back-end API or web app which in turn connects to a database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up an N-tier application. It's important that applications like this are architected to protect back-end resources to the greatest extent possible.
 
 In this tutorial, you learn how to deploy a secure N-tier application, with a front-end web app that connects to another network-isolated web app. All traffic is isolated within your Azure Virtual Network using [Virtual Network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more comprehensive guidance that includes other scenarios, see: 
 
