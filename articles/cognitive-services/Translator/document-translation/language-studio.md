@@ -15,7 +15,7 @@ recommendations: false
 # Document Translation in Language Studio
 
 > [!IMPORTANT]
->  Document Translation in Language Studio is currenlty in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> Document Translation in Language Studio is currently in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
  Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a no-code user interface that lets you translate documents from local storage or Azure Blob Storage interactively.
 
