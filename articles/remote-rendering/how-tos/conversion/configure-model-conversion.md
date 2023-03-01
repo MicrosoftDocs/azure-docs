@@ -1,6 +1,6 @@
 ---
 title: Configure the model conversion
-description: Description of all model conversion parameters
+description: Learn how to configure all model conversion parameters.
 author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
@@ -9,14 +9,15 @@ ms.topic: how-to
 
 # Configure the model conversion
 
-This chapter documents the options for the model conversion.
+In this article, learn how to configure options for the model conversion.
 
 ## Settings file
 
-If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide extra configuration for the model conversion process.
-For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
+If a file called *\<modelName\>.ConversionSettings.json* is found in the input container beside the input model `<modelName>.<ext>`, then the file is used to provide extra configuration for the model conversion process.
 
-The contents of the file should satisfy the following json schema:
+For example, *box.ConversionSettings.json* would be used when you convert `box.gltf`.
+
+The contents of the file should have this JSON schema:
 
 ```json
 {
@@ -77,7 +78,7 @@ The contents of the file should satisfy the following json schema:
 }
 ```
 
-An example file `box.ConversionSettings.json` might be:
+A file `box.ConversionSettings.json` might look like this example:
 
 ```json
 {
@@ -87,7 +88,7 @@ An example file `box.ConversionSettings.json` might be:
 }
 ```
 
-The schema is identical for converting triangular meshes and point clouds. However, a point cloud conversion uses only a strict subset of feature as discussed below.
+The schema is identical for converting triangular meshes and point clouds. However, a point cloud conversion uses only a strict subset of features.
 
 ## Settings for triangular meshes
 
@@ -166,7 +167,7 @@ Accordingly this flag can be left to default (enabled) unless there are strong r
 
 * `metadataKeys` - Allows you to specify keys of node metadata properties that you want to keep in the conversion result. You can specify exact keys or wildcard keys. Wildcard keys are of the format "ABC*" and match any key that starts with "ABC". Supported metadata value types are `bool`, `int`, `float`, and `string`.
 
-    For GLTF files this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files this data comes from the `Properties70` data on `Model nodes`. Consult the documentation of your 3D Asset Tool for further details.
+    For GLTF files, this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files, this data comes from the `Properties70` data on `Model nodes`. For more information, see the documentation for your 3D Asset Tool.
 
 ### :::no-loc text="Vertex"::: format
 
@@ -274,22 +275,21 @@ Example use cases for instancing are the screws in an engine model or chairs in 
 
 The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion doesn't perform extra deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup.
 
-A simple way to test whether instancing information gets preserved during conversion is to have a look at the [output statistics](get-information.md#example-info-file), specifically the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, it indicates that meshes are shared across instances.
+A simple way to test whether instancing information is preserved during conversion is to look at the [output statistics](get-information.md#example-info-file). Specifically, check the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, meshes are shared across instances.
 
 #### Example: Instancing setup in 3ds Max
 
-[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently regarding instancing in the exported `.fbx` file.
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **Copy**, **Instance**, and **Reference**. The modes behave differently regarding instancing in the exported *.fbx* file.
 
 ![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`** : In this mode the mesh is cloned, so no instancing is used (`numMeshPartsInstanced` = 0).
-* **`Instance`** : The two objects share the same mesh, so instancing is used (`numMeshPartsInstanced` = 1).
-* **`Reference`** : Distinct modifiers can be applied to the geometries, so the exporter chooses a conservative approach and doesn't use instancing (`numMeshPartsInstanced` = 0).
-
+* **Copy**: In this mode, the mesh is cloned, so no instancing is used (`numMeshPartsInstanced` = 0).
+* **Instance**: The two objects share the same mesh, so instancing is used (`numMeshPartsInstanced` = 1).
+* **Reference**: Distinct modifiers can be applied to the geometries, so the exporter chooses a conservative approach and doesn't use instancing (`numMeshPartsInstanced` = 0).
 
 ### Depth-based composition mode
 
-If memory is a concern, configure the renderer with the [depth-based composition mode](../../concepts/rendering-modes.md#depthbasedcomposition-mode). In this mode, GPU payload is distributed across multiple GPUs.
+If memory is a concern, configure the renderer by using the [depth-based composition mode](../../concepts/rendering-modes.md#depthbasedcomposition-mode). In this mode, GPU payload is distributed across multiple GPUs.
 
 ### Decrease vertex size
 
@@ -297,50 +297,48 @@ As discussed in the [best practices for component format changes](configure-mode
 
 ### Texture sizes
 
-Depending on the type of scenario, the amount of texture data may outweigh the memory used for mesh data. Photogrammetry models are candidates.
-The conversion configuration doesn't provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+Depending on the type of scenario, the amount of texture data might outweigh the memory used for mesh data. Photogrammetry models are candidates.
+The conversion configuration doesn't provide a way to automatically scale down textures. If necessary, texture scaling must be done as a client-side pre-processing step. But the conversion step does choose a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * `BC1` for opaque color textures
 * `BC7` for source color textures with alpha channel
 
-Since format `BC7` has twice the memory footprint compared to `BC1`, it's important to make sure that the input textures don't provide an alpha channel unnecessarily.
+Because the `BC7` format has twice the memory footprint of `BC1`, it's important to make sure that the input textures don't provide an unnecessary alpha channel.
 
 ## Typical use cases
 
-Finding good import settings for a given use case can be a tedious process. On the other hand, conversion settings may have a significant impact on runtime performance.
+Finding good import settings for a specific use case can be a tedious process. On the other hand, conversion settings might have a significant effect on runtime performance.
 
-There are certain classes of use cases that qualify for specific optimizations. Some examples are given below.
+Some specific classes of use cases qualify for specific optimizations. Some examples are described in the following sections.
 
-### Use case: Architectural visualization / large outdoor maps
+### Use case: Architectural visualization or large outdoor maps
 
-* These types of scenes tend to be static, meaning they don't need movable parts. Accordingly, the `sceneGraphMode` can be set to `static` or even `none`, which improves runtime performance. With `static` mode, the scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and a table top view.
+For scenarios that involve architectural visualization or large outdoor maps, consider the following factors:
 
-* If the application doesn't use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain is typically 20%-30%. Cut planes can still be used, but there won't be back-faces when looking into the inner parts of objects, which looks counter-intuitive. For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
+* These types of scenes tend to be static. They don't need movable parts. Accordingly, you can set `sceneGraphMode` to `static` or even to `none` and improve runtime performance. With `static` mode, the scene's root node can still be moved, rotated, and scaled. For example, it can dynamically switch between 1:1 scale (for first-person view) and a table-top view.
+
+* If the application doesn't use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain typically 20 percent to 30 percent. Cut planes can still be used, but there won't be back-faces when you look into the inner parts of objects, which looks counter-intuitive. For more information, see [single-sided rendering](../../overview/features/single-sided-rendering.md).
 
 ### Use case: Photogrammetry models
 
-When rendering photogrammetry models there's typically no need for a scene graph, so you could set the `sceneGraphMode` to `none`. Since those models rarely contain a complex scene graph to begin with, the impact of this option should be insignificant, though.
-
-Because lighting is already baked into the textures, no dynamic lighting is needed. Therefore:
+When you render photogrammetry models, you typically don't need a scene graph. So, you can choose to set `sceneGraphMode` to `none`. Because those models rarely contain a complex scene graph, the effect of choosing this option likely is insignificant. Because lighting is already baked into the textures, no dynamic lighting is needed. In this scenario:
 
 * Set the `unlitMaterials` flag to `true` to turn all materials into unlit [color materials](../../overview/features/color-materials.md).
-* Remove unneeded data from the vertex format. See the [example](#example) above.
+* Remove unneeded data from the vertex format. See the earlier [example](#example).
 
-### Use case: Visualization of compact machines, etc.
+### Use case: Visualization of compact machines and others
 
-In these use cases, the models often have high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
+In these use cases, the models often have high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations described in the earlier use case don't apply here. The optimizations include:
 
-* Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
+* Individual parts should be selectable and movable, so `sceneGraphMode` must be set to `dynamic`.
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.
-* Cut planes look better with the `opaqueMaterialDefaultSidedness` flag enabled.
+* Cut planes look better when the `opaqueMaterialDefaultSidedness` flag is enabled.
 
 ## Deprecated features
 
-Providing settings using the non-model-specific filename `conversionSettings.json` is still supported but deprecated.
-Use the model-specific filename `<modelName>.ConversionSettings.json` instead.
+Providing settings by using the non-model-specific filename *conversionSettings.json* is still supported but deprecated. Instead, use the model-specific filename *\<modelName\>.ConversionSettings.json*.
 
-The use of a `material-override` setting to identify a [Material Override file](override-materials.md) in the conversion settings file is still supported but deprecated. 
-Use the model-specific filename `<modelName>.MaterialOverrides.json` instead.
+The use of a `material-override` setting to identify a [Material Override file](override-materials.md) in the conversion settings file is still supported but deprecated. Use the model-specific filename *\<modelName\>.MaterialOverrides.json* instead.
 
 ## Next steps
 
