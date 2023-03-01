@@ -1,6 +1,7 @@
 ---
 title: Sensor partner integration 
 description: Provides guidance to set up your sensors as a partner
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to #Required; leave this attribute/value as-is.
@@ -8,7 +9,7 @@ ms.date: 02/14/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Sensor partner integration
+# Sensor partner integration flow
 
 The below section of this document talks about the onboarding steps needed to integrate with Data Manager for Agriculture, the APIs used to create models & sensors, telemetry format to push the data and finally the IOTHub based data ingestion.
 
@@ -35,7 +36,7 @@ Hence to enable authentication & authorization, partners will need to do the fol
 
 Partners can access the APIs in customer tenant using the multi-tenant Azure Active Directory App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application which in turn accesses Data Manager for Agriculture.
 
-Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
+Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
 
 1. **Application (client) ID**
 2. **Directory (tenant) ID**
@@ -45,7 +46,7 @@ Copy and store all three values as you would need them for generating access tok
 
 The Application (client) ID created is like the User ID of the application, and now you need to create its corresponding Application password (client secret) for the application to identify itself.
 
-Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
+Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
 
 ### Registration
 
@@ -120,7 +121,7 @@ The response should look like:
 }
 ```
 
-Using the generated access_token, partners will call the customers’ data plane endpoint to create sensor model, sensor, and device objects in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. Refer to the [swagger json](../swagger/14.%20mar_16th_2022_release/swagger-2021-07-31-preview.json) for more information on the partner APIs.
+Using the generated access_token, partners will call the customers’ data plane endpoint to create sensor model, sensor, and device objects in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. Refer to the [partner API documentation](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations?branch=main) for more information on the partner APIs.
 
 As part of the sensor creation API, the partners will be providing the sensor ID, once the sensor resource is created, partners will call into the get connection string API to get a connection string for that sensor.
 

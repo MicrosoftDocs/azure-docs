@@ -1,6 +1,6 @@
 ---
-title: Installing weather extention on Mac 
-description: Provides guidance to weather extention on Mac
+title: Weather extension installation on Mac 
+description: Provides guidance to install weather extension on Mac
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri
@@ -16,8 +16,8 @@ If you are facing issues using ARM client or unable to use ARM client because yo
 ## Option1 : PowerShell Script
 
 Pre-requisites for PowerShell script:
-* Please install AZ module from [here](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.0.0&viewFallbackFrom=azps-6.3.0) before executing the below PowerShell script.
-* Please download the [InstallFBExtension.ps1](../../code-samples/mac%20installation%20script/InstallFBExtension.ps1) script. 
+* Please install AZ module from [here](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-8.0.0&viewFallbackFrom=azps-6.3.0) before executing the below PowerShell script.
+* Please download the [InstallFBExtension.ps1](./mac-script/InstallFBExtension.ps1) script. 
 * Now Open PowerShell and execute the below command
 ```azurepowershell-interactive
 ./InstallFbExtension.ps1 <subscription-id> <resourceGroupName> <farmbeats-resource-name> <extension name - e.g.,'dtn.clearag'>

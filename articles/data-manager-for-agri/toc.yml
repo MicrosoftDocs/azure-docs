@@ -2,13 +2,13 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Data Manager for Agriculture Preview
+    - name: What is Azure Data Manager for Agriculture Preview?
       displayName: Overview
       href: Overview-azure-datamanager-for-agri.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Install Azure Data Manager for Agriculture Preview instance
+    - name: Quickstart: Install Azure Data Manager for Agriculture Preview
       href: quickstart-install-datamanager-for-agri.md
 - name: Concepts
   items:

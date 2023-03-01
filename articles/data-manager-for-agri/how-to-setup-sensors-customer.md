@@ -15,11 +15,11 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant AAD app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./sensor-partner.md) to sign up being a sensor partner on the platform.
+Each sensor partner has their own multi-tenant AAD app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./how-to-setup-sensors-partner.md) to sign up being a sensor partner on the platform.
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 
-1. Log in to [Azure portal](https://portal.azure.com/) using "Global Administrator" or "Privileged Role Administrator" credentials. [How to find Global Administrator?](https://docs.microsoft.com/en-us/answers/questions/40421/unsure-how-to-find-global-administrator.html)  
+1. Log in to [Azure portal](https://portal.azure.com/) using "Global Administrator" or "Privileged Role Administrator" credentials. [How to find Global Administrator?](https://docs.microsoft.com/answers/questions/40421/unsure-how-to-find-global-administrator.html)  
 
 2. For Davis Instruments, click on this [link](https://login.microsoftonline.com/common/adminconsent?client_id=30b00405-3b4e-4003-933c-0d96ce47d670) to provide consent. 
 
@@ -31,17 +31,18 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 5. Now, look for `Davis Instruments WeatherLink Data Manager for Agriculture Connector` under All Applications tab in `App Registrations` page (illustrated with a generic Partner in the image).
 
-![sensor-partners](./media/sensor-partners.png)
+![Partners Message](./media/sensor-partners.png)
 
 6. Copy the Application (client) ID for the specific partner app that you want to provide access to.
 
 ## Step 2: Add role assignment to the partner app
 
-The next step is to assign roles in the Azure portal to provide Authorization to the sensor partner application. Data Manager for Agriculture uses <a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a> to manage Authorization requests.
+The next step is to assign roles in the Azure portal to provide Authorization to the sensor partner application. Data Manager for Agriculture uses <a href="https://docs.microsoft.com/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a> to manage Authorization requests.
 
 Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> and navigate to your Resource Group where you created the Data Manager for Agriculture resource. 
 
-> [!NOTE] Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox.
+> [!NOTE] 
+>Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox.
 
 You find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image:
 

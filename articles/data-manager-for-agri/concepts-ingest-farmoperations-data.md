@@ -13,8 +13,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 Farm operation data is one of the most important ground truth datasets in Agronomy. Users can choose to push this data into Azure Data Manager for Agriculture using APIs OR choose to fetch them from farm equipment manufacturers like John Deere. 
 
 > [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://forms.office.com/r/SDR0m3yjeS).
+> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
 ## Our Service supports the following types of farm Operations data:
 * Planting Data
@@ -59,7 +59,7 @@ Azure Data Manager for Agriculture uses the above property filter and returns al
 ## Integration with John Deere
 Azure Data Manager for Agriculture provides first class integration with farm equipment manufacturers like John Deere. Users can fetch farm operations data from John Deere to Azure Data Manager for Agriculture directly. 
 
-# Configure oAuth based authorization
+## Configure oAuth based authorization
 
 Azure Data Manager for Agriculture provides oAuth based authorization to connect your end-users with their farm operations data provider (for example: John Deere & Climate FieldView). **Configuring oAuth flow is a pre-requisite for integrating with John Deere** to fetch farm operations data. To successfully integrate with oAuth callback service built by Azure Data Manager for Agriculture use the following the steps:
 

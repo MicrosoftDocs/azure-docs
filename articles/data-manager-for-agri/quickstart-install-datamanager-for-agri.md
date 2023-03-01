@@ -9,66 +9,66 @@ ms.date: 12/26/2022
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# How to Install Data Manager for Agriculture
+# Quickstart: Install Azure Data Manager for Agriculture Preview
 
 > [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://forms.office.com/r/SDR0m3yjeS).
+> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
-## Step 1: Register Resource Provider
+## 1: Register resource provider
 
 After you have confirmation that your Azure subscription ID is in our allow list, then use the below steps to install Data Manager for Agriculture through Azure portal UI.
 
-Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)
+Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
-In Step 5 in the above documentation, please search for `Microsoft.AgFoodPlatform` and register the same
+In step 5 in the above documentation, please search for `Microsoft.AgFoodPlatform` and register the same.
 
-## Step 2: Search Data Manager for Agriculture in Azure Marketplace
+## 2: Search in Azure marketplace
 
 > [!IMPORTANT]
 > Access the  Azure Portal using <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_AgFoodPlatformHidden#create/hub" target="_blank">**this link**</a> . This link enables visibility of the Azure FarmBeats PaaS installation card on the Azure Marketplace for our private preview customers.
 
-Search for 'Data manager for agriculture' on the Azure marketplace search bar and click on 'create' on the listing as highlighted in the image below.
+Enter Data manager for agriculture in the Azure marketplace search bar. Then select 'create' on the listing tile as shown below.
 
 ![Data Manager listing on Azure Marketplace](./media/new-list.png)
 
-## Step 3: Create Data Manager for Agriculture instance 
+## 3: Create Data Manager for Agriculture instance 
 
-Provide the required details for creating an Azure Data Manager for Agriculture resource and resource group in a selected region. Provide the following details:
+Provide the required details for creating an Azure Data Manager for Agriculture instance and resource group in a selected region. Provide the following details:
 
-1. **Subscription Id** : Select the whitelisted subscription Id for your tenant
-2. **Resource Group**: Select an existing resource group or create a new one
-3. **Instance Name**: Provide the Data Manager for Agriculture instance a name
-4. **Region**: Select the region where you want the instance deployed 
-5. **Tags**: Choose to categorize the resource with a tag
+* **Subscription Id** : Choose the allow listed subscription Id for your tenant
+* **Resource Group**: Choose an existing resource group or create a new one
+* **Instance Name**: Give the Data Manager for Agriculture instance a name
+* **Region**: Choose the region where you want the instance deployed 
+* **Tags**: Choose to categorize the resource with a tag
 
 After providing the details and accepting terms and conditions, click on "review + create" followed by the create button. This starts the process of deploying the Azure Data Manager for Agriculture resource.
 
-![Data Manager for Agriculture resource creation flow on Azure Portal](./media/ResourceCreation.PNG)
+![Data Manager for Agriculture resource creation flow on Azure Portal](./media/resourcecreation-new.PNG)
 
-## Step 4: App Registration
+## 4: Azure app registration
 
-Data Manager for Agriculture resource can be accessed through an App registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
+You can access Data Manager for Agriculture resource through an app registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
 
-Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
+Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until step 8** to generate the following information:
 
 1. **Application (client) ID**
 2. **Directory (tenant) ID**
 3. **App Name**
 
-Copy all three values as you would need them in the next step.
+Write down these three values,  you would need them in the next step.
 
 The Application (client) ID created is like the User ID of the application, and now you need to create its corresponding Application password (client secret) for the application to identify itself.
 
 Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
 
-## Step 5: Role Assignment
+## 5: Role assignment
 
-Once the App registration is done, the next step is to assign roles in the Azure portal to provide Authorization to the newly created application. Data Manager for Agriculture uses <a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a> to manage Authorization requests.
+Once the App registration is done, the next step is to assign roles in the Azure portal to provide Authorization to the newly created application. Data Manager for Agriculture uses Azure RBAC to manage Authorization requests.
 
-Login to <a href="https://portal.azure.com" target=" blank">Azure Portal</a> and navigate to the newly created resource (`farmbeats-resource-name` created in step 5) under the resource group (`resource-group-name`).
+Login to Azure portal and navigate to the newly created resource (`<Name>-resource-name` created in step 5) under the resource group (`resource-group-name`).
 
-> [!NOTE] Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox to see the Data Manager for Agriculture resource that you had created.
+> [!NOTE] Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox to see the Data Manager for Agriculture resource that you created.
 
 Click on the Azure Data Manager for Agriculture resource tab, you can find the IAM menu option on the left hand side of the option pane as shown in the image:
 
@@ -96,9 +96,9 @@ This ensures that the App (registered in the previous step) has been granted acc
 
 > [!NOTE] You need to create three different Apps (App registrations) to be able to assign all three roles (Admin, Contributor and Reader).
 
-## Step 6: Generate access token 
+## 6: Generate an access token 
 
-Next step is to generate access token, which contains the security credentials required to identify the application against the Azure Role assignments done in the previous step.
+The next step is to generate access token, which contains the security credentials required to identify the application against the Azure Role assignments done in the previous step.
 
 To access Azure Data Manager for Agriculture REST APIs with the service principal, you need to get an Azure AD access token for the service principal.
 
@@ -106,7 +106,7 @@ Replace the following parameters in the request:
 
 | Parameter | Description | 
 |:---|:---|
-| Tenant ID |  Tenant ID in Azure AD generated in the app registration (Step 1) |
+| Tenant ID |  Tenant ID in Azure AD generated in the app registration (step 1) |
 | Client ID |  The application (service principal) ID of the application you registered |
 | Client Secret |  The secret generated for the application. |
 
@@ -143,3 +143,10 @@ The response should look like:
 ```
 
 With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment write to us at madma@microsoft.com.
+
+## Next Steps
+
+1. See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md)
+2. Test our APIs [here](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/?branch=main)
+
+

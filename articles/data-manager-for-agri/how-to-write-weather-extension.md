@@ -1,6 +1,6 @@
 ---
-title: Installing weather extention on Mac 
-description: Provides guidance to weather extention on Mac
+title: Installing weather extension on Mac 
+description: Provides guidance to use weather extension on Mac
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri

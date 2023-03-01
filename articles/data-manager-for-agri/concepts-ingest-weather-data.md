@@ -11,18 +11,18 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Weather data overview
 
-Weather is a highly democratized service in the agri industry. Azure Agri Data Service wants to offer it's customers the ability to be able to work with weather provider of their choice. 
+Weather is a highly democratized service in the agri industry. Data Manager for Agriculture wants to offer it's customers the ability to be able to work with weather provider of their choice. 
 
-Hence, Azure Agri Data Service provides weather data through an extension-based approach and provider agnostic approach. 
-Through extension based approach, customers will be able to work with any provider of their choice by following the steps [here](./how-to-write-weather-extension.md)
+Data Manager for Agriculture provides weather data through an extension-based and provider agnostic approach. 
+Customers can work with a provider of their choice by following the steps here](./how-to-write-weather-extension.md)
 
-Through provider agnostic approach, customers will be able to use the same API request and response to work with a specific list of providers supported by the platform. As of now, we are supporting only IBM  TWC weather provider.
+Out of the box we are supporting IBM TWC weather provider.
 
-## Provider agnostic design overview
+## Design overview
 
-Azure FarmBeats provides weather data through provider agnostic approach where the user does not have to be familiar with the provider's APIs. Instead, they can use the same FarmBeats APIs irrespective of the provider. 
+Data Manager for Agriculture provides weather data through provider agnostic approach where the user does not have to be familiar with the provider's APIs. Instead, they can use the same Data Manager for Agriculture APIs irrespective of the provider. 
 
-Currently supported weather data providers are are [**IBM TWC**](https://developer.ibm.com/components/weather-company/apis/)
+Currently supported weather data provider is [**IBM TWC**](https://developer.ibm.com/components/weather-company/apis/)
 
 ## Behaviour of provider agnostic APIs
 
@@ -37,10 +37,10 @@ Currently supported weather data providers are are [**IBM TWC**](https://develop
 To start using IBM's APIs, please go through the documentation [here](https://developer.ibm.com/components/weather-company/apis/).
 
 >[Tip]
->If you are a customer of IBM TWC, then you shall skip the above step and directly proceed to using the APIs.
+>If you are a customer of IBM TWC, then you can skip the above step and directly proceed to using the APIs.
  
 
-The steps to fetch weather data and ingest into FarmBeats platform.
+The steps to fetch weather data and ingest into Data Manager for Agriculture platform.
 
 ## Step 1: Install weather extension
 
