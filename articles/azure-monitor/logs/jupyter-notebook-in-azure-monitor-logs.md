@@ -19,7 +19,7 @@ In this tutorial, we'll demonstrate how you can create a machine learning model 
 
 This provides you with a number of advantages:
 
-- While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
+- While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at big scales without have to export data to external services.  
 - Running custom code on using your web browser lets you get started quickly without having to install Python or other tools on your local computer.
 
