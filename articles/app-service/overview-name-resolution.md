@@ -59,22 +59,6 @@ Validate the settings by using this CLI command:
 az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
 ```
 
-## Limitations
-
-Windows code apps used to sort the servers when using virtual network integration and the virtual network has custom DNS servers configured. The sorting could influence what server was the primary DNS server. This behavior has changed for new apps to use the order in which they're configured, but hasn't changed for existing apps to maintain backwards compatibility.
-
-If you would like to adopt the new default behavior for your existing Windows code apps, you can run this CLI command:
-
-```azurecli-interactive
-az rest --method POST --uri <app-resource-id>/disableVirtualNetworkDnsSorting?api-version=2022-03-01
-```
-
-To verify if your app is using legacy sort ordering, you can run this command. The command returns true if it's still using legacy sort order.
-
-```azurecli-interactive
-az resource show --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --query "properties.dnsConfiguration.dnsLegacySortOrder"
-```
-
 ## Next steps
 
 - [Configure virtual network integration](./configure-vnet-integration-enable.md)
