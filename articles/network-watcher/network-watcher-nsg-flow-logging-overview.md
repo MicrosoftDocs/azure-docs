@@ -14,7 +14,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Flow logs for network security groups
 
-NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group (NSG)](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it as well as export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group (NSG)](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 :::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
 
@@ -65,8 +65,8 @@ Core concepts for flow logs include:
 - All traffic flows in your network are evaluated through the rules in the applicable network security group. The result of these evaluations is NSG flow logs. 
 - NSG flow logs are collected through the Azure platform and don't require any change to your Azure resources.
 - There are two types of network security group rules: terminating and non-terminating. Each has different logging behaviors:
-  - *Deny* rules are terminating. The network security group that's denying the traffic will log it in the flow logs. Processing in this case stops after any NSG denies traffic.
-  - *Allow* rules are non-terminating. If the network security group allows the traffic, processing continues to the next network security group. The last network security group that allows traffic will log the traffic to the flow logs.
+  - *Deny* rules are terminating. The network security group that's denying the traffic logs it in the flow logs. Processing in this case stops after any NSG denies traffic.
+  - *Allow* rules are non-terminating. If the network security group allows the traffic, processing continues to the next network security group. The last network security group that allows traffic logs the traffic to the flow logs.
 - NSG flow logs are written to storage accounts. You can export, process, analyze, and visualize NSG flow logs by using tools like Network Watcher traffic analytics, Splunk, Grafana, and Stealthwatch.
 
 ## Log format
