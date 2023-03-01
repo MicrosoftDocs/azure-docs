@@ -202,7 +202,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 
 ### Managed identity with compute instance
 
-For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-manageed-identity).
+For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-managed-identity).
 
 <a id="service-principal-authentication"></a>
 
