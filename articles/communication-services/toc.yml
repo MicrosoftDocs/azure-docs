@@ -65,8 +65,8 @@ items:
     items:
       - name: Send an SMS message
         href: quickstarts/sms/send.md
-      - name: Handle SMS events
-        href: quickstarts/sms/handle-sms-events.md
+      - name: Receive and reply to SMS
+        href: quickstarts/sms/receive-sms.md
       - name: Send an SMS in Azure Logic Apps
         href: quickstarts/sms/logic-app.md
       - name: Apply for a Short Code
@@ -455,6 +455,12 @@ items:
     items: 
     - name: Integrate with Data Loss Prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
+  - name: Using Azure Event Grid
+    items:
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Local testing events
+      href: how-tos/event-grid/local-testing-event-grid.md
 - name: Samples
   items:
   - name: Overview
