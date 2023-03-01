@@ -14,17 +14,19 @@ ms.custom: template-how-to
 
 # Manage workflow properties (preview)
 
-Managing workflows can be accomplished in one of two ways.  
+Managing workflows can be accomplished in one of two ways:  
    - Updating the basic properties of a workflow without creating a new version of it
-   - Creating a new version of the updated workflow. 
+   - Creating a new version of the updated workflow
 
 You can update the following basic information without creating a new workflow.
    - display name
    - description
-   - whether or not it is enabled.
-   - Whether or not workflow schedule is enabled.
+   - whether or not it's enabled
+   - Whether or not workflow schedule is enabled
+   - task name
+   - task description
 
-If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article. 
+If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article.
 
 If done via the Azure portal, the new version is created automatically. If done using Microsoft Graph, you will have to manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
 

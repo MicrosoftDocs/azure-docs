@@ -19,7 +19,7 @@ This article provides an overview of the default quotas offered to different res
 
 ## Storage and database operations
 
-After you create an Azure Cosmos DB account under your subscription, you can manage data in your account by [creating databases, containers, and items](account-databases-containers-items.md).
+After you create an Azure Cosmos DB account under your subscription, you can manage data in your account by [creating databases, containers, and items](resource-model.md).
 
 ### Provisioned throughput
 
@@ -27,8 +27,8 @@ You can allocate throughput at a container-level or a database-level in terms of
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
-| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
+| Maximum RUs per container ([dedicated throughput provisioned mode](resource-model.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
+| Maximum RUs per database ([shared throughput provisioned mode](resource-model.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
 | Maximum RUs per partition (logical & physical) | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB ²|
 | Maximum number of distinct (logical) partition keys | Unlimited |
@@ -81,8 +81,8 @@ In summary, here are the minimum provisioned RU limits when using manual through
 
 | Resource | Limit |
 | --- | --- |
-| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
+| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 |
+| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
 
 Azure Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.
 
