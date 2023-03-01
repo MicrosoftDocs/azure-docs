@@ -30,6 +30,8 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 
 ### Familiarize yourself with your programming language's Azure Functions performance settings
 
+The language runtime you select may impose strict concurrency restrictions on your functions. For example, Durable Function apps written in Python or PowerShell may only support running a single function at a time on a single VM. 
+
 * [JavaScript](../functions-reference-node.md#scaling-and-concurrency)
 * [PowerShell](../functions-reference-powershell.md#concurrency)
 * [Python](../python-scale-performance-reference.md)
