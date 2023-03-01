@@ -62,3 +62,9 @@ AzureDiagnostics
 ```
 
 ![Screenshot of the query results](https://user-images.githubusercontent.com/17014671/221722983-b20995df-338b-4d13-8b59-702e4d749890.png)
+
+
+Now that we have this data, the next step is to trigger alerts based on this output. For example, we can trigger an alert if there is a certain number and type of http requests coming from a particular user.
+
+### Configure alerts
+
