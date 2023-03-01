@@ -96,7 +96,7 @@ To easier to manage the resources, create a resource group to hold these resourc
 5. Set the new created resource group as default resource group.
     ```azurecli-interactive
     az configure --defaults group=${RESOURCE_GROUP}
-    ```azurecli-interactive
+    ```
 
 ### 3. Create Azure Spring Apps instance
 
