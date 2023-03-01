@@ -59,13 +59,13 @@ A lab creator can create a template VM based on both generalized and specialized
 
 1. In the **Create Azure compute gallery** window, enter a **name** for the gallery, and then select **Create**.
 
-    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png" alt-text="Screenshot of the Create compute gallery window.":::
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png" alt-text="Screenshot of the Create compute gallery window." lightbox="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png":::
 
 Azure Lab Services creates the compute gallery and attaches it to the lab plan. All labs created using this lab plan can now use images from the attached compute gallery.
 
 In the bottom pane, you see images in the compute gallery. There are no images in this new gallery. When you upload images to the gallery, you see them on this page.
 
-:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png" alt-text="Screenshot of the attached image gallery list of images.":::
+:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png" alt-text="Screenshot of the attached image gallery list of images." lightbox="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png":::
 
 ## Attach an existing compute gallery
 
