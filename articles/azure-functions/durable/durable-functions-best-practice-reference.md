@@ -30,9 +30,9 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 
 ### Familiarize yourself with your programming language's Azure Functions performance settings
 
-*[JavaScript](../functions-reference-node.md#scaling-and-concurrency)
-*[PowerShell](../functions-reference-powershell.md#concurrency)
-*[Python](../python-scale-performance-reference.md)
+* [JavaScript](../functions-reference-node.md#scaling-and-concurrency)
+* [PowerShell](../functions-reference-powershell.md#concurrency)
+* [Python](../python-scale-performance-reference.md)
 
 ### Make sure [task hubs have unique names](durable-functions-task-hubs.md#multiple-function-apps) when multiple apps share one storage account
 
@@ -75,9 +75,9 @@ Azure Function App Diagnostics is a useful resource on Azure portal for monitori
 #### Durable Functions Orchestration traces
 Azure portal provides orchestration trace details to help you understand the status of each orchestration instance and trace the end-to-end execution. When you look at the list of functions inside your Azure Functions app, you'll see a "Monitor" column that contains links to the traces. You need to have Applications Insights enabled for your app to get this information. 
 
-### [Durable Functions Monitor Extension](https://github.com/microsoft/DurableFunctionsMonitor)
+### Durable Functions Monitor Extension
 
-This is a Visual Studio Code extension that provides a UI for monitoring, managing, and debugging your orchestration instances. 
+This is a [Visual Studio Code extension](https://github.com/microsoft/DurableFunctionsMonitor) that provides a UI for monitoring, managing, and debugging your orchestration instances. 
 
 ### Roslyn Analyzer
 
