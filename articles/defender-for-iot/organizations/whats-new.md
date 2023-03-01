@@ -19,14 +19,32 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files for cloud-connected sensors no longer expire](#activation-files-for-cloud-connected-sensors-no-longer-expire)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Configuration for DNS allowlists](#configuration-for-dns-allowlists)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br>- [Device data retention updates](#device-data-retention-updates)<br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files for cloud-connected sensors no longer expire](#activation-files-for-cloud-connected-sensors-no-longer-expire)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br>- [Device data retention updates](#device-data-retention-updates)<br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Support for transient devices
 
 Defender for IoT now identifies *transient* devices as a unique device type that represents devices that were detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
-For more information, see <!--fix xref-->[Defender for IoT device inventory](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/device-inventory?branch=pr-en-us-227891) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+For more information, see [Defender for IoT device inventory](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/device-inventory?branch=pr-en-us-227891) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
+### Learn DNS traffic by configuring allowlists
+
+The *support* user on an OT sensor can now define a list of allowed DNS domains. Alerts are not triggered on the OT sensor for any traffic on a listed domain. 
+
+All OT sensor users can view the list of allowed DNS domains and their resolved IP addresses in data mining reports.  
+
+For example:
+
+:::image type="content" source="media/release-notes/data-mining-allowlist.png" alt-text="Screenshot of how to create a data mining report for DNS allowlists.":::
+    
+For more information, see [Learn DNS traffic on an OT sensor](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-accelerate-alert-incident-response?branch=pr-en-us-229066#learn-dns-traffic-on-an-ot-sensor) and [Create data mining queries](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-create-data-mining-queries).
+    
+### Device data retention updates
+
+The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
+
+For more information, see [Device data retention periods](references-data-retention.md#device-data-retention-periods).
 
 ### UI enhancements when uploading SSL/TLS certificates
 
@@ -35,9 +53,15 @@ The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configurat
 For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 <!--placeholder. Sensor and CM? What exactly changed? Change heading to match. Shereen.-->
 
-### Activation files for cloud-connected sensors no longer expire
+### Activation files expiration updates
 
-<!--placeholder. what exactly does this mean? Shereen.-->
+Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
+
+You'll only need to update you activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+
+<!--Shereen / approval needed mia.-->
 
 ### UI enhancements for managing the device inventory
 
@@ -55,29 +79,12 @@ All alerts with the **Suspicion of Malicious Activity** category now have an sev
 
 For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
 
-### Configuration for DNS allowlists
-
-Now, the *support* user on an OT sensor can define a list of allowed DNS domains. Alerts are not triggered on the OT sensor for any traffic on a listed domain. 
-
-All OT sensor users can view the list of allowed DNS domains and their resolved IP addresses in data mining reports.  
-
-For example: <screenshot> 
-    
-For more information, see <!--xref to configuration procedure--> and [Create data mining queries](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-create-data-mining-queries).
-    
- <!--xrefs and screenshot - shereen-->
    
 ### Automatically resolved device notifications
 
 Selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days. 
 
-<!--add xref-->
-
-### Device data retention updates
-
-The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
-
-For more information, see [Device data retention periods](references-data-retention.md#device-data-retention-periods).
+For more information, see [Manage device notifications](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map?branch=pr-en-us-227891#manage-device-notifications).
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
