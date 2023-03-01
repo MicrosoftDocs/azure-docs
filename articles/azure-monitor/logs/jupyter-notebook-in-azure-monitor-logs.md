@@ -28,8 +28,8 @@ This provides you with a number of advantages:
 In this tutorial, you'll: 
 
 1. Create a new [Jupyter Notebook](https://jupyter.org/) in Azure Machine Learning. 
-1. Integrate your Log Analytics workspace with your notebook using the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/). 
-1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook using [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme).
+1. Integrate your Log Analytics workspace with your notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/). 
+1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook.
 1. Explore and visualize log data in your notebook using Graphly. 
 1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
