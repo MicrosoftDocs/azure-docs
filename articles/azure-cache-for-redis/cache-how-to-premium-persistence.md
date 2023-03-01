@@ -152,17 +152,25 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ### [Using PowerShell (Premium tier)](#tab/premium)
 
+The [New-AzRedisCache](../powershell/module/az.rediscache/new-azrediscache.md) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
+
+Existing caches can be updated using the [Set-AzRedisCache](../powershell/module/az.rediscache/set-azrediscache.md) command. See examples of [adding persistence to an existing cache](../powershell/module/az.rediscache/set-azrediscache.md#example-3-modify-azure-cache-for-redis-if-you-want-to-add-data-persistence-after-azure-redis-cache-created).
 
 ### [Using PowerShell (Enterprise tier)](#tab/enterprise)
-The [New-AzRedisEnterpriseCache](../powershell/module/az.redisenterprisecache/new-azredisenterprisecache.md) command can be used to create a new Enterprise-tier cache using data persistence. Use the `RdbPersistenceEnabled`, `RdbPersistenceFrequency`, `AofPersistenceEnabled`, and `AofPersistenceFrequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency. 
+
+The [New-AzRedisEnterpriseCache](../powershell/module/az.redisenterprisecache/new-azredisenterprisecache.md) command can be used to create a new Enterprise-tier cache using data persistence. Use the `RdbPersistenceEnabled`, `RdbPersistenceFrequency`, `AofPersistenceEnabled`, and `AofPersistenceFrequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
 
 ```powershell
 New-AzRedisEnterpriseCache -Name "MyCache" -ResourceGroupName "MyGroup" -Location "West US" -Sku "Enterprise_E10" -RdbPersistenceEnabled -RdbPersistenceFrequency "1h"
 ```
 
+Existing caches can be updated using the [Update-AzRedisEnterpriseCacheDatabase](../powershell/module/az.redisenterprisecache/update-azredisenterprisecachedatabase.md) command. This example adds RDB persistence with twelve hour frequency to an existing cache instance:
+
+```powershell
+Update-AzRedisEnterpriseCacheDatabase -Name "MyCache" -ResourceGroupName "MyGroup" -RdbPersistenceEnabled -RdbPersistenceFrequency "12h"
+```
 
 ---
-
 
 ## Persistence FAQ
 
