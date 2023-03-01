@@ -57,10 +57,10 @@ az postgres flexible-server restore --restore-time
 Restore a server from this ```2021-03-03T13:10:00Z``` backup snapshot.
 
 ```azurecli
-az postgres server restore \
+az postgres flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-05-05T13:10:00Z" \
+--restore-time "2021-05-05T13:10:00Z" \
 --source-server mydemoserver
 ```
 
