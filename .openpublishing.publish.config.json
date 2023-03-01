@@ -369,6 +369,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-dotnet",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -689,12 +695,6 @@
     {
       "path_to_root": "ms-identity-javascript-react-docs",
       "url": "https://github.com/Azure-Samples/ms-identity-javascript-react-docs",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "ms-identity-docs-code-dotnet",
-      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-dotnet",
       "branch": "main",
       "branch_mapping": {}
     },

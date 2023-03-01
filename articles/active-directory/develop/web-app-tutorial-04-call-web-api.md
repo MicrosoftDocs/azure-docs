@@ -28,54 +28,11 @@ In this tutorial:
 
 1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet. Check that the project `namespace` matches your project name.
 
-    ```csharp
-    using System.Text.Json;
-    using Microsoft.Identity.Web;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-    
-    namespace NewWebAppLocal.Pages;
-    
-    // The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It makes sure that the user is asked for consent if needed, and incrementally.
-    [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
-    public class IndexModel : PageModel
-    {
-        // Define API object and gets added to the logger
-        private readonly IDownstreamWebApi _downstreamWebApi;
-        private readonly ILogger<IndexModel> _logger;
-        public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
-        {
-          _logger = logger;
-          _downstreamWebApi = downstreamWebApi;
-        }
-
-        // Calls the API and displays the result
-        public async Task OnGet()
-        {
-          using var response = await _downstreamWebApi.CallWebApiForUserAsync("DownstreamApi").ConfigureAwait(false);
-          if (response.StatusCode == System.Net.HttpStatusCode.OK)
-          {
-            var apiResult = await response.Content.ReadFromJsonAsync<JsonDocument>().ConfigureAwait(false);
-            ViewData["ApiResult"] = JsonSerializer.Serialize(apiResult, new JsonSerializerOptions { WriteIndented = true });
-          }
-          else
-          {
-            var error = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}: {error}");
-          }
-        }
-    }
-    ```
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Index.cshtml.cs" :::
 
 1. Open *Index.cshtml* and add the following code to the bottom of the file. This will handle how the information received from the API is displayed:
 
-	```html
-    <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
-
-    <p><pre><code class="language-js">@ViewData["ApiResult"]</code></pre></p>
-
-    <p>Refreshing this page will continue to use the cached access token acquired for Microsoft Graph, which is valid for future page views will attempt to refresh this token as it nears its expiration.</p>
-    ```
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Index.cshtml" range="13-17" :::
 
 ## Test the application
 

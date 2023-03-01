@@ -57,55 +57,9 @@ Identity related **NuGet packages** must be installed in the project for authent
 
 ## Implement authentication and acquire tokens
 
-1. Open *Program.cs* and replace the file contents with the following snippet:
-
-    ```csharp
-    // Imports packages
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc.Authorization;
-    using Microsoft.Identity.Web;
-    using Microsoft.Identity.Web.UI;
-
-    var builder = WebApplication.CreateBuilder(args);
-    // Retrieve the defined scopes from the configuration in appsettings.json
-    IEnumerable<string>? initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ');
-
-    // Adds the AzureAd service configuration in appsettings.json, and configures the service to acquire a token
-    builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd")
-        .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-        .AddDownstreamWebApi("DownstreamApi", builder.Configuration.GetSection("DownstreamApi"))
-        .AddInMemoryTokenCaches();
-
-    // Adds authentication services to the container.
-    builder.Services.AddRazorPages().AddMvcOptions(options =>
-    {
-      var policy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-      options.Filters.Add(new AuthorizeFilter(policy));
-    }).AddMicrosoftIdentityUI();
-
-    var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        app.UseHsts();
-    }
-
-    app.UseHttpsRedirection();
-    app.UseStaticFiles();
-    // Includes the MVC options and authentication
-    app.UseAuthentication();
-    app.MapControllers();
-
-    app.UseRouting();
-    app.UseAuthorization();
-    app.MapRazorPages();
-    app.Run();
-    ```
+1. Open *Program.cs* and replace the entire file contents with the following snippet:
+   
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Program.cs" :::
 
 ## Add the sign in and sign out experience
 
@@ -134,35 +88,11 @@ After installing the NuGet packages and adding necessary code for authentication
 
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
 
-    ```csharp
-    @using System.Security.Principal
-
-    <ul class="navbar-nav">
-      @if (User.Identity?.IsAuthenticated == true)
-      {
-        <li class="nav-item">
-          <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
-        </li>
-      }
-      else
-      {
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
-        </li>
-      }
-    </ul>
-    ```
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Shared/_LoginPartial.cshtml" :::
 
 1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line should be placed between `</ul>` and `</div>`:
 
-    ```csharp
-      </ul>
-        <partial name="_LoginPartial" />
-    </div>
-    ```
+   :::code language="csharp" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/Pages/Shared/_Layout.cshtml" range="29-31" :::
 
 ## Next steps
 
