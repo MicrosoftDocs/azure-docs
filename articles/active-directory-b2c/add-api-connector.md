@@ -146,7 +146,7 @@ Content-type: application/json
  "displayName": "John Smith",
  "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
- "lastName":"Smith",
+ "surname":"Smith",
  "step": "PostFederationSignup",
  "client_id":"<guid>",
  "ui_locales":"en-US"

@@ -91,6 +91,8 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 
 - Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
 
+- To use public and private listeners with a common port number (Preview feature), you must have an inbound rule with the **destination IP address** as your gateway's **frontend IPs (public and private)**. When using this feature, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. [Learn more](./configuration-listeners.md#frontend-port).
+
 ### Allow access to a few source IPs
 
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
