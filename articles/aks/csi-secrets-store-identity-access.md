@@ -132,6 +132,8 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-user-msi
+      labels:
+        azure.workload.identity/use: true
     spec:
       serviceAccountName: ${serviceAccountName}
       containers:
