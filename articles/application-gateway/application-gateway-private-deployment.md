@@ -27,7 +27,7 @@ Application Gateway v2 can now address each of these items to further eliminate 
    - No public IP address resource required
 2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
 3. Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
-4. Ability to override the default route to the internet (0.0.0.0/0)
+4. Ability to override the default route to the Internet (0.0.0.0/0)
 5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be enabled independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration. This configuration is valid.
@@ -36,7 +36,7 @@ Each of these features can be enabled independently. For example, a public IP ad
 
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using Azure PowerShell, Azure CLI, or REST API.
 
-When you join the preview, all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you may do so by [unregistering from the preview](#unregister-from-the-preview).
+When you join the preview, all new gateways will provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -209,21 +209,21 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 > [!TIP]
 > The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
-## Outbound internet connectivity
+## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) will not be able to egress traffic destined to the internet. This affects communication to backend targets that are publicly accessible via the internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This affects communication to backend targets that are publicly accessible via the Internet.
 
-To enable outbound connectivity from your Application Gateway to an internet facing backend target, you may utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the internet.
+To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
 Virtual Network NAT offers control over what IP address or prefix should be used as well as configurable idle-timeout. To configure, create a new NAT Gateway with a public IP address or public prefix and associate it with the subnet containing Application Gateway.
 
-If a virtual appliance is required for internet egress, see the [route table control](#route-table-control) section in this document.
+If a virtual appliance is required for Internet egress, see the [route table control](#route-table-control) section in this document.
 
 Common scenarios where public IP usage is required:
 -	Communication to key vault without use of private endpoints or service endpoints
     - Outbound communication isn't required for pfx files uploaded to Application Gateway directly
--	Communication to backend targets via internet
--	Communication to internet facing CRL or OCSP endpoints
+-	Communication to backend targets via Internet
+-	Communication to Internet facing CRL or OCSP endpoints
 
 ## Network Security Group Control
 
@@ -256,8 +256,8 @@ Three inbound [default rules](../virtual-network/network-security-groups-overvie
 
 Next, create the following four new inbound security rules:
 
-- Allow inbound port 80, tcp, from internet (any)
-- Allow inbound port 8080, tcp, from internet (any)
+- Allow inbound port 80, tcp, from Internet (any)
+- Allow inbound port 8080, tcp, from Internet (any)
 - Allow inbound from AzureLoadBalancer
 - Deny Any Inbound
 
@@ -325,7 +325,7 @@ Result:
 [ ![View the NSG overview](./media/application-gateway-private-deployment/nsg-overview.png) ](./media/application-gateway-private-deployment/nsg-overview.png#lightbox)
 
 > [!IMPORTANT] 
-> Be careful when you define **DenyAll** rules, as you may inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
+> Be careful when you define **DenyAll** rules, as you might inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
 
 ## Route Table Control
 
@@ -372,15 +372,16 @@ While in public preview, the following limitations are known.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
-If a subnet shares Application Gateway v2 deployments that were created prior and post enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality will be limited to prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality should either reprovision the existing gateways or provision newly created gateways to a new subnet to take advantage of the enhanced network security group and route table features.
+If a subnet shares Application Gateway v2 deployments that were created both prior to and after enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality is limited to the prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality must either be reprovisioned, or newly created gateways must use a different subnet to enable enhanced network security group and route table features.
 
-If a gateway deployed prior to enablement of the new functionality exists in the subnet, you may see errors such as "For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'." when adding route table entries or "Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group \<takes\> blocks outgoing internet traffic on subnet \<AppGWSubnetId\>, associated with Application Gateway \<AppGWResourceId\>. This isn't permitted for Application Gateways that have fast update enabled or have V2 Sku." when adding network security group rules to the subnet.
+- If a gateway deployed prior to enablement of the new functionality exists in the subnet, you might see errors such as: `For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'` when adding route table entries. 
+- When adding network security group rules to the subnet, you might see: `Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group \<NSG-name\> blocks outgoing Internet traffic on subnet \<AppGWSubnetId\>, associated with Application Gateway \<AppGWResourceId\>. This isn't permitted for Application Gateways that have fast update enabled or have V2 Sku.` 
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
 ### Private Endpoint Network Policy is unsupported
 
-[Private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints may be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
+[Private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints might be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
 
 ### Private Endpoint connectivity via Global VNet Peering
 
@@ -396,7 +397,7 @@ If backend health is unknown due to DNS resolution or other reason, the error me
 
 ### Tags in Route Table Rules
 
-If a tag is defined via Route Table, this may lead to provisioning failure of Application Gateway.
+If a tag is defined via Route Table, this might lead to provisioning failure of Application Gateway.
 
 ## Next steps
 
