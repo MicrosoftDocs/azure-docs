@@ -190,7 +190,8 @@ The *iotedgedev solution init* script prompts you to complete several steps incl
 
 After solution creation, these main files are in the solution:
 
-- A **modules** folder.
+- A **.vscode** folder contains configuration file launch.json.
+- A **modules** folder that has subfolders for each module. Within the subfolder for each module, the module.json file controls how modules are built and deployed.
 - An **.env** file lists your environment variables. The environment variable for the container registry is *localhost:5000* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal. The **CONTAINER_REGISTRY_SERVER** is the **Login server** of your registry.
 
    For example:
@@ -230,28 +231,32 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use **Login server** from your registry's settings. The sign-in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
-   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository.":::
+   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository." lightbox="./media/how-to-develop-csharp-module/repository.png":::
 
 Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
 There are four items within the solution:
 
 - A **.vscode** folder contains debug configurations.
-- A **modules** folder has subfolders for each module. Within the folder for each module, there's a file called **module.json** that controls how modules are built and deployed. You need to modify this file to change the module deployment container registry from a localhost to a remote registry. At this point, you only have one module. But you can add more if needed
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. For example,
+- A **modules** folder has subfolders for each module. Within the folder for each module, there's a file called **module.json** that controls how modules are built and deployed. You need to modify this file to change the module deployment container registry from a localhost to a remote registry. At this point, you only have one module. But you can add more if needed.
+- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal. The **CONTAINER_REGISTRY_SERVER** is the **Login server** of your registry.
 
-    ```env
-    CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
-    CONTAINER_REGISTRY_USERNAME="myacr"
-    CONTAINER_REGISTRY_PASSWORD="<your_acr_password>"
-    ```
+For example:
 
-   In production scenarios, you should use service principals to provide access to your container registry instead of the *.env* file. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+  ```env
+  CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
+  CONTAINER_REGISTRY_USERNAME="myacr"
+  CONTAINER_REGISTRY_PASSWORD="<my_acr_password>"
+  ```
 
-    > [!NOTE]
-    > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
+  In production scenarios, you should use service principals to provide access to your container registry instead of the *.env* file. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-- Two module deployment files named **deployment.template.json** and **deployment.debug.template** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and sample modules including the **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information on how the simulated temperature module works, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+  > [!NOTE]
+  > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
+
+- Two module deployment files named **deployment.template.json** and **deployment.debug.template** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and sample modules including the **SimulatedTemperatureSensor** module that simulates data you can use for testing. 
+
+   For more information about deployment manifests, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information about the simulated temperature module, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ::: zone-end
 
@@ -265,19 +270,22 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
 1. Choose the runtime version that your IoT Edge devices are running from the list.
 
-    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+   Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
     ...
     "systemModules": {
        "edgeAgent": {
-       ...
+          ...
           "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-       ...
+          ...
+       }
        "edgeHub": {
-       ...
+          ...
           "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-       ...
+          ...
+       }
+    }
     ```
 
 1. After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
