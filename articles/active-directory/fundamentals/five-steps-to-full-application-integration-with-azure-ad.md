@@ -13,7 +13,7 @@ ms.date: 03/01/2023
 
 # Five steps to integrate your apps with Azure Active Directory
 
-You can learn to integrate your applications with Azure Active Directory (Azure AD), which is a cloud-based identity and access management service. Organizations use Azure AD for secure authentication and authorization so customers, partners, and employees can access applications. With Azure AD, features such as Conditional Access, Azure AD Multi-Factor Authentication (MFA), single sign-on, and applicatoin provisioning make identity and access management easier to manage and more secure.
+Learn to integrate your applications with Azure Active Directory (Azure AD), which is a cloud-based identity and access management service. Organizations use Azure AD for secure authentication and authorization so customers, partners, and employees can access applications. With Azure AD, features such as Conditional Access, Azure AD Multi-Factor Authentication (MFA), single sign-on, and application provisioning make identity and access management easier to manage and more secure.
 
 Learn more:
 
@@ -22,7 +22,7 @@ Learn more:
 * [Azure AD seamless single sign-on](../hybrid/how-to-connect-sso.md)
 * [What is app provisioning in Azure AD?](../app-provisioning/user-provisioning.md)
 
-If your company has a Microsoft 365 subscription, you likely use Azure AD. However, you can Azure AD for applications. If you centralize application management, you can use identity management features, tools, and policies for your app portfolio. The benefit is a unified solution that improves security, reduces costs, increases productivity, and enables compliance. In addition, there's remote access to on-premises apps.
+If your company has a Microsoft 365 subscription, you likely use Azure AD. However, you can use Azure AD for applications. If you centralize application management, identity management features, tools, and policies for your app portfolio. The benefit is a unified solution that improves security, reduces costs, increases productivity, and enables compliance. In addition, there's remote access to on-premises apps.
 
 Learn more:
 
@@ -35,7 +35,7 @@ When your business acquires new applications, add them to the Azure AD tenant. E
 
 See, [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md
 
-Azure AD has a gallery of integrated applications to make it easy to get started. You can add a gallery app to your Azure AD organization (see, previous link) amd learn about integrating software as a service (SaaS) tutorials.
+Azure AD has a gallery of integrated applications to make it easy to get started. Add a gallery app to your Azure AD organization (see, previous link) and learn about integrating software as a service (SaaS) tutorials.
 
 See, [Tutorials for integrating SaaS applications with Azure AD](../saas-apps/tutorial-list.md) 
 
@@ -51,7 +51,7 @@ Use the following tutorials to learn to integrate common tools with Azure AD sin
 
 ### Apps not in the gallery
 
-You can integrate applications not in the gallery, including applications in your organization, or third-party application from vendors not in the Azure AD gallery. You can make a request to publish your app in the gallery. To learn about integrating apps you develop in-house, see Integrate apps your developers build.
+You can integrate applications that don't appear in the gallery, including applications in your organization, or third-party application from vendors. Submit a request to publish your app in the gallery. To learn about integrating apps you develop in-house, see **Integrate apps your developers build**.
 
 Learn more:
 
@@ -67,7 +67,7 @@ Learn more:
 * [Set up Cloud Discovery](/defender-cloud-apps/set-up-cloud-discovery)
 * [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide&preserve-view=true)
 
-In addition, you can use the Active Directory Federation Services (AD FS) in the Azure portal to discover AD FS apps in your organization. You can discover unique users that signed in to the apps, and see information about integratino compatibility.
+In addition, use the Active Directory Federation Services (AD FS) in the Azure portal to discover AD FS apps in your organization. Discover unique users that signed in to the apps, and see information about integration compatibility.
 
 See, [Review the application activity report](../manage-apps/migrate-adfs-application-activity.md)
 
@@ -96,7 +96,7 @@ During discovery, there might be applications not tracked by the IT team, which 
 
 ### App owner awareness
 
-To help manage app integration with Azure AD, use the following material for application owner awareness and interest. You can modify the material with your branding.
+To help manage app integration with Azure AD, use the following material for application owner awareness and interest. Modify the material with your branding.
 
 You can download:
 
@@ -109,7 +109,7 @@ Evaluate use of AD FS for authentication with SaaS apps, line-of-business apps, 
 
    ![Diagram AD FS authenticating with SaaS apps, line-of-business apps, also Microsoft 365 and Azure AD apps](./media/five-steps-to-full-application-integration-with-azure-ad/adfs-integration-1.png)
 
-You can improve the configuration illustrated in the previous diagram by moving application authentication to Azure AD. You can enable sign-on for apps and ease application discovery with the My Apps portal.
+Improve the configuration illustrated in the previous diagram by moving application authentication to Azure AD. Enable sign-on for apps and ease application discovery with the My Apps portal.
 
 Learn more:
 
@@ -128,7 +128,7 @@ You can migrate apps that use a different cloud-based IdP. Your organization mig
 
 ## Integrate on-premises applications
 
-Traditionally, application security enabled access during a connection to a corporate network. However, organization grant access to apps for customers, partners, and/or employees, regardless of location. Application Proxy Service in Azure AD connects on-premises apps to Azure AD and doesn't require edge servers or additional infrastructure.
+Traditionally, application security enabled access during a connection to a corporate network. However, organization grant access to apps for customers, partners, and/or employees, regardless of location. Application Proxy Service in Azure AD connects on-premises apps to Azure AD and doesn't require edge servers or more infrastructure.
 
 See, [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
@@ -138,11 +138,11 @@ The following diagram illustrates Application Proxy Service processing a user re
 
 See, [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md) 
 
-In addition, you can integrate application delivery controllers like F5 BIG-IP APM, or Zscaler Private Access, with Azure AD. Benefits are modern authentication and identity management, traffic management, and security features. We call this solution secure hybrid access. 
+In addition, integrate application delivery controllers like F5 BIG-IP APM, or Zscaler Private Access, with Azure AD. Benefits are modern authentication and identity management, traffic management, and security features. We call this solution secure hybrid access. 
 
 See, [Secure hybrid access: Protect legacy apps with Azure AD](../manage-apps/secure-hybrid-access.md)
 
-For the following services, there are tutorials Azure AD integration.
+For the following services, there Azure AD integration tutorials.
 
 * [Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)
 * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
