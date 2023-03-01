@@ -19,7 +19,7 @@ Azure Functions App Diagnostics is a useful resource in the Azure portal for mon
 
     :::image type="content" source="media/durable-functions-best-practice/search-for-detector.png" alt-text="Screenshot showing how to search for Durable Functions detector.":::
 
-3.	You're now inside the Durable Functions detector, which checks for common problems Durable Functions apps tend to have. The detector also gives you links to tools and reference documentation you might find helpful. Go through the various insights in the detector to learn about the application’s health. Examples of what the detector tells you include: Durable Functions extension version your app is using, any errors or warnings, and performance issues. If there are issues, you'll see suggestions on how to mitigate and resolve them.
+3.	You're now inside the Durable Functions detector, which checks for common problems Durable Functions apps tend to have. The detector also gives you links to tools and documentation you might find helpful. Go through the various insights in the detector to learn about the application’s health. Some examples of what the detector tells you include the Durable Functions extension version your app is using, performance issues, and any errors or warnings. If there are issues, you'll see suggestions on how to mitigate and resolve them.
 
     :::image type="content" source="media/durable-functions-best-practice/durable-functions-detector.png" alt-text="Screenshot of Durable Functions detector.":::
  
