@@ -60,20 +60,20 @@ To manage the new VM from Azure via Azure Arc, install the Connected Machine age
 
 ### Step 3: Deploy a custom template
 
-The custom template helps you:
-
-- Create host pool, workspace, and application group
-- Add the VMs you created in [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) as session hosts to the host pool
-- Domain join the VMs
-
-After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy from a custom template:
+After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy Azure Virtual Desktop on Azure Stack HCI from a custom template:
 
 1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
     > [!TIP]
     > Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
 
-    The template opens in the Azure portal. To find all the relevant custom     templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+    The Azure Resource Manager template opens in the Azure portal and sets up Azure Virtual Desktop on Azure Stack HCI by:
+
+    - Creating host pool, workspace, and application group
+    - Adding the VMs you created in [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) as session hosts to the host pool
+    - Joining the VMs to the domain and downloading and installing the Azure Virtual Desktop agents and registering them to the host pool
+
+    To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 1. Select or enter the following values under **Project details**:
     
@@ -152,7 +152,7 @@ You can add new session hosts to an existing host pool that was created either m
 
 To get started, select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplateaddga) button.
 
-The custom template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+The custom template opens in the Azure portal. This Azure Resource Manager template sets up your VMs for Azure Virtual Desktop and adds them to your existing host pool. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 ### Download supported OS images from Azure Marketplace
 
