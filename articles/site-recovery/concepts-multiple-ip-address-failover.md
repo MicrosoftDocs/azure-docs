@@ -42,7 +42,7 @@ Site Recovery automatically configures the failover of your Primary IP Configura
 
 5. Alternatively, on clicking **Select and add secondary IP Configurations**, a blade will open where you can pick and add IP Configurations you'd like to configure for failover.
 
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Select and Add IP Configurations":::
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Select and Add IP Configurations" lightbox="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png"::::::
 
 Now, for each IP Configuration that you've added, you can configure the values for Private IP, Public IP, and Backend Pool for Failover and Test Failover separately. After you've done it all, don't forget to Save changes.
 
