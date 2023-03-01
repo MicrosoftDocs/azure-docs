@@ -10809,6 +10809,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-faq.md",
+            "redirect_url": "/azure/devtest-labs/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/lab-services/devtest-lab-add-claimable-vm.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-add-claimable-vm",
             "redirect_document_id": true

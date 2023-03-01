@@ -85,11 +85,11 @@ The Azure Storage provider is the default storage provider and doesn't require a
 The `connectionName` property in host.json is a reference to environment configuration which specifies how the app should connect to Azure Storage. It may specify:
 
 - The name of an application setting containing a connection string. To obtain a connection string, follow the steps shown at [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
-- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections-preview).
+- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
 
 If the configured value is both an exact match for a single setting and a prefix match for other settings, the exact match is used. If no value is specified in host.json, the default value is "AzureWebJobsStorage".
 
-##### Identity-based connections (preview)
+##### Identity-based connections 
 
 If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
 
