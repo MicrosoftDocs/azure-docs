@@ -86,7 +86,7 @@ In an Azure function, you can use the managed identity credentials like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="ManagedIdentityCredential":::
 
-If you're using a user-assigned identity for the function app, enter the client ID of the user-assigned identity as a parameter when creating the credential. If you're using the function app's system-assigned identity to authenticate, you can leave the parameter empty.
+Leaving the parameter empty as shown above will return the credential for the function app's system-assigned identity, if it has one. To specify a user-assigned identity instead, pass the user-assigned identity's **client ID** into the parameter. 
 
 ### InteractiveBrowserCredential method
 
@@ -124,10 +124,9 @@ When writing the Azure function, consider adding these variables and code to you
 
 * **Managed identity credentials.** Create a managed identity credential that your function will use to access Azure Digital Twins. 
 
-    If you're using a user-assigned identity for the function app, enter the client ID of the user-assigned identity as a parameter when creating the credential, as shown below:
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-    If you're using the function app's system-assigned identity to authenticate, you can leave the parameter empty.
+    Leaving the parameter empty as shown above will return the credential for the function app's system-assigned identity, if it has one. To specify a user-assigned identity instead, pass the user-assigned identity's **client ID** into the parameter. 
 
     Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do so, skip ahead to [Assign an access role](#assign-an-access-role).    
 
