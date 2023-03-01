@@ -150,8 +150,6 @@
                   href: custom-extension-get-started.md
                 - name: Configure a SAML app to call a custom claims provider
                   href: custom-extension-configure-saml-app.md
-                - name: Deploy using the custom claim provider SDK
-                  href: custom-extension-authentication-events-sdk.md
                 - name: Troubleshoot your custom claims provider API
                   href: custom-extension-troubleshoot.md
         - name: Handle browser cookie restrictions
