@@ -64,7 +64,7 @@ Connection troubleshoot can detect the following types of issues that can impact
 
 ## Response
 
-The following table shows the properties returned when connection troubleshoot has finished running.
+The following table shows the properties returned after running connection troubleshoot.
 
 |**Property**  |**Description**  |
 |---------|---------|
@@ -113,12 +113,12 @@ Connection troubleshoot returns fault types about the connection. The following 
 |---------|---------|
 |CPU     | High CPU utilization.       |
 |Memory     | High Memory utilization.       |
-|GuestFirewall     | Traffic is blocked due to a virtual machine firewall configuration. <br><br> Note that a TCP ping is a unique use case in which, if there's no allowed rule, the firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. This event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.   |
+|GuestFirewall     | Traffic is blocked due to a virtual machine firewall configuration. <br><br> A TCP ping is a unique use case in which, if there's no allowed rule, the firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. This event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.   |
 |DNSResolution     | DNS resolution failed for the destination address.        |
-|NetworkSecurityRule    | Traffic is blocked by an NSG Rule (Rule is returned)        |
+|NetworkSecurityRule    | Traffic is blocked by a network security group rule (security rule is returned)        |
 |UserDefinedRoute|Traffic is dropped due to a user defined or system route. |
 
 ### Next steps
 
-- Learn more about [Network Watcher](network-watcher-monitoring-overview.md).
-- Learn how to use connection troubleshoot using the [Azure portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), the [Azure CLI](network-watcher-connectivity-cli.md), or [REST API](network-watcher-connectivity-rest.md).
+- To learn how to use connection troubleshoot to test and troubleshoot connections, see [Troubleshoot connections with Azure Network Watcher using the Azure portal](network-watcher-connectivity-portal.md).
+- To learn more about Network Watcher and its other capabilities, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
