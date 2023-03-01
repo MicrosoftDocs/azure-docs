@@ -4815,5 +4815,10 @@
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
             "redirect_document_id": false
         }
+        {
+            "source_path_from_root": "/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
+            "redirect_url": "/virtual-machines/linux/azure-hybrid-benefit-linux/",
+            "redirect_document_id": false
+        }
     ]
 }
