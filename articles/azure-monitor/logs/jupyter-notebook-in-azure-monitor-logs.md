@@ -92,7 +92,7 @@ In this tutorial, you'll:
     credential = DefaultAzureCredential()
     logs_query_client = LogsQueryClient(credential)
     ```
-1. Define your variables and functions.  
+1. Define the functions you'll use to call your Log Analytics workspace, query your data, and visualize the data in a graph.  
     
     ```python
     import os
@@ -158,6 +158,7 @@ In this tutorial, you'll:
     - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a a pandas DataFrame (`my_data`).  
     - `execQueryDemoWorkspace(query)` - Calls the Azure Log Analytics POST API with the given query and returns a pandas DataFrame containing the data from the response.
     - `showGraph(df, title)` - Creates a graph that plots `TimeGenerated` on the x-axis and `ActualUsage` on the y-axis using Plotly.
+    
 ## Explore and visualize log data in your notebook
 
 1. Query the use of all data types in the last week:
