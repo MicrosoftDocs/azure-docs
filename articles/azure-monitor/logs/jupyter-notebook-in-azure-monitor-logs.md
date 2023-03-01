@@ -47,8 +47,8 @@ In this tutorial, you'll:
 
 - [Azure Monitor REST API](/rest/api/monitor/)
 - [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
-- [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
-- Python libraries. 
+- [Pandas library](https://pandas.pydata.org/) for data tables.
+- [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).
 
 ## Benefits 
 
@@ -67,7 +67,7 @@ In this tutorial, you'll:
 - The following roles and permissions: Azure Machine Learning (???). 
 - Familiarity with data science concepts.  
 
-## Create new or open existing notebook in Azure Machine Learning 
+## Create a new notebook in Azure Machine Learning 
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select your workspace, if it isn't already open.    
