@@ -31,7 +31,7 @@ In this document, you'll learn how to use Nebula with ACPT on Azure Machine Lear
 > [!NOTE]
 > Nebula is currently under preview. This means Nebula is not production-ready. At this time, Nebula has no support as a generally-available product. Nebula will have constant updates and improvements to its functions and features. Feel free to offer feedback and suggestions to us at nebulasupport@microsoft.com.
 >
-> Please visit [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) to learn more.
+> Please visit [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) to learn more.
 
 ## Why checkpoint optimization for large model training matters
 
@@ -97,7 +97,7 @@ Nebula use involves:
 - [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](https://learn.microsoft.com/en-us/azure/machine-learning/resource-curated-environments#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](resource-curated-environments#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
