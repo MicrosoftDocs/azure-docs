@@ -7,6 +7,8 @@ ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: aarthiv
+ms.custom: UpdateFrequency.5
+
 ---
 # Support for moving extension resource types between Azure regions
 This article summarizes all the [Extension resource types ](../azure-resource-manager/management/extension-resource-types.md)that are currently supported while moving Azure resources across regions using Azure resource mover.

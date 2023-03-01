@@ -7,6 +7,8 @@ ms.service: resource-mover
 ms.topic: how-to
 ms.date: 02/10/2023
 ms.author: ankitadutta
+ms.custom: UpdateFrequency1
+
 #Customer intent: As an Azure admin,  I want to move Azure resources to a different Azure region.
 ---
 # Move resources across regions (from resource group)

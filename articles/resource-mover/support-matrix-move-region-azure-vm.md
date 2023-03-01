@@ -7,7 +7,7 @@ ms.service: resource-mover
 ms.topic: how-to
 ms.date: 05/11/2022
 ms.author: ankitadutta
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, UpdateFrequency1
 
 ---
 

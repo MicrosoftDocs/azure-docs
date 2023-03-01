@@ -7,6 +7,8 @@ ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: ankitadutta
+ms.custom: UpdateFrequency.5
+
 
 ---
 # Support for moving Azure SQL resources between Azure regions
