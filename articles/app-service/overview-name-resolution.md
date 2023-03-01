@@ -42,7 +42,8 @@ If you require fine-grained control over name resolution, App Service allows you
 |dnsRetryAttemptTimeout|3|1-30|Timeout before retrying or failing. Timeout also defines the time to wait for secondary server results if the primary doesn't respond|
 
 >[!NOTE]
-> Changing name resolution behavior is not supported on Windows Container apps
+> * Changing name resolution behavior is not supported on Windows Container apps
+> * To enable DNS caching on Web App for Containers and Linux-based apps you must add the app setting `WEBSITE_ENABLE_DNS_CACHE`
 
 Configure the name resolution behavior by using these CLI commands:
 
@@ -60,9 +61,9 @@ az resource show --resource-group <group-name> --name <app-name> --query propert
 
 ## Limitations
 
-Windows code apps used to sort the servers when using virtual network integration and the virtual network has custom DNS servers configured. It also used to only use the first two custom DNS servers in the sorted list. This behavior has changed for new apps, but hasn't changed for existing apps to maintain backwards compatibility.
+Windows code apps used to sort the servers when using virtual network integration and the virtual network has custom DNS servers configured. The sorting could influence what server was the primary DNS server. This behavior has changed for new apps to use the order in which they're configured, but hasn't changed for existing apps to maintain backwards compatibility.
 
-If you would like to adopt the new default behavior for your Windows code apps, you can run this CLI command:
+If you would like to adopt the new default behavior for your existing Windows code apps, you can run this CLI command:
 
 ```azurecli-interactive
 az rest --method POST --uri <app-resource-id>/disableVirtualNetworkDnsSorting?api-version=2022-03-01
