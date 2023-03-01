@@ -16,7 +16,7 @@ This article shows you how to segregate worker nodes into different private subn
 
 For example, you might want to run specific ingress controllers on dedicated worker nodes within a specific subnet, while the rest of the Kubernetes nodes for workloads (infra and other workers) are within a different subnet, as shown below:
 
-:::image type="content" source="media/howto-segregate-machinesets/subnet-configuration.png" alt-text="Screen shot of an example subnet configuration.":::
+:::image type="content" source="media/howto-segregate-machinesets/subnet-configuration.png" alt-text="Screenshot of an example subnet configuration." lightbox="media/howto-segregate-machinesets/subnet-configuration.png":::
 
 > [!NOTE]
 > As part of ARO, master and worker nodes cannot be deployed in the same private subnet.
@@ -41,7 +41,7 @@ Once you've deployed your ARO cluster, you'll need to create extra subnets as pa
 
 Create the subnets as part of the current virtual network in which ARO is deployed. Make sure that all the subnets are updated to the `Microsoft.ContainerRegistry` for **Service Endpoints**.
 
-:::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted." lightbox="media/howto-segregate-machinesets/subnets-window.png":::
+:::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screenshot of the Subnets window with service endpoints highlighted." lightbox="media/howto-segregate-machinesets/subnets-window.png":::
 
 ### Step 2: Sign-in to the jumphost
 
