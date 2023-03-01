@@ -136,7 +136,7 @@ The steps to create a VNet-to-VNet connection with an IPsec/IKE policy are simil
 
 ### Step 1 - Create the virtual network, VPN gateway, and local network gateway for TestVNet2
 
-Use the steps in the [Create a VNet-to-VNet connection](/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
+Use the steps in the [Create a VNet-to-VNet connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
 
 Example values:
 

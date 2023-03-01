@@ -54,8 +54,8 @@ The following are important considerations to evaluate:
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     #!/bin/sh
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
     for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
@@ -373,8 +373,8 @@ Migration from in-tree to CSI is supported by creating a static volume.
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     #!/bin/sh
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
     for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do

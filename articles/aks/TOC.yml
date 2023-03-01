@@ -75,6 +75,8 @@
       href: concepts-clusters-workloads.md
     - name: Security
       items:
+        - name: Vulnerability management
+          href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Container Security
@@ -357,6 +359,8 @@
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
+            - name: Isolate pod compute resources
+              href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
             - name: Use pod security policies (preview)
