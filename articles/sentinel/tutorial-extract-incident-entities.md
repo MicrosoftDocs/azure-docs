@@ -25,10 +25,9 @@ In addition to these actions, analytic rule entity mapping contains entity types
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a playbook
-> * Initialize an array variable
-> * Filter the required entity type from other entity types
-> * Create a playbook with an incident trigger and run it manually on the incident. 
+> * Create a playbook with an incident trigger and run it manually on the incident.
+> * Initialize an array variable.
+> * Filter the required entity type from other entity types. 
 > * Parse the results in a JSON file.
 > * Create the values as dynamic content for future use.
 
@@ -135,7 +134,7 @@ Ensure that the playbook is saved, and you can now use your playbook for SOC ope
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+these resources with the following steps:
 
 1. From the left-hand menu...
 2. ...click Delete, enter...and then click Delete
