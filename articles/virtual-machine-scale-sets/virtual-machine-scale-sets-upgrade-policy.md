@@ -135,7 +135,7 @@ If you have the Upgrade Policy set to manual, you need to perform manual upgrade
 > [!NOTE]
 > While upgrading, the instances may be restarted.
 
-## CLI
+### CLI
 Using [az vmss update-instances](/cli/azure/vmss)
 
 ```azurecli
