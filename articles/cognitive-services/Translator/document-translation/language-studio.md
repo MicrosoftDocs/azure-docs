@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Document Translation in Language Studio
+# Document Translation in Language Studio (Preview)
 
 > [!IMPORTANT]
 > Document Translation in Language Studio is currently in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
