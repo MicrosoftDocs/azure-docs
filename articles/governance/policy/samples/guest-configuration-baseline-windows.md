@@ -122,7 +122,7 @@ For more information, see [Azure Automanage machine configuration](../../machine
 |---|---|---|---|
 |Prevent users from modifying settings<br /><sub>(AZ-WIN-202209)</sub> |**Description**: This policy setting prevent users from making changes to the Exploit protection settings area in the Windows Security settings.  The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection\DisallowExploitProtectionOverride<br />**OS**: WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member<br />**Group Policy Path**: Computer Configuration\Policies\Administrative Templates\Windows Components\Windows Security\App and browser protection\Prevent users from modifying settings<br />**Compliance Standard Mappings**:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Name**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Platform**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ID**<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WS2022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.9.105.2.1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WS2019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.9.105.2.1<br /> |\= 1<br /><sub>(Registry)</sub> |Warning |
 
-## Administrative Tenplate - Window Defender
+## Administrative Template - Window Defender
 
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |
 |---|---|---|---|
