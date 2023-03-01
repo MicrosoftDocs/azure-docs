@@ -268,50 +268,13 @@ To create these rules:
 - When you have entered the information, select **Add** to create the rule. 
 - Creation of each rule will take a moment.
 
-Rule 1:
- - Source:  Any
- - Source port ranges: *
- - Destination: Any
- - Service: HTTP
- - Destination port ranges: 80
- - Protocol: TCP
- - Action: Allow
- - Priority: 1028
- - Name: AllowWeb
+| Rule # |    Source   | Source service tag | Source port ranges | Destination | Service | Dest port ranges | Protocol | Action | Priority |       Name       |
+| ------ | ----------- | ------------------ | ------------------ | ----------- | ------- | ---------------- | -------- | ------ | -------- | ---------------- |
+|   1    |     Any     |         N/A        |          *         |     Any     |  HTTP   |        80        |   TCP    | Allow  |   1028   |     AllowWeb     |
+|   2    |     Any     |         N/A        |          *         |     Any     | Custom  |       8080       |   TCP    | Allow  |   1029   |   AllowWeb8080   |
+|   3    | Service Tag |  AzureLoadBalancer |          *         |     Any     | Custom  |        *         |   Any    | Allow  |   1045   |     AllowLB      |
+|   4    |     Any     |         N/A        |          *         |     Any     | Custom  |        *         |   Any    | Deny   |   4095   |  DenyAllInbound  |
 
-Rule 2:
- - Source:  Any
- - Source port ranges: *
- - Destination: Any
- - Service: Custom
- - Destination port ranges: 8080
- - Protocol: TCP
- - Action: Allow
- - Priority: 1029
- - Name: AllowWeb8080
-
-Rule 3:
- - Source:  Service Tag
- - Source service tag: AzureLoadBalancer
- - Source port ranges: *
- - Destination: Any
- - Service: Custom
- - Destination port ranges: *
- - Protocol: Any
- - Action: Allow
- - Priority: 1045
- - Name: DenyAllInbound
-
-Rule 4: 
- - Source:  Any
- - Source port ranges: *
- - Destination: Any
- - Service: Custom
- - Destination port ranges: *
- - Protocol: Any
- - Action: Deny
- - Priority: 4095
- - Name: DenyAllInbound
 
 Select **Refresh** to review all rules when provisioning is complete.
 
