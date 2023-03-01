@@ -1452,11 +1452,11 @@ items:
     items:
       - name: AIOps in Azure Monitor
         href: logs/bring-your-own-machine-learning.md
-      - name: Machine learning (ML) with KQL or bring your own ML in Azure Monitor Logs
+      - name: Machine learning in Azure Monitor Logs
         items:
         - name: Detect and analyze anomalies in log data with KQL
           href: logs/kql-machine-learning-azure-monitor.md
-        - name: Integrate Jupyter Notebook 
+        - name: Integrate Jupyter Notebook and bring your own ML 
           href: logs/jupyter-notebook-in-azure-monitor-logs.md      
 - name: Reference
   items:
