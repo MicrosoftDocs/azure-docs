@@ -110,4 +110,4 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [azure-marketplace]: /marketplace/azure-marketplace-overview
 [cluster-extensions]: ./cluster-extensions.md
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
-[marketplace-troubleshoot]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+[marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
