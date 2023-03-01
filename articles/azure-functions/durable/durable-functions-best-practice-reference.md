@@ -49,7 +49,7 @@ This article details some best practices when using Durable Functions. It also d
 
 - **Manage memory usage**
 
-    *Passing in large values to and from Durable Functions APIs*
+    *Passing large values to and from orchestrator and activity functions*
 
     You can run into memory issues if you have large inputs and outputs to Durable Functions APIs. 
 
