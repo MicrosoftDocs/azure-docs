@@ -25,7 +25,7 @@ This provides you with a number of advantages:
 
 ## Tools you'll use
 
-- Jupyter Notebook
+- [Jupyter Notebook](https://jupyter.org/).
 - [Azure Monitor REST API](/rest/api/monitor/)
 - [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
 - [Pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html)
@@ -89,13 +89,21 @@ In this tutorial, you learn how to:
  ## Connect to your workspace
 
 1. Authenticate using `DefaultAzureCredential` from the `azure-identity` package.
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    from azure.monitor.query import LogsQueryClient
+    
+    credential = DefaultAzureCredential()
+    logs_query_client = LogsQueryClient(credential)
+    ```
 1. Define your variables and functions.
 1. 
 
 ## Explore and visualize data
 
 
-```rest
+```python
 UsageQuery_AllTypes = """
 Usage 
 | project TimeGenerated, DataType, Quantity 
@@ -110,7 +118,7 @@ start_time = end_time - timedelta(days=num_days)
 df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
 ```
 
-```rest
+```python
 showGraph(df_allTypes, "All Data Types - last week usage")
 ```
 
@@ -121,7 +129,7 @@ showGraph(df_allTypes, "All Data Types - last week usage")
     In reality it iterative process with data preparation/cleaning and running several models until find the best. we will skip data cleaning and run only two models and will pick the best between these two.
 
 
-    ```rest
+    ```python
     datatypes = ["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs", "AzureDiagnostics", "Perf"]
     
     datatypesStr = ''
@@ -153,7 +161,7 @@ showGraph(df_allTypes, "All Data Types - last week usage")
 
     This function returns the results of the query for the selected data types
      
-    ```rest
+    ```python
     def getSelectedDataTypesQuery(datatypesStr, start, end):
         UsageQuery_SelectedDataTypes = f"""
         let starttime = {start}d; // Start date for the time series, counting back from the current date
@@ -168,7 +176,7 @@ showGraph(df_allTypes, "All Data Types - last week usage")
     ```
 1. Create a graph that shows the usage for the selected data types.
 
-    ```rest
+    ```python
     showGraph(my_data, "Selected Data Types - Hystorical Data Usage (3 weeks)")
     ```
 
