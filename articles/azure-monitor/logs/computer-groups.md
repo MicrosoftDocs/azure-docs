@@ -44,9 +44,9 @@ The following table describes the properties that define a computer group.
 
 | Property | Description |
 |:---|:---|
-| Name   | Name of the query  to display in the portal. |
-| Function alias | A unique alias used to identify the computer group in a query. |
-| Category       | Category to organize the queries in the portal. |
+| Function name   | Name of the query to display in the portal. |
+| Legacy category       | Category to organize the queries in the portal. |
+| Parameters | Add a parameter for each variable in the function that requires a value when it's used. For more information, see [Function parameters](functions.md#function-parameters). |
 
 
 ### Active Directory
@@ -65,15 +65,14 @@ You configure Azure Monitor to import WSUS groups from the **Legacy computer gro
 ### Configuration Manager
 When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
 
-You configure Azure Monitor to import WSUS groups from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **System Center Configuration Manager** tab, and then **Import Configuration Manager collection memberships**. When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+You configure Azure Monitor to import Configuration Manager collections from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **System Center Configuration Manager** tab, and then **Import Configuration Manager collection memberships**. When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ## Managing computer groups
 You can view computer groups that were created from a log query from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
 
-Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
+Click the **Delete** icon to delete the computer group.  Click the **Run query** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 
-![Saved computer groups](media/computer-groups/configure-saved.png)
-
+:::image type="content" source="media/computer-groups/configure-saved.png" alt-text="Screenshot of a Log Analytics resource in Azure with Legacy computer groups pane,  Saved Groups tab, Run query icon, and Delete icon highlighted." border="false" lightbox="media/computer-groups/configure-saved.png":::
 
 ## Using a computer group in a log query
 You use a Computer group created from a log query in a query by treating its alias as a function, typically with the following syntax:
