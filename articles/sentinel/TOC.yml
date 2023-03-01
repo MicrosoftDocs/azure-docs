@@ -23,6 +23,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
+  - name: Extract incident entities with non-native actions
+    href: tutorial-extract-incident-entities.md
   - name: Detect Log4j vulnerability exploits
     href: tutorial-log4j-detection.md
   - name: Get started with notebooks and MSTICPy
