@@ -8,6 +8,7 @@ services: azure-communication-services
 ms.author: dademath
 ms.topic: how-to
 ms.service: azure-communication-services
+ms.date: 03/01/2023
 ---
 
 # Record a call when it starts
@@ -55,10 +56,16 @@ The Call Started event when a call start is formatted in the following way:
 
 ```
 
+## Pre-requisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
+
 ## Setting up our local environment
 
 1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-2. With the extension, create an Azure Function following these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp).
+2. With the extension, create an Azure Function following these [instructions](../../../azure-functions/create-first-function-vs-code-csharp.md).
 
    Configure the function with the following instructions:
    - Language: C#
@@ -93,7 +100,7 @@ The Call Started event when a call start is formatted in the following way:
 
 ## Configure Azure Function to receive `CallStarted` event
 
-1. Configure switch statement within Azure Function to perform actions when the two different events we care about trigger. (Microsoft.Communication.CallStarted and Microsoft.Communication.RecordingFileStatus.Updated)
+1. Configure Azure Function to perform actions when the `CallStarted` event triggers.
 
 ```csharp
 
@@ -103,6 +110,35 @@ The Call Started event when a call start is formatted in the following way:
         {
             log.LogInformation("Call started");
             var callEvent = eventGridEvent.Data.ToObjectFromJson<CallStartedEvent>();
+            
+            // CallStartedEvent class is defined in documentation, but the objects looks like this:
+            // public class CallStartedEvent
+            // {
+            //     public StartedBy startedBy { get; set; }
+            //     public string serverCallId { get; set; }
+            //     public Group group { get; set; }
+            //     public bool isTwoParty { get; set; }
+            //     public string correlationId { get; set; }
+            //     public bool isRoomsCall { get; set; }
+            // }
+            // public class Group
+            // {
+            //     public string id { get; set; }
+            // }
+            // public class StartedBy
+            // {
+            //     public CommunicationIdentifier communicationIdentifier { get; set; }
+            //     public string role { get; set; }
+            // }
+            // public class CommunicationIdentifier
+            // {
+            //     public string rawId { get; set; }
+            //     public CommunicationUser communicationUser { get; set; }
+            // }
+            // public class CommunicationUser
+            // {
+            //     public string id { get; set; }
+            // }
         }
     }
 
@@ -151,7 +187,7 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
+2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
 
     ```bash
 
@@ -159,11 +195,11 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     ```
 
-3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](https://learn.microsoft.com/azure/communication-services/how-tos/calling-sdk/record-calls?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
+3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](../calling-sdk/record-calls?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
 
 ### Deploy to Azure
 
-To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run a similar command:
+To deploy the Azure Function to Azure, you need to follow these [instructions](../../../azure-functions/create-first-function-vs-code-csharp.md#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run a similar command:
 
 ```bash
 

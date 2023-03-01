@@ -10,7 +10,7 @@ ms.date: 02/09/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-zone_pivot_groups: acs-azcli-js-csharp-java-python
+zone_pivot_groups: acs-js-power
 ---
 
 # Quickstart: Receive and Reply to SMS
@@ -47,15 +47,15 @@ To start generating the events, we must configure Azure Event Grid for our Azure
 ## Pre-requisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
-- Enable Event Grid resource provide on your subscription. See [instructions](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An SMS-enabled telephone number. [Get a phone number](../telephony/get-phone-number.md).
+- Enable Event Grid resource provide on your subscription. See [instructions](../sms/handle-sms-events#register-an-event-grid-resource-provider).
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Receive SMS with Azure Function (JS)](./includes/receive-sms-js.md)]
 ::: zone-end
 
-::: zone pivot="platform-no-code"
+::: zone pivot="platform-power"
 [!INCLUDE [Receive SMS with Power Automate and Logic Apps](./includes/receive-sms-no-code.md)]
 ::: zone-end
 

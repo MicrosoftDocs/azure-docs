@@ -19,7 +19,7 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
 ## Setting up our local environment
 
 1. Using [Visual Studio Code](https://code.visualstudio.com/), install the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-2. With the extension, create an Azure Function following these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node).
+2. With the extension, create an Azure Function following these [instructions](../../../../azure-functions/create-first-function-vs-code-node).
 
    Configure the function with the following instructions:
    - Language: TypeScript
@@ -134,7 +134,7 @@ To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](ht
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  /subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>)
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  /subscriptions/`<<AZURE SUBSCRIPTION ID>>`/resourceGroups/`<<RESOURCE GROUP NAME>>`/providers/Microsoft.Communication/CommunicationServices/`<<RESOURCE NAME>>`)
 
     ```bash
 
@@ -146,7 +146,7 @@ To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](ht
 
 ## Deploy to Azure
 
-To deploy the Azure Function to Azure, you need to follow these [instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run the following command:
+To deploy the Azure Function to Azure, you need to follow these [instructions](../../../../azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run the following command:
 
 ```bash
 
