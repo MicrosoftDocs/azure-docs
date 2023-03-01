@@ -152,22 +152,52 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ### [Using PowerShell (Premium tier)](#tab/premium)
 
-The [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](../powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
+The [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](/powershell/module/az.rediscache/new-azrediscache#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](/powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
 
-Existing caches can be updated using the [Set-AzRedisCache](../powershell/module/az.rediscache/set-azrediscache.md) command. See examples of [adding persistence to an existing cache](../powershell/module/az.rediscache/set-azrediscache.md#example-3-modify-azure-cache-for-redis-if-you-want-to-add-data-persistence-after-azure-redis-cache-created).
+Existing caches can be updated using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) command. See examples of [adding persistence to an existing cache](/powershell/module/az.rediscache/set-azrediscache#example-3-modify-azure-cache-for-redis-if-you-want-to-add-data-persistence-after-azure-redis-cache-created).
 
 ### [Using PowerShell (Enterprise tier)](#tab/enterprise)
 
-The [New-AzRedisEnterpriseCache](../powershell/module/az.redisenterprisecache/new-azredisenterprisecache.md) command can be used to create a new Enterprise-tier cache using data persistence. Use the `RdbPersistenceEnabled`, `RdbPersistenceFrequency`, `AofPersistenceEnabled`, and `AofPersistenceFrequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
+The [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache) command can be used to create a new Enterprise-tier cache using data persistence. Use the `RdbPersistenceEnabled`, `RdbPersistenceFrequency`, `AofPersistenceEnabled`, and `AofPersistenceFrequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
 
 ```powershell-interactive
 New-AzRedisEnterpriseCache -Name "MyCache" -ResourceGroupName "MyGroup" -Location "West US" -Sku "Enterprise_E10" -RdbPersistenceEnabled -RdbPersistenceFrequency "1h"
 ```
 
-Existing caches can be updated using the [Update-AzRedisEnterpriseCacheDatabase](../powershell/module/az.redisenterprisecache/update-azredisenterprisecachedatabase.md) command. This example adds RDB persistence with twelve hour frequency to an existing cache instance:
+Existing caches can be updated using the [Update-AzRedisEnterpriseCacheDatabase](/powershell/module/az.redisenterprisecache/update-azredisenterprisecachedatabase) command. This example adds RDB persistence with twelve hour frequency to an existing cache instance:
 
 ```powershell-interactive
 Update-AzRedisEnterpriseCacheDatabase -Name "MyCache" -ResourceGroupName "MyGroup" -RdbPersistenceEnabled -RdbPersistenceFrequency "12h"
+```
+
+---
+
+### [Using Azure CLI (Premium tier)](#tab/premium)
+
+The [az redis create](/cli/azure/redis#az-redis-create) command can be used to create a new Premium-tier cache using data persistence. For instance:
+
+```azurecli
+az redis create --location westus2 --name MyRedisCache --resource-group MyResourceGroup --sku Premium --vm-size p1 --redis-configuration @"config_rdb.json"
+```
+
+Existing caches can be updated using the [az redis update](/cli/azure/redis#az-redis-update) command. For instance:
+
+```azurecli
+az redis update --name MyRedisCache --resource-group MyResourceGroup --set "redisConfiguration.rdb-storage-connection-string"="BlobEndpoint=https//..." "redisConfiguration.rdb-backup-enabled"="true" "redisConfiguration.rdb-backup-frequency"="15" "redisConfiguration.rdb-backup-max-snapshot-count"="1"
+```
+
+### [Using Azure CLI (Enterprise tier)](#tab/enterprise)
+
+The [az redisenterprise create](/cli/azure/redienterprise#az-redisenterprise-create) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` paramters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
+
+```azurecli
+az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
+```
+
+Existing caches can be updated using the [az redisenterprise update](/cli/azure/redienterprise#az-redisenterprise-database-update) command. This example adds RDB persistence with twelve hour frequency to an existing cache instance:
+
+```azurecli
+az redisenterprise database update --cluster-name "cache1" --resource-group "rg1" --persistence rdb-enabled=true rdb-frequency="12h" 
 ```
 
 ---
