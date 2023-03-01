@@ -8,7 +8,7 @@ ms.topic: troubleshooting-general
 ms.date: 02/06/2023
 ---
 
-# Troubleshoot manifest ingestion problems by Airflow task logs
+# Troubleshoot manifest ingestion problems by using Airflow task logs
 
 This article helps you troubleshoot workflow problems with manifest ingestion in Azure Data Manager for Energy Preview by using Airflow task logs.
 
@@ -22,60 +22,60 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 
 |DagTaskName value  |Description  |
 |---------|---------|
-|`Update_status_running_task` | Calls Workflow service and marks the status of DAG as running in the database.        |
-|`Check_payload_type` | Validates whether the ingestion is of batch type or single manifest.|
-|`Validate_manifest_schema_task` | Ensures all the schema kinds mentioned in the manifest are present and there's referential schema integrity. All invalid values will be evicted from the manifest. |
-|`Provide_manifest_intergrity_task` | Validates references inside the OSDU&trade; R3 manifest and removes invalid entities. This operator is responsible for parent-child validation. All orphan-like entities will be logged and excluded from the validated manifest. Any external referenced records will be searched and in case not found, the manifest entity will be dropped. All surrogate key references are also resolved. |
-|`Process_single_manifest_file_task` | Performs ingestion of the final obtained manifest entities from the previous step, data records will be ingested via the storage service. |
-|`Update_status_finished_task` | Calls workflow service and marks the status of DAG as `finished` or `failed` in the database. |
+|`update_status_running_task` | Calls the workflow service and marks the status of the DAG as `running` in the database.        |
+|`check_payload_type` | Validates whether the type of ingestion is batch or single manifest.|
+|`validate_manifest_schema_task` | Ensures that all the schema types mentioned in the manifest are present and there's referential schema integrity. All invalid values are evicted from the manifest. |
+|`provide_manifest_intergrity_task` | Validates references inside the OSDU&trade; R3 manifest and removes invalid entities. This operator is responsible for parent/child validation. All orphan-like entities are logged and excluded from the validated manifest. Any external referenced records are searched. If none are found, the manifest entity is dropped. All surrogate key references are also resolved. |
+|`process_single_manifest_file_task` | Performs ingestion of the final manifest entities obtained from the previous step. Data records are ingested via the storage service. |
+|`update_status_finished_task` | Calls the workflow service and marks the status of the DAG as `finished` or `failed` in the database. |
 
 ### Batch upload
 
-Multiple manifest files are part of the same workflow service request, that is, the manifest section in the request payload is a list instead of a dictionary of items.
+Multiple manifest files are part of the same workflow service request. The manifest section in the request payload is a list instead of a dictionary of items.
 
 |DagTaskName value |Description |
 |---------|---------|
-|`Update_status_running_task` | Calls Workflow service and marks the status of DAG as running in the database.        |
-|`Check_payload_type` | Validates whether the ingestion is of batch type or single manifest.|
-|`Batch_upload` | List of manifests are divided into three batches to be processed in parallel (no task logs are emitted). |
-|`Process_manifest_task_(1 / 2 / 3)` | List of manifests is divided into groups of three and processed by these tasks. All the steps performed in Validate_manifest_schema_task, Provide_manifest_intergrity_task, Process_single_manifest_file_task are condensed and performed sequentially in these tasks. |
-|`Update_status_finished_task` | Calls workflow service and marks the status of DAG as `finished` or `failed` in the database. |
+|`update_status_running_task` | Calls the workflow service and marks the status of the DAG as `running` in the database.        |
+|`check_payload_type` | Validates whether the type of ingestion is batch or single manifest.|
+|`batch_upload` | Divides the list of manifests into three batches to be processed in parallel. (No task logs are emitted.) |
+|`process_manifest_task_(1 / 2 / 3)` | Divides the list of manifests into groups of three and processes them. All the steps performed in `validate_manifest_schema_task`, `provide_manifest_intergrity_task`, and `process_single_manifest_file_task` are condensed and performed sequentially in these tasks. |
+|`update_status_finished_task` | Calls the workflow service and marks the status of the DAG as `finished` or `failed` in the database. |
 
-Based on the payload type (single or batch), `check_payload_type` task will pick the appropriate branch and the tasks in the other branch will be skipped.
+Based on the payload type (single or batch), the `check_payload_type` task chooses the appropriate branch and skips the tasks in the other branch.
 
 ## Prerequisites
 
-You should have integrated airflow task logs with Azure monitor. See [Integrate airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md)
+You should have integrated Airflow task logs with Azure Monitor. See [Integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md).
 
-Following columns are exposed in Airflow Task Logs for you to debug the issue:
+The following columns are exposed in Airflow task logs for you to debug the problem:
 
 |Parameter name  |Description  |
 |---------|---------|
-|`Run Id`    |  Unique run ID of the DAG run, which was triggered  |
-|`Correlation ID`     | Unique correlation ID of the DAG run (same as run ID)        |
-|`DagName`     |  DAG workflow name. For instance, `Osdu_ingest` for manifest ingestion.       |
-|`DagTaskName`     | DAG workflow task name. For instance, `Update_status_running_task` for manifest ingestion.        |
-|`Content`     |  Contains error log messages (errors/exceptions) emitted by Airflow during the task execution.|
-|`LogTimeStamp`     | Captures the time interval of DAG runs.       |
-|`LogLevel`     | DEBUG/INFO/WARNING/ERROR. Mostly all exception and error messages can be seen by filtering at ERROR level.        |
+|`RunID`    |  Unique run ID of the triggered DAG run.  |
+|`CorrelationID`     | Unique correlation ID of the DAG run (same as run ID).        |
+|`DagName`     |  DAG workflow name. For instance, `Osdu_ingest` is the workflow name for manifest ingestion.       |
+|`DagTaskName`     | Task name for the DAG workflow. For instance, `update_status_running_task` is the task name for manifest ingestion.        |
+|`Content`     |  Error log messages (errors or exceptions) that Airflow emits during the task execution.|
+|`LogTimeStamp`     | Time interval of DAG runs.       |
+|`LogLevel`     | Level of the error. Values are `DEBUG`, `INFO`, `WARNING`, and `ERROR`. You can see most exception and error messages by filtering at the `ERROR` level.        |
 
-## A DAG run has failed in Update_status_running_task or Update_status_finished_task
+## Failed DAG run
 
-The workflow run has failed and the data records weren't ingested.
+The workflow run has failed in `Update_status_running_task` or `Update_status_finished_task`, and the data records weren't ingested.
 
 ### Possible reasons
 
-* Provided incorrect data partition ID.
-* Provided incorrect key name in the execution context of the request body.
-* Workflow service isn't running or throwing 5xx errors.
+* The data partition ID is incorrect.
+* A key name in the execution context of the request body is incorrect.
+* The workflow service isn't running or is throwing 5xx errors.
 
 ### Workflow status
 
-Workflow status is marked as `failed`.
+The workflow status is marked as `failed`.
 
 ### Solution
 
-Check the airflow task logs for `update_status_running_task` or `update_status_finished_task`. Fix the payload (pass the correct data partition ID or key name)
+Check the Airflow task logs for `update_status_running_task` or `update_status_finished_task`. Fix the payload by passing the correct data partition ID or key name.
 
 Sample Kusto query:
 
@@ -99,24 +99,24 @@ Sample trace output:
     requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://contoso.energy.azure.com/api/workflow/v1/workflow/Osdu_ingest/workflowRun/e9a815f2-84f5-4513-9825-4d37ab291264
 ```
 
-## Schema validation failures
+## Failed schema validation
 
-Records weren't ingested due to schema validation failures.
+Records weren't ingested because schema validation failed.
 
 ### Possible reasons
 
-* Schema not found errors.
-* Manifest body not conforming to the schema kind.
-* Incorrect schema references.
-* Schema service throwing 5xx errors.
+* The schema service is throwing "Schema not found" errors.
+* The manifest body doesn't conform to the schema type.
+* The schema references are incorrect.
+* The schema service is throwing 5xx errors.
   
 ### Workflow status
 
-Workflow status is marked as `finished`. No failure in the workflow status will be observed because the invalid entities are skipped and the ingestion is continued.
+The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
 
 ### Solution
 
-Check the airflow task logs for `validate_manifest_schema_task` or `process_manifest_task`. Fix the payload (pass the correct data partition ID or key name).
+Check the Airflow task logs for `validate_manifest_schema_task` or `process_manifest_task`. Fix the payload by passing the correct data partition ID or key name.
 
 Sample Kusto query:
 
@@ -156,21 +156,21 @@ Sample trace output:
 
 ## Failed reference checks
 
-Records weren't ingested due to failed reference checks.
+Records weren't ingested because reference checks failed.
 
 ### Possible reasons
 
-* Failed to find referenced records.
-* Parent records not found.
-* Search service throwing 5xx errors.
+* Referenced records weren't found.
+* Parent records weren't found.
+* The search service is throwing 5xx errors.
   
 ### Workflow status
 
-Workflow status is marked as `finished`. No failure in the workflow status will be observed because the invalid entities are skipped and the ingestion is continued.
+The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
 
 ### Solution
 
-Check the airflow task logs for `provide_manifest_integrity_task` or `process_manifest_task`.
+Check the Airflow task logs for `provide_manifest_integrity_task` or `process_manifest_task`.
 
 Sample Kusto query:
 
@@ -182,17 +182,15 @@ Sample Kusto query:
         | where RunID has "<run_id>"
 ```
 
-Sample trace output:
+Because there are no error logs specifically for referential integrity tasks, check the debug log statements to see whether all external records were fetched via the search service.
 
-Because there are no such error logs specifically for referential integrity tasks, you should watch out for the debug log statements to see whether all external records were fetched using the search service.
-
-For instance, the output shows record queried using the Search service for referential integrity.
+For instance, the following sample trace output shows a record queried via the search service for referential integrity:
 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:75} DEBUG - Search query "contoso-dp1:work-product-component--WellLog:5ab388ae0e140838c297f0e6559" OR "contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559" OR "contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a"
 ```
 
-The records that were retrieved and were in the system are shown in the output. The related manifest object that referenced a record would be dropped and no longer be ingested if we noticed that some of the records weren't present.
+The output shows the records that were retrieved and were in the system. The related manifest object that referenced a record would be dropped and no longer be ingested if you noticed that some of the records weren't present.
 
 ```md
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
@@ -200,23 +198,23 @@ The records that were retrieved and were in the system are shown in the output. 
 
 In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons.
 
-## Invalid legal tags/ACLs in manifest
+## Invalid legal tags or ACLs in the manifest
 
-Records weren't ingested due to invalid legal tags or ACLs present in the manifest.
+Records weren't ingested because the manifest contains invalid legal tags or access control lists (ACLs).
 
 ### Possible reasons
 
-* Incorrect ACLs.
-* Incorrect legal tags.
-* Storage service throws 5xx errors.
+* ACLs are incorrect.
+* Legal tags are incorrect.
+* The storage service is throwing 5xx errors.
   
 ### Workflow status
 
-Workflow status is marked as `finished`. No failure in the workflow status will be observed.
+The workflow status is marked as `finished`. You don't observe a failure in the workflow status.
 
 ### Solution
 
-Check the airflow task logs for `process_single_manifest_file_task` or `process_manifest_task`.
+Check the Airflow task logs for `process_single_manifest_file_task` or `process_manifest_task`.
 
 Sample Kusto query:
 
@@ -237,7 +235,7 @@ Sample trace output:
     
 ```
 
-The output indicates records that were retrieved. Manifest entity records corresponding to missing search records will get dropped and not ingested.
+The output indicates records that were retrieved. Manifest entity records that correspond to missing search records are dropped and not ingested.
 
 ```md
     "PUT /api/storage/v2/records HTTP/1.1" 400 None
@@ -247,12 +245,12 @@ The output indicates records that were retrieved. Manifest entity records corres
 
 ## Known issues
 
-- Exception traces weren't exporting with Airflow Task Logs due to a known problem in the logs; the patch has been submitted and will be included in the February release.
+- Exception traces weren't exporting with Airflow task logs because of a known problem in the logs. The patch has been submitted and will be included in the February release.
 - Because there are no specific error logs for referential integrity tasks, you must manually search for the debug log statements to see whether all external records were retrieved via the search service. We intend to improve the logs in the upcoming release by properly logging skipped data with justifications.
 
 ## Next steps
 
-Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion:
+Advance to the following tutorial and learn how to perform a manifest-based file ingestion:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
