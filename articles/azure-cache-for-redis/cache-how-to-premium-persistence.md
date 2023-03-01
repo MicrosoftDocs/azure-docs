@@ -57,7 +57,7 @@ On the **Premium** tier, data is persisted directly to an [Azure Storage](../sto
 
 On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a managed disk attached directly to the cache instance. The location is not configurable nor accessible to the user. Using a managed disk increases the performance of persistence. The disk is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. See [managing data encryption](#managing-data-encryption) for more information. 
 
-## How to set up data persistence
+## How to set up data persistence using the Azure Portal
 
 ### [Using the portal (Premium tier)](#tab/premium)
 
@@ -136,7 +136,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop-down and select a backup interval. Choices include **60 Minutes**, **6 hours**, and **12 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
 
-1. To enable AOF persistence, select **AOF* and configure the settings.
+1. To enable AOF persistence, select **AOF** and configure the settings.
 
  | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -149,6 +149,8 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 >
 
 ---
+
+## How to set up data persistence using PowerShell and Azure CLI
 
 ### [Using PowerShell (Premium tier)](#tab/premium)
 
