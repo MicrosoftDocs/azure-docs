@@ -101,7 +101,7 @@ The following are some common reasons for training failure:
 - `datasetNotFound`: dataset cannot be found
 - `unknown`: This could be a backend issue. Reach out to support for investigation.
 
-## Why does the evaluation fail for my object detection model?
+### Why does the evaluation fail for my object detection model?
 
 Below are the possible reasons:
 - `internalServerError`: An unknown error occurred. Please try again later.
@@ -110,7 +110,7 @@ Below are the possible reasons:
 - `datasetAnnotationsInvalid`: An error occurred while trying to download or parse the ground truth annotations associated with the test dataset.
 - `datasetEmpty`: The test dataset did not contain any "ground truth" annotations.
 
-## Why does my dataset registration fail?
+### Why does my dataset registration fail?
 
 The API responses should be informative enough. They are:
 - `DatasetAlreadyExists`: A dataset with the same name exists
