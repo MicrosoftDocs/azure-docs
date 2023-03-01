@@ -102,10 +102,6 @@ If you don't have access to install the extension, you must request access from 
     - task: UseDotNet@2
       displayName: 'Use dotnet'
       inputs:
-        version: 5.0.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
         version: 6.0.x
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
