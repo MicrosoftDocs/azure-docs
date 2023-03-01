@@ -99,7 +99,65 @@ In this tutorial, you'll:
     logs_query_client = LogsQueryClient(credential)
     ```
 1. Define your variables and functions.
-1. 
+
+    ```python
+    import os
+    import pandas as pd
+    from datetime import datetime, timezone, timedelta
+    from azure.monitor.query import LogsQueryStatus
+    from azure.core.exceptions import HttpResponseError
+    import requests
+    import json
+    
+    import plotly.express as px
+    
+    workspace_id = '23082c66-9a25-4a30-bded-14fc1ae40afa' ##LADemo-Workspace - under azure monitor direcotry/tenant
+    
+    
+    #executes query on workspace_id in given timespan
+    def execQuery(query, start_time, end_time):
+     try:
+        response = logs_query_client.query_workspace(workspace_id, query, timespan=(start_time, end_time))
+        if response.status == LogsQueryStatus.PARTIAL:
+            error = response.partial_error
+            data = response.partial_data
+            print(error.message)
+        elif response.status == LogsQueryStatus.SUCCESS:
+            data = response.tables
+        for table in data:
+            my_data = pd.DataFrame(data=table.rows, columns=table.columns)        
+     except HttpResponseError as err:
+        print("something fatal happened")
+        print (err)
+     return my_data
+    
+    
+    def execQueryDemoWorkspace(query):
+     workspace_id = 'DEMO_WORKSPACE'
+     api_key = 'DEMO_KEY'
+    	
+     url = f'https://api.loganalytics.azure.com/v1/workspaces/{workspace_id}/query'
+    
+     response = requests.post(url, headers={'X-Api-Key': api_key}, json={'query': query})
+    
+     
+     logs_query_result = response.json()
+     tables = logs_query_result['tables']
+    
+     df = pd.DataFrame(
+       tables[0]['rows'],
+       columns=[col["name"] for col in tables[0]['columns']]
+     )
+    
+    
+     return df
+    
+     
+    def showGraph(df, title):
+     df = df.sort_values(by="TimeGenerated")
+     graph = px.line(df, x='TimeGenerated', y="ActualUsage", color='DataType', title=title)
+     graph.show()
+    ```
 
 ## Explore and visualize data
 
