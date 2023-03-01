@@ -117,7 +117,7 @@
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
-  - name: Best practice
+  - name: Best practices
     items:
     - name: Durable Functions diagnostic tools
       href: durable-functions-best-practice-reference.md
