@@ -35,8 +35,6 @@ Testing the manual approach.
 
 :::zone-end
 
-:::zone-end
-
 ## Sample application
 
 Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
