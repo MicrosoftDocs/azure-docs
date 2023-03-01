@@ -126,7 +126,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
 ## Set up GitHub Repo
 
-1. Fork the [[MLOps v2 Demo Template Repo](https://github.com/Azure/mlops-v2-gha-demo) in your GitHub organization
+1. Fork the [MLOps v2 Demo Template Repo](https://github.com/Azure/mlops-v2-gha-demo) in your GitHub organization
 
 1. Go to https://github.com/Azure/mlops-v2-gha-demo/fork to fork the mlops v2 demo repo into your Github org. This repo has reusable mlops code that can be used across multiple projects. 
 
