@@ -1,5 +1,5 @@
 ---
-title:  Analyze logs and metric
+title:  Analyzing logs and metrics using the Azure Spring Apps Consumption Plan
 titleSuffix: Azure Spring Apps Basic/Standard tier
 description: Learn how to analyze logs and metrics in Azure Spring Apps Standard Consumption plan.
 author: KarlErickson
@@ -7,14 +7,14 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 3/1/2023
-ms.custom: 
+ms.custom: devx-track-java
 ---
 
 # Analyze logs and metrics
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to analyze logs and metrics in Azure Spring Apps Standard Consumption plan.
+This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard Consumption plan.
 
 ## Prerequisites
 
