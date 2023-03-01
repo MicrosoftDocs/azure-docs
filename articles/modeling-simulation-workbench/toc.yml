@@ -7,9 +7,9 @@ items:
       href: modelingandsimulationworkbench-overview.md
 - name: Quickstart
   items: 
-    - name: Create Modeling and Simulation Workbench
+    - name: Create Workbench
       items: 
-        - name: Portal
+        - name: Azure Portal
           href: ./quickstart-create-portal.md      
 #- name: Tutorials
 #  items: 
@@ -43,13 +43,13 @@ items:
 #          href: ./howtoguide-disaster-recovery.md
         - name: Troubleshooting
           href: ./howtoguide-troubleshooting.md
-- name: Reference
-  items: 
+#- name: Reference
+#  items: 
 #    - name: Azure CLI
 #      href: /cli/azure/ModSimWorkbench
 #    - name: Azure PowerShell
 #      href: /powershell/module/az.ModSimWorkbench 
 #    - name: REST
 #      href: /rest/api/ModSimWorkbench
-    - name: Resource Manager template
-      href: /azure/templates/microsoft.ModSimWorkbench/allversions
+#    - name: Resource Manager template
+#      href: /azure/templates/microsoft.ModSimWorkbench/allversions

@@ -40,7 +40,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Modeling and Simulation Workbench-Portal
+          - text: Create Workbench-Azure Portal
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
@@ -57,15 +57,15 @@ landingContent:
           - text: Troubleshooting
             url: ./howtoguide-troubleshooting.md
   # Card: Reference
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
+#  - title: Reference
+#    linkLists:
+#      - linkListType: reference
+#        links:
 #          - text: Azure CLI
 #            url: /cli/azure/ModSimWorkbench
 #          - text: Azure PowerShell
 #            url: /powershell/module/az.MModSimWorkbench        
 #          - text: REST
 #            url: /rest/api/ModSimWorkbench
-          - text: Resource Manager template
-            url: /azure/templates/microsoft.ModSimWorkbench/allversions
+#          - text: Resource Manager template
+#            url: /azure/templates/microsoft.ModSimWorkbench/allversions

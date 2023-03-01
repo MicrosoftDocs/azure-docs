@@ -69,7 +69,7 @@ Take note of the properties in the next steps:
 
 ### Add a client secret
 
-Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. If the secret does expire, your design team would lose access to the chamber. To address an expired secret, you can create a new secret and update the Azure Modeling and Simulation Workbench with the new values. 
+Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. If the secret does expire, your design team would lose access to the chamber. To address an expired secret, you can create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
 
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
