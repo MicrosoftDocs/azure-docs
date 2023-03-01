@@ -138,7 +138,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
    # [Python](#tab/sdk)
    

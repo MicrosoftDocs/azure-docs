@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 02/22/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -67,22 +67,31 @@ As you progress, you'll complete these high-level tasks:
 
 For local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
 
-1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
-1. Before you run your logic app, make sure to start the emulator.
+1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite) for your Windows, macOS, or Linux operating system. You can install either [from inside Visual Studio Code](../storage/common/storage-use-azurite.md?tabs=visual-studio-code) or by [using npm](../storage/common/storage-use-azurite.md?tabs=npm).
+
+1. Before you run your logic app workflow, make sure to start the emulator.
 
 For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
 
 ### Tools
 
+Install the following tools and versions for your specific operating system: Windows, macOS, or Linux.
+
 * [Visual Studio Code](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
 
   * [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account), which provides a single common Azure sign-in and subscription filtering experience for all other Azure extensions in Visual Studio Code.
 
-  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
+  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app workflow.
 
   * [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0), which includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime.
 
-  * [Azure Functions Core Tools - 4.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
+  * Azure Functions Core Tools - 4.x version
+
+    * [Windows](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`.
+    * [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools)
+    * [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools)
+
+    These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
     * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
 

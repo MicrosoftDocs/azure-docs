@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -117,17 +117,17 @@ You'll need to make some modifications to **/etc/multipath.conf**. You'll need t
 
 ```
 defaults {
-    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
-    path_grouping_policy multibus	# To place all the paths in one priority group
-    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
-    failback immediate			# For immediate failback to highest priority path group with active paths
-    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
+    path_grouping_policy multibus	# To place all the paths in one priority group
+    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
+    failback immediate			# For immediate failback to highest priority path group with active paths
+    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
 }
 devices {
-  device {
-    vendor "MSFT"
-    product "Virtual HD"
-  }
+  device {
+    vendor "MSFT"
+    product "Virtual HD"
+  }
 }
 ```
 

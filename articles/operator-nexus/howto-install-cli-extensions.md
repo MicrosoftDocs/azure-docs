@@ -17,7 +17,7 @@ Install the following CLI extensions:
 - `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs)
 - `hybridaks` (for AKS-Hybrid APIs)
 
-- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links downloads the latest available version of the extension.
+- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
 
 - Install `networkcloud` CLI extension
 
@@ -32,13 +32,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
 ```
 
 ---
@@ -63,13 +63,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
 ```
 
 ---
@@ -94,13 +94,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-hybridaks-cli" --output "hybridaks-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-hybridaks-cli" --output "hybridaks-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-hybridaks-cli" -OutFile "hybridaks-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-hybridaks-cli" -OutFile "hybridaks-0.0.0-py3-none-any.whl"
 ```
 
 ---
