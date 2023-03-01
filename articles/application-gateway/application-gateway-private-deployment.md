@@ -36,7 +36,7 @@ Each of these features can be enabled independently. For example, a public IP ad
 
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using Azure PowerShell, Azure CLI, or REST API.
 
-When you join the preview, all new gateways will provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
+When you join the preview, all new gateways provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -211,7 +211,7 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -229,7 +229,7 @@ Common scenarios where public IP usage is required:
 
 Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
-The following is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
+The following configuration is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
  [ ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png) ](./media/application-gateway-private-deployment/inbound-rules.png#lightbox)
 
@@ -238,7 +238,7 @@ The following is an example of the most restrictive set of inbound rules, denyin
 
 ### Example scenario
 
-This example will walk through creation of an NSG using the Azure portal with the following rules:
+This example walks through creation of an NSG using the Azure portal with the following rules:
 
 - Allow inbound traffic to port 80 and 8080 to Application Gateway from client requests originating from the Internet
 - Deny all other inbound traffic 
@@ -246,7 +246,7 @@ This example will walk through creation of an NSG using the Azure portal with th
 - Allow outbound traffic to a backend target that is Internet accessible
 - Deny all other outbound traffic
 
-First, [create a network security group](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). This security group will contain your inbound and outbound rules.
+First, [create a network security group](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). This security group contains your inbound and outbound rules.
 
 #### Inbound rules
 
@@ -333,11 +333,11 @@ In the current offering of Application Gateway, association of a route table wit
 
 After registration of the public preview feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
 
-Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising will not affect Application Gateway health, and will be honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
+Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising does not affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
 ### Example scenario
 
-In the following example, we will create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is summarized in Figure 1:
+In the following example, we create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is summarized in Figure 1:
 - The Application Gateway is in spoke virtual network
 - There is a network virtual appliance (a virtual machine) in the hub network
 - A route table with a default route (0.0.0.0/0) to the virtual appliance is associated to Application Gateway subnet
