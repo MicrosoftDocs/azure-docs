@@ -20,42 +20,54 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 
-## 2023-13-02
+## 2023-03-01
 
+### Announcing end of support for Python 3.7 in Azure Machine Learning SDK v1 packages
+
++ **Feature deprecation**
+  + **Deprecate Python 3.7 as a supported runtime for SDK v1 packages**
+    + On December 4, 2023, Azure Machine Learning will officially stop supporting Python 3.7 for SDK v1 packages and deprecate it as a supported runtime. For more details, please read our page on [Azure SDK for Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy)
+    + As of the deprecation date of December 4, 2023, the Azure Machine Learning SDK v1 packages will no longer receive security patches and other updates for the Python 3.7 runtime.
+    + The current Python 3.7 versions for Azure Machine Learning SDK v1 will still function. However, in order to continue receiving security updates and remaining qualified for technical assistance, Azure Machine Learning strongly advises that you move your scripts and dependencies to a supported version of the Python runtime.
+    + As a runtime for Azure Machine Learning SDK v1 files, we advise using Python version 3.8 or later.
+    + Additionally, Python 3.7 based Azure Machine Learning SDK v1 packages will no longer be qualified for technical assistance.
+    + Use AML Support to get in touch with us if you have any concerns.
+
+## 2023-13-02
 
 ### Azure Machine Learning SDK for Python v1.49.0
   + **Breaking changes**  
     + Starting with v1.49.0 and above, the following AutoML algorithms will not be supported.
-    	+ Regression: FastLinearRegressor, OnlineGradientDescentRegressor
-    	+ Classification: AveragedPerceptronClassifier.
+        + Regression: FastLinearRegressor, OnlineGradientDescentRegressor
+        + Classification: AveragedPerceptronClassifier.
     +  Use v1.48.0 or below to continue using these algorithms.
   + **Bug fixes and improvements**
-	  + **azureml-automl-dnn-nlp**
-	    + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
-	  + **azureml-contrib-automl-dnn-forecasting**
-	    + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
-	    + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
-	    + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training did not converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
-	  + **azureml-core**
-	    + Azure Machine Learning workspace creation makes use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an Azure Machine Learning workspace.
-	  + **azureml-interpret**
-	    + updated azureml-interpret package to interpret-community 0.28.*
-	  + **azureml-mlflow**
-	    + Updating azureml-mlflow client with initial support for MLflow 2.0
-	  + **azureml-responsibleai**
-	    + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai v0.24.0
-	  + **azureml-sdk**
-	    + azureml-sdk and azureml-train-automl-client now support Python version 3.10
-	  + **azureml-train-automl-client**
-	    + azureml-sdk and azureml-train-automl-client now support Python version 3.10
-	  + **azureml-train-automl-runtime**
-	    + Clean up missing y before training
-	    + Clean up nan or empty values of target column for non-streaming scenarios
-	    + Forecast horizon visuals for test-set are now available while running the training experiment.
-	  + **azureml-train-core**
-	    + Added the support to customer to provide custom run id for hyperdrive runs
-	  + **azureml-train-restclients-hyperdrive**
-	    + Added the support to customer to provide custom run id for hyperdrive runs
+      + **azureml-automl-dnn-nlp**
+        + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
+      + **azureml-contrib-automl-dnn-forecasting**
+        + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
+        + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
+        + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training did not converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
+      + **azureml-core**
+        + Azure Machine Learning workspace creation makes use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an Azure Machine Learning workspace.
+      + **azureml-interpret**
+        + updated azureml-interpret package to interpret-community 0.28.*
+      + **azureml-mlflow**
+        + Updating azureml-mlflow client with initial support for MLflow 2.0
+      + **azureml-responsibleai**
+        + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai v0.24.0
+      + **azureml-sdk**
+        + azureml-sdk and azureml-train-automl-client now support Python version 3.10
+      + **azureml-train-automl-client**
+        + azureml-sdk and azureml-train-automl-client now support Python version 3.10
+      + **azureml-train-automl-runtime**
+        + Clean up missing y before training
+        + Clean up nan or empty values of target column for non-streaming scenarios
+        + Forecast horizon visuals for test-set are now available while running the training experiment.
+      + **azureml-train-core**
+        + Added the support to customer to provide custom run id for hyperdrive runs
+      + **azureml-train-restclients-hyperdrive**
+        + Added the support to customer to provide custom run id for hyperdrive runs
 
 ## 2022-12-05
 
