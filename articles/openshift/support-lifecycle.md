@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 03/01/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -105,7 +105,10 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 
 **What happens when a user upgrades an OpenShift cluster with a minor version that is not supported?**
 
-If you're on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue receiving support. When your upgrade from version N-2 to N-1 succeeds, you're back within support. Upgrading from version N-3 version or older to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues. 
+Azure Red Hat OpenShift supports installing two minor versions at install time. A version is supported as soon as an upgrade path to that version is available. If you are running a version past the EOL date above, you are outside of support and will be asked to upgrade to continue receiving support. Upgrading from an older version to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues.
+
+<!--If you're on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue receiving support. When your upgrade from version N-2 to N-1 succeeds, you're back within support. Upgrading from version N-3 version or older to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues.-->
+
 For example:
 * If the oldest supported Azure Red Hat OpenShift version is 4.9.z and you are on 4.8.z or older, you are outside of support.
 * When the upgrade from 4.8.z to 4.9.z or higher succeeds, you're back within our support policies. 
