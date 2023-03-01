@@ -44,9 +44,7 @@ The steps to fetch weather data and ingest into Data Manager for Agriculture pla
 
 ## Step 1: Install weather extension
 
-Run the install command through Azure Resource Manager ARMClient tool. Below is the command to install an extension. Refer to the extension API documentation [here](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/controlplane-version2021-09-01-preview/extensions) for more information on all supported commands.
-
-If you are a MacBook user or facing issues with ARMClient tool, please follow the steps [here](./how-to-setup-weather-extension-mac.md) to install weather extension. If not, please continue to read below. 
+Run the install command through Azure Resource Manager ARMClient tool. Below is the command to install an extension. Refer to the extension API documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/controlplane-version2021-09-01-preview/extensions) for more information on all supported commands.
 
 ### Install command
 ```azurepowershell-interactive
@@ -133,7 +131,7 @@ armclient put /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
 
 #### IBM TWC
 
-To work with this extension, the `extensionId` used needs to be **IBM.TWC** and the apiNames supported are `15-day-daily-forecast`, `15-day-hourly-forecast` & `currents-on-demand`. For more information on the API inputs, read the documentation [here](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data/)
+To work with this extension, the `extensionId` used needs to be **IBM.TWC** and the apiNames supported are `15-day-daily-forecast`, `15-day-hourly-forecast` & `currents-on-demand`. For more information on the API inputs, read the documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data/)
 
 ## Step 2: Fetch weather data
 

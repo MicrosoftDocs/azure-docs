@@ -15,7 +15,7 @@ Analyzing the nutrient composition of the crop is vital to ensure good harvest. 
 
 Here's how we have modeled tissue analysis in Azure Data Manager for Agriculture:
 
-![Schema](./media/schema.PNG)
+![Relationships](./media/schema.PNG)
 
 * Step 1: Create a 'plant tissue analysis' resource per sample.
 * Step 2: For each nutrient that is being tested for, create a 'nutrient analysis' resource with 'plant tissue analysis' as parent (created in step 1). 

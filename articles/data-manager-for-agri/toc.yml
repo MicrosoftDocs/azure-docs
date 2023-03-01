@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Quickstart: Install Azure Data Manager for Agriculture Preview
+    - name: Quickstart Install Azure Data Manager for Agriculture Preview
       href: quickstart-install-datamanager-for-agri.md
 - name: Concepts
   items:
@@ -37,9 +37,8 @@
   - name: REST API
     items:
     - name: Overview
-      href: https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/
+      href: https://review.learn.microsoft.com/rest/api/data-manager-for-agri/
   - name: Resources
     items:
   - name: Region availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
-

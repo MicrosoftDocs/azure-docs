@@ -36,7 +36,7 @@ To generate actionable insights data related to growers, farms, and fields shoul
 * Fields are multi-boundary.
 
 ### Seasonal field
-* This is the most important construct in the farming world. A seasonal fields defination includes the following things
+* This is the most important construct in the farming world. A seasonal fields definition includes the following things
      * Boundary
      * Season 
      * Crop
@@ -61,4 +61,4 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ## Next Steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/?branch=main)
+* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/?branch=main)

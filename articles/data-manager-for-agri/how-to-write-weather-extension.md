@@ -109,7 +109,7 @@ This section consists of basic information regarding the API. It is used by Agri
 
 This section takes in the authentication related parameters as supported by the `apiName`. As Agri Data Service supports two types of auth-related keys (`x-ms-farmBeats-data-provider-id` & `x-ms-farmBeats-data-provider-key`) in the api header section, the extension file needs to explicitly provide the key name of its respective authentication keys as required by the `apiName`.
 
-As Agri Data Service collects the authentication information via the api header (in the [Create Weather Job API](./REST_APIs/2021-07-31-preview/1.%20create_weather_job.md)). Authentication parameter mapping is done to ensure that Agri Data Service can pass the key accordingly to the extension as required.
+As Agri Data Service collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Agri Data Service can pass the key accordingly to the extension as required.
 
 ##### Sample Authentication parameters
 
