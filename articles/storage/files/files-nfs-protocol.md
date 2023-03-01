@@ -17,6 +17,7 @@ This article covers NFS Azure file shares. For information about SMB Azure file 
 
 > [!IMPORTANT]
 > NFS Azure file shares aren't supported for Windows clients. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
+> ACLs are not supported on NSF4 file share on linux clients.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
