@@ -43,8 +43,7 @@ az provider register --namespace Microsoft.CloudShell
 ```
 
 > [!NOTE]
-> You only need to register the namespace once per subscription. You will not be able to manage
-> resources using Azure Cloud Shell without registering the namespace.
+> You only need to register the namespace once per subscription.
 
 ### Set your subscription
 

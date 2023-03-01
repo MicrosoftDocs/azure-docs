@@ -2,7 +2,7 @@
 title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 01/03/2023
+ms.date: 03/01/2023
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -329,11 +329,9 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Guest Configuration policy definitions now support assigning the same
-guest assignment to more than once per machine when the policy assignment uses different
-parameters.
+At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](/azure/governance/machine-configuration/machine-configuration-create-setup) to create Guest Configuration packages and policies.
 
-### Assignments to Azure Management Groups
+### Assignments to Azure management groups
 
 Azure Policy definitions in the category `Guest Configuration` can be assigned
 to management groups when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
