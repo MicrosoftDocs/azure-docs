@@ -41,9 +41,32 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**
 
-1. In the **SSL/TLS certificate** pane, enter your certificate name and passphrase, and then upload the files you'd created earlier.
+1. In the **SSL/TLS certificate** pane, select one of the following:
 
-    Select **Enable certificate validation** to validate the certificate against a [CRL server](#verify-crl-server-access).
+# [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate).
+
+1. Enter the following parameters:
+
+    | Parameter  | Description  |
+    |---------|---------|
+    | **Certificate Name**     |   Enter your certificate name.      |
+    | **Passphrase**     |  Enter a passphrase.       |
+    | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
+    | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
+    | **Certificate Chain (PEM file)** *Optional*     |  Upload a Certificate Chain (PEM file).       |
+
+    Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
+
+# [Use Locally generated self-signed certificate (Not recommended)](#tab/locally-generated-self-signed-certificate)
+
+> [!NOTE]
+> This option is not recommended - Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only. The owner of the certificate cannot be validated and the security of your system cannot be maintained.
+
+Select the **Confirm** checkbox.
+
+---
+
+1. For **Validation for on-premises management console certificates** select either **Required**  or **None**.
 
 1. Select **Save** to save your certificate settings.
 
