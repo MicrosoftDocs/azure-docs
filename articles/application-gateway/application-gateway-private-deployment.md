@@ -177,10 +177,15 @@ The following regions are available for public preview.  Provisioning in regions
 - East Asia
 - East US
 - East US 2
+- France Central
 - Japan East
+- Korea Central
+- Korea South
 - North Central US
 - North Europe
+- Norway East
 - Southeast Asia
+- South Africa North
 - South Central US
 - Switzerland North
 - UK South
@@ -203,6 +208,22 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 
 > [!TIP]
 > The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
+
+## Outbound internet connectivity
+
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) will not be able to egress traffic destined to the internet. This will affect communication to a backend targets that are publicly accessible via the internet.
+
+To enable outbound connectivity from your Application Gateway to an internet facing backend target, you may utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the internet.
+
+Virtual Network NAT offers control over what IP address or prefix should be used as well as configurable idle-timeout. To configure, create a new NAT Gateway with a public IP address or public prefix and associate it with the subnet containing Application Gateway.
+
+If a virtual appliance is required for internet egress, see the [route table control](#route-table-control) section in this document for more information.
+
+Common scenarios where public IP usage is required:
+-	Communication to key vault without use of private endpoints or service endpoints
+    - Outbound communication is not required for pfx files uploaded to Application Gateway directly
+-	Communication to backend targets via internet
+-	Communication to internet facing CRL or OCSP endpoints
 
 ## Network Security Group Control
 
@@ -414,6 +435,14 @@ To create a route table and associate it to the Application Gateway subnet:
 While in public preview, the following limitations are known.
 
 ### Private link configuration (preview)
+
+[Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
+
+### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
+
+If a subnet shares Application Gateway v2 deployments that were created prior and post enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality will be limited to prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality should either reprovision the existing gateways or provision newly created gateways to a new subnet to take advantage of the enahanced network security group and route table features.
+
+If a gateway deployed prior to enablement of the new functionality exists in the subnet, you may see errors such as "For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'." when adding route table entries or "Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group <NSG-Name> blocks outgoing internet traffic on subnet \<AppGWSubnetId\>, associated with Application Gateway \<AppGWResourceId\>. This is not permitted for Application Gateways that have fast update enabled or have V2 Sku." when adding network security group rules to the subnet.
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
