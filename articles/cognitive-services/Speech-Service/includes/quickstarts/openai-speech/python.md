@@ -80,7 +80,7 @@ Follow these steps to create a new console application.
     def ask_openai(prompt):
     
         # Ask Azure OpenAI
-        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=50)
+        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
         text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
         print('Azure OpenAI response:' + text)
         
@@ -130,6 +130,7 @@ Follow these steps to create a new console application.
     except Exception as err:
         print("Encountered exception. {}".format(err))
     ```
+1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `max_tokens` parameter. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/cognitive-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 Run your new console application to start speech recognition from a microphone:
 
@@ -149,9 +150,9 @@ Recognized speech:Make a comma separated list of all continents.
 Azure OpenAI response:Africa, Antarctica, Asia, Australia, Europe, North America, South America
 Speech synthesized to speaker for text [Africa, Antarctica, Asia, Australia, Europe, North America, South America]
 Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.
-Recognized speech:Make a comma separated list of 1 Astronomical observatory for each continent. The list should include each continent name in parentheses.
-Azure OpenAI response:Mauna Kea Observatory (North America), European Southern Observatory (Europe), Atacama Large Millimeter Array (South America), Siding Spring Observatory (Australia), and South African Astronomical Observatory (Africa)
-Speech synthesized to speaker for text [Mauna Kea Observatory (North America), European Southern Observatory (Europe), Atacama Large Millimeter Array (South America), Siding Spring Observatory (Australia), and South African Astronomical Observatory (Africa)]
+Recognized speech: Make a comma separated list of 1 Astronomical observatory for each continent. A list should include each continent name in parentheses.
+Azure OpenAI response:Mauna Kea Observatories (North America), La Silla Observatory (South America), Tenerife Observatory (Europe), Siding Spring Observatory (Australia), Beijing Xinglong Observatory (Asia), Naukluft Plateau Observatory (Africa), Rutherford Appleton Laboratory (Antarctica)
+Speech synthesized to speaker for text [Mauna Kea Observatories (North America), La Silla Observatory (South America), Tenerife Observatory (Europe), Siding Spring Observatory (Australia), Beijing Xinglong Observatory (Asia), Naukluft Plateau Observatory (Africa), Rutherford Appleton Laboratory (Antarctica)]
 Azure OpenAI is listening. Say 'Stop' or press Ctrl-Z to end the conversation.
 Conversation ended.
 PS C:\dev\openai\python> 
