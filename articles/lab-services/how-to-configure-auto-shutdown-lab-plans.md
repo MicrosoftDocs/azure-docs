@@ -1,8 +1,13 @@
 ---
-title: Configure automatic shutdown of VMs in Azure Lab Services
-description: This article describes how to configure automatic shutdown of VMs in the lab plan. 
+title: Configure automatic shutdown for a lab plan
+titleSuffix: Azure Lab Services
+description: Learn how to enable or disable automatic shutdown of lab VMs in Azure Lab Services by configuring the lab plan settings. Automatic shutdown happens when a user disconnects from the remote connection.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 03/01/2023
 ---
 
 # Configure automatic shutdown of VMs for a lab plan
@@ -18,10 +23,9 @@ The **disconnect idle virtual machines** has two settings.  Both settings use a 
 - **Detect idle based on user absence**.  Idle detection examines only mouse/keyboard input (user absence).
 - **Detect idle based on user absence and resource usage**. Idle detection examines both mouse/keyboard input (user absence) and disk/CPU usage (resource usage). By selecting resource usage, that is, disk/CPU usage, operations such as long-running queries are accounted for.
 
-> [!IMPORTANT]
-> Prior to the [August 2022 Update](lab-services-whats-new.md), Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.  Support also varies depending on [specific distributions and versions of Linux](/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions).  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
-
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
+
+Azure Lab Services supports automatic shutdown for both Windows-based and Linux-based virtual machines. For Linux-based VMs, [support depends on the specific Linux distribution and version](#supported-linux-distributions-for-automatic-shutdown).
 
 ## Enable automatic shutdown
 
@@ -34,6 +38,10 @@ Review more details about the auto-shutdown features in the [Maximize cost contr
     The setting(s) apply to all the labs associated with the lab plan. A lab creator (educator) can override this setting at the lab level. The change to this setting at the lab plan will only affect labs that are created after the change is made.
 
     To disable the setting(s), uncheck the checkbox(s) on this page.
+
+## Supported Linux distributions for automatic shutdown
+
+[!INCLUDE [supported linux distributions for automatic shutdown](./includes/lab-services-auto-shutdown-linux-support.md)]
 
 ## Next steps
 
