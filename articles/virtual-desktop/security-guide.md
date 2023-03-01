@@ -221,11 +221,13 @@ The following operating systems support using Windows Defender Application Contr
 
 Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
 
-### Updates for clients
+### Client updates on other OS platforms
 
-Each client is updated 
+Software updates for the Remote Desktop clients you can use to access Azure Virtual Desktop services on other OS platforms are secured according to the security policies of their respective platforms. All client updates are delivered directly by their platforms. For more information, see the respective store pages for each app:
 
-how the software update supply chain is secured for RD Client and is delivered securely to clients in various OS platforms” and “all follow the security provided by respective app stores and are delivered directly by them
+- [macOS](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)
+- [iOS](https://apps.apple.com/us/app/remote-desktop-mobile/id714464092)
+- [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx)
 
 ## Next steps
 
