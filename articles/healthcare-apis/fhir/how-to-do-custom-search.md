@@ -81,7 +81,7 @@ The code example shows how to create custom search parameter to search for Medic
 {
  "resourceType": "SearchParameter",
   "id": "a3c28d46-fd06-49ca-aea7-5f9314ef0497",
-  "url": "http://keshethfrb7eghdsws-fhirtrn.fhir.azurehealthcareapis.com/fhir/SearchParameter/medicationdispense-location-search-parameter",
+  "url": "{{FHIR_URL}}",
   "version": "1.0",
   "name": "MedicationDispenseLocationSearchParameter",
   "status": "active",
