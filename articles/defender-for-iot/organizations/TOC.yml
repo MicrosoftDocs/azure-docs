@@ -118,7 +118,7 @@
       displayName: alert, alerts
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
-      displayName: alerts
+      displayName: alerts, supression, exclusion
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       href: how-to-forward-alert-information-to-partners.md
