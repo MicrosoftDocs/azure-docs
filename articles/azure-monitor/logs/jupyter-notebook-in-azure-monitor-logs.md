@@ -28,7 +28,7 @@ This provides you with a number of advantages:
 In this tutorial, you'll: 
 
 1. Create a new [Jupyter Notebook](https://jupyter.org/) in Azure Machine Learning. 
-1. Connect to a Log Analytics workspace using the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/). 
+1. Integrate your Log Analytics workspace with your notebook using the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/). 
 1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook using [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme).
 1. Use the [Pandas library](https://pandas.pydata.org/) to   
 
@@ -81,9 +81,9 @@ In this tutorial, you'll:
 1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK. 
 1. Install [Plotly](https://plotly.com/python/), a popular Python visualization package.
 
- ## Connect to your workspace
+ ## Integrate your Log Analytics workspace with your notebook 
 
-1. Authenticate using `DefaultAzureCredential` from the `azure-identity` package.
+1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package.
 
     ```python
     from azure.identity import DefaultAzureCredential
@@ -158,7 +158,7 @@ In this tutorial, you'll:
     - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a a pandas DataFrame (`my_data`).  
     - `execQueryDemoWorkspace(query)` - Calls the Azure Log Analytics POST API with the given query and returns a pandas DataFrame containing the data from the response.
     - `showGraph(df, title)` - Creates a graph that plots `TimeGenerated` on the x-axis and `ActualUsage` on the y-axis using Plotly.
-## Explore and visualize data
+## Explore and visualize log data in your notebook
 
 1. Query the use of all data types in the last week:
     
