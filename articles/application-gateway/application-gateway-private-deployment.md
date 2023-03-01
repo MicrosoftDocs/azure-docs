@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/01/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -200,7 +200,7 @@ After registration into the public preview, configuration of NSG, Route Table, a
 
 ## Resource Changes
 
-After provisioning of your gateway, a resource tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
+After your gateway is provisioned, isn't tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
 
  ![View the EnhancedNetworkControl tag](./media/application-gateway-private-deployment/tags.png)
 
