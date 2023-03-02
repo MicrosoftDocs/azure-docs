@@ -2,7 +2,7 @@
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
 ms.date: 06/06/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Activate and set up your sensor
@@ -131,15 +131,11 @@ For information about uploading a new certificate, supported certificate paramet
 
 ### Activation expirations
 
-After activating a sensor, you'll need to apply new activation files as follows:
+After activating a sensor, cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active.
 
-|Location  |Activation process  |
-|---------|---------|
-|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](update-ot-software.md#download-and-apply-a-new-activation-file) from a legacy version to version 22.2.x.        |
-|  **Locally managed**   |   Apply a new activation file to locally managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
-
 
 ### Activate an expired license (versions under 10.0)
 
@@ -283,6 +279,6 @@ For more information, see:
 
 - [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
-- [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
+- [Manage sensor activation files](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

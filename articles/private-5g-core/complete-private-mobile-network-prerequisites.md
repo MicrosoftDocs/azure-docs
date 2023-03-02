@@ -114,25 +114,25 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 To use Azure Private 5G Core, you need to register some additional resource providers and features with your Azure subscription.
 
 > [!TIP]
-> If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the Azure Cloud Shell on the portal.
+> If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) on the portal.
     
 1. Sign into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     > [!TIP]
     > See [Sign in interactively](/cli/azure/authenticate-azure-cli) for full instructions.    
 1. If your account has multiple subscriptions, make sure you are in the correct one:
-    ```azurecli-interactive
+    ```azurecli
     az account set –-subscription <subscription_id>
     ```
 1. Check the Azure CLI version:
-    ```azurecli-interactive
+    ```azurecli
     az version
     ```
     If the CLI version is below 2.37.0, you will need to upgrade your Azure CLI to a newer version. See [How to update the Azure CLI](/cli/azure/update-azure-cli).
 1. Register the following resource providers:
-    ```azurecli-interactive
+    ```azurecli
     az provider register --namespace Microsoft.MobileNetwork
     az provider register --namespace Microsoft.HybridNetwork
     az provider register --namespace Microsoft.ExtendedLocation
@@ -140,7 +140,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
 1. Register the following features:
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name allowVnfCustomer --namespace Microsoft.HybridNetwork
     az feature register --name previewAccess --namespace  Microsoft.Kubernetes
     az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
@@ -150,13 +150,14 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 
 ## Retrieve the Object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you configure your ASE to use AKS-HCI. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
 
-You can retrieve the OID using the Azure CLI:
+1. Sign in to the Azure CLI or Azure Cloud Shell.
+1. Retrieve the OID:
 
-```azurecli-interactive
-az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
-```
+    ```azurecli
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+    ```
 
 This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
 
@@ -170,7 +171,7 @@ Do the following for each site you want to add to your private mobile network. D
 | 2. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal) |
 | 3. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data networks</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-install.md) |
 | 4. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md) |
-| 5. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. </br></br>**Do not** configure Advanced Networks. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md) |
+| 5. | Configure the network for your Azure Stack Edge Pro device. </br></br>**Do not** configure virtual switches, virtual networks or compute IPs. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md) |
 | 6. | Configure a name, DNS name, and (optionally) time settings. </br></br>**Do not** configure an update. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md) |
 | 7. | Configure certificates for your Azure Stack Edge Pro device. After changing the certificates, you may have to reopen the local UI in a new browser window to prevent the old cached certificates from causing problems.| [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md) |
 | 8. | Activate your Azure Stack Edge Pro device. </br></br>**Do not** follow the section to *Deploy Workloads*. | [Tutorial: Activate Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-activate.md) |

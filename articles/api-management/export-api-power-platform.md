@@ -50,6 +50,8 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 
 > [!NOTE]
 > To call the API from the Power Apps test console, you need to add the `https://make.powerautomate.com` URL as an origin to the [CORS policy](cors-policy.md) in your API Management instance.
+> 
+> Depending on how the custom connector gets used when running Power Apps, you might need to configure additional origins in the CORS policy. You can use developer tools in your browser, tracing in API Management, or Application Insights to investigate CORS issues when running Power Apps.
 
 ## Update a custom connector
 

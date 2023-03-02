@@ -413,7 +413,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 If the deletion process fails, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
 
 ```azurecli
-az connectedk8s delete -g AzureArcTest1 -n AzureArcTest --force
+az connectedk8s delete -n AzureArcTest1 -g AzureArcTest --force
 ```
 
 This command can also be used if you experience issues when creating a new cluster deployment (due to previously created resources not being completely removed).

@@ -56,17 +56,17 @@ The following sections walk you through the procedure.
 
 Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your storage account to hold the exported data. The name used for the container in this article is **loganalytics-data**, but you can use any name.
 
-### Create a logic app
+### Create a logic app workflow
 
-1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
+1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-workflows-collect-diagnostic-data.md). This setting isn't required for using the Azure Monitor Logs connector.
 
    [![Screenshot that shows creating a logic app.](media/logs-export-logic-app/create-logic-app.png "Screenshot that shows creating a Logic Apps resource.")](media/logs-export-logic-app/create-logic-app.png#lightbox)
 
 1. Select **Review + create** and then select **Create**. After the deployment is finished, select **Go to resource** to open the **Logic Apps Designer**.
 
-### Create a trigger for the logic app
+### Create a trigger for the workflow
 
-Under **Start with a common trigger**, select **Recurrence**. This setting creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day**. In the **Interval** box, enter **1** to run the workflow once per day.
+Under **Start with a common trigger**, select **Recurrence**. This setting creates a logic app workflow that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day**. In the **Interval** box, enter **1** to run the workflow once per day.
 
 [![Screenshot that shows a Recurrence action.](media/logs-export-logic-app/recurrence-action.png "Screenshot that shows creating a recurrence action.")](media/logs-export-logic-app/recurrence-action.png#lightbox)
 
@@ -188,7 +188,7 @@ The **Create blob** action writes the composed JSON to storage.
 
    [![Screenshot that shows creating a blob expression.](media/logs-export-logic-app/create-blob.png "Screenshot that shows a Blob action output configuration.")](media/logs-export-logic-app/create-blob.png#lightbox)
 
-### Test the logic app
+### Test the workflow
 
 To test the workflow, select **Run**. If the workflow has errors, they're indicated on the step with the problem. You can view the executions and drill in to each step to view the input and output to investigate failures. See [Troubleshoot and diagnose workflow failures in Azure Logic Apps](../../logic-apps/logic-apps-diagnosing-failures.md), if necessary.
 

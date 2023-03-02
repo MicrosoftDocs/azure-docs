@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -32,14 +32,13 @@ ms.custom: devx-track-csharp
 
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
+
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API.
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* Finally, you'll need a document file at a URL location. For this project, you can use the sample forms provided in the table below for each feature:
+* Finally, you need a document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
 
     **Sample documents**
 

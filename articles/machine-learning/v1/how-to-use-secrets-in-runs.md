@@ -51,7 +51,7 @@ Do not put the secret value in your Python code as it is insecure to store it in
 You can list secret names using the [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--) method and there is also a batch version,[set_secrets()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-) that allows you to set multiple secrets at a time.
 
 > [!IMPORTANT]
-> Using `list_secrets()` will only list secrets created through `set_secret()` or `set_secrets()` using the Azure ML SDK. It will not list secrets created by something other than the SDK. For example, a secret created using the Azure portal or Azure PowerShell will not be listed.
+> Using `list_secrets()` will only list secrets created through `set_secret()` or `set_secrets()` using the Azure Machine Learning SDK. It will not list secrets created by something other than the SDK. For example, a secret created using the Azure portal or Azure PowerShell will not be listed.
 > 
 > You can use [`get_secret()`](#get-secrets) to get a secret value from the key vault, regardless of how it was created. So you can retrieve secrets that are not listed by `list_secrets()`.
 

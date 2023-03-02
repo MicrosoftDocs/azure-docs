@@ -4,6 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the JavaScript client library.
 services: storage
 author: pauljewellmsft
+
 ms.author: pauljewell
 ms.date: 11/30/2022
 ms.service: storage
