@@ -10,9 +10,9 @@ author: maud-lv
 
 # Known limitations of Service Connector
 
-This article outlines Service Connector's known limitations and how to mitigate them.
+In this article, learn about Service Connector's existing limitations and how to mitigate them.
 
-### Automation
+### Limitations to automation
 
 Service Connector has been designed to bring the benefits of easy, secure, and consistent backing service connections to as many Azure services as possible. To do so, Service Connector has been developed as a plugin-resource provider. This allows Service Connector to be integrated into other services. 
 
@@ -22,11 +22,11 @@ We’re working on improving this experience over the next releases. Until then,
 
 - When automating an Azure Container App application using Service Connector, we recommend the use of the [multiple revision mode](../container-apps/revisions.md#revision-modes) to avoid sending traffic to a temporarily non-functional app because the Service Connector resource hasn’t been created yet and the application therefore won’t be able to rely on it. 
 
-- The order in which operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. This ensures that Service Connector has the ability to interact with both ends of the connection in order to configure them appropriately. 
+- The order in which automation operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. This ensures that Service Connector has the ability to interact with both ends of the connection in order to configure them appropriately. 
 
-- Prior to crafting your automation templates, check to see if there’s been any configuration drift, and whether a resource might have been changed. Pull the latest configuration in the form of an ARM template format as your basis for your automation template. 
+- Prior to crafting your automation templates, check to see if there’s been any configuration drift, and whether a resource might have been changed. A good way of doing this would be to use the portal to create and configure your resources as desired and then utilize the available ARM export functionality to pull the latest configuration in the form of an ARM template format as your basis for your automation template.
 
-### Azure App Service deployment slots
+### Limitations to Azure App Service deployment slots
 
 If you’re using App Service and have [more than one deployment slot](../app-service/deploy-staging-slots.md), Service Connector won't work. If deployment slots are critical to your way of working, we recommend [using app settings](../app-service/configure-common.md). 
 
