@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 03/02/2023
 ms.author: phjensen
 ---
 
@@ -60,8 +60,6 @@ AzAcSnap 7 is being released with the following fixes and improvements:
 - Features added to [Preview](azacsnap-preview.md):
   - Preliminary support for Azure NetApp Files Backup.
   - Db2 database support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner.
- 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
 ## Jul-2022
 
@@ -92,14 +90,9 @@ AzAcSnap v5.0.3 (Build: 20220524.14204) is provided as a patch update to the v5.
 
 - Fix for handling delimited identifiers when querying SAP HANA.  This issue only impacted SAP HANA in HSR-HA node when there's a Secondary node configured with 'logreplay_readaccss' and has been resolved.
 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
-
 ### AzAcSnap v5.1 Preview (Build: 20220524.15550)
 
 AzAcSnap v5.1 Preview (Build: 20220524.15550) is an updated build to extend the preview expiry date for 90 days.  This update contains the fix for handling delimited identifiers when querying SAP HANA as provided in v5.0.3.
-
-Read about the [AzAcSnap Preview](azacsnap-preview.md).
-Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
 
 ## Mar-2022
 
