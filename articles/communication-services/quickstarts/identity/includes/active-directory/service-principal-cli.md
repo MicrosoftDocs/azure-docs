@@ -15,13 +15,13 @@ When using Active Directory for other Azure Resources, you should be using Manag
 
 ## Authenticate a registered application in the development environment
 
-If your development environment does not support single sign-on or login via a web browser, then you can use a registered application to authenticate from the development environment.
+If your development environment doesn't support single sign-on or login via a web browser, then you can use a registered application to authenticate from the development environment.
 
 ### Creating an Azure Active Directory Registered Application
 
-To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you are logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application and service principal.
+To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you're logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application and service principal.
 
-The following examples uses the Azure CLI to create a new registered application
+The following example uses the Azure CLI to create a new registered application:
 
 ```azurecli
 az ad sp create-for-rbac --name <application-name> --role Contributor --scopes /subscriptions/<subscription-id>
@@ -52,6 +52,6 @@ The Azure Identity SDK reads values from three environment variables at runtime 
 | `AZURE_CLIENT_SECRET` | `password` value from the generated JSON |
 
 > [!IMPORTANT]
-> After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart it in order for it to register the new environment variables.
+> After you set the environment variables, close and re-open your console window. If you're using Visual Studio or another development environment, you may need to restart it in order for it to register the new environment variables.
 
 Once these variables have been set, you should be able to use the DefaultAzureCredential object in your code to authenticate to the service client of your choice.
