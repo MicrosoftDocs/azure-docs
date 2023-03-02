@@ -72,7 +72,7 @@ To create an instance of Application Insights in your subscription, follow these
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`. If optional child node `<Endpoints>` is present, it must be before `<UserJourneyBehaviors>`. See [RelyingParty schema reference](./relyingparty) for the complete order of elements inside it.
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`. If optional child node `<Endpoints>` is present, it must be before `<UserJourneyBehaviors>`. See [RelyingParty schema reference](./relyingparty.md) for the complete order of elements inside it.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
 
     ```xml
