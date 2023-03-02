@@ -93,11 +93,11 @@ At this point, you've successfully handled the SMS event. You then have multiple
 
 1. Start by adding the SMS connector into our flow and configuring it with the information for our Azure Communication Services resource. It allows the connector to access the resource and send the SMS on our behalf. You need the `connection string` for your resource.
 
-    ![Screenshot of set up screen for the SMS connector](../media/receive-sms/sms-connection.png)
+    ![Screenshot of set up screen for the SMS connector.](../media/receive-sms/sms-connection.png)
 
 2. Next, we configure the connector with the information for the sender and recipient. We use the information from the event we received to populate them. Fip the `to` and `from` numbers to send an SMS back to the original sender. Finally, add a message.
 
-   ![Screenshot of the SMS connector configuration](../media/receive-sms/sms-configure.png)
+   ![Screenshot of the SMS connector configuration.](../media/receive-sms/sms-configure.png)
 
 Now, you can save the flow and test it by sending an SMS to the phone number associated with your Azure Communication Services resource. You should receive back a text message.
 
