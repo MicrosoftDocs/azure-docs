@@ -129,6 +129,8 @@ To use Visual Studio Code for development:
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Install the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md) (preview).
 
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](../how-to-manage-resources-vscode.md)

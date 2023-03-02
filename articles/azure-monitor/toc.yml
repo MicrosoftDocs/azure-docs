@@ -1484,8 +1484,6 @@ items:
       items:
       - name: Code-based monitoring SDKs
         href: app/release-notes.md
-      - name: Web app extension
-        href: app/web-app-extension-release-notes.md
       - name: Snapshot Debugger
         href: snapshot-debugger/snapshot-collector-release-notes.md
     - name: Data model
