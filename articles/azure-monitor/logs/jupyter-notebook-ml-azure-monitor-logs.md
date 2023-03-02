@@ -91,6 +91,12 @@ In this tutorial, you'll:
     logs_query_client = LogsQueryClient(credential)
     ```
 1. Define the functions you'll use to call your Log Analytics workspace, query your data, and visualize the data in a graph.  
+
+    The code snippet below defines three functions:
+
+    - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a pandas DataFrame (`my_data`).  
+    - `execQueryDemoWorkspace(query)` - Executes the same query on the Log Analytics demo workspace by calling the Azure Log Analytics POST API directly and stores the response in a pandas DataFrame (`my_data`).
+    - `showGraph(df, title)` - Creates a graph that plots the `TimeGenerated` values in the DataFrame on the x-axis and the `ActualUsage` values on the y-axis using Plotly.
     
     ```python
     import os
@@ -150,13 +156,7 @@ In this tutorial, you'll:
      graph = px.line(df, x='TimeGenerated', y="ActualUsage", color='DataType', title=title)
      graph.show()
     ```
-
-    This script defines three functions:
-
-    - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a a pandas DataFrame (`my_data`).  
-    - `execQueryDemoWorkspace(query)` - Calls the Azure Log Analytics POST API with the given query and returns a pandas DataFrame containing the data from the response.
-    - `showGraph(df, title)` - Creates a graph that plots `TimeGenerated` on the x-axis and `ActualUsage` on the y-axis using Plotly.
-    
+   
 ## Explore and visualize data from your Log Analytics workspace in your notebook
 
 1. Query the use of all data types in the last week.
