@@ -7,3 +7,19 @@
     href: workload-identities-overview.md
   - name: Workload identities FAQs
     href: workload-identities-overview.md
+- name: Concepts
+  items:
+      - name: Workload identity federation
+        href: workload-identity-federation.md        
+- name: How-to guides
+  items:
+  - name: Connect without secrets
+    items:
+      - name: Configure an app to trust an external identity provider
+        href: workload-identity-federation-create-trust.md
+      - name: Configure a managed identity to trust an external identity provider
+        href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
+      - name: Access identity platform-protected resources from GCP
+        href: workload-identity-federation-create-trust-gcp.md
+      - name: Block creation of federated credentials
+        href: workload-identity-federation-block-using-azure-policy.md

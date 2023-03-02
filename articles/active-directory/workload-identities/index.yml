@@ -28,69 +28,20 @@ landingContent:
             url: workload-identities-faqs.md
   
   # Card
-  - title: Govern the lifecycle of access to groups, apps, and sites
+  - title: Connect without needing to manage secrets
     linkLists:
       - linkListType: overview
         links:
-          - text: What is entitlement management?
-            url: entitlement-management-overview.md
-      - linkListType: tutorial
+          - text: What is workload identity federation?
+            url: workload-identity-federation.md
+      - linkListType: video
         links:
-          - text: Manage access to resources - Azure portal
-            url: entitlement-management-access-package-first.md
-          - text: Manage access to resources - Microsoft Graph
-            url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-      - linkListType: concept
-        links:
-          - text: Delegation and roles
-            url: entitlement-management-delegate.md
-  
-  # Card
-  - title: Recertify access to groups, apps, and privileged roles
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What are access reviews?
-            url: access-reviews-overview.md
+          - text: Learn why you would use workload identity federation
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RWXamJ
       - linkListType: how-to-guide
         links:
-          - text: Create an access review to ensure users do not retain excessive access
-            url: create-access-review.md
-          - text: Review access to group or apps
-            url: perform-access-review.md
+          - text: Configure an app to trust an external identity provider
+            url: workload-identity-federation-create-trust.md
+          - text: Configure a managed identity to trust an external identity provider
+            url: workload-identity-federation-create-trust-user-assigned-managed-identity.md
   
-  # Card
-  - title: Govern the lifecycle of users as they join, move within, and leave organizations
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What are Lifecycle Workflows (Preview)?
-            url: what-are-lifecycle-workflows.md
-      - linkListType: tutorial
-        links:
-          - text: On-boarding users to your organization using Lifecycle workflows with Azure portal
-            url: tutorial-onboard-custom-workflow-portal.md
-          - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
-            url: tutorial-onboard-custom-workflow-graph.md
-      - linkListType: concept
-        links:
-          - text: Understanding Lifecycle Workflows 
-            url: understanding-lifecycle-workflows.md
-          - text: Lifecycle Workflows built-in tasks
-            url: lifecycle-workflow-tasks.md  
-  
-  # Card
-  - title: Make users eligible for privileged roles
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Privileged Identity Management?
-            url: ../privileged-identity-management/pim-configure.md
-  
-  # Card
-  - title: Ensure users see disclaimers
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Require users to agree to a terms of use when using an app
-            url: ../conditional-access/terms-of-use.md

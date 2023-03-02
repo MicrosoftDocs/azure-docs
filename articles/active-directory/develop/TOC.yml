@@ -141,16 +141,6 @@
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Connect
       items:
-        - name: Workload identity federation
-          href: workload-identity-federation.md
-        - name: Configure an app to trust an external identity provider
-          href: workload-identity-federation-create-trust.md
-        - name: Configure a managed identity to trust an external identity provider
-          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
-        - name: Access identity platform-protected resources from GCP
-          href: workload-identity-federation-create-trust-gcp.md
-        - name: Block creation of federated credentials
-          href: workload-identity-federation-block-using-azure-policy.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
           displayName: exchange, swap, SAML token, OAuth token
           href: v2-saml-bearer-assertion.md
