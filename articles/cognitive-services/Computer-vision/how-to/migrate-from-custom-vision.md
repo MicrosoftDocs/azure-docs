@@ -24,6 +24,13 @@ This guide uses a Python script to take all of the training data from an existin
 * A Custom Vision resource where an existing project is stored.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
+## Install libraries
+
+This script requires certain Python libraries. Install them in your project directory with the following command.
+
+```bash
+pip install azure-storage-blob azure-cognitiveservices-vision-customvision
+```
 
 ## Prepare the migration script
 
