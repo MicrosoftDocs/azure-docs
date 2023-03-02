@@ -35,14 +35,14 @@ MSAL caches tokens and uses a silent token acquisition pattern. MSAL serializes 
 
 Learn more:
 
-[Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
-[Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
-[Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
-[Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+* [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
+* [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
+* [Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
+* [Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
 
    ![Diagram of a device and and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-When you're using MSAL, token caching, refreshing, and silent acquisition is supported automatically. Use simple patterns to acquire the tokens for authentication. There's support for many languages. Find code sample on, [Microsoft identity platform code samples](../develop/sample-v2-code.md).
+When you're using MSAL, token caching, refreshing, and silent acquisition is supported. Use simple patterns to acquire the tokens for authentication. There's support for many languages. Find code sample on, [Microsoft identity platform code samples](../develop/sample-v2-code.md).
 
 ## [C#](#tab/csharp)
 
