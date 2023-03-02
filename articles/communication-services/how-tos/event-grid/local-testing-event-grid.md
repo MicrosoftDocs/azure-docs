@@ -1,7 +1,7 @@
 ---
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman"
+description: In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman.
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
@@ -32,7 +32,7 @@ ngrok http 7071
 
 1. Open Postman and create a new request.
 
-    ![Postman body](media/postman_body.png)
+    ![Screenshot of Postman body configuration](media/postman_body.png)
 
 2. Select the `POST` method.
 
@@ -68,10 +68,10 @@ ngrok http 7071
    - `Content-Type`: `application/json`
    - `aeg-event-type`: `Notification`
 
-    ![Postman headers](media/postman_header.png)
+    ![Screenshot of Postman headers configuration](media/postman_header.png)
 
 6. Select the `Send` button to trigger the event.
 
-    ![Postman send](media/postman_send.png)
+    ![Screenshot of Postman send button](media/postman_send.png)
 
     At this point, an event should trigger in your Azure Function. You can verify the event by looking at the execution of your Azure Function. You can then validate that the function is doing its job correctly.
