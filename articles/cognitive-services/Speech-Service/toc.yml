@@ -179,8 +179,6 @@ items:
       href: how-to-translate-speech.md
 - name: Intent recognition
   items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Pattern matching concepts
@@ -230,14 +228,16 @@ items:
       href: gaming-concepts.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment with speech to text
-          items:
-            - name: Pronunciation Assessment in Speech Studio
-              href: pronunciation-assessment-tool.md
-              displayName: pronounce, learn language, assess pron
-            - name: How to use Pronunciation Assessment
-              href: how-to-pronunciation-assessment.md
-              displayName: pronounce, learn language, assess pron
+      - name: Overview
+        href: language-learning-overview.md
+      - name: Pronunciation Assessment with speech to text
+        items:
+        - name: Pronunciation Assessment in Speech Studio
+          href: pronunciation-assessment-tool.md
+          displayName: pronounce, learn language, assess pron
+        - name: How to use Pronunciation Assessment
+          href: how-to-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview

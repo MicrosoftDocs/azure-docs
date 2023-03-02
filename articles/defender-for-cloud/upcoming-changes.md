@@ -18,10 +18,20 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
+| [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
 | [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | August 2023 |
+
+### Changes in the recommendation "Machines should be configured securely"
+
+**Estimated date for change: March 2023**
+
+The recommendation "Machines should be configured securely" is going to be upgraded on March 20th to improve its performance and stability, and to align its experience with the generic behavior of MDC recommendations.
+As part of this update, the recommendation's ID will be changed from "181ac480-f7c4-544b-9865-11b8ffe87f47" to "c476dc48-8110-4139-91af-c8d940896b98".
+No action is required on the customer side, and there is no expected downtime nor impact on the secure score.
+
 
 ### Three alerts in Defender for Azure Resource Manager plan will be deprecated
 
