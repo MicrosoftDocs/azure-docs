@@ -195,22 +195,22 @@ Use the following steps to provision a service instance.
     ```azurecli-interactive
     az group create \
        --resource-group ${RESOURCE_GROUP} \
-       --location $LOCATION
+       --location ${LOCATION}
     ```
 1. An Azure Container App environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview). To create the environment, run the following command
 
     ```azurecli-interactive
     az containerapp env create \
-        --name $MANAGED_ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --location $LOCATION
+        --name ${MANAGED_ENVIRONMENT} \
+        --resource-group ${RESOURCE_GROUP} \
+        --location ${LOCATION}
     ```
 
 1. Set the environment varable:
     ```azurecli-interactive
     MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-        --name $MANAGED_ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
+        --name ${MANAGED_ENVIRONMENT} \
+        --resource-group ${RESOURCE_GROUP} \
         --query id -o tsv)
     ```
 
@@ -218,11 +218,11 @@ Use the following steps to provision a service instance.
 
     ```azurecli-interactive
     az spring create \
-       --resource-group $RESOURCE_GROUP \
-       --name $SERVICE_NAME\
-       --managed-environment $MANAGED_ENV_RESOURCE_ID \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${SERVICE_NAME} \
+       --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
        --sku standardGen2 \
-       --location $LOCATION
+       --location ${LOCATION}
     ```
 
 ## Create an app in your Azure Spring Apps instance
@@ -235,9 +235,9 @@ Use the following command to specify the app name on Azure Spring Apps and alloc
 
     ```azurecli-interactive
     az spring app create \
-      --resource-group $RESOURCE_GROUP \
-      --service $SERVICE_NAME \
-      --name $APP_NAME \
+      --resource-group ${RESOURCE_GROUP} \
+      --service ${SERVICE_NAME} \
+      --name ${APP_NAME} \
       --cpu 1 \
       --memory 2Gi \
       --instance-count 2 \
@@ -276,9 +276,9 @@ Use the following steps to clone the Spring Boot sample project.
 
     ```azurecli-interactive
     az spring app deploy \
-        --resource-group $RESOURCE_GROUP \
-        --service $SERVICE_NAME \
-        --name $APP_NAME \
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${SERVICE_NAME} \
+        --name ${APP_NAME} \
         --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar \
         --env testEnvKey=testEnvValue \
         --runtime-version Java_11 \
