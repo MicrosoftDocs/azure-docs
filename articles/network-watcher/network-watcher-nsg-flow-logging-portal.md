@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Log network traffic flow to and from a virtual machine - Azure portal'
-description: Learn how to log network traffic flow to and from a virtual machine using Network Watcher's NSG flow logs capability.
+description: Learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
+# Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
@@ -20,14 +20,14 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-This tutorial helps you use Azure Network Watcher NSG flow log capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
+This tutorial helps you use Azure Network Watcher [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and a Bastion host
 > * Create a virtual machine with a network security group associated to its network interface
-> * Register the Microsoft.Insights provider
+> * Register Microsoft.insights provider
 > * Enable flow logging for a network security group using Network Watcher NSG flow logs
 > * Download logged data
 > * View logged data
@@ -270,7 +270,7 @@ The comma-separated information for **flowTuples** is as follows:
 | ------------ | -------------------- | ----------  |
 | 1677455097 | Time stamp | The time stamp of when the flow occurred in UNIX EPOCH format. In the previous example, the date converts to February 26, 2023 11:44:57 PM UTC/GMT. |
 | 10.0.0.4 | Source IP address | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you previously created.
-| 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is IP address of `www.bing.com`. Since the traffic was destined outside Azure, the rule named **DefaultRule_AllowInternetOutBound** processed the flow. |
+| 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is the IP address of `www.bing.com`. Since the traffic is destined outside Azure, the security rule **DefaultRule_AllowInternetOutBound** processed the flow. |
 | 49982 | Source port | The source port that the flow originated from. |
 | 443 | Destination port | The destination port that the flow was destined to. |
 | T | Protocol | The protocol of the flow. T: TCP. |
@@ -281,6 +281,28 @@ The comma-separated information for **flowTuples** is as follows:
 | 1158 | Bytes sent **Version 2 only** | The total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. |
 | 12 | Packets received **Version 2 only** | The total number of TCP packets received from destination since the last update. |
 | 8143 | Bytes received **Version 2 only** | The total number of TCP packet bytes received from destination since the last update. Packet bytes include packet header and payload.|
+
+## Disable NSG flow log
+
+When no more logging is needed, you can disable the NSG flow log that you previously created.
+
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+
+1. Select **NSG flow logs** under **Logs**.
+
+1. Select the ellipsis **...** to the right of **myVM-nsg-myresourcegroup-flowlog** flow log or right-click it and select **Disable**.
+
+1. In **Disable NSG flow log**, select **Disable**.
+
+   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-flow-log-disabled.png" alt-text="Screenshot showing the nsg flow log disabled in the Azure portal.":::
+
+## Clean up resources
+
+When no longer needed, delete **myResourceGroup** and all of the resources it contains:
+
+1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+2. Select **Delete resource group**.
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 

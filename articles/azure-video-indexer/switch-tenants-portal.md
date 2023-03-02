@@ -18,8 +18,8 @@ When logging in the Azure Video Indexer website, a default directory will load a
 
 This article shows two options to solve the same problem - how to switch tenants:
 
-- When starting from within the Azure Video Indexer website.
-- When starting from outside of the Azure Video Indexer website.
+- When starting [from within the Azure Video Indexer website](#switch-tenants-from-within-the-azure-video-indexer-website).
+- When starting [from outside of the Azure Video Indexer website](#switch-tenants-from-outside-the-azure-video-indexer-website).
 
 ## Switch tenants from within the Azure Video Indexer website
 
