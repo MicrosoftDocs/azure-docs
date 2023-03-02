@@ -63,7 +63,7 @@ By using the default [pricing](https://azure.microsoft.com/pricing/details/monit
 
 ## Control ingestion to reduce cost
 
-Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **View Workbooks** dropdown list.
+Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **Reports** tab.
 
 [![Screenshot that shows the View Workbooks dropdown list.](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
 
