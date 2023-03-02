@@ -23,7 +23,7 @@ The workflow for letting lab users access a lab consists of the following steps:
 
 By default, access to a lab is restricted. Only users that are in the list of lab users can register for a lab, and get access to the lab virtual machine (VM). You can disable restricted access for a lab, which lets any user register for a lab if they have the registration link.
 
-You can add users from an Azure Active Directory (Azure AD) group, add a list of user email addresses. If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
+You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ You can add users from an Azure Active Directory (Azure AD) group, add a list of
     - Lab Creator, Lab Contributor, or Lab Operator role at the lab plan or resource group level. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
     - [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) at the lab plan or resource group level.
 
-## Add users from an Azure AD group
+## Add users to a lab from an Azure AD group
 
 You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
 
@@ -75,13 +75,13 @@ When you synchronize a lab with an Azure AD group, Azure Lab Services automatica
 
 When a user is added to the Azure AD group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Azure AD group, the lab VM for that user is automatically deleted from the lab.
 
-## Add users manually from email(s) or CSV file
+## Add users manually
 
-In this section, you add lab users by providing their email address manually or by uploading a CSV file.
+You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
 
 ### Add users by email address
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**, and then select **Add users manually**.
 
@@ -107,7 +107,7 @@ You use a CSV text file to store comma-separated (CSV) tabular data (numbers and
 
     :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Screenshot that shows the list of users in a CSV file.":::
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**, select **Add users**, and then select **Upload CSV**.
 
@@ -133,7 +133,7 @@ You can invite all users to the lab by sending an email via the Azure Lab Servic
 
 To invite all users:
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**, and then select **Invite all**.
 
@@ -153,7 +153,7 @@ Instead of inviting all users, you can also invite specific users and get a regi
 
 To invite selected users:
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**, and then select one or more users from the list.
 
@@ -167,11 +167,11 @@ To invite selected users:
 
     The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that users can use to register with the lab.
 
-## Get the registration link
+### Get the registration link
 
 You can get the lab registration link from the Azure Lab Services website, and send it by using your own email application.
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**, and then select **Registration link**.
 
@@ -187,7 +187,7 @@ You can get the lab registration link from the Azure Lab Services website, and s
 
 To view the list of lab users that have already registered for the lab by using the lab registration link:
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users** to view the list of lab users.
 
@@ -217,7 +217,7 @@ You can set an hour quota for a user in one of two ways:
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a user. The quota is for the time outside of scheduled hours that a user spends on VMs.
 
-## Set additional quotas for specific users
+### Set additional quotas for specific users
 
 You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you, as a lab creator, set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time doesn't count against this quota.
 
@@ -277,7 +277,7 @@ If users haven't yet linked their GitHub account to a Microsoft account, they ca
 
 To export the list of users for a lab:
 
-1. In the Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
 1. Select **Users**.
 
