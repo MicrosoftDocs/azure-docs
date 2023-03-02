@@ -40,7 +40,7 @@ If this isn't the case, we suggest you start with one of the following articles,
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
 
 The Extension package to install depends on the .NET worker you're using:
 - For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
@@ -148,7 +148,7 @@ Below is an example `local.settings.json` assigning the default Docker-based SQL
 
 ### Update host.json
 
-Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one doesn't already exists, with collation `Latin1_General_100_BIN2_UTF8`.
+Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one doesn't already exist, with collation `Latin1_General_100_BIN2_UTF8`.
 
 ```json
 {

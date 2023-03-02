@@ -41,7 +41,7 @@ If this isn't the case, we suggest you start with one of the following articles,
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You'll need to install the latest version of the Netherite Extension on NuGet. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
 
 The Extension package to install depends on the .NET worker you are using:
 - For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
