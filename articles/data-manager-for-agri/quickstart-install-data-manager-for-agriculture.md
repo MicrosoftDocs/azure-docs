@@ -73,7 +73,7 @@ Log in to Azure portal and navigate to the newly created resource (`<Name>-resou
 
 Click on the Azure Data Manager for Agriculture resource tab, you can find the IAM menu option on the left hand side of the option pane as shown in the image:
 
-![Screenshot showing role assignment in data Manager.](./media/role-assignment.png)
+![Screenshot showing role assignment in data Manager.](./media/role-assignment1.png)
 
 Click **Add > Add role assignment**, and this opens up a pane the right side of the portal, choose one of the three roles from the dropdown:
 

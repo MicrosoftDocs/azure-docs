@@ -82,8 +82,8 @@ Use the `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with
 |:-----:|----|----|
 | PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderID}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
-> [Important]
->The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
+> [!Important]
+> The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
 
 #### URI parameters
 

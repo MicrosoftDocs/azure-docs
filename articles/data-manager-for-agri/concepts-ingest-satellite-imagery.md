@@ -24,7 +24,7 @@ In our public preview, we support ingesting data from Sentinel-2 constellation.
 ## Sentinel-2
 [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution.  
 
->[Tip]
+> [!Tip]
 > Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Level 1 and Level 2 data from Sentinel 2.
 
 ## Image names and resolutions

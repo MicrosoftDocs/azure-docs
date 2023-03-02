@@ -25,8 +25,6 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 3. On the permission review page, Azure Active Directory app requests for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
 
-![Screenshot showing sensor partner consent popup.](./media/sensor-partner-consent.png)
-
 4. Click on "Accept" button to grant admin consent. 
 
 5. Now, look for `Davis Instruments WeatherLink Data Manager for Agriculture Connector` under All Applications tab in `App Registrations` page (illustrated with a generic Partner in the image).
