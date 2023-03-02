@@ -159,7 +159,7 @@ In this tutorial, you'll:
    
 ## Explore and visualize data from your Log Analytics workspace in your notebook
 
-1. Query the use of all data types in the last week.
+1. Check how much data was ingested into each of the tables in the workspace every hour over the last week.
     
     ```python
     UsageQuery_AllTypes = """
@@ -168,14 +168,18 @@ In this tutorial, you'll:
     | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
     """
     
-    num_days = 7; ##FILL YOUR 
+    num_days = 7;  
     end_time = datetime.now()
     start_time = end_time - timedelta(days=num_days)
     
     
     df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
     ```
+
+    This query generates a DataFrame that shows the hourly ingestion in each of the tables in the Log Analytics workspace:  
     
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." 
+
 1. Present the data your query returns in a graph.
 
     ```python
@@ -228,10 +232,9 @@ In this tutorial, for the sake of simplicity, we'll:
     #showGraph(my_data)
     ```
 
-    This code snippet generates a DataFrame that shows the hourly ingestion in each of the six tables, as retrieved from the Log Analytics workspace:
+    This query generates a DataFrame that shows the hourly ingestion in each of the six tables, as retrieved from the Log Analytics workspace:
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png":::
-
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png" alt-text="Screenshot that shows a DataFrame with log ingestion data for the six tables we're exploring in this tutorial." 
 
 1. Present the data from the DataFrame in a graph.
 
