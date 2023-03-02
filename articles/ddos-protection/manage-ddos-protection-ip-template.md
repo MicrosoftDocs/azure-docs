@@ -31,11 +31,9 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/pip-with-ddos-ip-protection/azuredeploy.json":::
 
-
-
 The template defines one resources:
 
-- [Microsoft.Network/publicIPAddresses](./azure/templates/microsoft.network/change-log/publicipaddresses)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/change-log/publicipaddresses)
 
 ## Deploy the template
 
