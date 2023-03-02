@@ -65,7 +65,7 @@ The same Linux distribution supports Azure cloud infrastructure and edge service
 It includes a small set of core packages by default. 
 [CBL-Mariner](https://microsoft.github.io/CBL-Mariner/docs/) is a lightweight OS and consumes limited system resources and is engineered to be efficient.
 For example, it has a fast boot time with a small footprint with locked-down packages, resulting in the reduction of the threat landscape.
-On identifying a security vulnerability, the Microsoft makes the latest security patches and fixes available with the goal of fast turn-around time. Running the infrastructure on Linux aligns with Network Function needs, telecommunication industry trends, and relevant open-source communications. Operator Nexus supports both virtualized network functions (VNFs) and containerized network functions (CNFs).
+On identifying a security vulnerability, Microsoft makes the latest security patches and fixes available with the goal of fast turn-around time. Running the infrastructure on Linux aligns with Network Function needs, telecommunication industry trends, and relevant open-source communications. Operator Nexus supports both virtualized network functions (VNFs) and containerized network functions (CNFs).
 
 ### Bare metal and cluster management
 
@@ -76,7 +76,7 @@ One important component of the service is Cluster Manager.
 
 ### Network Fabric Automation
 
-Operator Nexus includes Network Fabric Automation (NFA), [NFA](./howto-configure-network fabric.md) which enables operators to build, operate and manage carrier grade network fabrics. The reliable and distributed cloud services model supports the operators' telco network functions. Operators have the ability to interact with Operator Nexus to provision the network fabric via Zero-Touch Provisioning (ZTP), as well as perform complex network implementations via a workflow driven, API model. 
+Operator Nexus includes [Network Fabric Automation (NFA)](./howto-configure-network-fabric-controller.md) which enables operators to build, operate and manage carrier grade network fabrics. The reliable and distributed cloud services model supports the operators' telco network functions. Operators have the ability to interact with Operator Nexus to provision the network fabric via Zero-Touch Provisioning (ZTP), as well as perform complex network implementations via a workflow driven, API model. 
 
 ### Network Packet Broker
 

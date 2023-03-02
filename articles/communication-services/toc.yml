@@ -19,8 +19,6 @@ items:
         href: quickstarts/access-tokens.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Authenticate with Azure AD (Azure CLI)
-        href: quickstarts/identity/service-principal-from-cli.md
       - name: Quick-create identities for testing
         href: quickstarts/identity/quick-create-identity.md
       - name: Create identities and tokens in Azure Logic Apps
@@ -50,7 +48,9 @@ items:
       - name: Handle Email events
         href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md            
+        href: quickstarts/email/logic-app.md
+      - name: Enable User Engagement Tracking
+        href: quickstarts/email/enable-user-engagement-tracking.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -243,6 +243,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Video constraints
+        href: concepts/voice-video-calling/video-constraints.md
       - name: Customizing the video background
         href: concepts/voice-video-calling/video-effects.md
       - name: Pre-Call diagnostics

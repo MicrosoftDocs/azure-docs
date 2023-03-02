@@ -30,7 +30,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, CBL-Mariner, macOS, Windows Subsystem for Linux).
+  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Mariner, macOS, Windows Subsystem for Linux).
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
