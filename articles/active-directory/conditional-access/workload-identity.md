@@ -21,7 +21,7 @@ Conditional Access policies have historically applied only to users when they ac
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
-- Can’t perform multi-factor authentication.
+- Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
 - Need to store their credentials or secrets somewhere.
 
@@ -29,7 +29,7 @@ These differences make workload identities harder to manage and put them at high
 
 > [!IMPORTANT]
 > Workload Identities Premium licenses are required to create or modify Conditional Access policies scoped to service principals. 
-> In directories without appropriate licenses, Conditional Access policies created prior to the release of Workload Identities Premium will be available for deletion only. 
+> In directories without appropriate licenses, existing Conditional Access policies for workload identities will continue to function, but can't be modified. For more information see [Microsoft Entra Workload Identities](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).  
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 

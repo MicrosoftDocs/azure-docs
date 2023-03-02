@@ -290,6 +290,12 @@ items:
         displayName: sql pool
     - name: Workload management
       items: 
+      - name: Scale compute using the Azure portal
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-portal.md
+      - name: Scale compute using PowerShell
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-powershell.md
+      - name: Scale compute using T-SQL
+        href: ./sql-data-warehouse/quickstart-scale-compute-tsql.md?context=/azure/synapse-analytics/context/context 
       - name: Create workload classifier
         items:
         - name: Portal
@@ -722,7 +728,7 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (Preview)
+        - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (GA)
           href: ./spark/apache-spark-32-runtime.md
@@ -756,7 +762,7 @@ items:
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
-      - name: Manage your package outside Synapse Studio portal
+      - name: Automate the library management process through Azure PowerShell cmdlets and REST APIs
         href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
@@ -1559,8 +1565,6 @@ items:
         - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: Cognitive service with SynapseML
-      href: ./cognitive-services-with-synapseml-overview.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

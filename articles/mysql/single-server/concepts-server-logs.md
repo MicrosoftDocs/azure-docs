@@ -102,7 +102,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | where query_time_d > 10
     ```
 
@@ -112,7 +112,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | order by query_time_d desc
     | take 5
     ```
@@ -123,7 +123,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
@@ -133,7 +133,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
     | render timechart
     ```
@@ -143,7 +143,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | where query_time_d > 10
     ```    
     

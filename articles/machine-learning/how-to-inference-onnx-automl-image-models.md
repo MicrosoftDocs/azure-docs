@@ -76,7 +76,7 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your Azure Machine Learning workspace
     subscription_id = ''   
     resource_group = ''  
     workspace_name = ''

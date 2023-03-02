@@ -24,7 +24,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). We will follow up within 5 business days after submitting the form. Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). It will take up to 10 business days after submitting the form to approve the feature. Creating VMs from the community gallery is open to all Azure users.
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 > 
@@ -33,11 +33,11 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-| [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | Direct shared gallery lets you share to everyone in a subscription or tenant. |
-| Everyone (described in this article) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
+|---|---|---|---|---|---|
+| [RBAC Sharing](share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
 ## Limitations for images shared to the community
 
@@ -132,7 +132,7 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 
 Create an [image definition and an image version](image-version.md).
 
-Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a community gallery.
+Create a VM from a [generalized](vm-generalized-image-version.md#community-gallery) or [specialized](vm-specialized-image-version.md#community-gallery) image in a community gallery.
 
 
 

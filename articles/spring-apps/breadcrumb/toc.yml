@@ -28,5 +28,8 @@ items:
     tocHref: /rest/api/azurespringcloud/
     topicHref: /azure/spring-apps/index
   - name: Azure Spring Apps
+    tocHref: /azure/architecture/guide/technology-choices/
+    topicHref: /azure/spring-apps/index
+  - name: Azure Spring Apps
     tocHref: /azure/architecture/reference-architectures/microservices/
     topicHref: /azure/spring-apps/index

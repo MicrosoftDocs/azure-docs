@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 02/15/2023
+ms.date: 03/01/2023
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -105,7 +105,7 @@ App Service Environment v3 is available in the following regions:
 | Australia East       | ✅                           | ✅                          | ✅                           | 
 | Australia Southeast  | ✅                           |                             | ✅                           | 
 | Brazil South         | ✅                           | ✅                          | ✅                           | 
-| Brazil Southeast     |                              |                             | ✅                           |
+| Brazil Southeast     | ✅                           |                             | ✅                           |
 | Canada Central       | ✅                           | ✅                          | ✅                           |
 | Canada East          | ✅                           |                             | ✅                           | 
 | Central India        | ✅                           | ✅                          | ✅                           | 
@@ -136,7 +136,7 @@ App Service Environment v3 is available in the following regions:
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
 | Switzerland West     | ✅                           |                             | ✅                           | 
 | UAE Central          |                              |                             | ✅                           | 
-| UAE North            | ✅                           |                             | ✅                           | 
+| UAE North            | ✅                           | ✅                         | ✅                           | 
 | UK South             | ✅                           | ✅                          | ✅                           | 
 | UK West              | ✅                           |                             | ✅                           | 
 | West Central US      | ✅                           |                             | ✅                           | 
@@ -158,7 +158,7 @@ App Service Environment v3 is available in the following regions:
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |
 | US Gov Texas         | ✅                           |                             | ✅                         |
-| US Gov Virginia      | ✅                           |                             | ✅                         |
+| US Gov Virginia      | ✅                           |✅                          | ✅                         |
 
 ### Azure China:
 

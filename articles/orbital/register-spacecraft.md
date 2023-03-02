@@ -45,6 +45,8 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
    > TLE stands for Two-Line Element.
    > 
    > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any  ground station. Current eligible regions are West US 2, Sweden Central, and Southeast Asia.
+   >
+   > Be sure to update this TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 

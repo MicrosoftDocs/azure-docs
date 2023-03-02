@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -174,7 +177,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - A Health Data Services workspace.
 
-- A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+- A Health Data Services FHIR service.
 
 - A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
@@ -183,17 +186,17 @@ When deployment is completed, the following resources and access roles are creat
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
+- To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
 
-- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
+- To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ## Clean up Azure PowerShell deployed resources
 

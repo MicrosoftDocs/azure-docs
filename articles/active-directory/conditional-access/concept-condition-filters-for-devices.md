@@ -37,9 +37,6 @@ There are multiple scenarios that organizations can now enable using filter for 
 
 Filter for devices is an option when creating a Conditional Access policy in the Azure portal or using the Microsoft Graph API.
 
-> [!IMPORTANT]
-> Device state and filter for devices cannot be used together in Conditional Access policy.
-
 The following steps will help create two Conditional Access policies to support the first scenario under [Common scenarios](#common-scenarios). 
 
 Policy 1: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
@@ -57,7 +54,7 @@ Policy 1: All users with the directory role of Global Administrator, accessing t
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**, and select **Microsoft Azure Management**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and **Require device to be marked as compliant**, then select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and **Require device to be marked as compliant**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 

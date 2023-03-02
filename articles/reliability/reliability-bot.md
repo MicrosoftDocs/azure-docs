@@ -10,7 +10,7 @@ ms.date: 01/06/2022
 ---
 
 
-# What is reliability in Azure Bot Service?
+# Reliability in Azure Bot Service
 
 When you create an application (bot) in Azure, you can choose whether or not your bot resource will have global or local data residency. Local data residency ensures that your bot's personal data is preserved, stored, and processed within certain geographic boundaries (like EU boundaries).
 
