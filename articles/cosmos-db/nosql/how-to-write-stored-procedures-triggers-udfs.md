@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write *stored procedures*, *triggers*, and *user-defined functions (UDFs)*. When you use the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs using JavaScript. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md), and the [Azure Cosmos DB for NoSQL client SDKs](samples-dotnet.md). 
+Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write *stored procedures*, *triggers*, and *user-defined functions (UDFs)*. When you use the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs using JavaScript. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using the [Azure portal](https://portal.azure.com/), the [JavaScript query API in Azure Cosmos DB](javascript-query-api.md), and the [Azure Cosmos DB for NoSQL SDKs](samples-dotnet.md). 
 
 To call a stored procedure, trigger, or UDF, you need to register it. For more information, see [How to work with stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -313,7 +313,7 @@ function validateToDoItemTimestamp() {
 
 Pre-triggers can't have any input parameters. The request object in the trigger is used to manipulate the request message associated with the operation. In the previous example, the pre-trigger is run when creating an Azure Cosmos DB item, and the request message body contains the item to be created in JSON format.
 
-When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means using the trigger in a replace operation isn't permitted.
+When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means that using the trigger in a replace operation isn't permitted.
 
 For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers). 
 
@@ -358,7 +358,7 @@ function updateMetadata() {
 }
 ```
 
-One thing that's important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution fails the whole transaction. Anything committed will be rolled back and an exception returned.
+One thing that's important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution fails the whole transaction. Anything committed is rolled back and an exception is returned.
 
 For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers). 
 
@@ -390,7 +390,7 @@ function tax(income) {
 }
 ```
 
-For examples of how to register and use a UDF, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-work-with-user-defined-functions).
+For examples of how to register and use a UDF, see [How to work with user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-work-with-user-defined-functions).
 
 ## Logging
 
