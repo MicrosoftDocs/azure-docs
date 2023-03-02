@@ -4630,6 +4630,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-monitor.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-monitor",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/sa-copy-generalized.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
             "redirect_document_id": false

@@ -1,10 +1,5 @@
 {
     "redirections": [
-    {
-      "source_path": "articles/virtual-machines/windows/tutorial-monitor.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-monitor",
-      "redirect_document_id": false
-    },
         {
             "source_path": "articles/azure-percept/audio-button-led-behavior.md",
             "redirect_url": "/previous-versions/azure/azure-percept/audio-button-led-behavior",
