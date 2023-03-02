@@ -1,7 +1,7 @@
 ---
 title: Record a call when it starts
 titleSuffix: An Azure Communication Services how-to document
-description: "In this how-to document, you can learn how to record a call through Azure Communication Services once it starts"
+description: In this how-to document, you can learn how to record a call through Azure Communication Services once it starts.
 author: ddematheu2
 manager: shahen
 services: azure-communication-services
@@ -187,7 +187,7 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
+2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID looks something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
 
     ```bash
 
@@ -195,7 +195,7 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
     ```
 
-3. Now that everything is hooked up, test the flow by sending an starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](../calling-sdk/record-calls.md?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
+3. Now that everything is hooked up, test the flow by starting a call on your resource. You should see the console logs on your terminal where the function is running. You can check that the recording is starting by using the [call recording feature](../calling-sdk/record-calls.md?pivots=platform-web) on the calling SDK and check for the boolean to turn TRUE.
 
 ### Deploy to Azure
 
@@ -207,6 +207,6 @@ az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --en
 
 ```
 
-Since we are updating the event subscription we had created before, make sure to use the same event subscription name you used in the previous step.
+Since we're updating the event subscription we created, make sure to use the same event subscription name you used in the previous step.
 
 You can test by starting a call in your resource, similar to the previous step.
