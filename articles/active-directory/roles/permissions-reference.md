@@ -2424,6 +2424,8 @@ Assign the Viva Goals Administrator role to users who need to do the following t
 - Monitor Microsoft 365 service health  
 - Create and manage Microsoft 365 service requests
 
+[Learn more](/viva/goals/roles-permissions-in-viva-goals)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
