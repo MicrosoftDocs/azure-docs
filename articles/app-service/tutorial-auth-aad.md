@@ -24,7 +24,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone-end
 
-Things you learn in the tutorial:
+In the tutorial, you learn:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
@@ -44,9 +44,7 @@ The authentication in this procedure is provided at the hosting platform layer b
 
 The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. In the next article in this series, the fake profile is replaced with a profile from Microsoft Graph.
 
-The frontend source code accesses the current authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header injected at runtime. This accessToken is sent to the backend server as the bearerToken to securely access the backend API. 
-
-
+Before your source code is executed on the frontend, the App Service injects the authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header. The frontend source code then accesses and sends the accessToken to the backend server as the `bearerToken` to securely access the backend API. The backend server validates the bearerToken before it is passed into your backend source code.  
 
 ## Prerequisites
 
@@ -75,10 +73,10 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku FREE --location "West Europe" --os-type Windows --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe"--runtime "NODE:16-lts"
     ```
 
 1. Change into the backend web app directory.
@@ -90,7 +88,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --sku B1 --location "West Europe" --os-type Windows  --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --plan myPlan --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
@@ -103,10 +101,10 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
     ```
 
 1. Change into the backend web app directory.
@@ -118,35 +116,32 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --sku B1 --location "West Europe" --os-type Linux  --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --plan myPlan --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
 
 ## Configure app setting
 
-The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting.
+The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting. The URL should in the format of `https://frontend-<ABC>`.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings BACKEND_URL=<back-end-app-name>
+az webapp config appsettings set --resource-group myAuthResourceGroup --name frontend-<ABC> --settings BACKEND_URL=backend-<ABC>
 ```
 
 ## Call the backend
 
 Browse to the frontend app and return the _fake_ profile from the backend. This action validates that the frontend is successfully requesting the profile from the backend, and the backend is returning the profile. 
 
-1. Use the Azure CLI command to open a web browser. Replace the name with your own app name, such as `frontend-<ABC>`.
-
-    ```azurecli-interactive
-    az webapp browse --name frontend-<ABC>
-    ```
-
-1. Select the `Profile` link. 
+1. Open the frontend web app in a browser. Replace `<ABC>` with your unique set of initials or numbers. : `https://frontend-<ABC>`.
+1. Select the `Get user's profile` link. 
 1. View the _fake_ profile returned from the backend web app. 
+
+    :::image type="content" source="./media/webapp-profile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
 
 ## Configure authentication
 
-In this step, you enable authentication and authorization for the two apps. You use Azure Active Directory as the identity provider. 
+In this step, you enable authentication and authorization for the two web apps. This tutorial uses Azure Active Directory as the identity provider. 
 
 You also configure the front-end app to: 
 
@@ -256,17 +251,6 @@ The commands effectively add a `loginParameters` property with additional custom
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
-
-
-### Configure CORS
-
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
-
-```azurecli-interactive
-az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'
-```
-
-This step isn't related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 ## Call the authenticated backend
 
