@@ -55,10 +55,6 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
         const from = eventGridEvent['data']['from'];
         const message = eventGridEvent['data']['message'];
 
-        context.log(to);
-        context.log(from);
-        context.log(message);
-
     };
     
     export default eventGridTrigger;
@@ -97,21 +93,13 @@ At this point, you have successfully handled receiving an SMS through events. No
         const from = eventGridEvent['data']['from'];
         const message = eventGridEvent['data']['message'];
     
-        context.log(to);
-        context.log(from);
-        context.log(message);
-    
         const smsClient = new SmsClient(connectionString);
-    
-        context.log(smsClient);
     
         const sendResults = await smsClient.send({
             from: to,
             to: [from],
             message: "Message received successfully. Will respond shortly."
         });
-    
-        context.log(sendResults);
     
     };
     
