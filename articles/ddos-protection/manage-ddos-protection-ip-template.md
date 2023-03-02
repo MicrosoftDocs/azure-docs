@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, ignite-2022
 ms.author: abell
-ms.date: 02/26/2023
+ms.date: 03/01/2023
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using ARM template
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
+This template creates a single Standard SKU public IP with DDoS IP Protection enabled. The template used in this quickstart is from [Azure Quickstart Templates](../samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/pip-with-ddos-ip-protection/azuredeploy.json":::
 
@@ -67,14 +67,6 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 To copy the Azure CLI or Azure PowerShell command, select the **Copy** button. The **Try it** button opens Azure Cloud Shell to run the command.
 
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-    az network public-ip show \
-        --resource-group MyResourceGroup \
-        --name myStandardPublicIP \
-```
-
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
@@ -88,9 +80,22 @@ $protectionMode = $publicIp.DdosSettings.ProtectionMode
 $protectionMode
 ```
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+    az network public-ip show \
+        --resource-group MyResourceGroup \
+        --name myStandardPublicIP \
+```
 ---
 
 The output shows the new resource and *protectionModeDDoS* shows IP Protection is **Enabled**.
+
+# [PowerShell](#tab/PowerShell)
+
+```Output
+Enabled
+```
 
 # [CLI](#tab/CLI)
 
@@ -119,24 +124,11 @@ The output shows the new resource and *protectionModeDDoS* shows IP Protection i
 }
 
 ```
-
-# [PowerShell](#tab/PowerShell)
-
-```Output
-Enabled
-```
-
 ---
 
 ## Clean up resources
 
 When you're finished you can delete the resources. The command deletes the resource group and all the resources it contains.
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-az group delete --name MyResourceGroup
-```
 
 # [PowerShell](#tab/PowerShell)
 
@@ -144,6 +136,11 @@ az group delete --name MyResourceGroup
 Remove-AzResourceGroup -Name 'MyResourceGroup'
 ```
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name MyResourceGroup
+```
 ---
 
 ## Next steps
