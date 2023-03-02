@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 03/02/2023
 ms.author: justinha
 
 ---
@@ -245,14 +245,18 @@ To check for applied policies on the Azure AD DS components and update them, com
 
 ### Resolution
 
-If a custom attribute's LDAPName conflicts with an existing AD built-in schema attribute, it can't be onboarded and results in an error. Contact Microsoft Support if your scenario is blocked. For more information, see [Onboarding Custom Attributes](https://aka.ms/aadds-customattr).
-Review the [Azure AD DS Health](check-health.md) alert to check which Azure AD extension properties failed to onboard successfully. Navigate to the Custom Attributes page to find the expected Azure AD DS LDAPName of the extension. Ensure that the LDAPName does not conflict with another AD schema attribute or is one of the allowed built-in AD attributes. Then retry onboarding the custom attribute by completing the following steps in the Custom Attributes page:
+>[!WARNING]
+>If a custom attribute's LDAPName conflicts with an existing AD built-in schema attribute, it can't be onboarded and results in an error. Contact Microsoft Support if your scenario is blocked. For more information, see [Onboarding Custom Attributes](https://aka.ms/aadds-customattr).
+
+Review the [Azure AD DS Health](check-health.md) alert and see which Azure AD extension properties failed to onboard successfully. Navigate to the **Custom Attributes** page to find the expected Azure AD DS LDAPName of the extension. Make sure the LDAPName doesn't conflict with another AD schema attribute, or that it's one of the allowed built-in AD attributes. 
+
+Then follow these steps to retry onboarding the custom attribute in the **Custom Attributes** page:
 
 1. Select the attributes that were unsuccessful, then click **Remove** and **Save**.
 1. Wait for the health alert to be removed, or verify that the corresponding attributes have been removed from the "AADDSCustomAttributes" OU from a domain-joined VM.
 1. Select **Add** and choose the desired attributes again, then click **Save**.
 
-Upon successful onboarding, Azure AD DS will backfill all existing synced users and groups with the onboarded custom attribute values. You should gradually see the custom attribute values being populated in these objects, depending on the size of the tenant. To determine if the backfilling process has completed, go to Azure AD DS Health and verify the **Synchronization with Azure AD** monitor indicates an updated timestamp in the last hour since onboarding.
+Upon successful onboarding, Azure AD DS will back fill synchronized users and groups with the onboarded custom attribute values. The custom attribute values appear gradually, depending on the size of the tenant. To check the backfill status, go to [Azure AD DS Health](check-health.md) and verify the **Synchronization with Azure AD** monitor timestamp has updated within the last hour.
 
 ## AADDS500: Synchronization has not completed in a while
 
