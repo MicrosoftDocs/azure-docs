@@ -18,7 +18,7 @@ In this article, you use mirroring to replicate topics between two HDInsight clu
 
 ## How Apache Kafka mirroring works
 
-Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) tool, which is part of Apache Kafka. MirrorMaker consumes records from topics on the primary cluster, and then creates a local copy on the secondary cluster. MirrorMaker uses one (or more) *consumers* that read from the primary cluster, and a *producer* that writes to the local (secondary) cluster.
+Mirroring works by using the [MirrorMaker2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) tool, which is part of Apache Kafka. MirrorMaker consumes records from topics on the primary cluster, and then creates a local copy on the secondary cluster. MirrorMaker2 uses one (or more) *consumers* that read from the primary cluster, and a *producer* that writes to the local (secondary) cluster.
 
 The most useful mirroring setup for disaster recovery uses Kafka clusters in different Azure regions. To achieve this result, the virtual networks where the clusters reside peered together.
 
@@ -60,14 +60,9 @@ This architecture features two clusters in different resource groups and virtual
 
 1. Create a new virtual network **kafka-primary-vnet** in **kafka-primary-rg**. Leave the default settings.
 1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**, also with default settings.
-
-1. Create two new Kafka clusters:
-
-    | Cluster name | Resource group | Virtual network | Storage account |
-    |---|---|---|---|
-    | kafka-primary-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
-    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
-
+**Note:-** Keep the address of both vnet non overlapping otherwise vnet peering won't work. 
+   Example - 1. kafka-primary-vnet can have address space 10.0.0.0
+             2. kafka-secondary-vnet can have address space 10.1.0.0   
 1. Create virtual network peerings. This step creates two peerings: one from **kafka-primary-vnet** to **kafka-secondary-vnet**, and one back from **kafka-secondary-vnet** to **kafka-primary-vnet**.
     1. Select the **kafka-primary-vnet** virtual network.
     1. Under **Settings**, select **Peerings**.
@@ -76,11 +71,20 @@ This architecture features two clusters in different resource groups and virtual
 
         :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering." border="true":::
 
+1. Create two new Kafka clusters:
+
+   | Cluster name | Resource group | Virtual network | Storage account |
+       |---|---|---|---|
+   | primary-kafka-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+   | secondary-kafka-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+**Note:-** From now onwards we will use `primary-kafka-cluster` as `PRIMARYCLUSTER` and `secondary-kafka-cluster` as `SECONDARYCLUSTER`.
+
 ## Configure IP Address of PRIMARYCLUSTER Worker Nodes into client machine for DNS Resolution 
 
 1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
-1. Connect to PRIMARYCLUSTER `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
+1. Connect to `PRIMARYCLUSTER`
+    > ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
 
 1. Execute the following command and get the entries of worker nodes IPs and FQDNs  `cat /etc/hosts` 
    
@@ -107,11 +111,8 @@ This architecture features two clusters in different resource groups and virtual
    sudo su 
    vi /etc/kafka/conf/connect-mirror-maker.properties 
    ```
-1. Property file looks like this. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics that you want to replicate along with configs with regex. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
-1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
-
-   ```
+1. Property file looks like this.
+    ```
    # specify any number of cluster aliases
    clusters = source, destination
  
@@ -137,39 +138,80 @@ This architecture features two clusters in different resource groups and virtual
    status.storage.replication.factor=1
    config.storage.replication.factor=1
    ```
+1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
+1. You can control the topics that you want to replicate along with configs with regex. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
+1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
+1. If you want to mirror topics on both sides like `Primary to Secondary` and `Secondary to Primary` (active-active) then you can add extra configs
+   ```
+   destination->source.enabled=true
+   destination->source.topics = .*
+   ```
+1. Final Configuration file after changes should look like this
+     ```
+   # specify any number of cluster aliases
+   clusters = primary-kafka-cluster, secondary-kafka-cluster
+ 
+   # connection information for each cluster
+   # This is a comma separated host:port pairs for each cluster
+   # for example. "A_host1:9092, A_host2:9092, A_host3:9092" and you can see the exact host name on Ambari -> Hosts 
+   primary-kafka-cluster.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-kafka.bx.internal.cloudapp.net:9092 
+   secondary-kafka-cluster.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092
+   
+   # enable and configure individual replication flows
+   primary-kafka-cluster->secondary-kafka-cluster.enabled = true
+   
+   # enable this for both side replication
+   secondary-kafka-cluster->primary-kafka-cluster.enabled = true
 
-1. Start Mirror Maker2 in `SECONDARYCLUSTER` at  
+   # regex which defines which topics gets replicated. For eg "foo-.*"
+   primary-kafka-cluster->secondary-kafka-cluster.topics = .*
+   secondary-kafka-cluster->primary-kafka-cluster.topics = .*
+   
+   groups=.*
+   topics.blacklist="*.internal,__.*"
+ 
+   # Setting replication factor of newly created remote topics
+   Replication.factor=3
+ 
+   checkpoints.topic.replication.factor=1
+   heartbeats.topic.replication.factor=1
+   offset-syncs.topic.replication.factor=1
+ 
+   offset.storage.replication.factor=1
+   status.storage.replication.factor=1
+   config.storage.replication.factor=1
+   ```
+
+1. Start Mirror Maker2 in `SECONDARYCLUSTER` and it should run fine
 
    ```
    /usr/hdp/current/kafka-broker 
    ./bin/connect-mirror-maker.sh ./config/connect-mirror-maker.properties 
    ```
- 
-1. It runs fine. 
+
 1. Now start producer in PRIMARY CLUSTER  
 
    ``` 
-   export clusterName='primary-kafka' 
+   export clusterName='primary-kafka-cluster' 
    export TOPICNAME='TestMirrorMakerTopic' 
    export KAFKABROKERS='wn0-primar:9092' 
    export KAFKAZKHOSTS='zk0-primar:2181' 
+   
+   //Start Producer
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME 
    ```
 1. Now start consumer in `SECONDARYCLUSTER` 
 
    ```
-   export clusterName='secondary-kafka' 
+   export clusterName='secondary-kafka-cluster' 
    export TOPICNAME='TestMirrorMakerTopic'  
    export KAFKABROKERS='wn0-second:9092' 
    export KAFKAZKHOSTS='zk0-second:2181' 
  
-   // List all the topics whether they are replicated or not 
+   # List all the topics whether they are replicated or not 
    bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --list 
-   ```
- 
-1. Start consumer 
-
-   ```
+   
+   # Start Consumer
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic $TOPICNAME --from-beginning 
    ```
 
@@ -177,14 +219,13 @@ This architecture features two clusters in different resource groups and virtual
 
 [!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
-The steps in this article created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary-rg**. Deleting the resource groups removes all of the resources created by following this article, including clusters, virtual networks, and storage accounts.
+The steps in this article created clusters in different Azure resource groups. To delete all the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary-rg**. Deleting the resource groups removes all of the resources created by following this article, including clusters, virtual networks, and storage accounts.
 
 ## Next steps
 
-In this article, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
+In this article, you learned how to use [MirrorMaker2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
-* [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Kafka Mirror Maker best practices](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
+* [Apache Kafka MirrorMaker2 documentation](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) at cwiki.apache.org.
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Connect to Apache Kafka through an Azure virtual network](apache-kafka-connect-vpn-gateway.md)
