@@ -26,7 +26,7 @@ items:
       href: concepts/sms/concepts.md
     - name: Voice and Video
       href: concepts/voice-video-calling/calling-sdk-features.md
-    - name: Phone Calling
+    - name: Phone calling
       href: concepts/telephony/telephony-concept.md
     - name: Chat
       href: concepts/chat/concepts.md
