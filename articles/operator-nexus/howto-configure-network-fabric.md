@@ -370,7 +370,7 @@ az nf rack create  \
 
 Once all the racks are added, NFA creates the corresponding networkDevice resources.
 
-## Next Steps
+## Next steps
 
 * Update the serial number in the networkDevice resource with the actual serial number on the device. The device sends the serial number as part of DHCP request.
 * Configure the terminal server with the serial numbers of all the devices (which also hosts DHCP server)
