@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Fleet Management System
 
-In this article, you learn how to integrate Fleet Management System with Azure Active Directory (Azure AD). Manages and monitors a fleet of surface level vehicles and subterranean tugs and carts that Microsoft utilize. When you integrate Fleet Management System with Azure AD, you can:
+In this article, you learn how to integrate Fleet Management System with Azure Active Directory (Azure AD). Manages and monitors a fleet of surface level vehicles and subterranean tugs and carts that Microsoft utilizes. When you integrate Fleet Management System with Azure AD, you can:
 
 * Control in Azure AD who has access to Fleet Management System.
 * Enable your users to be automatically signed-in to Fleet Management System with their Azure AD accounts.
@@ -57,7 +57,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already pre-integrated with Azure.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
