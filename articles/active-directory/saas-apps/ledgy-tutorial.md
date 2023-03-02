@@ -16,13 +16,13 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Ledgy
 
-In this article, you'll learn how to integrate Ledgy with Azure Active Directory (Azure AD). Automate your equity. Grant shares and options to employees around the world, integrate equity into all your key systems, and help your team understand their ownership stakes. When you integrate Ledgy with Azure AD, you can:
+In this article, you learn how to integrate Ledgy with Azure Active Directory (Azure AD). Automate your equity. Grant shares and options to employees around the world, integrate equity into all your key systems, and help your team understand their ownership stakes. When you integrate Ledgy with Azure AD, you can:
 
 * Control in Azure AD who has access to Ledgy.
 * Enable your users to be automatically signed-in to Ledgy with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Ledgy in a test environment. Ledgy supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
+You configure and test Azure AD single sign-on for Ledgy in a test environment. Ledgy supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
-1. In addition to above, Ledgy application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Ledgy application expects few more attributes to be passed back in SAML response, which are shown. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
