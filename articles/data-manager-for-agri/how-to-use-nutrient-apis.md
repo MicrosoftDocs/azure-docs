@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Using tissue samples data
 
-Analyzing the nutrient composition of the crop is vital to ensure good harvest. Issue diagnosis or preventive measure selection are based on nutrient analysis. The grower takes samples from different parts of the farm and sends them to the lab for analysis. The lab report covers macro and micro nutrients in its analysis and corrective measures are suggested. 
+Analyzing the nutrient composition of the crop is vital to ensure good harvest. Issue diagnosis or preventive measure selection is based on nutrient analysis. The grower takes samples from different parts of the farm and sends them to the lab for analysis. The lab report covers macro and micro nutrients in its analysis and corrective measures are suggested. 
 
 ## Tissue sample model
 Here's how we have modeled tissue analysis in Azure Data Manager for Agriculture:

@@ -1,5 +1,5 @@
 ---
-title: How to set-up a sensor.
+title: How to set up a sensor.
 description: Provides step by step guidance to integrate Sensor as a customer
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -15,7 +15,7 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant AAD app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./how-to-setup-sensors-partner.md) to sign up being a sensor partner on the platform.
+Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./how-to-setup-sensors-partner.md) to sign up being a sensor partner on the platform.
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 
@@ -23,7 +23,7 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 2. For Davis Instruments, click on this [link](https://login.microsoftonline.com/common/adminconsent?client_id=30b00405-3b4e-4003-933c-0d96ce47d670) to provide consent. 
 
-3. On the permission review page, AAD app will request for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
+3. On the permission review page, Azure Active Directory app requests for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
 
 ![Screenshot showing sensor partner consent popup.](./media/sensor-partner-consent.png)
 
@@ -64,7 +64,7 @@ To complete the role assignment, do the following steps:
 
 ![Screenshot showing app selection for authorization.](./media/sensor-partner-role.png)
 
-This ensures that the sensor partner app has been granted access (based on the role assigned) to Azure FarmBeats Resource.
+This step ensures that the sensor partner app has been granted access (based on the role assigned) to Azure Data Manager for Agriculture  Resource.
 
 ## Step 3: Enable sensor integration
 
@@ -168,9 +168,9 @@ Our sensor partner **Davis Instruments** uses this [UI](https://weatherlink.gith
 
 Sensor partners call into the `check-consent` API endpoint to verify validity. To generate a consent link, you need to use the `SensorPartnerIntegrations_GenerateConsentLink` API and provide the integration ID created from the step (3). As a response, you get a string called consentLink. Copy this string and  provided it to the sensor partner for further validation. If you're using sensors from Davis Instruments, then follow instruction on this [page](https://weatherlink.github.io/azure-farmbeats/setup).
 
-API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integrationId}/:generate-consent-link
+API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integrationId}/: generate-consent-link
 
-This step marks the completion of the sensor partner on-boarding from a customer perspective. With this step the sensor partners get all the required information to call your API endpoints to create Sensor model, Device model, Sensors & Devices. The partners are now able to push sensor events using the connection string generated for each sensor ID.
+This step marks the completion of the sensor partner on-boarding from a customer perspective. , get all the required information to call your API endpoints to create Sensor model, Device model, Sensors & Devices. The partners are now able to push sensor events using the connection string generated for each sensor ID.
 
 The final step is to start consuming sensor events. Before consuming the events, you need to create a mapping of every sensor ID to a specific Party ID & Boundary ID. 
 
@@ -183,7 +183,7 @@ API Endpoint: PATCH /sensor-mappings/{sensorMappingId}
 
 ## Step 7: Consume sensor events
 
-Use the `SensorEvents` collection to call into the `SensorEvents_List` API and consume data being pushed by your sensors. You need to provide the following information
+Use the `SensorEvents` collection to call into the `SensorEvents_List` API and consume data pushed by your sensors. You need to provide the following information
 
 - sensorId (specifies for which sensor you want the data to be shown)
 - sensorPartnerId (specifies which sensor partner is pushing this data)

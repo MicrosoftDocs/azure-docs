@@ -24,11 +24,11 @@ Sensors are of various types:
 * Airflow sensor (determines the pressure required to push a pre-determined amount of air into the ground at a prescribed depth)
 * Weather sensor 
 
-There's a large ecosystem of sensor providers that helps growers to monitor and optimize crop performance. Sensor based data also enables an understanding of the changing environmental factors.
+There's a large ecosystem of sensor providers that help growers to monitor and optimize crop performance. Sensor based data also enables an understanding of the changing environmental factors.
 
 ## How sensors work
 
-Sensors are placed in the field based on it's characteristics. Sensors record measurements and transfer the data to the connected node. Each node has one or more sensors connected to it. Nodes equipped with internet connectivity can  directly push the data to cloud. Other nodes use an IOT agent tp transfer data the gateway.
+Sensors are placed in the field based on its characteristics. Sensors record measurements and transfer the data to the connected node. Each node has one or more sensors connected to it. Nodes equipped with internet connectivity can  directly push the data to cloud. Other nodes use an IOT agent to transfer data the gateway.
 
 Gateways collect all essential data from the nodes and push it securely to the cloud via either cellular connectivity, Wi-Fi, or Ethernet. Once the data resides in a sensor partner cloud, the sensor partner pushes the relevant sensors data to the dedicated IOTHub endpoint provided by Data Manager for Agriculture.
 

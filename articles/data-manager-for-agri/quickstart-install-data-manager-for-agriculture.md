@@ -17,20 +17,20 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 ## 1: Register resource provider
 
-After you have confirmation that your Azure subscription ID is in our allow list, then use the below steps to install Data Manager for Agriculture through Azure portal UI.
+After you have confirmation that your Azure subscription ID is in our allowlist, then use the below steps to install Data Manager for Agriculture through Azure portal UI.
 
 Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
-In step 5 in the above documentation, please search for `Microsoft.AgFoodPlatform` and register the same.
+In step 5 in the above documentation, search for `Microsoft.AgFoodPlatform` and register the same.
 
-## 2: Search in Azure marketplace
+## 2: Search in marketplace
 
 > [!IMPORTANT]
-> Access the  Azure Portal using <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_AgFoodPlatformHidden#create/hub" target="_blank">**this link**</a> . This link enables visibility of the Azure FarmBeats PaaS installation card on the Azure Marketplace for our private preview customers.
+> Access the  Azure Portal using <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_AgFoodPlatformHidden#create/hub" target="_blank">**this link**</a> . This link enables visibility of the Azure Data Manager for Agriculture installation card in the Marketplace for our preview customers.
 
-Enter Data manager for agriculture in the Azure marketplace search bar. Then select 'create' on the listing tile as shown below.
+Enter Data manager for agriculture in the marketplace search bar. Then select 'create' on the listing tile as shown below.
 
-![Screenshot showing data manager listing on Azure marketplace.](./media/new-list.png)
+![Screenshot showing data manager listing on marketplace.](./media/new-list.png)
 
 ## 3: Create Data Manager for Agriculture instance 
 
@@ -66,7 +66,7 @@ Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-di
 
 Once the App registration is done, the next step is to assign roles in the Azure portal to provide Authorization to the newly created application. Data Manager for Agriculture uses Azure RBAC to manage Authorization requests.
 
-Login to Azure portal and navigate to the newly created resource (`<Name>-resource-name` created in step 5) under the resource group (`resource-group-name`).
+Log in to Azure portal and navigate to the newly created resource (`<Name>-resource-name` created in step 5) under the resource group (`resource-group-name`).
 
 > [!NOTE]
 > Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox to see the Data Manager for Agriculture resource that you created.
@@ -78,7 +78,7 @@ Click on the Azure Data Manager for Agriculture resource tab, you can find the I
 Click **Add > Add role assignment**, and this opens up a pane the right side of the portal, choose one of the three roles from the dropdown:
 
 - **AgFood Platform Service Admin** - has all privileges in the CRUD (Create, Read, Update and Delete) operations.
-- **AgFood Platform Service Contributor** - has restricted privileges in the CRUD operations (Cannot Delete).
+- **AgFood Platform Service Contributor** - has restricted privileges in the CRUD operations (Can't delete).
 - **AgFood Platform Service Reader** - has only access to read operations.
 
 To complete the role assignment do the following steps:

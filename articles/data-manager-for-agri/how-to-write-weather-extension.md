@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to write a weather extension
 
-In this section you will see a step-by-step guide to write your own weather extension. 
+In this section you'll see a step-by-step guide to write your own weather extension. 
 
 ## What is a weather extension
 
@@ -26,7 +26,7 @@ At a high-level the extension file is a JSON consisting of two things:
 
 ### Provider metadata
 
-It is a json object providing the details on the below fields that are necessary to uniquely identify an extension and it's versioning information. The details provided in this section of the extension will be shown to external customers in Data Manager for Agriculture marketplace. Therefore `extensionId` & `extensionName` (for easy identification) and `description` (for value-proposition) needs to be customer focused.
+It's a json object providing the details on the below fields that are necessary to uniquely identify an extension and its versioning information. The details provided in this section of the extension will be shown to external customers in Data Manager for Agriculture marketplace. Therefore `extensionId` & `extensionName` (for easy identification) and `description` (for value-proposition) needs to be customer focused.
 
 #### Sample provider metadata
 
@@ -71,7 +71,7 @@ The API Information JSON array (`apiInfos`) can be further broken into the follo
 
 #### API metadata
 
-This section consists of basic information regarding the API. It is used by Data Manager for Agriculture to identify the `apiName` (called by users explicitly) and redirect the api request to the right `endpoint` based on the appropriate `requestType`.
+This section consists of basic information regarding the API. It's used by Data Manager for Agriculture to identify the `apiName` (called by users explicitly) and redirect the api request to the right `endpoint` based on the appropriate `requestType`.
 
 ##### Sample API metadata
 
@@ -99,7 +99,7 @@ This section consists of basic information regarding the API. It is used by Data
 | description |  string | API description|
 | endpoint | string | API endpoint for Data Manager for Agriculture to call into the `apiName`.|
 | requestType | string | `GET` or `POST` or `PUT` request type as supported by the `apiName`.|
-| isLoadAPI | boolean | If the `apiName` is a pass-through API like current weather data, make this key as `false`. For all the load APIs (historical & forecast) keep this field as `true`. When the `isLoadAPI` key is `false`, the API response would be directly sent to the user and would not be stored in the Data Manager for Agriculture storage service.|
+| isLoadAPI | boolean | If the `apiName` is a pass-through API like current weather data, make this key as `false`. For all the load APIs (historical & forecast) keep this field as `true`. When the `isLoadAPI` key is `false`, the API response would be directly sent to the user and wouldn't be stored in the Data Manager for Agriculture storage service.|
 | typeOfData | string | Currently supported values are `Historical` and `Forecast`.|
 | granularity | string | Currently supported values are `Daily` and `Hourly`.|
 | defaultUnitSystem | string | Provide the name of the default units system supported by the `apiName`.|
@@ -142,9 +142,9 @@ As Data Manager for Agriculture collects the authentication information via the 
 | authInputParameters | array | JSON array of authentication parameters, where each object signifies a type of authentication supported. Use the key based on the authentication type supported by your extension.|
 | farmBeatsAuthMapping |  string | Currently two types of authentication related keys are supported. For API Key based authentication, use only `x-ms-farmBeats-data-provider-key` object, whereas for APP ID and APP Key based authentication use both `x-ms-farmBeats-data-provider-id` &`x-ms-farmBeats-data-provider-key` objects.|
 | name | string | Name of the authentication key as supported by the `apiName`.|
-| isRequired | boolean | Is this `name` a required parameter to the `apiName`. Provide true or false values.|
+| isRequired | boolean | Is this name a required parameter to the apiName. Provide true or false values.|
 | providerDataType | string | Provide the datatype of the `name` parameter.|
-| description | string | Data Manager for Agriculture description of what each of the `farmBeatsAuthMapping` means within each object .|
+| description | string | Data Manager for Agriculture description of what each of the `farmBeatsAuthMapping` means within each object.|
 | location | string | Where in the API should the `name` parameter be sent. Currently supported values are `apiQuery` & `apiHeader`.|
 
 #### API input parameters
@@ -194,7 +194,7 @@ This section provides the details about the API signature (input parameters) to 
 |:-----:|:----:|----|
 | apiInputParameters | array | JSON array of API input parameters, where each object signifies an input parameter supported by the `apiName`.|
 | name |  string | Name of the input parameter as supported by the `apiName`.|
-| isRequired | boolean | Is this `name` a required parameter to the `apiName`. Provide true or false values.|
+| isRequired | boolean | Is this name a required parameter to the apiName. Provide true or false values.|
 | providerDataType | string | Provide the datatype of the `name` parameter.|
 | description | string |  Provide a description of what `name` parameter means.|
 | location | string | Where in the API should the `name` parameter be sent. Currently supported values are `apiQuery` & `apiHeader`.|
@@ -266,7 +266,7 @@ For Data Manager for Agriculture to understand the usage of latitude and longitu
 
 #### Units system
 
-This section is used by Data Manager for Agriculture to understand the various types of unit systems supported by the extension. Hence the extension needs to provide the `key` name used for collecting units information (Ex: unitcode) in the API inputs and followed by the various units system names (Ex: us-std) as supported by the `apiName`.
+This section is used by Data Manager for Agriculture to understand the various types of unit systems supported by the extension. Hence the extension needs to provide the `key` name used for collecting units information in the API inputs and followed by the various units system names (Ex: us-std) as supported by the `apiName`.
 
 ##### Sample units system
 
@@ -314,7 +314,7 @@ Hence, when it comes to parameters, Data Manager for Agriculture internally supp
 * windGust
 * windSpeed
 
-Therefore, any extension sending weather parameters which does not fall under the platform parameters, will be sending them as part of `Custom parameters`. The key difference between platform & customer parameters is that, the users using Data Manager for Agriculture weather APIs will be able to query and filter on the platform parameters (Ex: temperature > 30) and not on custom parameters. However, custom parameters will be sent as part of the weather query output.
+Therefore, any extension sending weather parameters which do not fall under the platform parameters, will be sending them as part of `Custom parameters`. The key difference between platform & customer parameters is that, the users using Data Manager for Agriculture weather APIs will be able to query and filter on the platform parameters (Ex: temperature > 30) and not on custom parameters. However, custom parameters will be sent as part of the weather query output.
 
 In this section, the extension provides the units information for each of the parameters for every units system that is supported. This is done to ensure that Data Manager for Agriculture will know what is the underlying measurement unit for each weather parameter based on the information provided in this section of the extension.
 
@@ -444,7 +444,7 @@ On a high-level this is how templates will work, by taking the API response as t
 
 ![template flow](./media/template-flow.PNG)
 
-As shown in the above figure, validate your template against the respective API response and use the validated template in the extension. Below is an example of an API response and it's respective platform and custom template.
+As shown in the above figure, validate your template against the respective API response and use the validated template in the extension. Below is an example of an API response and its respective platform and custom template.
 
 ##### Sample API response
 
@@ -607,7 +607,7 @@ As shown in the above figure, validate your template against the respective API 
 
 #### Helper functions
 
-Helper functions are used by the templates to perform specific transformation on the data which is not supported natively. Below are few helper functions that are supported by Data Manager for Agriculture.
+Helper functions are used by the templates to perform specific transformation on the data which isn't supported natively. Below are few helper functions that are supported by Data Manager for Agriculture.
 
 ##### Sample helper functions
 
@@ -624,12 +624,12 @@ Handlebars.registerHelper('convertunixtime', function(unix_timestamp) {
 });
 ```
 
-What do these helper functions do?
+What action these helper functions do?
 
 * **SplitAndTake(object valueObject, string separator, int index)** - This function is used to split a string (Ex: "47,-97") based on a separator (Ex: ",") and takes the element at given index (Ex: index=0 gives "47")
 * **ConvertDateInFormatToDateTime(object dateObject, string format)** - This function is used to parse a date in given format (Ex: 2016-12-15) to DateTime string.
 * **ConvertUnixTimeToDateTime(object unixTimeStamp)** - This function is used to convert unix timestamp (Ex: 1392267600) to datetime string.
-* **GetObjectFromListWithKeyValuePair(JArray listOfObjects, string key, string value)** - Given a list of objects it fetches the object based on key (`type`) value (`RAIN`) pair.
+* **GetObjectFromListWithKeyValuePair(Array listOfObjects, string key, string value)** - Given a list of objects it fetches the object based on key (`type`) value (`RAIN`) pair.
 In the below example, to pick the precipitation of `"type": "RAIN"` this function will be used.
 
 ```json
