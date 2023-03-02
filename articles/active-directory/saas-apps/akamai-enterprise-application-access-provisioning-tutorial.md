@@ -5,7 +5,7 @@ services: active-directory
 author: twimmers
 writer: twimmers
 manager: beatrizd
-ms.assetid: Akamai Enterprise Application Access
+ms.assetid: e4eb183a-192f-49e0-8724-549b2f360b8e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
