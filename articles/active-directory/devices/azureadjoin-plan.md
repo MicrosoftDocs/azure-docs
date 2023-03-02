@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -110,7 +110,7 @@ There are two approaches for managing Azure AD joined devices:
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 - **Co-management** -  A device is managed by an MDM provider and Microsoft Endpoint Configuration Manager. In this approach, the Microsoft Endpoint Configuration Manager agent is installed on an MDM-managed device to administer certain aspects.
 
-If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
+If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Intune. 
 
 Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following questions:
 
@@ -230,11 +230,11 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### Require multi-factor authentication (MFA) to join devices
+### Require multifactor authentication (MFA) to join devices
 
 Select **“Yes** if you require users to do MFA while joining devices to Azure AD.
 
-![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+![Require multifactor Auth to join devices](./media/azureadjoin-plan/03.png)
 
 **Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 

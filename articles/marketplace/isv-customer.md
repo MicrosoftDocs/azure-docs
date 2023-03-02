@@ -80,23 +80,23 @@ Create and manage private offers from the **Private offers** dashboard in Partne
 Use this page to define private offer terms, notification contacts, and pricing for your customer.
 
 - **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
-
-   > [!NOTE]
-   > Customers can find their billing account ID in 2 ways. 1) In the [Azure portal](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** >**ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 2) If the customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription **Properties** (or Billing Properties) **Billing Account ID**. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
    
+> [!NOTE]
+> Customers can find their billing account ID in 3 ways. 1) Customer can scan their account using the [private offer pre-check functionality](/marketplace/private-offers-pre-check), and export the report with billing account ID included. 2) In the **[Azure portal](https://aka.ms/PrivateOfferAzurePortal)** under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 3) If the customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription > **Properties** (or Billing Properties) > **Billing Account ID**. See **[Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts)**.
+
 :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
 ![Screenshot showing subscription name properties.](media/isv-customer/subscription-name-properties.png)
 
 
 - **Private offer terms** – Specify the duration, accept-by date, and terms:
-       - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
+    - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
     - **End date** – Choose the month for your private offer's **End date**. This will always be the last day of the selected month.
     - **Accept by** – Choose the expiration date for your private offer. Your customer must accept the private offer prior to this date.
     - **Terms and conditions** – Optionally, upload a PDF with terms and conditions your customer must accept as part of the private offer.
 
-        > [!NOTE]
-        > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
+> [!NOTE]
+> Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
 
 - **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
 
@@ -107,9 +107,10 @@ Use this page to define private offer terms, notification contacts, and pricing 
     - Choose up to 10 offers/plans and select **Add**.
     - Enter the discount percentage or configure the absolute price for each item in the pricing table.
     - Absolute pricing lets you input a specific price for the private offer. You can only customize the price based on the same pricing model, billing term, and dimensions of the public offer. You can't change to a new pricing model or billing term or add dimensions.
-
-        > [!NOTE]
-        > Only public offers/plans that are transactable in Microsoft Azure Marketplace appear in the selection menu.
+    - Absolute pricing is supported for SaaS and Azure Applications but not for Virtual Machine offers. You cannot use absolute pricing for plans that have a trial enabled. Create a new public plan without a trial enabled or use discounted pricing. 
+   
+> [!NOTE]
+> Only public offers/plans that are transactable in Microsoft Azure Marketplace appear in the selection menu.
 
 ### Review and submit
 
@@ -150,7 +151,7 @@ Once you withdraw a private offer, your customer will no longer be able to acces
 
 ## Delete a private offer
 
-To delete a private offer in **Draft** status:
+Delete can be used when a private offer is in **Draft** status. To delete a private offer in **Draft** status:
 
 1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.
@@ -159,6 +160,24 @@ To delete a private offer in **Draft** status:
 5. Select **Confirm**.
 
 This action will permanently delete your private offer. You can only delete private offers in **Draft** status.
+
+## Cancelling an accepted private offer
+
+Once a private offer has been accepted by the customer, ISVs will no longer be able to withdraw or edit the private offer. In some circumstances, where the private offer has been created with incorrect details ie. incorrect pricing, incorrect public plan used, incorrect terms or dates, the ISV (with the customer’s agreement) can request marketplace support team to cancel the private offer. 
+
+To do so, ISVs can create a support ticket in Partner Center and request the private offer to be canceled. 
+
+The ISV will need to provide: 
+
+- The Private Offer ID
+- Customer Billing Account ID  
+- Reason for cancellation  
+- Screenshot with written confirmation from the customer that they agree to the cancellation. 
+   
+Upon cancellation, the private offer will be removed from the ISV’s customer private offer dashboard view in Partner Center and will also be removed from the customer’s Private Offer Management view in the Azure portal. After the cancellation has been processed, the private offer price will no longer be applied if the customer was to purchase the plan that was contained in the canceled private offer.  
+
+> [!NOTE]
+> If a private offer is canceled containing a virtual machine offer type that has been deployed, the discount will not be applied to consumption charges in the month of cancellation. 
 
 ## View private offer status
 
@@ -193,6 +212,3 @@ The payout amount and agency fee that Microsoft charges is based on the private 
 - [ISV to Customer Private Offer Creation](https://www.youtube.com/watch?v=WPSM2_v4JuE)
 - [ISV to Customer Private Offer Acceptance](https://www.youtube.com/watch?v=HWpLOOtfWZs)
 - [ISV to Customer Private Offer Purchase Experience](https://www.youtube.com/watch?v=mPX7gqdHqBk)
-
-
-

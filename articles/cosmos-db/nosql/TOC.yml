@@ -144,7 +144,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Modeling and partitioning
       items:
         - name: Model document data
@@ -152,7 +152,7 @@
           href: modeling-data.md
         - name: Modeling and partitioning - a real-world example
           displayName: model, partition, example
-          href: how-to-model-partition-example.md
+          href: model-partition-example.md
         - name: Synthetic partition key
           href: synthetic-partition-keys.md
     - name: Partitioning and horizontal scaling
@@ -189,10 +189,10 @@
               href: ../autoscale-faq.yml
         - name: Serverless
           items: 
-            - name: Serverless Overview
-              href: ../serverless.md
-            - name: Serverless 1 TB container (preview)
-              href: ../serverless-1TB.md
+          - name: Serverless overview
+            href: ../serverless.md
+          - name: Serverless 1 TB
+            href: ../serverless-1TB.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless
@@ -630,8 +630,8 @@
               href: performance-tips-java.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+        - name: Benchmarking framework
+          href: benchmarking-framework.md
         - name: Cost-effective reads and writes
           href: ../key-value-store-cost.md
     - name: Troubleshooting
@@ -751,10 +751,16 @@
           items:
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
-            - name: Configure customer-managed keys
+            - name: Self-serve minimum TLS version enforcement
+              href: ../self-serve-minimum-tls-enforcement.md
+            - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys with Azure managed HSM key vault
+              href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
+            - name: Cross-tenant CMK troubleshooting guide
+              href: ../troubleshoot-cmk.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
         - name: Use managed identities with Azure services
@@ -770,7 +776,7 @@
               href: ../how-to-restrict-user-data.md
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Use Azure Key Vault to store master keys
+        - name: Use Azure Key Vault to store keys
           href: ../store-credentials-key-vault.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md

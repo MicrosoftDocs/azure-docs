@@ -2,7 +2,7 @@
 title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
 description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Install Microsoft Defender for IoT on-premises management console software
@@ -30,9 +30,10 @@ For more information, see:
 
 Download on-premises management console software from Defender for IoT in the Azure portal.
 
-On the Defender for IoT > **Getting started** page, select the **On-premises management console** or **Updates** tab and locate the software you need.
+Select **Getting started** > **On-premises management console** and select the software version you want to download.
 
-If you're updating from a previous version, check the options carefully to ensure that you have the correct update path for your situation.
+> [!IMPORTANT]
+> If you're updating software from a previous version, alternately use the options from the **Sites and sensors** > **Sensor update (Preview)** menu. Use this option especially when you're updating your on-premises management console together with connected OT sensors. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
 ## Install on-premises management console software
 
@@ -143,6 +144,8 @@ sudo ethtool -p <port value> <time-in-seconds>
 ```
 
 This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
+
+[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
 ## Next steps
 

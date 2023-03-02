@@ -1,7 +1,9 @@
 ---
 title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Azure CNI Powered by Cilium.
-services: container-service
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions
 ms.date: 10/24/2022

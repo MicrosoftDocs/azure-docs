@@ -5,7 +5,7 @@ description: Learn how to configure the VPN client for VPN Gateway P2S configura
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 02/03/2023
 ms.author: cherylmc
 ---
 

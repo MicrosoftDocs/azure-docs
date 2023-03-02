@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text-to-speech locales](../../../language-support.md?tabs=tts) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text-to-speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice:
 
@@ -61,8 +61,8 @@ void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, audioConfig);
-    auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig, audioConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 }
 ```
 
@@ -76,8 +76,8 @@ To output synthesized speech to the current active output device such as a speak
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
-    auto result = synthesizer->SpeakTextAsync("I'm excited to try text to speech").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("I'm excited to try text to speech").get();
 }
 ```
 
@@ -100,9 +100,9 @@ This time, save the result to a [`SpeechSynthesisResult`](/cpp/cognitive-service
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
-    auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
+    auto result = speechSynthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
 }
 ```
@@ -132,8 +132,8 @@ void synthesizeSpeech()
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     speechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
-    auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
@@ -164,7 +164,7 @@ Next, you need to change the speech synthesis request to reference your XML file
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
     std::ifstream file("./ssml.xml");
     std::string ssml, line;
@@ -173,7 +173,7 @@ void synthesizeSpeech()
         ssml += line;
         ssml.push_back('\n');
     }
-    auto result = synthesizer->SpeakSsmlAsync(ssml).get();
+    auto result = speechSynthesizer->SpeakSsmlAsync(ssml).get();
 
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();

@@ -5,7 +5,7 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 01/17/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -18,7 +18,7 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include *Azure Migrate: Discovery and assessment* and *Migration and modernization*. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
 - **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
-    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
+    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure.
     - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
     - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
     - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.

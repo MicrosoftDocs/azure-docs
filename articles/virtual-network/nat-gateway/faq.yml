@@ -110,9 +110,9 @@ sections:
         answer: |
           No. NAT gateway cannot be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
       
-      - question: How does NAT gateway work with virtual networks that are peered to one another?
+      - question: How does NAT gateway work in a hub and spoke network architecture?
         answer: |
-          NAT gateway cannot be directly associated to subnets across multiple virtual networks. Virtual networks in a hub and spoke model with Azure Firewall can provide outbound connectivity from spoke VNets when NAT gateway is attached to the Azure Firewall subnet in the Hub VNet. To learn more see, [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md). 
+           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT Gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](./tutorial-hub-spoke-route-nat.md). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](./tutorial-hub-spoke-nat-firewall.md). 
       
       - question: How can I obtain logs for my NAT gateway resource?  
         answer: |
@@ -136,7 +136,7 @@ sections:
 
       - question: Can I use NAT gateway with Azure Firewall?
         answer: |
-          Yes. NAT gateway can be used with Azure Firewall unless Azure Firewall is zone-redundant. Because NAT gateway is a zonal resource, it cannot be associated with an Azure Firewall that spans multiple zones. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
+          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway will work with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
 
       - question: Can I use NAT gateway with Virtual Network service endpoints or Private Link?
         answer: | 

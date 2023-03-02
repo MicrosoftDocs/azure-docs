@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 1/5/2023
+ms.date: 01/17/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -47,7 +47,7 @@ Technology project success depends on managing expectations, outcomes, and respo
   - Ask questions, get answers, and receive notifications
 - Identify a partner or resource outside your organization to support you
 
-Learn more: [Include the right stakeholders](./active-directory-deployment-plans.md)
+Learn more: [Include the right stakeholders](active-directory-deployment-plans.md)
 
 ### Communications
 

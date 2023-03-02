@@ -15,9 +15,9 @@ The following table describes the different goals that transformations can be us
 
 | Category | Details |
 |:---|:---|
-| Remove sensitive data | You may have a data source that sends information you don't want stored for privacy or compliancy reasons.<br><br>**Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.<br><br>**Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number. |
+| Remove sensitive data | You may have a data source that sends information you don't want stored for privacy or compliancy reasons.<br><br>**Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.<br><br>**Obfuscate sensitive information**. Replace information such as digits in an IP address or telephone number with a common character.<br><br>**Send to alternate table.** Send sensitive records to an alternate table with different RBAC configuration.  |
 | Enrich data with additional or calculated information | Use a transformation to add information to data that provides business context or simplifies querying the data later.<br><br>**Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.<br><br>**Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. |
-| Reduce data costs | Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.<br><br>**Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria.<br><br>**Remove a column from each row.** For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required.<br><br>**Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original. |
+| Reduce data costs | Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.<br><br>**Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria.<br><br>**Remove a column from each row.** For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required.<br><br>**Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original.<br><br>**Send certain rows to basic logs.** Send rows in your data that require on basic query capabilities to basic logs tables for a lower ingestion cost.  |
 
 
 
@@ -50,13 +50,28 @@ A common use of the workspace transformation DCR is collection of [resource logs
 
 :::image type="content" source="media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="media/data-collection-transformations/transformation-diagnostic-settings.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings." border="false":::
 
+## Multiple destinations
+
+Transformations allow you to send data to multiple destinations in a Log Analytics workspace using a single DCR. You provide a KQL query for each destination, and the results of each query are sent to their corresponding location. You can send different sets of data to different tables, or use multiple queries to send different sets of data to the same table.
+
+For example, you may send event data into Azure Monitor using the Logs ingestion API. Most of the events should be sent an analytics table where it could be queried regularly, while audit events should be sent to a custom table configured for [basic logs](../logs/basic-logs-configure.md) to reduce your cost.
+
+To use multiple destinations, you must currently either manually create a new DCR or [edit an existing one](data-collection-rule-edit.md). See the [Samples](#samples) section for examples of DCRs using multiple destinations.
+
+> [!IMPORTANT]
+> Currently, the tables in the DCR must be in the same Log Analytics workspace. To send to multiple workspaces from a single data source, use multiple DCRs and configure your application to send the data to each.
+
+:::image type="content" source="media/data-collection-transformations/transformation-multiple-destinations.png" lightbox="media/data-collection-transformations/transformation-multiple-destinations.png" alt-text="Diagram of transformation sending data to multiple tables." border="false":::
+
+
+
 ## Creating a transformation
 There are multiple methods to create transformations depending on the data collection method. The following table lists guidance for different methods for creating transformations. 
 
 | Type | Reference |
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates](../logs/tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 
 ## Cost for transformations
 There is no direct cost for transformations, but you may incur charges for the following:
@@ -64,12 +79,228 @@ There is no direct cost for transformations, but you may incur charges for the f
 - If your transformation increases the size of the incoming data, adding a calculated column for example, then you're charged at the normal rate for ingestion of that additional data.
 - If your transformation reduces the incoming data by more than 50%, then you're charged for ingestion of the amount of filtered data above 50%.
 
+
 The formula to determine the filter ingestion charge from transformations is  `[GB filtered out by transformations] - ( [Total GB ingested] / 2 )`. For example, suppose that you ingest 100 GB on a particular day, and transformations remove 70 GB. You would be charged for 70 GB - (100 GB / 2) or 20 GB. To avoid this charge, you should use other methods to filter incoming data before the transformation is applied.
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
 
 > [!IMPORTANT]
 > If Azure Sentinel is enabled for the Log Analytics workspace, then there is no filtering ingestion charge regardless of how much data the transformation filters.
+
+
+## Samples
+Following are Resource Manager templates of sample DCRs with different patterns. You can use these templates as a starting point to creating DCRs with transformations for your own scenarios.
+
+### Single destination
+
+The following example is a DCR for Azure Monitor agent that sends data to the `Syslog` table. In this example, the transformation filters the data for records with *error* in the message.
+
+
+```json
+{ 
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources" : [
+        {
+            "type": "Microsoft.Insights/dataCollectionRules", 
+            "name": "singleDestinationDCR", 
+            "apiVersion": "2021-09-01-preview", 
+            "location": "eastus", 
+            "properties": { 
+              "dataSources": { 
+                "syslog": [ 
+                  { 
+                    "name": "sysLogsDataSource", 
+                    "streams": [ 
+                      "Microsoft-Syslog" 
+                    ], 
+                    "facilityNames": [ 
+                      "auth",
+                      "authpriv",
+                      "cron",
+                      "daemon",
+                      "mark",
+                      "kern",
+                      "mail",
+                      "news",
+                      "syslog",
+                      "user",
+                      "uucp"
+                    ], 
+                    "logLevels": [ 
+                      "Debug", 
+                      "Critical", 
+                      "Emergency" 
+                    ] 
+                  } 
+                ] 
+              }, 
+              "destinations": { 
+                "logAnalytics": [ 
+                  { 
+                    "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+                    "name": "centralWorkspace" 
+                  } 
+                ] 
+              }, 
+              "dataFlows": [ 
+                { 
+                  "streams": [ 
+                    "Microsoft-Syslog" 
+                  ], 
+                  "transformKql": "source | where message contains 'error'", 
+                  "destinations": [ 
+                    "centralWorkspace" 
+                  ] 
+                } 
+              ] 
+            }
+        }
+    ]
+} 
+```
+
+### Multiple Azure tables
+
+The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` and `SecurityEvent` table. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. In this example, all incoming data is sent to the `Syslog` table while malicious data is also sent to the `SecurityEvent` table. If you didn't want to replicate the malicious data in both tables, you could add a `where` statement to first query to remove those records.
+
+```json
+{ 
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources" : [
+        { 
+            "type": "Microsoft.Insights/dataCollectionRules", 
+            "name": "multiDestinationDCR", 
+            "location": "eastus", 
+            "apiVersion": "2021-09-01-preview", 
+            "properties": { 
+                "dataCollectionEndpointId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers//Microsoft.Insights/dataCollectionEndpoints/my-dce",
+                "streamDeclarations": { 
+                    "Custom-MyTableRawData": { 
+                        "columns": [ 
+                            { 
+                                "name": "Time", 
+                                "type": "datetime" 
+                            }, 
+                            { 
+                                "name": "Computer", 
+                                "type": "string" 
+                            }, 
+                            { 
+                                "name": "AdditionalContext", 
+                                "type": "string" 
+                            } 
+                        ] 
+                    } 
+                }, 
+                "destinations": { 
+                    "logAnalytics": [ 
+                        { 
+                            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+                            "name": "clv2ws1" 
+                        }, 
+                    ] 
+                }, 
+                "dataFlows": [ 
+                    { 
+                        "streams": [ 
+                            "Custom-MyTableRawData" 
+                        ], 
+                        "destinations": [ 
+                            "clv2ws1" 
+                        ], 
+                        "transformKql": "source | project TimeGenerated = Time, Computer, Message = AdditionalContext", 
+                        "outputStream": "Microsoft-Syslog" 
+                    }, 
+                    { 
+                        "streams": [ 
+                            "Custom-MyTableRawData" 
+                        ], 
+                        "destinations": [ 
+                            "clv2ws1" 
+                        ], 
+                        "transformKql": "source | where (AdditionalContext contains 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
+                        "outputStream": "Microsoft-SecurityEvent" 
+                    } 
+                ] 
+            } 
+        }
+    ]
+}
+```
+
+### Combination of Azure and custom tables
+
+The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. 
+
+
+```json
+{ 
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources" : [
+        { 
+            "type": "Microsoft.Insights/dataCollectionRules", 
+            "name": "multiDestinationDCR", 
+            "location": "eastus", 
+            "apiVersion": "2021-09-01-preview", 
+            "properties": { 
+                "dataCollectionEndpointId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers//Microsoft.Insights/dataCollectionEndpoints/my-dce",
+                "streamDeclarations": { 
+                    "Custom-MyTableRawData": { 
+                        "columns": [ 
+                            { 
+                                "name": "Time", 
+                                "type": "datetime" 
+                            }, 
+                            { 
+                                "name": "Computer", 
+                                "type": "string" 
+                            }, 
+                            { 
+                                "name": "AdditionalContext", 
+                                "type": "string" 
+                            } 
+                        ] 
+                    } 
+                }, 
+                "destinations": { 
+                    "logAnalytics": [ 
+                        { 
+                            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+                            "name": "clv2ws1" 
+                        }, 
+                    ] 
+                }, 
+                "dataFlows": [ 
+                    { 
+                        "streams": [ 
+                            "Custom-MyTableRawData" 
+                        ], 
+                        "destinations": [ 
+                            "clv2ws1" 
+                        ], 
+                        "transformKql": "source | project TimeGenerated = Time, Computer, SyslogMessage = AdditionalContext", 
+                        "outputStream": "Microsoft-Syslog" 
+                    }, 
+                    { 
+                        "streams": [ 
+                            "Custom-MyTableRawData" 
+                        ], 
+                        "destinations": [ 
+                            "clv2ws1" 
+                        ], 
+                        "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)", 
+                        "outputStream": "Custom-MyTable_CL" 
+                    } 
+                ] 
+            } 
+        }
+    ]
+}
+```
+
 
 
 ## Next steps

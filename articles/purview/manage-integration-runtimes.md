@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 03/01/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -52,9 +52,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 > For your source, **[refer to each source article for prerequisite details.](azure-purview-connector-overview.md)**
 > Any requirements will be listed in the **Prerequisites** section.
 
-- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- To add and manage a SHIR in Microsoft Purview, you'll need [data source administrator permissions](catalog-permissions.md) in Microsoft Purview.
 
-- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
@@ -75,6 +75,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 To create and set up a self-hosted integration runtime, use the following procedures.
 
 ### Create a self-hosted integration runtime
+
+>[!NOTE]
+> To add or manage a SHIR in Microsoft Purview, you'll need [data source administrator permissions](catalog-permissions.md) in Microsoft Purview.
 
 1. On the home page of the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
@@ -110,19 +113,21 @@ You can register multiple nodes for a self-hosted integration runtime using the 
 
 ## Manage a self-hosted integration runtime
 
-You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the Microsoft Purview governance portal, hover on the IR then click the **Edit** button. 
+You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the Microsoft Purview governance portal, hover on the IR then select the **Edit** button. 
 
-In the **Settings** tab, you can update the description, copy the key, or regenerate new keys. In the **Nodes** tab, you can manage the registered nodes. And in the **Version** tab, you can see the IR version status.
+- In the **Settings** tab, you can update the description, copy the key, or regenerate new keys. 
+- In the **Nodes** tab, you can see a list of the registered nodes, along with the status, IP address, and the option of node deletion. Learn more from [High availability and scalability](#high-availability-and-scalability).
+- In the **Version** tab, you can see the IR version status. Learn more from [Self-hosted integration runtime auto-update and expire notification](self-hosted-integration-runtime-version.md).
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
-You can delete a self-hosted integration runtime by navigating to **Integration runtimes**, hover on the IR then click the **Delete** button. 
+You can delete a self-hosted integration runtime by navigating to **Integration runtimes**, hover on the IR then select the **Delete** button. 
 
 ### Notification area icons and notifications
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ### Service account for Self-hosted integration runtime
 
@@ -141,7 +146,7 @@ Make sure the account has the permission of Log-on as a service. Otherwise self-
 You can associate a self-hosted integration runtime with multiple on-premises machines or virtual machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes are:
 
 - Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure for scan. This availability helps ensure continuity when you use up to four nodes.
-- Run more concurrent scans. Each self-hosted integration runtime can empower a number of scans at the same time, auto determined based on the machine's CPU/memory. You can install additional nodes if you have more concurrency need. Each scan will be executed on one of the nodes. Having more nodes doesn't improve the performance of a single scan execution.
+- Run more concurrent scans. Each self-hosted integration runtime can empower many scans at the same time, auto determined based on the machine's CPU/memory. You can install more nodes if you have more concurrency need. Each scan will be executed on one of the nodes. Having more nodes doesn't improve the performance of a single scan execution.
 
 You can associate multiple nodes by installing the self-hosted integration runtime software from [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using the same authentication key.
 

@@ -367,11 +367,11 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Information Protection (Preview)
 
-> [!NOTE]
+> [!IMPORTANT]
+>
 > The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
 >
 > For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
->
 
 See the [Microsoft Purview Information Protection](#microsoft-purview-information-protection-preview) connector, which will replace this connector.
 

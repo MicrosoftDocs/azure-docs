@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 01/17/2023
 ms.author: gasinh
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -54,7 +54,7 @@ Use the following list to plan for authentication deployment.
   * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md)
 * **Azure AD self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
-  * See, [Passwordless authentication options for Azure AD](/articles/active-directory/authentication/concept-authentication-passwordless.md)
+  * See, [Passwordless authentication options for Azure AD](../authentication/concept-authentication-passwordless.md)
   * See, [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
 * **Passordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
   * See, [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
@@ -65,7 +65,7 @@ Use the following list to plan for authentication deployment.
 Use the following list to help deploy applications and devices.
 
 * **Single sign-on (SSO)** - Enable user access to apps and resources while signing in once, without being required to enter credentials again: 
-  * See, [What is SSO in Azure AD?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
+  * See, [What is SSO in Azure AD?](../manage-apps/what-is-single-sign-on.md)
   * See, [Plan a SSO deployment](../manage-apps/plan-sso-deployment.md)
 * **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for instance requesting access to groups, or managing access to resources on behalf of others. 
   * See, [My Apps portal overview](../manage-apps/myapps-overview.md)
@@ -77,14 +77,14 @@ Use the following list to help deploy applications and devices.
 The following list describes features and services for productivity gains in hybrid scenarios.
 
 * **Active Directory Federation Services (AD FS)** - Migrate user authentication from federation to cloud with pass-through authentication or password hash sync:
-  *  See, [What is federation with Azure AD?](/articles/active-directory/hybrid/whatis-fed.md)
+  *  See, [What is federation with Azure AD?](../hybrid/whatis-fed.md)
   *  See, [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)
 * **Azure AD Application Proxy** - Enable employees to be productive at any place or time, and from a device. Learn about software as a service (SaaS) apps in the cloud and corporate apps on-premises. Azure AD Application Proxy enables access without virtual private networks (VPNs) or demilitarized zones (DMZs):
-  * See, [Remote access to on-premises applications through Azure AD Application Proxy](/articles/active-directory/app-proxy/application-proxy.md)
+  * See, [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
   * See, [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
 * **Seamless single sign-on (Seamless SSO)** - Use Seamless SSO for user sign-in, on corporate devices connected to a corporate network. Users don't need to enter passwords to sign in to Azure AD, and usually don't need to enter usernames. Authorized users access cloud-based apps without extra on-premises components:
   * See, [Azure Active Directory SSO: Quickstart](../hybrid/how-to-connect-sso-quick-start.md) 
-  * See, [Azure Active Directory Seamless SSO: Technical deep dive](/articles/active-directory/hybrid/how-to-connect-sso-how-it-works.md)
+  * See, [Azure Active Directory Seamless SSO: Technical deep dive](../hybrid/how-to-connect-sso-how-it-works.md)
 
 ## Users
 
@@ -108,7 +108,7 @@ Learn more: [Secure access for a connected world—meet Microsoft Entra](https:/
 * **Reporting and monitoring** - Your Azure AD reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
   * See, [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
 * **Access reviews** - Understand and manage access to resources:
-  * See, [What are access reviews?](/articles/active-directory/governance/access-reviews-overview.md)
+  * See, [What are access reviews?](../governance/access-reviews-overview.md)
   * See, [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
 * **Identity governance** - Meet your compliance and risk management objectives for access to critical applications. Learn how to enforce accurate access.
   * See, [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
@@ -127,4 +127,4 @@ In your first phase, target IT, usability, and other users who can test and prov
 
 Widen the pilot to larger groups of users by using dynamic membership, or by manually adding users to the targeted group(s).
 
-Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)]
+Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)

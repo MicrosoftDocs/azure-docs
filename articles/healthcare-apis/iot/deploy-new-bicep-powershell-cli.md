@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -21,7 +24,7 @@ In this quickstart, you'll learn how to:
 > - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 > [!TIP]
-> To learn more about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+> To learn more about Bicep, see [What is Bicep?](../../azure-resource-manager/bicep/overview.md?tabs=bicep)
 
 ## Prerequisites
 
@@ -34,7 +37,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Azure PowerShell](/powershell/azure/install-az-ps) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
-  - For Azure PowerShell, you'll also need to install [Bicep CLI](/azure/azure-resource-manager/bicep/install#windows) to deploy the Bicep file used in this quickstart.
+  - For Azure PowerShell, you'll also need to install [Bicep CLI](../../azure-resource-manager/bicep/install.md#windows) to deploy the Bicep file used in this quickstart.
 
 When you have these prerequisites, you're ready to deploy the Bicep file.
 
@@ -56,7 +59,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    Connect-AzAccount
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurepowershell
    Set-AzContext <AzureSubscriptionId>
@@ -114,7 +117,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    az login
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurecli
    az account set <AzureSubscriptionId>
@@ -170,11 +173,11 @@ When deployment is completed, the following resources and access roles are creat
 
   - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](/azure/event-hubs/authorize-access-shared-access-signature). 
+  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). 
 
 - A Health Data Services workspace.
 
-- A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+- A Health Data Services FHIR service.
 
 - A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
@@ -183,17 +186,17 @@ When deployment is completed, the following resources and access roles are creat
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
+- To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
 
-- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
+- To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ## Clean up Azure PowerShell deployed resources
 

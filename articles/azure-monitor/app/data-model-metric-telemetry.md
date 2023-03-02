@@ -2,7 +2,7 @@
 title: Data model for metric telemetry - Azure Application Insights
 description: Application Insights data model for metric telemetry
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/24/2023
 ms.reviewer: vitalyg
 ---
 

@@ -62,15 +62,15 @@ Normalized schemas cover standard sets of predictable event types that you can u
 ASIM currently defines the following schemas:
 
 - [Audit Event](normalization-schema-audit.md)
-- [Authentication Event](authentication-normalization-schema.md)
-- [DHCP Activity](dhcp-normalization-schema.md)
+- [Authentication Event](normalization-schema-authentication.md)
+- [DHCP Activity](normalization-schema-dhcp.md)
 - [DNS Activity](normalization-schema-dns.md)
 - [File Activity](normalization-schema-file-event.md)
-- [Network Session](network-normalization-schema.md)
-- [Process Event](process-events-normalization-schema.md)
-- [Registry Event](registry-event-normalization-schema.md)
-- [User Management](user-management-normalization-schema.md)
-- [Web Session](web-normalization-schema.md)
+- [Network Session](normalization-schema-network.md)
+- [Process Event](normalization-schema-process-event.md)
+- [Registry Event](normalization-schema-registry-event.md)
+- [User Management](normalization-schema-user-management.md)
+- [Web Session](normalization-schema-web.md)
 
 For more information, see [ASIM schemas](normalization-about-schemas.md).
 
@@ -91,7 +91,7 @@ On the other hand, while ASIM parsers are optimized, query time parsing can slow
 
 Currently, ASIM supports the following normalized tables as a destination for ingest time normalization:
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](network-normalization-schema.md) schema 
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
  
 For more information, see [Ingest Time Normalization](normalization-ingest-time.md).
 

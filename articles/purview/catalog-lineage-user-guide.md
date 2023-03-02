@@ -94,30 +94,35 @@ Microsoft Purview supports asset level lineage for the datasets and processes. T
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage-inline.png" alt-text="Screenshot showing how to select View columns in the lineage page." lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png"border="true":::
 
-## Manual lineage (preview)
+## Manual lineage
 
 Data lineage in Microsoft Purview is [automated](#lineage-collection) for many assets in on-premises, multicloud, and SaaS environments. While we continue to add more automated sources, manual lineage allows you to document lineage metadata for sources where automation isn't yet supported, without using any code.
 
 To add manual lineage for any of your assets, follow these steps:
 
 1. [Search for your asset in the data catalog](how-to-search-catalog.md) and select it to view details.
-1. Select **Edit** and navigate to the **Lineage** tab.
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-edit.png" alt-text="Screenshot of a data asset in Microsoft Purview, with the edit option highlighted.":::
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage.png" alt-text="Screenshot of a data asset edit page, with the Lineage tab highlighted.":::
-1. Select **Add Lineage** in the list panel to add an asset as part of the manual lineage.
-   :::image type="content" source="./media/catalog-lineage-user-guide/add-lineage.png" alt-text="Screenshot of a data asset lineage page, with the add lineage button highlighted.":::
-1. Select the relationship type:
-    1. For upstream lineage - select the relationship as **Consumes**
-    1. For downstream lineage - select the relationship as **Produces**
-1. Select the asset dropdown to find the asset from the suggested list or **View more** to search the full catalog. Select your asset.
+1. Select **Edit**, navigate to the **Lineage** tab, and select **Add manual lineage** in the bottom panel.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/add-manual-lineage.png" alt-text="Screenshot of editing an asset and adding manual lineage.":::
+
+1. To configure the asset lineage:
+
+   1. Select the asset dropdown to find the asset from the suggested list or **View more** to search the full catalog. Select the asset you’d like to link.
+   1. Select the swap icon to configure the relationship direction as **Produces** (for downstream lineage) or **Consumes** (for upstream lineage).
+   1. If you want to delete a lineage, select the trash can icon.
+
    :::image type="content" source="./media/catalog-lineage-user-guide/select-asset-dropdown.png" alt-text="Screenshot of a data asset lineage page, with the asset dropdown highlighted.":::
-1. Now you can see the lineage relationship. You can add another by selecting the **Add Lineage** button again, or delete the newly added lineage by selecting the trash can icon. When you're finished, select the **Save** button to save your lineage and exit edit mode.
-   :::image type="content" source="./media/catalog-lineage-user-guide/delete-or-save.png" alt-text="Screenshot of a data asset lineage page, the delete and save buttons highlighted.":::
+
+1. When you add lineage between two data assets, you can additionally configure the column level lineage. Select the expand icon at the beginning of the row, select the upstream and downstream columns from the corresponding dropdown lists to configure the column mapping. Select the plus icon to add more column lineage; select the trash bin icon to delete existing ones.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/add-column-lineage.png" alt-text="Screenshot of configuring column level lineage.":::
+
+1. You can add more asset level lineage by selecting the **Add manual lineage** button again. When you're finished, select the **Save** button to save your lineage and exit edit mode.
 
 ### Known limitations of manual lineage
 
 * Current asset picker experience allows selecting only one asset at a time.
-* Column level manual lineage is currently not supported.
+* Column level manual lineage is currently supported for lineage between two data assets, while not supported when process asset is involved in-between.
 * Data curation access required for both source and target assets.
 * These asset types don't currently allow manual lineage because they support automated lineage:
     * Azure Data Factory

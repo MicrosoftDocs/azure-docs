@@ -1,8 +1,12 @@
 items:
 - name: Service Connector documentation
   href: index.yml
-- name: Service Connector overview
-  href: overview.md
+- name: Overview
+  items:
+    - name: About Service Connector
+      href: overview.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   expanded: true
   items: 
@@ -124,3 +128,5 @@ items:
       href: /rest/api/serviceconnector?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
     - name: Python SDK
       href: /python/api/azure-mgmt-servicelinker?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+    - name: Known limitations
+      href: known-limitations.md

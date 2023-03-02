@@ -25,8 +25,6 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: Visual Studio Code (preview - retired)
-    href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -197,7 +195,9 @@
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
-      href: search-performance-optimization.md
+      href: search-reliability.md
+    - name: Availability migration guidance
+      href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management
@@ -394,16 +394,8 @@
         href: cognitive-search-custom-skill-interface.md
       - name: Scale out custom skills
         href: cognitive-search-custom-skill-scale.md
-      - name: Example - Azure Functions (Python)
-        href: cognitive-search-custom-skill-python.md
-      - name: Example - Azure Functions
+      - name: Example - Bing Entity Search
         href: cognitive-search-create-custom-skill-example.md
-      - name: Example - Azure Form Recognizer
-        href: cognitive-search-custom-skill-form.md
-      - name: Example - Azure Machine Learning
-        href: cognitive-search-tutorial-aml-custom-skill.md
-      - name: Example - Azure Machine Learning Designer
-        href: cognitive-search-tutorial-aml-designer-custom-skill.md
     - name: Knowledge store
       items:
       - name: Create using REST
@@ -495,7 +487,7 @@
     - name: Search API
       href: /dotnet/api/overview/azure/search.documents-readme
     - name: Management API
-      href: /dotnet/api/overview/azure/search/management/management-search
+      href: /dotnet/api/microsoft.azure.management.search
   - name: Java
     items:
     - name: Search API

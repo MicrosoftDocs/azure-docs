@@ -1,22 +1,22 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
-description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 06/02/2022
-ms.topic: article
+description: Learn about protocols that Microsoft Defender for IoT supports.
+ms.date: 01/30/2023
+ms.topic: concept-article
 ---
 
 # Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols
 
 This article lists the protocols that are supported by default in Microsoft Defender for IoT. If your organization uses proprietary protocols or other protocols not listed here, use the Defender for IoT Horizon SDK to extend support as needed.
 
-## Supported protocols for asset discovery
+## Supported protocols for OT device discovery
 
 Defender for IoT can detect the following protocols when identifying assets and devices in your network:
 
-
 |Brand / Vendor |Protocols  |
 |---------|---------|
-|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br>      |
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br> ABB IAC<br> ABB Totalflow      |
+|**Samsung** | Samsung TV |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
@@ -24,7 +24,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
 |**Eurocontrol**     |      ASTERIX   |
-|**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
+|**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)<br> GE_CMP        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
 |**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
@@ -35,6 +35,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
 |**Omron**     |  FINS       |
+|**OPC**     |  UA       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
 |**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
@@ -47,13 +48,27 @@ Defender for IoT can detect the following protocols when identifying assets and 
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
+## Supported protocols for Enterprise IoT device discovery
+
+Enterprise IoT network sensors can detect the following protocols when identifying assets and devices in your network:
+
+|Brand / Vendor |Protocols  |
+|---------|---------|
+| **ALARIS** | BAXTER |
+|**ASHRAE**     |   BACnet BACapp     |
+| **Cisco** | CDP |
+| **IANA** | SIP |
+| **IETF** | BROWSE <br> DHCP <br> DNS <br> HTTP <br> LLDP <br> MDNS <br> SNMP<br> SSDP |
+|**Medical**     |DICOM <br>HL7 <br>POCT1        |
+| **SWARM** | swarm |
+
 ## Don't see your protocol here? 
 
-### Build support for proprietary protocols with the Horizon SDK
+### Build support for proprietary OT protocols with the Horizon SDK
 
-Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any protocol used in IoT and ICS environments that's not isn't already supported by default.
+Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any OT protocol used in IoT and ICS environments that's not isn't already supported by default.
 
-Horizon helps you to write plugins that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
+Horizon helps you to write plugins for OT sensors that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
 
 Horizon provides:
 

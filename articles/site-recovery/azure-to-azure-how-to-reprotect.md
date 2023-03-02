@@ -91,9 +91,9 @@ The following conditions determine how much data is replicated:
 |Source region has 1 VM with 1-TB premium disk.<br/>Only 127-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>45-GB data changes after failover.| Approximate time: 45-75 mins.<br/>During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of disk throughput - 92 MBps. The total time that it will take is 127 GB/92 MBps, approximately 25 minutes. </br>Transfer speed is approximately 23% of throughput, or 46 MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/46 MBps, approximately 17 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
 |Source region has 1 VM with 1-TB premium disk.<br/>Only 20-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5-GB data change after failover. Total populated data is therefore 20 GB| Approximate time: 10-40 minutes.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/>Transfer speed is approximately 23% of throughput, or 46-MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/46 MBps, approximately 8 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes |
 
-When the VM is re-protected after failing back to the primary region (that is, if the VM is re-protected from primary region to DR region), the target VM, and associated NIC(s) are deleted.
+When the VM is re-protected from DR region to primary region (that is, after failing over from the primary region to DR region), the target VM (original source VM), and associated NIC(s) are deleted.
 
-When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
+When the VM is re-protected again from the primary region to DR region after failback, we do not delete the VM and associated NIC(s) in the DR region that were created during the earlier failover.
 
 ## Next steps
 

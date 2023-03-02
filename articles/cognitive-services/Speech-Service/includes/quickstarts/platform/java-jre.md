@@ -15,9 +15,6 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java on the Java Runtime. 
 
-> [!NOTE]
-> The Speech SDK for Java is not available in the Maven central repository. Whether you're using Gradle or a *pom.xml* dependency file, you need to add a custom repository that points to `https://azureai.azureedge.net/maven/`. (See below for the package name.)
-
 ### Supported operating systems
 
 The Speech SDK for Java package is available for these operating systems:
@@ -53,13 +50,6 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             </plugin>
             </plugins>
         </build>
-        <repositories>
-            <repository>
-            <id>maven-cognitiveservices-speech</id>
-            <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://azureai.azureedge.net/maven/</url>
-            </repository>
-        </repositories>
         <dependencies>
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
@@ -110,19 +100,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. Open the *pom.xml* file and edit it:
 
-   * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
-
-    ```xml
-    <repositories>
-      <repository>
-        <id>maven-cognitiveservices-speech</id>
-        <name>Microsoft Cognitive Services Speech Maven Repository</name>
-        <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
-      </repository>
-    </repositories>
-    ```
-
-   * Add a `dependencies` element, with Speech SDK version 1.24.2 as a dependency:
+   * Add a `dependencies` element at the end of the file, before the closing tag `</project>`, with the Speech SDK as a dependency:
 
     ```xml
     <dependencies>
@@ -141,16 +119,10 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 ### Gradle configurations
 
-Gradle configurations require both a custom repository and an explicit reference to the .jar dependency extension:
+Gradle configurations require an explicit reference to the .jar dependency extension:
 
 ```gradle
 // build.gradle
-
-repositories {
-    maven {
-        url "https://azureai.azureedge.net/maven/"
-    }
-}
 
 dependencies {
     implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.24.2", ext: "jar"

@@ -51,15 +51,29 @@ Only repository owners and admins can manage repository secrets.
 
 Rather than providing your personal access credentials, we'll create a service principal and then add those credentials as repository secrets. Use the Azure CLI to create a new service principal. For more information, see [Create an Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-The following command creates a service principal with *contributor* access to a specific resource group. Replace **<SUBSCRIPTION_ID>** and **<RESOURCE_GROUP_NAME>** with your own information.
+1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal with *contributor* access to a specific resource group. Replace `<SUBSCRIPTION_ID>` and `<RESOURCE_GROUP_NAME>` with your own information.
 
-This command requires owner or user access administrator roles in the subscription.
+   This command requires owner or user access administrator roles in the subscription.
 
-```azurecli
-az ad sp create-for-rbac --name github-actions-sp --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>
-```
+   ```azurecli
+   az ad sp create-for-rbac --name github-actions-sp --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>
+   ```
 
-The output for this command includes a generated password for the service principal. Copy this password to use in the next section. You won't be able to access the password again.
+1. Copy the following items from the output of the service principal creation command to use in the next section:
+
+   * The *clientId*.
+   * The *clientSecret*. This is a generated password for the service principal that you won't be able to access again.
+   * The *tenantId*.
+
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign two more access roles to the service principal: *Device Provisioning Service Data Contributor* and *IoT Hub Data Contributor*. Replace `<SP_CLIENT_ID>` with the *clientId* value that you copied from the previous command's output.
+
+   ```azurecli
+   az role assignment create --assignee "<SP_CLIENT_ID>" --role "Device Provisioning Service Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
+   ```
+
+   ```azurecli
+   az role assignment create --assignee "<SP_CLIENT_ID>" --role "IoT Hub Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
+   ```
 
 ### Save service principal credentials as secrets
 
@@ -72,21 +86,21 @@ The output for this command includes a generated password for the service princi
 1. Create a secret for your service principal ID.
 
    * **Name**: `APP_ID`
-   * **Secret**: `github-actions-sp`, or the value you used for the service principal name if you used a different value.
+   * **Secret**: Paste the *clientId* that you copied from the output of the service principal creation command.
 
 1. Select **Add secret**, then select **New repository secret** to add a second secret.
 
 1. Create a secret for your service principal password.
 
    * **Name**: `SECRET`
-   * **Secret**: Paste the password that you copied from the output of the service principal creation command.
+   * **Secret**: Paste the *clientSecret* that you copied from the output of the service principal creation command.
 
 1. Select **Add secret**, then select **New repository secret** to add the final secret.
 
 1. Create a secret for your Azure tenant.
 
    * **Name**: `TENANT`
-   * **Secret**: Provide your Azure tenant. The value of this argument can either be an .onmicrosoft.com domain or the Azure object ID for the tenant.
+   * **Secret**: Paste the *tenantId* that you copied from the output of the service principal creation command.
 
 1. Select **Add secret**.
 
@@ -98,7 +112,7 @@ For this tutorial, we'll create one workflow that contains jobs for each of the 
 
 * Provision an IoT Hub instance and a DPS instance.
 * Link the IoT Hub and DPS instances to each other.
-* Create an individual enrollment on the DPS instance, and register a device to the IoT hub via the DPS enrollment.
+* Create an individual enrollment on the DPS instance, and register a device to the IoT hub using symmetric key authentication via the DPS enrollment.
 * Simulate the device for five minutes and monitor the IoT hub events.
 
 Workflows are YAML files that are located in the `.github/workflows/` directory of a repository.
@@ -145,7 +159,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    jobs:
    ```
 
-1. Define the first job for our workflow, which we'll call the `provision` job. This job provisions the IoT Hub and DPS instances.
+1. Define the first job for our workflow, which we'll call the `provision` job. This job provisions the IoT Hub and DPS instances:
 
    ```yml
      provision:
@@ -159,6 +173,11 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az iot dps create -n "$DPS_NAME" -g "$RESOURCE_GROUP"
    ```
 
+   For more information about the commands run in this job, see:
+
+   * [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create)
+   * [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create)
+
 1. Define a job to `configure` the DPS and IoT Hub instances. Notice that this job uses the [needs](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds) parameter, which means that the `configure` job won't run until listed job completes its own run successfully.
 
    ```yml
@@ -171,6 +190,10 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az login --service-principal -u "$SP_USER" -p "$SP_SECRET" --tenant "$SP_TENANT"
              az iot dps linked-hub create --dps-name "$DPS_NAME" --hub-name "$HUB_NAME"   
    ```
+
+   For more information about the commands run in this job, see:
+
+   * [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create)
 
 1. Define a job called `register` that will create an individual enrollment and then use that enrollment to register a device to IoT Hub.
 
@@ -189,6 +212,14 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az iot device registration create -n "$DPS_NAME" --rid "$DEVICE_NAME" --auth-type login   
    ```
 
+   > [!NOTE]
+   > This job and others use the parameter `--auth-type login` in some commands to indicate that the operation should use the service principal from the current Azure AD session. The alternative, `--auth-type key` doesn't require the service principal configuration, but is less secure.
+
+   For more information about the commands run in this job, see:
+
+   * [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create)
+   * [az iot device registration create](/cli/azure/iot/device/registration#az-iot-device-registration-create)
+
 1. Define a job to `simulate` an IoT device that will connect to the IoT hub and send sample telemetry messages.
 
    ```yml
@@ -203,6 +234,10 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az iot device simulate -n "$HUB_NAME" -d "$DEVICE_NAME"
    ```
 
+   For more information about the commands run in this job, see:
+
+   * [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate)
+
 1. Define a job to `monitor` the IoT hub endpoint for events, and watch messages coming in from the simulated device. Notice that the **simulate** and **monitor** jobs both define the **register** job in their `needs` parameter. This configuration means that once the **register** job completes successfully, both these jobs will run in parallel.
 
    ```yml
@@ -216,6 +251,10 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az extension add --name azure-iot
              az iot hub monitor-events -n "$HUB_NAME" -y   
    ```
+
+   For more information about the commands run in this job, see:
+
+   * [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events)
 
 1. The complete workflow file should look like this example, with your information replacing the placeholder values in the environment variables:
 
