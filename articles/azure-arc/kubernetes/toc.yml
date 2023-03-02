@@ -74,7 +74,7 @@
           - name: At-scale deployment of Flux v1 configurations using Azure Policy
             href: use-azure-policy.md
       - name: Workload management in a multi-cluster environment with GitOps
-        href: concept-workload-management.md
+        href: conceptual-workload-management.md
 
   - name: Security
     items:
