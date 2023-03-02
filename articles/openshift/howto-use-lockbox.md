@@ -5,7 +5,7 @@ author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 11/11/2022
+ms.date: 03/02/2023
 topic: how-to
 keywords: azure, openshift, aro, red hat, lockbox
 #Customer intent: I need to learn how to authorize or reject requests from Microsoft support engineers to access my Azure Red Hat OpenShift cluster resources.
