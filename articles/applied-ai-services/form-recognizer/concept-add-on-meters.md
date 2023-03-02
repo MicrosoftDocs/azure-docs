@@ -35,7 +35,7 @@ The Read OCR model in Form Recognizer extracts all identified formulas, such as 
           "kind": "inline",
           "value": "\\frac { \\partial a } { \\partial b }",
           "polygon": [...],
-          "span": { ... },
+          "span": {...},
           "confidence": 0.99
         },
         {
