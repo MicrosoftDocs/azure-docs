@@ -308,7 +308,7 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
+A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). A manual clean up needs to be done to remove these GUID. 
 
 ### How do I set ACLs correctly for a service principal?
 
