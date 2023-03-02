@@ -45,13 +45,13 @@
 - name: Reference
   items:
   - name: REST API
-    href: /rest/api/storageimportexport/jobs
+    href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/MicrosoftAzureImportExportAPIMigrationGuide_20221206.pdf
   - name: Azure PowerShell
     href: /powershell/module/Az.ImportExport
 - name: Resources
   items:
   - name: Export data offline
-    href: /learn/modules/export-data-with-azure-import-export
+    href: /training/modules/export-data-with-azure-import-export
   - name: Other offline transfer options
     href: ../databox/index.yml
    

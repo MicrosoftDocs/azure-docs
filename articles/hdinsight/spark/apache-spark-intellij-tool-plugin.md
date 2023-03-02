@@ -4,7 +4,7 @@ description: Use the Azure Toolkit for IntelliJ to develop Spark applications wr
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.date: 04/28/2022
 ---
 
 # Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 * [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This article uses Java version 8.0.202.
 
-* IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. This article uses [IntelliJ IDEA Community 2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/).
 

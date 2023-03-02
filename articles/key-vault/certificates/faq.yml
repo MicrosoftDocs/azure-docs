@@ -1,0 +1,129 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Key Vault certificate FAQ
+  description: Frequently asked questions about Azure Key Vault certificates
+  services: key-vault
+  author: msmbaldwin
+  tags: azure-resource-manager
+  
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: overview
+  ms.date: 05/25/2022
+  ms.author: mbaldwin
+title: Importing Azure Key Vault certificates FAQ
+summary: This article answers frequently asked questions about Azure Key Vault certificates.
+
+sections:
+  - name: Importing Azure Key Vault certificates
+    questions:
+      - question: |
+          How can I import a certificate in Azure Key Vault?
+        answer: |
+          For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md).
+          
+      - question: |
+          After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?
+        answer: |
+          After a certificate is imported and protected in Key Vault, its associated password isn't saved. The password is required only once during the import operation. This is by design, but you can always get the certificate as a secret and convert it from Base64 to PFX by adding the password through [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).    
+      - question: |
+          How can I resolve a "Bad parameter" error? What are the supported certificate formats for importing to Key Vault?
+        answer: |
+          When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest-Shamir-Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
+          
+          For more information, see [certificate requirements](./certificate-scenarios.md#formats-of-import-we-support) and [certificate key requirements](../keys/about-keys.md).       
+      - question: |
+          Can I import a certificate by using an ARM template?
+        answer: |
+          No, it isn't possible to perform certificate operations by using an Azure Resource Manager (ARM) template. A recommended workaround would be to use the certificate import methods in the Azure API, the Azure CLI, or PowerShell. If you have an existing certificate, you can import it as a secret.
+      - question: |
+          When I import a certificate via the Azure portal, I get a "Something went wrong" error. How can I investigate further?
+        answer: |
+          To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).          
+      - question: |
+          When I import a certificate via the Azure portal, I get a "The size of the X.509 certificate is too long" error. What should I do?
+        answer: |
+          The error indicates that your certificate might be too long, it might be including many certificates in a single file. This is a hard-limit that can't be increased. The solution is to shorten your certificate file's content so that it aligns to our size's limit.
+      - question: |
+          How can I resolve this error? "Error type: Access denied or user is unauthorized to import certificate"
+        answer: |
+          The import operation requires that you grant the user permissions to import the certificate under the access policies. To do so, go to your key vault, select **Access policies** > **Add Access Policy** > **Select Certificate Permissions** > **Principal**, search for the user, and then add the user's email address. 
+          
+          For more information about certificate-related access policies, see [About Azure Key Vault certificates](./about-certificates.md#certificate-access-control).
+      - question: |
+          How can I resolve this error? "Error type: Conflict when creating a certificate"
+        answer: |
+          Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](./about-certificates.md#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
+          
+          For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/certificates/get-deleted-certificate/get-deleted-certificate).         
+      - question: |
+          How can I resolve this error? "Error type: char length is too long"
+        answer: |
+          This error could be caused by either of two reasons:    
+          * The certificate subject name is limited to 200 characters.
+          * The certificate password is limited to 200 characters.        
+      - question: |
+          How can I resolve this error? "The specified PEM X.509 certificate content is in an unexpected format. Check if certificate is in valid PEM format."
+        answer: |
+          Verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
+      - question: |
+          Can I import an expired certificate to Azure Key Vault?
+        answer: |
+          No, expired PFX certificates can't be imported to Key Vault.
+      - question: |
+          How can I convert my certificate to the proper format?
+        answer: |
+          You can ask your CA to provide the certificate in the required format. There are also third-party tools that can help you convert the certificate to the proper format.
+      - question: |
+          Can I import certificates from non-partner CAs?
+        answer: |
+          Yes, you can import certificates from any CA, but your key vault won't be able to renew them automatically. You can set reminders to be notified about the certificate expiration.
+      - question: |
+          If I import a certificate from a partner CA, will the autorenewal feature still work?
+        answer: |
+          Yes. After you've uploaded the certificate, be sure to specify the autorotation in the certificate's issuance policy. Your settings will remain in effect until the next cycle or certificate version is released.
+      - question: |
+          Why can't I see the App Service certificate that I imported to Key Vault? 
+        answer: |
+          If you've imported the certificate successfully, you should be able to confirm it by going to the **Secrets** pane.         
+      - question: |
+          How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
+        answer: |
+          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, Certificate Authorities allows you to import one or an entire whole chain.
+
+  - name: Renew your Azure Key Vault certificates
+    questions:
+      - question: What if the issued certificate is in *disabled* status in the Azure portal?
+        answer: |
+          Go to **Certificate Operation** and view the certificate's error message.
+      - question: How do I resolve this error? "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
+        answer: |
+          Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
+      - question: How can I test the autorotation feature of the certificate?
+        answer: |
+          Create a self-signed certificate with a validity of **one month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
+      - question: Will the tags be replicated after autorenewal of the certificate?
+        answer: |
+          Yes, the tags are replicated after autorenewal.
+  - name: Integrate Key Vault with Integrated Certificate Authorities
+    questions:
+      - question: Can I generate a DigiCert wildcard certificate by using Key Vault?
+        answer: |
+          Yes, though it depends on how you configured your DigiCert account.
+      - question: How can I create an OV SSL or EV SSL certificate with DigiCert?
+        answer: |
+          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+   
+          You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
+
+          For example: `SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
+      - question: Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?
+        answer: |
+          No. When you create a certificate, the verification process might take time. DigiCert controls that process.
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Azure Key Vault certificates](./about-certificates.md)
+  

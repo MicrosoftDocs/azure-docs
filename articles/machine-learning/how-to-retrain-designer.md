@@ -7,7 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 03/06/2021
+ms.reviewer: lagayhar
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---
@@ -36,24 +37,24 @@ This article also assumes that you have some knowledge of building pipelines in 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) component instead of the sample dataset to show you how to train models using your own data.
 
-![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
+![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data component](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
 ## Create a pipeline parameter
 
 Pipeline parameters are used to build versatile pipelines which can be resubmitted later with varying parameter values. Some common scenarios are updating datasets or some hyper-parameters for retraining. Create pipeline parameters to dynamically set variables at runtime. 
 
-Pipeline parameters can be added to data source or module parameters in a pipeline. When the pipeline is resubmitted, the values of these parameters can be specified.
+Pipeline parameters can be added to data source or component parameters in a pipeline. When the pipeline is resubmitted, the values of these parameters can be specified.
 
-For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data. You can also add other module parameters as pipeline parameters according to your use case.
+For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data. You can also add other component parameters as pipeline parameters according to your use case.
 
-1. Select the **Import Data** module.
+1. Select the **Import Data** component.
 
     > [!NOTE]
-    > This example uses the Import Data module to access data in a registered datastore. However, you can follow similar steps if you use alternative data access patterns.
+    > This example uses the Import Data component to access data in a registered datastore. However, you can follow similar steps if you use alternative data access patterns.
 
-1. In the module detail pane, to the right of the canvas, select your data source.
+1. In the component detail pane, to the right of the canvas, select your data source.
 
 1. Enter the path to your data. You can also select **Browse path** to browse your file tree. 
 
@@ -68,13 +69,13 @@ For this example, you will change the training data path from a fixed value to a
 1. Select **Save**.
 
    > [!NOTE]
-   > You can also detach a module parameter from pipeline parameter in the module detail pane, similar to adding pipeline parameters.
+   > You can also detach a component parameter from pipeline parameter in the component detail pane, similar to adding pipeline parameters.
    >
    > You can inspect and edit your pipeline parameters by selecting the **Settings** gear icon next to the title of your pipeline draft. 
    >    - After detaching, you can delete the pipeline parameter in the **Setings** pane.
-   >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some module parameter.
+   >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some component parameter.
 
-1. Submit the pipeline run.
+1. Submit the pipeline job.
 
 ## Publish a training pipeline
 
@@ -90,21 +91,21 @@ Publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the 
 
 ## Retrain your model
 
-Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit runs from a pipeline endpoint from the studio workspace or programmatically.
+Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit jobs from a pipeline endpoint from the studio workspace or programmatically.
 
-### Submit runs by using the studio portal
+### Submit jobs by using the studio portal
 
-Use the following steps to submit a parameterized pipeline endpoint run from the studio portal:
+Use the following steps to submit a parameterized pipeline endpoint job from the studio portal:
 
 1. Go to the **Endpoints** page in your studio workspace.
 1. Select the **Pipeline endpoints** tab. Then, select your pipeline endpoint.
 1. Select the **Published pipelines** tab. Then, select the pipeline version that you want to run.
 1. Select **Submit**.
-1. In the setup dialog box, you can specify the parameters values for the run. For this example, update the data path to train your model using a non-US dataset.
+1. In the setup dialog box, you can specify the parameters values for the job. For this example, update the data path to train your model using a non-US dataset.
 
-![Screenshot that shows how to set up a parameterized pipeline run in the designer](./media/how-to-retrain-designer/published-pipeline-run.png)
+![Screenshot that shows how to set up a parameterized pipeline job in the designer](./media/how-to-retrain-designer/published-pipeline-run.png)
 
-### Submit runs by using code
+### Submit jobs by using code
 
 You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
 
@@ -116,4 +117,4 @@ In this article, you learned how to create a parameterized training pipeline end
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
 
-For how to publish and submit a run to pipeline endpoint using SDK, see [this article](how-to-deploy-pipelines.md).
+For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](v1/how-to-deploy-pipelines.md).

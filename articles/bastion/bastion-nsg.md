@@ -1,9 +1,7 @@
 ---
 title: Working with VMs and NSGs in Azure Bastion
 description: Learn about using network security groups with Azure Bastion.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/21/2021
@@ -37,7 +35,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 
 * **Ingress Traffic:**
 
-   * **Ingress Traffic from public internet:** The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet.
+   * **Ingress Traffic from public internet:** The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet. Note that the source can be either the Internet or a set of public IP addresses that you specify.
    * **Ingress Traffic from Azure Bastion control plane:** For control plane connectivity, enable port 443 inbound from **GatewayManager** service tag. This enables the control plane, that is, Gateway Manager to be able to talk to Azure Bastion.
    * **Ingress Traffic from Azure Bastion data plane:** For data plane communication between the underlying components of Azure Bastion, enable ports 8080, 5701 inbound from the **VirtualNetwork** service tag to the **VirtualNetwork** service tag. This enables the components of Azure Bastion to talk to each other.
    * **Ingress Traffic from Azure Load Balancer:** For health probes, enable port 443 inbound from the **AzureLoadBalancer** service tag. This enables Azure Load Balancer to detect connectivity

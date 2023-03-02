@@ -4,16 +4,15 @@ description: This article provides information about how to troubleshoot passwor
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/13/2017
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 08/18/2021
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file
 ---
 To protect the data in your Azure file shares against data loss or corruption, all Azure file shares store multiple copies of each file as they are written. Depending on the requirements of your workload, you can select additional degrees of redundancy. Azure Files currently supports the following data redundancy options:

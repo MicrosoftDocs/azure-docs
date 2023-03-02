@@ -2,14 +2,12 @@
 title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a security module on your IoT Edge device
 
-**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices.
-The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
-To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
+**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices. The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts. To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
 In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
@@ -19,7 +17,7 @@ Use the following steps to deploy a Defender for IoT security module for IoT Edg
 
 ### Prerequisites
 
-1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-register-device.md#register-a-new-device).
+1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
 1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 

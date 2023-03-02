@@ -4,16 +4,14 @@ description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
-editor: curtand
+manager: amycolannino
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -94,7 +92,7 @@ For more information, see [Configuring SSO with AD FS](how-to-connect-install-cu
 ### Federation with PingFederate
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords.
 
-For more information on configuring PingFederate for use with Azure Active Directory, see [PingFederate Integration with Azure Active Directory and Office 365](https://www.pingidentity.com/AzureADConnect)
+For more information on configuring PingFederate for use with Azure Active Directory, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/access/sources/dita/topic?category=integrationdoc&resourceid=pingfederate_azuread_office365_integration).
 
 For information on setting up Azure AD Connect using PingFederate, see [Azure AD Connect custom installation](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)
 

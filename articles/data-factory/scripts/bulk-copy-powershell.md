@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: article
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/31/2017
+ms.date: 02/08/2023
 ---
 
 # PowerShell script - copy multiple tables in bulk by using Azure Data Factory

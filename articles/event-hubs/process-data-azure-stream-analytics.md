@@ -1,7 +1,7 @@
 ---
 title: Process data from Event Hubs Azure using Stream Analytics | Microsoft Docs
 description: This article shows you how to process data from your Azure event hub using an Azure Stream Analytics job. 
-ms.date: 09/15/2021
+ms.date: 03/14/2022
 ms.topic: article
 ---
 
@@ -16,6 +16,9 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 - **Deploy your query to production** – You can deploy the query into production by creating and starting an Azure Stream Analytics job.
 
 ## End-to-end flow
+
+> [!IMPORTANT]
+> If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to your **Event Hubs namespace** and then navigate to the **event hub**, which has the incoming data. 
@@ -66,8 +69,18 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
       ![Set output and start the job](./media/process-data-azure-stream-analytics/set-output-start-job.png)
 
 
-## Known limitations
-While testing your query, the test results take approximately 6 seconds to load. We're working on improving the performance of testing. However, when deployed in production, Azure Stream Analytics will have subsecond latency.
+## Access
+Issue : User cannot access Preview data because they don’t have right permissions on the Subscription.
+
+Option 1: The user who wants to preview incoming data needs to be added as a Contributor on Subscription.
+
+Option 2: The user needs to be added as Stream Analytics Query tester role on Subscription. Navigate to Access control for the subscription. Add a new role assignment for the user as "Stream Analytics Query Tester" role.
+
+Option 3: The user can create Azure Stream Analytics job. Set input as this Event Hub and navigate to "Query" to preview incoming data from this Event Hub.
+
+Option 4: The admin can create a custom role on the subscription. Add the following permissions to the custom role and then add user to the new custom role.
+![Add permissions to custom role](./media/process-data-azure-stream-analytics/custom-role.png)
+
 
 ## Streaming units
 Your Azure Stream Analytics job defaults to three streaming units (SUs). To adjust this setting, select **Scale** on the left menu in the **Stream Analytics job** page in the Azure portal. To learn more about streaming units, see [Understand and adjust Streaming Units](../stream-analytics/stream-analytics-streaming-unit-consumption.md).

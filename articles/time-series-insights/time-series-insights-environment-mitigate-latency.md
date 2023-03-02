@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Monitor and mitigate throttling to reduce latency in Azure Time Series Insights Gen1
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

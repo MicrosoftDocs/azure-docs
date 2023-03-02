@@ -4,10 +4,9 @@ description: Learn how to access a consolidated view of customer feedback for yo
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: smannepalle
-ms.author: smannepalle
-ms.reviewer: sroy
-ms.date: 09/27/2021
+author: saurabhsharmaa
+ms.author: saurasharma
+ms.date: 02/20/2023
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -20,33 +19,20 @@ This article provides information on the Ratings and Reviews dashboard in Partne
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
-## Access the Ratings & reviews dashboard
+### Ratings and Reviews dashboard filters
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+:::image type="content" source="media/ratings-reviews/button-filters.png" alt-text="Screenshot showing the Filters button on the Insights screen of the Customers dashboard.":::
 
-#### [Workspaces view](#tab/workspaces-view)
+These filters are applied at the Ratings and Reviews page level. Select multiple filters to render the chart for what you want to see in Microsoft AppSource or Azure MarketPlace. Filters are applied on the data extracted for the month range you selected on the upper-right corner of the page.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
+The page has dashboard-level filters for the following:
 
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+- Rating
+- Reply Status
 
-1. In the left menu, select **Ratings & reviews**.
+Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
 
-#### [Current view](#tab/current-view)
-
-In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
-
----
-
-The dashboard displays a graphical representation of the following customer activity:
-
-- Ratings  
-- Review comments
-
-Use the **Marketplace Insights** tabs to view your offer's Microsoft AppSource and Azure Marketplace metrics separately. To view specific offer metrics, select the offer from the offer dropdown list.
-
-### Ratings and reviews summary
+## Ratings and reviews summary
 
 The summary section displays the following metrics for a selected date range:
 
@@ -55,61 +41,51 @@ The summary section displays the following metrics for a selected date range:
 - **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
 - **Ratings with reviews:** Count of reviews submitted.
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/analyze-ratings-summary.png" alt-text="Illustrates Partner Center analyze ratings and reviews summary" lightbox="media/marketplace-publisher-guide-rating-reviews/analyze-ratings-summary.png":::
+:::image type="content" source="media/ratings-reviews/ratings-summary-analyze.png" alt-text="Illustrates Partner Center analyze ratings and reviews summary." lightbox="media/ratings-reviews/ratings-summary-analyze.png":::
 
-### Review comments
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
-Reviews are displayed in chronological order for when they were posted. The default view displays all reviews and you can filter through the reviews by star rating using the **rating filter** in the dropdown menu. Additionally, you can search by keywords that appear in the review.  
+:::image type="content" source="media/ratings-reviews/menu-elipsis.png" alt-text="Screenshot showing the Filters menu on the Insights screen of the Ratings and Reviews dashboard.":::
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/analyze-reviews.png" alt-text="Illustrates Partner Center analyze review comments" lightbox="media/marketplace-publisher-guide-rating-reviews/analyze-reviews.png":::
+## Review comments
 
-### Respond to a review
+Reviews appear in chronological order as posted. The default view displays all reviews; filter reviews by star rating using the **rating filter** in the dropdown menu. Additionally, you can search by keywords that appear in the review.  
 
-You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
+:::image type="content" source="media/ratings-reviews/review-contact.png" alt-text="Screenshot showing a sample review for an app in the commercial marketplace." :::
 
-To respond to a review, follow these steps:
+## Respond to a review
 
-#### [Workspaces view](#tab/workspaces-view)
+Your response will be visible on either the AppSource or Azure Marketplace storefront. This applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
 
-1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating.
+:::image type="content" source="media/ratings-reviews/review-respond.png" alt-text="Screenshot showing a sample review edit dialog box for an offer in the commercial marketplace.":::
 
-    [![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
+To respond to a review:
 
-1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
+1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can use **filters** to narrow the list of reviews, such as only those with a specific star rating.
 
-The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
+1. Select the **Reply** link for the review you wish to respond to, enter your reply in the **Reply here** text box, then select **Submit**.
 
-#### [Current view](#tab/current-view)
+The response will appear under the text of the original review in the product detail page in the storefront:
 
-1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
+### Microsoft AppSource
 
-    :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png" alt-text="Illustrates the ratings and review in AppSource" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
+:::image type="content" source="media/ratings-reviews/review-appsource.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Microsoft Appsource." lightbox="media/ratings-reviews/review-appsource.png":::
 
-1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
+### Azure Marketplace
 
-The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
-
----
-
-#### AppSource
-
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png" alt-text="Illustrates AppSource review response" lightbox="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png":::
-
-#### Azure Marketplace online store
-
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png" alt-text="Illustrates Azure Marketplace online store reply" lightbox="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png":::
+:::image type="content" source="media/ratings-reviews/review-azure.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Azure Marketplace." lightbox="media/ratings-reviews/review-azure.png":::
 
 ### Editing or deleting a response to a review
 
-You can edit or delete a response to a review by selecting **Edit** or **Delete**.
+You can **Edit** or **Delete** a response to a review.
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply":::
+:::image type="content" source="media/ratings-reviews/review-edit.png" alt-text="Screenshot showing the Edit and Delete review buttons for an offer in the commercial marketplace.":::
 
 ### Contacting users after a review has been posted
 
-When posting a review, a user can give consent to be contacted by the publisher. When a user has given consent, a notification will appear at the top of the review in Partner Center, and the email address of the user who posted the review will be visible.
+If, while posting a review, a user gives consent to be contacted by the publisher, a notification appears at the top of the review in Partner Center and the user's email is visible.
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png" alt-text="Illustrates contacting a consenting customer":::
+:::image type="content" source="media/ratings-reviews/review-contact.png" alt-text="Screenshot showing the notification and email address of a user who consented to contact when leaving their review.":::
 
 ## Next steps
 

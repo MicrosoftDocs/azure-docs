@@ -2,11 +2,11 @@
 title: Rewrite HTTP headers in Azure Application Gateway
 description: This article provides information on how to rewrite HTTP headers in Azure Application Gateway by using Azure PowerShell
 services: application-gateway
-author: KumudD
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: kumud 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell

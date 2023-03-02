@@ -1,10 +1,10 @@
 ---
-title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
+title: Learn about asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Describes how to use the Azure Analysis Services REST API to code asynchronous refresh of model data.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 
@@ -40,7 +40,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 
 By using the base URL, resources and operations can be appended based on the following parameters: 
 
-![Async refresh](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
+![Diagram that shows asynchronous refresh logic.](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
 - Anything that ends in **s** is a collection.
 - Anything that ends with **()** is a function.

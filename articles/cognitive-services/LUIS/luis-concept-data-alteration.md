@@ -5,10 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
 # Alter utterance data before or during prediction
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 LUIS provides ways to manipulate the utterance before or during the prediction. These include [fixing spelling](luis-tutorial-bing-spellcheck.md), and fixing timezone issues for prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md).
 
 ## Correct spelling errors in utterance
@@ -111,5 +115,4 @@ int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
+[Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)

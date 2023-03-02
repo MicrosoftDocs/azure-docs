@@ -1,12 +1,12 @@
 ---
 title: Connect different data sources to Metrics Advisor
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Add different data feeds to Metrics Advisor
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
@@ -46,7 +46,6 @@ Use this article to find the settings and requirements for connecting different 
 |[MongoDB](#mongodb) | Basic |
 |[MySQL](#mysql) | Basic |
 |[PostgreSQL](#pgsql) | Basic|
-|[Local files (CSV)](#csv) | Basic|
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
@@ -116,11 +115,11 @@ The following sections specify the parameters required for all authentication ty
 
 * **JSON format version**: Defines the data schema in the JSON files. Metrics Advisor supports the following versions. You can choose one to fill in the field:
   
-   * **v1** (default value)
+   * **v1** 
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
-      ``` JSON
+      ```json
       {"count":11, "revenue":1.23}
       ```
 
@@ -128,7 +127,7 @@ The following sections specify the parameters required for all authentication ty
 
       The metrics *Dimensions* and *timestamp* are also accepted. For example:
       
-      ``` JSON
+      ```json
       [
         {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
         {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
@@ -139,7 +138,7 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection string**: The connection string to access your Azure Cosmos DB. This can be found in the Azure Cosmos DB resource in the Azure portal, in **Keys**. For more information, see [Secure access to data in Azure Cosmos DB](../../cosmos-db/secure-access-to-data.md).
+* **Connection string**: The connection string to access your Azure Cosmos DB instance. This can be found in the Azure Cosmos DB resource in the Azure portal, in **Keys**. For more information, see [Secure access to data in Azure Cosmos DB](../../cosmos-db/secure-access-to-data.md).
 * **Database**: The database to query against. In the Azure portal, under **Containers**, go to **Browse** to find the database.
 * **Collection ID**: The collection ID to query against. In the Azure portal, under **Containers**, go to **Browse** to find the collection ID.
 * **SQL query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
@@ -181,7 +180,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         You can create a managed identity in the Azure portal for your Azure Data Explorer (Kusto). Select **Permissions** > **Add**. The suggested role type is: **admin / viewer**.
         
@@ -195,13 +194,13 @@ The following sections specify the parameters required for all authentication ty
      
 * **Query**: To get and formulate data into multi-dimensional time series data, see [Kusto Query Language](/azure/data-explorer/kusto/query). You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Sample query:
+  Sample query:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
+  For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -266,7 +265,7 @@ The following sections specify the parameters required for all authentication ty
 
    Metrics Advisor supports the data schema in the JSON files, as in the following example:
 
-   ``` JSON
+   ```json
    [
      {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
      {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
@@ -289,8 +288,9 @@ The following sections specify the parameters required for all authentication ty
     
     Valid messages are as follows:
 
-    ``` JSON
-    Single JSON object 
+    Single JSON object:
+
+    ```json
     {
     "metric_1": 234, 
     "metric_2": 344, 
@@ -298,9 +298,10 @@ The following sections specify the parameters required for all authentication ty
     "dimension_2": "name_2"
     }
     ```
-        
-    ``` JSON
-    JSON array 
+
+    JSON array:
+
+    ```json
     [
         {
             "timestamp": "2020-12-12T12:00:00", "temperature": 12.4,
@@ -410,7 +411,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         ```
     
         > [!NOTE]
-        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
             
         Here's an example of a connection string: 
        
@@ -533,16 +534,6 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
     ```
     For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
     
-## <span id="csv">Local files (CSV)</span>
-
-> [!NOTE]
-> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV, and performs anomaly detection on single time series data. For analyzing multi-dimensional metrics, including real-time data ingestion, anomaly notification, root cause analysis, and cross-metric incident analysis, use other supported data sources.
-
-**Requirements on data in CSV:**
-- Have at least one column, which represents measurements to be analyzed. For a better and quicker user experience, try a CSV file that contains two columns: a timestamp column and a metric column. The timestamp format should be as follows: `2021-03-30T00:00:00Z`, and the `seconds` part is best to be `:00Z`. The time granularity between every record should be the same.
-- The timestamp column is optional. If there's no timestamp, Metrics Advisor will use timestamp starting from today (`00:00:00` Coordinated Universal Time). The service maps each measure in the row at a one-hour interval.
-- There is no re-ordering or gap-filling happening during data ingestion. Make sure that your data in the CSV file is ordered by the timestamp ordering **ascending (ASC)**.
- 
 ## Next steps
 
 * While you're waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).

@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create an Azure private link service using Azure PowerShell'
-description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell
+title: 'Quickstart: Create an Azure private link service - Azure PowerShell'
+description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell.
 services: private-link
 author: asudbring
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 01/24/2021
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 02/02/2023
+ms.author: allensu
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
+#Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ---
+
 # Quickstart: Create a Private Link service using Azure PowerShell
 
 Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
@@ -48,7 +48,6 @@ In this section, you create a virtual network and subnet to host the load balanc
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -132,6 +131,30 @@ New-AzLoadBalancer @loadbalancer
 
 ```
 
+## Disable network policy
+
+Before a private link service can be created in the virtual network, the setting `privateLinkServiceNetworkPolicies` must be disabled.
+
+* Disable the network policy with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork).
+
+```azurepowershell-interactive
+## Place the subnet name into a variable. ##
+$subnet = 'mySubnet'
+
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'CreatePrivLinkService-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Set the policy as disabled on the virtual network. ##
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $subnet}).privateLinkServiceNetworkPolicies = "Disabled"
+
+## Save the configuration changes to the virtual network. ##
+$vnet | Set-AzVirtualNetwork
+```
+
 ## Create a private link service
 
 In this section, create a private link service that uses the Standard Azure Load Balancer created in the previous step.
@@ -140,7 +163,7 @@ In this section, create a private link service that uses the Standard Azure Load
 
 * Create the private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice).
 
-```azurepowershell
+```azurepowershell-interactive
 ## Place the virtual network into a variable. ##
 $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreatePrivLinkService-rg'
 
@@ -186,7 +209,6 @@ In this section, you'll map the private link service to a private endpoint. A vi
 $subnet = @{
     Name = 'mySubnetPE'
     AddressPrefix = '11.1.0.0/24'
-    PrivateEndpointNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -209,8 +231,6 @@ $vnetpe = New-AzVirtualNetwork @net
 * Use [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) to create the connection configuration.
 
 * Use [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) to create the endpoint.
-
-
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
@@ -264,6 +284,7 @@ $par2 = @{
     ServiceName = 'myPrivateLinkService'
     ResourceGroupName = 'CreatePrivLinkService-rg'
     Description = 'Approved'
+    PrivateLinkResourceType = 'Microsoft.Network/privateLinkServices'
 }
 Approve-AzPrivateEndpointConnection @par2
 
@@ -288,7 +309,7 @@ $pe = Get-AzPrivateEndpoint @par1
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 ```
 
-```bash
+```powershell
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 11.1.0.4
 ```
@@ -306,9 +327,9 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
+
 * Created a private link service
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Private Endpoint using Azure Powershell](create-private-endpoint-powershell.md)
-
+> [Quickstart: Create a Private Endpoint using Azure PowerShell](create-private-endpoint-powershell.md)

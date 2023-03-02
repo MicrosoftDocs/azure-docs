@@ -4,10 +4,10 @@ description: Learn how to access information about your licenses using the Licen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
+author: saurabhsharmaa
+ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 09/27/2021
+ms.date: 02/20/2023
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -20,79 +20,56 @@ This article provides information about the License dashboard in the commercial 
 - Number of licenses purchased and deployed by the customer
 - Distribution of licenses across countries and regions
 
-## Check license usage
+### License page dashboard filters
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+:::image type="content" source="./media/license-dashboard/button-filters.png" alt-text="Screenshot of filter selections on the Insights screen of the License dashboard.":::
 
-#### [Workspaces view](#tab/workspaces-view)
+The page has dashboard-level filters for the following:
 
-To check license usage of ISV apps in Partner Center, do the following:
+- Offer type
+- Offer name
+- Offer plan name
+- Customer name
+- Country
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, select **License**.
-
-    [ ![Screenshot of the License dashboard in Partner Center.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-To check license usage of ISV apps in Partner Center, do the following:
-
-1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **License**.
-
-:::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Screenshot of the License dashboard in Partner Center.":::
-
----
-
-## Elements of the License dashboard
-
-The following sections describe how to use the License dashboard and how to read the data.
-
-## Month range
-
-You can find a month range selection at the top-right corner of the page. Customize the output of the widgets on the page by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
-
-#### [Workspaces view](#tab/workspaces-view) 
-
-[ ![Screenshot of the month range selections on the License dashboard in Partner Center.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
-
-#### [Current view](#tab/current-view) 
-
-:::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Screenshot of the month range selections on the License dashboard in Partner Center.":::
-
----
+Each filter is expandable with multiple options that are dynamic based on the selected date range.
 
 ## Customers widget
 
 The _Customers widget_ shows the current number of customers. The trend chart shows the month-over-month number of customers.
 
-:::image type="content" source="./media/license-dashboard/customers-widget.png" alt-text="Screenshot of the Customers widget on the License dashboard in Partner Center.":::
+![Screenshot of the Customers widget on the Insights screen of the License dashboard.](./media/license-dashboard/customers-widget.png)
+
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## License widget
 
-The _License widget_ shows the current number of provisioned and assigned licenses. The trend chart shows the month-over-month number of provisioned and assigned licenses. You can view the data for the last 6 months or 12 months. You can also choose a custom date range by selecting on the **Custom** link in the upper right of the page.
+This widget shows the current number of provisioned and assigned licenses. The trend chart shows the month-over-month number of provisioned and assigned licenses. View the data for the last **six** or **12** months, or choose a **custom** date range.
 
-:::image type="content" source="./media/license-dashboard/license-widget.png" alt-text="Screenshot of the License widget on the License dashboard in Partner Center.":::
+![Screenshot of the License widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-widget.png)
+
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## Analysis widget
 
 The _Analysis widget_ shows the number and percentage of provisioned and assigned licenses per offer and plan. The trend chart shows the month-over-month number of provisioned and assigned licenses. Using this widget, you can filter the data by Customers or Products.
 
-:::image type="content" source="./media/license-dashboard/analysis-widget.png" alt-text="Screenshot of the Analysis widget on the License dashboard in Partner Center.":::
+![Screenshot of the Analysis widget on the Insights screen of the License dashboard.](./media/license-dashboard/analysis-widget.png)
+
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## License Distribution widget
 
 The _License Distribution_ widget shows the distribution of licenses across different countries and regions. The colored regions show where the user licenses are distributed. To revert to the default view, select the **Reset zoom** button (Home icon) in the widget.
 
-:::image type="content" source="./media/license-dashboard/license-distribution.png" alt-text="Screenshot of the License Distribution widget on the License dashboard in Partner Center.":::
+![Screenshot of the License Distribution widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-distribution.png)
+
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## Data terms in License report downloads
 
-You can use the download icon in the upper-right corner of any widget to download the data.
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
 
 | Attribute name | Definition |
 | ------------ | ------------- |
@@ -108,8 +85,7 @@ You can use the download icon in the upper-right corner of any widget to downloa
 | Tenant ID | Unique ID of the tenant |
 | License State | License state |
 | Service ID | Unique identifier used in the package to map the plan with the license checks |
-|||
 
 ## Next steps
 
-- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
+- Overview of analytics reports available in the commercial marketplace: [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).

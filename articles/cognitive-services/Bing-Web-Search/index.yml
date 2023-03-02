@@ -336,7 +336,7 @@ additionalContent:
           - text: Bing Visual Search
             url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
           - text: Bing Spell Check
-            url: /python/api/overview/azure/cognitiveservices/spellcheck
+            url: /python/api/overview/azure/spell-check
       - title: Node.js SDK
         links:
           - text: Bing Web Search
@@ -377,7 +377,7 @@ additionalContent:
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
       - title: Other
         links:
-          - text: Azure Powershell
+          - text: Azure PowerShell
             url: /powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
           - text: Azure CLI
             url: /cli/azure/cognitiveservices#az_cognitiveservices_list

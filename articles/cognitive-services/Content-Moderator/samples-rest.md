@@ -20,7 +20,5 @@ The following list includes links to code samples built using the Azure Content 
 - [Image moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Text moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)
 - [Video moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/VideoModeration)
-- [Image reviews](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageReviews)
-- [Image jobs](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageJob)
 
 For walkthroughs of these samples, check out the [on-demand webinar](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).

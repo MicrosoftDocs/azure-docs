@@ -1,17 +1,16 @@
 ---
 title: "What's new in the Microsoft identity platform docs"
-titleSuffix: Microsoft identity platform
 description: "New and updated documentation for the Microsoft identity platform."
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 10/01/2021
+ms.date: 03/01/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: has-adal-ref
 ---
 
@@ -19,56 +18,48 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## September 2021
+## February 2023
 
 ### New articles
 
-- [Desktop app that calls web APIs: Acquire a token interactively](scenario-desktop-acquire-token-interactive.md)
-- [Desktop app that calls web APIs: Acquire a token using Device Code flow](scenario-desktop-acquire-token-device-code-flow.md)
-- [Desktop app that calls web APIs: Acquire a token using Integrated Windows Authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)
-- [Desktop app that calls web APIs: Acquire a token using Username and Password](scenario-desktop-acquire-token-username-password.md)
-- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
-- [Implement role-based access control in apps](howto-implement-rbac-for-apps.md)
-- [Migrate public client applications from ADAL.NET to MSAL.NET](msal-net-migration-public-client.md)
+- [Frequently asked questions about workload identities license plans](workload-identities-faqs.md)
 
 ### Updated articles
 
-- [Enhance security with the principle of least privilege](secure-least-privileged-access.md)
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Microsoft identity platform videos](identity-videos.md)
-- [National clouds](authentication-national-cloud.md)
-- [Shared device mode for Android devices](msal-android-shared-devices.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-- [Validation differences by supported account types (signInAudience)](supported-accounts-validation.md)
+- [Configure the role claim issued in the SAML token](active-directory-enterprise-app-role-management.md)
+- [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
+- [Overview of shared device mode](msal-shared-devices.md)
+- [Run automated integration tests](test-automate-integration-testing.md)
+- [Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app](tutorial-v2-windows-desktop.md)
 
-## August 2021
+## January 2023
 
 ### New articles
 
-- [Authorization basics](authorization-basics.md)
-- [Create a self-signed public certificate to authenticate your application](howto-create-self-signed-certificate.md)
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](active-directory-jwt-claims-customization.md)
 
 ### Updated articles
 
-- [Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
-- [Microsoft identity platform code samples](sample-v2-code.md)
-- [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
-- [Redirect URI (reply URL) restrictions and limitations](reply-url.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+- [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md)
+- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+- [Customize browsers and WebViews for iOS/macOS](customize-webviews.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
+- [Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS](redirect-uris-ios.md)
 
-## July 2021
+## December 2022
 
 ### New articles
 
-- [Azure AD application registration security best practices](security-best-practices-for-app-registration.md)
-- [Role-based access control for application developers](custom-rbac-for-developers.md)
+- [Block workload identity federation on managed identities using a policy](workload-identity-federation-block-using-azure-policy.md)
+- [Troubleshooting the configured permissions limits](troubleshoot-required-resource-access-limits.md)
 
 ### Updated articles
 
-- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
-- [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
+- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
+- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
+- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
+- [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
+- [Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app](tutorial-blazor-webassembly.md)
+- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
+- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)

@@ -1,20 +1,19 @@
 ---
 title: Plan an Azure Application offer for the commercial marketplace
 description: Plan an Azure application offer for Azure Marketplace using Partner Center.
-author: aarathin
-ms.author: aarathin
-ms.reviewer: dannyevers
+author: macerru
+ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 11/06/2020
+ms.topic: tutorial
+ms.date: 08/18/2022
 ---
 
-# Plan an Azure Application offer
+# Tutorial: Plan an Azure Application offer
 
-This article explains the different options and requirements for publishing an Azure Application offer to the commercial marketplace.
+This tutorial explains how to publish an Azure Application offer to the commercial marketplace, including different options and requirements available to you.
 
-## Before you begin
+## Prerequisites
 
 Designing, building, and testing Azure application offers requires technical knowledge of both the Azure platform and the technologies used to build the offer. Your engineering team should have knowledge about the following Microsoft technologies:
 
@@ -30,7 +29,7 @@ Review the following resources as you plan your Azure application offer for the 
 
 - [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 - Quickstarts:
-    - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
+    - [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     - [Publish application definition](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
     - [Deploy service catalog app](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
@@ -40,8 +39,10 @@ Review the following resources as you plan your Azure application offer for the 
     - [Azure CLI](../azure-resource-manager/managed-applications/cli-samples.md)
     - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
     - [Managed application solutions](../azure-resource-manager/managed-applications/sample-projects.md)
+- Testing resources
+    - [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace)
 
-The video [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
+The video [Building Solution Templates, and Managed Applications for Azure Marketplace](/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
 - What offer types are available
 - What technical assets are required
@@ -65,7 +66,7 @@ We recommend adding the following tools to your development environment:
     - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     - Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-You can review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page. If you are using Visual Studio, see the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+You can review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page. If you're using Visual Studio, see the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
 ## Listing options
 
@@ -84,9 +85,9 @@ You can also read about [test drive best practices](https://github.com/Azure/Azu
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Categories and subcategories
 
@@ -96,14 +97,14 @@ You can choose at least one and up to two categories for grouping your offer int
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
 
-If you choose to use the standard contract, you have the option to add universal amendment terms and up to 10 custom amendments to the standard contract. You can also use your own terms and conditions instead of the standard contract. You will manage these details in the **Properties** page. For detailed information, see [Standard contract for Microsoft commercial marketplace](standard-contract.md).
+If you choose to use the standard contract, you have the option to add universal amendment terms and up to 10 custom amendments to the standard contract. You can also use your own terms and conditions instead of the standard contract. You'll manage these details in the **Properties** page. For detailed information, see [Standard contract for Microsoft commercial marketplace](standard-contract.md).
 
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
 ## Offer listing details
 
-When you create a new Azure Application offer in Partner Center, you will enter text, images, optional videos, and other details on the Offer listing page. This is the information that customers will see when they discover your offer listing in Azure Marketplace, as shown in the following example.
+When you create a new Azure Application offer in Partner Center, you'll enter text, images, optional videos, and other details on the Offer listing page. This is the information that customers will see when they discover your offer listing in Azure Marketplace, as shown in the following example.
 
 :::image type="content" source="media/create-new-azure-app-offer/example-azure-marketplace-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
@@ -135,12 +136,12 @@ The following screenshot shows how offer information appears in the Azure portal
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence, in plain text with no line breaks, in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
 - **Short description**: Provide up to 256 characters of plain text. This summary will appear on your offer's details page.
 - **Description**: This description will be displayed in the Azure Marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, customer need or pain that the offer addresses, any required disclosures, and a link to learn more.
 
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description) and [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, which includes HTML markup and spaces. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description) and [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online store. For best results, also use these keywords in your description. You don't need to include the offer **Name** and **Description**. That text is automatically included in search.
 - **Privacy policy link**: The URL for your company's privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
@@ -194,18 +195,18 @@ For managed applications that emit metering events using the [Marketplace meteri
 
 This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
-- **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
-- **Azure Active Directory application ID** (required): You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory application ID** (required): You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You'll need to provide a description and duration and will then be provided a number value.
 
 > [!NOTE]
 > The Azure application ID will be associated to your publisher ID and can only be re-used within this publisher account.
 
 ## Additional sales opportunities
 
-You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
+You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you'll see two tabs toward the end of the process:
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](./cloud-solution-providers.md) for more information.
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers' needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](./co-sell-configure.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers' needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](/partner-center/co-sell-configure?context=/azure/marketplace/context/context). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 To learn more, see [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
@@ -219,14 +220,20 @@ For general guidance about plans, including pricing models, and private plans, s
 
 There are two kinds of Azure application plans: _solution template_ and _managed application_. Both plan types support automating the deployment and configuration of a solution beyond a single virtual machine (VM). You can automate the process of providing multiple resources, including VMs, networking, and storage resources to provide complex solutions, such as IaaS solutions. Both plan types can employ many different kinds of Azure resources, including but not limited to VMs.
 
-- **Solution template** plans are one of the main ways to publish a solution in the commercial marketplace. Solution template plans are not transactable in the commercial marketplace, but they can be used to deploy paid VM offers that are billed through the commercial marketplace. Use the solution template plan type when the customer will manage the solution and the transactions are billed through another plan. For more information about building solution templates, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
+- **Solution template** plans are one of the main ways to publish a solution in the commercial marketplace. Solution template plans aren't transactable in the commercial marketplace, but they can be used to deploy paid VM offers that are billed through the commercial marketplace. Use the solution template plan type when the customer will manage the solution and the transactions are billed through another plan. For more information about building solution templates, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 - **Managed application** plans enable you to easily build and deliver fully managed, turnkey applications for your customers. They have the same capabilities as solution template plans, with some key differences:
     - The resources are deployed to a resource group and are managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. 
     - As the publisher, you specify the cost for ongoing support of the solution and transactions are supported through the commercial marketplace.
  
-    Use the managed application plan type when you or your customer requires that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](../azure-resource-manager/managed-applications/overview.md).
+    Use the managed application plan type when you or your customer requires that the solution is managed by a partner or you'll deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](../azure-resource-manager/managed-applications/overview.md).
 
 ## Next steps
 
 - To plan a solution template, see [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
 - To plan an Azure managed application, see [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).
+
+**Video tutorials and hands-on labs**
+
+- [Mastering Azure Managed Application offers](https://go.microsoft.com/fwlink/?linkid=2201395)
+- [Metered Billing for Azure Managed Applications – Demo](https://go.microsoft.com/fwlink/?linkid=2196412)
+- [Azure Managed Application Deployment Package Overview](https://go.microsoft.com/fwlink/?linkid=2196244)

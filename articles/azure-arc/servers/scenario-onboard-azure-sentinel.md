@@ -1,27 +1,27 @@
 ---
-title: Onboard Azure Arc-enabled server to Azure Sentinel
-description: Learn how to add your Azure Arc-enabled servers to Azure Sentinel and proactively monitor their security status.
+title: Onboard Azure Arc-enabled server to Microsoft Sentinel
+description: Learn how to add your Azure Arc-enabled servers to Microsoft Sentinel and proactively monitor their security status.
 ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
-# Onboard Azure Arc-enabled servers to Azure Sentinel
+# Onboard Azure Arc-enabled servers to Microsoft Sentinel
 
-This article is intended to help you onboard your Azure Arc-enabled server to [Azure Sentinel](../../sentinel/overview.md) and start collecting security-related events. Azure Sentinel provides a single solution for alert detection, threat visibility, proactive hunting, and threat response across the enterprise.
+This article is intended to help you onboard your Azure Arc-enabled server to [Microsoft Sentinel](../../sentinel/overview.md) and start collecting security-related events. Microsoft Sentinel provides a single solution for alert detection, threat visibility, proactive hunting, and threat response across the enterprise.
 
 ## Prerequisites
 
 Before you start, make sure that you've met the following requirements:
 
-- A [Log Analytics workspace](../../azure-monitor/logs/data-platform-logs.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/design-logs-deployment.md).
+- A [Log Analytics workspace](../../azure-monitor/logs/data-platform-logs.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/workspace-design.md).
 
-- Azure Sentinel [enabled in your subscription](../../sentinel/quickstart-onboard.md).
+- Microsoft Sentinel [enabled in your subscription](../../sentinel/quickstart-onboard.md).
 
-- You're machine or server is connected to Azure Arc-enabled servers.
+- Your machine or server is connected to Azure Arc-enabled servers.
 
-## Onboard Azure Arc-enabled servers to Azure Sentinel
+## Onboard Azure Arc-enabled servers to Microsoft Sentinel
 
-Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration. For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Azure Sentinel. Azure Arc-enabled servers supports deploying the Log Analytics agent using the following methods:
+Microsoft Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration. For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Microsoft Sentinel. Azure Arc-enabled servers supports deploying the Log Analytics agent using the following methods:
 
 - Using the VM extensions framework.
 
@@ -38,8 +38,8 @@ Azure Sentinel comes with a number of connectors for Microsoft solutions, availa
 
 We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
-After your Arc-enabled servers are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](../../sentinel/get-visibility.md) and start building queries in Log Analytics to [investigate the data](../../sentinel/investigate-cases.md).
+After your Arc-enabled servers are connected, your data starts streaming into Microsoft Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](../../sentinel/get-visibility.md) and start building queries in Log Analytics to [investigate the data](../../sentinel/investigate-cases.md).
 
 ## Next steps
 
-Get started [detecting threats with Azure Sentinel](../../sentinel/detect-threats-built-in.md).
+Get started [detecting threats with Microsoft Sentinel](../../sentinel/detect-threats-built-in.md).

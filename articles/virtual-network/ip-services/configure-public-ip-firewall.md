@@ -7,8 +7,8 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/28/2021
-ms.custom: template-how-to 
+ms.date: 02/03/2023
+ms.custom: FY23 content-maintenance
 ---
 
 # Manage a public IP address with Azure Firewall
@@ -20,7 +20,7 @@ In this article, you'll learn how to create an Azure Firewall using an existing 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Three standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
+- Three standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 
 ## Create Azure Firewall existing public IP
@@ -46,9 +46,10 @@ In this section, you'll create an Azure Firewall. You'll select the IP address y
     | Name | Enter **myFirewall**. |
     | Region | Select **West US 2**. |
     | Availability zone | Leave the default of **None**. |
-    | Firewall tier  | Leave the default of **Standard**. |
+    | Firewall SKU  | Select **Standard**. |
     | Firewall management | Leave the default of **Use a Firewall Policy to manage this firewall**.|
-    | Firewall policy | Select **Add new**. </br> Enter **myFirewallPolicy** in **Policy name**. </br> In **Region** select **West US 2**. </br> Select **Yes**. |
+    | Firewall policy | Select **Add new**. </br> Enter **myFirewallPolicy** in **Policy name**. </br> In **Region** select **West US 2**. </br> </br> In **Policy tier** leave default of **Standard**. </br> Select **Yes**. |
+    | Choose a virtual network | Leave default of **Create new**. |
     | Virtual network name | Enter **myVNet**. |
     | Address space | Enter **10.0.0.0/16**. |
     | Subnet address space | Enter **10.0.0.0/26**. |
@@ -67,7 +68,7 @@ In this section, you'll create an Azure Firewall. You'll select the IP address y
 
 ## Change public IP address
 
-In this section, you'll change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration. 
+In this section, you'll change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration.  The firewall's existing IP must not have any DNAT rules associated with it or the IP can't be updated.
 
 1. In the search box at the top of the portal, enter **Firewall**.
 
@@ -116,5 +117,5 @@ In this section, you'll add a public IP configuration to the Azure Firewall. For
 
 In this article, you learned how to create an Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
 
-- To learn more about public IP addresses in Azure, see [Public IP addresses](../../virtual-network/public-ip-addresses.md).
+- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).
 - To learn more about Azure Firewall, see [What is Azure Firewall?](../../firewall/overview.md).

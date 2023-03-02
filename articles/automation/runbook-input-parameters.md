@@ -111,6 +111,9 @@ Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks 
 For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
+>[!NOTE]
+>Arguments with spaces are currently not supported. As a workaround, you could use \\\t in addition to \\\n.
+
 ## Assign values to input parameters in runbooks
 
 This section describes several ways to pass values to input parameters in runbooks. You can assign parameter values when you:
@@ -160,56 +163,56 @@ In the label beneath the input box, you can see the properties that have been se
 
 * **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
 
-   ```csharp
-   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  ```csharp
+  public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  {
+    var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
+    {
+      Properties = new JobCreateProperties
       {
-        var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
-         {
-            Properties = new JobCreateProperties
-             {
-                Runbook = new RunbookAssociationProperty
-                 {
-                   Name = runbookName
-                 },
-                   Parameters = parameters
-             }
-         });
-      return response.Job;
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
       }
-   ```
+    });
+    return response.Job;
+  }
+  ```
 
 * **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
 
-   ```csharp
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-    {
-      var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
+  {
+    var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
     {
       Properties = new JobCreateProperties
-         {
-           Runbook = new RunbookAssociationProperty
-         {
-           Name = runbookName
-              },
-                Parameters = parameters
-              }
-       });
-      return response.Job;
-    }
-   ```
+      {
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
+      }
+    });
+    return response.Job;
+  }
+  ```
 
-   To start this method, create a dictionary to store the runbook parameters `VMName` and  `resourceGroupName` and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
+  To start this method, create a dictionary to store the runbook parameters `VMName` and  `resourceGroupName` and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
 
-   ```csharp
-   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+  ```csharp
+  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-   // Add parameters to the dictionary.
+  // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-   RunbookParameters.Add("resourceGroupName", "WSSC1");
+  RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-   //Call the StartRunbook method with parameters
-   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-   ```
+  //Call the StartRunbook method with parameters
+  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+  ```
 
 #### Start a runbook using the REST API and assign parameters
 

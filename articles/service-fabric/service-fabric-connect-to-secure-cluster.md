@@ -1,11 +1,14 @@
 ---
 title: Connect securely to an Azure Service Fabric cluster 
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
-
-ms.topic: conceptual
-ms.date: 01/29/2019
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Connect to a secure cluster
 
 When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
@@ -234,7 +237,10 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../active-directory/develop/msal-migration.md) for more details.
+
+For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

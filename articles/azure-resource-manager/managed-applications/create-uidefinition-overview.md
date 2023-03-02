@@ -1,11 +1,11 @@
 ---
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # CreateUiDefinition.json for Azure managed application's create experience

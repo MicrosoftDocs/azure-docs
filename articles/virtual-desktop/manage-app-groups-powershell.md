@@ -30,7 +30,7 @@ This article assumes you've followed the instructions in [Set up the PowerShell 
 
 This article assumes you've already set up your environment for the Azure CLI, and that you've signed in to your Azure account.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
@@ -114,7 +114,7 @@ To create a RemoteApp group with PowerShell:
 
 To create a RemoteApp group with the Azure CLI:
 
-1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) command to create a new remote application group:
+1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az-desktopvirtualization-applicationgroup-create) command to create a new remote application group:
 
    ```azurecli
    az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \

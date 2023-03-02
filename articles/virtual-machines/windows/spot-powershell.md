@@ -1,14 +1,14 @@
 ---
 title: Use PowerShell to deploy Azure Spot Virtual Machines
 description: Learn how to use Azure PowerShell to deploy Azure Spot Virtual Machines to save on costs.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.author: cynthn
-ms.reviewer: jagaveer 
+ms.author: jushiman
+ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -48,7 +48,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $locati
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
@@ -77,7 +77,7 @@ You can simulate an eviction of an Azure Spot Virtual Machine using REST, PowerS
 
 In most cases, you will want to use the REST API [Virtual Machines - Simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction) to help with automated testing of applications. For REST, a `Response Code: 204` means the simulated eviction was successful. You can combine simulated evictions with the [Scheduled Event service](scheduled-events.md), to automate how your app will respond when the VM is evicted.
 
-To see scheduled events in action, watch [Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
+To see scheduled events in action, watch Azure Friday - [Using Azure Scheduled Events to prepare for VM maintenance](https://youtu.be/ApsoXLVg_0U).
 
 
 ### Quick test

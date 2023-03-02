@@ -1,14 +1,15 @@
 ---
-title: Query folders and multiple files using serverless SQL pool  
+title: Query folders and multiple files using serverless SQL pool
 description: Serverless SQL pool supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
-services: synapse analytics 
-author: azaricstefan 
-ms.service: synapse-analytics 
+services: synapse analytics
+author: azaricstefan
+ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun
+ms.custom: ignite-fall-2021
 ---
 
 # Query folders and multiple files  
@@ -61,6 +62,34 @@ SELECT
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
         BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        payment_type INT 10,
+        fare_amount FLOAT 11
+    ) AS nyc
+GROUP BY payment_type
+ORDER BY payment_type;
+```
+
+> [!NOTE]
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
+
+### Read subset of files in folder using multiple file paths
+
+The example below reads the 2017 NYC Yellow Taxi data files from the *csv/taxi* folder using 2 file paths first one with full path to the file containing data from month January and second with a wildcard reading months November and December which returns the total fare amount per payment type.
+
+```sql
+SELECT 
+    payment_type,  
+    SUM(fare_amount) AS fare_total
+FROM OPENROWSET(
+        BULK (
+            'csv/taxi/yellow_tripdata_2017-01.csv',
+            'csv/taxi/yellow_tripdata_2017-1*.csv'
+        ),
         DATA_SOURCE = 'sqlondemanddemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
@@ -178,7 +207,7 @@ Since you have only one folder that matches the criteria, the query result is th
 
 ## Traverse folders recursively
 
-Serverless SQL pool can recursively traverse folders if you specify /** at the end of path. The following query will read all files from all folders and subfolders located in the *csv* folder.
+Serverless SQL pool can recursively traverse folders if you specify /** at the end of path. The following query will read all files from all folders and subfolders located in the *csv/taxi* folder.
 
 ```sql
 SELECT

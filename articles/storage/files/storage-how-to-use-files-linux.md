@@ -1,22 +1,22 @@
 ---
-title: Mount SMB Azure file share on Linux | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
-author: roygara
+title: Mount SMB Azure file share on Linux
+description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2021
-ms.author: rogarana
+ms.date: 01/10/2023
+ms.author: kendownie
 ms.subservice: files
 ---
 
 # Mount SMB Azure file share on Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
-| Distribution | SMB 3.1.1 | SMB 3.0 |
+| Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
-| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
 | [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
@@ -29,7 +29,7 @@ uname -r
 ```
 
 > [!Note]  
-> SMB 2.1 support was added to Linux kernel version 3.7. If you are using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+> SMB 2.1 support was added to Linux kernel version 3.7. If you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -71,9 +71,9 @@ uname -r
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions in this article are for the Azure CLI.
+* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace `<your-resource-group>` and `<your-storage-account>` then run the following script:
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - make sure your firewall or ISP isn't blocking TCP port 445 from the client machine.  Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -83,8 +83,8 @@ uname -r
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
+        --query "primaryEndpoints.file" --output tsv | tr -d '"')
+    smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})
     fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
@@ -92,11 +92,11 @@ uname -r
 
     If the connection was successful, you should see something similar to the following output:
 
-    ```ouput
+    ```output
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
-    If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
+    If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
 ## Mount the Azure file share on-demand with mount
 When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
@@ -120,61 +120,61 @@ Next, mount the file share using the `mount` command. In the following example, 
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.  
 
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 3.0](#tab/smb30)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 2.1](#tab/smb21)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 ---
 
-You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
 
-You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
+You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
 When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
@@ -184,7 +184,7 @@ mntRoot="/mount"
 sudo mkdir -p $mntRoot
 ```
 
-To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
+To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
@@ -203,7 +203,7 @@ sudo mkdir -p "/etc/smbcredentials"
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 # Create the credential file for this individual storage account
 smbCredentialFile="$credentialRoot/$storageAccountName.cred"
@@ -232,15 +232,18 @@ sudo mkdir -p $mntPath
 
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
+> [!Tip]
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
+
 ```bash
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
+    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
 else
     echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
 fi
@@ -285,7 +288,7 @@ fileShareName="<file-share-name>"
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares
@@ -299,9 +302,33 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
+## Mount a file share snapshot
+
+If you want to mount a specific snapshot of an SMB Azure file share, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
+
+After you've created the file share snapshot, following these instructions to mount it.
+
+1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
+2. Select **Data storage > File shares** and select the file share.
+3. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name will be a GMT timestamp, such as in the screenshot below.
+   
+   :::image type="content" source="media/storage-how-to-use-files-linux/mount-snapshot.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
+   
+4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
+5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
+   
+   ```bash
+   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
+   ```
+   
+6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
+
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md).
+
 ## Next steps
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
-- [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Troubleshoot general NFS issues on Linux](files-troubleshoot-linux-nfs.md)

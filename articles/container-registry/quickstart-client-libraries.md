@@ -1,12 +1,13 @@
 ---
 title: Quickstart - Manage container registry content with client libraries
 description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client libraries
-author: dlepow
 ms.topic: quickstart
-ms.date: 10/05/2021
-ms.author: danlep
-ms.custom:
-zone_pivot_groups: programming-languages-set-ten       
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+zone_pivot_groups: programming-languages-set-ten
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries

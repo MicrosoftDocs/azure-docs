@@ -4,11 +4,10 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: normesta
 
 ms.author: normesta
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
@@ -68,19 +67,21 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
 - Each blob can have up to 10 blob index tags
 
-- Tag keys must be between one and 128 characters
+- Tag keys must be between one and 128 characters.
 
-- Tag values must be between zero and 256 characters
+- Tag values must be between zero and 256 characters.
 
-- Tag keys and values are case-sensitive
+- Tag keys and values are case-sensitive.
 
-- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings
+- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings.
+
+- If versioning is enabled, index tags are applied to a specific version of blob. If you set index tags on the current version, and a new version is created, then the tag won't be associated with the new version. The tag will be associated only with the previous version.
 
 - Tag keys and values must adhere to the following naming rules:
 
@@ -140,7 +141,7 @@ The below table shows all the valid operators for `Find Blobs by Tags`:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 | @container | Scope to a specific container | `@container = 'videofiles' AND "status" = 'done'` |
 
@@ -166,7 +167,7 @@ The below table shows the valid operators for conditional operations:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 |     OR     | Logical or   | `"Status" = 'Done' OR "Priority" >= '05'` |
 
@@ -183,7 +184,7 @@ Using the `blobIndexMatch` as a rule filter in lifecycle management, you can mov
 
 You can set a blob index match as a standalone filter set in a lifecycle rule to apply actions on tagged data. Or you can combine both a prefix and a blob index to match more specific data sets. Specifying multiple filters in a lifecycle rule applies a logical AND operation. The action will only apply if *all* filter criteria match.
 
-The following sample lifecycle management rule applies to block blobs in a container called *videofiles*. The rule tiers blobs to archive storage only if the data matches the blob index tag criteria of `"Status" == 'Processed' AND "Source" == 'RAW'`.
+The following sample lifecycle management rule applies to block blobs in a container called `videofiles`. The rule tiers blobs to archive storage only if the data matches the blob index tag criteria of `"Status" == 'Processed' AND "Source" == 'RAW'`.
 
 # [Portal](#tab/azure-portal)
 
@@ -262,21 +263,32 @@ Additional permissions, separate from the underlying blob data, are required for
 
 Callers using a [shared access signature (SAS)](../common/storage-sas-overview.md) may be granted scoped permissions to operate on blob index tags.
 
-#### Blob SAS
+#### Service SAS for a blob
 
-The following permissions may be granted in a blob SAS to allow access to blob index tags. Blob read and write permissions alone aren't enough to allow reading or writing its index tags.
+The following permissions may be granted in a service SAS for a blob to allow access to blob index tags. The blob read (`r`) and write (`w`) permissions alone aren't enough to allow reading or writing its index tags.
 
 | Permission | URI symbol | Allowed operations                |
 |------------|------------|-----------------------------------|
 | Index tags |     t      | Get and set index tags for a blob |
 
-#### Container SAS
+#### Service SAS for a container
 
-The following permissions may be granted in a container SAS to allow filtering on blob tags. The `Blob List` permission isn't enough to allow filtering blobs by their index tags.
+The following permissions may be granted in a service SAS for a container to allow filtering on blob tags. The blob list (`i`) permission isn't enough to allow filtering blobs by their index tags.
 
 | Permission | URI symbol | Allowed operations         |
 |------------|------------|----------------------------|
 | Index tags |     f      | Find blobs with index tags |
+
+#### Account SAS
+
+The following permissions may be granted in an account SAS to allow access to blob index tags and filtering on blob tags. 
+
+| Permission | URI symbol | Allowed operations                |
+|------------|------------|-----------------------------------|
+| Index tags |     t      | Get and set index tags for a blob |
+| Index tags |     f      | Find blobs with index tags |
+
+The blob read (`r`) and write (`w`) permissions alone aren't enough to allow reading or writing its index tags, and the list (`i`) permission isn't enough to allow filtering blobs by their index tags.
 
 ## Choosing between metadata and blob index tags
 
@@ -306,24 +318,17 @@ You're charged for the monthly average number of index tags within a storage acc
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 
-- If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
+- If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
 
 - There is no API to determine if index tags are indexed.
 

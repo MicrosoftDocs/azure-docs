@@ -5,7 +5,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
-
+ms.reviewer: sgilley
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021

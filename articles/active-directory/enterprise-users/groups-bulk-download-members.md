@@ -2,26 +2,26 @@
 title: Bulk download group membership list - Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure admin center. 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: KarenH444
-ms.date: 09/01/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: yuan.karppanen
 ms.collection: M365-identity-device-management
 ---
 
 # Bulk download members of a group in Azure Active Directory
 
-Using Azure Active Directory (Azure AD) portal, you can bulk download the members of a group in your organization to a comma-separated values (CSV) file.
+You can bulk download the members of a group in your organization to a comma-separated values (CSV) file in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra. All admins and non-admin users can download group membership lists.
 
 ## To bulk download group membership
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk download members of groups they own.
+1. Sign in to [the Azure portal](https://portal.azure.com) with an account in the organization.
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group whose membership you want to download, and then select **Members**.
 1. On the **Members** page, select **Download members** to download a CSV file listing the group members.

@@ -57,6 +57,8 @@ landingContent:
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
           - text: Add video calling to your app
             url: quickstarts/voice-video-calling/get-started-with-video-calling.md
+          - text: Add video calling to your WebView app
+            url: quickstarts/voice-video-calling/get-started-webview.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
@@ -67,36 +69,66 @@ landingContent:
             url: concepts/call-flows.md
   - title: UI Library
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with UI Library
+            url: quickstarts/ui-library/get-started-composites.md
       - linkListType: concept
         links:
           - text: UI Library overview
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+      - linkListType: get-started
+        links:
+          - text: Cross-platform samples
+            url: samples/ui-library-cross-platform.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
         links:
           - text: Get a telephone number
-            url: quickstarts/telephony-sms/get-phone-number.md
+            url: quickstarts/telephony/get-phone-number.md
           - text: Send an SMS message
-            url: quickstarts/telephony-sms/send.md
+            url: quickstarts/sms/send.md
           - text: Handle SMS events
-            url: quickstarts/telephony-sms/handle-sms-events.md
+            url: quickstarts/sms/handle-sms-events.md
+          - text: Add PSTN calling
+            url: quickstarts/telephony/pstn-call.md
       - linkListType: concept
         links:
           - text: SMS concepts
-            url: concepts/telephony-sms/concepts.md
+            url: concepts/sms/concepts.md
           - text: SMS SDK overview
-            url: concepts/telephony-sms/sdk-features.md
+            url: concepts/sms/sdk-features.md
           - text: Calling overview
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Phone number types
-            url: concepts/telephony-sms/plan-solution.md
+            url: concepts/telephony/plan-solution.md
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+            url: /training/modules/communication-service-send-sms-console-app/
+  - title: Call Automation
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Handle an inbound phone call
+            url: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+          - text: Build a customer interaction workflow using Call Automation
+            url: quickstarts/call-automation/callflows-for-customer-interactions.md
+          - text: Record calls
+            url: quickstarts/voice-video-calling/get-started-call-recording.md
+      - linkListType: concept
+        links:
+          - text: Learn how Call Automation helps you build calling workflows
+            url: concepts/call-automation/call-automation.md
+          - text: Play audio in calls
+            url: concepts/call-automation/play-action.md
+          - text: Gathering user input
+            url: concepts/call-automation/recognize-action.md
+          - text: Call recording concepts
+            url: concepts/voice-video-calling/call-recording.md           
   - title: Chat
     linkLists:
       - linkListType: quickstart
@@ -109,6 +141,32 @@ landingContent:
             url: concepts/chat/concepts.md
           - text: Chat SDK overview
             url: concepts/chat/sdk-features.md
+  - title: Email
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Email Communication Services resource
+            url: quickstarts/email/create-email-communication-resource.md
+          - text: Add Azure Managed domain
+            url: quickstarts/email/add-azure-managed-domains.md
+          - text: Add Custom domain
+            url: quickstarts/email/add-custom-verified-domains.md
+          - text: Connect domain to send Email
+            url: quickstarts/email/connect-email-communication-resource.md
+          - text: Send an Email
+            url: quickstarts/email/send-email.md
+      - linkListType: concept
+        links:
+          - text: Email concepts
+            url: concepts/email/email-overview.md
+          - text: What is Email Communication Service
+            url: concepts/email/prepare-email-communication-resource.md
+          - text: Email domains and sender authentication
+            url: concepts/email/email-domain-and-sender-authentication.md
+          - text: Best practices for sender authentication support
+            url: concepts/email/email-authentication-best-practice.md
+          - text: Email client library
+            url: concepts/email/sdk-features.md   
   - title: Samples
     linkLists:
       - linkListType: get-started

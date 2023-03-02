@@ -1,10 +1,8 @@
 ---
 title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
@@ -30,7 +28,7 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
    The **FunctionAppLogs** table contains the desired logs.
 
-1. Under **Destination details**, choose **Send to Log Analytics**.and then select your **Log Analytics workspace**. 
+1. Under **Destination details**, choose **Send to Log Analytics** and then select your **Log Analytics workspace**. 
 
 1. Enter a **Diagnostic settings name**, and then select **Save**.
 

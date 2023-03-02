@@ -8,9 +8,8 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
-ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -107,7 +106,7 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 * Provision an [Azure management certificate](/previous-versions/azure/gg551722(v=azure.100)) on the RD Gateway so that it is the only host allowed to access the Azure portal.
 * Join the RD Gateway to the same [management domain](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) as the administrator workstations. This is necessary when you are using a site-to-site IPsec VPN or ExpressRoute within a domain that has a one-way trust to Azure AD, or if you are federating credentials between your on-premises AD DS instance and Azure AD.
 * Configure a [client connection authorization policy](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure portal.
-* Use IPsec for [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+* Use IPsec for [Azure VPN](../../vpn-gateway/index.yml) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](../../expressroute/index.yml).
 * Enable multi-factor authentication (via [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) or smart-card authentication for administrators who log on through RD Gateway.
 * Configure source [IP address restrictions](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../../virtual-network/network-security-groups-overview.md) in Azure to minimize the number of permitted management endpoints.
 
@@ -120,7 +119,7 @@ You can use Azure logon restrictions to constrain source IP addresses for access
 Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](/microsoft-identity-manager/) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
 
 ### Connectivity
-Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) and [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) (P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](/previous-versions/technet-magazine/cc162322(v=msdn.10)) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
+Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, site-to-site VPN (S2S) and [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) (P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](/previous-versions/technet-magazine/cc162322(v=msdn.10)) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
 
 A stand-alone hardened workstation that does not connect to Azure through an RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
 

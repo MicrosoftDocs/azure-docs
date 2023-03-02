@@ -1,22 +1,19 @@
 ---
-title: Route network traffic - Azure CLI | Microsoft Docs
+title: Route network traffic - Azure CLI
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: asudbring
 manager: mtillman
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
-ms.author: kumud
+ms.date: 04/20/2022
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
@@ -34,7 +31,7 @@ Azure automatically routes traffic between all subnets within a virtual network,
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -49,7 +46,7 @@ az group create \
   --location eastus
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -60,7 +57,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -117,7 +114,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *myVmNvaVMNic* and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -132,7 +129,7 @@ az vm create \
 
 The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM. 
 
-For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
+For a network interface myVmNvaVMNic to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -217,8 +214,12 @@ When prompted for a password, enter the password you selected in [Create virtual
 Use the following command to install trace route on the *myVmPrivate* VM:
 
 ```bash
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install traceroute
 ```
+
+
 
 Use the following command to test routing for network traffic to the *myVmPublic* VM from the *myVmPrivate* VM.
 

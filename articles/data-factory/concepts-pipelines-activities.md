@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -17,6 +17,8 @@ ms.date: 09/09/2021
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Current version](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
@@ -33,14 +35,18 @@ An input dataset represents the input for an activity in the pipeline, and an ou
 
 ## Data movement activities
 
-Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. 
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
+Click a data store to learn how to copy data to and from that store.
+
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+
 ## Data transformation activities
 Azure Data Factory and Azure Synapse Analytics support the following transformation activities that can be added either individually or chained with another activity.
+
+For more information, see the [data transformation activities](transform-data.md) article.
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
@@ -58,8 +64,6 @@ Data transformation activity | Compute environment
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
-
-For more information, see the [data transformation activities](transform-data.md) article.
 
 ## Control flow activities
 The following control flow activities are supported:
@@ -79,6 +83,38 @@ Control activity | Description
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified time before continuing with execution of subsequent activities.
 [Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint, and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
+
+## Creating a pipeline with UI
+
+# [Azure Data Factory](#tab/data-factory)
+To create a new pipeline, navigate to the Author tab in Data Factory Studio (represented by the pencil icon), then click the plus sign and choose Pipeline from the menu, and Pipeline again from the submenu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui.png" alt-text="Shows the steps to create a new pipeline using Azure Data Factory Studio.":::
+
+Data factory will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline within the data factory.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Shows the pipeline editor pane in Azure Data Factory studio with each of the sections described above highlighted.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then click the plus sign and choose Pipeline from the menu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Shows the steps to create a new pipeline using Synapse Studio.":::
+
+Synapse will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline in the Synapse workspace.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui-synapse.png" alt-text="Shows the pipeline editor pane in Synapse studio with each of the sections described above highlighted.":::
+
+---
 
 ## Pipeline JSON
 Here is how a pipeline is defined in JSON format:
@@ -147,7 +183,7 @@ policy | Policies that affect the run-time behavior of the activity. This proper
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
 
 ### Activity policy
-Policies affect the run-time behavior of an activity, giving configurability options. Activity Policies are only available for execution activities.
+Policies affect the run-time behavior of an activity, giving configuration options. Activity Policies are only available for execution activities.
 
 ### Activity policy JSON definition
 
@@ -179,7 +215,7 @@ Policies affect the run-time behavior of an activity, giving configurability opt
 
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
-timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.
+timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 12 hours.
 retry | Maximum retry attempts | Integer | No. Default is 0
 retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, the output from activity is considered as secure and aren't logged for monitoring. | Boolean | No. Default is false.

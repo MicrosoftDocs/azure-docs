@@ -4,6 +4,7 @@ description: Discussion of NULL vs. zero values when exporting metrics and a poi
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
+ms.reviewer: robb
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
@@ -11,11 +12,11 @@ Azure Monitor provides [platform metrics](../essentials/data-platform-metrics.md
 
 ## Metrics not exportable via diagnostic settings
 
-The content that used to be at this location has been moved to [Supported list of Azure Monitor Metrics](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
+See the "exportable?" column in the [Supported list of Azure Monitor Metrics](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-There are limitations when exporting metrics via diagnostic settings. All metrics are exportable using the REST API. 
+There are limitations when exporting metrics via diagnostic settings. However, all metrics are exportable using the REST API.
 
-## Exported zero vs NULL values 
+## Exported zero vs NULL values
 
 Metrics have different behavior when dealing with 0 or NULL values.  Some metrics report 0 when no data is obtained, for example, metrics on http failures. Other metrics store NULLs when no data is obtained because it can indicate that the resource is offline. You can see the difference when charting these metrics with NULL values showing up as [dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line). 
 
@@ -30,7 +31,7 @@ Before June 1, 2020, the metrics below **used to** emit '0's when there was no d
 The change occurred in all public and private clouds.
 
 The change did not impact the behavior of any of the following experiences: 
-   - Platform Resource logs exported via Diagnostic Settings
+   - Platform resource logs exported via Diagnostic Settings
    - Metrics charting in Metrics Explorer
    - Alerting on platform metrics
  

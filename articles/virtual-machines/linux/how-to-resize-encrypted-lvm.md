@@ -78,7 +78,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 1. Verify the current size of the file system that you want to increase:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 
@@ -86,7 +86,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 2. Verify that the VG has enough space to increase the LV:
 
-    ``` bash
+    ```bash
     vgs
     ```
 
@@ -94,7 +94,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
     You can also use `vgdisplay`:
 
-    ``` bash
+    ```bash
     vgdisplay vgname
     ```
 
@@ -102,7 +102,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 3. Identify which LV needs to be resized:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -114,7 +114,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 4. Check the LV size:
 
-    ``` bash
+    ```bash
     lvdisplay lvname
     ```
 
@@ -122,7 +122,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 5. Increase the LV size by using `-r` to resize the file system online:
 
-    ``` bash
+    ```bash
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
@@ -130,7 +130,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 6. Verify the new sizes for the LV and the file system:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 
@@ -140,7 +140,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
 You can check the LV information again to confirm the changes at the level of the LV:
 
-``` bash
+```bash
 lvdisplay lvname
 ```
 
@@ -152,7 +152,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 1. Verify the current size of the file system that you want to increase:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 
@@ -160,7 +160,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 2. Verify the current PV configuration:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -168,7 +168,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 3. Check the current VG information:
 
-    ``` bash
+    ```bash
     vgs
     ```
 
@@ -176,7 +176,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 4. Check the current disk list. Identify data disks by checking the devices in */dev/disk/azure/scsi1/*.
 
-    ``` bash
+    ```bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
@@ -184,7 +184,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 5. Check the output of `lsblk`: 
 
-    ``` bash
+    ```bash
     lsbk
     ```
 
@@ -194,13 +194,13 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 7. Check the disk list, and notice the new disk.
 
-    ``` bash
+    ```bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
     ![Screenshot showing the code that checks the disk list. The results are highlighted.](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
 
-    ``` bash
+    ```bash
     lsbk
     ```
 
@@ -208,7 +208,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 8. Create a new PV on top of the new data disk:
 
-    ``` bash
+    ```bash
     pvcreate /dev/newdisk
     ```
 
@@ -218,7 +218,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 9. Verify that the PV was added to the PV list:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -226,7 +226,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 10. Extend the VG by adding the new PV to it:
 
-    ``` bash
+    ```bash
     vgextend vgname /dev/newdisk
     ```
 
@@ -234,7 +234,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 11. Check the new VG size:
 
-    ``` bash
+    ```bash
     vgs
     ```
 
@@ -242,7 +242,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 12. Use `lsblk` to identify the LV that needs to be resized:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -250,7 +250,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 13. Extend the LV size by using `-r` to increase the file system online:
 
-    ``` bash
+    ```bash
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
@@ -258,7 +258,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 14. Verify the new sizes of the LV and file system:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 
@@ -281,7 +281,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
 17. Set the encryption extension again. This time you'll stamp the encryption settings on the new data disk at the platform level. Here's a CLI example:
 
-    ``` bash
+    ```azurecli
     az vm encryption enable -g ${RGNAME} --name ${VMNAME} --disk-encryption-keyvault "<your-unique-keyvault-name>"
     ```
 
@@ -297,19 +297,19 @@ Follow these steps to finish cleaning up:
 
 1. Unmount the LV:
 
-    ``` bash
+    ```bash
     umount /mountpoint
     ```
 
 1. Close the encrypted layer of the volume:
 
-    ``` bash
+    ```bash
     cryptsetup luksClose /dev/vgname/lvname
     ```
 
 1. Delete the LV:
 
-    ``` bash
+    ```bash
     lvremove /dev/vgname/lvname
     ```
 
@@ -319,13 +319,13 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 1. Identify your encrypted disks:
 
-    ``` bash
+    ```bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
     ![Screenshot showing the code that identifies encrypted disks. The results are highlighted.](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-scsi1.png)
 
-    ``` bash
+    ```bash
     lsblk -fs
     ```
 
@@ -333,7 +333,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 2. Check the PV information:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -343,7 +343,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 3. Check the VG information:
 
-    ``` bash
+    ```bash
     vgs
     vgdisplay -v vgname
     ```
@@ -352,7 +352,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 4. Check the disk sizes. You can use `fdisk` or `lsblk` to list the drive sizes.
 
-    ``` bash
+    ```bash
     for disk in `ls -l /dev/disk/azure/scsi1/* | awk -F/ '{print $NF}'` ; do echo "fdisk -l /dev/${disk} | grep ^Disk "; done | bash
 
     lsblk -o "NAME,SIZE"
@@ -362,7 +362,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
     Here we identified which PVs are associated with which LVs by using `lsblk -fs`. You can identify the associations by running `lvdisplay`.
 
-    ``` bash
+    ```bash
     lvdisplay --maps VG/LV
     lvdisplay --maps datavg/datalv1
     ```
@@ -373,7 +373,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 5. Check the current file system utilization:
 
-    ``` bash
+    ```bash
     df -h /datalvm*
     ```
 
@@ -386,7 +386,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 7. Start the VM and check the new sizes by using `fdisk`.
 
-    ``` bash
+    ```bash
     for disk in `ls -l /dev/disk/azure/scsi1/* | awk -F/ '{print $NF}'` ; do echo "fdisk -l /dev/${disk} | grep ^Disk "; done | bash
 
     lsblk -o "NAME,SIZE"
@@ -398,7 +398,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 8. Check the current PV size:
 
-    ``` bash
+    ```bash
     pvdisplay /dev/resizeddisk
     ```
 
@@ -408,7 +408,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 9. Resize the PV:
 
-    ``` bash
+    ```bash
     pvresize /dev/resizeddisk
     ```
 
@@ -417,7 +417,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 10. Check the PV size:
 
-    ``` bash
+    ```bash
     pvdisplay /dev/resizeddisk
     ```
 
@@ -427,7 +427,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 11. Check the VG information.
 
-    ``` bash
+    ```bash
     vgdisplay vgname
     ```
 
@@ -437,7 +437,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 12. Resize the LV:
 
-    ``` bash
+    ```bash
     lvresize -r -L +5G vgname/lvname
     lvresize -r -l +100%FREE /dev/datavg/datalv01
     ```
@@ -446,7 +446,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 13. Check the size of the file system:
 
-    ``` bash
+    ```bash
     df -h /datalvm2
     ```
 
@@ -460,7 +460,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 1. Verify the current size of your VG:
 
-    ``` bash
+    ```bash
     vgdisplay vgname
     ```
 
@@ -468,13 +468,13 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 2. Verify the size of the file system and LV that you want to expand:
 
-    ``` bash
+    ```bash
     lvdisplay /dev/vgname/lvname
     ```
 
     ![Screenshot showing the code that checks the size of the local volume. Results are highlighted.](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-lv01.png)
 
-    ``` bash
+    ```bash
     df -h mountpoint
     ```
 
@@ -484,7 +484,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
     Before you add the new disk, check the disks:
 
-    ``` bash
+    ```bash
     fdisk -l | egrep ^"Disk /"
     ```
 
@@ -492,7 +492,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
     Here's another way to check the disks before you add the new disk:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -504,13 +504,13 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 4. Check the disks to make sure the new disk has been added:
 
-    ``` bash
+    ```bash
     fdisk -l | egrep ^"Disk /"
     ```
 
     ![Screenshot showing the code that lists the disks. The results are highlighted.](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk02.png)
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -518,13 +518,13 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 5. Create a file system on top of the recently added disk. Match the disk to the linked devices on `/dev/disk/azure/scsi1/`.
 
-    ``` bash
+    ```bash
     ls -la /dev/disk/azure/scsi1/
     ```
 
     ![Screenshot showing the code that creates a file system. The results are highlighted.](./media/disk-encryption/resize-lvm/037-resize-lvm-scenarioe-check-newdisk03.png)
 
-    ``` bash
+    ```bash
     mkfs.ext4 /dev/disk/azure/scsi1/${disk}
     ```
 
@@ -532,32 +532,32 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 6. Create a temporary mount point for the new added disk:
 
-    ``` bash
+    ```bash
     newmount=/data4
     mkdir ${newmount}
     ```
 
 7. Add the recently created file system to `/etc/fstab`.
 
-    ``` bash
+    ```bash
     blkid /dev/disk/azure/scsi1/lun4| awk -F\" '{print "UUID="$2" '${newmount}' "$4" defaults,nofail 0 0"}' >> /etc/fstab
     ```
 
 8. Mount the newly created file system:
 
-    ``` bash
+    ```bash
     mount -a
     ```
 
 9. Verify that the new file system is mounted:
 
-    ``` bash
+    ```bash
     df -h
     ```
 
     ![Screenshot showing the code that verifies that the file system is mounted. The result is highlighted.](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-df.png)
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -572,7 +572,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
     Here's an example:
 
-    ``` bash
+    ```azurecli
     az vm encryption enable \
     --resource-group ${RGNAME} \
     --name ${VMNAME} \
@@ -586,7 +586,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
     When the encryption finishes, you see a crypt layer on the newly added disk:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -594,13 +594,13 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 11. Unmount the encrypted layer of the new disk:
 
-    ``` bash
+    ```bash
     umount ${newmount}
     ```
 
 12. Check the current PV information:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -608,7 +608,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 13. Create a PV on top of the encrypted layer of the disk. Take the device name from the previous `lsblk` command. Add a `/dev/` mapper in front of the device name to create the PV:
 
-    ``` bash
+    ```bash
     pvcreate /dev/mapper/mapperdevicename
     ```
 
@@ -618,7 +618,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 14. Verify that the new PV was added to the LVM configuration:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -626,7 +626,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 15. Add the new PV to the VG that you need to increase.
 
-    ``` bash
+    ```bash
     vgextend vgname /dev/mapper/nameofhenewpv
     ```
 
@@ -634,7 +634,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 16. Verify the new size and free space of the VG:
 
-    ``` bash
+    ```bash
     vgdisplay vgname
     ```
 
@@ -644,7 +644,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
 17. Increase the size of the LV and the file system. Use the `-r` option on `lvextend`. In this example, we're adding the total available space in the VG to the given LV.
 
-    ``` bash
+    ```bash
     lvextend -r -l +100%FREE /dev/vgname/lvname
     ```
 
@@ -654,7 +654,7 @@ Follow the next steps to verify your changes.
 
 1. Verify the size of the LV:
 
-    ``` bash
+    ```bash
     lvdisplay /dev/vgname/lvname
     ```
 
@@ -662,7 +662,7 @@ Follow the next steps to verify your changes.
 
 1. Verify the new size of the file system:
 
-    ``` bash
+    ```bash
     df -h mountpoint
     ```
 
@@ -670,7 +670,7 @@ Follow the next steps to verify your changes.
 
 1. Verify that the LVM layer is on top of the encrypted layer:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
@@ -680,7 +680,7 @@ Follow the next steps to verify your changes.
 
     You might want to use `lsblk -fs`. In this command, `-fs` reverses the sort order so that the mount points are shown once. The disks are shown multiple times.
 
-    ``` bash
+    ```bash
     lsblk -fs
     ```
 
@@ -690,13 +690,13 @@ Follow the next steps to verify your changes.
 
 1. Identify your encrypted disks:
 
-    ``` bash
+    ```bash
     lsblk
     ```
 
     ![Screenshot showing the code that identifies the encrypted disks. The results are highlighted.](./media/disk-encryption/resize-lvm/039-resize-lvm-scenariof-lsblk01.png)
 
-    ``` bash
+    ```bash
     lsblk -s
     ```
 
@@ -704,7 +704,7 @@ Follow the next steps to verify your changes.
 
 2. Check your PV information:
 
-    ``` bash
+    ```bash
     pvs
     ```
 
@@ -712,7 +712,7 @@ Follow the next steps to verify your changes.
 
 3. Check your VG information:
 
-    ``` bash
+    ```bash
     vgs
     ```
 
@@ -720,7 +720,7 @@ Follow the next steps to verify your changes.
 
 4. Check your LV information:
 
-    ``` bash
+    ```bash
     lvs
     ```
 
@@ -728,7 +728,7 @@ Follow the next steps to verify your changes.
 
 5. Check the file system utilization:
 
-    ``` bash
+    ```bash
     df -h /mountpoint(s)
     ```
 
@@ -736,7 +736,7 @@ Follow the next steps to verify your changes.
 
 6. Check the sizes of your disks:
 
-    ``` bash
+    ```bash
     fdisk
     fdisk -l | egrep ^"Disk /"
     lsblk
@@ -751,7 +751,7 @@ Follow the next steps to verify your changes.
 
 8. Check your disks sizes:
 
-    ``` bash
+    ```bash
     fdisk
     fdisk -l | egrep ^"Disk /"
     lsblk
@@ -763,7 +763,7 @@ Follow the next steps to verify your changes.
 
 9. Check the current PV size. Remember that on LVM-on-crypt, the PV is the `/dev/mapper/` device, not the `/dev/sd*` device.
 
-    ``` bash
+    ```bash
     pvdisplay /dev/mapper/devicemappername
     ```
 
@@ -771,7 +771,7 @@ Follow the next steps to verify your changes.
 
 10. Resize the PV:
 
-    ``` bash
+    ```bash
     pvresize /dev/mapper/devicemappername
     ```
 
@@ -779,7 +779,7 @@ Follow the next steps to verify your changes.
 
 11. Check the new PV size:
 
-    ``` bash
+    ```bash
     pvdisplay /dev/mapper/devicemappername
     ```
 
@@ -787,7 +787,7 @@ Follow the next steps to verify your changes.
 
 12. Resize the encrypted layer on the PV:
 
-    ``` bash
+    ```bash
     cryptsetup resize /dev/mapper/devicemappername
     ```
 
@@ -795,7 +795,7 @@ Follow the next steps to verify your changes.
 
 13. Check your VG information:
 
-    ``` bash
+    ```bash
     vgdisplay vgname
     ```
 
@@ -805,7 +805,7 @@ Follow the next steps to verify your changes.
 
 14. Check the LV information:
 
-    ``` bash
+    ```bash
     lvdisplay vgname/lvname
     ```
 
@@ -813,7 +813,7 @@ Follow the next steps to verify your changes.
 
 15. Check the file system utilization:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 
@@ -821,7 +821,7 @@ Follow the next steps to verify your changes.
 
 16. Resize the LV:
 
-    ``` bash
+    ```bash
     lvresize -r -L +2G /dev/vgname/lvname
     ```
 
@@ -831,7 +831,7 @@ Follow the next steps to verify your changes.
 
 17. Check the LV information:
 
-    ``` bash
+    ```bash
     lvdisplay vgname/lvname
     ```
 
@@ -839,7 +839,7 @@ Follow the next steps to verify your changes.
 
 18. Check the file system utilization:
 
-    ``` bash
+    ```bash
     df -h /mountpoint
     ```
 

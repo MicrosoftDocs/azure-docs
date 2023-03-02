@@ -51,31 +51,31 @@ pip install azure-datalake-store
 
 ## Create a new Python application
 
-1. In the IDE of your choice, create a new Python application, for example, **mysample.py**.
+1. In the IDE of your choice, create a new Python application, for example, `mysample.py`.
 
 2. Add the following snippet to import the required modules
 
-	```
-	## Use this for Azure AD authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+   ```python
+   ## Use this for Azure AD authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-	## Required for Azure Data Lake Storage Gen1 account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-	## Required for Azure Data Lake Storage Gen1 filesystem management
-	from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
-	import adal
+    # Common Azure imports
+    import adal
     from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, pprint, uuid, time
+    ```
 
-3. Save changes to mysample.py.
+3. Save changes to `mysample.py`.
 
 ## End-user authentication with multi-factor authentication
 
@@ -108,7 +108,7 @@ adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure
 
 ## End-user authentication without multi-factor authentication
 
-This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/python/python-sdk-azure-authenticate).
+This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/developer/python/sdk/authentication-overview).
 
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Storage Gen1.

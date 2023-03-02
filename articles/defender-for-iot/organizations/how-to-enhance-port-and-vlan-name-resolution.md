@@ -1,97 +1,65 @@
 ---
-title: Enhance port and VLAN name resolution
-description: Customize port and VLAN names on your sensors to enrich device resolution.
-ms.date: 12/13/2020
+title: Customize port and VLAN names on OT network sensors - Microsoft Defender for IoT
+description: Learn how to customize port and VLAN names on Microsoft Defender for IoT OT network sensors.
+ms.date: 01/12/2023
 ms.topic: how-to
 ---
 
-# Enhance port, VLAN and OS resolution
+# Customize port and VLAN names on OT network sensors
 
-You can customize port and VLAN names on your sensors to enrich device resolution.
+Enrich device data shown in Defender for IoT by customizing port and VLAN names on your OT network sensors.
 
-## Customize port names
+For example, you might want to assign a name to a non-reserved port that shows unusually high activity in order to call it out, or assign a name to a VLAN number to identify it quicker.
 
-Azure Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, assign a name to a non-reserved port because that port shows unusually high activity.
+## Prerequisites
 
-These names appear when:
+To customize port and VLAN names, you must be able to access the OT network sensor as an **Admin** user.
 
-  - You select **Device groups** from the device map.
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-  - You create widgets that provide port information.
+## Customize names of detected ports
 
-### View custom port names in the device map
+Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. However, you might want to customize the name of a specific port to highlight it, such as when you're watching a port with unusually high detected activity.
 
-Ports that include a name defined by users appear in the device map, in the **Known Applications** group.
+Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#group-highlight-and-filters-tools), or when you create OT sensor reports that include port information.
 
-:::image type="content" source="media/how-to-enrich-asset-information/applications-v2.png" alt-text="Screenshot of the device map, showing the Known Applications group.":::
+**To customize a port name:**
 
-### View custom port names in widgets
+1. Sign into your OT sensor as an **Admin** user.
 
-Port names that you defined appear in the widgets that cover traffic by port.
+1. Select **System settings** on the left and then, under **Network monitoring**, select **Port Naming**.
 
-:::image type="content" source="media/how-to-enrich-asset-information/traffic-v2.png" alt-text="Cover traffic.":::
+1. In the **Port naming** pane that appears, enter the port number you want to name, the port's protocol, and a meaningful name. Supported protocol values include: **TCP**, **UDP**, and **BOTH**.
 
-To define custom port names:
+1. Select **+ Add port** to customize an additional port, and **Save** when you're done.
 
-1. Select **System Settings** and then select **Standard Aliases**.
+## Customize a VLAN name
 
-2. Select **Add Port Alias**.
+VLANs are either discovered automatically by the OT network sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If a VLAN isn't explicitly named, the VLAN's number is shown instead.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/edit-aliases.png" alt-text="Add Port Alias.":::
+VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
-3. Enter the port number, select **TCP/UDP**, or select **Both**, and add the name.
+VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
-4. Select **Save**.
+**To configure VLAN names on an OT network sensor:**
 
-## Configure VLAN names
+1. Sign in to your OT sensor as an **Admin** user.
 
-You can enrich device inventory data with device VLAN numbers and tags. In addition to data enrichment, you can view the number of devices per VLAN, and view bandwidth by VLAN widgets.
+1. Select **System Settings** on the left and then, under **Network monitoring**, select **VLAN Naming**.
 
-VLANs support is based on 802.1q (up to VLAN ID 4094).
+1. In the **VLAN naming** pane that appears, enter a VLAN ID and unique VLAN name. VLAN names can contain up to 50 ASCII characters.
 
-Two methods are available for retrieving VLAN information:
+1. Select **+ Add VLAN** to customize an additional VLAN, and **Save** when you're done.
 
-- **Automatically discovered**: By default, the sensor automatically discovers VLANs. VLANs detected with traffic are displayed on the VLAN configuration screen, in data-mining reports, and in other reports that contain VLAN information. Unused VLANs are not displayed. You can't edit or delete these VLANs. 
-
-  You should add a unique name to each VLAN. If you don't add a name, the VLAN number appears in all the locations where the VLAN is reported.
-
-- **Manually added**: You can add VLANs manually. You must add a unique name for each VLAN that was manually added, and you can edit or delete these VLANs.
-
-VLAN names can contain up to 50 ASCII characters.
-
-> [!NOTE]
-> VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
-For Cisco switches, add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`. In that command, *XX/XX* is the name and number of the port.
-
-To configure VLAN names:
-
-1. On the side menu, select **System Settings**.
-
-2. In the **System Settings** window, select **VLAN**.
-
-    :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Use the system settings to edit your VLANs.":::
-
-3. Add a unique name next to each VLAN ID.
-
-## Improve device operating system classification: data enhancement
-
-Sensors continuously auto discover new devices, as well as changes to previously discovered devices, including operating system types.
-
-Under certain circumstances, conflicts might be detected in discovered operating systems. This can happen, for example, if you have an operating systems version that refers to either desktop or server systems. If it happens, you'll receive a notification with optional operating systems classifications.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Enhance data.":::
-
-Investigate the recommendations in order to enrich  operating system classification. This classification appears in the device inventory, data-mining reports, and other displays. Making sure this information is up-to-date can improve the accuracy of alerts, threats, and risk analysis reports.
-
-To access operating system recommendations:
-
-1. Select **System Settings**.
-1. Select **Data Enhancement**.
+1. **For Cisco switches**: Add the `monitor session 1 destination interface XX/XX encapsulation dot1q` command to the SPAN port configuration, where *XX/XX* is the name and number of the port.
 
 ## Next steps
 
-View enriched device information in various reports:
+> [!div class="nextstepaction"]
+> [Investigate detected devices from the OT sensor device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md)
-- [Sensor data mining queries](how-to-create-data-mining-queries.md)
+> [!div class="nextstepaction"]
+> [Create sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md)
+
+> [!div class="nextstepaction"]
+> [Create sensor data mining queries](how-to-create-data-mining-queries.md)

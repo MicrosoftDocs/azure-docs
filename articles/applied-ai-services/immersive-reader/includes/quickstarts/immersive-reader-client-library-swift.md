@@ -3,13 +3,13 @@ title: Immersive Reader Swift client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a iOS app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ---
 
 [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
@@ -43,6 +43,9 @@ In the **Run** view, click on **Arguments** tab.
 ![Edit Scheme environment variables - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -205,7 +208,7 @@ class LaunchViewController: UIViewController {
                 })
             }
         }, onFailure: { error in
-            print("an error occured: \(error)")
+            print("an error occurred: \(error)")
         })
     }
 

@@ -1,13 +1,13 @@
 ---
 title: Monitor SSIS operations with Azure Monitor 
 description: Learn how to use Azure Monitor to monitor SSIS operations in Azure Data Factory.
-author: minhe-msft
-ms.author: hemin
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 01/18/2023
 ---
 
 # Monitor SSIS operations with Azure Monitor
@@ -85,6 +85,6 @@ When querying SSIS package execution logs on Logs Analytics, you can join them u
 
 :::image type="content" source="media/data-factory-monitor-oms/log-analytics-query2.png" alt-text="Querying SSIS package execution logs on Log Analytics":::
 
-## Next Steps
+## Next steps
 
 [Schema of logs and events](monitor-schema-logs-events.md)

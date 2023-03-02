@@ -1,95 +1,113 @@
 ---
-title: Manage individual sensors
-description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 08/25/2021
+title: Manage OT sensors from the sensor console - Microsoft Defender for IoT
+description: Learn how to manage individual Microsoft Defender for IoT OT network sensors directly from the sensor's console.
+ms.date: 11/28/2022
 ms.topic: how-to
 ---
 
 # Manage individual sensors
 
-This article describes how to manage individual sensors. Tasks include managing activation files, performing backups, and updating a standalone sensor.
+This article describes how to manage individual sensors, such as managing activation files, certificates, backups, and more.
 
-You can also do certain sensor management tasks from the on-premises management console, where multiple sensors can be managed simultaneously.
+You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
 
-You use the Azure portal for sensor onboarding and registration.
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 
-## Manage sensor activation files
+## View overall sensor status
 
-Your sensor was onboarded with Azure Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
+When you sign into your sensor, the first page shown is the **Overview** page.
 
-A unique activation file is uploaded to each sensor that you deploy. For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
+For example:
 
-### About activation files for locally connected sensors
+:::image type="content" source="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png" alt-text="Screenshot of the overview page." lightbox="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png":::
 
-Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears at the top of the sensor console. The warning remains until after you've updated the activation file.
+The **Overview** page shows the following widgets:
 
-:::image type="content" source="media/how-to-manage-individual-sensors/system-setting-screenshot.png" alt-text="The screenshot of the system settings.":::
+| Name | Description |
+|--|--|
+| **General Settings** | Displays a list of the sensor's basic configuration settings and [connectivity status](#validate-connectivity-status). |
+| **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
+| **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
+| **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
+| **Top open alerts** | Displays a table listing any currently open alerts with high severity levels, including critical details about each alert. |
 
-You can continue to work with Defender for IoT features even if the activation file has expired. 
+Select the link in each widget to drill down for more information in your sensor.
 
-### About activation files for cloud-connected sensors
+### Validate connectivity status
 
-Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by time periods for the activation file. The activation file for cloud-connected sensors is used to ensure connection to the Defender for IoT hub.
+Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page.
 
-### Upload new activation files
+If there are any connection issues, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
 
-You might need to upload a new activation file for an onboarded sensor when:
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
 
-- An activation file expires on a locally connected sensor. 
+1. Find more information about the issue by hovering over the :::image type="icon" source="media/how-to-manage-individual-sensors/information-icon.png" border="false"::: information icon. For example:
 
-- You want to work in a different sensor management mode. 
+    :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
 
-- You want to assign a new Defender for IoT hub to a cloud-connected sensor.
+1. Take action by selecting the **Learn more** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
+
+## Download software for OT sensors
+
+You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
+
+In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
+
+- For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
+
+- If you're updating your OT sensor, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+## Upload a new activation file
+
+Each OT sensor is onboarded as a cloud-connected or locally-managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
+
+You'll need to upload a new activation file to your senor if you want to switch sensor management modes, such as moving from a locally-managed sensor to a cloud-connected sensor. Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
-1. Go to the **Sensor Management** page.
+1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-2. Select the sensor for which you want to upload a new activation file.
+1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch. For more information, see [Onboard OT sensors](onboard-sensors.md)
 
-3. Delete it.
+1. On the **sites and sensors** page locate the sensor you just added. 
 
-4. Onboard the sensor again from the **Onboarding** page in the new mode or with a new Defender for IoT hub.
+1. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
-5. Download the activation file from the **Download Activation File** page.
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-6. Save the file.
+1. Sign in to the Defender for IoT sensor console and select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/download-activation-file.png" alt-text="Download the activation file from the Defender for IoT hub.":::
+1. Select **Upload** and browse to the file that you downloaded from the Azure portal.
 
-7. Sign in to the Defender for IoT sensor console.
-
-8. In the sensor console, select **System Settings** > **Reactivation**.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/reactivation.png" alt-text="Reactivation selection on the System Settings screen.":::
-
-9. Select **Upload** and select the file that you saved.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/upload-the-file.png" alt-text="Upload the file you saved.":::
-
-10. Select **Activate**.
+1. Select **Activate** to upload your new activation file.
 
 ### Troubleshoot activation file upload
 
-You'll receive an error message if the activation file could not be uploaded. The following events might have occurred:
+You'll receive an error message if the activation file couldn't be uploaded. The following events might have occurred:
 
-- **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to the Defender for IoT portal. On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
+- **The sensor can't connect to the internet:** Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that the required endpoints are allowed in the firewall and/or proxy.
 
-- **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific Defender for IoT hub should be opened in your firewall and/or proxy. For details, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).  
+    For OT sensors version 22.x, download the list of required endpoints from the  **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**. For sensors with earlier versions, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
-- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the Sites and  Sensors page of the Defender for IoT portal. If this doesn't work, contact Microsoft Support.
+- **The activation file is valid but Defender for IoT rejected it:** If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
-Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
+Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen, for example,  if a certificate expired.
 
 **To update a certificate:**
 
-1. Select **System Settings**.
+1. Select **System Settings** and then select **Basic**.
 
-1. Select **SSL/TLS Certificates.**
+1. Select **SSL/TLS Certificate.**
 
     :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="Upload a certificate":::
 
@@ -99,80 +117,72 @@ Sensor Administrators may be required to update certificates that were uploaded 
     - Upload a CRT file and key file.
     - Upload a PEM file if necessary.
 
-If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+If the upload fails, contact your security or IT administrator, or review the information in [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [Verify CRL server access](how-to-deploy-certificates.md#verify-crl-server-access) for more information.
 
 1. Select **Save**.
 
-For more information about first-time certificate upload see,
+For more information about first-time certificate upload, see,
 [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
 
 ## Connect a sensor to the management console
 
 This section describes how to ensure connection between the sensor and the on-premises management console. You need to do this if you're working in an air-gapped network and want to send device and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
 
-To connect:
+**To connect:**
 
 1. Sign in to the on-premises management console.
 
-2. Select **System Settings**.
+1. Select **System Settings**.
 
-3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
+1. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen."::: 
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Screenshot of the Connection string screen.":::
 
-4. Sign in to the sensor console.
+1. Sign in to the sensor console.
 
-5. On the left pane, select **System Settings**.
+1. On the left pane, select **System Settings**.
 
-6. Select **Management Console Connection**.
+1. Select **Management Console Connection**.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/management-console-connection-screen.png" alt-text="Screenshot of the Management Console Connection dialog box.":::
 
-7. Paste the connection string in the **Connection string** box and select **Connect**.
+1. Paste the connection string in the **Connection string** box and select **Connect**.
 
-8. In the on-premises management console, in the **Site Management** window, assign the sensor to a zone.
+1. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
+
+Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configure-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 ## Change the name of a sensor
 
-You can change the name of your sensor console. The new name will appear in the console web browser, in various console windows, and in troubleshooting logs.
+You can change the name of your sensor console. The new name will appear in:
 
-The process for changing sensor names varies for locally connected sensors and cloud-connected sensors. The default name is **sensor**.
+- The sensor console web browser
+- Various console windows
+- Troubleshooting logs
+- The Sites and sensors page in the Defender for IoT portal on Azure.
 
-### Change the name of a locally connected sensor
+The process for changing sensor names is the same for locally managed sensors and cloud-connected sensors.
 
-To change the name:
+The sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
 
-1. In the bottom of the left pane of the console, select the current sensor label.
+**To change the name:**
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="Screenshot that shows the sensor label.":::
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), go to the Sites and sensors page.
 
-1. In the **Edit sensor name** dialog box, enter a name.
+1. Delete the sensor from the page.
 
-1. Select **Save**. The new name is applied.
-
-### Change the name of a cloud-connected sensor
-
-If your sensor was registered as a cloud-connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file that you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
-
-To change the name:
-
-1. In the Azure Defender for IoT portal, go to the Sites and Sensors page.
-
-1. Delete the sensor from the Sites and Sensors page.
-
-1. Register with the new name by selecting **Onboard sensor** from the Getting Started page.
+1. Register with the new name by selecting **Set up OT/ICS Security** from the Getting Started page.
 
 1. Download the new activation file.
 
 1. Sign in to the Defender for IoT sensor console.
 
-1. In the sensor console, select **System Settings** and then select **Reactivation**.
-
-   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Upload your activation file to reactivate the sensor.":::
+1. In the sensor console, select **System settings** > **Sensor management** and then select
+**Subscription & Activation Mode**.
 
 1. Select **Upload** and select the file you saved.
 
@@ -184,15 +194,13 @@ The sensor network configuration was defined during the sensor installation. You
 
 If you create a new IP address, you might be required to sign in again.
 
-To change the configuration:
+**To change the configuration:**
 
 1. On the side menu, select **System Settings**.
 
-2. In the **System Settings** window, select **Network**.
+1. In the **System Settings** window, select **Network**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configure your network settings.":::
-
-3. Set the parameters:
+1. Set the parameters:
 
     | Parameter | Description |
     |--|--|
@@ -203,13 +211,11 @@ To change the configuration:
     | Hostname | The sensor hostname |
     | Proxy | Proxy host and port name |
 
-4. Select **Save**.
+1. Select **Save**.
 
 ## Synchronize time zones on the sensor
 
 You can configure the sensor's time and region so that all the users see the same time and region.
-
-:::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="Configure the time and region.":::
 
 | Parameter | Description |
 |--|--|
@@ -217,73 +223,72 @@ You can configure the sensor's time and region so that all the users see the sam
 | Date format | Select one of the following format options:<br />- dd/MM/yyyy HH:mm:ss<br />- MM/dd/yyyy HH:mm:ss<br />- yyyy/MM/dd HH:mm:ss |
 | Date and time | Displays the current date and local time in the format that you selected.<br />For example, if your actual location is America and New York, but the time zone is set to Europe and Berlin, the time is displayed according to Berlin local time. |
 
-To configure the sensor time:
+**To configure the sensor time:**
 
-1. On the side menu, select **System Settings**.
+1. On the side menu, select **System settings** >  **Basic**, > **Time & Region**.
 
-2. In the **System Settings** window, select **Time & Regional**.
-
-3. Set the parameters and select **Save**.
+1. Set the parameters and select **Save**.
 
 ## Set up backup and restore files
 
-System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`.
+System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`. You can automatically transfer this file to the internal network.
 
-You can automatically transfer this file to the internal network.
+For more information, see [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
 
 > [!NOTE]
+>
 > - The backup and restore procedure can be performed between the same versions only.
 > - In some architectures, the backup is disabled. You can enable it in the `/var/cyberx/properties/backup.properties` file.
 
-When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server.
+When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server. For more information, see [Define sensor backup schedules](how-to-manage-sensors-from-the-on-premises-management-console.md#define-sensor-backup-schedules).
 
 **What is backed up**: Configurations and data.
 
-**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs.
+**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs. For more information, see [Upload and play PCAP files](#upload-and-play-pcap-files).
 
 Sensor backup files are automatically named through the following format: `<sensor name>-backup-version-<version>-<date>.tar`. An example is `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`.
 
-To configure backup:
+**To configure backup:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-backup`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-backup`.
 
-To restore the latest backup file:
+**To restore the latest backup file:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
-To save the backup to an external SMB server:
+**To save the backup to an external SMB server:**
 
 1. Create a shared folder in the external SMB server.
 
     Get the folder path, username, and password required to access the SMB server.
 
-2. In the sensor, make a directory for the backups:
+1. In the sensor, make a directory for the backups:
 
     - `sudo mkdir /<backup_folder_name_on_cyberx_server>`
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edit `fstab`:
+1. Edit `fstab`:
 
     - `sudo nano /etc/fstab`
 
     - `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifsrw,credentials=/etc/samba/user,vers=X.X,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0`
 
-4. Edit and create credentials to share for the SMB server:
+1. Edit and create credentials to share for the SMB server:
 
-    `sudo nano /etc/samba/user` 
+    `sudo nano /etc/samba/user`
 
-5. Add:
+1. Add:
 
     - `username=&gt:user name&lt:`
 
     - `password=<password>`
 
-6. Mount the directory:
+1. Mount the directory:
 
     `sudo mount -a`
 
-7. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
+1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
 
     - `sudo nano /var/cyberx/properties/backup.properties`
 
@@ -291,45 +296,64 @@ To save the backup to an external SMB server:
 
 ### Restore sensors
 
-You can restore backups from the sensor console and by using the CLI.
+You can restore a sensor from a backup file using the sensor console or the CLI.
 
-**To restore from the console:**
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
-- Select **Restore Image** from the sensor's **System Settings** window.
+# [Restore from the sensor console](#tab/restore-from-sensor-console)
 
-:::image type="content" source="media/how-to-manage-individual-sensors/restore-image-screen.png" alt-text="Restore your image by selecting the button.":::
+To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
-The console will display restore failures.
+- **To download a backup file:**
 
-**To restore by using the CLI:**
+    1. Access the sensor using an SFTP client.
 
-- Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
+    1. Sign in to an administrative account and enter the sensor IP address.
 
-## Update a standalone sensor version
+    1. Download the backup file from your chosen location and save it. The default location for system backup files is `/var/cyberx/backups`.
 
-The following procedure describes how to update a standalone sensor by using the sensor console. The update process takes about 30 minutes.
+- **To restore the sensor**:
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+     1. Sign in to the sensor console and go to **System settings** > **Sensor management** > **Backup & restore** > **Restore**. For example:
 
-2. Go to Defender for IoT.
+        :::image type="content" source="media/how-to-manage-individual-sensors/restore-sensor-screen.png" alt-text="Screenshot of Restore tab in sensor console.":::
 
-3. Go to the **Updates** page.
+     1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT.":::
+     1. When the restore process is complete, select **Close**.
 
-4. Select **Download** from the **Sensors** section and save the file.
+# [Restore the latest backup file by using the CLI](#tab/restore-using-cli)
 
-5. In the sensor console's sidebar, select **System Settings**.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
-6. On the **Version Update** pane, select **Update**.
+---
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
+## Configure SMTP settings
 
-7. Select the file that you downloaded from the Defender for IoT **Updates** page.
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers.
 
-8. The update process starts, during which time the system is rebooted twice. After the first reboot (before the completion of the update process), the system opens with the sign-in window. After you sign in, the upgrade version appears at the lower left of the sidebar.
+You'll need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
+**Prerequisites**:
+
+Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md).
+
+**To configure an SMTP server on your sensor**:
+
+1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
+
+1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
+
+    |Parameter  |Description  |
+    |---------|---------|
+    |**SMTP Server Address**     | Enter the IP address or domain address of your SMTP server.        |
+    |**SMTP Server Port**     | Default = 25. Adjust the value as needed.        |
+    |**Outgoing Mail Account**     | Enter an email address to use as the outgoing mail account from your sensor.        |
+    |**SSL**     | Toggle on for secure connections from your sensor.        |
+    |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
+    |**Use NTLM**     | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
+
+1. Select **Save** when you're done.
 
 ## Forward sensor failure alerts
 
@@ -353,6 +377,27 @@ To send notifications:
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
+## Upload and play PCAP files
+
+When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
+
+The **Play PCAP** option is enabled by default in the sensor console's settings.
+
+Maximum size for uploaded files is 2 GB.
+
+**To upload and play a PCAP file**:
+
+1. On your sensor console, select **System settings > Basic > Play PCAP**.
+
+1. In the **PCAP PLAYER** pane, select **Upload** and then navigate to and select the file or multiple files you want to upload.
+
+1. Select **Play** to play your PCAP file, or **Play All** to play all PCAP files currently loaded.
+
+:::image type="content" source="media/how-to-manage-individual-sensors/upload-and-play-pcaps.png" alt-text="Screenshot of uploading PCAP files on the PCAP PLAYER pane in the sensor console." lightbox="media/how-to-manage-individual-sensors/upload-and-play-pcaps.png":::
+
+> [!TIP]
+> Select **Clear All** to clear the sensor of all PCAP files loaded.
+
 ## Adjust system properties
 
 System properties control various operations and settings in the sensor. Editing or modifying them might damage the operation of the sensor console.
@@ -363,12 +408,73 @@ To access system properties:
 
 1. Sign in to the on-premises management console or the sensor.
 
-2. Select **System Settings**.
+1. Select **System Settings**.
 
-3. Select **System Properties** from the **General** section.
+1. Select **System Properties** from the **General** section.
 
-## See also
+## Download a diagnostics log for support
 
-[Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket.
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+This feature is supported for the following sensor versions:
+
+- **22.1.1** - Download a diagnostic log from the sensor console
+- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+**To download a diagnostics log**:
+
+1. On the sensor console, select **System settings** > **Backup & Restore** > **Backup**.
+
+1. Under **Logs**, select **Support Ticket Diagnostics**, and then select **Export**.
+
+    :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
+
+1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support).
+
+## Retrieve forensics data stored on the sensor
+
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
+
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Each type of data has a different retention period and maximum capacity. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
+
+## Clearing sensor data
+
+In cases where the sensor needs to be relocated or erased, the sensor can be reset.
+
+Clearing data deletes all detected or learned data on the sensor. After clearing data on a cloud connected sensor, cloud inventory will be updated accordingly. Additionally, some actions on the corresponding cloud alerts such as downloading PCAPs or learning alerts will not be supported.
+
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+
+**To clear system data**:
+
+1. Sign in to the sensor as the *cyberx* user.
+
+1. Select **Support** > **Clear data**.
+
+1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console." lightbox="media/how-to-manage-individual-sensors/clear-system-data.png":::
+
+A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
+
+## Next steps
+
+For more information, see:
+
+- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+- [Connect your OT sensors to the cloud](connect-sensors.md)
+- [Track sensor activity](how-to-track-sensor-activity.md)
+- [Update OT system software](update-ot-software.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

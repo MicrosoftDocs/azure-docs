@@ -1,11 +1,14 @@
 ---
 title: Reliable Collection object serialization
 description: Learn about Azure Service Fabric Reliable Collections object serialization, including the default strategy and how to define custom serialization.'
-
 ms.topic: conceptual
-ms.date: 5/8/2017
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Collection object serialization in Azure Service Fabric
 Reliable Collections' replicate and persist their items to make sure they are durable across machine failures and power outages.
 Both to replicate and to persist items, Reliable Collections' need to serialize them.
@@ -149,7 +152,7 @@ This way each version can read as much it can and jump over the remaining part o
   * [Serialization and upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
-  * [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+  * [Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
   * Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
   * Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
   * Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).

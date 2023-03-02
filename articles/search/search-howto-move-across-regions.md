@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 10/06/2021
+ms.date: 01/30/2023
 ---
 
 # Move your Azure Cognitive Search service to another Azure region
@@ -55,7 +55,7 @@ The following links can help you locate more information when completing the ste
 + [Choose a tier](search-sku-tier.md)
 + [Create a search service](search-create-service-portal.md)
 + [Load search documents](search-what-is-data-import.md)
-+ [Enable logging](search-monitor-logs.md)
++ [Enable logging](monitor-azure-cognitive-search.md)
 
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.

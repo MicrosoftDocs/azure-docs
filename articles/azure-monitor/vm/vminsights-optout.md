@@ -4,7 +4,7 @@ description: This article describes how to stop monitoring your virtual machines
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 06/08/2022
 
 ---
 
@@ -36,7 +36,7 @@ If you still need the Log Analytics workspace, follow these steps to completely 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters suggestions based on your input. Select **Log Analytics**.
 3. In your list of Log Analytics workspaces, select the workspace you chose when you enabled VM insights.
-4. On the left, select **Solutions**.  
+4. On the left, select **Legacy solutions**.  
 5. In the list of solutions, select **VMInsights(workspace name)**. On the **Overview** page for the solution, select **Delete**. When prompted to confirm, select **Yes**.
 
 ## Disable monitoring and keep the workspace  
@@ -47,7 +47,7 @@ If your Log Analytics workspace still needs to support monitoring from other sou
 >Don't remove the Log Analytics agent if: 
 >
 > * Azure Automation manages the VM to orchestrate processes or to manage configuration or updates. 
-> * Azure Security Center manages the VM for security and threat detection. 
+> * Microsoft Defender for Cloud manages the VM for security and threat detection. 
 >
 > If you do remove the Log Analytics agent, you will prevent those services and solutions from proactively managing your VM. 
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files for Azure Government  | Microsoft Docs
 description: Describes how to connect to Azure Government to use Azure NetApp Files and the Azure NetApp Files feature availability in Azure Government.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.author: b-juche
+ms.date: 02/17/2023
+ms.author: anfdocs
 ---
 
 # Azure NetApp Files for Azure Government 
@@ -25,14 +24,14 @@ This article describes Azure NetApp Files feature availability in Azure Governme
 
 ## Feature availability
 
-For Azure Government regions supported by Azure NetApp Files, see the *[Products Available by Region page](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)*.  
+For Azure Government regions supported by Azure NetApp Files, see the *[Products Available by Region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true)*.  
 
 All [Azure NetApp Files features](whats-new.md) available on Azure public cloud are also available on supported Azure Government regions ***except for the features listed in the following table***: 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files cross-region replication | Generally available (GA) | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
+| Standard network features | Generally available (GA) | No |
 
 ## Portal access
 
@@ -42,11 +41,11 @@ Azure Government users can access Azure NetApp Files by pointing their browsers 
 
 From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the Azure portal. For example, you can enter **Azure NetApp  Files** in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
 
-You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
+You can follow [Azure NetApp Files](./index.yml) documentation for details about using the service.
 
 ## Azure CLI access
 
-You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
+You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to sign in as you normally would with the `az login` command. After running the sign-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
 ```azurecli 
 

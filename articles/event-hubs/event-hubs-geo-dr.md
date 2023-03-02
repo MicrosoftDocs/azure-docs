@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 05/10/2022
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -84,7 +84,7 @@ You first create or use an existing primary namespace, and a new secondary names
 1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
 1. On this **Overview** page, you can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
-    1. Manually failover to the secondary namespace. Select **Failover** on the toolbar. 
+    1. Manually fail over to the secondary namespace. Select **Failover** on the toolbar. 
     
         > [!WARNING]
         > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
@@ -110,6 +110,31 @@ If you initiate the failover, two steps are required:
 
 :::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
 
+## Manual failover
+This section shows how to manually fail over using Azure portal, CLI, PowerShell, C#, etc.
+
+# [Azure portal](#tab/portal)
+
+1. In the Azure portal, navigate to your primary namespace.
+1. Select **Geo-recovery** on the left menu.
+1. Manually fail over to the secondary namespace. Select **Failover** on the toolbar. 
+    
+    > [!WARNING]
+    > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair.
+
+# [Azure CLI](#tab/cli)
+Use the [az eventhubs georecovery-alias fail-over](/cli/azure/eventhubs/georecovery-alias#az-eventhubs-georecovery-alias-fail-over) command.
+
+# [Azure PowerShell](#tab/powershell)
+Use the [Set-AzEventHubGeoDRConfigurationFailOver](/powershell/module/az.eventhub/set-azeventhubgeodrconfigurationfailover) cmdlet. 
+
+# [C#](#tab/csharp)
+Use the [DisasterRecoveryConfigsOperationsExtensions.FailOverAsync](/dotnet/api/microsoft.azure.management.eventhub.disasterrecoveryconfigsoperationsextensions.failoverasync#Microsoft_Azure_Management_EventHub_DisasterRecoveryConfigsOperationsExtensions_FailOverAsync_Microsoft_Azure_Management_EventHub_IDisasterRecoveryConfigsOperations_System_String_System_String_System_String_System_Threading_CancellationToken_) method. 
+
+For the sample code that uses this method, see the [GeoDRClient](https://github.com/Azure/azure-event-hubs/blob/3cb13d5d87385b97121144b0615bec5109415c5a/samples/Management/DotNet/GeoDRClient/GeoDRClient/GeoDisasterRecoveryClient.cs#L137) sample in GitHub. 
+
+---
+
 ## Management
 
 If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
@@ -132,12 +157,19 @@ Note the following considerations to keep in mind:
 
 5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
+6. Some aspects of the management plane for the secondary namespace become read-only while geo-recovery pairing is active.
+
+7. The data plane of the secondary namespace will be read-only while geo-recovery pairing is active. The data plane of the secondary namespace will accept GET requests to enable validation of client connectivity and access controls.
+
 ## Availability Zones 
 Event Hubs supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. The Availability Zones support is only available in [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Both metadata and data (events) are replicated across data centers in the availability zone. 
 
 When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
 
 :::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
+
+> [!NOTE]
+> When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` or use the PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).

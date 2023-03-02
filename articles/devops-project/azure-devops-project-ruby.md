@@ -1,18 +1,17 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. You can launch a Ruby web app on an Azure service in a few quick steps.
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc
+ms.author: gwallace
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Starter

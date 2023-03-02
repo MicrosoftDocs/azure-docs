@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: landing-page
-  ms.date: 05/05/2021
+  ms.date: 01/27/2023
   ms.author: aahi
 
 landingContent:
@@ -22,8 +22,6 @@ landingContent:
           url: ../cognitive-services-container-support.md
         - text: Frequently Asked Questions
           url: container-faq.yml
-        - text: Container image tags
-          url: container-image-tags.md
 - title: Container recipes
   linkLists:
     - linkListType: concept
@@ -44,8 +42,6 @@ landingContent:
           text: Read OCR
         - url: ../computer-vision/spatial-analysis-container.md
           text: Spatial analysis
-        - url: ../face/face-how-to-install-containers.md
-          text: Face
 - title: Language containers
   linkLists:
       - linkListType: how-to-guide
@@ -70,15 +66,22 @@ landingContent:
           text: Speech to text
         - url: ../speech-service/speech-container-howto.md?tabs=cstt
           text: Custom Speech to text
-        - url: ../speech-service/speech-container-howto.md?tabs=tts
-          text: Text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=ntts
           text: Neural text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=lid
-          text: Speech language detection
+          text: Speech language identification
 - title: Decision container
   linkLists:
       - linkListType: how-to-guide
         links:
         - url: ../anomaly-detector/anomaly-detector-container-howto.md
           text: Anomaly Detector
+- title: Disconnected containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: disconnected-containers.md 
+          text: Run containers disconnected from the internet
+        - url: disconnected-container-faq.yml
+          text: Frequently Asked Questions about disconnected containers
+        

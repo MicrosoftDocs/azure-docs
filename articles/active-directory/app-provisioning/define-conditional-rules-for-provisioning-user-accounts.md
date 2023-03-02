@@ -1,35 +1,51 @@
 ---
-title: Use scoping filters in Azure Active Directory Application Provisioning
-description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
+title: Scoping users or groups to be provisioned with scoping filters in Azure Active Directory
+description: Learn how to use scoping filters to define attribute-based rules that determine which users or groups are provisioned in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 01/23/2023
 ms.author: kenwith
 ms.reviewer: arvinh
+zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# Attribute-based application provisioning with scoping filters
-The objective of this article is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.
+# Scoping users or groups to be provisioned with scoping filters
+
+::: zone pivot="cross-tenant-synchronization"
+> [!IMPORTANT]
+> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+::: zone-end
+
+This article describes how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute-based rules that determine which users or groups are provisioned.
 
 ## Scoping filter use cases
 
-A scoping filter allows the Azure Active Directory (Azure AD) provisioning service to include or exclude any users who have an attribute that matches a specific value. For example, when provisioning users from Azure AD to a SaaS application used by a sales team, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
+::: zone pivot="app-provisioning"
+You use scoping filters to prevent objects in applications that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements. A scoping filter allows you to include or exclude any users who have an attribute that matches a specific value. For example, when provisioning users from Azure AD to a SaaS application used by a sales team, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
 
 Scoping filters can be used differently depending on the type of provisioning connector:
 
 * **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
-    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. 
+    > The more users and groups in scope for provisioning, the longer the synchronization process can take. Setting the scope to sync assigned users and groups,  limiting the number of groups assigned to the app, and limiting the size of the groups will reduce the time it takes to synchronize everyone that is in scope.  
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
-By default, Azure AD provisioning connectors do not have any attribute-based scoping filters configured. 
+By default, Azure AD provisioning connectors don't have any attribute-based scoping filters configured. 
+::: zone-end
+
+::: zone pivot="cross-tenant-synchronization"
+When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. Reducing the number of users in scope improves performance and synchronizing assigned users and groups instead of synchronizing all users and groups is recommended.
+
+Scoping filters can be used optionally, in addition to scoping by assignment. A scoping filter allows the Azure AD provisioning service to include or exclude any users who have an attribute that matches a specific value. For example, when provisioning users from a sales team, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
+::: zone-end
 
 ## Scoping filter construction
 
@@ -56,19 +72,36 @@ According to this scoping filter, users must satisfy the following criteria to b
 Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. The following procedure assumes that you already set up automatic provisioning for [one of the supported applications](../saas-apps/tutorial-list.md) and are adding a scoping filter to it.
 
 ### Create a scoping filter
-1. In the [Azure portal](https://portal.azure.com), go to the **Azure Active Directory** > **Enterprise Applications** > **All applications** section.
 
-2. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-3. Select the **Provisioning** tab.
+::: zone pivot="app-provisioning"
+2. Go to the **Azure Active Directory** > **Enterprise applications** > **All applications**.
 
-4. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+3. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+::: zone-end
 
-5. Select the **Source object scope** menu.
+::: zone pivot="cross-tenant-synchronization"
+2. Go to **Azure Active Directory** > **Cross-tenant Synchronization** > **Configurations**
 
-6. Select **Add scoping filter**.
+3. Select your configuration.
+::: zone-end
 
-7. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
+4. Select the **Provisioning** tab.
+
+::: zone pivot="app-provisioning"
+5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+::: zone-end
+
+::: zone pivot="cross-tenant-synchronization"
+5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
+::: zone-end
+
+6. Select the **Source object scope** menu.
+
+7. Select **Add scoping filter**.
+
+8. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
 
    a. **EQUALS**. Clause returns "true" if the evaluated attribute matches the input string value exactly (case sensitive).
 
@@ -82,9 +115,9 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
    f. **IS NOT NULL**. Clause returns "true" if the evaluated attribute isn't empty.
 
-   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99.
+   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99 (case sensitive).
 
-   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern.
+   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern. It will return "false" if the attribute is null / empty.
    
    i. **Greater_Than.** Clause returns "true" if the evaluated attribute is greater than the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
@@ -95,7 +128,9 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 >[!IMPORTANT] 
 > - The IsMemberOf filter is not supported currently.
-> - EQUALS and NOT EQUALS are not supported for multi-valued attributes
+> - The members attribute on a group is not supported currently.
+> - Filtering is not supported for multi-valued attributes.
+> - Scoping filters will return "false" if the value is null / empty.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 

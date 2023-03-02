@@ -4,7 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 09/28/2022
 ---
 
 # Variables in Bicep
@@ -13,6 +13,8 @@ This article describes how to define and use variables in your Bicep file. You u
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
 
+You are limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+
 ## Define variable
 
 The syntax for defining a variable is:
@@ -20,6 +22,8 @@ The syntax for defining a variable is:
 ```bicep
 var <variable-name> = <variable-value>
 ```
+
+A variable can't have the same name as a parameter, module, or resource.
 
 Notice that you don't specify a [data type](data-types.md) for the variable. The type is inferred from the value. The following example sets a variable to a string.
 

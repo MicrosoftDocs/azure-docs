@@ -1,33 +1,47 @@
 ---
-title: How to deploy the Form Recognizer sample labeling tool
+title: How to deploy the Form Recognizer Sample Labeling tool
 titleSuffix: Azure Applied AI Services
-description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
+description: Learn the different ways you can deploy the Form Recognizer Sample Labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 01/09/2023
 ms.author: lajanuar
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
-# Deploy the sample labeling tool
+# Deploy the Sample Labeling tool
 
-The Form Recognizer sample labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
 
-* [Run the sample labeling tool locally](#run-the-sample-labeling-tool-locally)
-* [Deploy the sample labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
+>[!TIP]
+>
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
+
+> [!NOTE]
+> The [cloud hosted](https://fott-2-1.azurewebsites.net/) labeling tool is available at [https://fott-2-1.azurewebsites.net/](https://fott-2-1.azurewebsites.net/). Follow the steps in this document only if you want to deploy the Sample Labeling tool for yourself. 
+
+The Form Recognizer Sample Labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
+
+* [Run the Sample Labeling tool locally](#run-the-sample-labeling-tool-locally)
+* [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
 * [Use and contribute to the open-source OCR Form Labeling Tool](#open-source-on-github)
 
-## Run the sample labeling tool locally
+## Run the Sample Labeling tool locally
 
-The fastest way to start labeling data is to run the sample labeling tool locally. The following quickstart uses the Form Recognizer REST API and the sample labeling tool to train a custom model with manually labeled data.
+The fastest way to start labeling data is to run the Sample Labeling tool locally. The following quickstart uses the Form Recognizer REST API and the Sample Labeling tool to train a custom model with manually labeled data.
 
 * [Get started with Azure Form Recognizer](label-tool.md).
 
 ## Deploy with Azure Container Instances (ACI)
 
-Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI:
+Before we get started, it's important to note that there are two ways to deploy the Sample Labeling tool to an Azure Container Instance (ACI). Both options are used to run the Sample Labeling tool with ACI:
 
 * [Using the Azure portal](#azure-portal)
 * [Using the Azure CLI](#azure-cli)
@@ -72,7 +86,7 @@ Follow these steps to create a new resource using the Azure portal:
 * Username (Optional) - Create a username.
 * Password (Optional) - Create a secure password that you'll remember.
 * Image and tag - Set to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
-* Continuous Deployment - Set to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Continuous Deployment - Set to **On** if you want to receive automatic updates when the development team makes changes to the Sample Labeling tool.
 * Startup command - Set to `./run.sh eula=accept`
 
 > [!div class="mx-imgBorder"]
@@ -82,7 +96,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 ### Continuous deployment
 
-After you have created your web app, you can enable the continuous deployment option:
+After you've created your web app, you can enable the continuous deployment option:
 
 * From the left pane, choose **Container settings**.
 * In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
@@ -106,7 +120,7 @@ There's a few things you need know about this command:
 * You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app.
 * This command automatically accepts EULA.
 
-From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
+From the Azure CLI, run this command to create a web app resource for the Sample Labeling tool:
 
 <!-- markdownlint-disable MD024 -->
 

@@ -1,7 +1,8 @@
 ---
 title: Review Azure enterprise enrollment billing data with REST API
 description: Learn how to use Azure REST APIs to review enterprise enrollment billing information.
-author: lleonard-msft
+author: bandersmsft
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: article

@@ -1,11 +1,11 @@
 ---
 title: Updates and component upgrades in Azure Site Recovery
 description: Provides an overview of Azure Site Recovery service updates, and component upgrades.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: ankitadutta
 ms.date: 08/11/2021
 ---
 # Service updates in Site Recovery

@@ -3,22 +3,21 @@ title: Manage Azure CDN with PowerShell | Microsoft Docs
 description: Use this tutorial to learn how to use PowerShell to manage aspects of your Azure Content Delivery Network endpoint profiles and endpoints.
 services: cdn
 documentationcenter: ''
-author: asudbring
-manager: danielgi
-editor: ''
-
+author: duongau
+manager: kumudd
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/20/2019
-ms.author: allensu 
+ms.date: 02/27/2023
+ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
 ---
+
 # Manage Azure CDN with PowerShell
+
 PowerShell provides one of the most flexible methods to manage your Azure CDN profiles and endpoints.  You can use PowerShell interactively or by writing scripts to automate management tasks.  This tutorial demonstrates several of the most common tasks you can accomplish with PowerShell to manage your Azure CDN profiles and endpoints.
 
 ## Prerequisites
@@ -33,6 +32,7 @@ To use PowerShell to manage your Azure CDN profiles and endpoints, you must have
 > 
 
 ## Listing the Azure CDN cmdlets
+
 You can list all the Azure CDN cmdlets using the `Get-Command` cmdlet.
 
 ```text

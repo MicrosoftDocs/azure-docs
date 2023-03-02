@@ -5,41 +5,35 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 01/20/2023
 ms.author: terrylan
 
 ---
 
 # Azure threat protection
 
-Azure offers built in threat protection functionality through services such as Azure Active Directory (Azure AD), Azure Monitor logs, and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
+Azure offers built in threat protection functionality through services such as Azure Active Directory (Azure AD), Azure Monitor logs, and Microsoft Defender for Cloud. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
 
 Azure provides a wide array of options to configure and customize security to meet the requirements of your app deployments. This article discusses how to meet these requirements.
 
 ## Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) is an [Azure Active Directory Premium P2](../../active-directory/fundamentals/active-directory-whatis.md) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/reports-monitoring/overview-reports.md), and introduces new risk detection types that can detect real time anomalies.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) is an [Azure Active Directory Premium P2](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/reports-monitoring/overview-reports.md), and introduces new risk detection types that can detect real time anomalies.
 
 ![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk detections that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk detections and take appropriate remediation or mitigation action.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk detections, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
-
-These risk-based policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) that are provided by Azure Active Directory and [EMS](../../active-directory/conditional-access/overview.md), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
-
 ### Identity Protection capabilities
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other Conditional Access controls provided by Azure Active Directory and EMS, can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) provided by Azure Active Directory and [EMS](../../active-directory/conditional-access/overview.md), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
@@ -75,13 +69,11 @@ PIM helps you:
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/index.yml) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
-
-In addition to providing valuable services on its own, Azure Monitor logs can integrate with System Center components, such as [System Center Operations Manager](/archive/blogs/cbernier/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started), to extend your existing security management investments into the cloud. System Center and Azure Monitor logs can work together to provide a full hybrid management experience.
+[Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
 
 ### Holistic security and compliance posture
 
-[Azure Security Center](../../security-center/security-center-introduction.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
+[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) provides a comprehensive view into your organization's IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
@@ -101,7 +93,7 @@ Most of your interaction with Azure Monitor logs is through the Azure portal, wh
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
 
-Security Center is an example of these types of solutions.
+Defender for Cloud is an example of these types of solutions.
 
 ### Automation and control: Alert on security configuration drifts
 
@@ -111,27 +103,32 @@ Azure Automation automates administrative processes with runbooks that are based
 
 You can create and manage DSC resources that are hosted in Azure and apply them to cloud and on-premises systems. By doing so, you can define and automatically enforce their configuration or get reports on drift to help ensure that security configurations remain within policy.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-Azure Security Center helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
+[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
 
-Security Center's recommendations are based on the [Azure Security Benchmark](../benchmarks/introduction.md) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
+Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features (see [Introduction to Azure Defender](../../security-center/azure-defender.md)). The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
 
-:::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
+The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
+
+:::image type="content" source="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png" alt-text="An example of Defender for Cloud's workload protections dashboard." lightbox="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png":::
+
+> [!TIP]
+> Learn more about the numbered sections in [The workload protections dashboard](../../defender-for-cloud/workload-protections-dashboard.md).
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
-Thus, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
+Thus, Defender for Cloud can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+:::image type="content" source="../../defender-for-cloud/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
-Azure Defender automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
+Microsoft Defender for Cloud automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
 
-Azure Defender alerts are prioritized in Security Center along with recommendations on how to remediate the threats.
+Security alerts are prioritized in Defender for Cloud along with recommendations on how to remediate the threats.
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are used to evaluate events across the entire cloud. Advanced analytics can detect threats that would be impossible to identify through manual approaches and predict the evolution of attacks. These security analytics types are covered in the next sections.
+Defender for Cloud employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are used to evaluate events across the entire cloud. Advanced analytics can detect threats that would be impossible to identify through manual approaches and predict the evolution of attacks. These security analytics types are covered in the next sections.
 
 ### Threat intelligence
 
@@ -141,9 +138,9 @@ Telemetry flows in from multiple sources, such as Azure, Microsoft 365, Microsof
 
 ![Threat intelligence findings](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
-Researchers also receive threat intelligence information that is shared among major cloud service providers, and they subscribe to threat intelligence feeds from third parties. Azure Security Center can use this information to alert you to threats from known bad actors. Some examples include:
+Researchers also receive threat intelligence information that is shared among major cloud service providers, and they subscribe to threat intelligence feeds from third parties. Microsoft Defender for Cloud can use this information to alert you to threats from known bad actors. Some examples include:
 
--	**Harnessing the power of machine learning**: Azure Security Center has access to a vast amount of data about cloud network activity, which can be used to detect threats targeting your Azure deployments.
+-	**Harnessing the power of machine learning**: Microsoft Defender for Cloud has access to a vast amount of data about cloud network activity, which can be used to detect threats targeting your Azure deployments.
 
 -	**Brute force detection**: Machine learning is used to create a historical pattern of remote access attempts, which allows it to detect brute force attacks against Secure Shell (SSH), Remote Desktop Protocol (RDP), and SQL ports.
 
@@ -155,34 +152,34 @@ Researchers also receive threat intelligence information that is shared among ma
 
 ### Behavioral analytics
 
-Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets.
+Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns aren't simple signatures. They're determined through complex machine learning algorithms that are applied to massive datasets.
 
 ![Behavioral analytics findings](./media/threat-detection/azure-threat-detection-fig11.jpg)
 
-The patterns are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps, and other sources.
+The patterns are also determined through careful analysis of malicious behaviors by expert analysts. Microsoft Defender for Cloud can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps, and other sources.
 
 In addition, patterns are correlated with other signals to check for supporting evidence of a widespread campaign. This correlation helps to identify events that are consistent with established indicators of compromise.
 
 Some examples include:
--	**Suspicious process execution**: Attackers employ several techniques to execute malicious software without detection. For example, an attacker might give malware the same names as legitimate system files but place these files in an alternate location, use a name that is similar to that of a benign file, or mask the file’s true extension. Security Center models process behaviors and monitor process executions to detect outliers such as these.
+-	**Suspicious process execution**: Attackers employ several techniques to execute malicious software without detection. For example, an attacker might give malware the same names as legitimate system files but place these files in an alternate location, use a name that is similar to that of a benign file, or mask the file’s true extension. Defender for Cloud models process behaviors and monitor process executions to detect outliers such as these.
 
--	**Hidden malware and exploitation attempts**: Sophisticated malware can evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk. However, such malware can be detected by using memory analysis, because the malware must leave traces in memory to function. When software crashes, a crash dump captures a portion of memory at the time of the crash. By analyzing the memory in the crash dump, Azure Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine without affecting the performance of your machine.
+-	**Hidden malware and exploitation attempts**: Sophisticated malware can evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk. However, such malware can be detected by using memory analysis, because the malware must leave traces in memory to function. When software crashes, a crash dump captures a portion of memory at the time of the crash. By analyzing the memory in the crash dump, Microsoft Defender for Cloud can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine without affecting the performance of your machine.
 
--	**Lateral movement and internal reconnaissance**: To persist in a compromised network and locate and harvest valuable data, attackers often attempt to move laterally from the compromised machine to others within the same network. Security Center monitors process and login activities to discover attempts to expand an attacker’s foothold within the network, such as remote command execution, network probing, and account enumeration.
+-	**Lateral movement and internal reconnaissance**: To persist in a compromised network and locate and harvest valuable data, attackers often attempt to move laterally from the compromised machine to others within the same network. Defender for Cloud monitors process and login activities to discover attempts to expand an attacker’s foothold within the network, such as remote command execution, network probing, and account enumeration.
 
--	**Malicious PowerShell scripts**: PowerShell can be used by attackers to execute malicious code on target virtual machines for various purposes. Security Center inspects PowerShell activity for evidence of suspicious activity.
+-	**Malicious PowerShell scripts**: PowerShell can be used by attackers to execute malicious code on target virtual machines for various purposes. Defender for Cloud inspects PowerShell activity for evidence of suspicious activity.
 
--	**Outgoing attacks**: Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send spam, or scan open ports and other devices on the internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. When spam is detected, Security Center also correlates unusual email traffic with intelligence from Microsoft 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
+-	**Outgoing attacks**: Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send spam, or scan open ports and other devices on the internet. By applying machine learning to network traffic, Defender for Cloud can detect when outbound network communications exceed the norm. When spam is detected, Defender for Cloud also correlates unusual email traffic with intelligence from Microsoft 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
 
 ### Anomaly detection
 
-Azure Security Center also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments, and then rules are generated to define outlier conditions that could represent a security event. Here’s an example:
+Microsoft Defender for Cloud also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments, and then rules are generated to define outlier conditions that could represent a security event. Here’s an example:
 
--	**Inbound RDP/SSH brute force attacks**: Your deployments might have busy virtual machines with many logins each day and other virtual machines that have few, if any, logins. Azure Security Center can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there is any discrepancy with the baseline defined for login related characteristics, an alert might be generated. Again, machine learning determines what is significant.
+-	**Inbound RDP/SSH brute force attacks**: Your deployments might have busy virtual machines with many logins each day and other virtual machines that have few, if any, logins. Microsoft Defender for Cloud can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there's any discrepancy with the baseline defined for login related characteristics, an alert might be generated. Again, machine learning determines what is significant.
 
 ### Continuous threat intelligence monitoring
 
-Azure Security Center operates with security research and data science teams throughout the world that continuously monitor for changes in the threat landscape. This includes the following initiatives:
+Microsoft Defender for Cloud operates with security research and data science teams throughout the world that continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
 -	**Threat intelligence monitoring**: Threat intelligence includes mechanisms, indicators, implications, and actionable advice about existing or emerging threats. This information is shared in the security community, and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 
@@ -193,6 +190,10 @@ Azure Security Center operates with security research and data science teams thr
 -	**Detection tuning**: Algorithms are run against real customer data sets, and security researchers work with customers to validate the results. True and false positives are used to refine machine learning algorithms.
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly. There’s no action for you to take.
+
+### Microsoft Defender for Storage
+
+[Microsoft Defender for Storage](../../storage/common/azure-defender-storage-configure.md) is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
 ## Threat protection features: Other Azure services
 
@@ -246,11 +247,11 @@ SQL Database threat detectors use one of the following detection methodologies:
 
 -	**Deterministic detection**: Detects suspicious patterns (rules based) in the SQL client queries that match known attacks. This methodology has high detection and low false positive, but limited coverage because it falls within the category of “atomic detections.”
 
--	**Behavioral detection**: Detects anomalous activity, which is abnormal behavior in the database that was not seen during the most recent 30 days. Examples of SQL client anomalous activity can be a spike of failed logins or queries, a high volume of data being extracted, unusual canonical queries, or unfamiliar IP addresses used to access the database.
+-	**Behavioral detection**: Detects anomalous activity, which is abnormal behavior in the database that wasn't seen during the most recent 30 days. Examples of SQL client anomalous activity can be a spike of failed logins or queries, a high volume of data being extracted, unusual canonical queries, or unfamiliar IP addresses used to access the database.
 
 ### Application Gateway Web Application Firewall
 
-[Web Application Firewall (WAF)](../../app-service/environment/integrate-with-application-gateway.md) is a feature of [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/).
+[Web application firewall (WAF)](../../web-application-firewall/ag/ag-overview.md) is a feature of [Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ![Application Gateway Web Application Firewall diagram](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -280,60 +281,23 @@ Configuring WAF at your application gateway provides the following benefits:
 
 -	Helps meet compliance requirements. Certain compliance controls require all internet-facing endpoints to be protected by a WAF solution.
 
-### Anomaly Detection API: Built with Azure Machine Learning
+### Defender for Cloud Apps
 
-The Anomaly Detection API is an API that's useful for detecting a variety of anomalous patterns in your time series data. The API assigns an anomaly score to each data point in the time series, which can be used for generating alerts, monitoring through dashboards, or connecting with your ticketing systems.
-
-The [Anomaly Detection API](/azure/architecture/data-science-process/apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
-
--	**Spikes and dips**: When you're monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
-
--	**Positive and negative trends**: When you're monitoring memory usage in computing, shrinking free memory size indicates a potential memory leak. For service queue length monitoring, a persistent upward trend might indicate an underlying software issue.
-
--	**Level changes and changes in dynamic range of values**: Level changes in latencies of a service after a service upgrade or lower levels of exceptions after upgrade can be interesting to monitor.
-
-The machine learning-based API enables:
-
--	**Flexible and robust detection**: The anomaly detection models allow users to configure sensitivity settings and detect anomalies among seasonal and non-seasonal data sets. Users can adjust the anomaly detection model to make the detection API less or more sensitive according to their needs. This would mean detecting the less or more visible anomalies in data with and without seasonal patterns.
-
--	**Scalable and timely detection**: The traditional way of monitoring with present thresholds set by experts' domain knowledge are costly and not scalable to millions of dynamically changing data sets. The anomaly detection models in this API are learned, and models are tuned automatically from both historical and real-time data.
-
--	**Proactive and actionable detection**: Slow trend and level change detection can be applied for early anomaly detection. The early abnormal signals that are detected can be used to direct humans to investigate and act on the problem areas. In addition, root cause analysis models and alerting tools can be developed on top of this anomaly-detection API service.
-
-The anomaly-detection API is an effective and efficient solution for a wide range of scenarios, such as service health and KPI monitoring, IoT, performance monitoring, and network traffic monitoring. Here are some popular scenarios where this API can be useful:
-
-- IT departments need tools to track events, error code, usage log, and performance (CPU, memory, and so on) in a timely manner.
-
--	Online commerce sites want to track customer activities, page views, clicks, and so on.
-
--	Utility companies want to track consumption of water, gas, electricity, and other resources.
-
--	Facility or building management services want to monitor temperature, moisture, traffic, and so on.
-
--	IoT/manufacturers want to use sensor data in time series to monitor work flow, quality, and so on.
-
--	Service providers, such as call centers, need to monitor service demand trend, incident volume, wait queue length, and so on.
-
--	Business analytics groups want to monitor business KPIs' (such as sales volume, customer sentiments, or pricing) abnormal movement in real time.
-
-### Cloud App Security
-
-[Cloud App Security](/cloud-app-security/what-is-cloud-app-security) is a critical component of the Microsoft Cloud Security stack. It's a comprehensive solution that can help your organization as you move to take full advantage of the promise of cloud applications. It keeps you in control, through improved visibility into activity. It also helps increase the protection of critical data across cloud applications.
+[Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) is a critical component of the Microsoft Cloud Security stack. It's a comprehensive solution that can help your organization as you move to take full advantage of the promise of cloud applications. It keeps you in control, through improved visibility into activity. It also helps increase the protection of critical data across cloud applications.
 
 With tools that help uncover shadow IT, assess risk, enforce policies, investigate activities, and stop threats, your organization can more safely move to the cloud while maintaining control of critical data.
 
 | Category | Description |
 | -------- | ----------- |
-| Discover | Uncover shadow IT with Cloud App Security. Gain visibility by discovering apps, activities, users, data, and files in your cloud environment. Discover third-party apps that are connected to your cloud.|
+| Discover | Uncover shadow IT with Defender for Cloud Apps. Gain visibility by discovering apps, activities, users, data, and files in your cloud environment. Discover third-party apps that are connected to your cloud.|
 |Investigate | Investigate your cloud apps by using cloud forensics tools to deep-dive into risky apps, specific users, and files in your network. Find patterns in the data collected from your cloud. Generate reports to monitor your cloud. |
-| Control | Mitigate risk by setting policies and alerts to achieve maximum control over network cloud traffic. Use Cloud App Security to migrate your users to safe, sanctioned cloud app alternatives. |
-| Protect | Use Cloud App Security to sanction or prohibit applications, enforce data loss prevention, control permissions and sharing, and generate custom reports and alerts. |
-| Control | Mitigate risk by setting policies and alerts to achieve maximum control over network cloud traffic. Use Cloud App Security to migrate your users to safe, sanctioned cloud app alternatives. |
+| Control | Mitigate risk by setting policies and alerts to achieve maximum control over network cloud traffic. Use Defender for Cloud Apps to migrate your users to safe, sanctioned cloud app alternatives. |
+| Protect | Use Defender for Cloud Apps to sanction or prohibit applications, enforce data loss prevention, control permissions and sharing, and generate custom reports and alerts. |
+| Control | Mitigate risk by setting policies and alerts to achieve maximum control over network cloud traffic. Use Defender for Cloud Apps to migrate your users to safe, sanctioned cloud app alternatives. |
 
+![Defender for Cloud Apps diagram](./media/threat-detection/azure-threat-detection-fig14.png)
 
-![Cloud App Security diagram](./media/threat-detection/azure-threat-detection-fig14.png)
-
-Cloud App Security integrates visibility with your cloud by:
+Defender for Cloud Apps integrates visibility with your cloud by:
 
 -	Using Cloud Discovery to map and identify your cloud environment and the cloud apps your organization is using.
 
@@ -343,7 +307,7 @@ Cloud App Security integrates visibility with your cloud by:
 
 -	Helping you have continuous control by setting, and then continually fine-tuning, policies.
 
-On collecting data from these sources, Cloud App Security runs sophisticated analysis on it. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
+On collecting data from these sources, Defender for Cloud Apps runs sophisticated analysis on it. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Defender for Cloud Apps and use it to protect everything in your cloud environment.
 
 ## Third-party threat protection capabilities through the Azure Marketplace
 
@@ -361,10 +325,8 @@ Web Application Firewall provides the following benefits:
 
 -	Accelerates the delivery of web application contents, using capabilities such as caching, compression, and other traffic optimizations.
 
-For examples of web application firewalls that are available in the Azure Marketplace, see [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, and the ThreatSTOP IP firewall](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
+For examples of web application firewalls that are available in the Azure Marketplace, see [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, and the ThreatSTOP IP firewall](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1).
 
-## Next steps
+## Next step
 
-- [Responding to today’s threats](../../security-center/security-center-managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
-
-- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps address your concerns about potential threats to your databases.
+- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.

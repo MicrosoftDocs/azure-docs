@@ -3,15 +3,15 @@ title: Set sign-in with SAML identity provider options
 titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 02/17/2023
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -242,6 +242,29 @@ The following example shows the `ForceAuthN` property in an authorization reques
 </samlp:AuthnRequest>
 ```
 
+### Provider name
+
+You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the metadata item as shown below to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `Contoso app`:
+
+```xml
+<Metadata>
+  ...
+  <Item Key="ProviderName">Contoso app</Item>
+  ...
+</Metadata>
+```
+
+The following example shows the `ProviderName` property in an authorization request:
+
+
+```xml
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
+                    ProviderName="Contoso app">
+  ...
+</samlp:AuthnRequest>
+```
+
+
 ### Include authentication context class references
 
 A SAML authorization request may contain a **AuthnContext** element, which specifies the context of an authorization request. The element can contain an authentication context class reference, which tells the SAML identity provider which authentication mechanism to present to the user.
@@ -271,7 +294,7 @@ The following SAML authorization request contains the authentication context cla
 
 ## Include custom data in the authorization request
 
-You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
+You can optionally include protocol message extension elements that are agreed to by both Azure AD B2C and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
 
 The following example illustrates the use of extension data:
 

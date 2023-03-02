@@ -7,8 +7,6 @@ ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Dominant speakers for a call is an extended feature of the core `Call` API and allows you to obtain a list of the active speakers in the call. 
 
@@ -17,7 +15,7 @@ This is a ranked list, where the first element in the list represents the last a
 In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
 
 ```js
-const callDominantSpeakersApi = call.api(Features.CallDominantSpeakers);
+const callDominantSpeakersApi = call.feature(Features.CallDominantSpeakers);
 ```
 
 Then, obtain the list of the dominant speakers by calling `dominantSpeakers`. This has a type of `DominantSpeakersInfo`, which has the following members:
@@ -35,7 +33,7 @@ const dominantSpeakersChangedHandler = () => {
     // Get the most up to date list of dominant speakers
     let dominantSpeakers = callDominantSpeakersApi.dominantSpeakers;
 };
-callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 ``` 
 #### Handle the Dominant Speaker's video streams
 
@@ -74,7 +72,7 @@ function getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier) {
 // Handler function for when the dominant speaker changes
 const dominantSpeakersChangedHandler = async () => {
     // Get the new dominant speaker's identifier
-    const newDominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+    const newDominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 
      if (newDominantSpeakerIdentifier) {
         // Get the remote participant object that matches newDominantSpeakerIdentifier
@@ -119,9 +117,9 @@ currentCall.on('stateChanged', () => {
     }
 });
 
-const dominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+const dominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 dominantRemoteParticipant = getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier);
-currentCall.api(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+currentCall.feature(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 
 subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: RemoteParticipant) {
     let renderer: VideoStreamRenderer;

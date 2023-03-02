@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot using cloud-init 
 description: Troubleshoot provisioning an Azure VM using cloud-init.
-author: danielsollondon 
+author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: danis
+ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
 ---
@@ -108,7 +108,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 
 If you have access to the [Serial Console](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
 
-The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
+The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html). 
 
 ### /var/log/cloud-init-output.log
 

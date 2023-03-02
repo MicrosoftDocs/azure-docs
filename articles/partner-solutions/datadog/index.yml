@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: Datadog - An Azure Native ISV Service
+summary: Provides monitoring and analytics for large-scale applications.
+
+metadata:
+  title: Datadog - An Azure Native ISV Service documentation
+  description: Datadog - An Azure Native ISV Service provides monitoring and analytics for large-scale applications.
+  ms.service: partner-services
+  ms.subservice: datadog
+  ms.topic: landing-page
+  ms.collection: na
+  ms.date: 02/16/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Datadog - An Azure Native ISV Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Datadog - An Azure Native ISV Service?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage the Datadog resource
+            url: manage.md
+
+  # Card
+  - title: Create Datadog resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Datadog by creating new instance
+            url: create.md
+          - text: Link to existing Datadog organization
+            url: link-to-existing-organization.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure environment before Datadog deployment
+            url: prerequisites.md
+          - text: Fix common errors for Datadog - An Azure Native ISV Service
+            url: troubleshoot.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/datadog
+          - text: REST API
+            url: /rest/api/datadog
+          - text: Terraform
+            url: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitors"
+        

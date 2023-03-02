@@ -1,12 +1,13 @@
 ---
 title: Metrics Advisor service encryption
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Metrics Advisor service encryption of data at rest.
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.custom: applied-ai-non-critical-metrics-advisor
+ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: mbullwin
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.

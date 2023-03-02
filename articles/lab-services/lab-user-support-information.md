@@ -17,7 +17,7 @@ You can use this information to get help when you run into any technical issues 
 
  
 ## View support information
-1. Sign in to [Azure Lab Services portal](https://labs.azure.com).
+1. Sign in to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 2. Select the **lab or virtual machine** for which you need help, and select **?** at the top-right corner of the page. 
 3. Confirm that you see links to the **view support website**, **email support**, and **support phone number**.
 

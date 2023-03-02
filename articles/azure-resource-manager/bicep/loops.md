@@ -2,16 +2,18 @@
 title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 12/09/2022
 ---
 
 # Iterative loops in Bicep
 
-This article shows you how to use the `for` syntax to iterate over items in a collection. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment.
+This article shows you how to use the `for` syntax to iterate over items in a collection. This functionality is supported starting in v0.3.1 onward. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. To go through a quickstart, see [Quickstart: Create multiple instances](./quickstart-loops.md).
 
-### Microsoft Learn
+To use loops to create multiple resources or modules, each instance must have a unique value for the name property. You can use the index value or unique values in arrays or collections to create the names.
 
-To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+### Training resources
+
+If you would rather learn about loops through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Loop syntax
 
@@ -33,7 +35,7 @@ Loops can be declared by:
   }]
   ```
 
-- Using **items in a dictionary object**. This option works when your scenario is: "I want to create an instance for each item in an object." The [items function](bicep-functions-array.md#items) converts the object to an array. Within the loop, you can use properties from the object to create values. For more information, see [Dictionary object](#dictionary-object).
+- Using **items in a dictionary object**. This option works when your scenario is: "I want to create an instance for each item in an object." The [items function](bicep-functions-object.md#items) converts the object to an array. Within the loop, you can use properties from the object to create values. For more information, see [Dictionary object](#dictionary-object).
 
   ```bicep
   [for <item> in items(<object>): {
@@ -61,9 +63,10 @@ Loops can be declared by:
 
 Using loops in Bicep has these limitations:
 
+- Bicep loops only work with values that can be determined at the start of deployment.
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- Can't loop on multiple levels of properties.
+- To loop on multiple levels of properties, use the [lambda map function](./bicep-functions-lambda.md#map).
 
 ## Integer index
 
@@ -92,12 +95,12 @@ The output returns an array with the following values:
 The next example creates the number of storage accounts specified in the `storageCount` parameter. It returns three properties for each storage account.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -116,7 +119,7 @@ Notice the index `i` is used in creating the storage account resource name.
 The next example deploys a module multiple times.
 
 ```bicep
-param location string
+param location string = resourceGroup().location
 param storageCount int = 2
 
 var baseName = 'store${uniqueString(resourceGroup().id)}'
@@ -132,19 +135,19 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 
 ## Array elements
 
-The following example creates one storage account for each name provided in the `storageNames` parameter.
+The following example creates one storage account for each name provided in the `storageNames` parameter. Note the name property for each resource instance must be unique.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param storageNames array = [
   'contoso'
   'fabrikam'
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -152,7 +155,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 }]
 ```
 
-The next example iterates over an array to define a property. It creates two subnets within a virtual network.
+The next example iterates over an array to define a property. It creates two subnets within a virtual network. Note the subnet names must be unique.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/loops/loopproperty.bicep" highlight="23-28" :::
 
@@ -174,35 +177,20 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-02-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-06-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
-  properties: {
-    supportsHttpsTrafficOnly: true
-    accessTier: 'Hot'
-    encryption: {
-      keySource: 'Microsoft.Storage'
-      services: {
-        blob: {
-          enabled: true
-        }
-        file: {
-          enabled: true
-        }
-      }
-    }
-  }
-  kind: 'StorageV2'
   sku: {
     name: config.sku
   }
+  kind: 'StorageV2'
 }]
 ```
 
 The next example uses both the elements of an array and an index to output information about the new resources.
 
 ```bicep
-param nsgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param orgNames array = [
   'Contoso'
   'Fabrikam'
@@ -211,7 +199,7 @@ param orgNames array = [
 
 resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
   name: 'nsg-${name}'
-  location: nsgLocation
+  location: location
 }]
 
 output deployedNSGs array = [for (name, i) in orgNames: {
@@ -223,7 +211,7 @@ output deployedNSGs array = [for (name, i) in orgNames: {
 
 ## Dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects. Note the nsg resource names must be unique.
 
 ```bicep
 param nsgValues object = {
@@ -250,7 +238,7 @@ For **resources and modules**, you can add an `if` expression with the loop synt
 The following example shows a loop combined with a condition statement. In this example, a single condition is applied to all instances of the module.
 
 ```bicep
-param location string
+param location string = resourceGroup().location
 param storageCount int = 2
 param createNewStorage bool = true
 
@@ -288,12 +276,12 @@ You might not want to update all instances of a resource type at the same time. 
 To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -312,7 +300,7 @@ You can't use a loop for a nested child resource. To create more than one instan
 For example, suppose you typically define a file service and file share as nested resources for a storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -333,7 +321,7 @@ To create more than one file share, move it outside of the storage account. You 
 The following example shows how to create a storage account, file service, and more than one file share:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -342,12 +330,12 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-02-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-06-01' = {
   name: 'default'
   parent: stg
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01' = [for i in range(0, 3): {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-06-01' = [for i in range(0, 3): {
   name: 'exampleshare${i}'
   parent: service
 }]
@@ -355,4 +343,4 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01
 
 ## Next steps
 
-- To set dependencies on resources that are created in a loop, see [Resource dependencies](./resource-declaration.md#dependencies).
+- To set dependencies on resources that are created in a loop, see [Resource dependencies](resource-dependencies.md).

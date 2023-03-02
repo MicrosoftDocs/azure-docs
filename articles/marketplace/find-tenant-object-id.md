@@ -2,24 +2,25 @@
 title: Find Tenant ID, Object ID, and partner association details in Azure Marketplace
 description: Find the Tenant ID, Object ID, and partner association details of a subscription ID in Azure Marketplace.
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 10/09/2020
+ms.date: 12/08/2021
 ---
 
 # Find Tenant ID, Object ID, and partner association details
 
 This article describes how to find the Tenant ID, Object ID, and partner association details, along with their respective subscription IDs.
 
-If you need to get screenshots of these items in Azure Cloud Shell to use for debugging assistance, jump down to [Find Tenant, Object, and Partner ID association for debugging](#find-ids-for-debugging).
+If you need to get screenshots of these items in Azure Cloud Shell to use for debugging assistance, jump down to [Find Tenant, Object, and PartnerID association for debugging](#find-ids-for-debugging).
 
 >[!Note]
 > Only the owner of a subscription has the privileges to perform these steps.
 
 ## Find Tenant ID
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in the Azure portal.":::
@@ -39,7 +40,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
     :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="The Subscriptions screen in the Azure portal.":::
 
-## Find Partner ID
+## Find PartnerID
 
 1. Navigate to the Subscriptions page as described in the previous section.
 2. Select a subscription.
@@ -64,9 +65,9 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 ## Find IDs for debugging
 
-This section describes how to find tenant, object, and partner ID association for debugging purposes.
+This section describes how to find tenant, object, and PartnerID (formerly MPN ID) association for debugging purposes.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell-1.png" alt-text="PowerShell icon at the top right of the screen.":::
@@ -96,4 +97,4 @@ This section describes how to find tenant, object, and partner ID association fo
 
 ## Next steps
 
-- [Supported countries and regions](sell-from-countries.md)
+- [Supported countries and regions](supported-countries-regions.md)

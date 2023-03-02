@@ -1,120 +1,140 @@
 ---
-title: Azure AD Connect Health with AD FS risky IP report | Microsoft Docs
-description: Describes the Azure AD Connect Health AD FS risky IP report.
+title: Azure AD Connect Health with the AD FS Risky IP report | Microsoft Docs
+description: This article describes the Azure AD Connect Health AD FS Risky IP report.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 02/26/2019
+ms.date: 01/26/2023
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 
-# Risky IP report (public preview)
-AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
+# The Risky IP report (preview)
 
-Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
-- Detection of IP addresses that exceed a threshold of failed password-based logins
-- Supports failed logins due to bad password or due to extranet lockout state
-- Email notification to alert administrators as soon as this occurs with customizable email settings
-- Customizable threshold settings that match with the security policy of an organization
-- Downloadable reports for offline analysis and integration with other systems via automation
+Active Directory Federation Services (AD FS) customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. 
+
+It's possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. As of Windows Server 2012 R2, AD FS provides the extranet account lockout functionality to prevent these types of attacks. If you're on an earlier version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016.
+
+Additionally, it's possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user might be under the threshold for account lockout protection in AD FS. 
+
+Azure Active Directory (Azure AD) Connect Health now provides the *Risky IP report*, which detects this condition and notifies administrators. Here are the key benefits of using this report: 
+
+- Detects IP addresses that exceed a threshold of failed password-based logins
+- Supports failed logins resulting from bad password or extranet lockout state
+- Provides email notifications to alert administrators, with customizable email settings
+- Provides customizable threshold settings that match the security policy of an organization
+- Provides downloadable reports for offline analysis and integration with other systems via automation
 
 > [!NOTE]
-> To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> To access preview, Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required.  
+> To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs).
 >
+> To access this preview release, you need Global Administrator or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permissions.  
 
-## What is in the report?
-The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
-![Screenshot that shows a Risky IP report with column headers highlighted.](./media/how-to-connect-health-adfs/report4a.png)
+## What's in the report?
 
-| Report Item | Description |
+The failed sign-in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities that have exceeded the designated threshold. 
+
+The report provides the following information:
+
+![Screenshot that shows a Risky IP report with column headings highlighted.](./media/how-to-connect-health-adfs/report4a.png)
+
+| Report&nbsp;item | Description |
 | ------- | ----------- |
-| Time Stamp | Shows the time stamp based on Azure portal local time when the detection time window starts.<br /> All daily events are generated at mid-night UTC time. <br />Hourly events have the timestamp rounded to the beginning of the hour. You can find first activity start time from “firstAuditTimestamp” in the exported file. |
-| Trigger Type | Shows the type of detection time window. The aggregation trigger types are per hour or per day. This is helpful to detect versus a high frequency brute force attack versus a slow attack where the number of attempts is distributed throughout the day. |
-| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. This could be an IPv4 or an IPv6 address. |
-| Bad Password Error Count | The count of Bad Password error occurred from the IP address during the detection time window. The Bad Password errors can happen multiple times to certain users. Notice this does not include failed attempts due to expired passwords. |
-| Extranet Lock Out Error Count | The count of Extranet Lockout error occurred from the IP address during the detection time window. The Extranet Lockout errors can happen multiple times to certain users. This will only be seen if Extranet Lockout is configured in AD FS (versions 2012R2 or higher). <b>Note</b> We strongly recommend turning this feature on if you allow extranet logins using passwords. |
-| Unique Users Attempted | The count of unique user accounts attempted from the IP address during the detection time window. This provides a mechanism to differentiate a single user attack pattern versus multi-user attack pattern.  |
+| Time Stamp | The time stamp that's based on Azure portal local time when the detection time window starts.<br> All daily events are generated at midnight UTC time. <br>Hourly events have the time stamp rounded to the beginning of the hour. You can find the first activity start time from “firstAuditTimestamp” in the exported file. |
+| Trigger Type | The type of detection time window. The aggregation trigger types are per hour or per day. They're helpful in differentiating between a high-frequency brute force attack and a slow attack, where the number of attempts is distributed throughout the day. |
+| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. It can be either an IPv4 or an IPv6 address. |
+| Bad Password Error Count | The count of bad password errors that occur from the IP address during the detection time window. Bad password errors can happen multiple times to certain users. **Note**: This count doesn't include failed attempts resulting from expired passwords. |
+| Extranet Lockout Error Count | The count of extranet lockout errors that occur from the IP address during the detection time window. The extranet lockout errors can happen multiple times to certain users. This count is displayed only if Extranet Lockout is configured in AD FS (versions 2012R2 and later). **Note**: We strongly recommend enabling this feature if you allow extranet logins that use passwords. |
+| Unique Users Attempted | The count of unique user accounts that are attempted from the IP address during the detection time window. Differentiates between a single user attack pattern and a multi-user attack pattern.  |
 
-For example, the below report item indicates from the 6pm to 7pm hour window on 02/28/2018, IP address <i>104.2XX.2XX.9</i> had no bad password errors and 284 extranet lockout errors. 14 unique users were impacted within the criteria. The activity event exceeded the designated report hourly threshold. 
+For example, the following report item indicates that during the 6 PM to 7 PM window on February 28, 2018, the IP address *104.2XX.2XX.9* had no bad password errors and 284 extranet lockout errors. Fourteen unique users were affected within the criteria. The activity event exceeded the designated report's hourly threshold. 
 
 ![Screenshot that shows an example of a Risky IP report entry.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
-> - Only activities exceeding designated threshold will be showing in the report list. 
-> - This report can be trace back at most 30 days.
-> - This alert report does not show Exchange IP addresses or private IP addresses. They are still included in the export list. 
->
+> - Only activities that exceed the designated threshold are displayed in the report list. 
+> - This report tracks the past 30 days at most.
+> - This alert report doesn't show Exchange IP addresses or private IP addresses. They are still included in the export list. 
 
-![Screenshot that shows the Risky IP report with the "Download", "Notification Settings", and "Threshold Settings" highlighted.](./media/how-to-connect-health-adfs/report4c.png)
+![Screenshot that shows the Risky IP report with the "Download", "Notification Settings", and "Threshold Settings" buttons highlighted.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## Load balancer IP addresses in the list
-Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
-## Download risky IP report 
+Your load balancer aggregate might have failed, causing it to hit the alert threshold. If you're seeing load balancer IP addresses, it's highly likely that your external load balancer isn't sending the client IP address when it passes the request to the Web Application Proxy server. Configure your load balancer correctly to pass forward the client IP address. 
+
+## Download the Risky IP report 
+
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:
 
 |  Report Item  |  Description  | 
 | ------- | ----------- | 
-| firstAuditTimestamp | Shows the first timestamp when the failed activities started during the detection time window.  | 
-| lastAuditTimestamp | Shows the last timestamp when the failed activities ended during the detection time window.  | 
+| firstAuditTimestamp | The first time stamp when the failed activities started during the detection time window.  | 
+| lastAuditTimestamp | The last time stamp when the failed activities ended during the detection time window.  | 
 | attemptCountThresholdIsExceeded | The flag if the current activities are exceeding the alerting threshold.  | 
-| isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.  | 
+| isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (*10.x.x.x, 172.x.x.x* and *192.168.x.x*) and Exchange IP addresses are filtered and marked as *True*. If you're seeing private IP address ranges, it's highly likely that your external load balancer isn't sending the client IP address when it passes the request to the Web Application Proxy server.  | 
 
 ## Configure notification settings
-Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
-Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
+
+You can update the report's administrator contacts through the **Notification Settings**. By default, the risky IP alert email notification is in an *off* state. You can enable the notification by toggling the button under **Get email notifications for IP addresses exceeding failed activity threshold report**.
+
+Like generic alert notification settings in Connect Health, it allows you to customize the designated notification recipient list about the Risky IP report from here. You can also notify all hybrid identity administrators while you're making the change. 
 
 ## Configure threshold settings
-Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. The default values are given below. There are four categories in the risk IP report threshold settings:
 
-![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4d.png)
+You can update the alerting threshold in **Threshold Settings**. The system threshold is set with default values, which are shown in the following screenshot and described in the table. 
 
-| Threshold Item | Description |
+The risk IP report threshold settings are separated into four categories.
+
+![Screenshot of the Azure AD Connect Health Portal that shows the four categories of threshold settings and their default values.](./media/how-to-connect-health-adfs/report4d.png)
+
+| Threshold setting | Description |
 | --- | --- |
-| (Bad U/P + Extranet Lockout) / Day  | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **day**. Default value is 100.|
-| (Bad U/P + Extranet Lockout) / Hour | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **hour**. Default Value is 50.|
-| Extranet Lockout / Day | Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **day**. Default value is 50.|
-| Extranet Lockout / Hour| Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **hour**. Default value is 25|
+| (Bad U/P + Extranet Lockout) / Day  | Reports the activity and triggers an alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds the threshold, per *day*. The default value is 100.|
+| (Bad U/P + Extranet Lockout) / Hour | Reports the activity and triggers an alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds the threshold, per *hour*. The default value is 50.|
+| Extranet Lockout / Day | Reports the activity and triggers an alert notification when the count of Extranet Lockout exceeds the threshold, per *day*. The default value is 50.|
+| Extranet Lockout / Hour | Reports the activity and triggers an alert notification when the count of Extranet Lockout exceeds the threshold, per *hour*. The default value is 25.|
 
 > [!NOTE]
-> - The change of report threshold will be applied after an hour of the setting change. 
+> - The change of the report threshold will be applied an hour after the setting change. 
 > - Existing reported items will not be affected by the threshold change. 
-> - We recommend that you analyze the number of events seen within your environment and adjust the threshold appropriately. 
+> - We recommend that you analyze the number of events reported within your environment and adjust the threshold appropriately. 
 >
 >
 
 ## FAQ
-**Why am I seeing private IP address ranges in the report?**  <br />
-Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP approved list. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
-**Why am I seeing load balancer IP addresses in the report?**  <br />
-If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
+**Why am I seeing private IP address ranges in the report?**
 
-**What do I do to block the IP address?**  <br />
-You should add identified malicious IP address to the firewall or block in Exchange.   <br />
+Private IP addresses (*10.x.x.x, 172.x.x.x* and *192.168.x.x*) and Exchange IP addresses are filtered and marked as *True* in the IP approved list. If you're seeing private IP address ranges, it's highly likely that your external load balancer isn't sending the client IP address when it passes the request to the Web Application Proxy server.
 
-**Why am I not seeing any items in this report?** <br />
-- Failed sign-in activities are not exceeding the threshold settings.
-- Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](how-to-connect-health-data-freshness.md).
-- Audits is not enabled in AD FS farms.
+**Why am I seeing load balancer IP addresses in the report?**
 
-**Why am I seeing no access to the report?**  <br />
-Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required. Please contact your global admin to get access.
+If you're seeing load balancer IP addresses, it's highly likely that your external load balancer isn't sending the client IP address when it passes the request to the Web Application Proxy server. Configure your load balancer correctly to pass forward the client IP address. 
 
+**How can I block the IP address?**
+
+You should add the identified malicious IP address to the firewall or block it in Exchange.
+
+**Why can't I see any items in this report?**
+
+- Failed sign-in activities aren't exceeding the threshold settings.
+- Ensure that no “Health service isn't up to date” alert is active in your AD FS server list.  Read more about [how to troubleshoot this alert](how-to-connect-health-data-freshness.md).
+- Audits aren't enabled in AD FS farms.
+
+**Why can't I access the report?**
+
+You need to have Global Administrator or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permissions. Contact your Global Administrator for access.
 
 ## Next steps
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
+* [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md)

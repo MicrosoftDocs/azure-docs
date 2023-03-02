@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2018
+ms.date: 08/19/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Use StorSimple Device Manager to manage alerts for the StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

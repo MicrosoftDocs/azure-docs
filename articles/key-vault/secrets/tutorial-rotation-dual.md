@@ -3,14 +3,13 @@ title: Rotation tutorial for resources with two sets of credentials
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use two sets of authentication credentials.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: 'rotation'
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.author: jalichwa
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
+ms.date: 01/20/2023
+ms.author: mbaldwin
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -19,7 +18,7 @@ The best way to authenticate to Azure services is by using a [managed identity](
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification. 
 
 > [!NOTE]
-> Storage account keys can be automatically managed in Key Vault if you provide shared access signature tokens for delegated access to the storage account. There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
+> For Storage account services, using Azure Active Directory to authorize requests is recommended. For more information, see [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
 
 Here's the rotation solution described in this tutorial: 
 
@@ -38,11 +37,14 @@ In this solution, Azure Key Vault stores storage account individual access keys 
 * Azure Key Vault.
 * Two Azure storage accounts.
 
+> [!NOTE]
+>  Rotation of shared storage account key revokes account level shared access signature (SAS) generated based on that key. After storage account key rotation, you must regenerate account-level SAS tokens to avoid disruptions to applications.
+
 You can use this deployment link if you don't have an existing key vault and existing storage accounts:
 
 [![Link that's labelled Deploy to Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Under **Resource group**, select **Create new**. Name the group **vaultrotation** and then select **OK**.
+1. Under **Resource group**, select **Create new**. Name the group **vault rotation** and then select **OK**.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -82,7 +84,7 @@ The function app rotation function requires the following components and configu
 - A key rotation function with an event trigger and an HTTP trigger (on-demand rotation)
 - An Event Grid event subscription for the **SecretNearExpiry** event
 
-1. Select the Azure template deployment link: 
+1. Select the Azure template deployment link:
 
    [![Azure template deployment link.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
@@ -94,7 +96,7 @@ The function app rotation function requires the following components and configu
 1. In the **App Service Plan Type** box, select hosting plan. **Premium Plan** is needed only when your key vault is behind firewall.
 1. In the **Function App Name** box, enter the name of the function app.
 1. In the **Secret Name** box, enter the name of the secret where you'll store access keys.
-1. In the **Repo URL** box, enter the GitHub location of the function code. In this tutorial you can use **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** .
+1. In the **Repo URL** box, enter the GitHub location of the function code. In this tutorial, you can use **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** .
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -106,10 +108,9 @@ After you complete the preceding steps, you'll have a storage account, a server 
 > [!NOTE]
 > If you encounter a failure, you can select **Redeploy** to finish the deployment of the components.
 
-
 You can find deployment templates and code for the rotation function in [Azure Samples](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell).
 
-## Add the storage account access keys to Key Vault
+### Add the storage account access keys to Key Vault secrets
 
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
@@ -150,7 +151,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-Add secret to key vault with expiration date set to tomorrow, validity period for 60 days and storage account resource id. Run this command, using your retrieved values for `key1Value` and `storageAccountResourceId`:
+Add secret to key vault with validity period for 60 days, storage account resource ID, and for demonstration purpose to trigger rotation immediately set expiration date to tomorrow. Run this command, using your retrieved values for `key1Value` and `storageAccountResourceId`:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -171,7 +172,7 @@ Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $
 ```
 ---
 
-Above secret will trigger `SecretNearExpiry` event within several minutes. This event will in turn trigger the function to rotate the secret with expiration set to 60 days. In that configuration, 'SecretNearExpiry' event would be triggered every 30 days (30 days before expiry) and rotation function would will alternate rotation between key1 and key2.
+This secret will trigger `SecretNearExpiry` event within several minutes. This event will in turn trigger the function to rotate the secret with expiration set to 60 days. In that configuration, 'SecretNearExpiry' event would be triggered every 30 days (30 days before expiry) and rotation function will alternate rotation between key1 and key2.
 
 You can verify that access keys have regenerated by retrieving the storage account key and the Key Vault secret and compare them.
 
@@ -189,7 +190,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 
 Notice that `CredentialId` is updated to the alternate `keyName` and that `value` is regenerated:
 
-![Screenshot that shows the output of the a z keyvault secret show command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-4.png)
+![Screenshot that shows the output of the A Z keyvault secret show command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Retrieve the access keys to compare the values:
 # [Azure CLI](#tab/azure-cli)
@@ -205,9 +206,9 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Notice that `value` of the key is same as secret in key vault:
 
-![Screenshot that shows the output of the a z storage account keys list command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Screenshot that shows the output of the A Z storage account keys list command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-5.png)
 
-## Add storage accounts for rotation
+## Use existing rotation function for multiple storage accounts
 
 You can reuse the same function app to rotate keys for multiple storage accounts. 
 
@@ -231,7 +232,7 @@ To add storage account keys to an existing function for rotation, you need:
 
    ![Screenshot that shows how to create an additional storage account.](../media/secrets/rotation-dual/dual-rotation-7.png)
 
-### Add another storage account access key to Key Vault
+### Add storage account access key to Key Vault secrets
 
 Determine the storage account resource ID. You can find this value in the `id` property.
 # [Azure CLI](#tab/azure-cli)
@@ -257,7 +258,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrota
 ```
 ---
 
-Add secret to key vault with expiration date set to tomorrow, validity period for 60 days and storage account resource id. Run this command, using your retrieved values for `key2Value` and `storageAccountResourceId`:
+Add secret to key vault with validity period for 60 days, storage account resource ID, and for demonstration purpose to trigger rotation immediately set expiration date to tomorrow. Run this command, using your retrieved values for `key2Value` and `storageAccountResourceId`:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -292,7 +293,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 
 Notice that `CredentialId` is updated to the alternate `keyName` and that `value` is regenerated:
 
-![Screenshot that shows the output of the a z keyvault secret show command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-8.png)
+![Screenshot that shows the output of the A Z keyvault secret show command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Retrieve the access keys to compare the values:
 # [Azure CLI](#tab/azure-cli)
@@ -308,7 +309,12 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Notice that `value` of the key is same as secret in key vault:
 
-![Screenshot that shows the output of the a z storage account keys list command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Screenshot that shows the output of the A Z storage account keys list command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-9.png)
+
+## Disable rotation for secret
+
+You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
+
 
 ## Key Vault rotation functions for two sets of credentials
 
@@ -317,10 +323,10 @@ Rotation functions template for two sets of credentials and several ready to use
 - [Project template](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
 - [Redis Cache](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
 - [Storage Account](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
-- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+- [Azure Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
 
 > [!NOTE]
-> Above rotation functions are created by a member of the community and not by Microsoft. Community Azure Functions are not supported under any Microsoft support programme or service, and are made available AS IS without warranty of any kind.
+> These rotation functions are created by a member of the community and not by Microsoft. Community functions are not supported under any Microsoft support program or service, and are made available AS IS without warranty of any kind.
 
 ## Next steps
 

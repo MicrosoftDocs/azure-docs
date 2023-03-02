@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 12/15/2022
 ---
 
 # What's new in Anomaly Detector
@@ -14,6 +14,49 @@ Learn what's new in the service. These items include release notes, videos, blog
 We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
+
+### Jan 2023
+* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
+
+### Dec 2022
+* Multivariate Anomaly Detection SDK is updated to match with GA API for four languages.
+
+    |SDK Package  |Sample Code  |
+    |---------|---------|
+    | [Python](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b6/)|[sample_multivariate_detect.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)|
+    | [.NET](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.6) | [Sample4_MultivariateDetect.cs](https://github.com/Azure/azure-sdk-for-net/blob/40a7d122ac99a3a8a7c62afa16898b7acf82c03d/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs)|
+    | [JAVA](https://search.maven.org/artifact/com.azure/azure-ai-anomalydetector/3.0.0-beta.5/jar) | [MultivariateSample.java](https://github.com/Azure/azure-sdk-for-java/blob/e845677d919d47a2c4837153306b37e5f4ecd795/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)|
+    | [JS/TS](https://www.npmjs.com/package/@azure-rest/ai-anomaly-detector/v/1.0.0-beta.1) |[sample_multivariate_detection.ts](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/anomalydetector/ai-anomaly-detector-rest/samples-dev/sample_multivariate_detection.ts)|
+
+* Check out this AI Show video to learn more about the GA version of Multivariate Anomaly Detection: [AI Show | Multivariate Anomaly Detection is Generally Available](/shows/ai-show/ep-70-the-latest-from-azure-multivariate-anomaly-detection).
+
+### Nov 2022
+
+* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with a better user experience and better model performance. Learn more about [how to get started using the latest release of Multivariate Anomaly Detection](how-to/create-resource.md).
+
+### June 2022
+
+* New blog released: [4 sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
+
+### May 2022
+
+* New blog released: [Detect anomalies in equipment with Multivariate Anomaly Detector in Azure Databricks](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detect-anomalies-in-equipment-with-anomaly-detector-in-azure/ba-p/3390688).
+
+### April 2022
+* Univariate Anomaly Detector is now integrated in Azure Data Explorer(ADX). Check out this [announcement blog post](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/announcing-univariate-anomaly-detector-in-azure-data-explorer/ba-p/3285400) to learn more!
+
+### March 2022
+* Anomaly Detector (univariate) available in Sweden Central.
+
+### February 2022
+* **Multivariate Anomaly Detector API has been integrated with Synapse.** Check out this [blog](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/announcing-multivariate-anomaly-detector-in-synapseml/ba-p/3122486) to learn more! 
+
+### January 2022
+* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector supports synchronous API for inference and added new fields in API output interpreting the correlation change of variables. 
+* Univariate Anomaly Detector added new fields in API output. 
+
+### November 2021
+* Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.
 
 ### September 2021
 * Anomaly Detector (univariate) available in Jio India West.
@@ -55,19 +98,20 @@ We've also added links to some user-generated content. Those items will be marke
 * September 2020 [Multivariate Time-series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040) - Paper on multivariate anomaly detection accepted by ICDM 2020
 * November 5, 2019 [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/overview-of-sr-cnn-algorithm-in-azure-anomaly-detector/ba-p/982798) - Technical blog on SR-CNN
 * June 10, 2019 [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) - Paper on SR-CNN accepted by KDD 2019
-* April 25, 2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* April 25, 2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](/ja-jp/azure/cognitive-services/anomaly-detector/)
 * April 20, 2019 [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/introducing-azure-anomaly-detector-api/ba-p/490162) - Announcement blog
 
 ## Videos
 
-* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
-* April 20, 2021 [AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/AI-Show-Live-Episode-11-Whats-new-with-Anomaly-Detector) - AI Show live recording with Tony Xing and Seth Juarez
-* May 18, 2020 [Inside Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
+* Nov 12, 2022 AI Show: [Multivariate Anomaly Detection is GA](/shows/ai-show/ep-70-the-latest-from-azure-multivariate-anomaly-detection) (Seth with Louise Han).
+* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
+* April 20, 2021 AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities - AI Show live recording with Tony Xing and Seth Juarez
+* May 18, 2020 [Inside Anomaly Detector](/shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
 * September 19, 2019 **[UGC]** [Detect Anomalies in Your Data with the Anomaly Detector](https://www.youtube.com/watch?v=gfb63wvjnYQ) - Video by Jon Wood
-* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
-* August 27, 2019 [Anomaly Detector v1.0 Best Practices](https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
-* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
-* August 13, 2019 [Introducing Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
+* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](/shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
+* August 27, 2019 [Anomaly Detector v1.0 Best Practices](/shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
+* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](/shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
+* August 13, 2019 [Introducing Azure Anomaly Detector](/shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
 
 
 ## Service updates

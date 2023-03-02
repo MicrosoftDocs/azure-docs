@@ -101,15 +101,15 @@ The resources referenced by the *index.html* file are detailed in the following 
 |---|---|
 |MSAL.js library| MSAL.js authentication JavaScript library [CDN path](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).|
 |[Bootstrap stylesheet](https://getbootstrap.com/) | A free front-end framework for faster and easier web development. The framework includes HTML-based and CSS-based design templates. |
-|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
-|[authConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
-|[authRedirect.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
-|[apiConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
-|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
-|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
+|[`policies.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
+|[`authConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
+|[`authRedirect.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
+|[`apiConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
+|[`api.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
+|[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
 | | |
 
-To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet.
+To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet:
 
 ```html
 <!DOCTYPE html>
@@ -215,13 +215,13 @@ To specify your Azure AD B2C user flows, do the following:
 
 1. Replace `B2C_1_SUSI` with your sign-in Azure AD B2C Policy name.
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
-1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management.md#get-your-tenant-name).
+1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./ tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 7: Use the MSAL to sign in the user
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-microsoft-authentication-library-msal-to-sign-in-the-user) articles.
+For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
 
 To sign in the user, do the following:
 
@@ -243,7 +243,7 @@ To sign in the user, do the following:
                 /**
                  * For the purpose of setting an active account for UI update, we want to consider only the auth response resulting
                  * from SUSI flow. "tfp" claim in the id token tells us the policy (NOTE: legacy policies may use "acr" instead of "tfp").
-                 * To learn more about B2C tokens, visit https://docs.microsoft.com/en-us/azure/active-directory-b2c/tokens-overview
+                 * To learn more about B2C tokens, visit https://learn.microsoft.com/azure/active-directory-b2c/tokens-overview
                  */
                 if (response.idTokenClaims['tfp'].toUpperCase() === b2cPolicies.names.signUpSignIn.toUpperCase()) {
                     handleResponse(response);
@@ -442,7 +442,7 @@ To call your web API by using the token you acquired, do the following:
 
 ## Step 10: Add the UI elements reference
 
-The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users ID token claims to the screen.
+The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users' ID token claims to the screen.
 
 To add the UI elements reference, do the following:
 

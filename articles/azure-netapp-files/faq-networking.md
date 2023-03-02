@@ -4,9 +4,9 @@ description: Answers frequently asked questions (FAQs) about Azure NetApp Files 
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
-ms.date: 10/11/2021
+author: b-hchen
+ms.author: anfdocs
+ms.date: 11/08/2021
 ---
 # Networking FAQs for Azure NetApp Files
 
@@ -37,7 +37,7 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 
 ## Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
 
-No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
+No, Azure NetApp Files does not currently support deploying volumes in a dual-stack (IPv4 and IPv6) delegated subnet. The delegated subnet for the Azure NetApp Files service must be an IPv4-only subnet. However, Azure NetApp Files is accessible over IPv4 through a dual-stack subnet or (peered) VNet.
 
 ## Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts limited to 1000?
 

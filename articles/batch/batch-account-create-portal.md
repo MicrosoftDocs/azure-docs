@@ -39,7 +39,11 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
     :::image type="content" source="media/batch-account-create-portal/storage_account.png" alt-text="Screenshot of the options when creating a storage account.":::
 
-1. If desired, select **Advanced** to specify **Identity type**, **Public network access** or **Pool allocation mode**. For most scenarios, the default options are fine.
+1. If desired, select **Advanced** to specify **Identity type**, **Pool allocation mode** or **Authentication mode**. For most scenarios, the default options are fine.
+
+1. If desired, select **Networking** to configure [public network access](public-network-access.md) with your Batch account.
+
+    :::image type="content" source="media/batch-account-create-portal/batch-account-networking.png" alt-text="Screenshot of the networking options when creating a Batch account.":::
 
 1. Select **Review + create**, then select **Create** to create the account.
 
@@ -50,7 +54,7 @@ Once the account has been created, select the account to access its settings and
 > [!NOTE]
 > The name of the Batch account is its ID and can't be changed. If you need to change the name of a Batch account, you'll need to delete the account and create a new one with the intended name.
 
-:::image type="content" source="media/batch-account-create-portal/batch_blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
+:::image type="content" source="media/batch-account-create-portal/batch-blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
 
 When you develop an application with the [Batch APIs](batch-apis-tools.md#azure-accounts-for-batch-development), you need an account URL and key to access your Batch resources. (Batch also supports Azure Active Directory authentication.) To view the Batch account access information, select **Keys**.
 
@@ -66,6 +70,9 @@ If you choose to create a Batch account in user subscription mode, perform the f
 
 > [!IMPORTANT]
 > The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
+
+>[!IMPORTANT]
+> In user subscription mode, you have to accept the legal terms for the image before using the subscription. If you haven’t done this action before, you might get the error **Allocation failed due to marketplace purchase eligibility** when trying to allocate Batch nodes. For more information, see [Accept legal terms](#accept-legal-terms).
 
 ### Allow Azure Batch to access the subscription (one-time operation)
 
@@ -109,6 +116,24 @@ For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must b
 
 1. In the [Azure portal](https://portal.azure.com), select your user subscription mode Batch account to display its settings and properties.
 1. From the left menu, select **Quotas** to view and configure the core quotas associated with your Batch account.
+
+### Accept legal terms
+
+In user subscription mode, you need to accept the legal terms for the image before using the subscription. To accept these legal terms, run the commands [Get-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) and [Set-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) in PowerShell.
+
+Make sure to set the following parameters based on your Batch pool's configuration:
+
+- `Publisher`: the image's publisher
+- `Product`: the image offer
+- `Name`: the offer SKU
+
+
+For example:
+
+```powershell
+Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept
+```
+
 
 ## Other Batch account management options
 

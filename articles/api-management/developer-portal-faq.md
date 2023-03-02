@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 07/30/2021
+ms.date: 02/04/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,17 @@ ms.custom: devx-track-azurepowershell
 
 ## What if I need functionality that isn't supported in the portal?
 
-You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+You have the following options:
+
+* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
+
+* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
+
+* [Self-host the developer portal](developer-portal-self-host.md), only if you need to make modifications to the core of the developer portal codebase.
+
+* Open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal).
+
+Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 
 
 ## Can I have multiple developer portals in one API Management service?
@@ -58,7 +68,7 @@ Most configuration changes (for example, VNet, sign-in, product terms) require [
 
 ## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
-The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s).
+The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](cors-policy.md) on your API(s).
 
 You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 
@@ -68,7 +78,7 @@ You can check the status of the CORS policy in the **Portal overview** section o
 
 ![Screenshot that shows where you can check the status of your CORS policy.](media/developer-portal-faq/cors-azure-portal.png)
 
-Automatically apply the CORS policy by clicking on the **Enable CORS** button.
+Automatically apply the CORS policy by clicking the **Enable CORS** button.
 
 You can also enable CORS manually.
 
@@ -127,7 +137,7 @@ This error is shown when a `GET` call to `https://<management-endpoint-hostname>
 
 If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
 
-The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
 
 ## What's the browser support for the portal?
 
@@ -162,7 +172,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
  
 1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
    
-   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
 1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
 
@@ -184,7 +194,7 @@ Among other authentication methods, the developer portal supports single sign-on
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### Generate user tokens
-You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/current-ga/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.
@@ -192,13 +202,12 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 
 ## Next steps
 
-Learn more about the new developer portal:
+Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Extend](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)
-- [Implement your own widget](developer-portal-implement-widgets.md)
 
 Browse other resources:
 
 - [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
-

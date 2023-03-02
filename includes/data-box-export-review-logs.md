@@ -2,13 +2,18 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 06/19/2020
+ms.date: 04/04/2022
 ms.author: alkohli
 ---
 
 Before you begin the data copy:
 
 1. Download the *copy log*. In the **Connect and copy** page, select **Copy log**. When prompted, save the log on your system. 
+
+    If your copy log size is too large, you will need to use [Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [AzCopy](../articles/storage/common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) in order to download the copy log and prevent any failures.
+
+    * If you are using [Azure Storage Explorer](../articles/databox/data-box-deploy-copy-data-via-rest.md?branch=pr-en-us-193379) to download the copy log, you can map your Azure storage account in Azure Storage Explorer and then download the raw file.
+    * If you are using [AzCopy](../articles/storage/common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to download the copy log, you can use the `AzCopy copy` command to copy the log file from your storage account to your local system.
 
     ![Download copy log 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 

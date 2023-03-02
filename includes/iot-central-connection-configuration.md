@@ -12,10 +12,10 @@
 
 When you run the sample device application later in this tutorial, you need the following configuration values:
 
-* ID scope: In your IoT Central application, navigate to **Administration > Device Connection**. Make a note of the **ID scope** value.
-* Group primary key: In your IoT Central application, navigate to **Administration > Device Connection > SAS-IoT-Devices**. Make a note of the shared access signature **Primary key** value.
+* ID scope: In your IoT Central application, navigate to **Permissions > Device connection groups**. Make a note of the **ID scope** value.
+* Group primary key: In your IoT Central application, navigate to **Permissions > Device connection groups > SAS-IoT-Devices**. Make a note of the shared access signature **Primary key** value.
 
-Use the Cloud Shell to generate a device key from the group primary key you retrieved:
+Use the Azure Cloud Shell to generate a device key from the group primary key you retrieved:
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -23,3 +23,6 @@ az iot central device compute-device-key --device-id sample-device-01 --pk <the 
 ```
 
 Make a note of the generated device key, you use it later in this tutorial.
+
+> [!NOTE]
+> To run this sample, you don't need to register the device in advance in your IoT Central application. The sample uses the IoT Central capability to [automatically register devices](../articles/iot-central/core/concepts-device-authentication.md#automatically-register-devices) when they connect for the first time.

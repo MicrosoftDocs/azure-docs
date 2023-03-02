@@ -3,11 +3,10 @@ title: Add a preview audience for a SaaS offer in Azure Marketplace
 description: Add a preview audience for a software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 03/08/2022
 ---
 
 # Add a preview audience for a SaaS offer
@@ -17,9 +16,12 @@ As you create your software as a service (SaaS) offer in Partner Center, you nee
 > [!NOTE]
 > If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
 
+> [!TIP]
+> Previews are not supported by offers configured to be available to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md).
+
 ## Define a preview audience
 
-On the **Preview audience** tab, you can define a limited audience who can review your SaaS offer before you publish it live to the broader marketplace audience. You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add a minimum of one and up to 10 email addresses manually or import up to 20 with a .csv file. You can update the preview audience list at any time.
+On the **Preview audience** tab, you can define a limited audience who can review your SaaS offer before you publish it live to the broader marketplace audience. You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add a minimum of one and up to 10 email addresses manually or import up to 20 with a .csv file. You can update the preview audience list at any time. Preview audience users can test these offers in their Default Directory.
 
 > [!NOTE]
 > A preview audience differs from a private audience. A preview audience is allowed access to your offer before it’s published live in the online stores. You may also choose to create a plan and make it available only to a private audience. Private plans are explained in [How to create plans for your SaaS offer](create-new-saas-offer-plans.md).
@@ -47,3 +49,4 @@ On the **Preview audience** tab, you can define a limited audience who can revie
 ## Next steps
 
 - [Add technical details for a SaaS offer](create-new-saas-offer-technical.md)
+

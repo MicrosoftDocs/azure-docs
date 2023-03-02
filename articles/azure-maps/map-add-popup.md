@@ -1,8 +1,8 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: Learn about popups, popup templates, and popup events in Azure Maps. See how to add a popup to a point on a map and how to reuse and customize popups.
-author: anastasia-ms
-ms.author: v-stharr
+author: eriklindeman
+ms.author: eriklind
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -229,7 +229,7 @@ var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
-    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg'
+    imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg'
 });
 
 var popup = new atlas.Popup({

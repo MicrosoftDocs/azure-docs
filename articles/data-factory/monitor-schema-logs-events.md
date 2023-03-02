@@ -1,13 +1,13 @@
 ---
 title: Schema of logs and events 
 description: Learn about the schema used by Azure Data Factory logs and events for monitoring.
-author: minhe-msft
-ms.author: hemin
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Schema of logs and events
@@ -88,6 +88,7 @@ The following lists of attributes are used for monitoring.
    "start":"",
    "end":"",
    "status":"",
+   "location": "",
    "properties":
     {
       "Parameters": {
@@ -97,7 +98,14 @@ The following lists of attributes are used for monitoring.
         "ExecutionStart": "",
         "TriggerId": "",
         "SubscriptionId": ""
-      }
+      },
+      "Predecessors": [
+            {
+                "Name": "",
+                "Id": "",
+                "InvokedByType": ""
+            }
+        ]
     }
 }
 ```
@@ -116,6 +124,8 @@ The following lists of attributes are used for monitoring.
 |**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`. |
 |**end**| String | The end time of the activity runs in timespan UTC format. If the diagnostic log shows an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | The final status of the pipeline run. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
+|**location**| String | The Azure region of the pipeline run. | `eastasia`|
+|**predecessors**| String | The calling object of the pipeline along with ID. | `Manual`|
 
 ### Trigger-run log attributes
 
@@ -459,4 +469,4 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 
 ## Next steps
 
-[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-analytics.md)
+[Monitor programmatically using SDKs](monitor-programmatically.md)

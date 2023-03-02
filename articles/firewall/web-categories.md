@@ -72,7 +72,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Professional networking   | Sites that enable professional networking for online communities.   |
 |Search engines + portals   |Sites enabling the searching of the Web, newsgroups, images, directories, and other online content. Includes portal and directory sites such as white/yellow pages.    |
 |Translators     |   Sites that translate Web pages or phrases from one language to another. These sites bypass the proxy server, presenting the risk that unauthorized content may be accessed, similar to using an anonymizer.       |
-|File repository     |  Web pages including collections of shareware, freeware, open source, and other software downloads.        |
+|Web repository + storage   |  Web pages including collections of shareware, freeware, open source, and other software downloads.        |
 |Web-based email     | Sites that enable users to send and receive email through a web accessible email account.         |
 |     |         |
 
@@ -81,7 +81,7 @@ Web categories lets administrators allow or deny user access to web site categor
 
 |Category   |Description  |
 |---------|---------|
-|Advertisements + pop-ups    |  Sites that provide advertising graphics or other ad content files that appear on Web pages.       |
+|Advertisements + popups    |  Sites that provide advertising graphics or other ad content files that appear on Web pages.       |
 |Chat    |   Sites that enable web-based exchange of real-time messages through chat services or chat rooms.       |
 |Cults   |   Sites relating to non-traditional religious practice typically known as "cults," that is, considered to be false, unorthodox, extremist, or coercive, with members often living under the direction of a charismatic leader.       |
 |Games    |    Sites relating to computer or other games, information about game producers, or how to obtain cheat codes. Game-related publication sites.      |

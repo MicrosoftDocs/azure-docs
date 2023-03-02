@@ -4,12 +4,16 @@ description: Learn how to move an Azure disk pool to a different subscription.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Move a disk pool (preview) to a different subscription
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 Moving an Azure disk pool (preview) involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group. Currently, Azure doesn't support moving multiple resource groups to another subscription at once. 
 

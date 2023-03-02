@@ -4,7 +4,6 @@ description: The latest updates for Application Insights SDKs.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
-
 ---
 
 # Release Notes - Application Insights
@@ -38,6 +37,6 @@ Get started with code-based monitoring:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)

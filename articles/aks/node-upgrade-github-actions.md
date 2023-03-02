@@ -2,7 +2,6 @@
 title: Handle AKS node upgrades with GitHub Actions
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
-services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 
@@ -27,9 +26,11 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
 
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
+
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -95,7 +96,7 @@ Download and sign in to the Azure CLI.
 
           steps:
             - name: Azure Login
-              uses: Azure/login@v1.1
+              uses: Azure/login@v1.4.3
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }}
       ```
@@ -103,18 +104,23 @@ Download and sign in to the Azure CLI.
 1. From the Azure CLI, run the following command to generate a new username and password.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac -o json
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/{subscriptionID} -o json
     ```
 
     The output should be similar to the following json:
 
     ```output
     {
-      "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "displayName": "azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "name": "http://azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "password": "xXxXxXxXx",
-      "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "clientSecret": "xXxXxXxXx",
+      "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"      
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
     }
     ```
 
@@ -149,11 +155,11 @@ To create the steps to execute Azure CLI commands.
 
         steps:
           - name: Azure Login
-            uses: Azure/login@v1.1
+            uses: Azure/login@v1.4.3
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
           - name: Upgrade node images
-            uses: Azure/cli@v1.0.0
+            uses: Azure/cli@v1.0.6
             with:
               inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
@@ -190,7 +196,7 @@ jobs:
 
     steps:
       - name: Azure Login
-        uses: Azure/login@v1.1
+        uses: Azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -211,11 +217,13 @@ jobs:
 [cron-syntax]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [managed-node-upgrades-article]: node-image-upgrade.md
 [cluster-upgrades-article]: upgrade-cluster.md
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[auto-upgrade-node-image]: auto-upgrade-node-image.md

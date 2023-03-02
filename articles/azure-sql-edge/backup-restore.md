@@ -1,15 +1,14 @@
 ---
 title: Back up and restore databases - Azure SQL Edge
 description: Learn about backup and restore capabilities in Azure SQL Edge.
-keywords: 
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 05/19/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 05/19/2020 
 ms.custom: devx-track-azurepowershell
+services: sql-edge
 ---
 
 # Back up and restore databases in Azure SQL Edge 

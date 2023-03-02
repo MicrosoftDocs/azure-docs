@@ -1,9 +1,9 @@
 ---
-author: DCtheGeek
+author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 07/07/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 

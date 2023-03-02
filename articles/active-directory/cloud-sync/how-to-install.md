@@ -3,102 +3,90 @@ title: 'Install the Azure AD Connect provisioning agent'
 description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Azure portal.
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 01/20/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 # Install the Azure AD Connect provisioning agent
+
 This article walks you through the installation process for the Azure Active Directory (Azure AD) Connect provisioning agent and how to initially configure it in the Azure portal.
 
->[!IMPORTANT]
->The following installation instructions assume that all the [prerequisites](how-to-prerequisites.md) were met.
+> [!IMPORTANT]
+> The following installation instructions assume that you've met all the [prerequisites](how-to-prerequisites.md).
 
 >[!NOTE]
->This article deals with installing the provisioning agent by using the wizard. For information on installing the Azure AD Connect provisioning agent by using a command-line interface (CLI), see [Install the Azure AD Connect provisioning agent by using a CLI and PowerShell](how-to-install-pshell.md).
+>This article deals with installing the provisioning agent by using the wizard. For information about installing the Azure AD Connect provisioning agent by using a CLI, see [Install the Azure AD Connect provisioning agent by using a CLI and PowerShell](how-to-install-pshell.md).
 
-For additional information and an example, see the following video.
+For more information and an example, view the following video:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## Group Managed Service Accounts
-A group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. It also extends this functionality over multiple servers. Azure AD Connect cloud sync supports and recommends the use of a group Managed Service Account for running the agent. For more information on a group Managed Service Account, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+A group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. A gMSA also extends this functionality over multiple servers. Azure AD Connect cloud sync supports and recommends the use of a gMSA for running the agent. For more information, see [Group Managed Service Accounts](how-to-prerequisites.md#group-managed-service-accounts).
 
 
-### Upgrade an existing agent to use the gMSA
-To upgrade an existing agent to use the group Managed Service Account created during installation, update the agent service to the latest version by running AADConnectProvisioningAgent.msi. Now run through the installation wizard again and provide the credentials to create the account when prompted.
+### Update an existing agent to use the gMSA
+To update an existing agent to use the Group Managed Service Account created during installation, upgrade the agent service to the latest version by running *AADConnectProvisioningAgent.msi*. Now run through the installation wizard again and provide the credentials to create the account when you're prompted to do so.
 
 ## Install the agent
 
-To install the agent:
+[!INCLUDE [active-directory-cloud-sync-how-to-install](../../../includes/active-directory-cloud-sync-how-to-install.md)]
 
- 1. Sign in to the server you'll use with enterprise admin permissions.
- 1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
- 1. On the menu on the left, select **Azure AD Connect**.
- 1. Select **Manage cloud sync** > **Review all agents**.
- 1. Download the Azure AD Connect provisioning agent from the Azure portal.
- 
-    ![Screenshot that shows Download on-premises agent.](media/how-to-install/install-9.png)</br>
- 1. Accept the terms and select **Download**.
- 1. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
- 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
- 
-    ![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/how-to-install/install-1.png)</br>
- 1. After this operation finishes, the configuration wizard starts. Sign in with your Azure AD global administrator account.
- 1. On the **Configure Service Account** screen, select either **Create gMSA** or **Use custom gMSA**. If you allow the agent to create the account, it will be named provAgentgMSA$. If you specify **Use custom gMSA**, you're prompted to provide this account.
- 1. Enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service. Select **Next**.
-  
-    ![Screenshot that shows the Create gMSA option.](media/how-to-install/install-12.png)</br>
- 1. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
- 1. Optionally, you can manage the preference of domain controllers the agent will use by selecting the **Select domain controller priority** checkbox and ordering the list of domain controllers. Select **OK**.
- 
-    ![Screenshot that shows ordering the domain controllers.](media/how-to-install/install-2a.png)</br>
- 1. Select **Next**.
- 
-    ![Screenshot that shows the Connect Active Directory screen.](media/how-to-install/install-3a.png)</br>
- 1. On the **Agent installation** screen, confirm settings and the account that will be created and select **Confirm**.
- 
-    ![Screenshot that shows the Confirm settings.](media/how-to-install/install-11.png)</br>
- 1. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
- 
-    ![Screenshot that shows the Configuration complete screen.](media/how-to-install/install-4a.png)</br>
- 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
+## Verify the agent installation
 
-## Verify agent installation
-Agent verification occurs in the Azure portal and on the local server that's running the agent.
-
-### Azure portal agent verification
-To verify the agent is being seen by Azure:
-
- 1. Sign in to the Azure portal.
- 1. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage cloud sync**.
-
-    ![Screenshot that shows the Azure portal.](media/how-to-install/install-6.png)</br>
-
- 1. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
-
-    ![Screenshot that shows the Review all agents option.](media/how-to-install/install-7.png)</br>
- 
- 1. On the **On-premises provisioning agents** screen, you see the agents you installed. Verify that the agent in question is there and is marked *active*.
-
-    ![Screenshot that shows On-premises provisioning agents screen.](media/how-to-install/verify-1.png)</br>
-
-### On the local server
-To verify that the agent is running:
-
-1. Sign in to the server with an administrator account.
-1. Open **Services** by going to it or by selecting **Start** > **Run** > **Services.msc**.
-1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
-
-    ![Screenshot that shows the Services screen.](media/how-to-install/troubleshoot-1.png)
+[!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
 >[!IMPORTANT]
->The agent has been installed, but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
+> After you've installed the agent, you must configure and enable it before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
+
+## Enable password writeback in Azure AD Connect cloud sync 
+
+To use *password writeback* and enable the self-service password reset (SSPR) service to detect the cloud sync agent, use the `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet and the tenant’s global administrator credentials: 
+
+  ```   
+   Import-Module "C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll" 
+   Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
+  ```
+
+For more information about using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+
+## Install an agent in the US government cloud
+
+By default, the Azure AD Connect provisioning agent is installed in the default Azure environment. If you're installing the agent for US government use, make this change in step 7 of the preceding installation procedure:
+
+- Instead of selecting **Open file**, select **Start** > **Run**, and then go to the *AADConnectProvisioningAgentSetup.exe* file.  In the **Run** box, after the executable, enter **ENVIRONMENTNAME=AzureUSGovernment**, and then select **OK**.
+
+    [![Screenshot that shows how to install an agent in the US government cloud.](media/how-to-install/new-install-12.png)](media/how-to-install/new-install-12.png#lightbox)
+
+## Password hash synchronization and FIPS with cloud sync
+
+If your server has been locked down according to the Federal Information Processing Standard (FIPS), MD5 (message-digest algorithm 5) is disabled.
+
+To enable MD5 for password hash synchronization, do the following:
+
+1. Go to %programfiles%\Microsoft Azure AD Connect Provisioning Agent.
+1. Open *AADConnectProvisioningAgent.exe.config*.
+1. Go to the configuration/runtime node at the top of the file.
+1. Add the `<enforceFIPSPolicy enabled="false"/>` node.
+1. Save your changes.
+
+For reference, your code should look like the following snippet:
+
+```xml
+<configuration>
+   <runtime>
+      <enforceFIPSPolicy enabled="false"/>
+   </runtime>
+</configuration>
+```
+
+For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/aad-password-sync-encryption-and-fips-compliance/ba-p/243709).
 
 ## Next steps 
 

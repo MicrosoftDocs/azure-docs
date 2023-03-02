@@ -4,9 +4,9 @@ description: Microsoft commercial marketplace policies and terms apply to all pu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
-ms.date: 04/16/2021
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 06/21/2022
 ---
 # Commercial marketplace policies and terms
 

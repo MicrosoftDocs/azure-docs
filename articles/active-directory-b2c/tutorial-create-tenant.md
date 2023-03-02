@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2021
+ms.date: 01/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -18,11 +18,6 @@ ms.custom: "b2c-support"
 
 Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
 
-> [!NOTE]
-> You can create up to 20 tenants per subscription. This limit helps protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you need to create more than 20 tenants, please contact [Microsoft Support](support-options.md).
-> 
-> If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). A role of at least Subscription Administrator is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -31,31 +26,40 @@ In this article, you learn how to:
 > * Switch to the directory containing your Azure AD B2C tenant
 > * Add the Azure AD B2C resource as a **Favorite** in the Azure portal
 
-You learn how to register an application in the next tutorial.
+Before you create your Azure AD B2C tenant, you need to take the following considerations into account: 
+
+- You can create up to **20** tenants per subscription. This limit help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). 
+
+- By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. Learn how to [read your tenant usage](microsoft-graph-operations.md#tenant-usage).  
+
+- If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). A role of at least *Subscription Administrator* is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
+- An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
 ## Create an Azure AD B2C tenant
+>[!NOTE]
+>If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. Select the directory that contains your subscription:
+1. Make sure you're using the directory that contains your subscription:
+
     1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
     
         ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
-    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal.
+    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal. If the directory that contains your subscription has the **Current** label next to it, you don't need to do anything. 
 
-        ![Directories + subscriptions with Switch button](media/tutorial-create-tenant/switch-directory.png)
+        ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
-1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
+1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
-    1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
-    2. Select your subscription, and then in the left menu, select **Resource providers** .
+    1. On the Azure portal, search for and select **Subscriptions**.
+    2. Select your subscription, and then in the left menu, select **Resource providers**. If you don't see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to expand it.
     3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
@@ -63,7 +67,8 @@ You learn how to register an application in the next tutorial.
    ![Select the Create a resource button](media/tutorial-create-tenant/create-a-resource.png)
 
 1. Search for **Azure Active Directory B2C**, and then select **Create**.
-2. Select **Create a new Azure AD B2C Tenant**.
+
+1. Select **Create a new Azure AD B2C Tenant**.
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -81,6 +86,9 @@ You learn how to register an application in the next tutorial.
 1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
+
+> [!NOTE]
+> When an Azure AD B2C directory is created, an application called `b2c-extensions-app`  is automatically created inside the new directory. Do not modify or delete it. The application is used by Azure AD B2C for storing user data. Learn more about [Azure AD B2C: Extensions app](extensions-app.md).
 
 ## Select your B2C tenant directory
 

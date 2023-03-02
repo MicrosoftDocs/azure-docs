@@ -1,6 +1,6 @@
 ---
-title: Mark an app as publisher verified - Microsoft identity platform | Azure
-description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
+title: Mark an app as publisher verified
+description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher (application developer) has verified the authenticity of their organization using a Microsoft Partner Network (MPN) account that has completed the verification process and has associated this MPN account with that application registration.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 11/12/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: xurobert, brianokoyo, ardhanap
 ---
 
 # Mark your app as publisher verified
@@ -31,15 +31,14 @@ If you are already enrolled in the Microsoft Partner Network (MPN) and have met 
 
 For more details on specific benefits, requirements, and frequently asked questions see the [overview](publisher-verification-overview.md).
 
-
 ## Mark your app as publisher verified
 Make sure you have met the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
 1. Ensure you are signed in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center.
 
-    - In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin. 
+    - In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator. 
 
-    - In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
+    - In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Administrator (this is a shared role mastered in Azure AD). 
 
 1. Navigate to the **App registrations** blade:  
 

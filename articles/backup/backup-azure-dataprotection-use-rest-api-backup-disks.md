@@ -4,6 +4,8 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API
@@ -46,7 +48,7 @@ The Backup vault requires permissions on the disk to enable backups. The system-
 
 ### Assign permissions
 
-You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](/azure/backup/backup-managed-disks-ps#assign-permissions).
+You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](./backup-managed-disks-ps.md#assign-permissions).
 
 ### Prepare the request to configure backup
 

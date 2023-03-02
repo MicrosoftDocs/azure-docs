@@ -231,5 +231,5 @@ Below are the limitations of this feature:
 
 ## Next steps
 
-* [Power BI dashboard integration with Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
+- [Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-real-time-fraud-detection.md) 
 * [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md)

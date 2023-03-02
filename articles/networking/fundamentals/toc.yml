@@ -30,7 +30,11 @@
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
-      href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: VPN Gateway
+        href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual WAN
+        href: ../../virtual-wan//virtual-wan-about.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../../expressroute/expressroute-workflows.md?toc=/azure/networking/fundamentals/toc.json
   - name: Microsoft global network
@@ -40,13 +44,13 @@
     - name: Azure network latency
       href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
     - name: Internet routing preference in Azure
-      href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/routing-preference-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
   - name: Cloud network connectivity
     items: 
     - name: Virtual network
       href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Public IP address
-      href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/public-ip-addresses.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: DNS
       href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route network traffic
@@ -55,8 +59,12 @@
       href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Private access to resources 
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Connect on-premises to Azure - VPN encryption
-      href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Connect on-premises to Azure - VPN encryption       
+      items:
+      - name: VPN Gateway
+        href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual WAN
+        href: ../../virtual-wan//virtual-wan-about.md?toc=/azure/networking/fundamentals/toc.json
     - name: Extend on-premises to Azure - private connection
       href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
     - name: Outbound-only internet connectivity
@@ -91,7 +99,7 @@
   - name: Network monitoring
     items:
     - name: Monitor your network with Azure Monitor
-      href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Monitor and repair network health
       href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
@@ -101,11 +109,11 @@
     - name: Create a virtual network
       href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a public IP address
-      href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Optimize routing costs 
-      href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create an Azure DNS zone and record
       href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route traffic using route tables
@@ -145,4 +153,8 @@
     - name: Monitor communications between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
-      href:  ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Troubleshooting
+    items: 
+    - name: Troubleshoot Microsoft.Network Failed provisioning state
+      href: ../troubleshoot-failed-state.md?toc=/azure/networking/fundamentals/toc.json

@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/10/2021
+ms.date: 12/11/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -78,25 +78,17 @@ You can export your DSC configurations to script files using either the Azure po
 
 ## Geo-replication in Azure Automation
 
-Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
 The backup created by the Automation geo-replication service is a complete copy of Automation assets, configurations, and the like. This backup can be used if the primary region goes down and loses data. In the unlikely event that data for a primary region is lost, Microsoft attempts to recover it.
 
 > [!NOTE]
 > Azure Automation stores customer data in the region selected by the customer. For the purpose of BCDR, for all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region). Only for the Brazil South (Sao Paulo State) region of Brazil geography and Southeast Asia region (Singapore) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
 
-The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures:
-
-1. Select a secondary region to pair with the geographical region of your primary Automation account.
-
-2. Create an Automation account in the secondary region.
-
-3. In the primary account, export your runbooks as script files.
-
-4. Import the runbooks to your Automation account in the secondary region.
+The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures, set up disaster recovery of the Automation accounts and their dependent resources, such as Modules, Connections, Credentials, Certificates, Variables and Schedules. [Learn more](automation-disaster-recovery.md).
 
 ## Next steps
 
+* To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
 * To learn more about secure assets in Azure Automation, see [Encryption of secure assets in Azure Automation](automation-secure-asset-encryption.md).
-
-* To find out more about geo-replication, see [Creating and using active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
+* To find out more about geo-replication, see [Creating and using active geo-replication](/azure/azure-sql/database/active-geo-replication-overview).

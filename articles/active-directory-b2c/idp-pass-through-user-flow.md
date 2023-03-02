@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -30,7 +30,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](add-identity-provi
 
 ::: zone pivot="b2c-custom-policy"
 
-Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank. For more details, check out the identity providers federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers).
 
 ::: zone-end
 

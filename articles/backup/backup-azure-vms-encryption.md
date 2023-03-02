@@ -2,7 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 12/14/2022
+ms.service: backup
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -33,8 +36,8 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
 
-- Learn more about [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
-- Read the [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) for Azure VM disk encryption.
+- Learn more about [ADE](../virtual-machines/disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Read the [FAQ](../virtual-machines/disk-encryption-overview.md) for Azure VM disk encryption.
 
 ### Limitations
 
@@ -96,6 +99,43 @@ In addition, there are a couple of things that you might need to do in some circ
 
 1. Select **Enable Backup** to deploy the backup policy in the vault, and enable backup for the selected VMs.
 
+### Back up ADE encrypted VMs with RBAC enabled key vaults
+
+To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you need to assign Key Vault Administrator role to the Backup Management Service Azure AD app by adding a role assignment in Access Control of key vault.
+
+:::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
+
+Learn about the [different available roles](../key-vault/general/rbac-guide.md?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *back up* both secret and key.
+
+For Azure RBAC enabled key vaults, you can create custom role with the following set of permissions. Learn [how to create custom role](../active-directory/roles/custom-create.md).
+
+| Action | Description |
+| --- | --- |
+| Microsoft.KeyVault/vaults/keys/backup/action | Creates the backup file of a key.  |
+| Microsoft.KeyVault/vaults/secrets/backup/action | Creates the backup file of a secret.  |
+| Microsoft.KeyVault/vaults/secrets/getSecret/action | Gets the value of a secret.  |
+| Microsoft.KeyVault/vaults/keys/read | List keys in the specified vault or read properties and public materials.  |
+| Microsoft.KeyVault/vaults/secrets/readMetadata/action | List or view the properties of a secret, but not its values.    |
+
+```json
+"permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.KeyVault/vaults/keys/backup/action",
+                    "Microsoft.KeyVault/vaults/secrets/backup/action",
+                    "Microsoft.KeyVault/vaults/secrets/getSecret/action",
+                    "Microsoft.KeyVault/vaults/keys/read",
+                    "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+```
+
+:::image type="content"  source="./media/backup-azure-vms-encryption/key-vault-add-permissions.png" alt-text="Screenshot shows how to add permissions to key vault.":::
+
 ## Trigger a backup job
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
@@ -146,25 +186,11 @@ To set permissions:
 
 1. Select **Save** to provide Azure Backup with the permissions.
 
-## Restore an encrypted VM
-
-Encrypted VMs can only be restored by restoring the VM disk as explained below. **Replace existing** and **Restore VM** aren't supported.
-
-Restore encrypted VMs as follows:
-
-1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
-
-   > [!NOTE]
-   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
-
-2. Recreate the virtual machine instance by doing one of the following actions:
-    1. Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-       >[!NOTE]
-       >While deploying the template, verify the storage account containers and the public/private settings.
-    1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+You can also set the access policy using [PowerShell](./backup-azure-vms-automation.md#enable-protection) or [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
 ## Next steps
+
+[Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
 
 If you run into any issues, review these articles:
 

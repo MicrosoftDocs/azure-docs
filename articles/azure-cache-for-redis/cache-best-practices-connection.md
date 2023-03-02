@@ -2,11 +2,12 @@
 title: Best practices for connection resilience
 titleSuffix: Azure Cache for Redis
 description: Learn how to make your Azure Cache for Redis connections resilient.
-author: shpathak-msft
+author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/11/2021
-ms.author: shpathak
+ms.date: 02/27/2023
+ms.author: franlanglois
 ---
 
 # Connection resilience
@@ -21,20 +22,25 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## TCP settings for Linux-hosted client applications
 
-Some Linux versions use optimistic TCP settings by default. The TCP settings can create a situation where a client connection to a cache cannot be reestablished for a long time when a Redis server stops responding before closing the connection gracefully. The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
+The default TCP settings in some Linux versions can cause Redis server connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection wasn't closed gracefully. 
+
+The failure to reestablish a connection can happen in situations where the network connection is disrupted or the Redis server goes offline for unplanned maintenance.
 
 We recommend these TCP settings:
 
 |Setting  |Value |
 |---------|---------|
 | *net.ipv4.tcp_retries2*   | 5 |
-| *TCP_KEEPIDLE*   | 15 |
-| *TCP_KEEPINTVL*  | 5 |
-| *TCP_KEEPCNT* | 3 |
 
-Consider using the *ForceReconnect* pattern. For an implementation of the pattern, see the code in [Reconnecting with Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+For more information about the scenario, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 
-For more information about the scenario can be found here, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
+## Using ForceReconnect with StackExchange.Redis
+
+In rare cases, StackExchange.Redis fails to reconnect after a connection is dropped. In these cases, restarting the client or creating a new `ConnectionMultiplexer` fixes the issue. We recommend using a singleton `ConnectionMultiplexer` pattern while allowing apps to force a reconnection periodically. Take a look at the quickstart sample project that best matches the framework and platform your application uses. You can see an example of this code pattern in our [quickstarts](https://github.com/Azure-Samples/azure-cache-redis-samples).
+
+Users of the `ConnectionMultiplexer` must handle any `ObjectDisposedException` errors that might occur as a result of disposing the old one.
+
+Call `ForceReconnectAsync()` for `RedisConnectionExceptions` and `RedisSocketExceptions`. You can also call `ForceReconnectAsync()` for `RedisTimeoutExceptions`, but only if you're using generous `ReconnectMinInterval` and `ReconnectErrorThreshold`. Otherwise, establishing new connections can cause a cascade failure on a server that's timing out because it's already overloaded.
 
 ## Configure appropriate timeouts
 
@@ -59,7 +65,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
 > [!NOTE]
-> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices).
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](./cache-management-faq.yml#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 
@@ -79,7 +85,9 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 
 ## Idle timeout
 
-Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+Azure Cache for Redis has a 10-minute timeout for idle connections. The 10-minute timeout allows the server to automatically clean up leaky connections or connections orphaned by a client application. Most Redis client libraries have a built-in capability to send `heartbeat` or `keepalive` commands periodically to prevent connections from being closed even if there are no requests from the client application. 
+
+If there's any risk of your connections being idle for 10 minutes, configure the `keepalive` interval to a value less than 10 minutes. If your application is using a client library that doesn't have native support for `keepalive` functionality, you can implement it in your application by periodically sending a `PING` command.
 
 ## Next steps
 

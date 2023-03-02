@@ -1,118 +1,202 @@
 ---
-title: Filter and manage alerts from the Alerts page 
-description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-ms.date: 05/31/2021
+title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
+description: Learn about viewing and managing alerts on an OT network sensor.
+ms.date: 12/12/2022
 ms.topic: how-to
 ---
 
-# Filter and manage alerts from the Alerts page 
+# View and manage alerts on your OT sensor
 
-This article describes how to view alerts triggered by your sensor and manage them with alert tools.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-You can view alerts based on various categories, such as alerts that have been archived or pinned. You also can search for alerts of interest, such as alerts based on an IP or MAC address.  
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
 
-You can also view alerts from the sensor dashboard.
+For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
-To view alerts:
+## Prerequisites
 
-- Select **Alerts** from the side menu. The Alerts window displays the alerts that your sensor has detected.
+- **To have alerts on your OT sensor**, you must have a SPAN port configured for your sensor and Defender for IoT monitoring software installed. For more information, see [Install OT agentless monitoring software](how-to-install-software.md).
 
-  :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="View of the Alerts screen.":::
+- **To view alerts on the OT sensor**, sign into your sensor as an *Admin*, *Security Analyst*, or *Viewer* user.
 
-## View alerts by category
+- **To manage alerts on an OT sensor**, sign into your sensor as an *Admin* or *Security Analyst* user. Alert management activities include modifying their statuses or severities, *learning* or *muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
 
-You can view alerts according to various categories from the **Alerts** main view. Select an alert to review details and manage the event.
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-| Sort by type | Description |
-|--|--|
-| **Important Alerts** | Alerts sorted by importance. |
-| **Pinned Alerts** | Alerts that the user pinned for further investigation. Pinned alerts are not archived and are stored for 14 days in the pinned folder. |
-| **Recent Alerts** | Alerts sorted by time. |
-| **Acknowledged Alerts** | Alerts that were acknowledged and unhandled, or that were muted, and unmuted. |
-| **Archived Alerts** | Alerts that the system archived automatically. By default, alerts are archived 14 days after the alert was triggered. Only the administrator user can access them. |
+## View alerts on an OT sensor
 
-## Search for alerts of interest
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
-The Alerts main view provides various search features to help you find alerts of interest.
+    By default, the following details are shown in the grid:
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Alerts learning screenshot.":::
+    | Name | Description |
+    |--|--|
+    | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
+    | **Name** | The alert title |
+    | **Engine** | The [Defender for IoT detection engine](architecture.md#defender-for-iot-analytics-engines) that detected the activity and triggered the alert. |
+    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
+    | **Status** |The alert status: *New*, *Active*, *Closed*<br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
+    | **Source Device** | The source device IP address, MAC, or device name. |
 
-### Text search
+    1. To view more details, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: **Edit Columns** button.
 
-Use the Free Search option to search for alerts by text, numbers, or characters.
+        In the **Edit Columns** pane on the right, select **Add Column** and any of the following extra columns:
 
-To search:
+        | Name | Description |
+        |--|--|
+        | **Destination Device** | The destination device IP address. |
+        | **First detection** | The first time the alert activity was detected.   |
+        | **ID** | The alert ID. |
+        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication   |
 
-- Type the required text in the Free Search field and press Enter on your keyboard.
+### Filter alerts displayed
 
-To clear the search:
+Use the **Search** box, **Time range**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
 
-- Delete the text in the Free Search field and press Enter on your keyboard.
+For example:
 
-### Device group or device IP address search
+:::image type="content" source="media/how-to-view-alerts/filter-alerts-groups.png" alt-text="Screenshot of an OT sensor Alerts page being filtered by Groups.":::
 
-Search for alerts that reference specific IP addresses or device groups. Device groups are created in the device map.
+Filtering alerts by **Groups** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md) pages.
 
-To use advanced filters:
+### Group alerts displayed
 
-1. Select **Advanced Filters** from the **Alerts** main view.
+Use the **Group by** menu at the top right to collapse the grid into subsections based on *Severity*, *Name*, *Engine*, or *Status*.
 
-2. Choose a device group or a device.
+For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity or status.
 
-3. Select **Confirm**.
+## View details and remediate a specific alert
 
-4. To clear the search, select **Clear All**.
+1. Sign into the OT sensor and select **Alerts** on the left-hand menu.
 
-### Security versus operational alert search
+1. Select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. Select **View full details** to drill down further. For example:
 
-Switch between viewing operational and security alerts:
+    :::image type="content" source="media/alerts/alerts-on-sensor.png" alt-text="Screenshot of an alert selected from the Alerts page on an OT sensor.":::
 
-- **Security** alerts represent potential malware traffic, network anomalies, policy violations, and protocol violations.
+1. The alert details page provides more details about the alert, and a set of remediation steps on the **Take action** tab.
 
-- **Operational** alerts represent network anomalies, policy violations, and protocol violations.
+    Use the following tabs to gain more contextual insight:
 
-When none of the options are selected, all the alerts are displayed.
+    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Security on the alerts screen.":::
+        :::image type="content" source="media/how-to-view-alerts/map-view.png" alt-text="Screenshot of the Map View tab on an alert details page.":::
 
-## Alert page options
+    - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 
-Alert messages provide the following actions:
+        :::image type="content" source="media/alerts/event-timeline-alert-sensor.png" alt-text="Screenshot of an event timeline on an alert details page.":::
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-an-alert-icon.png" border="false"::: to acknowledge an alert.
+## Manage alert status and triage alerts
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unacknowledge-an-alert-icon.png" border="false"::: to unacknowledge an alert.
+Make sure to update your alert status once you've taken remediation steps so that the progress is recorded. You can update status for a single alert or for a selection of alerts in bulk.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: to pin an alert.
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. *Mute* an alert when learning isn't available and you want to ignore a specific scenario on your network.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: to unpin an alert.
+For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-all-alerts-icon.png" border="false"::: to acknowledge all alerts.
+- **To manage alert status**:
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: to learn and acknowledge all alerts.
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export alert information to a .csv file. Use the **Extended Alert Export** option to export alert information in separate rows for each alert that covers multiple devices.
+    1. Select one or more alerts in the grid whose status you want to update.
 
-## Alert pop-up window options
+    1. Use the toolbar :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icon to download an alert report as a PDF file.
+        The :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-pcap.png" border="false"::: icon to download the PCAP file. The file is viewable with Wireshark, the free network protocol analyzer.
+- **To learn one or more alerts**:
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-filtered-pcap.png" border="false"::: to download a filtered PCAP file that contains only the relevant alert packets, thereby reducing output file size and allowing a more focused analysis. You can view the file by using Wireshark.
+    Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/show-alert-in-timeline.png" border="false"::: icon to show the alert in the event timeline.
+  - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+  - On an alert details page, in the **Take Action** tab, select **Learn**.
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: icon to pin the alert.
+- **To mute an alert**:
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: icon to unpin the alert.
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
+    1. Locate the alert you want to mute and open its alert details page.
+    1. On the **Take action** tab, toggle on the **Alert mute** option.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-icon.png" border="false"::: to approve the traffic (security analysts and administrators only).
+- **To unlearn or unmute an alert**:
 
-- Select a device to display it in the device map.
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
+    1. Locate the alert you've learned or muted and open its alert details page.
+    1. On the **Take action** tab, toggle off the **Alert learn** or **Alert mute** option.
+
+    After you unlearn or unmute an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
+
+## Access alert PCAP data
+
+You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
+
+To access raw traffic files for your alert, select **Download Filtered Pcap** from the top-left corner of your alert details page:
+
+For example:
+
+:::image type="content" source="media/alerts/download-pcap-sensor.png" alt-text="Screenshot of the Download PCAP options on the OT sensor.":::
+
+The PCAP file is downloaded and your browser prompts you to open or save it locally.
+
+### Export alerts to CSV or PDF
+
+You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
+
+- Export alerts to a CSV file from the main **Alerts** page. Export alerts one at a time or in bulk.
+- Export alerts to a PDF file one at a time only, either from the main **Alerts** page or an alert details page.
+
+**To export alerts to a CSV file**:
+
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+
+1. Use the search box and filter options to show only the alerts you want to export.
+
+1. In the toolbar above the grid, select **Export to CSV**.
+
+The file is generated, and you're prompted to open or save it locally.
+
+**To export an alert to a PDF file**:
+
+Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
+
+- On the **Alerts** page, select an alert and then select **Export to PDF** from the toolbar above the grid.
+- On an alerts details page, select **Export to PDF**.
+
+The file is generated, and you're prompted to save it locally.
+
+## Add alert comments
+
+Alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
+
+If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
+
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+
+1. Locate the alert where you want to add a comment and open the alert details page.
+
+1. From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
+
+    :::image type="content" source="media/alerts/add-comment-sensor.png" alt-text="Screenshot of the Comments section on an alert details page on the sensor.":::
+
+For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
 ## Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+> [!div class="nextstepaction"]
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+> [!div class="nextstepaction"]
+> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+> [!div class="nextstepaction"]
+> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

@@ -4,27 +4,28 @@ description: Plan a Managed Service offer for Azure Marketplace in Partner Cente
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
-ms.date: 12/23/2020
+author: TeoLupu
+ms.author: telupu
+ms.date: 06/29/2022
 ---
 
 # Plan a Managed Service offer
 
 This article introduces the requirements for publishing a Managed Service offer to the commercial marketplace using Partner Center.
 
-Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/architecture.md) capabilities of Azure Lighthouse.
+Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using [Azure Lighthouse](../lighthouse/overview.md).
 
 ## Eligibility requirements
 
-To publish a Managed Service offer, you must have earned a Gold or Silver Microsoft Competency in Cloud Platform. This competency demonstrates your expertise to customers. For more information, see [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies).
+To publish a Managed Service offer, you must have earned a Gold or Silver Microsoft Competency in Cloud Platform. This competency demonstrates your expertise to customers. For more information, see [Microsoft Cloud Partner Program Competencies](https://partner.microsoft.com/membership/competencies).
 
 Offers must meet all applicable [commercial marketplace certification policies](/legal/marketplace/certification-policies) to be published on Azure Marketplace.
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports different kinds of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -65,13 +66,13 @@ Here's an example of how the offer listing appears in the Azure portal:
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 50 characters.
+**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters.
 
 **Search results summary**: describe the purpose or goal of your offer in 100 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
 **Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
 
-**Description**: describe your offer in 3,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
+**Description**: describe your offer in 5,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
 
 Here are some tips for writing your description:
 

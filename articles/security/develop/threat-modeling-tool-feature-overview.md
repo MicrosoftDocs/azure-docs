@@ -3,8 +3,7 @@ title: Microsoft Threat Modeling Tool feature overview - Azure
 description: Learn about all the features available in the Threat Modeling Tool, such as the analysis view and reports. 
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 08/17/2017
 ---

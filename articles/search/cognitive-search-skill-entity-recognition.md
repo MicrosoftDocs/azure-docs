@@ -1,21 +1,21 @@
 ---
-title: Entity Recognition cognitive skill
+title: Entity Recognition cognitive skill (v2)
 titleSuffix: Azure Cognitive Search
 description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/24/2021
+ms.topic: reference
+ms.date: 08/17/2022
 ---
 
-# Entity Recognition cognitive skill
+# Entity Recognition cognitive skill (v2)
 
-The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Entity Recognition** skill (v2) extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 > [!IMPORTANT]
-> The Entity Recognition skill is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
+> The Entity Recognition skill (v2) (**Microsoft.Skills.Text.EntityRecognitionSkill**) is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
@@ -27,7 +27,7 @@ The **Entity Recognition** skill extracts entities of different types from text.
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 
 ## Skill parameters
 

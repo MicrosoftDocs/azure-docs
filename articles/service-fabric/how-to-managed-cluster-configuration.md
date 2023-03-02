@@ -2,8 +2,13 @@
 title: Configure your Service Fabric managed cluster
 description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service Fabric managed cluster configuration options
 
 In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it, including:
@@ -13,52 +18,16 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configuring cluster [network settings](how-to-managed-cluster-networking.md)
 * Configure a node type for [large virtual machine scale sets](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on cluster node types
-* Enabling [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for cluster nodes
-* Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes
+* Enabling [OS and data disk encryption](how-to-managed-cluster-enable-disk-encryption.md) on cluster nodes
+* Configure [autoscaling](how-to-managed-cluster-autoscale.md) on a secondary node type
+* [Scale a node type](how-to-managed-cluster-modify-node-type.md#scale-a-node-type)
+* Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) on cluster node types
+* Modify the [OS image](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type) used for a node type
+* Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
-
-## Enable automatic OS image upgrades
-
-You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
-
-To enable automatic OS upgrades:
-
-* Use the `2021-05-01` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
-* Set the cluster's property `enableAutoOSUpgrade` to *true*
-* Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
-
-For example:
-
-```json
-    {
-      "apiVersion": "2021-05-01",
-      "type": "Microsoft.ServiceFabric/managedclusters",
-      ...
-      "properties": {
-        ...
-        "enableAutoOSUpgrade": true
-      },
-    },
-    {
-      "apiVersion": "2021-05-01",
-      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-       ...
-      "properties": {
-        ...
-        "vmImageVersion": "latest",
-        ...
-      }
-    }
-}
-
-```
-
-Once enabled, Service Fabric will begin querying and tracking OS image versions in the managed cluster. If a new OS version is available, the cluster node types (virtual machine scale sets) will be upgraded, one at a time. Service Fabric runtime upgrades are performed only after confirming no cluster node OS image upgrades are in progress.
-
-If an upgrade fails, Service Fabric will retry after 24 hours, for a maximum of three retries. Similar to classic (unmanaged) Service Fabric upgrades, unhealthy apps or nodes may block the OS image upgrade.
-
-For more on image upgrades, see [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
+* Configure [Dedicated Hosts](how-to-managed-cluster-dedicated-hosts.md) with managed cluster
+* Use [Ephemeral OS disks](how-to-managed-cluster-ephemeral-os-disks.md) for node types in managed cluster
 
 ## Next steps
 

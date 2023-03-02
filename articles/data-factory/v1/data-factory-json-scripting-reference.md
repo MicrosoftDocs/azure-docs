@@ -7,14 +7,15 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018 
-ms.custom: devx-track-azurepowershell
+ms.date: 10/22/2021
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
@@ -825,7 +826,7 @@ To define an Azure Cosmos DB dataset, set the **type** of the dataset to **Docum
 For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
 
 ### Azure Cosmos DB Collection Source in Copy Activity
-If you are copying data from an Azure Cosmos DB, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
+If you are copying data from an Azure Cosmos DB instance, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
 
 
 | **Property** | **Description** | **Allowed values** | **Required** |
@@ -876,7 +877,7 @@ If you are copying data to Azure Cosmos DB, set the **sink type** of the copy ac
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
-| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
+| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Azure Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
 | writeBatchSize |Number of parallel requests to Azure Cosmos DB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from Azure Cosmos DB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to Azure Cosmos DB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (for example, S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
@@ -4060,7 +4061,7 @@ For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-a
 ## HTTP
 
 ### Linked service
-To define a HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:
+To define an HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4149,7 +4150,7 @@ This linked service links your data factory to an on-premises HTTP web server. I
 For more information, see [HTTP connector](data-factory-http-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section:
+To define an HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -4205,7 +4206,7 @@ To define a HTTP dataset, set the **type** of the dataset to **Http**, and speci
 For more information, see [HTTP connector](data-factory-http-connector.md#dataset-properties) article.
 
 ### HTTP Source in Copy Activity
-If you are copying data from a HTTP source, set the **source type** of the copy activity to **HttpSource**, and specify following properties in the **source** section:
+If you are copying data from an HTTP source, set the **source type** of the copy activity to **HttpSource**, and specify following properties in the **source** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -4925,7 +4926,10 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## ML Studio (classic)
+## ML Studio (classic) 
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 You create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity), [ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity).
 
 ### Linked service
@@ -5331,7 +5335,7 @@ Note the following points:
 
 - The **type** property is set to **HDInsightSpark**.
 - The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See Spark Activity properties for details about this property and other properties supported by the Spark Activity.
-- The **entryFilePath** is set to the **test.py**, which is the python file.
+- The **entryFilePath** is set to the **test.py**, which is the Python file.
 - The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]
@@ -5341,6 +5345,9 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## ML Studio (classic) Batch Execution Activity
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 You can specify the following properties in an ML Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
@@ -5531,7 +5538,7 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
 For more information, see [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md).
 
 ## Stored Procedure Activity
-You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create an one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
+You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create a one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
 
 - SQL Server
 - Azure SQL Database
@@ -5636,7 +5643,7 @@ You can specify the following properties in a .NET custom activity JSON definiti
 
 For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article.
 
-## Next Steps
+## Next steps
 See the following tutorials:
 
 - [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

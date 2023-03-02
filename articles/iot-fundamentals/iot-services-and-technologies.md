@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 11/29/2022
 ms.author: dobett
 ---
 
@@ -13,16 +13,16 @@ ms.author: dobett
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
-* Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
+* Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to evaluate your IoT solution.
 * Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
 
 ![Azure IoT technologies, services, and solutions](./media/iot-services-and-technologies/iot-technologies-services.png)
 
 ## Azure IoT Central
 
-The [IoT Central application platform](https://apps.azureiotcentral.com) reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. IoT Central's customizable web UI in lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. The API surface within IoT Central gives you programmatic access to configure and interact with your IoT solution.
+[IoT Central](https://apps.azureiotcentral.com) is an IoT application platform as a service (aPaaS) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus on determining the business impact you can create with your IoT data.
 
-Azure IoT Central is a fully managed application platform that you can use to create custom IoT solutions. IoT Central uses application templates to create solutions. There are templates for generic solutions and for specific industries such as energy, healthcare, government, and retail. IoT Central application templates let you deploy an IoT Central application in minutes that you can then customize with themes, dashboards, and views.
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Once you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise ready solutions by using the power of Azure IoT platform.  
 
 Choose devices from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com) to quickly connect to your solution. Use the IoT Central web UI to monitor and manage your devices to keep them healthy and connected. Use connectors and APIs to integrate your IoT Central application with other business applications.
 
@@ -30,11 +30,11 @@ As a fully managed application platform, IoT Central has a simple, predictable p
 
 ## Custom solutions
 
-To build an IoT solution from scratch, or extend a solution created using IoT Central, use one or more of the following Azure IoT technologies and services:
+To build an IoT solution from scratch, use one or more of the following Azure IoT technologies and services:
 
 ### Devices
 
-Develop your IoT devices using one of the [Azure IoT Starter Kits](https://devicecatalog.azure.com/kits) or choose a device to use from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
+Develop your IoT devices using one of the [Azure IoT Starter Kits](/samples/azure-samples/azure-iot-starter-kits/azure-iot-starter-kits/) or choose a device to use from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 You can further simplify how you create the embedded code for your devices by following the [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions. IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a _device capability model_ schema that describes device capabilities. Use the device capability model to generate your embedded device code and configure a cloud-based solution such as an IoT Central application.
 
@@ -57,7 +57,7 @@ IoT Hub is a core component and you can use it to meet IoT implementation challe
 
 [Azure Digital Twins](../digital-twins/overview.md) is an IoT service that enables you to model a physical environment. It uses a spatial intelligence graph to model the relationships between people, spaces, and devices. By corelating data across the digital and physical worlds you can create contextually aware solutions.
 
-Iot Central uses digital twins to synchronize devices and data in the real world with the digital models that enable users to monitor and manage those connected devices.
+IoT Central uses digital twins to synchronize devices and data in the real world with the digital models that enable users to monitor and manage those connected devices.
 
 ### Data and analytics
 
