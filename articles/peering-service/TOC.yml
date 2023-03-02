@@ -8,7 +8,7 @@
   items:
   - name: Locations and partners
     href: location-partners.md
-  - name: Connection
+  - name: Peering Service connection
     href: connection.md
   - name: Security
     items:

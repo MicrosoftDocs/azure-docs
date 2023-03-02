@@ -64,6 +64,8 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 - The Storage Account API exposes [data plane](control-plane-and-data-plane.md#data-plane) and [control plane](control-plane-and-data-plane.md#control-plane) operations. If a request uses **data plane** operations, the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. If the request uses **control plane** operations, however, the lock protects those resources.
 
   For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
+  
+- A read-only lock or cannot-delete lock on a **network security group (NSG)** prevents the creation of a traffic flow log for the NSG.
 
 - A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 03/02/2023
 ms.author: ankitadutta
 
 ---
@@ -37,4 +37,4 @@ Requirements are summarized in the following table.
 
 ## Next steps
 
-Try [Azure SQL resources](tutorial-move-region-sql.md) to another region with Resource Mover.
+Try [moving Azure SQL resources](tutorial-move-region-sql.md) to another region with Resource Mover.

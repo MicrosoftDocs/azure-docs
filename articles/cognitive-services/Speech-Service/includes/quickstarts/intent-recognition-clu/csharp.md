@@ -20,7 +20,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ### Set environment variables
 
-[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+This example requires environment variables named `LANGUAGE_KEY`, `LANGUAGE_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
+
+[!INCLUDE [Environment variables](../../common/environment-variables-clu.md)]
 
 ## Create a Conversational Language Understanding project
 
