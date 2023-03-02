@@ -1,6 +1,6 @@
 ---
 title: Remove access to a delegation
-description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
+description: Learn how to remove access to resources that were delegated to a service provider for Azure Lighthouse.
 ms.date: 03/02/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
@@ -26,9 +26,9 @@ After confirming the deletion, no users in the service provider's tenant will be
 
 ## Service providers
 
-Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role was not assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
+Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role isn't assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
 
-The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
+This example shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
 
 ```json
     "authorizations": [ 
