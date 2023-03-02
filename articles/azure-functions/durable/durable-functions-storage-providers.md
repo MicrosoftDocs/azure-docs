@@ -107,11 +107,11 @@ Additional properties may be set to customize the connection. See [Common proper
 
 [!INCLUDE [functions-durable-permissions](../../../includes/functions-durable-permissions.md)]
 
-### Enable the Netherite storage provider
+### Configuring the Netherite storage provider
 
 Enabling the Netherite storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
 
-#### Configuring the Netherite storage provider
+#### `host.json` Configuration
 
 The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
 
@@ -143,11 +143,11 @@ The Extension package to install depends on the .NET worker you are using:
 - For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
 - For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
 
-### Enable the MSSQL storage provider
+### Configuring the MSSQL storage provider
 
 Enabling the MSSQL storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
 
-#### Configure the MSSQL storage provider
+#### `host.json` Configuration
 
 The following example shows the minimum configuration required to enable the MSSQL storage provider.
 
