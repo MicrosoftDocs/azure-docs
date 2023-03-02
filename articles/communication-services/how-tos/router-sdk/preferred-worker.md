@@ -34,17 +34,21 @@ In the following example, a job is created that targets a specific worker. If th
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateJobAsync(
-  channelId: "<channel id>",
-  queueId: "<queue id>",
-  workerSelectors: new List<LabelSelector>
-  {
-    new LabelSelector(    
-      key: "Id",
-      @operator: LabelOperator.Equal,
-      value: "<preferred worker id>",
-      ttl: TimeSpan.FromMinutes(1))    
-  });
+await routerClient.CreateJobAsync(
+    options: new CreateJobOptions(
+            jobId: "89f0274f-555c-4f38-9dd2-966a44b32f8c",
+            channelId: "<channel id>",
+            queueId: "<queue id>")
+    {
+        RequestedWorkerSelectors = new List<WorkerSelectorAttachment>
+          {
+            new LabelSelector(    
+              key: "Id",
+              @operator: LabelOperator.Equal,
+              value: "<preferred worker id>",
+              ttl: TimeSpan.FromMinutes(1))    
+          })
+    });
 ```
 
 ::: zone-end
