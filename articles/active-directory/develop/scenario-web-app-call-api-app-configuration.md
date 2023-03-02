@@ -198,8 +198,9 @@ The sample currently lets MSAL for Java produce the authorization-code URL and h
 
 # [Python](#tab/python)
 
-Code examples in this article and the following one are extracted from the [Python web application calling Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp), a web-app sample that uses MSAL.Python.
-The sample currently lets MSAL.Python produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. You might want to refer to the sample for full implementation details.
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the identity package (a wrapper around MSAL Python).
+
+The sample uses the identity package to produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. You might want to refer to the sample for full implementation details.
 
 ---
 
@@ -351,29 +352,22 @@ The `getAuthResultByAuthCode` method is defined in [AuthHelper.java#L176](https:
 
 # [Python](#tab/python)
 
-The authorization code flow is requested as shown in [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code). The code is then received on the `authorized` function, which Flask routes from the `/getAToken` URL. See [app.py#L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44) for the full context of this code:
+See [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code) to understand how the Python sample gets the authorization code. 
+
+The authorization code is then received by the `auth_response` function, which Flask routes from the `/getAToken` URL that was specified in the app registration. The route calls `auth.complete_login` to process the authorization code, and then either returns an error or redirects to the home page. See [app.py#LTODO](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/TODO) for the full context of this code:
 
 ```python
- @app.route("/getAToken")  # Its absolute URL must match your app's redirect_uri set in AAD.
-def authorized():
-    if request.args['state'] != session.get("state"):
-        return redirect(url_for("login"))
-    cache = _load_cache()
-    result = _build_msal_app(cache).acquire_token_by_authorization_code(
-        request.args['code'],
-        scopes=app_config.SCOPE,  # Misspelled scope would cause an HTTP 400 error here.
-        redirect_uri=url_for("authorized", _external=True))
+@app.route(app_config.REDIRECT_PATH)
+def auth_response():
+    result = auth.complete_log_in(request.args)
     if "error" in result:
-        return "Login failure: %s, %s" % (
-            result["error"], result.get("error_description"))
-    session["user"] = result.get("id_token_claims")
-    _save_cache(cache)
+        return render_template("auth_error.html", result=result)
     return redirect(url_for("index"))
 ```
 
 ---
 
-Instead of a client secret, the confidential client application can also prove its identity by using a client certificate, or a client assertion.
+Instead of a client secret, the confidential client application can also prove its identity by using a client certificate or a client assertion.
 The use of client assertions is an advanced scenario, detailed in [Client assertions](msal-net-client-assertions.md).
 
 ## Token cache
@@ -503,7 +497,8 @@ The detail of the `SessionManagementHelper` class is provided in the [MSAL sampl
 
 # [Python](#tab/python)
 
-In the Python sample, one cache per account is ensured by recreating a confidential client application for each request and then serializing it in the Flask session cache:
+In the Python sample, the identity library takes care of the token cache, using the global `session` object for storage.
+That `session` object is managed by the [Flask-session](https://flask-session.readthedocs.io/) package.
 
 ```python
 from flask import Flask, render_template, session, request, redirect, url_for
@@ -515,24 +510,11 @@ import app_config
 app = Flask(__name__)
 app.config.from_object(app_config)
 Session(app)
-
-# Code omitted here for simplicity
-
-def _load_cache():
-    cache = msal.SerializableTokenCache()
-    if session.get("token_cache"):
-        cache.deserialize(session["token_cache"])
-    return cache
-
-def _save_cache(cache):
-    if cache.has_state_changed:
-        session["token_cache"] = cache.serialize()
-
-def _build_msal_app(cache=None):
-    return msal.ConfidentialClientApplication(
-        app_config.CLIENT_ID, authority=app_config.AUTHORITY,
-        client_credential=app_config.CLIENT_SECRET, token_cache=cache)
 ```
+
+Due to the `SESSION_TYPE="filesystem"` configuration in `app_config.py`, the package will store sessions using the local file system.
+
+For production, you should use an option that will persist across multiple instances/deploys of your app, such as "sqlachemy" or "redis", and setup the appropriate configuration for that option.
 
 ---
 
