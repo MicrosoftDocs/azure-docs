@@ -36,15 +36,15 @@ The following example images illustrate what the Image Analysis service returns 
 
 ## Limitations
 
-The background removal operations automatically identify the main foreground object to separate it from the background. This functionality works best for categories such as people, animals, buildings and environmental structures, furniture, vehicles, food, personal belongings, and text and graphics. Sometimes, in ambiguous cases, objects that aren't prominent in the foreground may not be identified as part of the foreground.
-
-The background removal operation does not use foreground estimation. Therefore, the result images may show some visual artifacts around thin and detailed structures, such as hair or fur, when overlaid against backgrounds that are very different from the original background. 
-
-The background removal operations have noticeable latency, taking several seconds for large images. We suggest experimenting with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on the downsampled image, then resizing the alpha matte to the original size and applying it to the original image).
+It's important to note the limitations of background removal:
+- Background removal works best for categories such as people and animals, buildings and environmental structures, furniture, vehicles, food, text and graphics, and personal belongings
+- Objects that aren't prominent in the foreground may not be identified as part of the foreground.
+- Images with thin and detailed structures, like hair or fur, may show some artifacts when overlaid on backgrounds with strong contrast to the original background.
+- The latency of the background removal operation will be higher, up to several seconds, for large images.
 
 ## Use the API
 
-The background removal and foreground matting features are available through the [Analyze Image](https://aka.ms/vision-4-0-ref) API. Call `imageanalysis:segment` with your original image in the request body.
+The background removal feature is available through the [Analyze Image](https://aka.ms/vision-4-0-ref) API. Call `imageanalysis:segment` with your original image in the request body.
 
 ## Next steps
 
