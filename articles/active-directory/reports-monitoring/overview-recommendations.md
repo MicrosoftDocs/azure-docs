@@ -99,9 +99,9 @@ The recommendations listed in the following table are available to all Azure AD 
 | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | Preview |
 | [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users | Generally available |
 
-### Recommendations available for Workload Identities premium licenses
+### Recommendations available specific licenses
 
-The recommendations listed in the following table are available to Azure AD tenants with a [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md).
+The recommendations listed in the following table are currently available to Azure AD tenants with a P2 license (subject to change).
 
 | Recommendation  | Impacted resources | Availability |
 |---- |---- |---- |
