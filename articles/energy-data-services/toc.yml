@@ -95,6 +95,6 @@
   - name: FAQ
     href: faq-energy-data-services.yml
   - name: Region availability
-    href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
