@@ -9,7 +9,7 @@ ms.author: esarroyo
 author: StefArroyo 
 ---
 
-# Work with data using Azure Cosmos DB Explorer 
+# Work with data using Azure Cosmos DB Explorer
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB Explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB. Azure Cosmos DB Explorer is equivalent to the existing **Data Explorer** tab that is available in Azure portal when you create an Azure Cosmos DB account. The key advantages of Azure Cosmos DB Explorer over the existing Data explorer are:
@@ -46,6 +46,8 @@ Currently, viewing documents that contain a UUID isn't supported in Data Explore
 Customers receiving HTTP-401 errors may be due to insufficient Azure RBAC permissions for your Azure account, particularly if the account has a custom role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Azure Active Directory credentials.
 
 ## Next steps
+
+Now that you've learned how to get started with Azure Cosmos DB Explorer to manage your data, next you can:
 
 - [Getting started with queries](nosql/query/getting-started.md)
 - [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)
