@@ -141,7 +141,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 To configure managed Windows clients using Intune:
 
-1. Sign in to the [Endpoint Manager admin center](https://endpoint.microsoft.com/).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
 1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, using Administrative templates.
 
@@ -322,7 +322,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 To configure managed Windows clients using Intune:
 
-1. Sign in to the [Endpoint Manager admin center](https://endpoint.microsoft.com/).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
 1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, using Administrative templates.
 
