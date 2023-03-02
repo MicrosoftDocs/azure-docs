@@ -33,7 +33,7 @@ In the Azure portal, navigate to your Container App instance. Follow the [Servic
   - select **App Configuration** for **Service type**
   - pick your App Configuration store for "**App Configuration**"
 
-    :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App.":::
+    :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
 
 - In the **Authentication** tab:
   - pick **Connection string** authentication type and **Read-Only** for "**Permissions for the connection string**
