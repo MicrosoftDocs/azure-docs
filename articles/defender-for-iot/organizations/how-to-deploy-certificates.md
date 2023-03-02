@@ -83,8 +83,12 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
 
-1. In the **SSL/TLS certificate** pane, select either **Import a trusted CA certificate** or **Use Locally generated self-signed certificate (Insecure, not recommended)** and follow the instructions in the appropriate tab:
-    # [Import a trusted CA certificate](#tab/cm-import-trusted-ca-certificate)
+1. In the **SSL/TLS certificate** pane, , select one of the following, and then follow the instructions in the relevant tab:
+
+    - **Import a trusted CA certificate**
+    - **Use Locally generated self-signed certificate (Insecure, not recommended)**
+
+    # [Trusted CA certificates](#tab/cm-import-trusted-ca-certificate)
     
     1. Enter the following parameters:
     
@@ -102,7 +106,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
         :::image type="content" source="media/how-to-deploy-certificates/cm-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/cm-ssl-certificate.png":::
     
-    # [Use Locally generated self-signed certificate (Insecure, not recommended)](#tab/cm-locally-generated-self-signed-certificate)
+    # [Locally generated self-signed certificates](#tab/cm-locally-generated-self-signed-certificate)
     
     > [!NOTE]
     > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only.
