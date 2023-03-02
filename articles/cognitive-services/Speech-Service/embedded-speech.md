@@ -58,7 +58,7 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 Embedded speech is only available with C#, C++, and Java SDKs. The other Speech SDKs, Speech CLI, and REST APIs don't support embedded speech.
 
-Embedded speech recognition only supports mono 16 bit, 16-kHz PCM-encoded WAV audio. 
+Embedded speech recognition only supports mono 16 bit, 8-kHz or 16-kHz PCM-encoded WAV audio.
 
 Embedded neural voices only support 24-kHz sample rate.
 
@@ -114,10 +114,10 @@ embeddedSpeechConfig.SetSpeechSynthesisVoice(
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
 
-- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/csharp/dotnetcore/embedded-speech)
-- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/csharp/unity/embedded-speech)
+- [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
+- [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -144,7 +144,8 @@ embeddedSpeechConfig->SetSpeechSynthesisVoice(
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/cpp/embedded-speech)
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+- [C++](https://aka.ms/embedded-speech-samples-cpp)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -168,9 +169,9 @@ embeddedSpeechConfig.setSpeechSynthesisVoice(
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
-- [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/java/jre/embedded-speech)
-- [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/java/android/embedded-speech)
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+- [Java (JRE)](https://aka.ms/embedded-speech-samples-java)
+- [Java for Android](https://aka.ms/embedded-speech-samples-java-android)
 ::: zone-end
 
 
