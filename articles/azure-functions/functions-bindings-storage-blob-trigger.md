@@ -264,8 +264,6 @@ def main(myblob: func.InputStream):
 
 ::: zone-end  
 
-## Decorators
-
 ---
 
 ::: zone pivot="programming-language-csharp"
