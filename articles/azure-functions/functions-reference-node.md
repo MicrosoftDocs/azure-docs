@@ -430,7 +430,7 @@ Returns a named object that contains trigger metadata and function invocation da
 
 ## context.done method
 
-The **context.done** method is deprecated. The function should be marked as async even if there's no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
+The `context.done` method is deprecated. The function should be marked as async even if there's no awaited function call inside the function, and the function doesn't need to call `context.done` to indicate the end of the function.
 
 ```javascript
 //you don't need an awaited function call inside to use async
@@ -674,8 +674,8 @@ The `HttpRequest` object has the following properties:
 | **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP request headers |
 | **`query`**    | [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) | Query string parameter keys and values from the URL |
 | **`params`**   | `HttpRequestParams` | Route parameter keys and values |
-| **`user`**     | `HttpRequestUser \| null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
-| **`body`**     | [`ReadableStream \| null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
+| **`user`**     | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
+| **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
 | **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already |
 
 In order to access a request or response's body, the following methods can be used:
@@ -726,7 +726,7 @@ The response can be set in multiple different ways.
     | **`status`**   | `number` | HTTP response status code |
     | **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP response headers |
     | **`cookies`**  | `Cookie[]` | HTTP response cookies |
-    | **`body`**     | [`ReadableStream \| null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
+    | **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
     | **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already |
 
 ::: zone-end
@@ -792,31 +792,62 @@ When running in Azure, the function app lets you set and use [Application settin
 
 ### Access environment variables in code
 
-Access application settings as environment variables  using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
+Access application settings as environment variables using `process.env`, as shown here in the call to `context.log()` where we log the `WEBSITE_SITE_NAME` environment variable:
+
+::: zone pivot="nodejs-model-v3"
 
 ```javascript
 async function timerTrigger1(context, myTimer) {
-    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 }
 ```
 
+::: zone-end
+
+::: zone pivot="nodejs-model-v4"
+
+```javascript
+async function timerTrigger1(myTimer, context) {
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+}
+```
+
+::: zone-end
+
 ## <a name="ecmascript-modules"></a>ECMAScript modules (preview)
 
 > [!NOTE]
-> As ECMAScript modules are currently a preview feature in Node.js 14 and 16 Azure Functions.
+> As ECMAScript modules are currently a preview feature in Node.js 14 or higher in Azure Functions.
 
 [ECMAScript modules](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES modules) are the new official standard module system for Node.js. So far, the code samples in this article use the CommonJS syntax. When running Azure Functions in Node.js 14 or higher, you can choose to write your functions using ES modules syntax.
 
 To use ES modules in a function, change its filename to use a `.mjs` extension. The following *index.mjs* file example is an HTTP triggered function that uses ES modules syntax to import the `uuid` library and return a value.
 
+::: zone pivot="nodejs-model-v3"
+
 ```js
 import { v4 as uuidv4 } from 'uuid';
 
-export default async function (context, req) {
+async function httpTrigger1(context, req) {
+    context.res.body = uuidv4();
+};
+
+export default httpTrigger1;
+```
+
+::: zone-end
+
+::: zone pivot="nodejs-model-v4"
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+async function httpTrigger1(req, context) {
     context.res.body = uuidv4();
 };
 ```
+
+::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
 
