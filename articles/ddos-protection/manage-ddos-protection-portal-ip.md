@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 02/27/2023
+ms.date: 03/01/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
@@ -45,7 +45,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
     | Location                | Select **(US) East US 2**.     |
     | Availability Zone       | Select **No Zone**. |
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal" border="false":::
+    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal":::
 
 1. Select **Create**.
 
@@ -54,15 +54,18 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 1. In the search box at the top of the portal, enter **public IP Address**. Select **public IP Address**.
 1. Select your Public IP address. In this example, select **myStandardPublicIP**.
 1. In the **Overview** pane, select the **Properties** tab, then select **DDoS protection**. 
-        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties." border="false":::
+        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties.":::
 1. In the **Configure DDoS protection** pane, under **Protection type**, select  **IP**, then select **Save**.
-        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties." border="false":::
+        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties.":::
 ### Disable DDoS IP protection for a Public IP address:
 
 1. Enter the name of the public IP address you want to disable DDoS IP Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of public IP address appears in the search results, select it.
 1. Under **Properties** in the overview pane, select **DDoS Protection**.
 1. Under **Protection type** select **Disable**, then select **Save**.
-        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-disable-status.png" alt-text="Screenshot of disabling IP Protection in Public IP Properties." border="false":::
+        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-disable-status.png" alt-text="Screenshot of disabling IP Protection in Public IP Properties.":::
+
+> [!NOTE]
+> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
 ## Validate and test
 
 First, check the details of your public IP address:
@@ -72,7 +75,7 @@ First, check the details of your public IP address:
 1. Select your public IP Address from the list.
 1. In the **Overview** pane, select the **Properties** tab in the middle of the page, then select **DDoS protection**. 
 1. View **Protection status** and verify your public IP is protected.
-        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-protected-status.png" alt-text="Screenshot of status of IP Protection in Public IP Properties." border="false":::
+        :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-protected-status.png" alt-text="Screenshot of status of IP Protection in Public IP Properties.":::
 
 
 ## Clean up resources
