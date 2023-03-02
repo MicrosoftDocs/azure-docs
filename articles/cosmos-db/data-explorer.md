@@ -35,7 +35,7 @@ To open Azure Cosmos DB Explorer from the Azure portal:
 
 1. Select the **Data Explorer** in the left menu, then select **Open Full Screen**.
 
-   :::image type="content" source="./media/data-explorer/open-data-explorer.png" alt-text="Screenshot shows Data Explorer page with Open Full Screen highlighted.":::
+   :::image type="content" source="./media/data-explorer/open-data-explorer.png" alt-text="Screenshot shows Data Explorer page with Open Full Screen highlighted." lightbox="./media/data-explorer/open-data-explorer.png":::
 
 1. In the **Open Full Screen** dialog, select **Open**.
 
