@@ -127,7 +127,7 @@ landingContent:
             url: /search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
           - text: Confidential containers with ACC Azure Samples
             url: https://github.com/Azure-Samples/confidential-container-samples
-          - text: App Intel enclave AKS nodes FAQ 
+          - text: Intel SGX based VM nodes on AKS FAQ 
             url: confidential-nodes-aks-faq.yml
       - linkListType: video
         links:
