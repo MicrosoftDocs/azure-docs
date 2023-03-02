@@ -21,7 +21,7 @@ Labels help you organize your attack surface and apply business context in a hig
 - were added to your inventory within a specific time range  
 - Labels are free-form text fields, so you can create a label for any use case that applies to your organization. 
 
-![Screenshot of inventory list view with filters column visible.](media/labels-1.png)
+![Screenshot of inventory list view with filters column visible.](media/labels-1a.png)
 
 
 
@@ -90,7 +90,7 @@ To modify the label itself or delete a label from the system, access the main La
 
 1. Select the **Labels (Preview)** page under the **Manage** section in the left-hand navigation pane of your Defender EASM resource.
 
-![Screenshot of Labels (Preview) page that enables label management.](media/labels-8.png)
+![Screenshot of Labels (Preview) page that enables label management.](media/labels-8a.png)
 
 This page displays all the labels within your Defender EASM inventory. Please note that labels on this page may exist in the system but not be actively applied to any assets. You can also add new labels from this page.  
 
@@ -98,7 +98,7 @@ This page displays all the labels within your Defender EASM inventory. Please no
 
 3. To remove a label, select the trash can icon from the **Actions** column of the label you wish to delete. A box will appear that asks you to confirm the removal of this label; select **Remove Label** to confirm.  
 
-![Screenshot of "Confirm Remove" option from Labels management page.](media/labels-9.png)
+![Screenshot of "Confirm Remove" option from Labels management page.](media/labels-9a.png)
 
  
  
