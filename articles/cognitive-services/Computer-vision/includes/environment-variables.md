@@ -11,7 +11,7 @@ ms.author: pafarley
 
 In this example, you'll write your credentials to environment variables on the local machine running the application.
 
-[!INCLUDE [find key and endpoint](../find-key.md)]
+[!INCLUDE [find key and endpoint](./find-key.md)]
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
