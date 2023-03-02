@@ -1524,7 +1524,26 @@ This section contains the following examples that read a single document by spec
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding. The function reads a single document and updates the document's text value. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+@app.route()
+@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
+@app.cosmos_db_input(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    connection_string_setting="CONNECTION_STRING")
+def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
+    documents: func.DocumentList) -> func.HttpResponse:
+     id = req.params.get('id')
+     document = documents[id]
+     document["text"] = "This was updated!"
+     return document
+```
+
+# [v1](#tab/python-v1)
 
 Here's the binding data in the *function.json* file:
 
@@ -1564,6 +1583,8 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
         document['text'] = 'This was updated!'
         return document
 ```
+
+---
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 
