@@ -201,6 +201,8 @@ In this tutorial, for the sake of simplicity, we'll:
 - Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
 - Experiment with only two models to see which best fits our data set.
 
+To train a machine learning model:
+
 1. Retrieve hourly usage data for our selected data types over the last three weeks. 
   
     ```python
