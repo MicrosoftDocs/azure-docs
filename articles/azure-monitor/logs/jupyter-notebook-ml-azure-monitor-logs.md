@@ -351,4 +351,48 @@ To validate a machine learning model, we need to use some of the data we have to
     ```
     The linear pipeline score for this model is: 
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the linear pipeline score results."::: 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the scoring results of the linear regression model."::: 
+
+1. Now, let's train and evaluate a [gradient boosting regression](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html) model.
+
+
+    ```python
+    from sklearn.preprocessing import OrdinalEncoder
+    from sklearn.ensemble import HistGradientBoostingRegressor
+    
+    
+    categories =  [
+      datatypes
+    ##["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs"]
+       ## ["ContainerLog", "AVSSyslog"] ##["AzureDiagnostics"] ##, "ContainerLogV2", "Perf", "InsightsMetrics"]
+    ]
+        
+    
+    ordinal_encoder = OrdinalEncoder(categories=categories)
+    
+    gbrt_pipeline = make_pipeline(
+        ColumnTransformer(
+            transformers=[
+                ("categorical", ordinal_encoder, categorical_columns),
+            ],
+            remainder="passthrough",
+        ),
+        HistGradientBoostingRegressor(
+            categorical_features=range(1),      
+        ),
+    )
+    
+    gbrt_pipeline.fit(X, Y)
+    #predictions = gbrt_pipeline.predict(X)
+    ##my_data["PredictedUsage"] = predictions
+    ##my_data["Residual"] = my_data["ActualUsage"] - my_data["PredictedUsage"]
+    ##print(my_data)
+    
+    print("Gradient boosting regression score:")
+    evaluate(gbrt_pipeline, X, Y, cv=ts_cv)
+    
+    ```
+
+    The linear pipeline score for this model is: 
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-gradient-boosting-regression-score.png" alt-text="Printout of the scoring results of the gradient boosting regression model."::: 
