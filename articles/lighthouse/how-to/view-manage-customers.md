@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 07/08/2022
+ms.date: 03/01/2023
 ms.topic: how-to
 ---
 
@@ -24,7 +24,7 @@ Keep in mind that the top **Customers** section of the **My customers** page onl
 To view customer details, select **Customers** on the left side of the **My customers** page.
 
 > [!IMPORTANT]
-> In order to see this information, users must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) in the onboarding process.
+> In order to see this information, users must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role that includes Reader access) in the onboarding process.
 
 For each customer, you'll see the customer's name, customer ID (tenant ID), and the **Offer ID** and **Offer version** associated with the engagement. In the **Delegations** column, you'll see the number of delegated subscriptions and/or the number of delegated resource groups.
 
@@ -71,7 +71,7 @@ You can work directly in the context of a delegated subscription within the Azur
 
 :::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Screenshot of the default subscription filter with one delegated subscription selected.":::
 
-After that, when you access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter.
+After that, when you access a service that supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter.
 
 You can change the default subscription at any time by following the steps above and choosing a different subscription, or selecting multiple subscriptions. You can also select **All directories**, then check the **Select all** box, if you want the filter to include all of the subscriptions to which you have access.
 

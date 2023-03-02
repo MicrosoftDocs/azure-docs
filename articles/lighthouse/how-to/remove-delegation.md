@@ -1,7 +1,7 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 06/22/2022
+ms.date: 03/02/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,6 +14,9 @@ Removing a delegation can be done by a user in either the customer tenant or the
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
+
+> [!IMPORTANT]
+> When a customer subscription has multiple delegations from the same service provider, removing one delegation could cause users to lose access granted via the other delegations. This only occurs when the same `principalId` and `roleDefinitionId` combination is included in multiple delegations and then one of the delegations is removed. To fix this, repeat the [onboarding process](onboard-customer.md) for the delegations that you aren't removing.
 
 ## Customers
 
