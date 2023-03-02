@@ -89,13 +89,13 @@ You can add lab users manually by providing their email address in the lab confi
 
 1. Select **Add by email address**, enter the users' email addresses on separate lines or on a single line separated by semicolons.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website.":::
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website." lightbox="./media/how-to-configure-student-usage/add-users-email-addresses.png":::
 
 1. Select **Add**.
 
     The list displays the email addresses and registration status of the lab users. After a user registers for the lab, the list also displays the user's name.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website.":::
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website." lightbox="./media/how-to-configure-student-usage/list-of-added-users.png":::
 
 ### Add users by uploading a CSV file
 
