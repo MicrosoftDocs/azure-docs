@@ -16,14 +16,14 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-Azure Spring Apps Enterprise tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support, on top of strong partnership with VMware. You can learn more about its value propositions in [Azure Spring Apps Enterprise Overview](./overview#enterprise-tier-overview). Besides the feature parity with Standard tier to offer a powerful managed infrastructure with rich set of features on app lifecycle management, monitoring and troubleshooting, etc., it provides kinds of managed VMware Tanzu components including Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway, API Portal, Developer Tools (App Live View and App Accelerator) to empower enterprises to ship faster.
+Azure Spring Apps Enterprise tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support, on top of strong partnership with VMware. You can learn more about its value propositions in [Azure Spring Apps Enterprise Overview](./overview.md#enterprise-tier-overview). Besides the feature parity with Standard tier to offer a powerful managed infrastructure with rich set of features on app lifecycle management, monitoring and troubleshooting, etc., it provides kinds of managed VMware Tanzu components including Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway, API Portal, Developer Tools (App Live View and App Accelerator) to empower enterprises to ship faster.
 
 As the most advanced tier in Azure Spring Apps which is a MSFT provided 1st party Azure service, its pricing is composed of two parts:
 
 - Infrastructure pricing on top of app vCPU and memory usage, and managed Tanzu component vCPU and memory usage to MSFT.
 - Tanzu component license pricing on top of app vCPU usage to VMware.
 
-To learn about the pricing in detail, please take a look at: [Azure Spring Apps pricing](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+To learn about the pricing in detail, please take a look at: [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 To provide best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) which represents Tanzu component license and during provisioning Azure Spring Apps Enterprise Tier this offer will be automatically purchased on behalf of customers and later be metered against. More explanations as below:
 - Under this implicit Azure marketplace 3rd party (VMware) offering purchasing:
@@ -41,11 +41,11 @@ To provide best customer experience to manage the Tanzu component license purcha
 To be able to provision an enterprise tier service instance, there are some prerequisites to be satisfied:
 
 - Your Azure subscription must be registered to the Microsoft.SaaS resource provider. For more information, see the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
-- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](/marketplace/azure-marketplace-overview#purchasing-requirements) section of [What is Azure Marketplace?](/marketplace/azure-marketplace-overview)
+- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](/marketplace/azure-marketplace-overview.md#purchasing-requirements) section of [What is Azure Marketplace?](/marketplace/azure-marketplace-overview.md)
 - Your Azure subscription must belong to a billing account in a supported geographic location defined in [Azure Marketplace Offer](https://aka.ms/ascmpoffer). For more information, see the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account).
-- Choose an Azure region where it’s available today. For more information, see [Available Regions for Enterprise Tier](./faq#in-which-regions-is-azure-spring-apps-enterprise-tier-available). 
-- Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace).
-- Your organization must allow acquisition of any Azure Marketplace software application described in the [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management) section of [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing).
+- Choose an Azure region where it’s available today. For more information, see [Available Regions for Enterprise Tier](./faq.md#in-which-regions-is-azure-spring-apps-enterprise-tier-available). 
+- Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md).
+- Your organization must allow acquisition of any Azure Marketplace software application described in the [Purchase policy management](/marketplace/azure-purchasing-invoicing.md#purchase-policy-management) section of [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing.md).
 - You must accept the marketplace legal terms and privacy statements during enterprise tier provisioning on Azure portal, or use the following CLI command to do so in advance.
    ```azurecli
    az term accept \
@@ -120,4 +120,4 @@ The following table lists each supported geographic location and its [ISO 3166 
 
 ## Next steps
 
-- [Launch your first app](./quickstart)
+- [Launch your first app](./quickstart.md)
