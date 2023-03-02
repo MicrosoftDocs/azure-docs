@@ -223,13 +223,13 @@ Privileged Identity Management role activation has been integrated into the Bill
 
 From the Subscriptions blade, select “View eligible subscriptions” in the horizontal command menu to check your eligible, active, and expired assignments. From there, you can activate an eligible assignment in the same pane.
 
-   ![Screenshot of view eligible subscriptions on the Subscriptions page](./media/pim-resource-roles-activate-your-roles/view-subscriptions-1.png)
+   ![Screenshot of view eligible subscriptions on the Subscriptions page.](./media/pim-resource-roles-activate-your-roles/view-subscriptions-1.png)
 
-   ![Screenshot of view eligible subscriptions on the Cost Management: Integration Service page](./media/pim-resource-roles-activate-your-roles/view-subscriptions-2.png)
+   ![Screenshot of view eligible subscriptions on the Cost Management: Integration Service page.](./media/pim-resource-roles-activate-your-roles/view-subscriptions-2.png)
 
 In Access control (IAM) for a resource, you can now select “View my access” to see your currently active and eligible role assignments and activate directly.
 
-   ![Screenshot of current role assignments on the Measurement page](./media/pim-resource-roles-activate-your-roles/view-my-access.png)
+   ![Screenshot of current role assignments on the Measurement page.](./media/pim-resource-roles-activate-your-roles/view-my-access.png)
 
 By integrating PIM capabilities into different Azure portal blades, this new feature allows you to gain temporary access to view or edit subscriptions and resources more easily.
 
