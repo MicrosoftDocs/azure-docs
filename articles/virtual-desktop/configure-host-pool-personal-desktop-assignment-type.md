@@ -3,7 +3,7 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/02/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -21,6 +21,18 @@ You can configure the assignment type of your personal desktop host pool to adju
 ## Prerequisites
 
 This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+
+### Define variables
+
+The PowerShell commands listed in this article require defining the following variables:
+
+```powershell
+#Define variables
+$subscriptionId = '00000000-0000-0000-0000-000000000000'
+$resourceGroupName = 'MyResourceGroupName'
+$hostPoolName = 'MyHostPoolName'
+$sessionHostName = 'SessionHostName'
+```
 
 ## Personal host pools overview
 
@@ -83,7 +95,7 @@ To directly assign a user to a session host in the Azure portal:
 11. Select the user you want to assign the session host to from the list of available users.
 12. When you're done, select **Select**.
 
-## How to unassign a personal desktop using the Azure portal
+## Unassign a personal desktop using the Azure portal
 
 To unassign a personal desktop in the Azure portal:
 
@@ -103,22 +115,23 @@ To unassign a personal desktop in the Azure portal:
 
 8. Select **Unassign** when prompted with the warning.
 
-## How to unassign a personal desktop using PowerShell
+## Unassign a personal desktop using PowerShell
 
 To unassign a personal desktop in PowerShell, run the following command:
 
 ```powershell
-$patchParams = @{
-  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview&force=true'
-  Payload = '{ "properties": {
-     "assignedUser": ""
-     } }'
-  Method = 'PATCH'
+$unassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assignedUser = ''
+    }} | ConvertTo-Json
+  Method = 'PATCH'
 }
-Invoke-AzRestMethod @patchParams
+Invoke-AzRestMethod @unassignDesktopParams
 ```
 
-## How to reassign a personal desktop using the Azure portal
+## Reassign a personal desktop using the Azure portal
 
 To reassign a personal desktop in the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -138,26 +151,27 @@ To reassign a personal desktop in the Azure portal:
 8. Select the user you want to assign the session host to from the list of available users.
 9. When you're done, select **Select**.
 
-## How to reassign a personal desktop using PowerShell
+## Reassign a personal desktop using PowerShell
 
 To reassign a personal desktop, run this command:
 
 ```powershell
-$patchParams = @{
-  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview&force=true'
-  Payload = '{ "properties": {
-     "assignedUser": "{UPN of new user}"
-     } }'
-  Method = 'PATCH'
+$reassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assigneduser = 'UPN of new user'
+    }} | ConvertTo-Json
+  Method = 'PATCH'
 }
-Invoke-AzRestMethod @patchParams
+Invoke-AzRestMethod @reassignDesktopParams
 ```
 
 ## Give session hosts within a personal host pools a friendly name
 
 You can give personal desktops you create *friendly names* to help users distinguish them in their feeds.
 
-To give a host pool a friendly name, run the following command:
+To give a host pool a friendly name, run the following command in PowerShell:
 
 ```powershell
 $body = '{ "properties": {
@@ -185,14 +199,17 @@ Invoke-AzRestMethod @parameters
 To assign the session host friendly name, run this command in PowerShell:
 
 ```powershell
-$patchParams = @{
-  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview'
-  Payload = '{ "properties": {
-     "friendlyName": "Friendly Name"
-     } }'
-  Method = 'PATCH'
+#Set the friendly name (Change <myFriendlyName>)
+$setNameParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview"
+  Payload = @{
+    properties = @{
+      friendlyName = 'myFriendlyName'
+    }
+  } | ConvertTo-Json
+  Method = 'PATCH'
 }
-Invoke-AzRestMethod @patchParams
+Invoke-AzRestMethod @setNameParams
 ```
 
 ### Get the session host friendly name
@@ -201,8 +218,8 @@ To get the session host friendly name, run this command in PowerShell
 
 ```powershell
 $getParams = @{
-  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview'
-  Method = 'GET'
+  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview'
+  Method = 'GET'
 }
 Invoke-AzRestMethod @getParams
 ```
