@@ -25,7 +25,7 @@ If you already have an Azure Event Grid viewer deployed or would like to have a 
 
 Alternatively, if you want a quick and easy way to validate your events, you can use [RequestBin](https://requestbin.com/). RequestBin offers two modalities to pick from. If you want to quickly test your events, you can use the [public endpoint](https://requestbin.com/r) setup. These public endpoints make event data accessible to anyone with a URL. If you prefer to keep it private, you can create a RequestBin account and create a private endpoint. For more information, see RequestBin [public vs private endpoints](https://requestbin.com/docs/#public-vs-private-endpoints).
 
-![Screenshot of RequestBin URL configuration](./media/requestbin-url.png)
+![Screenshot of RequestBin URL configuration.](./media/requestbin-url.png)
 
 The next steps are the same for both options.
 
@@ -43,7 +43,7 @@ The next steps are the same for both options.
 
 2. (Optional, only if using RequestBin) You need to copy the `validationURL` on the first event the gets posted to your endpoint. You need to paste that URL on your browser to validate the endpoint. The page should saw 'Webhook successfully validated as a subscription endpoint'.
 
-![Screenshot showing event in RequestBin](./media/validation-request-bin.png)
+![Screenshot showing event in RequestBin.](./media/validation-request-bin.png)
 
 ## View events
 
