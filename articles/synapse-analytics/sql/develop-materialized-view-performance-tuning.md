@@ -138,7 +138,7 @@ GROUP BY A, C
 The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and to queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used. 
 
 - For more information on retrieving the actual execution plan, see [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution). 
-- You can retrieve an [estimated execution plan through SQL Server Management Studio (SSMS)](/sql/relational-databases/performance/display-the-estimated-execution-plan.md) or [SET SHOWPLAN_XML](/sql/t-sql/statements/set-showplan-xml-transact-sql.md).
+- You can retrieve an [estimated execution plan through SQL Server Management Studio (SSMS)](/sql/relational-databases/performance/display-the-estimated-execution-plan?view=azure-sqldw-latest&preserve-view=true) or [SET SHOWPLAN_XML](/sql/t-sql/statements/set-showplan-xml-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 **Monitor materialized views**
 
