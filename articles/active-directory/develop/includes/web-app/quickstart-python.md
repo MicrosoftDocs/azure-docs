@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 02/28/2023
+ms.date: 01/18/2023
 ms.author: cwerner
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
 ---
