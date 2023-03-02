@@ -81,7 +81,7 @@ A summary of resolver endpoints and rulesets is provided in this article. For de
 
 An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premises, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
 
-The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
+The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
 > [!NOTE]
 > The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the 5th available IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
@@ -100,7 +100,7 @@ A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1000) that ca
 
 ## DNS forwarding rules
 
-A DNS forwarding rule includes one or more target DNS servers that will be used for conditional forwarding, and is represented by:
+A DNS forwarding rule includes one or more target DNS servers that are used for conditional forwarding, and is represented by:
 - A domain name
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
