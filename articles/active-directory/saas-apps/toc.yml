@@ -1345,6 +1345,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Kao Navi
         href: kao-navi-tutorial.md
+      - name: Karlsgate Identity Exchange (KIE)
+        href: karlsgate-identity-exchange-tutorial.md
       - name: Keepabl
         href: keepabl-tutorial.md  
       - name: Keeper Password Manager
