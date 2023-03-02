@@ -1,6 +1,6 @@
 ---
 title: "Operator Nexus: Platform deployment"
-description: Learn the steps for deploying the Operator Nexus platform software.
+description: Learn the steps for deploying the Operator Nexus platform.
 author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
@@ -9,10 +9,9 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Platform software deployment
+# Platform deployment
 
-In this quickstart, you'll learn step by step process to deploy the Azure Operator Distributed
-Services platform software.
+In this quickstart, you'll learn step by step process to deploy the Azure Operator Nexus platform.
 
 - Step 1: Create Network fabric
 - Step 2: Create a Cluster
@@ -28,12 +27,12 @@ These steps use commands and parameters that are detailed in the API documents.
 
 ## API guide and metrics
 
-The [API guide](/rest/api/azure/azure-operator-distributed-services) provides
+The [API guide](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/networkcloud/resource-manager) provides
 information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
-## Step 1: create network fabric
+## Step 1: Create network fabric
 
 The network fabric instance (NF) is a collection of all network devices
 described in the previous section, associated with a single Operator Nexus instance. The NF
@@ -274,12 +273,12 @@ Fabric create Logs can be viewed in the following locations:
 ## Step 4: Deploy cluster
 
 Once a Cluster has been created and the Rack Manifests have been added, the
-deploy cluster action is triggered. The deploy cluster action creates the
+deploy cluster action can be triggered. The deploy cluster action creates the
 bootstrap image and deploys the cluster.
 
-Deploy Cluster will cause a sequence of events to occur in the Cluster Manager
+Deploy Cluster will initiate a sequence of events to occur in the Cluster Manager
 
-1.  Validation of the cluster/rack manifests for completeness.
+1.  Validation of the cluster/rack properties
 2.  Generation of a bootable image for the ephemeral bootstrap cluster
     (Validation of Infrastructure).
 3.  Interaction with the IPMI interface of the targeted bootstrap machine.
