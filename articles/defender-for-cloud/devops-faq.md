@@ -87,7 +87,7 @@ Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?
 
 ### Why are "Delete Source" and "Write Code" permissions required for ADO?
 
-Due to lack of granularity for ADO permissions, these permissions are required for some of the Defender for DevOps features, like PR Annotations, to work.
+Azure DevOps doesn't have the necessary granularity for its permissions. These permissions are required for some of the Defender for DevOps features, such as pull request annotations in order to work.
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
