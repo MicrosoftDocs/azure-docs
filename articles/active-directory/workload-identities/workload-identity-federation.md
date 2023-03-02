@@ -37,10 +37,10 @@ You use workload identity federation to configure an Azure AD app registration o
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
-- GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust-github.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then [configure a GitHub Actions workflow](/azure/developer/github/connect-from-azure) to get an access token from Microsoft identity provider and access Azure resources.
+- GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then [configure a GitHub Actions workflow](/azure/developer/github/connect-from-azure) to get an access token from Microsoft identity provider and access Azure resources.
 - Google Cloud.  First, configure a trust relationship between your app in Azure AD and an identity in Google Cloud. Then configure your software workload running in Google Cloud to get an access token from Microsoft identity provider and access Azure AD protected resources. See [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md).
 - Workloads running on Kubernetes. Establish a trust relationship between your app or user-assigned managed identity in Azure AD and a Kubernetes workload (described in the [workload identity overview](../../aks/workload-identity-overview.md)).
-- Workloads running in compute platforms outside of Azure. [Configure a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the external IdP for your compute platform. You can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) to get an access token from Microsoft identity platform, passing in the identity provider's JWT instead of creating one yourself using a stored certificate.
+- Workloads running in compute platforms outside of Azure. [Configure a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the external IdP for your compute platform. You can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Use the [client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#third-case-access-token-request-with-a-federated-credential) to get an access token from Microsoft identity platform, passing in the identity provider's JWT instead of creating one yourself using a stored certificate.
 
 ## How it works
 
@@ -55,7 +55,7 @@ The workflow for exchanging an external token for an access token is the same, h
 
 1. The external workload (such as a GitHub Actions workflow) requests a token from the external IdP (such as GitHub).
 1. The external IdP issues a token to the external workload.
-1. The external workload (the login action in a GitHub workflow, for example) [sends the token to Microsoft identity platform](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and requests an access token.
+1. The external workload (the login action in a GitHub workflow, for example) [sends the token to Microsoft identity platform](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#third-case-access-token-request-with-a-federated-credential) and requests an access token.
 1. Microsoft identity platform checks the [trust relationship](workload-identity-federation-create-trust.md) on the app registration or user-assigned managed identity and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
 1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
 1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
@@ -64,8 +64,8 @@ The Microsoft identity platform stores only the first 100 signing keys when they
 
 ## Next steps
 Learn more about how workload identity federation works:
-- How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
+- How Azure AD uses the [OAuth 2.0 client credentials grant](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
 - How to create, delete, get, or update [federated identity credentials](workload-identity-federation-create-trust.md) on an app registration.
 - How to create, delete, get, or update [federated identity credentials](workload-identity-federation-create-trust-user-assigned-managed-identity.md) on a user-assigned managed identity.
 - Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
-- For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
+- For information about the required format of JWTs created by external identity providers, read about the [assertion format](/azure/active-directory/develop/active-directory-certificate-credentials#assertion-format).
