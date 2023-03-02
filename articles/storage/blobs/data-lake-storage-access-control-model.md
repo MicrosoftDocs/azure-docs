@@ -45,7 +45,7 @@ Roles such as [Owner](../../role-based-access-control/built-in-roles.md#owner), 
 
 ## Attribute-based access control (Azure ABAC)
 
-Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. You cannot explicitly deny access to specific resources using conditions.
+Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more refined access control. You cannot explicitly deny access to specific resources using conditions.
 
 For more information on using Azure ABAC to control access to Azure Storage, see [Authorize access to Azure Blob Storage using Azure role assignment conditions](storage-auth-abac.md).
 
@@ -59,11 +59,16 @@ ACLs give you the ability to apply "finer grain" level of access to directories 
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
-:one:&nbsp;&nbsp; Azure role assignments are evaluated first and take priority over any ACL assignments.
-
-:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure role assignment, then ACLs are not evaluated at all.
-
-:three:&nbsp;&nbsp; If the operation is not fully authorized, then ACLs are evaluated.
+1. Azure determines whether a role assignment exists for the principal.
+    1. If a role assignment exists, the role assignment conditions (2) are evaluated next.
+    1. If not, the ACLs (3) are evaluated next.
+1. Azure determines whether the all of the ABAC role assignment conditions, if any exist, match the attributes of the request.
+    1. If no conditions exist, access is granted.
+    1. If conditions exist and all of them match the attributes of the request, access is granted.
+    1. If conditions exist and at least one of them does not match the attributes of the request, the ACLs (3) are evaluated next.
+1. If access has not been explicitly granted after evaluating the role assignments and conditions, the ACLs are evaluated.
+    1. If the ACLs permit the requested level of access, access is granted.
+    1. If not, access is denied.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
