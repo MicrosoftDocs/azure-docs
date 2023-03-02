@@ -226,7 +226,7 @@ After you configure a policy, there may be some delay to observe the logs in Azu
 There are certain prerequisites the operator should ensure to configure the monitoring tools on AKS-Hybrid clusters.
 
 Container Insights stores its data in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
-Log data flows into the workspace whose Resource ID you provided during the initial scripts covered in the ["Adding a data collection rule (DCR)"](#adding-a-data-collection-rule-dcr) section.
+Log data flows into the workspace whose Resource ID you provided during the initial scripts covered in the ["Add a data collection rule (DCR)"](#add-a-data-collection-rule-dcr) section.
 Else, data funnels into a default workspace in the Resource group associated with your subscription (based on Azure location).
 
 An example for East US may look like follows:
