@@ -262,10 +262,10 @@ For now, you're running this code *locally* - that is, on the same computer wher
     ```
 
 1. If you created a sub-folder for this tutorial, `cd` to that folder now.
-1. Run your training script.  (The automatic name for this script is **train.ipynb.py**)
+1. Run your training script.
 
     ```bash
-    python train.ipynb.py
+    python train.py
     ```
 
 ## Clean up resources
