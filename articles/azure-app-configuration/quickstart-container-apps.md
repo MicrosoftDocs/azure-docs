@@ -4,8 +4,9 @@ description: Learn how to connect a containerized application to Azure App Confi
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
+ms.custom: service-connector
 ms.topic: quickstart
-ms.date: 02/02/2023
+ms.date: 03/02/2023
 ms.author: malev
 
 ---
