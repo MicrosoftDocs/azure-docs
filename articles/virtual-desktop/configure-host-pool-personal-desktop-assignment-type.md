@@ -178,10 +178,6 @@ $body = '{ "properties": {
 "friendlyName": "friendlyName"
 } }'
 
-$subscriptionId = '11111111-1111-1111-1111-111111111111'
-$resourceGroupName = 'MyResourceGroupName'
-$hostPoolName = 'MyHostPoolName'
-
 $parameters = @{
     Method = 'Patch'
     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
