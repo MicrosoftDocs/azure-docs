@@ -37,8 +37,8 @@ In this tutorial, you'll:
 
 - [Jupyter Notebook](https://jupyter.org/):
 
-    You can run Jupyter Notebook on log data in Azure Monitor Logs: 
-    - In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or public services. 
+    Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs: 
+    - In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services. 
     - Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
     
     For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
@@ -194,7 +194,7 @@ Model training is an iterative process that begins with data preparation and cle
 In this tutorial, for the sake of simplicity, we'll: 
 
 - Skip the data cleaning step.
-- Work with six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
+- Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
 - Experiment with only two models to see which best fits our data set.
 
 1. Retrieve hourly usage data for our selected data types over the last three weeks. 
