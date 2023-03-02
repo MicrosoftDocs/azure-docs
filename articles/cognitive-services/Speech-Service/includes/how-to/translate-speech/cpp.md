@@ -301,7 +301,7 @@ For more information about speech synthesis, see [the basics of speech synthesis
 
 In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
 
-The following example uses continuous translation from an audio file. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they're defined in `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
+The following example anticipates that `en-US` or `zh-CN` should be detected because they're defined in `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
 ```cpp
 speechTranslationConfig->AddTargetLanguage("de");
