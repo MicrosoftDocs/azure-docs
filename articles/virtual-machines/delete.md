@@ -94,7 +94,7 @@ New-AzVm `
 
 ### [REST](#tab/rest2)
 
-This example shows how to set the data disk and NIC to be deleted when the VM is deleted.
+This example shows how to set the data disk and NIC to be deleted when the VM is deleted. Note that the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
 
 ```rest
 PUT 
@@ -106,7 +106,7 @@ https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Mi
           "name": "myVMdatadisk", 
           "createOption": "Empty", 
           "lun": 0, 
-          "deleteOption": “Delete” 
+          "deleteOption": "Delete" 
        }    ] 
 },  
 "networkProfile": { 
@@ -114,7 +114,7 @@ https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Mi
         { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
           "properties": { 
             "primary": true, 
-  	    "deleteOption": “Delete” 
+  	    "deleteOption": "Delete" 
           }        } 
       ]  
 } 
@@ -181,9 +181,21 @@ The following example sets the delete option to `detach` so you can reuse the di
 az resource update --resource-group myResourceGroup --name myVM --resource-type virtualMachines --namespace Microsoft.Compute --set properties.storageProfile.osDisk.deleteOption=detach
 ```
 
+### [PowerShell](#tab/powershell3)
+
+The following example updates VM to delete the OS disk, all data disks, and all NICs when the VM is deleted.
+
+```azurepowershell
+$vmConfig = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+$vmConfig.StorageProfile.OsDisk.DeleteOption = 'Delete'
+$vmConfig.StorageProfile.DataDisks | ForEach-Object { $_.DeleteOption = 'Delete' }
+$vmConfig.NetworkProfile.NetworkInterfaces | ForEach-Object { $_.DeleteOption = 'Delete' }
+$vmConfig | Update-AzVM
+``` 
+
 ### [REST](#tab/rest3)
 
-The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
+The following example updates the VM to delete the NIC, OS disk, and data disk when the VM is deleted. Note that the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
 
 ```rest
 PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
@@ -321,7 +333,7 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 ## Force Delete for scale sets
 
-Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. . Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal5)
 
