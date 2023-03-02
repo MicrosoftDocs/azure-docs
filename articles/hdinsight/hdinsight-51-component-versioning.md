@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 5.1
 description: Learn about the open-source  components and versions in Azure HDInsight 5.1
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ---
 
 # HDInsight 5.1 component versions
@@ -34,17 +34,9 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache Zeppelin  | 0.10.0 *             | 0.8.0         |
 | Apache Phoenix   | 5.1.2  **             | -       |
 
-
 \* Under development/Planned
 
 ** Public Preview
-
-
-This table lists certain HDInsight 4.0 cluster types that have retired or retire soon.
-
-| Cluster Type                    | Framework version | Support expiration date      | Retirement date |
-|---------------------------------|-------------------|------------------------------|-----------------|
-| HDInsight 4.0 Kafka             | 2.1.0             | Sep 30, 2022                 | Oct 1, 2022     |
 
 ## Spark versions supported in Azure HDInsight
 
