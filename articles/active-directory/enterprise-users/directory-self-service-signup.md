@@ -58,7 +58,7 @@ AllowEmailVerifiedUsers and AllowAdHocSubscriptions are tenant-wide settings tha
 If the preceding conditions are true, then a member user is created in the home tenant, and a B2B guest user is created in the inviting tenant.
 
 >[!NOTE]
-> Users acquiring Office 365 for Education, are not currently added to existing managed tenants even when this toggle is enabled.
+> Office 365 for Education users, are currently the only ones who are added to existing managed tenants even when this toggle is enabled
 
 For more information on Flow and Power Apps trial sign-ups, see the following articles:
 
