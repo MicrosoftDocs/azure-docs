@@ -175,6 +175,28 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
    :::image type="content" source="./media/point-to-site-vpn-client-config-radius-password/linux/connect.png" alt-text="Screenshot shows connect." lightbox="./media/point-to-site-vpn-client-config-radius-password/linux/connect.png":::
 
+## Additional steps for Azure virtual machine
+
+In case you are executing the procedure on an Azure virtual machine running Linux, there are additional steps to perform:
+
+1. You must edit the **/etc/netplan/50-cloud-init.yaml** file to include the following parameter for the interface:
+
+   ```Terminal
+   renderer: NetworkManager
+   ```
+   
+1. After editing the file you must run the following two commands:
+
+   ```Terminal
+   sudo netplan generate
+   ```
+
+   ```Terminal
+   sudo netplan apply
+   ```
+   
+1. Stop/Start or Redeploy the virtual machine
+
 ## Next steps
 
 Return to the article to [complete your P2S configuration](point-to-site-how-to-radius-ps.md).
