@@ -3,7 +3,7 @@ title: Plan to manage costs for Azure OpenAI Service
 description: Learn how to plan for and manage costs for Azure OpenAI by using cost analysis in the Azure portal.
 author: mrbullwinkle
 ms.author: mbullwin
-ms.custom: "UpdateFrequency3, subject-cost-optimization"
+ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
