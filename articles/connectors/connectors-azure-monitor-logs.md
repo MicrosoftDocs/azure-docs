@@ -45,7 +45,7 @@ The following tutorial illustrates the use of the Azure Monitor Logs connector i
 1. Go to **Logic Apps** in the Azure portal and select **Add**. 
 1. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-workflows-collect-diagnostic-data.md). This setting isn't required for using the Azure Monitor Logs connector.
 
-   ![Screenshot that shows the Basics tab on the logic app creation screen.](media/logicapp-flow-connector/create-logic-app.png)
+   ![Screenshot that shows the Basics tab on the logic app creation screen.](media/connectors-azure-monitor-logs/create-logic-app.png)
 
 1. Select **Review + create** > **Create**. 
 1. When the deployment is complete, select **Go to resource** to open the **Logic Apps Designer**.
@@ -57,7 +57,7 @@ The following tutorial illustrates the use of the Azure Monitor Logs connector i
 
 1. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.
 
-    ![Screenshot that shows the Logic Apps Designer "Recurrence" window on which you can set the interval and frequency at which the logic app runs.](media/logicapp-flow-connector/recurrence-action.png)
+    ![Screenshot that shows the Logic Apps Designer "Recurrence" window on which you can set the interval and frequency at which the logic app runs.](media/connectors-azure-monitor-logs/recurrence-action.png)
 
 ## Walkthrough: Mail visualized results
 This tutorial shows how to create a logic app workflow that sends the results of an Azure Monitor log query by email. 
@@ -66,11 +66,11 @@ This tutorial shows how to create a logic app workflow that sends the results of
 1. Select **+ New step** to add an action that runs after the recurrence action. 
 1. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
 
-    ![Screenshot that shows the Logic App Designer "Choose an action" window.](media/logicapp-flow-connector/select-azure-monitor-connector.png)
+    ![Screenshot that shows the Logic App Designer "Choose an action" window.](media/connectors-azure-monitor-logs/select-azure-monitor-connector.png)
 
 1. Select **Azure Log Analytics – Run query and visualize results**.
 
-    ![Screenshot of a new action being added to a step in the Logic Apps Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logicapp-flow-connector/select-query-action-visualize.png)
+    ![Screenshot of a new action being added to a step in the Logic Apps Designer. Azure Monitor Logs is highlighted under Choose an action.](media/connectors-azure-monitor-logs/select-query-action-visualize.png)
 
 ### Add Azure Monitor Logs action
 
@@ -88,7 +88,7 @@ This tutorial shows how to create a logic app workflow that sends the results of
 
 1. Select *Set in query* for the **Time Range** and **HTML Table** for the **Chart Type**.
    
-    ![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logicapp-flow-connector/run-query-visualize-action.png)
+    ![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/connectors-azure-monitor-logs/run-query-visualize-action.png)
     
     The account associated with the current connection sends the email. To specify another account, select **Change connection**.
     
@@ -97,30 +97,30 @@ This tutorial shows how to create a logic app workflow that sends the results of
 1. Select **+ New step** > **+ Add an action**. 
 1. Under **Choose an action**, type **outlook** and then select **Office 365 Outlook**.
 
-    ![Screenshot that shows the Logic App Designer "Choose an action" window with the Office 365 Outlook button highlighted.](media/logicapp-flow-connector/select-outlook-connector.png)
+    ![Screenshot that shows the Logic App Designer "Choose an action" window with the Office 365 Outlook button highlighted.](media/connectors-azure-monitor-logs/select-outlook-connector.png)
 
 1. Select **Send an email (V2)**.
 
-    ![Screenshot of a new action being added to a step in the Logic Apps Designer. Send an email (V2) is highlighted under Choose an action.](media/logicapp-flow-connector/select-mail-action.png)
+    ![Screenshot of a new action being added to a step in the Logic Apps Designer. Send an email (V2) is highlighted under Choose an action.](media/connectors-azure-monitor-logs/select-mail-action.png)
 
 1. Click anywhere in the **Body** box to open a **Dynamic content** window opens with values from the previous actions in the logic app. 
 1. Select **See more** and then **Body** which is the results of the query in the Log Analytics action.
 
-    ![Screenshot of the settings for the new Send an email (V2) action, showing the body of the email being defined.](media/logicapp-flow-connector/select-body.png)
+    ![Screenshot of the settings for the new Send an email (V2) action, showing the body of the email being defined.](media/connectors-azure-monitor-logs/select-body.png)
 
 1. Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. 
 
-    ![Screenshot of the settings for the new Send an email (V2) action, showing the subject line and email recipients being defined.](media/logicapp-flow-connector/mail-action.png)
+    ![Screenshot of the settings for the new Send an email (V2) action, showing the subject line and email recipients being defined.](media/connectors-azure-monitor-logs/mail-action.png)
 
 ### Save and test your workflow
 1. Select **Save** and then **Run** to perform a test run of the workflow.
 
-    ![Save and run](media/logicapp-flow-connector/save-run.png)
+    ![Save and run](media/connectors-azure-monitor-logs/save-run.png)
 
 
     When the workflow completes, check the mail of the recipient that you specified.  You should receive a mail with a body similar to the following:
 
-    ![An image of a sample email.](media/logicapp-flow-connector/sample-mail.png)
+    ![An image of a sample email.](media/connectors-azure-monitor-logs/sample-mail.png)
 
     > [!NOTE]
     > The workflow generates an email with a JPG file that depicts the query result set. If your query doesn't return results, the workflow won't create a JPG file.  
@@ -128,5 +128,5 @@ This tutorial shows how to create a logic app workflow that sends the results of
 ## Next steps
 
 - Learn more about [log queries in Azure Monitor](./log-query-overview.md).
-- Learn more about [Azure Logic Apps](../../logic-apps/index.yml)
+- Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 
