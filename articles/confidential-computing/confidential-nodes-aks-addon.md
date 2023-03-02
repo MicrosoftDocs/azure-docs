@@ -67,7 +67,7 @@ Each container needs to opt in to use out-of-proc quote generation by setting th
 An application can still use the in-proc attestation as before. However, you can't simultaneously use both in-proc and out-of-proc within an application. The out-of-proc infrastructure is available by default and consumes resources.
 
 > [!NOTE]
-> If you are using a Intel SGX wrapper software (OSS/ISV) to run you unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
+> If you are using a Intel SGX wrapper software (OSS/ISV) to run your unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
 
 ### Sample implementation
 
