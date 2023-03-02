@@ -35,7 +35,7 @@ The IP address associated with an inbound endpoint is always part of the private
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the 5th available IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the fifth IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
 
 ## Outbound endpoints
 
