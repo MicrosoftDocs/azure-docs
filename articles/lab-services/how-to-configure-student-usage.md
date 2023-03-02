@@ -191,7 +191,7 @@ To view the list of lab users that have already registered for the lab by using 
 
 1. Select **Users** to view the list of lab users.
 
-    The list shows the list of lab users with their registration status. The user status should show **Registered**, and the their name should also be available after registration.
+    The list shows the list of lab users with their registration status. The user status should show **Registered**, and their name should also be available after registration.
 
     :::image type="content" source="./media/tutorial-track-usage/registered-users.png" alt-text="Screenshot that shows the list of registered users for a lab in the Azure Lab Services website." lightbox="./media/tutorial-track-usage/registered-users.png":::
 
@@ -219,7 +219,7 @@ You can set an hour quota for a user in one of two ways:
 
 ## Set additional quotas for specific users
 
-You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you, as a lab creator, set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time does not count against this quota.
+You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you, as a lab creator, set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time doesn't count against this quota.
 
 To set additional quotas, do the following:
 
@@ -248,7 +248,7 @@ Users can use non-Microsoft email accounts to register and sign in to a lab.  Ho
 
 Many users might already have a Microsoft account that's linked to their non-Microsoft email address. For example, users already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
 
-When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account will receive the following error message:
+When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account receive the following error message:
 
 :::image type="content" source="./media/how-to-configure-student-usage/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/cant-find-account.png":::
 
