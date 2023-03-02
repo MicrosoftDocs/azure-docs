@@ -157,7 +157,7 @@ In this tutorial, you'll:
     - `execQueryDemoWorkspace(query)` - Calls the Azure Log Analytics POST API with the given query and returns a pandas DataFrame containing the data from the response.
     - `showGraph(df, title)` - Creates a graph that plots `TimeGenerated` on the x-axis and `ActualUsage` on the y-axis using Plotly.
     
-## Explore and visualize log data in your notebook
+## Explore and visualize data from your Log Analytics workspace in your notebook
 
 1. Query the use of all data types in the last week.
     
