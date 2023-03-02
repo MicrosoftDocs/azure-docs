@@ -13,7 +13,7 @@ ms.workload: storage
 ms.custom: references_regions
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 03/02/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -28,11 +28,13 @@ To enroll in the preview for large volumes, use the [large volumes preview sign-
 
 ## Requirements and considerations
 
-* Existing regular volumes can't be resized over 100 TiB. You can't convert regular Azure NetApp Files volumes to large volumes.
+* Existing regular volumes can't be resized over 100 TiB.
+* You can't convert regular Azure NetApp Files volumes to large volumes.
 * You must create a large volume at a size greater than 100 TiB. A single volume can't exceed 500 TiB.  
-* You can't resize a large volume to less than 100 TiB. You can only resize a large volume can up to 30% of lowest provisioned size. 
-* Large volumes are currently not supported with Azure NetApp Files backup.
-* Large volumes are not currently supported with cross-region replication.
+* You can't resize a large volume to less than 100 TiB.
+    * You can only resize a large volume up to 30% of lowest provisioned size. 
+* Large volumes aren't currently supported with Azure NetApp Files backup.
+* Large volumes aren't currently supported with cross-region replication.
 * You can't create a large volume with application volume groups.
 * Large volumes aren't currently supported with cross-zone replication.
 * The SDK for large volumes isn't currently available. 
