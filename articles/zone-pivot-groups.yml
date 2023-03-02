@@ -1108,7 +1108,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: platform-nocode
-    title: No code
+    title: Power Platform
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
