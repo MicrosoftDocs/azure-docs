@@ -1,13 +1,12 @@
 ---
 title: Connect to Azure Monitor Logs from workflows in Azure Logic Apps
-description: Learn how you can use Azure Logic Apps to quickly automate repeatable processes by using the Azure Monitor connector.
-ms.topic: conceptual
+description: Connect to Azure Monitor Logs to retrieve data from a Log Analytics workspace as part of a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: guywild
-ms.author: guywild
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/22/2022
-
+tags: connectors
 ---
 
 # Connect to Azure Monitor Logs from workflows in Azure Logic Apps

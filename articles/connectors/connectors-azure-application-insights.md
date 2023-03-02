@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure Application Insights from workflows in Azure Logic Apps
-description: Learn how you can quickly automate repeatable processes by adding the Application Insights connector to your logic app.
-ms.topic: conceptual
+description: Connect to Azure Application Insights to query telemetry data as part of a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 07/31/2022
-author: guywild
-ms.author: guywild
+tags: connectors
 ---
 
 # Connect to Azure Application Insights from workflows in Azure Logic Apps
