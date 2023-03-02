@@ -1,5 +1,5 @@
 ---
-title: Sensor partner integration 
+title: Sensor partner integration. 
 description: Provides guidance to set up your sensors as a partner
 author: gourdsay
 ms.author: angour
@@ -17,7 +17,7 @@ The below section of this document talks about the onboarding steps needed to in
 
 Onboarding covers the steps required by both customers & partners to integrate with Data Manager for Agriculture and start receiving/sending sensor telemetry respectively.
 
-![Sensor partner flow](./media/sensor-partner-flow.png)
+![Screenshot showing sensor partners flow.](./media/sensor-partners-flow.png)
 
 From the above figure, the blocks highlighted in white are the steps taken by a partner, and the ones highlighted in black are done by customers.
 
@@ -59,7 +59,7 @@ Getting the partner ID marks the completion of partner-Data Manager for Agricult
 Customers using Data Manager for Agriculture will now know all the supported Data Manager for Agriculture sensor partners and their respective APP IDs. This information will be available in the public documentation for all our customers.
 Based on the sensors that customers use and their respective sensor partner’s APP ID, the customer has to provide access to the partner (APP ID) to start pushing their sensor data into their Data Manager for Agriculture instance. This can be done using the following steps:
 
-### Role Assignment
+### Role assignment
 
 Customers who choose to onboard to a specific partner will know the app ID of that specific partner. Now using the app ID customer will need to do the following things in sequence.
 
@@ -90,7 +90,7 @@ Post validating and storing these data points, partners can start allowing custo
 
 Post adding the sensors/devices, the customer can expect the respective sensors’ data flow into their Data Manager for Agriculture instance. This step marks the completion of customer onboarding to fetch sensor data.
 
-## Partner flow : Phase 2
+## Partner flow: Phase 2
 
 Partner now has the information to call a specific API endpoint (Customers’ data plane), but they still don’t have the information on where do they need to push the sensor telemetry data?
 

@@ -1,5 +1,5 @@
 ---
-title: Integrate a Sensor
+title: How to set-up a sensor.
 description: Provides step by step guidance to integrate Sensor as a customer
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -25,13 +25,13 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 3. On the permission review page, AAD app will request for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
 
-![Sensor partner consent popup](./media/sensor-partner-consent.png)
+![Screenshot showing sensor partner consent popup.](./media/sensor-partner-consent.png)
 
 4. Click on "Accept" button to grant admin consent. 
 
 5. Now, look for `Davis Instruments WeatherLink Data Manager for Agriculture Connector` under All Applications tab in `App Registrations` page (illustrated with a generic Partner in the image).
 
-![Partners Message](./media/sensor-partners.png)
+![Screenshot showing the partners message,](./media/sensor-partners.png)
 
 6. Copy the Application (client) ID for the specific partner app that you want to provide access to.
 
@@ -46,7 +46,7 @@ Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> an
 
 You find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image:
 
-![Role Assignment](./media/Role-Assignment.png)
+![Screenshot showing role assignment.](./media/Role-Assignment.png)
 
 Click **Add > Add role assignment**, this action opens up a pane on the right side of the portal, choose the  role from the dropdown:
 
@@ -62,7 +62,7 @@ To complete the role assignment, do the following steps:
 
 4. Click **Save** to assign the role.
 
-![App Selection for Authorization](./media/sensor-partner-role.png)
+![Screenshot showing app selection for authorization.](./media/sensor-partner-role.png)
 
 This ensures that the sensor partner app has been granted access (based on the role assigned) to Azure FarmBeats Resource.
 
@@ -164,8 +164,7 @@ API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integration
 
 A section requesting for the consent link is part of the sensor partner integration flow. This consent link is way for sensor partners to validate if the customer is a valid user of the service. Sensor integration is tied to consent key. 
 
->[Note]
->Our sensor partner Davis Instruments uses this [UI](https://weatherlink.github.io/azure-farmbeats/setup), for enabling set-up and requesting for the consent link.
+Our sensor partner **Davis Instruments** uses this [UI](https://weatherlink.github.io/azure-farmbeats/setup), for enabling set-up and requesting for the consent link.
 
 Sensor partners call into the `check-consent` API endpoint to verify validity. To generate a consent link, you need to use the `SensorPartnerIntegrations_GenerateConsentLink` API and provide the integration ID created from the step (3). As a response, you get a string called consentLink. Copy this string and  provided it to the sensor partner for further validation. If you're using sensors from Davis Instruments, then follow instruction on this [page](https://weatherlink.github.io/azure-farmbeats/setup).
 

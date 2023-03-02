@@ -1,5 +1,5 @@
 ---
-title: Our ISV Solution Framework
+title: Our ISV solution framework.
 description: Provides information on using solutions from ISVs 
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -23,7 +23,7 @@ The agriculture industry is going through a significant technology transformatio
 
 The solution framework is built on top of Data Manager for Agriculture that provides extensibility capabilities. It enables our Independent Software Vendor (ISV) partners to leverage their deep domain knowledge and develop specialized domain specific industry solutions to top of the core platform.  The solution framework provides below capabilities:
 
-![Solution Framework](./media/solution_framework.png)
+![Screenshot showing ISV solution framework.](./media/solution-framework-isv.png)
 
 * Enables ISV Partners to easily build industry specific solutions to top of Data Manager for Agriculture.  
 * Helps ISVs generate revenue by monetizing their solution and publishing it on the Azure Marketplace* Provides simplified onboarding experience for ISV Partners and customers.
@@ -31,7 +31,7 @@ The solution framework is built on top of Data Manager for Agriculture that prov
 * Data privacy complaint ensuring the right level of access to customers and ISV Partners.
 * Hides all the technical complexity of the platform and allows ISV’s and customers to focus on the core business logic
 
-## Use Cases
+## Use cases
 
  Following are some of the examples of use cases on how an ISV partner could leverage the solution framework to build an industry specific solution.
 
@@ -40,3 +40,7 @@ The solution framework is built on top of Data Manager for Agriculture that prov
 * Crop Identification: Use imagery data to identify crop growing in an area of interest.
 
 The above list has only a few examples but an ISV partner can come with their own specific scenario and build a solution.  
+
+## Next steps
+
+* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)

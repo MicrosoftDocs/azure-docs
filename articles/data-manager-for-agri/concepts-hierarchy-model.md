@@ -1,6 +1,6 @@
 ---
-title: Our Hierarchy Model 
-description: Provides information on the data model to organize your agriculture data 
+title: Our hierarchy model. 
+description: Provides information on the data model to organize your agriculture data. 
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
 ms.service: data-manager-for-agri
@@ -9,7 +9,7 @@ ms.date: 02/14/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Hierarchy Model
+# Hierarchy model
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -17,7 +17,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
-![Farm hierarchy](./media/data_model.png)
+![Screenshot showing farm hierarchy model.](./media/data-model.png)
 
 
 ## Understanding farm hierarchy
@@ -32,7 +32,7 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ### Field
 * Fields denote a stable boundary that is in general agnostic to seasons and other temporal constructs. For example, field could be the boundary denoted in government records.
-* Fields are multi-polygon. For example, a road might divide the farm in two or more parts
+* Fields are multi-polygon. For example, a road might divide the farm in two or more parts.
 * Fields are multi-boundary.
 
 ### Seasonal field
@@ -56,9 +56,9 @@ To generate actionable insights data related to growers, farms, and fields shoul
 ### Crop
 * Crop entity provides the phenotypic details of the planted crop.
 
-### Crop Product
+### Crop product
 * Crop Product entity refers to the commercial variety (brand, product) of the planted seeds. A seasonal field can contain information about various varieties of seeds planted (belonging to the same crop).
 
-## Next Steps
+## Next steps
 
 * Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)

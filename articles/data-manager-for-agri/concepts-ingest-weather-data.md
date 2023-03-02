@@ -1,6 +1,6 @@
 ---
-title: Ingesting Weather Forecast Data
-description: Learn how to fetch weather data from various weather data providers through Extensions and Provider Agnostic APIs
+title: Ingesting weather forecast data.
+description: Learn how to fetch weather data from various weather data providers through extensions and provider Agnostic APIs.
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri

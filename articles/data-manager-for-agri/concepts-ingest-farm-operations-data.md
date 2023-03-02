@@ -1,5 +1,5 @@
 ---
-title: Ingesting Farm Operations Data
+title: Ingesting Farm Operations Data.
 description: Provides step by step guidance to ingest Farm Operations data
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -9,14 +9,14 @@ ms.date: 02/14/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Working with Farm Operations Data 
+# Working with farm operations data 
 Farm operation data is one of the most important ground truth datasets in Agronomy. Users can choose to push this data into Azure Data Manager for Agriculture using APIs OR choose to fetch them from farm equipment manufacturers like John Deere. 
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
-## Our Service supports the following types of farm Operations data:
+## Our service supports the following types of farm operations data:
 * Planting Data
 * Application Data 
 * Harvest Data
@@ -66,11 +66,11 @@ Azure Data Manager for Agriculture provides oAuth based authorization to connect
 > [!NOTE]
 > Step 1 to Step 3 are part of the one-time initial configuration setup. Once integrated, you will be able to enable all your end users to use the existing oAuth workflow and call the config API (Step 4) per user (partyid) to get access token.
 
-## Step 1: App Creation
+## Step 1: App creation
 
 If you are creating John Deere application, go to [John Deere portal](https://developer-portal.deere.com/#/applications/) and create a new application. Once the application is created, **request Data Subscription Services (DSS) for the app via Contact Us button in John Deere portal**. DSS enables an application to receive notifications for data updates and DSS needs to be explicitly enabled on John Deere side.
 
-## Step 2: Provider Configuration
+## Step 2: Provider configuration
 
 Use the `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with appropriate credentials (AppID & AppSecret) of the newly created App. The API creates or updates an oauthProvider resource.
 
@@ -82,7 +82,7 @@ Use the `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with
 |:-----:|----|----|
 | PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderID}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
-> Important
+> [Important]
 >The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
 
 #### URI parameters
@@ -168,7 +168,7 @@ Use the `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with
 }
 ```
 
-## Step 3: Endpoint Configuration
+## Step 3: Endpoint configuration
 
 There are two endpoints that need to be configured
 
@@ -178,7 +178,7 @@ There are two endpoints that need to be configured
 
 **Register both these endpoints with your APP on John Deere portal.**
 
-## Step 4: Farmer (End-user) Integration
+## Step 4: Farmer (end-user) integration
 
 When a farmer (end-user) lands on your webpage where the user action is expected (Ex: Connect to John Deere button), make a call to `oauth/tokens/:connect` API as shown, to get the oAuth provider's (Ex: John Deere) sign-in uri back to start the end-user oAuth flow.
 
@@ -255,7 +255,7 @@ Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizatio
 >
 > If the API returns 404, then it implies the oAuth flow failed and Azure Data Manager for Agriculture  couldn't acquire the access token.
 
-## Step 5: Check Access Token Info (Optional)
+## Step 5: Check access token information (optional)
 
 This step is optional, only to confirm if for a given user or list of users, the required valid access token was acquired or not. This can be done via making a call to the `oauth/tokens` API as shown, and **check for the entry `isValid: true` in the response body**.
 
@@ -477,3 +477,7 @@ OR
 ```
 
 Azure Data Manager for Agriculture will return all staged (farm, field, boundary) resources that are present under a given "partyid" when you use the property filter.
+
+## Next steps
+
+* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)

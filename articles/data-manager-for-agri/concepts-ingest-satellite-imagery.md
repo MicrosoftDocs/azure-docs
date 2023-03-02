@@ -1,5 +1,5 @@
 ---
-title: Ingesting Satellite Data
+title: Ingesting satellite data.
 description: Provides step by step guidance to ingest Satellite data
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -16,7 +16,7 @@ Our data manager  supports geospatial and temporal data. Remote sensing satellit
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
-![Satellite Ingestion](./media/satellite_flow.png)
+![Diagram showing satellite data ingestion flow.](./media/satellite-flow.png)
 
 ## Satellite sources supported by Azure Data Manager for Agriculture
 In our public preview, we support ingesting data from Sentinel-2 constellation.
@@ -24,7 +24,7 @@ In our public preview, we support ingesting data from Sentinel-2 constellation.
 ## Sentinel-2
 [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution.  
 
->Tip
+>[Tip]
 > Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Level 1 and Level 2 data from Sentinel 2.
 
 ## Image names and resolutions
@@ -41,7 +41,7 @@ The image names and resolutions that are supported by APIs used to ingest and re
 |Raw bands| B07 |	Vegetation red edge	| 20 m |
 |Raw bands| B08 |	NIR	| 10 m |
 |Raw bands| B8A |	Narrow NIR | 20 m |
-|Raw bands| B09 |	Water vapur | 60 m |
+|Raw bands| B09 |	Water vapor | 60 m |
 |Raw bands| B11 |	SWIR | 20 m |
 |Raw bands| B12 |	SWIR | 20 m |
 |Sen2Cor processor output| AOT |	Aerosol optical thickness map	| 10 m |
@@ -65,3 +65,6 @@ The image names and resolutions that are supported by APIs used to ingest and re
     * Only TIFs are supported.
     * Only 10 m, 20 m and 60 m images are supported.
 
+## Next steps
+
+* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)

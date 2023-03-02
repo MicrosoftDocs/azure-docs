@@ -1,6 +1,6 @@
 ---
-title: Installing weather extension on Mac 
-description: Provides guidance to use weather extension on Mac
+title: Installing weather extension.
+description: Provides guidance to use weather extension
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri
@@ -24,7 +24,7 @@ At a high-level the extension file is a JSON consisting of two things:
 * Provider metadata (JSON Object)
 * API Information (JSON Array)
 
-### Provider Metadata
+### Provider metadata
 
 It is a json object providing the details on the below fields that are necessary to uniquely identify an extension and it's versioning information. The details provided in this section of the extension will be shown to external customers in Data Manager for Agriculture marketplace. Therefore `extensionId` & `extensionName` (for easy identification) and `description` (for value-proposition) needs to be customer focused.
 
@@ -56,7 +56,7 @@ It is a json object providing the details on the below fields that are necessary
 | supportUrl | string | Website link to raise support queries & FAQs|
 | supportEmail | string | Email to send in the support queries.|
 
-### API Information
+### API information
 
 The API Information JSON array (`apiInfos`) can be further broken into the following structural elements
 
@@ -110,7 +110,7 @@ This section takes in the authentication related parameters as supported by the 
 
 As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
 
-##### Sample Authentication parameters
+##### Sample authentication parameters
 
 ```
 "apiInfos": [
@@ -199,13 +199,13 @@ This section provides the details about the API signature (input parameters) to 
 | description | string |  Provide a description of what `name` parameter means.|
 | location | string | Where in the API should the `name` parameter be sent. Currently supported values are `apiQuery` & `apiHeader`.|
 
-#### Extracted API Input parameters
+#### Extracted API input parameters
 
 This section is for dedicated for Data Manager for Agriculture to extract certain set of input parameters passed during the API request for computation and storage purpose. In this example Data Manager for Agriculture would be extracting the location information (latitude and longitude) from the API Input request and store them as part of each weather output in Data Manager for Agriculture.
 
 Hence the extension needs to provide a [**HandleBars template**](https://handlebarsjs.com/examples/simple-expressions.html) on how to extract location information. The below example suggests that the extension API collects location information as `"lat"` for `"latitude"` and `"lon"` for `"longitude"`.
 
-##### Sample extracted api input parameters
+##### Sample extracted API input parameters
 
 ```
 "extractedApiInputParameters": [
@@ -216,7 +216,7 @@ Hence the extension needs to provide a [**HandleBars template**](https://handleb
       ]
 ```
 
-##### Extracted API Input parameters details
+##### Extracted API input parameters details
 
 |Name | Type | Description|
 |:-----:|:----:|----|
@@ -232,7 +232,7 @@ When users don't provide the latitude/longitude coordinates, Data Manager for Ag
 
 For Data Manager for Agriculture to understand the usage of latitude and longitude in the `apiName` input parameters, the extension is expected to provide the `name` of key used for collecting location information followed by a **handlebar template** to imply how the latitude and longitude values need to be passed.
 
-##### Sample Functional parameters
+##### Sample functional parameters
 
 ```
 "apiInfos": [
@@ -268,7 +268,7 @@ For Data Manager for Agriculture to understand the usage of latitude and longitu
 
 This section is used by Data Manager for Agriculture to understand the various types of unit systems supported by the extension. Hence the extension needs to provide the `key` name used for collecting units information (Ex: unitcode) in the API inputs and followed by the various units system names (Ex: us-std) as supported by the `apiName`.
 
-##### Sample Units system
+##### Sample units system
 
 ```
 "unitSystems": 
@@ -291,7 +291,7 @@ This section is used by Data Manager for Agriculture to understand the various t
 | key |  string | Name of the parameter used to collect the units information in the API input.|
 | values | string |  List of units system names as supported by the extension.|
 
-#### Platform & Custom parameters
+#### Platform & custom parameters
 
 In each weather API response, the weather measures which are sent as part of the output (ex: temperature, dewpoint etc.) are called as parameters.
 
@@ -323,7 +323,7 @@ In this section, the extension provides the units information for each of the pa
 > 1. If for a particular parameter if units are not applicable do not mention the units for those alone (Ex: weatherDescriptor)
 > 2. If for a particular parameter if the units are same for all the units system then mention the same in all units system. (Ex: cloudCover)
 
-##### Sample Platform & Custom parameters
+##### Sample platform & custom parameters
 
 ```
 "apiInfos": [
@@ -430,7 +430,7 @@ In this section, the extension provides the units information for each of the pa
 | unitSystem | string |  Unit system `value` as supported by the extension.|
 | unit | string |  Unit of measurement for the specific weather parameter Ex: `F` for airTempMax.|
 
-#### Platform & Custom template
+#### Platform & custom template
 
 Template is the mapping information provided by the extension to convert the extension API output (JSON response) to the format which Data Manager for Agriculture expects. This is done to ensure that various weather data providers having different API output formats can now be uniformly mapped/converted to one single format.
 
@@ -442,7 +442,7 @@ Template solution is found to be one of the most effective ways to parse the JSO
 
 On a high-level this is how templates will work, by taking the API response as the input and generating the output in the format expected by Data Manager for Agriculture.
 
-![template flow](./media/template_flow.PNG)
+![template flow](./media/template-flow.PNG)
 
 As shown in the above figure, validate your template against the respective API response and use the validated template in the extension. Below is an example of an API response and it's respective platform and custom template.
 
