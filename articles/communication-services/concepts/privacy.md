@@ -100,6 +100,9 @@ Audio and video communication is ephemerally processed by the service and no cal
 
 Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
+### Email
+Email message content is ephemerally stored and processed in the resource's ```Data Location``` and email message deleivery logs are available in Azure Monitor Logs. Domain sender usernames (or MailFrom) values are stored in in the resource's ```Data Location``` until explicitly deleted.  Email addresses that result in bounced messages will be retained and used to in spam and abuse prevention detection. 
+
 ## Azure Monitor and Log Analytics
 
 Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
