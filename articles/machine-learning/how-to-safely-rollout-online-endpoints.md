@@ -71,6 +71,8 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Prepare your system
 
+# [Azure CLI](#tab/azure-cli)
+
 ### Set environment variables
 
 If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
@@ -79,8 +81,6 @@ If you haven't already set the defaults for the Azure CLI, save your default set
    az account set --subscription <subscription id>
    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
    ```
-
-# [Azure CLI](#tab/azure-cli)
 
 ### Clone the examples repository
 
@@ -508,6 +508,10 @@ The following command mirrors 10% of the traffic to the `green` deployment:
 You can test mirror traffic by invoking the endpoint several times:
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
 
+# [Studio](#tab/azure-studio)
+
+M.A: add details here
+
 ---
 
 Mirroring has the following limitations:
@@ -548,6 +552,10 @@ ml_client.online_deployments.get_logs(
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=disable_traffic_mirroring)]
+
+# [Studio](#tab/azure-studio)
+
+M.A: add details here
 
 ---
 
