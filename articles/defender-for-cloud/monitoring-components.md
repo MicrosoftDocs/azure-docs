@@ -64,12 +64,20 @@ Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-de
 | Aspect | Azure virtual machines | Azure Arc-enabled machines |
 |---|:--|:--|
 | Release state: | Generally available (GA) | Generally available (GA) |
-| Relevant Defender plan: | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
+| Relevant Defender plan: | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
 | Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 | Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines |
 | Policy-based: | :::image type="icon" source="./media/icons/no-icon.png"::: No | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
 
+#### Supported operating systems for the Log Analytics agent
+
+Defender for Cloud depends on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+
+Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent)
 
 <a name="preexisting"></a>
 
@@ -159,4 +167,4 @@ This page explained what monitoring components are and how to enable them.
 Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
-- Protecting workloads with [enhanced security features](enhanced-security-features-overview.md)
+- Protecting workloads with [the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads)

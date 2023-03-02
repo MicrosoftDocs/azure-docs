@@ -1,11 +1,8 @@
 ---
 title: Develop on Azure Kubernetes Service (AKS) with Helm
 description: Use Helm with AKS and Azure Container Registry to package and run application containers in a cluster.
-services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 12/17/2021
-ms.author: zarhoads
 ---
 
 # Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm

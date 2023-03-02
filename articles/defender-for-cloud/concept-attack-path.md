@@ -45,7 +45,6 @@ Learn how to use the [cloud security explorer](how-to-manage-cloud-security-expl
 
 ## Next steps
 
-- [Enable Defender CSPM on a subscription](enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription)
 - [Identify and remediate attack paths](how-to-manage-attack-path.md)
 - [Enabling agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines)
 - [Build a query with the cloud security explorer](how-to-manage-cloud-security-explorer.md)
