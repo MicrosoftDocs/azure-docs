@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop, build, and debug a module for Az
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 9/30/2022
+ms.date: 3/2/2023
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
