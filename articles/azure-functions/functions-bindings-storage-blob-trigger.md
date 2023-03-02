@@ -210,7 +210,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources). The example depends on whether you use the v1 or v2 Python programming model.
+The following example shows a blob trigger binding and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources). The example depends on whether you use the v1 or v2 Python programming model.
 
 # [v2](#tab/python-v2)
 
@@ -319,7 +319,7 @@ C# script uses a *function.json* file for configuration instead of attributes.
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
-::: zone pivot="programming-language-python"  
+::: zone pivot="programming-language-python"
 ## Decorators
 
 _Applies only to the Python v2 programming model._
@@ -332,8 +332,8 @@ For Python v2 functions defined using decorators, the following properties on th
 |`path`  | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |`connection` | Points to the storage account connection string. |
 
-For Python functions defined by using function.json, see the Configuration section. 
-::: zone-end                   
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
