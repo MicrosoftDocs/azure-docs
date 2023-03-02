@@ -82,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
     | email | user.mail |
-	| id | user.userprincipalname |
+	| ID | user.userprincipalname |
 	| firstName | user.givenname |
 	| lastName | user.surname |
 
@@ -102,13 +102,13 @@ In this section, a user called B.Simon is created in Ledgy. Ledgy supports just-
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP initiated
 
 * Click on **Test this application** in Azure portal. This will redirect to Ledgy Sign-on URL where you can initiate the login flow.  
 
 * Go to Ledgy Sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+#### IDP initiated
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Ledgy for which you set up the SSO. 
 
