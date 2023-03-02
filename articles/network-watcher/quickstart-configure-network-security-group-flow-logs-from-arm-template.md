@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Configure Network Watcher network security group flow logs by using an Azure Resource Manager template (ARM template)'
-description: Learn how to enable network security group (NSG) flow logs programmatically by using an Azure Resource Manager template (ARM template) and Azure PowerShell.
+title: 'Quickstart: Configure network security group flow logs using an ARM template'
+description: Learn how to enable network security group (NSG) flow logs programmatically using an Azure Resource Manager (ARM) template and Azure PowerShell.
 services: network-watcher
-author: harsha-cs
-ms.author: harshacs
+author: halkazwini
+ms.author: halkazwini
 ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: network-watcher
@@ -11,9 +11,9 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 #Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ---
 
-# Quickstart: Configure network security group flow logs by using an ARM template
+# Quickstart: Configure network security group flow logs using an Azure Resource Manager (ARM) template
 
-In this quickstart, you learn how to enable [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) by using an [Azure Resource Manager](../azure-resource-manager/management/overview.md) template (ARM template) and Azure PowerShell.
+In this quickstart, you learn how to enable [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) using an [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) template and Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

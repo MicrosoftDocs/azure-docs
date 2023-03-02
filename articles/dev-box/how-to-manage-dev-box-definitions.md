@@ -68,13 +68,13 @@ If you don't have an available dev center, follow the steps in [Quickstart: Conf
 
    |Name|Value|
    |----|----|
-   |**Name**|Enter a descriptive name for your dev box definition. Note that you can't change the dev box definition name after it's created. |
-   |**Image**|Select the base operating system for the dev box. You can select an image from the Marketplace or from an Azure Compute Gallery.|
+   |**Name**|Enter a descriptive name for your dev box definition. You can't change the dev box definition name after it's created. |
+   |**Image**|Select the base operating system for the dev box. You can select an image from the Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image or the **Visual Studio 2022 Pro on Windows 11 Enterprise + Microsoft 365 Apps 22H2**.|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|
    |**Compute**|Select the compute combination for your dev box definition.|
    |**Storage**|Select the amount of storage for your dev box definition.|
 
-   :::image type="content" source="./media/how-to-manage-dev-box-definitions/create-dev-box-definition-page.png" alt-text="Screenshot showing the Create dev box definition page.":::
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. To create the dev box definition, select **Create**.
 

@@ -36,8 +36,6 @@
     href: telemetry.md
   - name: View and configure DDoS diagnostic logging
     href: diagnostic-logging.md
-  - name: View and configure DDoS alerts
-    href: alerts.md
 - name: Concepts
   items:
   - name: Types of attacks
@@ -58,6 +56,18 @@
     href: monitor-ddos-protection-reference.md
 - name: How-to guides
   items:
+    - name: Configure Monitoring and Logging
+      items:
+        - name: Configure Log Analytics workspace 
+          href: ddos-configure-log-analytics-workspace.md
+        - name: Configure metric alerts through portal
+          href: alerts.md  
+        - name: Configure diagnostic logging alerts
+          href: ddos-diagnostic-alert-templates.md
+    - name: View Monitoring and Logging
+      items: 
+        - name: View alerts in Microsoft Defender for Cloud
+          href: ddos-view-alerts-defender-for-cloud.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
@@ -93,6 +103,6 @@
   - name: FAQ
     href: ddos-faq.yml
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
+    href: https://azure.microsoft.com/pricing/details/ddos-protection/
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=ddos-protection

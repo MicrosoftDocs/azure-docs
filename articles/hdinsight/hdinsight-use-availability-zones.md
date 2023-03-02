@@ -4,10 +4,10 @@ description: Learn how to create an Azure HDInsight cluster that uses Availabili
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 01/05/2023
+ms.date: 01/16/2023
 ---
 
-# Create an HDInsight cluster that uses Availability Zones (Preview)
+# Create an HDInsight cluster that uses Availability Zones
 
 An Azure HDInsight cluster consists of multiple nodes (head nodes, worker nodes, gateway nodes and zookeeper nodes). By default, in a region that supports Availability Zones, the user has no control over which cluster nodes are provisioned in which Availability Zone. 
 
@@ -69,7 +69,7 @@ In the resources section, you need to add a section of ‘zones’ and provide w
    "resources": [
         {
             "type": "Microsoft.HDInsight/clusters",
-            "apiVersion": "2018-06-01-preview",
+            "apiVersion": "2021-06-01",
             "name": "[parameters('cluster name')]",
             "location": "East US 2",
             "zones": [

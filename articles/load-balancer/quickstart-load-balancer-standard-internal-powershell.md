@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 09/02/2022
 ms.author: mbender
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 

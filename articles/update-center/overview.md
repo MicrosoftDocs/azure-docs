@@ -10,7 +10,7 @@ ms.topic: overview
 
 # About Update management center (preview)
 
-Update management center (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Update management center (preview), you can make updates in real-time or schedule them within a defined maintenance window.
+Update management center (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. In addition, you can use the Update management center (preview) to make real-time updates or schedule them within a defined maintenance window.
 
 You can use the update management center (preview) in Azure to:
 
@@ -45,7 +45,6 @@ Update management center (preview) has been redesigned and doesn't depend on Azu
     - Helps secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md) or custom maintenance schedules.
     - Sync patch cycles in relation to patch Tuesday—the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month.
 
-
 The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers for both Windows and Linux.
 
 ![Update center workflow](./media/overview/update-management-center-overview.png)
@@ -55,7 +54,7 @@ To support management of your Azure VM or non-Azure machine, update management c
 - [Azure virtual machine Windows agent](../virtual-machines/extensions/agent-windows.md) or [Azure virtual machine Linux agent](../virtual-machines/extensions/agent-linux.md) for Azure VMs.
 - [Azure arc-enabled servers agent](../azure-arc/servers/agent-overview.md) for non-Azure Linux and Windows machines or physical servers.
 
- The extension agent installation and configuration is managed by update management center (preview) and there's no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and it includes:
+ The extension agent installation and configuration are managed by the update management center (preview). There's no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and it includes:
 
 - Retrieving the assessment information about status of system updates for it specified by the Windows Update client or Linux package manager.
 - Initiating the download and installation of approved updates with Windows Update client or Linux package manager. 
@@ -77,11 +76,9 @@ Along with the prerequisites listed below, see [support matrix](support-matrix.m
 |Azure VM | [Azure Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or Azure [Owner](../role-based-access-control/built-in-roles.md#owner).
 Arc enabled server | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-overview.md#identity-and-access-control).
 
-
 ### Permissions
 
-You need the following permissions to create and manage update deployments. The following table shows the permissions needed when using update management center (preview).
-
+You need the following permissions to create and manage update deployments. The following table shows the permissions needed when using the update management center (preview).
  
 **Actions** |**Permission** |**Scope** |
 --- | --- | --- |
@@ -93,7 +90,6 @@ You need the following permissions to create and manage update deployments. The 
 |Create/modify configuration assignments |*Microsoft.Maintenance/configurationAssignments/write* |Machine |
 |Read permission for Maintenance updates resource |*Microsoft.Maintenance/updates/read* |Machine |
 |Read permission for Maintenance apply updates resource |*Microsoft.Maintenance/applyUpdates/read* |Machine |
-
 
 ### Network planning
 
@@ -107,7 +103,6 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 
 Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image.
 
- 
 ## Next steps
 
 - [View updates for single machine](view-updates.md) 

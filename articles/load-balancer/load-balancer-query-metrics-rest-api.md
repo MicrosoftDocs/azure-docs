@@ -6,10 +6,10 @@ services: sql-database
 author: mbender-ms
 manager: KumudD
 ms.service: load-balancer
-ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: mbender
+ms.custom: REST, template-how-to, seodec18
 ---
 
 # Get Load Balancer usage metrics using the REST API

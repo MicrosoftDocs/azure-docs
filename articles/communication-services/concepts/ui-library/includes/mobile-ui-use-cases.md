@@ -8,7 +8,7 @@ ms.date: 09/14/2021
 
 Use the `CallComposite` and the `ChatComposite` in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
 
-## Calling Use Cases
+## Calling use cases
 
 You can use the call composite in Communication Services to create these use cases:
 
@@ -33,7 +33,7 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
 
-### Teams Interoperability
+### Teams interoperability
 
 For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
 
@@ -71,13 +71,13 @@ Localization is key to making products for users around the world and who speak 
 
 Accessibility is a key focus of the call libraries. You can use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
 
-### View Data Injection
+### View data injection
 
 Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation's title and subtitle on Setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
-## Chat Use Cases
+## Chat use cases
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
@@ -99,11 +99,11 @@ The `ChatComposite` was designed to fit into different layouts and views in your
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="../../media/mobile-ui/chat-fullscreen.png" alt-text="an image that shows the chat experience on iOS in a navigation view."::: | :::image type="content" source="../../media/mobile-ui/chat-modal.png" alt-text="an image that shows the chat experience on iOS in a modal view.":::  |
 
-## Supported Identities
+## Supported identities
 
 To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md).
 
-## Recommended Architecture
+## Recommended architecture
 
 Initialize a composite by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
@@ -118,7 +118,7 @@ Call and chat client libraries must have the context for the call they join. Lik
 | Retrieve and pass join information for the call or chat          | Pass through call and chat information to initialize components |
 | Retrieve and pass user information for any custom data model | Pass through a custom data model to components to render          |
 
-## Platform Support
+## Platform support
 
 |Platform | Versions|
 |---------|---------|

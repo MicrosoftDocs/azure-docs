@@ -185,7 +185,7 @@
       maintainContext: true
     - name: Extension sequencing on scale sets
       href: virtual-machine-scale-sets-extension-sequencing.md
-    - name: Application Health extension
+    - name: Application Health extension (preview)
       href: virtual-machine-scale-sets-health-extension.md
 - name: Monitoring
   items:
@@ -274,11 +274,6 @@
     maintainContext: true
   - name: Use data disks with scale sets
     href: virtual-machine-scale-sets-attached-disks.md
-  - name: Server-side disk Encryption
-    href: ../virtual-machines/disk-encryption.md
-    maintainContext: true
-  - name: Azure Disk Encryption
-    href: disk-encryption-overview.md
   - name: Encrypt disks in scale sets
     items:
     - name: Use PowerShell
@@ -291,6 +286,11 @@
       href: disk-encryption-extension-sequencing.md
     - name: Key vault for Azure Disk Encryption
       href: disk-encryption-key-vault.md
+    - name: Server-side disk Encryption
+      href: ../virtual-machines/disk-encryption.md
+      maintainContext: true
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
 - name: Networking
   items: 
   - name: Networking Overview

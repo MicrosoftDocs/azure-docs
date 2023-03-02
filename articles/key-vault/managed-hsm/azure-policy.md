@@ -10,7 +10,7 @@ ms.topic: how-to
 
 ---
 
-# Integrate Azure Managed HSM with Azure Policy
+# Integrate Azure Managed HSM with Azure Policy (preview)
 
 [Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill-down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
 
@@ -27,7 +27,6 @@ Example Usage Scenarios:
 **Audit**: When the effect of a policy is set to audit, the policy will not cause any breaking changes to your environment. It will only alert you to components such as keys that do not comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
 **Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as weaker keys, and will block new versions of existing keys that do not comply with the policy definition. Existing non-compliant resources within a Managed HSM are not affected. The 'audit' capabilities will continue to operate.
-
 
 ### Keys using elliptic curve cryptography should have the specified curve names 
 

@@ -14,6 +14,8 @@ ms.custom: mvc, devx-track-azurecli
 
 [Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
 
+When access to an Azure Container Registry (ACR) is [restricted using a private endpoint](../container-registry/container-registry-private-link.md), using a managed identity allows Azure Container Instances [deployed into a virtual network](container-instances-vnet.md) to access the container registry through the private endpoint.
+
 ## Prerequisites
 
 **Azure container registry**: You need a premium SKU Azure container registry with at least one image. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started]. Be sure to take note of the registry's `id` and `loginServer`
@@ -161,6 +163,66 @@ To deploy a container group using managed identity to authenticate image pulls v
 ```azurecli-interactive
 az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --ports 80 --dns-name-label <dns-label>
 ```
+
+## Deploy in a virtual network using the Azure CLI
+
+To deploy a container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, use the following command:
+
+```azurecli-interactive
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/ --subnet mySubnetName
+```
+
+For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet.md).
+
+## Deploy a multi-container group in a virtual network using YAML and the Azure CLI
+
+To deploy a multi-container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, you can specify the container group configuration in a YAML file. Then pass the YAML file as a parameter to the command.
+
+```yaml
+apiVersion: '2021-10-01'
+location: eastus
+type: Microsoft.ContainerInstance/containerGroups
+identity: 
+  type: UserAssigned
+  userAssignedIdentities: {
+    '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId': {}
+    }
+properties:
+  osType: Linux
+  imageRegistryCredentials:
+  - server: myacr.azurecr.io
+    identity: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId'
+  subnetIds:
+  - id: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNetName/subnets/mySubnetName'
+    name: mySubnetName
+  containers:
+  - name: myContainer-1
+    properties:
+      resources:
+        requests:
+          cpu: '.4'
+          memoryInGb: '1'
+      environmentVariables:
+        - name: CONTAINER
+          value: 1
+      image: 'myacr.azurecr.io/myimage:latest'
+  - name: myContainer-2
+    properties:
+      resources:
+        requests:
+          cpu: '.4'
+          memoryInGb: '1'
+      environmentVariables:
+        - name: CONTAINER
+          value: 2
+      image: 'myacr.azurecr.io/myimage:latest'
+```
+
+```azurecli-interactive
+az container create --name my-containergroup --resource-group myResourceGroup --file my-YAML-file.yaml
+```
+
+For more info on how to deploy to a multi-container group see [Deploy a multi-container group](./container-instances-multi-container-yaml.md).
 
 ## Clean up resources
 

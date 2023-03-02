@@ -18,7 +18,7 @@ Release date: September 23, 2022
 
 ### New or changed functionality
  - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility.
- - WE added support for password writeback in disconnected forests.
+ - We added support for password writeback in disconnected forests.
  
 ### Fixed issues
 
@@ -56,8 +56,8 @@ April 18, 2022 - released for download
 
 New features and improvements
 
- - We fix bug where granting logon as a service right to a gMSA would fail.
- - We updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
+ - Fixed bug where granting logon as a service right to a gMSA would fail.
+ - Updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
 
 ## 1.1.587.0
 

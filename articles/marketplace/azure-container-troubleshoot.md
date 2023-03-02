@@ -46,5 +46,5 @@ You may also encounter errors due to vulnerabilities in your images. For more in
 
 <!-- LINKS -->
 [container-certification-troubleshooting]: ./azure-container-certification-faq.yml
-[cluster-extension]: /azure/aks/integrations#extensions/
+[cluster-extension]: ../aks/integrations.md#extensions
 [grant-access]: ./azure-container-technical-assets-kubernetes.md#grant-access-to-your-azure-container-registry

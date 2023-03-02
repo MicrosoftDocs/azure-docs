@@ -2,8 +2,8 @@
 title: Log data ingestion time in Azure Monitor | Microsoft Docs
 description: This article explains the different factors that affect latency in collecting log data in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: eternovsky
 ms.date: 03/21/2022
 
@@ -12,13 +12,13 @@ ms.date: 03/21/2022
 # Log data ingestion time in Azure Monitor
 Azure Monitor is a high-scale data service that serves thousands of customers that send terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
-## Typical latency
-Latency refers to the time that data is created on the monitored system and the time that it becomes available for analysis in Azure Monitor. The typical latency to ingest log data is *between 20 seconds and 3 minutes*. The specific latency for any particular data will vary depending on several factors that are explained in this article.
+## Average latency
+Latency refers to the time that data is created on the monitored system and the time that it becomes available for analysis in Azure Monitor. The average latency to ingest log data is *between 20 seconds and 3 minutes*. The specific latency for any particular data will vary depending on several factors that are explained in this article.
 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high-level areas:
 
-- **Agent time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
+- **Agent time**: The time to discover an event, collect it, and then send it to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - **Indexing time**: The time spent to ingest a log record into an Azure Monitor big data store.
 
@@ -48,15 +48,15 @@ To ensure the Log Analytics agent is lightweight, the agent buffers logs and per
 
 **Varies**
 
-Network conditions might negatively affect the latency of this data to reach an Azure Monitor Logs ingestion point.
+Network conditions might negatively affect the latency of this data to reach a data collection endpoint.
 
 ### Azure metrics, resource logs, activity log
 
 **30 seconds to 15 minutes**
 
-Azure data adds more time to become available at an Azure Monitor Logs ingestion point for processing:
+Azure data adds more time to become available at a data collection endpoint for processing:
 
-- **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the Azure Monitor Logs ingestion point.
+- **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the data collection endpoint.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
 - **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
 
@@ -75,7 +75,7 @@ To determine a solution's collection frequency, see the [documentation for each 
 
 **30 to 60 seconds**
 
-After the data is available at an ingestion point, it takes another 30 to 60 seconds to be available for querying.
+After the data is available at the data collection endpoint, it takes another 30 to 60 seconds to be available for querying.
 
 After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
 
@@ -106,8 +106,8 @@ Ingestion time might vary for different resources under different circumstances.
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than 3 days, the row will be dropped. |
-| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than two days, the row will be dropped. |
+| Record received by the data collection endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
 
 ### Ingestion latency delays

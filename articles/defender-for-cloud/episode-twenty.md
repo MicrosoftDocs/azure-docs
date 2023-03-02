@@ -3,7 +3,7 @@ title: Cloud security explorer and attack path analysis | Defender for Cloud in 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about cloud security explorer and attack path analysis.
 ms.topic: reference
-ms.date: 11/24/2022
+ms.date: 01/24/2023
 ---
 
 # Cloud security explorer and attack path analysis | Defender for Cloud in the Field

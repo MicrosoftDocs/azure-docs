@@ -6,7 +6,7 @@ ms.author: owinfrey
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/31/2023
 ms.custom: template-concept 
 ---
 
@@ -22,9 +22,93 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.
 
 
+## January 2023
+
+### General Availability - Azure AD Domain Services: Deeper Insights
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services             
+**Product capability:** Azure AD Domain Services        
+
+Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](/azure/active-directory-domain-services/fleet-metrics).
+
+---
+
+### General Availability - Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
+
+**Type:** New feature   
+**Service category:** B2B        
+**Product capability:** B2B/B2C   
+
+An IT admin can now add multiple domains to a single SAML/WS-Fed identity provider configuration to invite users from multiple domains to authenticate from the same identity provider endpoint. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+---
+
+### General Availability - New risk in Identity Protection: Anomalous user activity
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
+
+---
+
+### General Availability - Administrative unit support for devices
+
+**Type:** New feature   
+**Service category:** Directory Management             
+**Product capability:** AuthZ/Access Delegation       
+
+You can now use administrative units to delegate management of specified devices in your tenant by adding devices to an administrative unit, and assigning built-in and custom device management roles scoped to that administrative unit. For more information, see: [Device management](../roles/administrative-units.md#device-management).
+
+---
+
+### General Availability - Azure AD Terms of Use (ToU) API
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
+
+---
+
+## December 2022
+
+### General Availability - Risk-based Conditional Access for workload identities
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
+
+---
+
+### General Availability - API to recover accidentally deleted Service Principals
+
+**Type:** New feature  
+**Service category:** Enterprise Apps        
+**Product capability:** Identity Lifecycle Management     
+
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+
+---
+
+### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** Identity Security & Protection   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+
+---
+
 ## November 2022
 
-### General availability - Windows Hello for Business, cloud Kerberos trust deployment
+### General Availability - Windows Hello for Business, cloud Kerberos trust deployment
 
 
 
@@ -32,11 +116,11 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Authentications (Logins)     
 **Product capability:** User Authentication   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
 
 ---
 
-### General availability - Expression builder with Application Provisioning
+### General Availability - Expression builder with Application Provisioning
 
 **Type:** Changed feature  
 **Service category:** Provisioning  
@@ -48,7 +132,7 @@ Accidental deletion of users in your apps or in your on-premises directory could
 
 ---
 
-### General availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
+### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
 
 
 
@@ -60,7 +144,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General availability - Prevent accidental deletions
+### General Availability - Prevent accidental deletions
 
 
 
@@ -76,7 +160,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 ---
 
-### General availability - Create group in administrative unit
+### General Availability - Create group in administrative unit
 
 **Type:** New feature  
 **Service category:** RBAC       
@@ -87,7 +171,7 @@ Groups Administrators and other roles scoped to an administrative unit can now c
  
 ---
 
-### General availability - Number matching for Microsoft Authenticator notifications
+### General Availability - Number matching for Microsoft Authenticator notifications
 
 
 
@@ -104,7 +188,7 @@ For more information, see: [How to use number matching in multifactor authentica
 
 ---
 
-### General availability - Additional context in Microsoft Authenticator notifications
+### General Availability - Additional context in Microsoft Authenticator notifications
 
 
 

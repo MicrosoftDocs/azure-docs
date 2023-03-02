@@ -76,7 +76,7 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Response for this query should look similar to the following example, filtered on "Resort and Spa", returning hotels that include "hotel" or "motel" in the name.
+Response for this query should look similar to the following example, filtered on "Resort and Spa", returning hotels that include "hotel" in the name, while exlcuding results that include "motel" in the name.
 
 ```json
 "@odata.count": 4,

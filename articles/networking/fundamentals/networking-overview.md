@@ -40,26 +40,39 @@ ExpressRoute enables you to extend your on-premises networks into the Microsoft 
 :::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
 ### <a name="vpngateway"></a>VPN Gateway
-VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as site-to-site, point-to-site, and VNet-to-VNet.
-The following diagram illustrates multiple site-to-site VPN connections to the same virtual network.
+VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections. Some of the main features include:
 
-:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Site-to-Site Azure VPN Gateway connections.":::
+* Site-to-site VPN connectivity
+* Point-to-site VPN connectivity
+* VNet-to-VNet VPN connectivity
 
-For more information about different types of VPN connections, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
+The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../../vpn-gateway/design.md). For more information about VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+
+:::image type="content" source="../../vpn-gateway/media/design/vpngateway-multisite-connection-diagram.png" alt-text="Multiple site-to-site Azure VPN Gateway connections.":::
 
 ### <a name="virtualwan"></a>Virtual WAN
-Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches for branch-to-VNet connectivity. 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md).
+Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. Some of the main features include:
 
-:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Virtual WAN diagram.":::
+* Branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE)
+* Site-to-site VPN connectivity
+* Remote user VPN connectivity (point-to-site)
+* Private connectivity (ExpressRoute)
+* Intra-cloud connectivity (transitive connectivity for virtual networks)
+* VPN ExpressRoute inter-connectivity
+* Routing, Azure Firewall, and encryption for private connectivity
+
+For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual-wan-about.md)
+
+:::image type="content" source="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png":::
 
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Azure Bastion
-The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
 
-:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure Bastion architecture.":::
+Azure Bastion is service you can deploy that lets you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md)
+
+:::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
@@ -111,15 +124,11 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 This section describes networking services in Azure that help deliver applications - Content Delivery Network, Azure Front Door Service, Traffic Manager, Load Balancer, and Application Gateway.
 
-### <a name="cdn"></a>Content Delivery Network
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../../cdn/cdn-overview.md).
+### <a name="frontdoor"></a>Azure Front Door
 
-:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
+Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../../frontdoor/front-door-overview.md).
 
-### <a name="frontdoor"></a>Azure Front Door Service
-Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../../frontdoor/front-door-overview.md).
-
-:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Front Door Service overview":::
+:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door service with Web Application Firewall.":::
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
@@ -146,6 +155,12 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 The following diagram shows url path-based routing with Application Gateway.
 
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
+
+### <a name="cdn"></a>Content Delivery Network
+
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../../cdn/cdn-overview.md).
+
+:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
 
 ## <a name="monitor"></a>Network monitoring services
 This section describes networking services in Azure that help monitor your network resources - Network Watcher, Azure Monitor Network Insights, Azure Monitor, ExpressRoute Monitor, and Virtual Network TAP.

@@ -197,19 +197,25 @@ You can use these predefined **functions** when defining an autoscale formula.
 | Function | Return type | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Returns the average value for all values in the doubleVecList. |
+| ceil(double) |double |Returns the smallest integer value not less than the double. |
+| ceil(doubleVecList) |doubleVec |Returns the component-wise `ceil` of the doubleVecList. |
+| floor(double) |double |Returns the largest integer value not greater than the double. |
+| floor(doubleVecList) |doubleVec |Returns the component-wise `floor` of the doubleVecList. |
 | len(doubleVecList) |double |Returns the length of the vector that is created from the doubleVecList. |
 | lg(double) |double |Returns the log base 2 of the double. |
-| lg(doubleVecList) |doubleVec |Returns the component-wise log base 2 of the doubleVecList. A vec(double) must be explicitly passed for the parameter. Otherwise, the double lg(double) version is assumed. |
+| lg(doubleVecList) |doubleVec |Returns the component-wise `lg` of the doubleVecList. |
 | ln(double) |double |Returns the natural log of the double. |
-| ln(doubleVecList) |doubleVec |Returns the natural log of the double. |
+| ln(doubleVecList) |doubleVec |Returns the component-wise `ln` of the doubleVecList. |
 | log(double) |double |Returns the log base 10 of the double. |
-| log(doubleVecList) |doubleVec |Returns the component-wise log base 10 of the doubleVecList. A vec(double) must be explicitly passed for the single double parameter. Otherwise, the double log(double) version is assumed. |
+| log(doubleVecList) |doubleVec |Returns the component-wise `log` of the doubleVecList. |
 | max(doubleVecList) |double |Returns the maximum value in the doubleVecList. |
 | min(doubleVecList) |double |Returns the minimum value in the doubleVecList. |
 | norm(doubleVecList) |double |Returns the two-norm of the vector that is created from the doubleVecList. |
 | percentile(doubleVec v, double p) |double |Returns the percentile element of the vector v. |
 | rand() |double |Returns a random value between 0.0 and 1.0. |
 | range(doubleVecList) |double |Returns the difference between the min and max values in the doubleVecList. |
+| round(double) |double |Returns the nearest integer value to the double (in floating-point format), rounding halfway cases away from zero. |
+| round(doubleVecList) |doubleVec |Returns the component-wise `round` of the doubleVecList. |
 | std(doubleVecList) |double |Returns the sample standard deviation of the values in the doubleVecList. |
 | stop() | |Stops evaluation of the autoscaling expression. |
 | sum(doubleVecList) |double |Returns the sum of all the components of the doubleVecList. |

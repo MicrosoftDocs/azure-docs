@@ -2,7 +2,7 @@
 title: CLI command users and access for OT monitoring - Microsoft Defender for IoT
 description: Learn about the users supported for the Microsoft Defender for IoT CLI commands and how to access the CLI.
 ms.date: 01/01/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Defender for IoT CLI users and access
@@ -13,6 +13,8 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 - For OT sensors or the on-premises management console, you'll need to sign in as a [privileged user](#privileged-user-access-for-ot-monitoring).
 - For Enterprise IoT sensors, you can sign in as any user.
+
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 
 ## Privileged user access for OT monitoring
 
@@ -93,7 +95,6 @@ The following tables list the activities available by CLI and the privileged use
 |Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](cli-ot-sensor.md#trigger-a-test-alert)      |
 | Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](cli-ot-sensor.md#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](cli-ot-sensor.md#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](cli-ot-sensor.md#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](cli-ot-sensor.md#delete-an-alert-exclusion-rule)
 
-
 ## Defender for IoT CLI access
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
@@ -116,7 +117,6 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 |**cyberx**     |  `cyberx-xsense-logout`       |
 |**cyberx_host**     |   `logout`      |
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -124,6 +124,5 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 
 > [!div class="nextstepaction"]
 > [On-premises users and roles for OT monitoring](roles-on-premises.md)
-
 
 You can also control and monitor your cloud connected sensors from the Defender for IoT **Sites and sensors** page. For more information, see [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md).

@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/10/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Choose a deployment method for the MedTech service
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that will allow you to customize your deployment to suit your needs and use cases.
 
@@ -23,11 +26,11 @@ In this quickstart, you'll learn about these deployment methods:
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
- Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
+ Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
-To learn more about deploying the MedTech service including an Azure IoT Hub using an ARM template and the **Deploy to Azure** button, see [Receive device messages through Azure IoT Hub](device-data-through-iot-hub.md).
+To learn more about deploying the MedTech service including an Azure IoT Hub using an ARM template and the **Deploy to Azure** button, see [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md).
 
 ## ARM template using the Deploy to Azure button
 

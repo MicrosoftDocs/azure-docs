@@ -105,7 +105,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 **Codeless monitoring** is easiest to implement and can be configured after your code development. It doesn't require any updates to your code. For information on how to enable monitoring based on your application, see:
 
 - [Applications hosted on Azure Web Apps](app/azure-web-apps.md)
-- [Java applications](app/java-in-process-agent.md)
+- [Java applications](app/opentelemetry-enable.md?tabs=java)
 - [ASP.NET applications hosted in IIS on Azure Virtual Machines or Azure Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)
 - [ASP.NET applications hosted in IIS on-premises](app/status-monitor-v2-overview.md)
 
@@ -114,7 +114,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [ASP.NET applications](app/asp-net.md)
 - [ASP.NET Core applications](app/asp-net-core.md)
 - [.NET console applications](app/console.md)
-- [Java](app/java-in-process-agent.md)
+- [Java](app/opentelemetry-enable.md?tabs=java)
 - [Node.js](app/nodejs.md)
 - [Python](app/opencensus-python.md)
 - [Other platforms](app/app-insights-overview.md#supported-languages)

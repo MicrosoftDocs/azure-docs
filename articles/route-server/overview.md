@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure Route Server?'
+title: What is Azure Route Server?
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 services: route-server
 author: halkazwini
@@ -19,7 +19,7 @@ Azure Route Server simplifies dynamic routing between your network virtual appli
 
 ## How does it work?
 
-The following diagram illustrates how Azure Route Server works with an SDWAN NVA and a security NVA in a virtual network. Once you’ve established the BGP peering, Azure Route Server will receive an on-premises route (10.250.0.0/16) from the SDWAN appliance and a default route (0.0.0.0/0) from the firewall. These routes are then automatically configured on the VMs in the virtual network. As a result, all traffic destined to the on-premises network will be sent to the SDWAN appliance. While all Internet-bound traffic will be sent to the firewall. In the opposite direction, Azure Route Server will send the virtual network address (10.1.0.0/16) to both NVAs. The SDWAN appliance can propagate it further to the on-premises network.
+The following diagram illustrates how Azure Route Server works with an SDWAN NVA and a security NVA in a virtual network. Once you’ve established the BGP peering, Azure Route Server will receive an on-premises route (10.250.0.0/16) from the SDWAN appliance and a default route (0.0.0.0/0) from the firewall. These routes are then automatically configured on the VMs in the virtual network. As a result, all traffic destined to the on-premises network will be sent to the SDWAN appliance, while all Internet-bound traffic will be sent to the firewall. In the opposite direction, Azure Route Server will send the virtual network address (10.1.0.0/16) to both NVAs. The SDWAN appliance can propagate it further to the on-premises network.
 
 :::image type="content" source="./media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server configured in a virtual network.":::
 

@@ -24,7 +24,7 @@ By migrating your integration workloads to Azure Integration Services, you can r
 |---------|-------------|
 | Modern Integration Platform as a Service (iPaaS) | Azure Integration Services provides capabilities not yet conceived when BizTalk Server was originally built, for example: <br><br>- The capability to create and manage REST APIs <br>- Scalable cloud infrastructure <br>- Authentication schemes that are modern, more secure, and easier to implement <br>- Simplified development tools, including many web browser-based experiences <br>- Automatic platform updates and integration with other cloud-native services |
 | Consumption-based pricing | With traditional middleware platforms, you must often make significant capital investments in procuring licenses and infrastructure, forcing you to "build for peak" and creating inefficiencies. Azure Integration Services provides multiple pricing models that generally let you pay for what you use. Although some pricing models enable and provide access to more advanced features, you have the flexibility to pay for what you consume. |
-| Lower barrier to entry | BizTalk Server is a very capable middleware broker but requires significant time to learn and gain proficiency. Azure Integration Services reduces the time required to start, learn, build, and deliver solutions. For example, [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) includes a visual designer that gives you a no-code or low-code experience for building declarative workflows. |
+| Lower barrier to entry | BizTalk Server is a very capable middleware broker but requires significant time to learn and gain proficiency. Azure Integration Services reduces the time required to start, learn, build, and deliver solutions. For example, [Azure Logic Apps](./logic-apps-overview.md) includes a visual designer that gives you a no-code or low-code experience for building declarative workflows. |
 | SaaS connectivity | With REST APIs becoming standard for application integration, more SaaS companies have adopted this approach for exchanging data. Microsoft has built an expansive and continually growing connector ecosystem with hundreds of APIs to work with Microsoft and non-Microsoft services, systems, and protocols. In Azure Logic Apps, you can use the workflow designer to select operations from these connectors, easily create and authenticate connections, and configure the operations they want to use. This capability speeds up development and provides more consistency when authenticating access to these services using OAuth2. |
 | Multiple geographical deployments | Azure currently offers [60+ announced regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/), more than any other cloud provider, so that you can easily choose the datacenters and regions that are right for you and your customers. This reach lets you deploy solutions in a consistent manner across many geographies and provides opportunities from both a scalability and redundancy perspective. |
 
@@ -34,12 +34,12 @@ Azure Integration Services includes the following cloud-based, serverless, scala
 
 | Service | Description |
 |---------|-------------|
-| Azure Logic Apps | Create and run automated logic app workflows that integrate your apps, data, services, and systems. You can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. Use the visual workflow designer to enable microservices, API orchestrations, and line-of-business integrations. To increase scale and portability while automating business-critical workflows, deploy and run anywhere that Kubernetes can run. <br><br>You can create either Consumption or Standard logic app resources. A Consumption logic app includes only one stateful workflow that runs in multi-tenant Azure Logic Apps. A Standard logic app can include multiple stateful or stateless workflows that run in single-tenant Azure Logic Apps, an App Service Environment v3, or Azure Arc enabled Logic Apps. <br><br>For positioning Azure Logic Apps within Azure Integration Services, this guide focuses on Standard logic apps, which provide the best balance between enterprise features, cost, and agility. For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). |
-| Azure Functions | Write less code, maintain less infrastructure, and save on costs to run applications. Without you having to deploy and maintain servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. For more information, see [Azure Functions](/azure/azure-functions/functions-overview). |
-| Azure Data Factory | Visually integrate all your data sources by using more than 90 built-in, maintenance-free connectors at no added cost. Easily construct Extract, Transform, and Load (ETL) and Extract, Load, and Transform (ELT) processes code-free in an intuitive environment, or you can write your own code. To unlock business insights, deliver your integrated data to Azure Synapse Analytics. For more information, see [Azure Data Factory](/azure/data-factory/introduction). |
-| Azure Service Bus | Transfer data between applications and services, even when offline, as messages using this highly reliable enterprise message broker. Get more flexibility when brokering messages between client and server with structured first-in, first-out (FIFO) messaging, publish-subscribe capabilities, and asynchronous operations. For more information, see [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). |
-| Azure Event Grid | Integrate applications using events delivered by an event broker to subscriber destinations, such as Azure services, other applications, or any endpoint where Event Grid has network access. Event sources can include other applications, SaaS services, and Azure services. For more information, see [Azure Event Grid](/azure/event-grid/overview). |
-| Azure API Management | Deploy API gateways side-by-side and optimize traffic flow with APIs hosted in Azure, other clouds, and on-premises. Meet security and compliance requirements, while you enjoy a unified management experience and full observability across all internal and external APIs. For more information, see [Azure API Management](/azure/api-management/api-management-key-concepts). |
+| Azure Logic Apps | Create and run automated logic app workflows that integrate your apps, data, services, and systems. You can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. Use the visual workflow designer to enable microservices, API orchestrations, and line-of-business integrations. To increase scale and portability while automating business-critical workflows, deploy and run anywhere that Kubernetes can run. <br><br>You can create either Consumption or Standard logic app resources. A Consumption logic app includes only one stateful workflow that runs in multi-tenant Azure Logic Apps. A Standard logic app can include multiple stateful or stateless workflows that run in single-tenant Azure Logic Apps, an App Service Environment v3, or Azure Arc enabled Logic Apps. <br><br>For positioning Azure Logic Apps within Azure Integration Services, this guide focuses on Standard logic apps, which provide the best balance between enterprise features, cost, and agility. For more information, see [Azure Logic Apps](./logic-apps-overview.md). |
+| Azure Functions | Write less code, maintain less infrastructure, and save on costs to run applications. Without you having to deploy and maintain servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. For more information, see [Azure Functions](../azure-functions/functions-overview.md). |
+| Azure Data Factory | Visually integrate all your data sources by using more than 90 built-in, maintenance-free connectors at no added cost. Easily construct Extract, Transform, and Load (ETL) and Extract, Load, and Transform (ELT) processes code-free in an intuitive environment, or you can write your own code. To unlock business insights, deliver your integrated data to Azure Synapse Analytics. For more information, see [Azure Data Factory](../data-factory/introduction.md). |
+| Azure Service Bus | Transfer data between applications and services, even when offline, as messages using this highly reliable enterprise message broker. Get more flexibility when brokering messages between client and server with structured first-in, first-out (FIFO) messaging, publish-subscribe capabilities, and asynchronous operations. For more information, see [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). |
+| Azure Event Grid | Integrate applications using events delivered by an event broker to subscriber destinations, such as Azure services, other applications, or any endpoint where Event Grid has network access. Event sources can include other applications, SaaS services, and Azure services. For more information, see [Azure Event Grid](../event-grid/overview.md). |
+| Azure API Management | Deploy API gateways side-by-side and optimize traffic flow with APIs hosted in Azure, other clouds, and on-premises. Meet security and compliance requirements, while you enjoy a unified management experience and full observability across all internal and external APIs. For more information, see [Azure API Management](../api-management/api-management-key-concepts.md). |
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-integration-services-architecture-overview.png" alt-text="Diagram showing Azure Integration Services member services.":::
 
@@ -49,16 +49,16 @@ Beyond the previously described services, Microsoft also offers the following co
 
 | Service | Description |
 |---------|-------------|
-| Azure Storage | Provides highly available, massively scalable, durable, secure, and modern storage for various data objects in the cloud. You can access these data objects from anywhere in the world over HTTP or HTTPS using a REST API. <br><br>Azure Integration Services uses these capabilities to securely store configuration and telemetry data for you while transactions flow through the platform. For more information, see [Azure Storage](/azure/storage/common/storage-introduction). |
-| Azure role-based access control (Azure RBAC) | Manage access to cloud resources, which is a critical function for any organization that uses the cloud. Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management to Azure resources. You can manage who can access Azure resources, what they can do with those resources, and which areas they can access. For more information, see [Azure RBAC](/azure/role-based-access-control/overview). |
-| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](/azure/key-vault/general/overview). |
-| Azure Policy | Provides capabilities that help you enforce organizational standards and assess compliance in a scalable way. Through the compliance dashboard, you get an aggregated view so you can evaluate the overall state of the environment with the ability to drill down to per-resource, per-policy granularity. <br><br>Azure Integration Services integrates with Azure Policy so you can efficiently implement widespread governance. For more information, see [Azure Policy](/azure/governance/policy/overview). |
-| Azure Networking | Provides a wide variety of networking capabilities, including connectivity, application protection services, application delivery services, and networking monitoring. <br><br>Azure Integration Services uses these capabilities to provide connectivity across services using virtual networks and private endpoints. For more information, see [Azure Networking](/azure/networking/fundamentals/networking-overview). |
-| Azure Event Hubs | Build dynamic data pipelines and immediately respond to business challenges by streaming millions of events per second from any source with this fully managed, real-time data ingestion service that's simple, trusted, and scalable. <br><br>API Management performs custom logging using Event Hubs, which is one of the best solutions when implementing a decoupled tracking solution in Azure. For more information, see [Azure Event Hubs](/azure/event-hubs/event-hubs-about). |
+| Azure Storage | Provides highly available, massively scalable, durable, secure, and modern storage for various data objects in the cloud. You can access these data objects from anywhere in the world over HTTP or HTTPS using a REST API. <br><br>Azure Integration Services uses these capabilities to securely store configuration and telemetry data for you while transactions flow through the platform. For more information, see [Azure Storage](../storage/common/storage-introduction.md). |
+| Azure role-based access control (Azure RBAC) | Manage access to cloud resources, which is a critical function for any organization that uses the cloud. Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management to Azure resources. You can manage who can access Azure resources, what they can do with those resources, and which areas they can access. For more information, see [Azure RBAC](../role-based-access-control/overview.md). |
+| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](../key-vault/general/overview.md). |
+| Azure Policy | Provides capabilities that help you enforce organizational standards and assess compliance in a scalable way. Through the compliance dashboard, you get an aggregated view so you can evaluate the overall state of the environment with the ability to drill down to per-resource, per-policy granularity. <br><br>Azure Integration Services integrates with Azure Policy so you can efficiently implement widespread governance. For more information, see [Azure Policy](../governance/policy/overview.md). |
+| Azure Networking | Provides a wide variety of networking capabilities, including connectivity, application protection services, application delivery services, and networking monitoring. <br><br>Azure Integration Services uses these capabilities to provide connectivity across services using virtual networks and private endpoints. For more information, see [Azure Networking](../networking/fundamentals/networking-overview.md). |
+| Azure Event Hubs | Build dynamic data pipelines and immediately respond to business challenges by streaming millions of events per second from any source with this fully managed, real-time data ingestion service that's simple, trusted, and scalable. <br><br>API Management performs custom logging using Event Hubs, which is one of the best solutions when implementing a decoupled tracking solution in Azure. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md). |
 | Azure SQL Database | At some point, you might need to create custom logging strategies or custom configurations to support your integration solutions. While SQL Server is commonly used on premises for this purpose, Azure SQL Database might offer a viable solution when migrating on-premises SQL Server databases to the cloud. For more information, see [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). |
-| Azure App Configuration | Centrally manage application settings and feature flags. Modern programs, especially those running in a cloud, generally have many distributed components by nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during application deployment. With App Configuration, you can store all the settings for your application and secure their accesses in one place. For more information, see [Azure App Configuration](/azure/azure-app-configuration/overview). |
-| Azure Monitor | Application Insights, which is part of Azure Monitor, provides application performance management and monitoring for live apps. Store application telemetry and monitor the overall health of your integration platform. You also have the capability to set thresholds and get alerts when performance exceeds configured thresholds. For more information, see [Application Insights](/azure/azure-monitor/app/app-insights-overview). |
-| Azure Automation | Automate your Azure management tasks and orchestrate actions across external systems within Azure. Built on PowerShell workflow so you can use this language's many capabilities. For more information, see [Azure Automation](/azure/automation/overview). |
+| Azure App Configuration | Centrally manage application settings and feature flags. Modern programs, especially those running in a cloud, generally have many distributed components by nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during application deployment. With App Configuration, you can store all the settings for your application and secure their accesses in one place. For more information, see [Azure App Configuration](../azure-app-configuration/overview.md). |
+| Azure Monitor | Application Insights, which is part of Azure Monitor, provides application performance management and monitoring for live apps. Store application telemetry and monitor the overall health of your integration platform. You also have the capability to set thresholds and get alerts when performance exceeds configured thresholds. For more information, see [Application Insights](../azure-monitor/app/app-insights-overview.md). |
+| Azure Automation | Automate your Azure management tasks and orchestrate actions across external systems within Azure. Built on PowerShell workflow so you can use this language's many capabilities. For more information, see [Azure Automation](../automation/overview.md). |
 
 ## Supported developer experiences
 
@@ -140,7 +140,7 @@ BizTalk Server offers the following example advantages:
 
 #### Azure Integration Services
 
-In [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), you can create executable business processes and applications as logic app workflows by using a "building block" way of programming with a visual designer and prebuilt operations from hundreds of connectors, requiring minimal code. A logic app workflow starts with a trigger operation followed by one or more action operations with each operation functioning as a logical step in the workflow implementation process. Your workflow can use actions to call external software, services, and systems. Some actions perform programming tasks, such as conditionals (if statements), loops, data operations, variable management, and more.
+In [Azure Logic Apps](./logic-apps-overview.md), you can create executable business processes and applications as logic app workflows by using a "building block" way of programming with a visual designer and prebuilt operations from hundreds of connectors, requiring minimal code. A logic app workflow starts with a trigger operation followed by one or more action operations with each operation functioning as a logical step in the workflow implementation process. Your workflow can use actions to call external software, services, and systems. Some actions perform programming tasks, such as conditionals (if statements), loops, data operations, variable management, and more.
 
 Azure Logic Apps offers the following example advantages:
 
@@ -196,13 +196,13 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - Rules Engine policies
 
-  A BizTalk Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common BizTalk Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The BizTalk Rules Engine caches these rules, so if you make any updates to these rules, you must restart the BizTalk Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
+  A Business Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common Business Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The Business Rules Engine caches these rules, so if you make any updates to these rules, you must restart the Business Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
 
 #### Azure Integration Services
 
 - Integration account
 
-  For [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), an integration account is a cloud-based container and Azure resource that provides centralized access to reusable artifacts. For Consumption logic app workflows, these artifacts include trading partners, agreements, XSD schemas, XSLT maps, Liquid template-based maps, certificates, batch configurations, and .NET Fx assemblies.
+  For [Azure Logic Apps](./logic-apps-overview.md), an integration account is a cloud-based container and Azure resource that provides centralized access to reusable artifacts. For Consumption logic app workflows, these artifacts include trading partners, agreements, XSD schemas, XSLT maps, Liquid template-based maps, certificates, batch configurations, and .NET Fx assemblies.
 
   For Standard logic app workflows, Azure Logic Apps recently [introduced support for calling .NET Fx assemblies from XSLT transformations](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120) without requiring an integration account. Alternatively, you can add schemas, maps, and assemblies to a Standard logic app project in Visual Studio Code and subsequently deploy to Azure.
 
@@ -218,7 +218,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
   For Standard logic app workflows, you can create your own built-in custom connectors that are based on a service provider.
 
-  By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/azure/connectors/custom-connector-overview).
+  By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/connectors/custom-connectors/).
 
 ### Adapters and connectors
 
@@ -236,7 +236,7 @@ The [BizTalk Adapter Framework](/biztalk/core/developing-custom-adapters) offers
 
 #### Azure Integration Services
 
-When you build workflows with [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), you can use prebuilt connectors to help you easily and quickly work with data, events, and resources in other apps, services, systems, protocols, and platforms, usually without having to write any code. Azure Logic Apps provides a constantly expanding gallery with hundreds of connectors that you can use. You can build integration solutions for many services and systems, cloud-based or on-premises, from both Microsoft and partners, such as BizTalk Server, Salesforce, Office 365, SQL databases, most Azure services, mainframes, APIs, and more. Some connectors provide operations that perform programming operations, such as conditional (if) statements, loops, data operations, variables management, and so on. If no connector is available for the resource that you want, you can use the generic HTTP operation to communicate with the service, or you can create a custom connector.
+When you build workflows with [Azure Logic Apps](./logic-apps-overview.md), you can use prebuilt connectors to help you easily and quickly work with data, events, and resources in other apps, services, systems, protocols, and platforms, usually without having to write any code. Azure Logic Apps provides a constantly expanding gallery with hundreds of connectors that you can use. You can build integration solutions for many services and systems, cloud-based or on-premises, from both Microsoft and partners, such as BizTalk Server, Salesforce, Office 365, SQL databases, most Azure services, mainframes, APIs, and more. Some connectors provide operations that perform programming operations, such as conditional (if) statements, loops, data operations, variables management, and so on. If no connector is available for the resource that you want, you can use the generic HTTP operation to communicate with the service, or you can create a custom connector.
 
 Technically, a connector is a proxy or a wrapper around an API that the underlying service or system uses to communicate with Azure Logic Apps. This connector provides the operations that you use in your workflows to perform tasks. An operation is available either as a trigger or action with properties that you can configure. Some triggers and actions also require that you first create and configure a connection to the underlying service or system. If necessary, you'll also then authenticate access to a user account.
 
@@ -248,9 +248,9 @@ Most connectors in Azure Logic Apps are either a built-in connector or managed c
 
 For more information, see the following documentation:
 
-- [About connectors in Azure Logic Apps](/azure/connectors/apis-list)
-- [Built-in connectors overview](/azure/connectors/built-in)
-- [Managed connectors overview](/azure/connectors/managed)
+- [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+- [Built-in connectors overview](../connectors/built-in.md)
+- [Managed connectors overview](../connectors/managed.md)
 - [Managed connectors available in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
 ### Application connectivity
@@ -263,7 +263,7 @@ Adapters provide the connectivity capabilities in BizTalk Server and run locally
 
 #### Azure Integration Services
 
-Connectors provide the connectivity capabilities in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
+Connectors provide the connectivity capabilities in [Azure Logic Apps](./logic-apps-overview.md) and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
 
 The following screenshot shows the connector search experience for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select the **Built-in** tab, you can find built-in connectors such as Azure Functions, Azure Service Bus, SQL Server, Azure Storage, File System, HTTP, and more. On the **Azure** tab, you can find more than 800 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
 
@@ -296,19 +296,19 @@ BizTalk Server can expose WCF-BasicHTTP receive locations as endpoints within Az
 
 The connectivity model in Azure Integration Services differs from BizTalk Server, partially due to the evolution of the API economy. As more organizations expose access to underlying systems and data, a platform-agnostic approach was needed. REST is now the dominant architectural approach to designing modern web services.
 
-In [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), [REST](/azure/architecture/best-practices/api-design) is the default approach for connecting systems. As Microsoft and other software vendors expose RESTful services on top of their systems and data, Azure Logic Apps can expose and consume this type of information. The OpenAPI specification makes this capability possible for both humans and computers to understand the interaction between a client and server through metadata. As part of this understanding, both request and response payloads are derived, which means you can use dynamic content to populate a workflow action's inputs and use the outputs from the response in downstream actions.
+In [Azure Logic Apps](./logic-apps-overview.md), [REST](/azure/architecture/best-practices/api-design) is the default approach for connecting systems. As Microsoft and other software vendors expose RESTful services on top of their systems and data, Azure Logic Apps can expose and consume this type of information. The OpenAPI specification makes this capability possible for both humans and computers to understand the interaction between a client and server through metadata. As part of this understanding, both request and response payloads are derived, which means you can use dynamic content to populate a workflow action's inputs and use the outputs from the response in downstream actions.
 
-Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](/azure/logic-apps/logic-apps-securing-a-logic-app#authentication-types-for-triggers-and-actions-that-support-authentication) vary by connector. Generally, these schemes include the following types:
+Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md) vary by connector. Generally, these schemes include the following types:
 
-- [Basic](/azure/logic-apps/logic-apps-securing-a-logic-app#basic-authentication)
-- [Client Certificate](/azure/logic-apps/logic-apps-securing-a-logic-app#client-certificate-authentication)
-- [Active Directory OAuth](/azure/logic-apps/logic-apps-securing-a-logic-app#azure-active-directory-oauth-authentication)
-- [Raw](/azure/logic-apps/logic-apps-securing-a-logic-app#raw-authentication)
-- [Managed Identity](/azure/logic-apps/logic-apps-securing-a-logic-app#managed-identity-authentication)
+- [Basic](./logic-apps-securing-a-logic-app.md#basic-authentication)
+- [Client Certificate](./logic-apps-securing-a-logic-app.md#client-certificate-authentication)
+- [Active Directory OAuth](./logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication)
+- [Raw](./logic-apps-securing-a-logic-app.md#raw-authentication)
+- [Managed Identity](./logic-apps-securing-a-logic-app.md#managed-identity-authentication)
 
-Microsoft provides strong layers of protection by [encrypting data during transit](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
+Microsoft provides strong layers of protection by [encrypting data during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
 
-Microsoft gives you the option to use [Transport Layer Security (TLS) protocol](/azure/security/fundamentals/encryption-overview#tls-encryption-in-azure) for protecting data that travels between cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity, which enables detection of message tampering, interception, and forgery along with interoperability, algorithm flexibility, and ease of deployment and use.
+Microsoft gives you the option to use [Transport Layer Security (TLS) protocol](../security/fundamentals/encryption-overview.md#tls-encryption-in-azure) for protecting data that travels between cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity, which enables detection of message tampering, interception, and forgery along with interoperability, algorithm flexibility, and ease of deployment and use.
 
 While this section focused on RESTful connectivity through connectors, you can implement SOAP web service connectivity through the custom connector experience.
 
@@ -322,7 +322,7 @@ BizTalk Server doesn't include the concept of blocking specific adapters from di
 
 #### Azure Integration Services
 
-If your organization doesn't permit connecting to restricted or unapproved resources by using managed connectors in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), you can block the capability to create and use those connections in your logic app workflows. With Azure Policy, you can define and enforce policies that prevent creating or using the connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
+If your organization doesn't permit connecting to restricted or unapproved resources by using managed connectors in [Azure Logic Apps](./logic-apps-overview.md), you can block the capability to create and use those connections in your logic app workflows. With Azure Policy, you can define and enforce policies that prevent creating or using the connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
 ### Message durability
 
@@ -348,7 +348,7 @@ BizTalk Server provides all these capabilities out-of-the-box. You don't need to
 
 #### Azure Integration Services
 
-[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) provides message durability in the following ways:
+[Azure Logic Apps](./logic-apps-overview.md) provides message durability in the following ways:
 
 - Stateful workflows, which are the default in Consumption logic apps and available in Standard logic apps, have checkpoints that track the workflow state and store messages as they pass through workflow actions. This functionality provides access to rich data stored in the trigger and workflow instance run history where you can review detailed input and output values.
 
@@ -366,15 +366,15 @@ Publish-subscribe (pub-sub) capabilities exist through the [MessageBox database]
 
 #### Azure Integration Services
 
-With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. If you need to implement a publish-subscribe solution, you can use [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). This service is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, providing the following benefits:
+With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. If you need to implement a publish-subscribe solution, you can use [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This service is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, providing the following benefits:
 
 - Load balance work across competing workers.
 - Safely route and transfer data with control across service and application boundaries.
 - Coordinate transactional work that requires a high degree of reliability.
 
-[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) includes an [Azure Service Bus connector](/connectors/servicebus/) that you can use to publish and subscribe to messages. The benefit to using Service Bus is that you can use messaging independently from your workflow. Unlike BizTalk Server, your messaging is decoupled from your workflow platform. Although messaging and workflow capabilities are decoupled in Azure Integration Services, you can create message subscriptions in Azure Service Bus, which has support for [message properties (user properties)](/rest/api/servicebus/message-headers-and-properties#message-properties). Use these properties to provide key-value pairs that are evaluated by filters created on a [topic subscription](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). You define these user properties when you set up an Azure Service Bus operation by adding one or more key-value pairs. For a demonstration, see the following video: [Pub Sub Messaging using Azure Integration Services - Part 2 Content Based Routing](https://youtu.be/1ZMJhWGDVro).
+[Azure Logic Apps](./logic-apps-overview.md) includes an [Azure Service Bus connector](/connectors/servicebus/) that you can use to publish and subscribe to messages. The benefit to using Service Bus is that you can use messaging independently from your workflow. Unlike BizTalk Server, your messaging is decoupled from your workflow platform. Although messaging and workflow capabilities are decoupled in Azure Integration Services, you can create message subscriptions in Azure Service Bus, which has support for [message properties (user properties)](/rest/api/servicebus/message-headers-and-properties#message-properties). Use these properties to provide key-value pairs that are evaluated by filters created on a [topic subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). You define these user properties when you set up an Azure Service Bus operation by adding one or more key-value pairs. For a demonstration, see the following video: [Pub Sub Messaging using Azure Integration Services - Part 2 Content Based Routing](https://youtu.be/1ZMJhWGDVro).
 
-Outside Azure Integration Services, you can also implement publish-subscribe scenarios by using we can also use [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
+Outside Azure Integration Services, you can also implement publish-subscribe scenarios by using we can also use [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
 
 ### Business rules engine
 
@@ -386,7 +386,7 @@ BizTalk Server includes a forward-chaining rules engine that lets you construct 
 
 #### Azure Integration Services
 
-Although no equivalent rules engine capability currently exists in Azure, customers often use [Azure Functions](/azure/azure-functions/functions-overview) to implement rules using custom code. They then access these rules using the built-in Azure Functions connector in Azure Logic Apps.
+Although no equivalent rules engine capability currently exists in Azure, customers often use [Azure Functions](../azure-functions/functions-overview.md) to implement rules using custom code. They then access these rules using the built-in Azure Functions connector in Azure Logic Apps.
 
 For more information about future investments in this area, see the [Road Map](#road-map) section later in this guide.
 
@@ -404,7 +404,7 @@ Beyond the core XML transformations, BizTalk Server also provides encoding and d
 
 - Enterprise Integration Pack
 
-  This component follows similar concepts in BizTalk Server and makes B2B capabilities easy to use in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). However, one major difference is that the Enterprise Integration Pack is architecturally based on integration accounts. These accounts simplify how you store, manage, and use artifacts, such as trading partners, agreements, maps (XSLT or Liquid templates), schemas, and certificates, for B2B scenarios.
+  This component follows similar concepts in BizTalk Server and makes B2B capabilities easy to use in [Azure Logic Apps](./logic-apps-overview.md). However, one major difference is that the Enterprise Integration Pack is architecturally based on integration accounts. These accounts simplify how you store, manage, and use artifacts, such as trading partners, agreements, maps (XSLT or Liquid templates), schemas, and certificates, for B2B scenarios.
 
 - Liquid templates
 
@@ -461,19 +461,19 @@ To achieve these scenarios, multiple approaches exist, for example:
 
   - Hybrid Connections
 
-    Both an Azure service and a feature in Azure App Service, Hybrid Connections support scenarios and offers capabilities beyond those used in Azure App Service. For more information about usage outside Azure App Service, see [Azure Relay Hybrid Connections](/azure/azure-relay/relay-hybrid-connections-protocol). Within Azure App Service, you can use Hybrid Connections to access application resources in any network that can make outbound calls to Azure over port 443. Hybrid Connections provide access from your app to a TCP endpoint and doesn't enable a new way to access your app. In Azure App Service, each hybrid connection correlates to a single TCP host and port combination. This functionality enables your apps to access resources on any OS, provided that a TCP endpoint exists. Hybrid Connections doesn't know or care about the application protocol or what you want to access. This feature simply provides network access.
+    Both an Azure service and a feature in Azure App Service, Hybrid Connections support scenarios and offers capabilities beyond those used in Azure App Service. For more information about usage outside Azure App Service, see [Azure Relay Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md). Within Azure App Service, you can use Hybrid Connections to access application resources in any network that can make outbound calls to Azure over port 443. Hybrid Connections provide access from your app to a TCP endpoint and doesn't enable a new way to access your app. In Azure App Service, each hybrid connection correlates to a single TCP host and port combination. This functionality enables your apps to access resources on any OS, provided that a TCP endpoint exists. Hybrid Connections doesn't know or care about the application protocol or what you want to access. This feature simply provides network access.
 
   - Virtual network integration
 
-    With [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) integration, you can connect your Azure resource to a virtual network configured in Azure, giving your app access to resources in that virtual network. Virtual network integration in Azure Logic Apps is used only to make outbound calls from your Azure resource to your virtual network.
+    With [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) integration, you can connect your Azure resource to a virtual network configured in Azure, giving your app access to resources in that virtual network. Virtual network integration in Azure Logic Apps is used only to make outbound calls from your Azure resource to your virtual network.
 
-    With [virtual network peering](/azure/virtual-network/virtual-network-peering-overview), you can connect your on-premises networks to Azure, which provides bi-directional connectivity between on-premises resources and Azure services. Azure Integration Services provides virtual network connectivity, allowing for hybrid integration. The following image shows a Standard logic app resource with the Networking page open and virtual network integration enabled as highlighted in the **Outbound Traffic** box. This configuration makes sure that all outbound traffic leaves from this virtual network.
+    With [virtual network peering](../virtual-network/virtual-network-peering-overview.md), you can connect your on-premises networks to Azure, which provides bi-directional connectivity between on-premises resources and Azure services. Azure Integration Services provides virtual network connectivity, allowing for hybrid integration. The following image shows a Standard logic app resource with the Networking page open and virtual network integration enabled as highlighted in the **Outbound Traffic** box. This configuration makes sure that all outbound traffic leaves from this virtual network.
 
     :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/standard-logic-app-networking-page-virtual-network-integration.png" alt-text="Screenshot showing Azure portal, Standard logic app resource, and Networking page with virtual network integration enabled.":::
 
   - Private endpoints
 
-    A [private endpoint](/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network. This network interface privately and securely connects to an Azure resource that's powered by [Azure Private Link](/azure/private-link/private-link-overview). By enabling a private endpoint, you bring that Azure resource into your virtual network and allow resources in the network to make inbound calls to your Azure resource.
+    A [private endpoint](../private-link/private-endpoint-overview.md) is a network interface that uses a private IP address from your virtual network. This network interface privately and securely connects to an Azure resource that's powered by [Azure Private Link](../private-link/private-link-overview.md). By enabling a private endpoint, you bring that Azure resource into your virtual network and allow resources in the network to make inbound calls to your Azure resource.
 
 The following table shows the network connectivity methods that each Azure Integration Services resource can use:
 
@@ -503,7 +503,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 
 #### Azure Integration Services
 
-Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The Functions platform supports various programming languages and runtimes, which offer much flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
+Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](./logic-apps-overview.md). The Functions platform supports various programming languages and runtimes, which offer much flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
 
 In Azure Logic Apps, the **Inline Code** connector provides the action named **Execute JavaScript Code**. You can use this action to write small code snippets in JavaScript. These code snippets are also expected to have short execution times and support dynamic content inputs and outputs. After the code runs, the output is available for downstream actions in the workflow. Although no direct debugging support currently exists for this action, you can view the inputs and outputs in the workflow instance's run history.
 
@@ -549,11 +549,11 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 #### Azure Integration Services
 
-[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) supports the following security capabilities:
+[Azure Logic Apps](./logic-apps-overview.md) supports the following security capabilities:
 
 - Azure Key Vault
 
-  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](/azure/key-vault/general/basic-concepts). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](/azure/logic-apps/logic-apps-securing-a-logic-app#obfuscate).
+  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](../key-vault/general/basic-concepts.md). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](./logic-apps-securing-a-logic-app.md#obfuscate).
 
   Later in the [Tracking](#tracking) section, this guide describes the run history functionality, which provides a step-by-step replay of a workflow's execution. Although Azure Logic Apps offers the value proposition of capturing every input and output in a workflow run, sometimes you need to manage access to sensitive data more granularly. You can set up obfuscation for this data by using the secure inputs and outputs capability on triggers and actions to hide such content from run history and prevent sending this data to Azure Monitor, specifically Log Analytics and Application Insights. The following image shows an example result from enabling secure inputs and secure outputs in run history.
 
@@ -567,7 +567,7 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 - Managed identities
 
-  Some connectors support using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens.
+  Some connectors support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens.
 
 ### Application management and access management
 
@@ -579,9 +579,9 @@ Administrators use the [BizTalk Server Administrator Console](/biztalk/core/usin
 
 #### Azure Integration Services
 
-The [Azure portal](/azure/azure-portal/azure-portal-overview) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
+The [Azure portal](../azure-portal/azure-portal-overview.md) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
 
-Granular [role-based access controls (RBAC)](/azure/role-based-access-control/overview) are also available so you can manage and restrict access to Azure resources at various levels.
+Granular [role-based access controls (RBAC)](../role-based-access-control/overview.md) are also available so you can manage and restrict access to Azure resources at various levels.
 
 ### Storage
 
@@ -595,9 +595,9 @@ As you're responsible for provisioning and managing your SQL databases, high ava
 
 #### Azure Integration Services
 
-[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) relies on [Azure Storage](/azure/storage/common/storage-introduction) to store and automatically [encrypt data at rest](/azure/logic-apps/logic-apps-securing-a-logic-app). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, see [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption).
+[Azure Logic Apps](./logic-apps-overview.md) relies on [Azure Storage](../storage/common/storage-introduction.md) to store and automatically [encrypt data at rest](./logic-apps-securing-a-logic-app.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-When you work with Azure Storage through the Azure portal, [all transactions take place over HTTPS](/azure/security/fundamentals/encryption-overview#azure-storage-transactions). You can also work with Azure Storage by using the Storage REST API over HTTPS. To enforce using HTTPS when you call the REST APIs to access objects in storage accounts, enable the secure transfer that's required for the storage account.
+When you work with Azure Storage through the Azure portal, [all transactions take place over HTTPS](../security/fundamentals/encryption-overview.md#azure-storage-transactions). You can also work with Azure Storage by using the Storage REST API over HTTPS. To enforce using HTTPS when you call the REST APIs to access objects in storage accounts, enable the secure transfer that's required for the storage account.
 
 ### Data configuration
 
@@ -643,23 +643,23 @@ The separation between configuration and code becomes important when you want to
 
 - Azure Key Vault
 
-  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](/azure/key-vault/general/overview) to encrypt and store keys and secrets, such as passwords.
+  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](../key-vault/general/overview.md) to encrypt and store keys and secrets, such as passwords.
 
 - Azure App Configuration
 
-  This service centrally manages application settings and feature flags. You can store configurations for all your Azure apps in a universal, hosted location. Manage configurations effectively and reliably in real time and without affecting customers by avoiding time-consuming redeployments. [Azure App Configuration](/azure/azure-app-configuration/overview) is built for speed, scalability, and security.
+  This service centrally manages application settings and feature flags. You can store configurations for all your Azure apps in a universal, hosted location. Manage configurations effectively and reliably in real time and without affecting customers by avoiding time-consuming redeployments. [Azure App Configuration](../azure-app-configuration/overview.md) is built for speed, scalability, and security.
 
 - Azure Cosmos DB
 
-  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](/azure/cosmos-db/introduction) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
+  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](../cosmos-db/introduction.md) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
 
 - Azure Table Storage
 
-  This service provides another storage facility to keep configuration data at a low cost. You can easily access this data using the [Azure Table Storage connector](/connectors/azuretables/) in Azure Logic Apps. For more information, see [Azure Table Storage](/azure/storage/tables/table-storage-overview).
+  This service provides another storage facility to keep configuration data at a low cost. You can easily access this data using the [Azure Table Storage connector](/connectors/azuretables/) in Azure Logic Apps. For more information, see [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 - Custom caching
 
-  You can also implement custom caching solutions with Azure Integration Services. Popular approaches include using [caching policies](/azure/api-management/api-management-caching-policies#CachingPolicies) in [Azure API Management](/azure/api-management/api-management-key-concepts) and [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
+  You can also implement custom caching solutions with Azure Integration Services. Popular approaches include using [caching policies](/azure/api-management/api-management-caching-policies#CachingPolicies) in [Azure API Management](../api-management/api-management-key-concepts.md) and [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
 
 - Custom database
 
@@ -689,9 +689,9 @@ Some foundational differences exist between processing large files with an on-pr
 
 ##### File size limits
 
-In Azure, file size limits exist to ensure consistent and reliable experiences. To validate your scenario, make sure to review the [service limits documentation for Azure Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?#messages). Some connectors support [message chunking](/azure/logic-apps/logic-apps-handle-large-messages) for messages that exceed the default message size limit, which varies based on the connector. Message chunking works by splitting a large message into smaller messages.
+In Azure, file size limits exist to ensure consistent and reliable experiences. To validate your scenario, make sure to review the [service limits documentation for Azure Logic Apps](./logic-apps-limits-and-config.md#messages). Some connectors support [message chunking](./logic-apps-handle-large-messages.md) for messages that exceed the default message size limit, which varies based on the connector. Message chunking works by splitting a large message into smaller messages.
 
-Azure Logic Apps isn't the only service that has message size limits. For example, Azure Service Bus also has [such limits](/azure/service-bus-messaging/service-bus-premium-messaging). For more information about handling large messages in Azure Service Bus, see [Large messages support](/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support).
+Azure Logic Apps isn't the only service that has message size limits. For example, Azure Service Bus also has [such limits](../service-bus-messaging/service-bus-premium-messaging.md). For more information about handling large messages in Azure Service Bus, see [Large messages support](../service-bus-messaging/service-bus-premium-messaging.md#large-messages-support).
 
 ##### Claim-check pattern
 
@@ -699,7 +699,7 @@ To avoid file size limitations, you can implement the [claim-check pattern](/azu
 
 ##### Azure Data Factory
 
-[Azure Data Factory](/azure/data-factory/introduction) provides another option for handling large files. This service is Azure's [ELT offering](/azure/data-factory/introduction) for scalable serverless data integration and data transformation with a code-free visual experience for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services) packages to Azure and run them with full compatibility in Azure Data Factory. The SSIS Integration Runtime offers a fully managed service, so you don't have to worry about infrastructure management. For more information, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+[Azure Data Factory](../data-factory/introduction.md) provides another option for handling large files. This service is Azure's [ELT offering](../data-factory/introduction.md) for scalable serverless data integration and data transformation with a code-free visual experience for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services) packages to Azure and run them with full compatibility in Azure Data Factory. The SSIS Integration Runtime offers a fully managed service, so you don't have to worry about infrastructure management. For more information, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 In on-premises architectures, SSIS was a popular option for managing the loading of large files into databases. As the cloud equivalent for that architecture, Azure Data Factory can address the transformation and movement of large datasets across various data sources, such as file systems, databases, SAP, Azure Blob Storage, Azure Data Explorer, Oracle, DB2, Amazon RDS, and more. When you have large data processing requirements, consider using Azure Data Factory as a better option over Azure Logic Apps and Azure Service Bus.
 
@@ -721,15 +721,15 @@ In on-premises architectures, SSIS was a popular option for managing the loading
 
 #### Azure Integration Services
 
-- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Monitor](../azure-monitor/overview.md)
 
-  To monitor Azure resources, you can use this service and the [Log Analytics](/azure/azure-monitor/logs/log-analytics-workspace-overview) capability as a comprehensive solution for collecting, analyzing, and acting on telemetry data from your cloud and on-premises environments.
+  To monitor Azure resources, you can use this service and the [Log Analytics](../azure-monitor/logs/log-analytics-workspace-overview.md) capability as a comprehensive solution for collecting, analyzing, and acting on telemetry data from your cloud and on-premises environments.
 
-- In [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), the following options are available:
+- In [Azure Logic Apps](./logic-apps-overview.md), the following options are available:
 
-  - For Consumption logic app workflows, you can install the Logic Apps Management Solution (Preview) in the Azure portal and set up Azure Monitor logs to collect diagnostic data. After you set up your logic app to send that data to an Azure Log Analytics workspace, telemetry flows to where the Logic Apps Management Solution can provide health visualizations. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](/azure/logic-apps/monitor-logic-apps-log-analytics). With diagnostics enabled, you can also use Azure Monitor to send alerts based on different signal types such as when a trigger or a run fails. For more information, see [Monitor run status, review trigger history, and set up alerts for Azure Logic Apps](/azure/logic-apps/monitor-logic-apps?tabs=consumption#set-up-monitoring-alerts).
+  - For Consumption logic app workflows, you can install the Logic Apps Management Solution (Preview) in the Azure portal and set up Azure Monitor logs to collect diagnostic data. After you set up your logic app to send that data to an Azure Log Analytics workspace, telemetry flows to where the Logic Apps Management Solution can provide health visualizations. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](./monitor-workflows-collect-diagnostic-data.md). With diagnostics enabled, you can also use Azure Monitor to send alerts based on different signal types such as when a trigger or a run fails. For more information, see [Monitor run status, review trigger history, and set up alerts for Azure Logic Apps](./monitor-logic-apps.md?tabs=consumption#set-up-monitoring-alerts).
 
-  - For Standard logic app workflows, you can enable Application Insights at logic app resource creation to send diagnostic logging and traces from your logic app's workflows. In Application Insights, you can view an [application map](/azure/azure-monitor/app/app-map) to better understand the performance and health characteristics of your interfaces. Application Insights also includes [availability capabilities](/azure/azure-monitor/app/availability-overview) for you to configure synthetic tests that proactively call endpoints and then evaluate the response for specific HTTP status codes or payload. Based upon your configured criteria, you can send notifications to stakeholders or call a webhook for additional orchestration capabilities.
+  - For Standard logic app workflows, you can enable Application Insights at logic app resource creation to send diagnostic logging and traces from your logic app's workflows. In Application Insights, you can view an [application map](../azure-monitor/app/app-map.md) to better understand the performance and health characteristics of your interfaces. Application Insights also includes [availability capabilities](../azure-monitor/app/availability-overview.md) for you to configure synthetic tests that proactively call endpoints and then evaluate the response for specific HTTP status codes or payload. Based upon your configured criteria, you can send notifications to stakeholders or call a webhook for additional orchestration capabilities.
 
 - [Serverless 360](https://www.serverless360.com/) is an external solution from [Kovai](https://www.kovai.co/) that provides monitoring and management through mapping Azure services, such as Azure Logic Apps, Azure Service Bus, Azure API Management, and Azure Functions. You can reprocess messages by using dead letter queues in Azure Service Bus, enable self-healing to address intermittent service disruptions, and set up proactive monitoring through synthetic transactions.
 
@@ -773,11 +773,11 @@ The following section describes options to track artifacts for performance monit
 
 #### Azure Integration Services
 
-Azure Logic Apps provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates or hides the data in logs and workflow run histories to avoid leaks.
+Azure Logic Apps provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](./logic-apps-securing-a-logic-app.md?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates or hides the data in logs and workflow run histories to avoid leaks.
 
-Beyond data obfuscation, you can use [Azure RBAC](/azure/role-based-access-control/overview) rules to protect data access. Azure RBAC includes two built-in roles specifically for Azure Logic Apps, which are [Logic App Contributor and Logic App Operator](/azure/logic-apps/logic-apps-securing-a-logic-app#secure-operations).
+Beyond data obfuscation, you can use [Azure RBAC](../role-based-access-control/overview.md) rules to protect data access. Azure RBAC includes two built-in roles specifically for Azure Logic Apps, which are [Logic App Contributor and Logic App Operator](./logic-apps-securing-a-logic-app.md#secure-operations).
 
-Beyond Azure RBAC, you can also [restrict access to run history in Azure Logic Apps by IP address range](/azure/logic-apps/logic-apps-securing-a-logic-app#restrict-ip).
+Beyond Azure RBAC, you can also [restrict access to run history in Azure Logic Apps by IP address range](./logic-apps-securing-a-logic-app.md#restrict-ip).
 
 ### Hosting
 
@@ -810,15 +810,15 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
   | WS2 | 2 | 7 |
   | WS3 | 4 | 14 |
 
-  For the latest information, see [Pricing tiers in the Standard model](/azure/logic-apps/logic-apps-pricing#standard-pricing-tiers).
+  For the latest information, see [Pricing tiers in the Standard model](./logic-apps-pricing.md#standard-pricing-tiers).
 
 - Availability and redundancy
 
-  In Azure, [availability zones](/azure/reliability/availability-zones-overview#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zone), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](./set-up-zone-redundancy-availability-zones.md), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 - Isolated and dedicated environment
 
-  For Standard logic apps, you have the option to select an App Service Environment (ASE) v3 for your deployment environment. With an ASE v3, you get a fully isolated and dedicated environment to run applications at high scale with predictable pricing. You pay only for the [ASE App Service plan](/azure/logic-apps/single-tenant-overview-compare), no matter how many logic apps that you create and run.
+  For Standard logic apps, you have the option to select an App Service Environment (ASE) v3 for your deployment environment. With an ASE v3, you get a fully isolated and dedicated environment to run applications at high scale with predictable pricing. You pay only for the [ASE App Service plan](./single-tenant-overview-compare.md), no matter how many logic apps that you create and run.
 
 ##### Azure Service Bus
 
@@ -830,19 +830,19 @@ Azure Service Bus offers various pricing tiers so that you can choose the best t
 | Predictable performance | Variable latency |
 | Fixed pricing | Pay as you go variable pricing |
 | Ability to scale workload up and down | Not available |
-| Message size up to 100 MB. See [Large message support](/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support). | Message size up to 256 KB |
+| Message size up to 100 MB. See [Large message support](../service-bus-messaging/service-bus-premium-messaging.md#large-messages-support). | Message size up to 256 KB |
 
-For the latest information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
+For the latest information, see [Service Bus Premium and Standard messaging tiers](../service-bus-messaging/service-bus-premium-messaging.md).
 
 ##### Azure API Management
 
 Azure API Management offers various pricing tiers so that you can choose the best tier that meets your needs. Each tier has its own capabilities and are named Consumption, Developer, Basic, Standard, and Premium.
 
-The capabilities in these tiers range from Azure AD integration, Azure virtual network support, built-in cache, self-hosted gateways, and more. For more information about these tiers and their capabilities, see [Feature-based comparison of the Azure API Management tiers](/azure/api-management/api-management-features).
+The capabilities in these tiers range from Azure AD integration, Azure virtual network support, built-in cache, self-hosted gateways, and more. For more information about these tiers and their capabilities, see [Feature-based comparison of the Azure API Management tiers](../api-management/api-management-features.md).
 
 ##### Azure Data Factory
 
-Azure Data Factory offers various pricing models so that you can choose the best model that meets your needs. The options vary based upon the [runtime type](/azure/data-factory/concepts-integration-runtime#integration-runtime-types), which includes the Azure Integration Runtime, Azure Managed VNET Integration Runtime, and the Self-Hosted Integration Runtime. Within each runtime offering, consider the support for orchestrations, data movement activity, pipeline activity, and external pipeline activity. For more information about cost planning and pricing, see [Plan to manage costs for Azure Data Factory](/azure/data-factory/plan-manage-costs) and [Understanding Data Factory pricing through examples](/azure/data-factory/pricing-concepts)
+Azure Data Factory offers various pricing models so that you can choose the best model that meets your needs. The options vary based upon the [runtime type](../data-factory/concepts-integration-runtime.md#integration-runtime-types), which includes the Azure Integration Runtime, Azure Managed VNET Integration Runtime, and the Self-Hosted Integration Runtime. Within each runtime offering, consider the support for orchestrations, data movement activity, pipeline activity, and external pipeline activity. For more information about cost planning and pricing, see [Plan to manage costs for Azure Data Factory](../data-factory/plan-manage-costs.md) and [Understanding Data Factory pricing through examples](../data-factory/pricing-concepts.md)
 
 ### Deployment
 

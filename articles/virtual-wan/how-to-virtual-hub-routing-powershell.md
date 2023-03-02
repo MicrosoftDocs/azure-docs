@@ -89,7 +89,7 @@ The steps in this section help you set up routing configuration for a virtual ne
 1. Verify static route on the virtual network connection.
 
    ```azurepowershell-interactive
-   Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
+   Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group name]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
    ```
 
 ## Next steps

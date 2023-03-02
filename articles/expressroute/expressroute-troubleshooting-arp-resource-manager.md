@@ -3,19 +3,18 @@ title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the Address Resolution Protocol (ARP) tables for an ExpressRoute circuit
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/15/2020
+ms.date: 01/05/2022
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Getting ARP tables in the Resource Manager deployment model
+
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
-> 
 > 
 
 This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit.
@@ -23,11 +22,11 @@ This article walks you through the steps to learn the ARP tables for your Expres
 > [!IMPORTANT]
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. You must open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are unable to solve the problem using the guidance described below.
 > 
-> 
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## Address Resolution Protocol (ARP) and ARP tables
+
 Address Resolution Protocol (ARP) is a layer 2 protocol defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map the Ethernet address (MAC address) with an ip address.
 
 The ARP table provides the following information for both the primary and secondary interfaces for each peering types:

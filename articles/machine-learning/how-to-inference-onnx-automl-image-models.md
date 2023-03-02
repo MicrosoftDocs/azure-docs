@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Use ONNX with Azure Machine Learning automated ML to make predictions on computer vision models for classification, object detection, and instance segmentation.
 author: vadthyavath
 ms.author: rvadthyavath
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -75,7 +76,7 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your Azure Machine Learning workspace
     subscription_id = ''   
     resource_group = ''  
     workspace_name = ''
@@ -145,7 +146,7 @@ env = Environment(
 )
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](how-to-auto-train-image-models.md#configure-experiments) and for supported object detection model names refer to the [supported model architecture section](how-to-auto-train-image-models.md#supported-model-architectures).
 
 To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
@@ -778,7 +779,7 @@ assert batch_size == img_data.shape[0]
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
-For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
+For object detection with the Faster R-CNN architecture, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -841,7 +842,7 @@ assert batch_size == img_data.shape[0]
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-For object detection with the YOLO algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the YOLO architecture, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -1144,7 +1145,7 @@ for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
     print('image: {}, class_index: {}, class_name: {}'.format(image_files[image_idx], class_idx, classes[class_idx]))
 ```
 
-For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
+For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported model architectures in AutoML.
 
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)

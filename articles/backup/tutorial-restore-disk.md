@@ -4,9 +4,9 @@ description: Learn how to restore a disk and create a recover a VM in Azure with
 ms.topic: tutorial
 ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore a VM with Azure CLI
@@ -23,7 +23,7 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

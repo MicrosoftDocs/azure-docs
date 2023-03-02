@@ -43,7 +43,7 @@ The transact publishing option is currently supported for the following offer ty
 
 [1] Azure Container offers support usage-based billing plans. These plans are billed monthly for hourly use of the usage based on per core, or per every core in cluster.
 
-[2] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+[2] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use based on free, flat rate, per vCPU, per vCPU size, or per market and vCPU size usage.
 
 [3] SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 
@@ -228,6 +228,7 @@ Private plans enable you to provide higher or lower pricing to specific customer
 - For listing and pricing options by online store, see [Introduction to listing options](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 - [Publishing guide by offer type](publisher-guide-by-offer-type.md).
 - [Plans and pricing for commercial marketplace offers](./plans-pricing.md)
+
 
 
 

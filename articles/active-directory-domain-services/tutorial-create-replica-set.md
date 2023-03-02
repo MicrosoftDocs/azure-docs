@@ -100,7 +100,7 @@ The replica set reports as *Provisioning* as deployment continues, as shown in t
 
 ## Delete a replica set
 
-A managed domain is currently limited to four replicas - the initial replica set, and three additional replica sets. If you don't need a replica set anymore, or if you want to create a replica set in another region, you can delete unneeded replica sets.
+A managed domain is currently limited to five replicas - the initial replica set, and four additional replica sets. If you don't need a replica set anymore, or if you want to create a replica set in another region, you can delete unneeded replica sets.
 
 > [!IMPORTANT]
 > You can't delete either the last replica set or the initial replica set in a managed domain.

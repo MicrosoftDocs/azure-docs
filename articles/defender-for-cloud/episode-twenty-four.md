@@ -3,7 +3,7 @@ title: Enhancements in Defender for SQL vulnerability assessment | Defender for 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Enhancements in Defender for SQL Vulnerability Assessment
 ms.topic: reference
-ms.date: 01/05/2023
+ms.date: 01/24/2023
 ---
 
 # Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
@@ -38,4 +38,4 @@ ms.date: 01/05/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [AWS ECR Coverage in Defender for Containers](episode-twenty-five.md)

@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Functions warmup trigger
 
-This article explains how to work with the warmup trigger in Azure Functions. A warmup trigger is invoked when an instance is added to scale a running function app. The warmup trigger lets you define a function that's run when a new instance of your function app is started. You can use a warmup trigger to pre-load custom dependencies during the pre-warming process so your functions are ready to start processing requests immediately. Some actions for a warmup trigger might include opening connections, loading dependencies, or running any other custom logic before your app begins receiving traffic. To learn more, see [pre-warmed instances](./functions-premium-plan.md#pre-warmed-instances).
+This article explains how to work with the warmup trigger in Azure Functions. A warmup trigger is invoked when an instance is added to scale a running function app. The warmup trigger lets you define a function that's run when a new instance of your function app is started. You can use a warmup trigger to pre-load custom dependencies during the pre-warming process so your functions are ready to start processing requests immediately. Some actions for a warmup trigger might include opening connections, loading dependencies, or running any other custom logic before your app begins receiving traffic.
 
 The following considerations apply when using a warmup trigger:
 

@@ -84,7 +84,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 Give your voice route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
 Here are some examples of basic regular expressions:
 - `^\+\d+$` - matches a telephone number with one or more digits that start with a plus
-- `^+1(\d[10])$` - matches a telephone number with a ten digits after a `+1`
+- `^\+1(\d{10})$` - matches a telephone number with a ten digits after a `+1`
 - `^\+1(425|206)(\d{7})$` - matches a telephone number that starts with `+1425` or with `+1206` followed by seven digits
 - `^\+0?1234$` - matches both `+01234` and `+1234` telephone numbers.
 

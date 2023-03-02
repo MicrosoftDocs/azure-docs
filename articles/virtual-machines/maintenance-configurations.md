@@ -18,7 +18,7 @@ ms.author: cynthn
 Maintenance Configurations gives you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance Configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience.
 
 >[!IMPORTANT]
-> Users are required to have a role of at least contributor in order to use maintenance configurations.
+> Users are required to have a role of at least contributor in order to use maintenance configurations. Users also have to ensure that their subscription is registered with Maintenance Resource Provider to use maintenance configurations.
 
 ## Scopes
 
