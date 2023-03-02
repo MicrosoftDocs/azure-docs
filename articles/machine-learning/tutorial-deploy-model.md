@@ -23,7 +23,7 @@ ms.custom: mlops #add more custom tags
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn to deploy a model to an online endpoint, using Azure Machine Learning (AzureML) Python SDK v2.
+Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
 In this tutorial, you begin with the files for a trained MLflow model and walk through steps to register it. You then create an endpoint with a first deployment, test the deployment with data, and retrieve the deployment details. Afterward, you create a second deployment and allocate some percentage of production traffic to it. Then, you obtain logs from the second deployment and check its performance to ensure you're satisfied with it. Finally, you send all the production traffic to the second deployment and delete the first one.
 
@@ -47,11 +47,11 @@ The steps you'll take are:
 1. If you haven't completed the earlier tutorial, be sure to do the following: 
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory.  <!-- MA: update this location** -->
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an AzureML workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 20 cores) available for the compute instances you'll use in this tutorial.
+    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 20 cores) available for the compute instances you'll use in this tutorial.
 
-    > [!NOTE]
-    > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, you must have a quota for `ceil(1.2*number of instances requested for deployment)*number of cores for the VM SKU`. This translates to `ceil(1.2*1)*4` for the Standard_DS3_v2 VM and `ceil(1.2*2)*4` for the Standard_F4s_v2 VM, for a total of 20 cores.
-    To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+        > [!NOTE]
+        > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, you must have a quota for `ceil(1.2*number of instances requested for deployment)*number of cores for the VM SKU`. This translates to `ceil(1.2*1)*4` for the Standard_DS3_v2 VM and `ceil(1.2*2)*4` for the Standard_F4s_v2 VM, for a total of 20 cores.
+        To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
@@ -59,7 +59,7 @@ The steps you'll take are:
 
 ## Connect to the workspace
 
-Before you dive in the code, you'll need to connect to your AzureML workspace. 
+Before you dive in the code, you'll need to connect to your Azure Machine Learning workspace. 
 
 We're using `DefaultAzureCredential` to get access to the workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
@@ -123,7 +123,7 @@ ml_client.models.create_or_update(mlflow_model)
 
 ## Confirm that the model is registered
 
-You can check the **Models** page in [AzureML studio](https://ml.azure.com/) to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
 ```python
@@ -233,7 +233,7 @@ The key aspects of a deployment include:
     
 ### Deployment using an MLflow model
 
-AzureML supports no-code deployment of a model created and logged with MLflow. This means that you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model. If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment.
+Azure Machine Learning supports no-code deployment of a model created and logged with MLflow. This means that you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model. If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment.
 
 > [!IMPORTANT]
 > If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-deploy-mlflow-models.md).
