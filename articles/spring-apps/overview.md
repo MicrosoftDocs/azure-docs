@@ -136,7 +136,7 @@ After you create your Enterprise tier service instance and deploy your applicati
 
 The following quickstarts will help you get started using the Enterprise tier:
 
-* [View Enterprise Tier offering](how-to-enterprise-marketplace-offer.md)
+* [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
 * [Introduction to Fitness Store sample](quickstart-sample-app-acme-fitness-store-introduction.md)
 * [Build and deploy apps](quickstart-deploy-apps-enterprise.md)
 * [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
