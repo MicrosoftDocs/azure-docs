@@ -56,11 +56,12 @@ You can also get twins based on the type of a property. Here's a query that gets
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty3":::
 
->[!TIP]
-> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
->
-> If the map key starts with a numeric character, you'll need to wrap the key in double square brackets (`[[<mapKey>]]`) to escape it in the query, similar to the strategy for [querying with reserved keywords](reference-query-reserved.md#escaping-reserved-keywords-in-queries).
+### Query Map properties
+
+If a property is of the complex type `Map`, you can use the map keys and values directly in the query, like this:
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
+
+If the map key starts with a numeric character, you'll need to wrap the key in double square brackets (`[[<mapKey>]]`) to escape it in the query, similar to the strategy for [querying with reserved keywords](reference-query-reserved.md#escaping-reserved-keywords-in-queries).
 
 ## Query by model
 
