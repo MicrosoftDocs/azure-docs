@@ -5,14 +5,13 @@ services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,17 +22,17 @@ ms.collection: M365-identity-device-management
 This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
 
 > [!IMPORTANT]
-> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
+> If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account or a Hybrid Identity Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Entra admin center](https://entra.microsoft.com/).
 
-![Azure Active Directory admin center - Azure AD Connect blade](./media/tshoot-connect-pass-through-authentication/pta7.png)
+![Screnshot shows Entra admin center - Azure AD Connect blade.](./media/tshoot-connect-pass-through-authentication/azure-ad-connect-blade.png)
 
-![Azure Active Directory admin center - Pass-through Authentication blade](./media/tshoot-connect-pass-through-authentication/pta11.png)
+![Screenhot shows Entra admin center - Pass-through Authentication blade.](./media/tshoot-connect-pass-through-authentication/pta-server-list.png)
 
 ### User-facing sign-in error messages
 
@@ -42,7 +41,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |Error|Description|Resolution
 | --- | --- | ---
 |AADSTS80001|Unable to connect to Active Directory|Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory.
-|AADSTS8002|A timeout occurred connecting to Active Directory|Check to ensure that Active Directory is available and is responding to requests from the agents.
+|AADSTS80002|A timeout occurred connecting to Active Directory|Check to ensure that Active Directory is available and is responding to requests from the agents.
 |AADSTS80004|The username passed to the agent was not valid|Ensure the user is attempting to sign in with the right username.
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
@@ -76,9 +75,9 @@ If you get the same username/password error, this means that the Pass-through Au
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Entra admin center](https://entra.microsoft.com/).
 
-![Azure Active Directory admin center - Sign-ins report](./media/tshoot-connect-pass-through-authentication/pta4.png)
+[![Screenshot shows Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)](./media/tshoot-connect-pass-through-authentication/sign-in-report.png#lightbox)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
@@ -112,7 +111,7 @@ Ensure that the server on which the Authentication Agent has been installed can 
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
-Ensure that you use a cloud-only Global Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
+Ensure that you use a cloud-only Global Administrator account or a Hybrid Identity Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
 
 ### An unexpected error occurred
 

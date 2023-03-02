@@ -5,11 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/17/2020
+ms.date: 02/25/2023
 ms.author: cynthn
+ms.reviewer: mattmcinnes
 ---
 
 # Use infrastructure automation tools with virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
@@ -25,7 +28,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
     - Examples include [Azure DevOps Services](#azure-devops-services) and [Jenkins](#jenkins).
 
 ## Ansible
-[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with several Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
 
 Learn how to:
 
@@ -35,7 +38,7 @@ Learn how to:
 
 
 ## Chef
-[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Additional components included Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
+[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Some components include Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
 
 Learn how to:
 
@@ -52,11 +55,11 @@ Learn how to:
 
 
 ## Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. Because cloud-init is called during the initial boot process, there are no additional steps or required agents to apply your configuration.  For more information on how to properly format your `#cloud-config` files, see the [cloud-init documentation site](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` files are text files encoded in base64.
+[Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. Because cloud-init is called during the initial boot process, there are no extra steps or required agents to apply your configuration.  For more information on how to properly format your `#cloud-config` files, see the [cloud-init documentation site](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` files are text files encoded in base64.
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure Marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
+We're actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure Marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and Virtual Machine Scale Sets.
 Learn more details about cloud-init on Azure:
 
 - [Cloud-init support for Linux virtual machines in Azure](./linux/using-cloud-init.md)
@@ -64,25 +67,25 @@ Learn more details about cloud-init on Azure:
 
 
 ## PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
 
 Learn how to:
 
-- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
-- [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
-- [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+- [Create a basic DSC configuration](/powershell/dsc/quickstarts/website-quickstart).
+- [Configure a DSC pull server](/powershell/dsc/pull-server/pullserver).
+- [Use DSC for Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 
 
 ## Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](./extensions/custom-script-linux.md) or [Windows](./extensions/custom-script-windows.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
+The Azure Custom Script Extension for [Linux](./extensions/custom-script-linux.md) or [Windows](./extensions/custom-script-windows.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or anytime after the VM is in use.
 
 Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=/cli/azure/toc.json).
 - [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
@@ -105,13 +108,13 @@ Learn how to:
 
 
 ## Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-premises virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
+[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, and on-premises virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
 
 Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 

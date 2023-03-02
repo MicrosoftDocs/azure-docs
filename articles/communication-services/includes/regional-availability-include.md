@@ -1,10 +1,11 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
+ms.author: rifox
 ms.custom: references_regions
+
 ---
 > [!IMPORTANT]
-> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States. For more information, visit the [Phone number types](../concepts/telephony-sms/plan-solution.md) documentation.
+> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) documentation.

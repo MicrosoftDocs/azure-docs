@@ -3,11 +3,11 @@ title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 description: Learn how to create a basic AD and Azure AD environment.
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 01/18/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -19,16 +19,16 @@ This tutorial walks you through creating a basic Active Directory environment.
 
 ![Diagram that shows a basic Azure A D environment.](media/tutorial-single-forest/diagram-2.png)
 
-You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who my be starting from nothing.
+You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who may be starting from nothing.
 
 This tutorial consists of
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
-- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It's suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
 - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - An [Azure subscription](https://azure.microsoft.com/free)
 - A copy of Windows Server 2016
-- [Microsoft .NET framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time.  Each of the scripts uses variables that are declared at the beginning of the scripts.  You can and should change the variables to reflect your environment.
@@ -73,7 +73,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 
 1. Hyper-V Manager, double-click on the virtual machine
 2. Click on the Start button.
-3. You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
+3. You'll be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.
@@ -201,15 +201,15 @@ Now you need to create an Azure AD tenant so that you can synchronize our users 
 6. Once this has completed, click the **here** link, to manage the directory.
 
 ## Create a global administrator in Azure AD
-Now that you have an Azure AD tenant, you will create a global administrator account.  To create the global administrator account do the following.
+Now that you have an Azure AD tenant, you'll create a global administrator account.  To create the global administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
 ![Screenshot that shows the "Overview" menu with "Users" selected.](media/tutorial-single-forest/administrator-1.png)</br>
 2.  Select **All users** and then select **+ New user**.
-3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
+3.  Provide a name and username for this user. This will be your Global Administrator for the tenant. You'll also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you're done, select **Create**.</br>
 ![Create](media/tutorial-single-forest/administrator-2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
-5. Change the password for the global administrator to something that you will remember.
+5. Change the password for the global administrator to something that you'll remember.
 
 ## Optional:  Additional server and forest
 The following is an optional section that provides steps to creating an additional server and or forest.  This can be used in some of the more advanced tutorials such as [Pilot for Azure AD Connect to cloud sync](tutorial-pilot-aadc-aadccp.md).
@@ -260,7 +260,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 
 1. Hyper-V Manager, double-click on the virtual machine
 2. Click on the Start button.
-3. You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
+3. You'll be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.

@@ -1,4 +1,4 @@
-﻿- name: Azure Certified Device documentation
+- name: Azure Certified Device documentation
   href: index.yml
 
 - name: Overview
@@ -28,13 +28,13 @@
     href: program-requirements-pnp.md
   - name: Edge Managed
     href: program-requirements-edge-managed.md
-  - name: Edge Secured-core (Preview)
+  - name: Edge Secured-core
     href: program-requirements-edge-secured-core.md
 
 - name: Concepts
   items:
     - name: Legacy devices
-      href: concepts-legacy.md  
+      href: concepts-legacy.md
     - name: Marketing concepts
       href: concepts-marketing.md
     - name: Software levels
@@ -44,10 +44,14 @@
   items:
   - name: How to edit a published device
     href: how-to-edit-published-device.md
-  - name: How to certify a indirectly connected device
+  - name: How to certify an indirectly connected device
     href: how-to-indirectly-connected-devices.md
+  - name: How to test your IoT Plug and Play device with CLI
+    href: how-to-test-pnp.md
   - name: How to troubleshoot your IoT Plug and Play device
     href: how-to-troubleshoot-pnp.md
+  - name: How to test Device Update in Edge Secured-core certification
+    href: how-to-test-device-update.md  
   - name: How to use the components feature
     href: how-to-using-the-components-feature.md
 - name: Resources
@@ -55,4 +59,4 @@
     - name: Certification Glossary
       href: resources-glossary.md
     - name: MPN/Microsoft Partner Network Support
-      href: /partner-center
+      href: /partner-center/

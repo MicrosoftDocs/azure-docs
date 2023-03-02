@@ -20,16 +20,10 @@
       href: howto-use-iot-explorer.md
 - name: Security
   items:
-  - name: Recommendations
-    href: security-recommendations.md
-  - name: Security from the ground up
-    href: iot-security-ground-up.md
   - name: Security best practices
     href: iot-security-best-practices.md    
   - name: Security architecture
     href: iot-security-architecture.md
-  - name: Secure deployment
-    href: iot-security-deployment.md
 - name: Resources
   items:
   - name: Azure IoT services
@@ -39,33 +33,27 @@
     - name: IoT Hub Device Provisioning Service
       href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /microsoft-iot-central/
+      href: ../iot-central/index.yml
     - name: IoT Edge
-      href: ./index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
+      href: ../iot-edge/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
-    items:
-    - name: IoT Service SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-    - name: IoT Device SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+    href: iot-sdks.md
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure/azure-iot-sdk-csharp#samples
     - name: Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure/azure-iot-sdk-java#samples
     - name: Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
@@ -75,7 +63,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Tools for VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool

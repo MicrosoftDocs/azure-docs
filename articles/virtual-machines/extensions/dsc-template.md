@@ -17,13 +17,18 @@ ms.author: magoedte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 This article describes the Azure Resource Manager template for the [Desired State Configuration
 (DSC) extension handler](dsc-overview.md). Many of the examples use **RegistrationURL** (provided
 as a String) and **RegistrationKey** (provided as a
 [PSCredential](/dotnet/api/system.management.automation.pscredential) to onboard with Azure
-Automation. For details about obtaining those values, see [Onboarding machines for management by
-Azure Automation State Configuration - Secure
-registration](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
+Automation. For details about obtaining those values, see
+[Use DSC metaconfiguration to register hybrid machines](../../automation/automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines).
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
@@ -201,7 +206,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
+[Local Configuration Manager basic settings](/powershell/dsc/managing-nodes/metaConfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 
@@ -468,4 +473,4 @@ or settings.configuration.module is specified"
 - Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Find more details about [DSC's secure credential management](dsc-credentials.md).
 - Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).

@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 09/14/2021
 ms.author: alkohli
 ---
 
@@ -37,6 +37,9 @@ ms.author: alkohli
        4. Enter a time and date for the backup policy to begin.
 
        5. Click **OK** to define the schedule.
+       
+       > [!NOTE]
+       > When you reach 64 backups for a schedule and want to retain those backups, you can [disable the schedule](..\articles\storsimple\storsimple-8000-manage-backup-policies-u2.md#disable-a-schedule) and then add a new schedule with a maximum retention of 64 backups. This workaround will work until you reach the limit of 256 backups per volume. At that point, you'll need to delete older backups before you can take new backups.
 
    5. Click **Create** to create a backup policy.
    

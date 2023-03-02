@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 05/11/2021
+ms.date: 6/22/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -10,14 +10,14 @@ ms.custom: devx-track-azurepowershell
 
 As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+This topic explains how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
 ## Use Azure Resource Graph to query across customer tenants
 
-You can use [Azure Resource Graph](../../governance/resource-graph/index.yml) to query across all subscriptions in the customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
+You can use [Azure Resource Graph](../../governance/resource-graph/overview.md) to query across all subscriptions in customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"

@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli
+ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.reviewer: nigup
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/21/2021
 ---
 
 # Plan to manage costs for Azure Machine Learning
@@ -21,6 +21,11 @@ After you've started using Azure Machine Learning resources, use the cost manage
 Understand that the costs for Azure Machine Learning are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you're billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Machine Learning. After you're familiar with managing costs for Azure Machine Learning, apply similar methods to manage costs for all the Azure services used in your subscription.
 
 For more information on optimizing costs, see [how to manage and optimize cost in Azure Machine Learning](how-to-manage-optimize-cost.md).
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,7 +40,7 @@ On the left, select **AI + Machine Learning**, then select **Azure Machine Learn
 
 The following screenshot shows the cost estimation by using the calculator:
 
-:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator.":::
+:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator. Prices in this screenshot are examples only; your price may differ.":::
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
@@ -46,10 +51,6 @@ For more information, see [Azure Machine Learning pricing](https://azure.microso
 Azure Machine Learning runs on Azure infrastructure that accrues costs along with Azure Machine Learning when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 
-
-
-
-
 ### Costs that typically accrue with Azure Machine Learning
 
 When you create resources for an Azure Machine Learning workspace, resources for other Azure services are also created. They are:
@@ -57,8 +58,26 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Basic account
 * [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (general purpose v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+
  
+### Costs might accrue before resource deletion
+
+Before you delete an Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure Machine Learning workspace at a later time, these resources may continue to accrue costs.
+
+* VMs
+* Load Balancer
+* Virtual Network
+* Bandwidth
+
+Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource. 
+
+Compute instances also incure P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged. 
+
 ### Costs might accrue after resource deletion
 
 After you delete an Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
@@ -70,8 +89,10 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 ```python
-ws.delete(delete_dependent_resources=True)
+from azure.ai.ml.entities import Workspace
+ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 ```
 
 If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
@@ -121,7 +142,7 @@ Actual monthly costs are shown when you initially open cost analysis. Here's an 
 :::image type="content" source="media/concept-plan-manage-cost/all-costs.png" alt-text="Example showing accumulated costs for a subscription." lightbox="media/concept-plan-manage-cost/all-costs.png" :::
 
 
-To narrow costs for a single service, like Azure Machine Learning, select **Add filter** and then select **Service name**. Then, select **Azure Machine Learning**.
+To narrow costs for a single service, like Azure Machine Learning, select **Add filter** and then select **Service name**. Then, select **virtual machines**.
 
 Here's an example showing costs for just Azure Machine Learning.
 
@@ -146,13 +167,15 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 - Configure your training clusters for autoscaling
 - Set quotas on your subscription and workspaces
-- Set termination policies on your training run
+- Set termination policies on your training job
 - Use low-priority virtual machines (VM)
+- Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
 - Set data retention and deletion policies
 - Deploy resources to the same region
+- Delete instances and clusters if you do not plan on using them in the near future.
 
 For more information, see [manage and optimize costs in Azure Machine Learning](how-to-manage-optimize-cost.md).
 
@@ -163,4 +186,4 @@ For more information, see [manage and optimize costs in Azure Machine Learning](
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

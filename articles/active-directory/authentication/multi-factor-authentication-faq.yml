@@ -6,25 +6,19 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
-  ms.topic: how-to
-  ms.date: 07/14/2020
+  ms.topic: faq
+  ms.date: 11/03/2022
   ms.author: justinha
   author: justinha
-  manager: daveba
+  manager: amycolannino
   ms.reviewer: michmcla
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions about Azure AD Multi-Factor Authentication
 summary: |
   This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
   
   > [!IMPORTANT]
-  > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure AD Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
-  >
-  > The information shared below regarding the Azure Multi-Factor Authentication Server is only applicable for users who already have the MFA server running.
-  >
-  > Consumption-based licensing is no longer available to new customers effective September 1, 2018.
-  > Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+  > In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
   
 
 sections:
@@ -140,7 +134,7 @@ sections:
           
           If the steps above don't work, check if users are configured for more than one verification method. Try signing in again, but select a different verification method on the sign-in page.
           
-          For more information, see the [end-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
+          For more information, see the [end-user troubleshooting guide](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5).
           
       - question: |
           What should I do if one of my users can't get in to their account?
@@ -155,7 +149,7 @@ sections:
       - question: |
           What if a user can't sign in to non-browser apps?
         answer: |
-          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
           
           If your organization doesn't have legacy clients, you shouldn't allow your users to create app passwords.
           
@@ -246,6 +240,13 @@ sections:
           The *0x800434D4L* error occurs when you try to sign in to a non-browser application, installed on a local computer, that doesn't work with accounts that require two-step verification.
           
           A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](https://help.outlook.com/141/gg709759.aspx?sl=1).
+          
+      - question: |  
+          What are the possible reasons why a user fails, with the error code "LsaLogonUser failed with NTSTATUS -1073741715 for MFA Server"?
+        answer: |
+          Error 1073741715 = Status Logon Failure -> The attempted logon is invalid. This is due to either a bad username or authentication.
+
+          A plausible reason for this error: If the primary credentials entered are correct, there might be a mismatch between the supported NTLM version on the MFA server and the domain controller. MFA Server supports only NTLMv1 (LmCompatabilityLevel=1 thru 4) and not NTLMv2 (LmCompatabilityLevel=5).
           
 additionalContent: |
   ## Next steps

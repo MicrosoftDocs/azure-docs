@@ -3,17 +3,20 @@ title: Modify IoT Edge modules on FPGA device to run on Azure Stack Edge Pro GPU
 description: Describes what modifications are needed for existing IoT Edge modules on existing FPGA devices to run on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 10/18/2021
 ms.author: alkohli
+ms.custom: ignite-fall-2021
 ---
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
+> [!NOTE]
+> We strongly recommend that you deploy the latest IoT Edge version in a Linux VM. The managed IoT Edge on Azure Stack Edge uses an older version of IoT Edge runtime that doesn’t have the latest features and patches. For instructions, see how to [Deploy an Ubuntu VM](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md). For more information on other supported Linux distributions that can run IoT Edge, see [Azure IoT Edge supported systems – Container engines](../iot-edge/support.md#linux-containers).
 
 This article details the changes needed for a docker-based IoT Edge module that runs on Azure Stack Edge Pro FPGA so it can run on a Kubernetes-based IoT Edge platform on Azure Stack Edge Pro GPU device. 
 
@@ -203,7 +206,7 @@ To set memory and CPU usage, use processor limits for modules in the `k8s-experi
 ```
 The memory and CPU specification are not necessary but generally good practice. If `requests` isn't specified, the values set in limits are used as the minimum required. 
 
-Using shared memory for modules also requires a different way. For example, you can use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions as described in [Deploy Live Video Analytics on Azure Stack Edge](../media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md#deploy-live-video-analytics-edge-module-using-azure-portal).
+Using shared memory for modules also requires a different way. For example, you can use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions as described in [Deploy Live Video Analytics on Azure Stack Edge](../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 
 ## Web proxy 

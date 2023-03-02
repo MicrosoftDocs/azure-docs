@@ -2,7 +2,7 @@
 title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 10/13/2022
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 
@@ -114,15 +114,29 @@ az resource delete \
 
 ---
 
-## Required access
+## Required access and deletion failures
 
-To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource. You also need delete for all resources in the resource group.
+To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource.
+
+> [!IMPORTANT]
+> The only permission required to delete a resource group is permission to the delete action for deleting resource groups.  You do **not** need permission to delete individual resources within that resource group.  Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action.  This is consistent with the scope heirarchy in the Azure role-based access control model.
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you have the required access, but the delete request fails, it may be because there's a [lock](lock-resources.md) on the resource group.
+If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, it may have been [automatically locked by a related service](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
+
+## Accidental deletion
+
+If you accidentally delete a resource group or resource, in some situations it might be possible to recover it.
+
+Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For more information about enabling soft delete, see the documentation for [Azure Key Vault](../../key-vault/general/soft-delete-overview.md), [Azure Backup](../../backup/backup-azure-delete-vault.md), and [Azure Storage](../../storage/blobs/soft-delete-container-overview.md). 
+
+You can also [open an Azure support case](../../azure-portal/supportability/how-to-create-azure-support-request.md). Provide as much detail as you can about the deleted resources, including their resource IDs, types, and resource names, and request that the support engineer check if the resources can be restored.
+
+> [!NOTE]
+> Recovery of deleted resources is not possible under all circumstances. A support engineer will investigate your scenario and advise you whether it's possible.
 
 ## Next steps
 
 * To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
-* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az_group_delete), and [REST API](/rest/api/resources/resourcegroups/delete).
+* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).

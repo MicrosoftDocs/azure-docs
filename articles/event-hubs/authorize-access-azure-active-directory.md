@@ -2,7 +2,7 @@
 title: Authorize access with Azure Active Directory
 description: This article provides information on authorizing access to Event Hubs resources using Azure Active Directory. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 10/25/2022
 ---
 
 # Authorize access to Event Hubs resources using Azure Active Directory
@@ -49,10 +49,10 @@ The following list describes the levels at which you can scope access to Event H
 
 > [!NOTE]
 > - Keep in mind that Azure role assignments may take up to five minutes to propagate. 
-> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](azure-event-hubs-kafka-overview.md#security-and-authentication).
 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 
 

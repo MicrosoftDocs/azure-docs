@@ -6,7 +6,7 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: mvc, devx-track-python, devx-track-azurepowershell, py-fresh-zinc
 ---
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow
@@ -118,7 +118,7 @@ In Azure Functions, a function project is a container for one or more individual
     func init --worker-runtime python
     ```
 
-    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
     > [!TIP]
     > Because a function project is tied to a specific runtime, all the functions in the project must be written with the same language.

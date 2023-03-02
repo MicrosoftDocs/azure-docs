@@ -3,19 +3,27 @@ title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the pre migration or seamless migration methods.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
-
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
-ms.author: mimart
+ms.date: 12/29/2022
+ms.author: kengaderdus
+ms.custom: engagement-fy23
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C
 
 Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
+
+Watch this video to learn about Azure AD B2C user migration strategies and steps to consider.
+
+>[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
+
+
+> [!NOTE]
+> Before you start the migration, make sure your Azure AD B2C tenant's unused quota can accommodate all the users you expect to migrate. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage). If you need to increase your tenant's quota limit, contact [Microsoft Support](find-help-open-support-ticket.md).
 
 ## Pre migration
 
@@ -60,7 +68,7 @@ After pre migration of the accounts is complete, your custom policy and REST API
 
 To see an example custom policy and REST API, see the [seamless user migration sample](https://aka.ms/b2c-account-seamless-migration) on GitHub.
 
-![Flowchart diagram of the seamless migration approach to user migration](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagram: Seamless migration flow*
+:::image type="content" source="./media/user-migration/diagram-01-seamless-migration.png" alt-text="Flowchart diagram of the seamless migration approach to user migration":::
 
 ## Security
 
@@ -72,14 +80,14 @@ The seamless migration approach uses your own custom REST API to validate a user
 
 Not all information in the legacy identity provider should be migrated to your Azure AD B2C directory. Identify the appropriate set of user attributes to store in Azure AD B2C before migrating.
 
-- **DO** store in Azure AD B2C
+- **DO** store in Azure AD B2C:
   - Username, password, email addresses, phone numbers, membership numbers/identifiers.
   - Consent markers for privacy policy and end-user license agreements.
-- **DO NOT** store in Azure AD B2C
+- **DON'T** store in Azure AD B2C:
   - Sensitive data like credit card numbers, social security numbers (SSN), medical records, or other data regulated by government or industry compliance bodies.
   - Marketing or communication preferences, user behaviors, and insights.
 
-### Directory clean-up
+### Directory cleanup
 
 Before you start the migration process, take the opportunity to clean up your directory.
 

@@ -2,19 +2,14 @@
 title: Dynamic site acceleration via Azure CDN
 description: Azure CDN supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
-documentationcenter: ''
-author: asudbring
-manager: danielgi
-editor: ''
-
-ms.assetid:
+author: duongau
+manager: kumudd
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/25/2019
-ms.author: allensu
+ms.date: 02/27/2023
+ms.author: duau
 ---
 # Dynamic site acceleration via Azure CDN
 
@@ -86,11 +81,11 @@ The Akamai network uses techniques to collect real-time data and compare various
 
 Similarly, the Verizon network uses a combination of Anycast DNS, high capacity support PoPs, and health checks, to determine the best gateways to best route data from the client to the origin.
  
-As a result, fully dynamic and transactional content is delivered more quickly and more reliably to end users, even when it is uncacheable. 
+As a result, fully dynamic and transactional content is delivered more quickly and more reliably to end users, even when it's uncacheable. 
 
 ### TCP Optimizations
 
-Transmission Control Protocol (TCP) is the standard of the Internet protocol suite used to deliver information between applications on an IP network.  By default, several back-and-forth requests are required to set up a TCP connection, as well as limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Akamai** handles this problem by optimizing in three areas: 
+Transmission Control Protocol (TCP) is the standard of the Internet protocol suite used to deliver information between applications on an IP network.  By default, several back-and-forth requests are required to set up a TCP connection, and limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Akamai** handles this problem by optimizing in three areas: 
 
  - [Eliminating TCP slow start](#eliminating-tcp-slow-start)
  - [Leveraging persistent connections](#leveraging-persistent-connections)
@@ -110,9 +105,9 @@ TCP *slow start* is an algorithm of the TCP protocol that prevents network conge
 
 #### Leveraging persistent connections
 
-Using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
+When you're using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
 
-As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which are implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
+As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which get implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
 **Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
@@ -120,21 +115,21 @@ As previously mentioned, several handshake requests are required to establish a 
 
 **Azure CDN from Akamai** tunes the parameters that govern server-to-server connections and reduces the amount of long-haul round trips required to retrieve content embedded in the site by using the following techniques:
 
-- Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
+- Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgment.
 - Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
 - Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
 
 ### Object prefetch (Azure CDN from Akamai only)
 
-Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes additional requests to linked assets that are required to fully load the page. 
+Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes more requests to linked assets that are required to fully load the page. 
 
-*Prefetch* is a technique to retrieve images and scripts embedded in the HTML page while the HTML is served to the browser, and before the browser even makes these object requests. 
+*Prefetch* is a technique to retrieve images and scripts embedded in the HTML page while the HTML gets served to the browser, and before the browser even makes these object requests. 
 
-With the prefetch option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
+With the prefetch option turned on, the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make more requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
 
 ### Adaptive image compression (Azure CDN from Akamai only)
 
-Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it is more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
+Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it's more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
 
 This feature automatically monitors network quality, and employs standard JPEG compression methods when network speeds are slower to improve delivery time.
 
@@ -144,9 +139,9 @@ JPEG compression | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## Caching
 
-With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. DSA is typically used for dynamic assets that should not be cached because they are unique to each client. Caching can break this behavior.
+With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. DSA is typically used for dynamic assets that shouldn't be cached because they're unique to each client. Caching can break this behavior.
 
-If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
+If you have a website with a mix of static and dynamic assets, it's best to take a hybrid approach to get the best performance. 
 
 For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
 
@@ -174,9 +169,6 @@ To access the rules engine:
 
     ![Rules engine for DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
+Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use.
 
-
-Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
-
-For example: 
-`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`.
+For example, `mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The HTML page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`.

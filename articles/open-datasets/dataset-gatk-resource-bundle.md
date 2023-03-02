@@ -1,11 +1,8 @@
 ---
 title: GATK Resource Bundle
-titleSuffix: Azure Open Datasets
 description: Learn how to use the GATK Resource Bundle dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -69,9 +66,9 @@ This dataset is stored in the West US 2 and West Central US Azure regions. Alloc
 
 5. datasetbroadpublic
 
-    West US 2: 'https://datasetpublicbroadpublic.blob.core.windows.net/dataset'
+    West US 2: 'https://datasetbroadpublic.blob.core.windows.net/dataset'
     
-    West Central US: 'https://datasetpublicbroadpublic-secondary.blob.core.windows.net/dataset'
+    West Central US: 'https://datasetbroadpublic-secondary.blob.core.windows.net/dataset'
     
     [SAS Token](../storage/common/storage-sas-overview.md): ?sv=2020-04-08&si=prod&sr=c&sig=u%2Bg2Ab7WKZEGiAkwlj6nKiEeZ5wdoJb10Az7uUwis%2Fg%3D
 

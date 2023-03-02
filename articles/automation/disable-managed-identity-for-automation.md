@@ -1,13 +1,13 @@
 ---
-title: Disable system-assigned managed identity for Azure Automation account (preview)
+title: Disable system-assigned managed identity for Azure Automation account
 description: This article explains how to disable a system-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ---
 
-# Disable system-assigned managed identity for Azure Automation account (preview)
+# Disable system-assigned managed identity for Azure Automation account
 
 You can disable a system-assigned managed identity in Azure Automation by using the Azure portal, or using REST API.
 
@@ -29,9 +29,7 @@ Syntax and example steps are provided below.
 
 ### Request body
 
-The following request body disables the system-assigned managed identity and removes any user-assigned managed identities.
-
-PATCH
+The following request body disables the system-assigned managed identity and removes any user-assigned managed identities using the HTTP **PATCH** method.
 
 ```json
 { 
@@ -42,9 +40,7 @@ PATCH
 
 ```
 
-If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
-
-PATCH
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity, you need to specify each user-assigned identity using comma-delimited list. The example below uses the HTTP **PATCH** method.
 
 ```json
 { 
@@ -77,7 +73,7 @@ Perform the following steps.
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     
     # If you have multiple subscriptions, set the one to use
@@ -125,6 +121,6 @@ Perform the following steps.
 
 ## Next steps
 
-- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation (preview)](enable-managed-identity-for-automation.md).
+- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation](enable-managed-identity-for-automation.md).
 
 - For an overview of Automation account security, see [Automation account authentication overview](automation-security-overview.md).

@@ -4,11 +4,15 @@ description: Examples of disk bursting metrics
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-2022
 ---
 # Disk performance metrics
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks perform. The metrics can also be retrieved through an API call. This article is broken into 3 subsections:
 
 - **Disk IO, throughput and queue depth metrics** - These metrics allow you to see the storage performance from the perspective of a disk and a virtual machine.
@@ -50,6 +54,14 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk. Emitted on a 5 minute interval.
 - **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s). Emitted on a 5 minute interval.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
+
+## VM Bursting metrics
+The following metrics provide insight on VM-level bursting:
+
+- **VM Uncached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s uncached IOPS burst used. Emitted on a 5 minute interval.
+- **VM Uncached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s uncached throughput burst used. Emitted on a 5 minute interval.
+- **VM Cached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s cached IOPS burst used. Emitted on a 5 minute interval.
+- **VM Cached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s cached throughput burst used. Emitted on a 5 minute interval.
 
 ## Storage IO utilization metrics
 The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available with the following configuration:

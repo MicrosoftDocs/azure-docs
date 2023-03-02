@@ -1,7 +1,9 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 04/09/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 08/18/2022
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -217,38 +219,22 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
   ```csharp
   var results = new List<object>();
   var queryRequest = new QueryRequest(
-      subscriptions: new[] { mySubscriptionId },
-      query: "Resources | project id, name, type | top 5000");
+    subscriptions: new[] { mySubscriptionId },
+    query: "Resources | project id, name, type");
   var azureOperationResponse = await this.resourceGraphClient
-      .ResourcesWithHttpMessagesAsync(queryRequest, header)
-      .ConfigureAwait(false);
-  while (!string.Empty(azureOperationResponse.Body.SkipToken))
+    .ResourcesWithHttpMessagesAsync(queryRequest, header)
+    .ConfigureAwait(false);
+  while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
   {
-      queryRequest.SkipToken = azureOperationResponse.Body.SkipToken;
-      // Each post call to ResourceGraph consumes one query quota
-      var azureOperationResponse = await this.resourceGraphClient
-          .ResourcesWithHttpMessagesAsync(queryRequest, header)
-          .ConfigureAwait(false);
-      results.Add(azureOperationResponse.Body.Data.Rows);
+    queryRequest.Options ??= new QueryRequestOptions();
+    queryRequest.Options.SkipToken = azureOperationResponse.Body.SkipToken;
+    var azureOperationResponse = await this.resourceGraphClient
+        .ResourcesWithHttpMessagesAsync(queryRequest, header)
+        .ConfigureAwait(false);
+    results.Add(azureOperationResponse.Body.Data.Rows);
 
-      // Inspect throttling headers in query response and delay the next call if needed.
+  // Inspect throttling headers in query response and delay the next call if needed.
   }
-  ```
-
-- Azure CLI / Azure PowerShell
-
-  When using either Azure CLI or Azure PowerShell, queries to Azure Resource Graph are automatically
-  paginated to fetch at most 5,000 entries. The query results return a combined list of entries from
-  all paginated calls. In this case, depending on the number of entries in the query result, a
-  single paginated query may consume more than one query quota. For example, in the following
-  examples, a single run of the query may consume up to five query quota:
-
-  ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' --first 5000
-  ```
-
-  ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## Still get throttled?

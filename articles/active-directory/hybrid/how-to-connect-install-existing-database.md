@@ -4,16 +4,15 @@ description: This topic describes how to use an existing ADSync database.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 ms.reviewer: cychua
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/30/2017
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -46,7 +45,7 @@ Important notes to take note of before you proceed:
 - The version of the Azure AD Connect used for installation must satisfy the following criteria:
 	- 1.1.613.0 or above, AND
 	- Same or higher than the version of the Azure AD Connect last used with the ADSync database. If the Azure AD Connect version used for installation is higher than the version last used with the ADSync database, then a full sync may be required.  Full sync is required if there are schema or sync rule changes between the two versions. 
-- The ADSync database used should contain a synchronization state that is relatively recent. The last synchronization activity with the existing ADSync database should be within the last three weeks.
+- The ADSync database used should contain a synchronization state that is relatively recent. The last synchronization activity with the existing ADSync database should be within the last three weeks, otherwise a full import from Azure AD will be required to update the directory watermark.
 - When installing Azure AD Connect using “use existing database” method, sign-in method configured on the previous Azure AD Connect server is not preserved. Further, you cannot configure sign-in method during installation. You can only configure sign-in method after installation is complete.
 - You cannot have multiple Azure AD Connect servers share the same ADSync database. The “use existing database” method allows you to reuse an existing ADSync database with a new Azure AD Connect server. It does not support sharing.
 
@@ -65,7 +64,7 @@ Important notes to take note of before you proceed:
 1. On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:         
    ![Screenshot that shows the "Install required components" page.](./media/how-to-connect-install-existing-database/db4.png)           
 
-1. On the **Connect to Azure AD** screen, you must provide the credentials of a global admin of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
+1. On the **Connect to Azure AD** screen, you must provide the credentials of a Hybrid Identity Administrator of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
    ![Connect](./media/how-to-connect-install-existing-database/db5.png)
  
 1. On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
@@ -91,7 +90,7 @@ Use the table below to verify any additional steps that are required.
 |-----|-----|
 |Password Hash Synchronization| the Password Hash Synchronization and Password writeback settings are fully restored for versions of Azure AD Connect starting with 1.2.65.0.  If restoring using an older version of Azure AD Connect, review the synchronization option settings for these features to ensure they match your active synchronization server.  No other configuration steps should be necessary.|
 |Federation with AD FS|Azure authentications will continue to use the AD FS policy configured for your active synchronization server.  If you use Azure AD Connect to manage your AD FS farm, you may optionally change the sign-in method to AD FS federation in preparation for your standby server becoming the active synchronization instance.   If device options are enabled on the active synchronization server, configure those options on this server by running the "Configure device options" task.|
-|Pass-through authentication and Desktop Single Sign-On|Update the sign in method to match the configuration on your active synchronization server.  If this is not followed before promoting the server to primary, pass-through authentication along with Seamless Single Sign on will be disabled and your tenant might be locked out if you don’t have password hash sync as back-up sign in option. Also note that when you enable pass-through authentication in staging mode, a new authentication agent will be installed, registered and will run as a high-availability agent which will accept sign in requests.|
+|Pass-through authentication and Desktop Single Sign-On|Update the sign in method to match the configuration on your active synchronization server.  If this is not followed before promoting the server to primary, pass-through authentication along with Seamless Single Sign on will be disabled and your tenant might be locked out if you don’t have password hash sync as backup sign in option. Also note that when you enable pass-through authentication in staging mode, a new authentication agent will be installed, registered and will run as a high-availability agent which will accept sign in requests.|
 |Federation with PingFederate|Azure authentications will continue to use the PingFederate policy configured for your active synchronization server.  You may optionally change the sign-in method to PingFederate in preparation for your standby server becoming the active synchronization instance.  This step may be deferred until you need to federate additional domains with PingFederate.|
 
 ## Next steps

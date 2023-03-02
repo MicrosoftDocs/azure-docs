@@ -29,17 +29,17 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
 
-To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
 ```html
-<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+<a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
 ```
 
-## Validate tokens from providers
+## Client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
 
-To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
+To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -52,9 +52,9 @@ The token format varies slightly according to the provider. See the following ta
 
 | Provider value | Required in request body | Comments |
 |-|-|-|
-| `aad` | `{"access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | The `expires_in` property is optional. <br/>When requesting the token from Live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. When specified, it can also optionally be accompanied by the `redirect_uri` property. |
+| `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
+| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 | | | |
@@ -91,7 +91,7 @@ Here's a simple sign-out link in a webpage:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -125,13 +125,22 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 Both Microsoft Account and Azure Active Directory lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure AD allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Azure AD sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 
-In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
+1. In [https://resources.azure.com](https://resources.azure.com), At the top of the page, select **Read/Write**.
+2. In the left browser, navigate to **subscriptions** > **_\<subscription-name_** > **resourceGroups** > **_\<resource-group-name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app-name>_** > **config** > **authsettingsV2**.
+3. Click **Edit**.
+4. Add a `loginParameters` array with a `domain_hint` item.
 
-Click **Edit**, modify the following property, and then click **Put**. Be sure to replace _\<domain\_name>_ with the domain you want.
+    ```json
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "login": {
+                "loginParameters": ["domain_hint=<domain-name>"],
+            }
+        }
+    }
+    ```
 
-```json
-"additionalLoginParams": ["domain_hint=<domain_name>"]
-```
+5. Click **Put**.
 
 This setting appends the `domain_hint` query string parameter to the login redirect URL. 
 
@@ -180,7 +189,7 @@ The identity provider may provide certain turn-key authorization. For example:
 
 If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](configure-authentication-user-identities.md).
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Environment variables and app settings for authentication](reference-app-settings.md#authentication--authorization)

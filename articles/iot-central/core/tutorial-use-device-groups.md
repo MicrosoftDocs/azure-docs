@@ -3,7 +3,7 @@ title: Tutorial - Use device groups in your Azure IoT Central application | Micr
 description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 10/26/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -41,14 +41,14 @@ Add a device template from the device catalog. This tutorial uses the **ESP32-Az
 
 The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
 
-Add two cloud properties to the **Sensor Controller** device template:
+Add two cloud properties to the **Sensor Controller** model in the device template:
 
-1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
+1. Select **+ Add capability** and then use the information in the following table to add two cloud properties to your device template:
 
-    | Display Name      | Semantic Type | Schema |
-    | ----------------- | ------------- | ------ |
-    | Last Service Date | None          | Date   |
-    | Customer Name     | None          | String |
+    | Display name      | Capability type | Semantic type | Schema |
+    | ----------------- | --------------- | ------------- | ------ |
+    | Last Service Date | Cloud property  | None          | Date   |
+    | Customer Name     | Cloud property  | None          | String |
 
 1. Select **Save** to save your changes.
 
@@ -68,11 +68,11 @@ Now publish the device template.
 
 Before you create a device group, add at least five simulated devices based on the **Sensor Controller** device template to use in this tutorial:
 
-:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices":::
+:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices." lightbox="media/tutorial-use-device-groups/simulated-devices.png":::
 
 For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso* and select **Save**.
 
-:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property":::
+:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property." lightbox="media/tutorial-use-device-groups/customer-name.png":::
 
 ## Create a device group
 
@@ -80,7 +80,10 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 1. Select **+ New**.
 
-1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template. Choose the **Sensor Controller** device template to use for this group.
+1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template and organization. Choose the **Sensor Controller** device template to use for this group.
+
+    > [!TIP]
+    > If your application [uses organizations](howto-create-organizations.md), select the organization that your devices belong to. Only devices from the selected organization are visible. Also, only users associated with the organization or an organization higher in the hierarchy can see the device group.
 
 1. To customize the device group to include only the devices belonging to **Contoso**, select **+ Filter**. Select the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple filters and devices that meet **all** the filter criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group.
 
@@ -89,34 +92,30 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 1. Choose **Save**.
 
-:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Screenshot that shows the device group query configuration":::
+:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Screenshot that shows the device group query configuration." lightbox="media/tutorial-use-device-groups/device-group-query.png":::
 
 > [!NOTE]
 > For Azure IoT Edge devices, select Azure IoT Edge templates to create a device group.
 
-## Analytics
+## Data explorer
 
-You can use **Analytics** with a device group to analyze the telemetry from the devices in the group. For example, you can plot the average temperature reported by all the Contoso environmental sensors.
+You can use **Data explorer** with a device group to analyze the telemetry from the devices in the group. For example, you can plot the average temperature reported by all the Contoso environmental sensors.
 
 To analyze the telemetry for a device group:
 
-1. Choose **Analytics** on the left pane.
+1. Choose **Data explorer** on the left pane and select **Create a query**.
 
-1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **Humidity** telemetry types:
-
-    :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot that shows the telemetry types selected for analysis":::
+1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **SensorHumid** telemetry types.
 
     Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
-1. Select **Analyze** to view the average telemetry values:
-
-    :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot that shows average values for all the Contoso devices":::
+1. Select **Analyze** to view the average telemetry values.
 
     You can customize the view, change the time period shown, and export the data as CSV or view data as table.
 
-    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices." lightbox="media/tutorial-use-device-groups/export-data.png":::
 
-To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
+To learn more about analytics, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 ## Clean up resources
 
@@ -124,7 +123,7 @@ To learn more about analytics, see [How to use analytics to analyze device data]
 
 ## Next steps
 
-Now that you've learned how to use device groups in your Azure IoT Central application, here is the suggested next step:
+Now that you've learned how to use device groups in your Azure IoT Central application, here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](tutorial-create-telemetry-rules.md)
+> [Connect an IoT Edge device to your Azure IoT Central application](tutorial-connect-iot-edge-device.md)

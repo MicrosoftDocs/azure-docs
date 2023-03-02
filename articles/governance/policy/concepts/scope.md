@@ -1,7 +1,7 @@
 ---
 title: Understand scope in Azure Policy
 description: Describes the concept of scope in Azure Resource Manager and how it applies to Azure Policy to control which resources Azure Policy evaluates.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Understand scope in Azure Policy
@@ -52,14 +52,14 @@ In addition to the properties on the policy assignment, is the
 [policy exemption](./exemption-structure.md) object. Exemptions enhance the scope story by providing
 a method to identify a portion of an assignment to not be evaluated.
 
-- Exemption (**free in preview** feature) - A resource hierarchy or individual resource should be
+- Exemption - A resource hierarchy or individual resource should be
   evaluated for compliance by the definition, but won't be evaluated for a reason such as having a
   waiver or being mitigated through another method. Resources in this state show as **Exempted** in
   compliance reports so that they can be tracked. The exemption object is created on the resource
   hierarchy or individual resource as a child object, which determines the scope of the exemption. A
-  resource hierarchy or individual resource can be exempt to multiple assignments. The exemption may
-  be configured to expire on a schedule by using the `expiresOn` property. For more information, see
-  [Exemption definition](./exemption-structure.md).
+  resource hierarchy or individual resource can be exempt from multiple assignments. The exemption
+  may be configured to expire on a schedule by using the `expiresOn` property. For more information,
+  see [Exemption definition](./exemption-structure.md).
 
   > [!NOTE]
   > Due to the impact of granting an exemption for a resource hierarchy or individual resource,

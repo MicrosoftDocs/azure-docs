@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
+ms.reviewer: shijain
 
 ---
 
@@ -37,7 +38,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |---|---|---|
 | [Windows agents](../agents/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
-| [Linux agents](../vm/quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [Linux agents](../vm/monitor-virtual-machine.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](../agents/om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage does not include capacity and performance data.|
 
@@ -95,9 +96,9 @@ Click on the Capacity and Performance tile to open the Capacity and Performance 
 - **Host Density** The top tile shows the total number of hosts and virtual machines available to the solution. Click the top tile to view additional details in log search. Also lists all hosts and the number of virtual machines that are hosted. Click a host to drill into the VM results in a log search.
 
 
-![dashboard Hosts blade](./media/capacity-performance/dashboard-hosts.png)
+![dashboard Hosts columns](./media/capacity-performance/dashboard-hosts.png)
 
-![dashboard virtual machines blade](./media/capacity-performance/dashboard-vms.png)
+![dashboard virtual machines columns](./media/capacity-performance/dashboard-vms.png)
 
 
 ### Evaluate performance
@@ -125,4 +126,3 @@ The following table provides sample log searches for capacity and performance da
 
 ## Next steps
 * Use [Log searches in Log Analytics](../logs/log-query-overview.md) to view detailed Capacity and Performance data.
-

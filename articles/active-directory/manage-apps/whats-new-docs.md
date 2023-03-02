@@ -1,100 +1,59 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 07/12/2021
+ms.date: 03/02/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: davidmu
-author: davidmu1
+ms.author: jomondi
+author: omondiatieno
 manager: CelesteDG
 ---
 
 # Azure Active Directory application management: What's new
 
-Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
-## June 2021
-
-### Updated articles
-
-- [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](add-application-portal.md)
-- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
-- [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
-- [Manage user assignment for an app in Azure Active Directory](assign-user-or-group-access-portal.md)
-- [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
-- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
-
-
-## May 2021
+## February 2023
 
 ### Updated articles
 
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
+[Manage custom security attributes for an application (Preview)](custom-security-attributes-apps.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Configure permission classifications](configure-permission-classifications.md)
+- [Disable user sign-in for an application](disable-user-sign-in-portal.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
 
-## April 2021
+## January 2023
 
 ### New articles
 
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
+- [Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
 
 ### Updated articles
 
-- [Application management best practices](application-management-fundamentals.md)
-- [Application management documentation](index.yml)
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
-- [Single sign-on options in Azure AD](sso-options.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Header-based authentication for single sign-on with Application Proxy and PingAccess](../app-proxy/application-proxy-ping-access-publishing-guide.md)
-- [Managing consent to applications and evaluating consent requests](manage-consent-requests.md)
-- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
-- [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Assign enterprise application owners](assign-app-owners.md)
+- [Configure enterprise application properties](add-application-portal-configure.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
+- [Secure hybrid access: Protect legacy apps with Azure Active Directory](secure-hybrid-access.md)
+- [Create an enterprise application from a multi-tenant application in Azure Active Directory](create-service-principal-cross-tenant.md)
+- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
+- [Secure hybrid access with Azure Active Directory partner integrations](secure-hybrid-access-integrations.md)
 
-## March 2021
-
-### New articles
-
-- [Azure Active Directory (Azure AD) Application Management certificates frequently asked questions](application-management-certs-faq.md)
-- [Azure Active Directory PowerShell examples for Application Management](app-management-powershell-samples.md)
-- [Disable auto-acceleration to a federated IDP during user sign-in with Home Realm Discovery policy](prevent-domain-hints-with-home-realm-discovery.md)
+## December 2022
 
 ### Updated articles
 
-- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
-- [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
-- [Integrate with SharePoint (SAML)](../app-proxy/application-proxy-integrate-with-sharepoint-server-saml.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Use the AD FS application activity report to migrate applications to Azure AD](migrate-adfs-application-activity.md)
-- [Plan a single sign-on deployment](plan-sso-deployment.md)
-- [Azure Active Directory PowerShell examples for Application Management](app-management-powershell-samples.md)
-- [Troubleshoot Kerberos constrained delegation configurations for Application Proxy](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-- [Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-sso.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
-- [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
-- [Optimize traffic flow with Azure Active Directory Application Proxy](../app-proxy/application-proxy-network-topology.md)
-- [Azure AD Application Proxy: Version release history](../app-proxy/application-proxy-release-version-history.md)
-- [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](configure-authentication-for-federated-users-portal.md)
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-
-## February 2021
-
-### New articles
-
-- [Integrate with SharePoint (SAML)](../app-proxy/application-proxy-integrate-with-sharepoint-server-saml.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-
-### Updated articles
-
-- [Integrate with SharePoint (SAML)](../app-proxy/application-proxy-integrate-with-sharepoint-server-saml.md)
-- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
-- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
+- [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md)
+- [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
+- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+- [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
+- [End-user experiences for applications](end-user-experiences.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on](f5-big-ip-ldap-header-easybutton.md)

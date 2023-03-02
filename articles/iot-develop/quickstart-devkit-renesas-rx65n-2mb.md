@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/04/2021
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect a Renesas Starter Kit+ for RX65N-2MB to IoT Central
@@ -26,7 +27,7 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
@@ -36,6 +37,7 @@ You will complete the following tasks:
     * The included 5V power supply
     * Ethernet cable
     * Wired Ethernet access
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -65,7 +67,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain-rx.bat*
 
 1. Add the RX compiler to the Windows Path:
 
@@ -256,6 +258,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -281,4 +286,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

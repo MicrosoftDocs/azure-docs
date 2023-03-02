@@ -1,15 +1,16 @@
 ---
 title: How to use Azure Queue Storage from Python
+titleSuffix: Azure Storage
 description: Learn to use the Azure Queue Storage from Python to create and delete queues, and insert, get, and delete messages.
-author: twooley
+author: pauljewellmsft
 
-ms.author: twooley
-ms.reviewer: dineshm
-ms.date: 02/16/2021
+ms.author: pauljewell
+ms.date: 01/19/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.custom: seo-javascript-october2019, devx-track-python
+ms.devlang: quickstart
+ms.custom: seo-javascript-october2019, devx-track-python, py-fresh-zinc, engagement-fy23
 ---
 
 # How to use Azure Queue Storage from Python

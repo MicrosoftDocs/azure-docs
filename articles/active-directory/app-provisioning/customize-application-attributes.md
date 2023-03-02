@@ -3,12 +3,12 @@ title: Tutorial - Customize Azure Active Directory attribute mappings in Applica
 description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -17,11 +17,11 @@ ms.reviewer: arvinh
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
-Before you get started, make sure you are familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
+Before you get started, make sure you are familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
-- [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
+- [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
-There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app's user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.
 
@@ -42,6 +42,9 @@ Follow these steps to access the **Mappings** feature of user provisioning:
    ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
    In this screenshot, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
+   
+   > [!NOTE]
+   > Clearing **Create** doesn't affect existing users. If **Create** isn't selected, you can't create new users.   
 
 1. Select an existing **Attribute Mapping** to open the **Edit Attribute** screen. Here you can edit the user attributes that flow between Azure AD and the target application.
 
@@ -67,7 +70,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
-- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
+- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
 - **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated. While you can set as many matching attributes as you would like, consider whether the attributes you are using as matching attributes are truly unique and need to be matching attributes. Generally customers have 1 or 2 matching attributes in their configuration. 
 - **Apply this mapping**
@@ -78,10 +81,10 @@ Along with this property, attribute-mappings also support the following attribut
 The Azure AD provisioning service can be deployed in both "green field" scenarios (where users do not exist in the target system) and "brownfield" scenarios (where users already exist in the target system). To support both scenarios, the provisioning service uses the concept of matching attributes. Matching attributes allow you to determine how to uniquely identify a user in the source and match the user in the target. As part of planning your deployment, identify the attribute that can be used to uniquely identify a user in the source and target systems. Things to note:
 
 - **Matching attributes should be unique:** Customers often use attributes such as userPrincipalName, mail, or object ID as the matching attribute.
-- **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they are evaluated (defined as matching precedence in the UI). If, for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service will not evaluate the third attribute. The service will evaluate matching attributes in the order specified and stop evaluating when a match is found.  
+- **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they are evaluated (defined as matching precedence in the UI). If for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service will not evaluate the third attribute. The service will evaluate matching attributes in the order specified and stop evaluating when a match is found.  
 - **The value in the source and the target do not have to match exactly:** The value in the target can be some simple function of the value in the source. So, one could have an emailAddress attribute in the source and the userPrincipalName in the target, and match by a function of the emailAddress attribute that replaces some characters with some constant value.  
 - **Matching based on a combination of attributes is not supported:** Most applications do not support querying based on two properties. Therefore, it is not possible to match based on a combination of attributes. It is possible to evaluate single properties on after another.
-- **All users must have a value for at least one matching attribute:** If you define one matching attribute, all users must have a value for that attribute in the source system. If, for example, you define userPrincipalName as the matching attribute, all users must have a userPrincipalName. If you define multiple matching attribute (e.g. extensionAttribute1 and mail), not all users have to have the same matching attribute. One user could have a extensionAttribute1 but not mail while another user could have mail but no extensionAttribute1. 
+- **All users must have a value for at least one matching attribute:** If you define one matching attribute, all users must have a value for that attribute in the source system. If for example, you define userPrincipalName as the matching attribute, all users must have a userPrincipalName. If you define multiple matching attributes (for example, both extensionAttribute1 and mail), not all users have to have the same matching attribute. One user could have a extensionAttribute1 but not mail while another user could have mail but no extensionAttribute1. 
 - **The target application must support filtering on the matching attribute:** Application developers allow filtering for a subset of attributes on their user or group API. For applications in the gallery, we ensure that the default attribute mapping is for an attribute that the target application's API does support filtering on. When changing the default matching attribute for the target application, check the third party API documentation to ensure that the attribute can be filtered on.  
 
 ## Editing group attribute-mappings
@@ -109,15 +112,18 @@ Applications and systems that support customization of the attribute list includ
 - ServiceNow
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
-- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-on-a-cloud-only-user) and [known limitations](./known-issues.md). 
+- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md) and [known limitations](./known-issues.md). 
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - For Azure Active Directory writeback to Workday or SuccessFactors, it is supported to update relevant metadata for supported attributes (XPATH and JSONPath), but it is not supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
 
-When editing the list of supported attributes, the following properties are provided:
+> [!NOTE]
+> When a directory extension attribute in Azure AD does not show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
+
+When you are editing the list of supported attributes, the following properties are provided:
 
 - **Name** - The system name of the attribute, as defined in the target object's schema.
 - **Type** - The type of data the attribute stores, as defined in the target object's schema, which can be one of the following types:
@@ -196,12 +202,12 @@ Use the steps below to provision roles for a user to your application. Note that
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
-  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from: (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
-  
+  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
+
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
-    
+    - SingleAppRoleAssignments is not compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
    ```json
@@ -228,18 +234,18 @@ Use the steps below to provision roles for a user to your application. Note that
   
   - **Example output (PATCH)** 
     
-   ```
+   ```json
    "Operations": [
-   {
-   "op": "Add",
-   "path": "roles",
-   "value": [
-   {
-   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-   }
-   ]
+     {
+       "op": "Add",
+       "path": "roles",
+       "value": [
+         {
+           "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+         }
+       ]
    ```  
-The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
+The request formats in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
@@ -253,6 +259,7 @@ The request format in the PATCH and POST differ. To ensure that POST and PATCH a
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    - AppRoleAssignmentsComplex is not compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
   
@@ -326,7 +333,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle.
 - Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
-- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It is not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
 - The Azure AD provisioning service does not support provisioning null values.
 - They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 

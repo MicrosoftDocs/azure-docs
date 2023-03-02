@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online via the Azure portal"
+title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
-author: arunkumarthiags
-ms.author: arthiaga
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2020
 ---
 
-# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
+# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS via the Azure portal
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -38,17 +38,17 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-* Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.4, 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.4, 9.5, 9.6, 10, 11 or 12. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
+* Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.4, 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.4, 9.5, 9.6, 10, 11, 12, or 13. For more information, see [Supported PostgreSQL database versions](../postgresql/concepts-supported-versions.md).
 
-    Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 9.6 can migrate to Azure Database for PostgreSQL 9.6, 10, or 11, but not to Azure Database for PostgreSQL 9.5. Migrations to PostgreSQL 13+ are not supported at this time. 
+    Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 9.6 can migrate to Azure Database for PostgreSQL 9.6, 10, or 11, but not to Azure Database for PostgreSQL 9.5. 
 
-* [Create an Azure Database for PostgreSQL server](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/quickstart-create-hyperscale-portal.md).
+* [Create an Azure Database for PostgreSQL server](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/hyperscale/quickstart-create-portal.md).
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >
@@ -75,20 +75,20 @@ To complete all the database objects like table schemas, indexes and stored proc
 1. Use pg_dump -s command to create a schema dump file for a database.
 
     ```
-    pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
+    pg_dump -O -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
     For example, to create a schema dump file for the **dvdrental** database:
 
     ```
-    pg_dump -o -h localhost -U postgres -d dvdrental -s -O -x > dvdrentalSchema.sql
+    pg_dump -O -h localhost -U postgres -d dvdrental -s -x > dvdrentalSchema.sql
     ```
 
     For more information about using the pg_dump utility, see the examples in the [pg-dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html#PG-DUMP-EXAMPLES) tutorial.
 
 2. Create an empty database in your target environment, which is Azure Database for PostgreSQL.
 
-    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](../postgresql/quickstart-create-hyperscale-portal.md).
+    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](../postgresql/hyperscale/quickstart-create-portal.md).
 
     > [!NOTE]
     > An instance of Azure Database for PostgreSQL - Hyperscale (Citus) has only a single database: **citus**.
@@ -108,20 +108,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create a DMS instance
 

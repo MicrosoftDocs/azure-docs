@@ -79,4 +79,4 @@
   items:
   - name: Machine Learning
     tocHref: /power-bi/connect-data/
-    topicHref: /azure/machine-learning/index
+    topicHref: /azure/machine-learning/v1/introduction

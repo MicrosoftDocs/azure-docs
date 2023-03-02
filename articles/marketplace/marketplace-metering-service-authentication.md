@@ -1,12 +1,12 @@
 ---
-title: Marketplace metering service authentication strategies | Azure Marketplace
-description: Metering service authentication strategies supported in the Azure Marketplace. 
+title: Marketplace metering service authentication strategies supported in Azure Marketplace
+description: Metering service authentication strategies supported in Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/01/2021
-author: mingshen-ms
-ms.author: mingshen
+ms.date: 06/13/2022
+author: arifgani
+ms.author: argani
 ---
 
 # Marketplace metering service authentication strategies
@@ -50,14 +50,12 @@ For more information about these tokens, see [Azure Active Directory access toke
 |  **Parameter name** |  **Required**  |  **Description**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `tenantId`         |   True         | Tenant ID of the registered Azure AD application.   |
-| | | |
 
 #### *Request header*
 
 |  **Header name**    |  **Required**  |  **Description**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Content-Type`     |   True         | Content type associated with the request. The default value is `application/x-www-form-urlencoded`.  |
-| | | |
 
 #### *Request body*
 
@@ -67,14 +65,12 @@ For more information about these tokens, see [Azure Active Directory access toke
 |  `Client_id`        |   True         | Client/app identifier associated with the Azure AD app.|
 |  `client_secret`    |   True         | Secret associated with the Azure AD app.  |
 |  `Resource`         |   True         | Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
-| | | |
 
 #### *Response*
 
 |  **Name**    |  **Type**  |  **Description**          |
 |  ------------------ |--------------- | ----------------------  |
 |  `200 OK`     |   `TokenResponse`    | Request succeeded.  |
-| | | |
 
 #### *TokenResponse*
 

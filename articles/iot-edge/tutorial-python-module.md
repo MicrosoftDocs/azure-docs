@@ -3,10 +3,10 @@
 title: Tutorial - Custom Python module tutorial using Azure IoT Edge  
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
-author: kgremban
-manager: philmea
+author: PatAltimore
+
 ms.reviewer: kgremban
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Develop and deploy a Python IoT Edge module using Linux containers
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use Visual Studio Code to develop Python code and deploy it to a device running Azure IoT Edge.
 
@@ -42,16 +42,17 @@ Use the following table to understand your options for developing and deploying 
 
 | Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use VS Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use VS Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Use Visual Studio Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use Visual Studio Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use Visual Studio Code for Python modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A device running Azure IoT Edge. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in Python, install the following additional prerequisites on your development machine:
 
@@ -64,13 +65,13 @@ To develop an IoT Edge module in Python, install the following additional prereq
 
 ## Create a module project
 
-The following steps create an IoT Edge Python module by using Visual Studio Code and the Azure IoT Tools.
+The following steps create an IoT Edge Python module by using Visual Studio Code and the Azure IoT Edge extension.
 
 ### Create a new project
 
 Create a Python solution template that you can customize with your own code.
 
-1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette.
+1. In Visual Studio Code, select **View** > **Command Palette** to open the Visual Studio Code command palette.
 
 2. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 
@@ -78,7 +79,7 @@ Create a Python solution template that you can customize with your own code.
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Python Module**. |
    | Provide a module name | Name your module **PythonModule**. |
@@ -92,7 +93,7 @@ The environment file stores the credentials for your container repository and sh
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
-1. In the VS Code explorer, open the **.env** file.
+1. In the Visual Studio Code explorer, open the **.env** file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save the .env file.
 
@@ -111,7 +112,7 @@ Currently, Visual Studio Code can develop Python modules for Linux AMD64 and Lin
 
 Each template includes sample code, which takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT hub. In this section, add the code that expands the **PythonModule** to analyze the messages before sending them.
 
-1. In the VS Code explorer, open **modules** > **PythonModule** > **main.py**.
+1. In the Visual Studio Code explorer, open **modules** > **PythonModule** > **main.py**.
 
 2. At the top of the **main.py** file, import the **json** library:
 
@@ -119,7 +120,7 @@ Each template includes sample code, which takes simulated sensor data from the *
     import json
     ```
 
-3. Add the **TEMPERATURE_THRESHOLD** and **TWIN_CALLBACKS** variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
+3. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
 
     ```python
     # global counters
@@ -128,63 +129,60 @@ Each template includes sample code, which takes simulated sensor data from the *
     RECEIVED_MESSAGES = 0
     ```
 
-4. Replace the **input1_listener** function with the following code:
+4. Replace the **create_client** function with the following code:
 
     ```python
-        # Define behavior for receiving an input message on input1
-        # Because this is a filter module, we forward this message to the "output1" queue.
-        async def input1_listener(module_client):
+    def create_client():
+        client = IoTHubModuleClient.create_from_edge_environment()
+
+        # Define function for handling received messages
+        async def receive_message_handler(message):
             global RECEIVED_MESSAGES
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    input_message = await module_client.receive_message_on_input("input1")  # blocking call
-                    message = input_message.data
-                    size = len(message)
-                    message_text = message.decode('utf-8')
-                    print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
-                    custom_properties = input_message.custom_properties
-                    print ( "    Properties: %s" % custom_properties )
-                    RECEIVED_MESSAGES += 1
-                    print ( "    Total messages received: %d" % RECEIVED_MESSAGES )
-                    data = json.loads(message_text)
-                    if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
-                        custom_properties["MessageType"] = "Alert"
-                        print ( "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
-                        await module_client.send_message_to_output(input_message, "output1")
-                except Exception as ex:
-                    print ( "Unexpected error in input1_listener: %s" % ex )
+            print("Message received")
+            size = len(message.data)
+            message_text = message.data.decode('utf-8')
+            print("    Data: <<<{data}>>> & Size={size}".format(data=message.data, size=size))
+            print("    Properties: {}".format(message.custom_properties))
+            RECEIVED_MESSAGES += 1
+            print("Total messages received: {}".format(RECEIVED_MESSAGES))
 
-        # twin_patch_listener is invoked when the module twin's desired properties are updated.
-        async def twin_patch_listener(module_client):
+            if message.input_name == "input1":
+                message_json = json.loads(message_text)
+                if "machine" in message_json and "temperature" in message_json["machine"] and message_json["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+                    message.custom_properties["MessageType"] = "Alert"
+                    print("ALERT: Machine temperature {temp} exceeds threshold {threshold}".format(
+                        temp=message_json["machine"]["temperature"], threshold=TEMPERATURE_THRESHOLD
+                    ))
+                    await client.send_message_to_output(message, "output1")
+
+        # Define function for handling received twin patches
+        async def receive_twin_patch_handler(twin_patch):
+            global TEMPERATURE_THRESHOLD
             global TWIN_CALLBACKS
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    data = await module_client.receive_twin_desired_properties_patch()  # blocking call
-                    print( "The data in the desired properties patch was: %s" % data)
-                    if "TemperatureThreshold" in data:
-                        TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
-                    TWIN_CALLBACKS += 1
-                    print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
-                except Exception as ex:
-                    print ( "Unexpected error in twin_patch_listener: %s" % ex )
+            print("Twin Patch received")
+            print("     {}".format(twin_patch))
+            if "TemperatureThreshold" in twin_patch:
+                TEMPERATURE_THRESHOLD = twin_patch["TemperatureThreshold"]
+            TWIN_CALLBACKS += 1
+            print("Total calls confirmed: {}".format(TWIN_CALLBACKS))
+
+        try:
+            # Set handler on the client
+            client.on_message_received = receive_message_handler
+            client.on_twin_desired_properties_patch_received = receive_twin_patch_handler
+        except:
+            # Cleanup if failure occurs
+            client.shutdown()
+            raise
+
+        return client
     ```
 
-5. Update the **listeners** to also listen twin updates.
+7. Save the main.py file.
 
-    ```python
-        # Schedule task for C2D Listener
-        listeners = asyncio.gather(input1_listener(module_client), twin_patch_listener(module_client))
+8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-        print ( "The sample is now waiting for messages. ")
-    ```
-
-6. Save the main.py file.
-
-7. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
-
-8. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+9. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
 
    ```json
        "PythonModule": {
@@ -196,13 +194,13 @@ Each template includes sample code, which takes simulated sensor data from the *
 
    ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
 
-9. Save the deployment.template.json file.
+10. Save the deployment.template.json file.
 
 ## Build and push your module
 
 In the previous section, you created an IoT Edge solution and added code to the PythonModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
+1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
 2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
@@ -212,7 +210,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
+3. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
@@ -220,7 +218,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Deploy modules to device
 
-Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio Code explorer and the Azure IoT Edge extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 
@@ -266,7 +264,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

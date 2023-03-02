@@ -4,7 +4,7 @@ description: Overview of Data Lake Storage Gen1 in HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 05/11/2022
 ---
 
 # Azure Data Lake Storage Gen1 overview in HDInsight

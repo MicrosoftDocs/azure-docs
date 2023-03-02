@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 01/18/2021
-ms.author: mimart
+ms.author: kengaderdus
 ---
 ## Add a user journey 
 

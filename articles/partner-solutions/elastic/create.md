@@ -1,11 +1,11 @@
 ---
-title: Create Elastic application - Azure partner solutions
+title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
-ms.service: partner-services
 ms.topic: quickstart
-ms.date: 05/19/2021
-author: tfitzmac
-ms.author: tomfitz
+ms.date: 09/02/2021
+author: flang-msft
+ms.author: franlanglois
+ms.custom: mode-other
 ---
 
 # QuickStart: Get started with Elastic
@@ -14,7 +14,7 @@ In this quickstart, you'll use the Azure portal to integrate an instance of Elas
 
 ## Prerequisites
 
-- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 - Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users. 
 
 ## Find offer
@@ -46,7 +46,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
     | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select **West US 2** or **UK South**. During the preview, only these regions are supported by Elastic. |
+    | **Region** | Select the region you want to deploy to. |
     | **Pricing Plan** | **Pay as you go**. |
     | **Price** | Specified based on the selected Elastic plan. |
 

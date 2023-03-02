@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/22/2021
+ms.date: 03/31/2022
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -42,10 +42,10 @@ The following procedure uses an Azure Resource Manager template to create an HBa
     |Resource group|Create an Azure Resource management group or use an existing one.|
     |Location|Specify the location of the resource group. |
     |ClusterName|Enter a name for the HBase cluster.|
-    |Cluster login name and password|The default login name is **admin**.|
-    |SSH username and password|The default username is **sshuser**.|
+    |Cluster login name and password|The default login name is `admin`.|
+    |SSH username and password|The default username is `sshuser`.|
 
-    Other parameters are optional.  
+    Other parameters are optional.
 
     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data stays in the storage account. The cluster default storage account name is the cluster name with "store" appended. It's hardcoded in the template variables section.
 
@@ -216,11 +216,11 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 > [!NOTE]
 > After scaling either clusters, `/etc/hosts` must be appended again
 
-## Use HBase REST APIs using Curl
+## Use the HBase REST API via Curl
 
-The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+The HBase REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-1. To enable HBase REST APIs in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
+1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
 
 
 	```bash
@@ -240,7 +240,7 @@ The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki
 		echo "Applying mitigation; starting REST Server"
 		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
 	else
-		echo "Rest server already running"
+		echo "REST server already running"
 		exit 0
 	fi
 	```
@@ -354,7 +354,7 @@ If you're not going to continue to use this application, delete the HBase cluste
 
 ## Next steps
 
-In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table. To learn more, see:
+In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST API to create an HBase table and retrieve data from the table. To learn more, see:
 
 > [!div class="nextstepaction"]
 > [HDInsight HBase overview](./apache-hbase-overview.md)

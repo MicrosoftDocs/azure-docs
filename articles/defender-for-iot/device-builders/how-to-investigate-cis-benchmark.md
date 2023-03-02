@@ -1,139 +1,113 @@
 ---
 title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-ms.date: 05/26/2021
+ms.date: 05/03/2022
 ms.topic: how-to
 ---
 
-# Investigate OS baseline (based on CIS benchmark) recommendation 
+# Investigate OS baseline (based on CIS benchmark) recommendation
 
 Perform basic and advanced investigations based on OS baseline recommendations.
 
-## Basic OS baseline security recommendation investigation  
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
-You can investigate OS baseline recommendations by navigating to your Azure Defender for IoT portal, under the **IoT Hub**. For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
+## Basic OS baseline security recommendation investigation
 
-## Advanced OS baseline security recommendation investigation  
+You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
 
-This section describes how to better understand the OS baseline test results, and querying events in Azure Log Analytics.  
+## Advanced OS baseline security recommendation investigation
 
-The advanced OS baseline security recommendation investigation is only supported by using log analytics. Connect Defender for IoT to a Log Analytics workspace before continuing. For more information on advanced OS baseline security recommendations, see how to [Configure Azure Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
+This section describes how to better understand the OS baseline test results, and querying events in Azure Log Analytics.
 
-To query your IoT security events in Log Analytics for alerts:
+**Prerequisites**:
 
-1. Navigate to the **Alerts** page.
+The advanced OS baseline security recommendation investigation is only supported by using Azure Log Analytics and you must connect Defender for IoT to a Log Analytics workspace before continuing.
 
-1. Select **Investigate recommendations in Log Analytics workspace**.
+For more information, see [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
 
-To query your IoT security events in Log Analytics for recommendations:
+**To query your IoT security events in Log Analytics for alerts**:
 
-1. Navigate to the **Recommendations** page.
+1. In your Log Analytics workspace, go to **Logs** > **AzureSecurityOfThings** > **SecurityAlert**.
 
-1. Select **Investigate recommendations in Log Analytics workspace**.
+1. In the query editor on the right, enter a KQL query to display the alerts you want to see. 
 
-1. Select **Show Operation system (OS) baseline rules details** from the **Recommendation details** quick view page to see the details of a specific device.
+1. Select **Run** to display the alerts that match your query.
 
-   :::image type="content" source="media/how-to-investigate-cis-benchmark/recommendation-details.png" alt-text="See the details of a specific device."::: 
+For example:
 
-To query your IoT security events in Log Analytics workspace directly:
+:::image type="content" source="media/how-to-investigate-cis-benchmark/log-analytics.png" alt-text="Screenshot of the Log Analytics workspace with a Defender for I o T alert query." lightbox="media/how-to-investigate-cis-benchmark/log-analytics.png":::
 
-1. Navigate to the **Logs** page.
+> [!NOTE]
+> In addition to alerts, you can also use this same procedure to query for recommendations or raw event data.
+>
 
-    :::image type="content" source="media/how-to-investigate-cis-benchmark/logs.png" alt-text="Select logs from the left side pane.":::
-
-1. Select **Investigate the alerts** or, select the **Investigate the alerts in Log Analytics** option from any security recommendation, or alert.   
-
-## Useful queries to investigate the OS baseline resources: 
+## Useful queries to investigate the OS baseline resources
 
 > [!Note]
-> Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries. 
-
+> Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries.
 
 ### Retrieve the latest information
 
-- **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet: 
+- **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet:
 
-    ```azurecli
-    let lastDates = SecurityIoTRawEvent | 
-    
-    where RawEventName == "OSBaseline" | 
-    
-    summarize TimeStamp=max(TimeStamp) by DeviceId; 
-    
-    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId  | 
-    
-    extend event = parse_json(EventDetails) | 
-    
-    where event.Result == "FAIL" | 
-    
-    project DeviceId, event.CceId, event.Description 
+    ```kusto
+    let lastDates = SecurityIoTRawEvent |
+    where RawEventName == "Baseline" |
+    summarize TimeStamp=max(TimeStamp) by DeviceId;
+    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
+    extend event = parse_json(EventDetails) |
+    where event.BaselineCheckResult == "FAIL" |
+    project DeviceId, event.BaselineCheckId, event.BaselineCheckDescription
     ```
- 
+
 - **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
 
-    ```azurecli
-    let LastEvents = SecurityIoTRawEvent | 
-    
-    where RawEventName == "OSBaseline" | 
-    
-    where DeviceId == "<device-id>" | 
-    
-    top 1 by TimeStamp desc | 
-    
-    project IoTRawEventId; 
-    
-    LastEvents | join kind=leftouter SecurityIoTRawEvent on IoTRawEventId | 
-    
-    extend event = parse_json(EventDetails) | 
-    
-    where event.Result == "FAIL" | 
-    
-    project DeviceId, event.CceId, event.Description 
+    ```kusto
+    let id = SecurityIoTRawEvent | 
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
+    where TimeGenerated <= now() |
+    where RawEventName == "Baseline" |
+    where DeviceId == "<device-id>" |
+    summarize arg_max(TimeGenerated, IoTRawEventId) |
+    project IoTRawEventId;
+    SecurityIoTRawEvent |
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
+    where IoTRawEventId == toscalar(id) |
+    where extraDetails.BaselineCheckResult == "FAIL" |
+    project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
 
-- **Specific device error** - Run this query to retrieve the latest information about checks that have an error on a specific device: 
+- **Specific device error** - Run this query to retrieve the latest information about checks that have an error on a specific device:
 
-    ```azurecli
-    let LastEvents = SecurityIoTRawEvent | 
-    
-    where RawEventName == "OSBaseline" | 
-    
-    where DeviceId == "<device-id>" | 
-    
-    top 1 by TimeStamp desc | 
-    
-    project IoTRawEventId; 
-    
-    LastEvents | join kind=leftouter SecurityIoTRawEvent on IoTRawEventId | 
-    
-    extend event = parse_json(EventDetails) | 
-    
-    where event.Result == "ERROR" | 
-    
-    project DeviceId, event.CceId, event.Description 
+    ```kusto
+    let id = SecurityIoTRawEvent |
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
+    where TimeGenerated <= now() |
+    where RawEventName == "Baseline" |
+    where DeviceId == "<device-id>" |
+    summarize arg_max(TimeGenerated, IoTRawEventId) |
+    project IoTRawEventId;
+    SecurityIoTRawEvent |
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
+    where IoTRawEventId == toscalar(id) |
+    where extraDetails.BaselineCheckResult == "ERROR" |
+    project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
- 
+
 - **Update device list for device fleet that failed a specific check** - Run this query to retrieve updated list of devices (across the device fleet) that failed a specific check:  
- 
-    ```azurecli
-    let lastDates = SecurityIoTRawEvent | 
-    
-    where RawEventName == "OSBaseline" | 
-    
-    summarize TimeStamp=max(TimeStamp) by DeviceId; 
-    
-    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId  | 
-    
-    extend event = parse_json(EventDetails) | 
-    
-    where event.Result == "FAIL" | 
-    
-    where event.CceId contains "6.2.8" | 
-    
-    project DeviceId; 
+
+    ```kusto
+    let lastDates = SecurityIoTRawEvent |
+    where RawEventName == "Baseline" |
+    summarize TimeStamp=max(TimeStamp) by DeviceId;
+    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
+    extend event = parse_json(EventDetails) |
+    where event.BaselineCheckResult == "FAIL" |
+    where event.BaselineCheckId contains "6.2.8" |
+    project DeviceId;
     ```
- 
+
 ## Next steps
 
 [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
- 

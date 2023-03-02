@@ -5,7 +5,7 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 
 # Ingest historical telemetry data
@@ -136,8 +136,6 @@ Follow these steps:
 | Description | Provide a meaningful description. |
 | Properties | Additional properties from the manufacturer. |
 
-For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
-
 ### API request to create metadata
 
 To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).
@@ -187,7 +185,7 @@ access_token = token_response.get('access_token')
 Here are the most common request headers that must be specified when you make an API call to FarmBeats Datahub:
 
 - **Content-Type**: application/json
-- **Authorization**: Bearer <Access-Token>
+- **Authorization**: Bearer \<Access-Token\>
 - **Accept**: application/json
 
 ### Input payload to create metadata

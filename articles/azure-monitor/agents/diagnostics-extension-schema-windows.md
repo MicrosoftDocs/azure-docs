@@ -4,7 +4,8 @@ description: Configuration schema reference for Windows diagnostics extension (W
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 01/20/2020
+ms.date: 07/12/2022
+ms.reviewer: luki
 
 ---
 
@@ -218,7 +219,7 @@ The top-level element of the diagnostics configuration file.
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> To collect all events, specify "*" |
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the Windows events to be collected. For example:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> To collect all events, specify "*" |
 |**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data for all child elements that support sinks. Sink example is Application Insights or Event Hubs.|  
 
 

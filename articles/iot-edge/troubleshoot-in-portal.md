@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot from the Azure portal - Azure IoT Edge | Microsoft Docs 
 description: Use the troubleshooting page in the Azure portal to monitor IoT Edge devices and modules
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot IoT Edge devices from the Azure portal
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 IoT Edge provides a streamlined way of monitoring and troubleshooting modules in the Azure portal. The troubleshooting page is a wrapper for the IoT Edge agent's direct methods so that you can easily retrieve logs from deployed modules and remotely restart them.
 
@@ -26,7 +26,7 @@ You can access the troubleshooting page in the portal through either the IoT Edg
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. In the left pane, select **IoT Edge** from the menu.
+1. In the left pane,select **Devices** under the **Device management** menu.
 
 1. Select the IoT Edge device that you want to monitor from the list of devices.
 

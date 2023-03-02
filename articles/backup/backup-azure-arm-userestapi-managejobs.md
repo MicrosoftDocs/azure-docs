@@ -4,6 +4,8 @@ description: In this article, learn how to track and manage backup and restore j
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Track backup and restore jobs using REST API
@@ -28,7 +30,7 @@ An operation such as triggering backup will always return a jobID. For example: 
 }
 ```
 
-The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/2021-02-10/job-details) using a simple *GET* request.
+The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a simple *GET* request.
 
 ## Tracking the job
 
@@ -42,7 +44,7 @@ The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with t
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [JobResource](/rest/api/backup/2021-02-10/job-details/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/job-details/get#jobresource)        | OK        |
 
 #### Example response
 

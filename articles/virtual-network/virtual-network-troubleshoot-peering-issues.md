@@ -2,20 +2,15 @@
 title: Troubleshoot virtual network peering issues
 description: Steps to help resolve most virtual network peering issues.
 services: virtual-network
-documentationcenter: na
-author: v-miegge
+author: asudbring
 manager: dcscontentpm
-editor: ''
 tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
-ms.author: kaushika
-
+ms.author: allensu
 ---
 
 # Troubleshoot virtual network peering issues
@@ -44,7 +39,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
-> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
+> * Azure App Service Environment for Power Apps (uses Basic ILB SKU)
 > * Azure API Management (uses Basic ILB SKU)
 > * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
 
@@ -52,7 +47,7 @@ For more information, see the [requirements and constraints](./virtual-network-p
 
 ### The virtual networks are in different subscriptions or Active Directory tenants
 
-To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create peering in different subscriptions for Azure CLI](./create-peering-different-subscriptions.md#cli).
+To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 > [!Note]
 > To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](virtual-network-manage-peering.md#permissions).
@@ -214,14 +209,14 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 * [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 
 
 ### Current tenant `<TENANT ID>` isn't authorized to access linked subscription
 
-To resolve this issue, see [Create peering - Azure CLI](./create-peering-different-subscriptions.md#cli).
+To resolve this issue, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 ### Not connected
 

@@ -1,24 +1,25 @@
 ---
-title: Use an Azure Resource Manager template to deploy your service
+title: 'Quickstart: Deploy using templates'
 titleSuffix: Azure Cognitive Search
-description: You can quickly deploy an Azure Cognitive Search service instance using the Azure resource manager template.
-
+description: You can quickly deploy an Azure Cognitive Search service instance using the Azure Resource Manager template.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 11/17/2020
+ms.custom: subject-armqs, mode-arm
+ms.date: 05/25/2022
 ---
 
-# Quickstart: Deploy Cognitive Search using an ARM template
+# Quickstart: Deploy Cognitive Search using an Azure Resource Manager template
 
-This article walks you through the process for using an Azure Resource Manager template (ARM template) to deploy an Azure Cognitive Search resource in the Azure portal.
+This article walks you through the process for using an Azure Resource Manager (ARM) template to deploy an Azure Cognitive Search resource in the Azure portal.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can update the service as a post-deployment task. To customize an existing service with the fewest steps, use [Azure CLI](search-manage-azure-cli.md) or [Azure PowerShell](search-manage-powershell.md). If you're evaluating preview features, use the [Management REST API](search-manage-rest.md).
+
+Assuming your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.search%2Fazure-search-create%2Fazuredeploy.json)
 

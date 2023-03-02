@@ -5,14 +5,13 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,8 +24,7 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications by using the same passwords. Pass-through Authentication signs users in by validating their passwords directly against on-premises Active Directory.
 
 >[!IMPORTANT]
->If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstoPTADPDownload).
-
+>If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, view [Resources for migrating applications to Azure AD](../manage-apps/migration-resources.md).
 >[!NOTE]
 >If you deploying Pass Through Authentication with the Azure Government cloud, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
 
@@ -39,15 +37,15 @@ Ensure that the following prerequisites are in place.
 >[!IMPORTANT]
 >From a security standpoint, administrators should treat the server running the PTA agent as if it were a domain controller.  The PTA agent servers should be hardened along the same lines as outlined in [Securing Domain Controllers Against Attack](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
-### In the Azure Active Directory admin center
+### In the Entra admin center
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+1. Create a cloud-only Hybrid Identity Administrator account or a Hybrid Identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Hybrid Identity Administrator account](../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
 2. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
 
 1. Identify a server running Windows Server 2016 or later to run Azure AD Connect. If not enabled already, [enable TLS 1.2 on the server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Add the server to the same Active Directory forest as the users whose passwords you need to validate. It should be noted that installation of Pass-Through Authentication agent on Windows Server Core versions is not supported. 
-2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.750.0 or later.
+2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is supported.
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](./reference-connect-version-history.md).
@@ -94,21 +92,21 @@ If you have already installed Azure AD Connect by using the [express installatio
 ![Azure AD Connect: Change user sign-in](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->Pass-through Authentication is a tenant-level feature. Turning it on affects the sign-in for users across _all_ the managed domains in your tenant. If you're switching from Active Directory Federation Services (AD FS) to Pass-through Authentication, you should wait at least 12 hours before shutting down your AD FS infrastructure. This wait time is to ensure that users can keep signing in to Exchange ActiveSync during the transition. For more help on migrating from AD FS to Pass-through Authentication, check out our detailed deployment plan published [here](https://aka.ms/adfstoptadpdownload).
+>Pass-through Authentication is a tenant-level feature. Turning it on affects the sign-in for users across _all_ the managed domains in your tenant. If you're switching from Active Directory Federation Services (AD FS) to Pass-through Authentication, you should wait at least 12 hours before shutting down your AD FS infrastructure. This wait time is to ensure that users can keep signing in to Exchange ActiveSync during the transition. For more help on migrating from AD FS to Pass-through Authentication, check out our deployment plans published [here](../manage-apps/migration-resources.md).
 
 ## Step 3: Test the feature
 
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the global administrator credentials for your tenant.
-2. Select **Azure Active Directory** in the left pane.
+1. Sign in to the [Entra admin center](https://entra.microsoft.com) with the Hybrid Identity Administrator credentials for your tenant.
+2. Select **Azure Active Directory**.
 3. Select **Azure AD Connect**.
 4. Verify that the **Pass-through authentication** feature appears as **Enabled**.
 5. Select **Pass-through authentication**. The **Pass-through authentication** pane lists the servers where your Authentication Agents are installed.
 
-![Azure Active Directory admin center: Azure AD Connect pane](./media/how-to-connect-pta-quick-start/pta7.png)
+   ![Screenhot shows Entra admin center: Azure AD Connect pane.](./media/how-to-connect-pta-quick-start/azure-ad-connect-blade.png)
 
-![Azure Active Directory admin center: Pass-through Authentication pane](./media/how-to-connect-pta-quick-start/pta8.png)
+   ![Screenshot shows Entra admin center: Pass-through Authentication pane.](./media/how-to-connect-pta-quick-start/pta-server-list.png)
 
 At this stage, users from all the managed domains in your tenant can sign in by using Pass-through Authentication. However, users from federated domains continue to sign in by using AD FS or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in by using Pass-through Authentication. The Pass-through Authentication feature does not affect cloud-only users.
 
@@ -129,14 +127,12 @@ For most customers, three Authentication Agents in total are sufficient for high
 
 To begin, follow these instructions to download the Authentication Agent software:
 
-1. To download the latest version of the Authentication Agent (version 1.5.193.0 or later), sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's global administrator credentials.
-2. Select **Azure Active Directory** in the left pane.
+1. To download the latest version of the Authentication Agent (version 1.5.193.0 or later), sign in to the [Entra admin center](https://entra.microsoft.com) with your tenant's Hybrid Identity Administrator credentials.
+2. Select **Azure Active Directory**.
 3. Select **Azure AD Connect**, select **Pass-through authentication**, and then select **Download Agent**.
 4. Select the **Accept terms & download** button.
 
-![Azure Active Directory admin center: Download Authentication Agent button](./media/how-to-connect-pta-quick-start/pta9.png)
-
-![Azure Active Directory admin center: Download Agent pane](./media/how-to-connect-pta-quick-start/pta10.png)
+   [![Screenshot shows Entra admin center: Download Authentication Agent button.](./media/how-to-connect-pta-quick-start/download-agent.png)](./media/how-to-connect-pta-quick-start/download-agent.png#lightbox)
 
 >[!NOTE]
 >You can also directly [download the Authentication Agent software](https://aka.ms/getauthagent). Review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
@@ -170,12 +166,13 @@ Second, you can create and run an unattended deployment script. This is useful w
 Smart Lockout assists in locking out bad actors who are trying to guess your users’ passwords or using brute-force methods to get in. By configuring Smart Lockout settings in Azure AD and / or appropriate lockout settings in on-premises Active Directory, attacks can be filtered out before they reach Active Directory. Read [this article](../authentication/howto-password-smart-lockout.md) to learn more on how to configure Smart Lockout settings on your tenant to protect your user accounts.
 
 ## Next steps
-- [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoptadp) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported with the Pass-through Authentication and which ones are not.
 - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get technical information on the Pass-through Authentication feature.
+- [Hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.  
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.

@@ -4,17 +4,16 @@ description: This article talks about Resource Health Check (RHC) Support for Mi
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: resource-health
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This article  talks about Resource Health Check (RHC) Support for [Microsoft Azure Cloud Services (Classic)](https://azure.microsoft.com/services/cloud-services)
 

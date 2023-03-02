@@ -3,17 +3,16 @@ title: Node.js Getting Started Guide
 description: Learn how to create a simple Node.js web application and deploy it to an Azure cloud service.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Build and deploy a Node.js application to an Azure Cloud Service (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 
@@ -184,7 +183,7 @@ For more information, see the [Node.js Developer Center].
 [Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Connect PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
-[Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
+[Overview of Creating a Hosted Service for Azure]: ./index.yml
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
@@ -196,6 +195,3 @@ For more information, see the [Node.js Developer Center].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-
-
-

@@ -4,7 +4,7 @@ description: How to migrate to Azure Resource Manager development tools for HDIn
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 02/21/2018
+ms.date: 12/23/2022
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
@@ -101,7 +101,6 @@ The following table lists the ASM cmdlets and their names in Resource Manager mo
 | Get-AzureHDInsightJobOutput |[Get-AzHDInsightJobOutput](/powershell/module/az.hdinsight/get-azhdinsightjoboutput) |
 | Get-AzureHDInsightProperty |[Get-AzHDInsightProperty](/powershell/module/az.hdinsight/get-azhdinsightproperty) |
 | Grant-AzureHDInsightHttpServicesAccess |[Grant-AzureRmHDInsightHttpServicesAccess](/powershell/module/azurerm.hdinsight/grant-azurermhdinsighthttpservicesaccess) |
-| Grant-AzureHdinsightRdpAccess |[Grant-AzHDInsightRdpServicesAccess](/powershell/module/az.hdinsight/grant-azhdinsightrdpservicesaccess) |
 | Invoke-AzureHDInsightHiveJob |[Invoke-AzHDInsightHiveJob](/powershell/module/az.hdinsight/invoke-azhdinsighthivejob) |
 | New-AzureHDInsightCluster |[New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) |
 | New-AzureHDInsightClusterConfig |[New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) |
@@ -112,7 +111,6 @@ The following table lists the ASM cmdlets and their names in Resource Manager mo
 | New-AzureHDInsightStreamingMapReduceJobDefinition |[New-AzHDInsightStreamingMapReduceJobDefinition](/powershell/module/az.hdinsight/new-azhdinsightstreamingmapreducejobdefinition) |
 | Remove-AzureHDInsightCluster |[Remove-AzHDInsightCluster](/powershell/module/az.hdinsight/remove-azhdinsightcluster) |
 | Revoke-AzureHDInsightHttpServicesAccess |[Revoke-AzHDInsightHttpServicesAccess](/powershell/module/azurerm.hdinsight/revoke-azurermhdinsighthttpservicesaccess) |
-| Revoke-AzureHdinsightRdpAccess |[Revoke-AzHDInsightRdpServicesAccess](/powershell/module/az.hdinsight/revoke-azhdinsightrdpservicesaccess) |
 | Set-AzureHDInsightClusterSize |[Set-AzHDInsightClusterSize](/powershell/module/az.hdinsight/set-azhdinsightclustersize) |
 | Set-AzureHDInsightDefaultStorage |[Set-AzHDInsightDefaultStorage](/powershell/module/az.hdinsight/set-azhdinsightdefaultstorage) |
 | Start-AzureHDInsightJob |[Start-AzHDInsightJob](/powershell/module/az.hdinsight/start-azhdinsightjob) |
@@ -239,7 +237,7 @@ This section provides pointers to more information on how to perform certain tas
 | Submit an Apache Sqoop job using .NET SDK |See [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | List HDInsight clusters using .NET SDK |See [List HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Scale HDInsight clusters using .NET SDK |See [Scale HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
-| Grant/revoke access to HDInsight clusters using .NET SDK |See [Grant/revoke access to HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
+| Grant/revoke access to HDInsight clusters using .NET SDK |See [Grant/revoke access to HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md) |
 | Update HTTP user credentials for HDInsight clusters using .NET SDK |See [Update HTTP user credentials for HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
 | Find the default storage account for HDInsight clusters using .NET SDK |See [Find the default storage account for HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | Delete HDInsight clusters using .NET SDK |See [Delete HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |

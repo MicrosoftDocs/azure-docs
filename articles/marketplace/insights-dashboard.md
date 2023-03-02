@@ -4,9 +4,10 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/23/2021
-author: sayantanroy83
-ms.author: sroy
+author: saurabhsharmaa
+ms.author: saurasharma
+ms.reviewer: sroy
+ms.date: 02/20/2023
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -17,7 +18,7 @@ For detailed definitions of analytics terminology, see [Commercial marketplace a
 
 ## Marketplace Insights dashboard
 
-The [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) presents an overview of the Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
+The [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/marketplaceinsights) presents an overview of Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
 
 - Page visits trend
 - Call to actions trend
@@ -30,20 +31,17 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 > [!NOTE]
 > The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
-## Elements of the Marketplace Insights dashboard
+### Marketplace Insights dashboard filters
 
-The Marketplace Insights dashboard displays web telemetry details for Azure Marketplace and AppSource in two separate tabs. The following sections describe how to use the Marketplace Insights dashboard and how to read the data.
+Filter the data by offer names. Filter options are dynamic and based on the selected date range.
 
-To access the **Marketplace Insights** dashboard in Partner Center, under Commercial Marketplace, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Marketplace Insights**.
+To select the filters, in the top-right of the page, select **Filters**.
 
-### Month range
+:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu.":::
 
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+In the panel that appears on the right, select the offer names you want, and then select **Apply**.
 
-:::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
-
-> [!NOTE]
-> All metrics in the visualization widgets and export reports honor the computation period selected by the user.
+:::image type="content" source="./media/insights-dashboard/dashboard-filters-panel.png" alt-text="Screenshot of the dashboard filters panel.":::
 
 ### Page visits trends
 
@@ -55,31 +53,60 @@ The Marketplace Insights **Visitors** chart displays a count of _Page visits_ an
 
 [![Illustrates the Visitors chart on the Marketplace Insights dashboard.](./media/insights-dashboard/visitors.png)](./media/insights-dashboard/visitors.png#lightbox)
 
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as .CSV file, and download the image as a PDF for sharing purposes.
+
+[ ![Screenshot of the ellipsis menu on the Page visit count widget.](./media/insights-dashboard/visitors-ellipsis.png) ](./media/insights-dashboard/visitors-ellipsis.png#lightbox)
+
 ### Call to actions trend
 
-This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons.
+This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner. 
 
-[![Illustrates the Call to action chart on the Marketplace Insights dashboard.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
+> [!NOTE]
+> Consent given is not equivalent to leads. For more information about leads from marketplace, see [Get leads insights](/partner-center/referral-leads-insights).
 
-### Page visits and Call to actions against offers, Referral domains, and Campaign IDs
+The following screenshot shows two places where *Consent given* clicks appear.
 
-**Referral Domains**: Selecting a specific referral domain shows the monthly trend of page visits and calls to action on the chart to the right.
+:::image type="content" source="./media/insights-dashboard/consent-given.png" alt-text="Illustrates a location where a consent button is selected.":::
 
-:::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Illustrates the Referral domain chart on the Marketplace Insights dashboard.":::
+The following graph shows the *CTA* vs. *Consent given* metric.
 
-**Offers**: Select a specific offer, to see the monthly trend of page visits and calls to action on the chart to the right.
+:::image type="content" source="./media/insights-dashboard/call-to-action.png" alt-text="Shows a sample graph of Calls to Action vs. Consent Given.":::
 
-:::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Illustrates the offer alias chart on the Marketplace Insights dashboard.":::
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
-**Campaign IDs**: By selecting a specific campaign ID, you should be able to understand the success of the campaign. For each campaign, you should be able to see the monthly trend of page visits and calls to action on the chart to the right.
+[ ![Screenshot of the ellipsis menu on the Calls to action widget.](./media/insights-dashboard/call-to-action-ellipsis.png) ](./media/insights-dashboard/call-to-action-ellipsis.png#lightbox)
 
-:::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Illustrates the campaign chart on the Marketplace Insights dashboard.":::
+### Page visits and Call to action
+
+This widget provides page visits and calls to action against offers, referral domains, and campaign IDs.
+
+#### Offers
+
+Select the **Offer alias** tab to select a specific offer to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
+
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as .CSV file, and download the image as a .PDF.
+
+[ ![Screenshot of the ellipsis menu on the Page visits and Calls to action widget.](./media/insights-dashboard/offer-alias-tab-ellipsis.png) ](./media/insights-dashboard/offer-alias-tab-ellipsis.png#lightbox)
+
+#### Referral domains
+
+Selecting a specific referral domain on the **Referral domain** tab shows the monthly trend of page visits, calls to action, and consent clicks on the chart to the right. Additionally, there is a column for Platform – website and client, displays for AppSource offers only. The funnel view depicts the conversion rates among page views, calls to action, and consent-given clicks on the chart.
+
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Shows a sample funnel graph of referral domains.":::
+
+#### Campaign IDs
+
+By selecting a specific campaign ID on the **Campaign** tab, you should be able to understand the success of the campaign. For each campaign, you should be able to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
+
+:::image type="content" source="./media/insights-dashboard/campaign-id-funnel-graph.png" alt-text="Illustrates the campaign chart on the Marketplace Insights dashboard.":::
 
 ### Marketplace Insights by geography
 
-For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
+For the selected computation period, the geographical spread heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Illustrates the geographical spread chart on the Marketplace Insights dashboard.":::
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
+
+[ ![Illustrates the geographical spread chart on the Marketplace Insights dashboard.](./media/insights-dashboard/geographical-spread-ellipsis.png) ](./media/insights-dashboard/geographical-spread-ellipsis.png#lightbox)
 
 Note the following:
 
@@ -90,14 +117,18 @@ Note the following:
 
 ### Marketplace Insights details table
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 This table provides a list view of the page visits and the calls to action of your selected offers' pages sorted by date.
 
-- The data can be extracted to a .TSV or .CSV file if the count of records is less than 1,000.
 - If the count of records is over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filter data by Offer names and Campaign names to display the data you are interested in.
 
+[ ![Screenshot of the Marketplace insights details table.](./media/insights-dashboard/marketplace-insights-details.png) ](./media/insights-dashboard/marketplace-insights-details.png#lightbox)
+
 > [!TIP]
-> You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
+> You can provide feedback on each of the widgets by selecting the “thumbs up” or “thumbs down” icon.
 
 | Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
 | ------------ | ------------- | ------------- | ------------- |
@@ -111,8 +142,9 @@ This table provides a list view of the page visits and the calls to action of yo
 | Test Drive | Test Drive | The number of clicks to the “Test Drive” CTA on the offer’s page for a particular date. | TestDrive |
 | Free Trial | Free Trial | The number of clicks to the “Free Trial” CTA on the offer’s page for a particular date. | FreeTrial |
 | Campaign | Name of the Campaign | Ability to understand web telemetry (page visit and CTA clicks) against the campaign name. | Campaign |
-| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
-|
+| Consent given | Consent given | Total count of clicks for customer-provided consent to Microsoft or the partner | consentGivenCount |
+| Platform | Platform | Indicates website or client (in-product store) as the source for page view, CTA, or consent clicks | platforms |
+| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br>- AZUREMARKETPLACE<br>- APPSOURCE | Site |
 
 ## Next steps
 

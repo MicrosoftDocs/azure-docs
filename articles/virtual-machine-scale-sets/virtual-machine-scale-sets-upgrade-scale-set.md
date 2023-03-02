@@ -1,18 +1,18 @@
 ---
-title: Modify an Azure virtual machine scale set
-description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
+title: Modify an Azure Virtual Machine Scale Set
+description: Learn how to modify and update an Azure Virtual Machine Scale Set with the REST APIs, Azure PowerShell, and Azure CLI
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 03/10/2020
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
-# Modify a virtual machine scale set
+# Modify a Virtual Machine Scale Set
 
-Throughout the lifecycle of your applications, you may need to modify or update your virtual machine scale set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
+Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
 
 ## Fundamental concepts
 
@@ -301,6 +301,9 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
+   > [!NOTE]
+   > The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
+
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
@@ -326,8 +329,10 @@ There is one type of modification to global scale set properties that does not f
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
+   > [!NOTE]
+   > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
+- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 ## Properties with restrictions on modification
 
@@ -349,10 +354,10 @@ Some properties may be changed, with exceptions depending on the current value. 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- **SKU Name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/windows/resize-vm.md). 
+- **SKU Name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/resize-vm.md). 
 
 ## VM-specific updates
-Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/z_deprecated/preview/disk).
 
 
 ## Scenarios
@@ -366,7 +371,7 @@ It's also common for applications to be deployed through a custom image. This sc
 If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature is currently in preview that provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
+> With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
 
 If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
@@ -418,7 +423,7 @@ Let's say you have a scale set with an Azure Load Balancer, and you want to repl
     $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
     # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    $ipconf = New-AzVmssIPConfig -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id -Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf

@@ -1,18 +1,17 @@
 ---
-title: Use MSAL in a national cloud app | Azure
-titleSuffix: Microsoft identity platform
+title: Use MSAL in a national cloud app
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
-author: negoe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
-ms.author: negoe
-ms.reviewer: marsma, nacanuma
+ms.date: 09/21/2021
+ms.author: henrymbugua
+ms.reviewer: negoe, nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library works in national cloud scenarios so I can decide if this platform meets my application development needs.
 ---
@@ -23,13 +22,20 @@ ms.custom: aaddev
 
 In addition to the Microsoft worldwide cloud, the Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. These web APIs can be Microsoft Graph or other Microsoft APIs.
 
-Including the global cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
+Including the global Azure cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds: 
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany
+- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
+
+## Azure Germany (Microsoft Cloud Deutschland)
+
+> [!WARNING]
+> Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
+
+If you haven't migrated your application from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## Prerequisites
 
@@ -147,7 +153,7 @@ To enable your MSAL Python application for sovereign clouds:
 To enable your MSAL for Java application for sovereign clouds:
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
-- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
 - Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
 Here's an example authority:
@@ -211,4 +217,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany](../../germany/index.yml)
+- [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)

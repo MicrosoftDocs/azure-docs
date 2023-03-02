@@ -1,41 +1,38 @@
 ---
-title: Connections to Azure AD-joined VMs Azure Virtual Desktop - Azure
-description: How to resolve issues while connecting to Azure AD-joined VMs in Azure Virtual Desktop.
-services: virtual-desktop
+title: Troubleshoot connections to Azure AD-joined VMs -  Azure Virtual Desktop
+description: How to resolve issues when connecting to Azure AD-joined VMs in Azure Virtual Desktop.
 author: Heidilohr
-manager: lizross
-
-ms.service: virtual-desktop
+manager: femila
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 08/24/2022
 ms.author: helohr
 ---
-# Connections to Azure AD-joined VMs
+# Troubleshoot connections to Azure AD-joined VMs
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects.
 
-Use this article to resolve issues with connections to Azure AD-joined VMs in Azure Virtual Desktop.
+Use this article to resolve issues with connections to Azure Active Directory (Azure AD)-joined session host VMs in Azure Virtual Desktop.
+
+## All clients
+
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-azure-ad-joined-connections-all.md)]
+
+## Windows Desktop client
+
+[!INCLUDE [troubleshoot-aadj-connections-windows](includes/include-troubleshoot-azure-ad-joined-connections-windows.md)]
+
+## Web client
+
+[!INCLUDE [troubleshoot-aadj-connections-web](includes/include-troubleshoot-azure-ad-joined-connections-web.md)]
+
+## Android and Chrome OS client
+
+[!INCLUDE [troubleshoot-aadj-connections-android-chrome-os](includes/include-troubleshoot-azure-ad-joined-connections-android-chrome-os.md)]
 
 ## Provide feedback
 
 Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) to discuss the Azure Virtual Desktop service with the product team and active community members.
-
-## The logon attempt failed
-
-If you encounter an error saying **The logon attempt failed** on the Windows Security credential prompt, verify the following:
-
-- You are on a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host OR
-- You are on a device running Windows 10 2004 or later that is Azure AD registered to the same Azure AD tenant as the session host
-- The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host
-
-## Your account is configured to prevent you from using this device
-
-If you encounter an error saying **Your account is configured to prevent you from using this device. For more information, contact your system administrator**, ensure the user account was given the [Virtual Machine User Login role](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) on the VMs. 
-
-## The sign-in method you're trying to use isn't allowed
-
-If you encounter an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have some Conditional Access policies restricting the type of credentials that be used to sign-in to the VMs. Ensure you use the right credential type when signing in.
 
 ## Next steps
 

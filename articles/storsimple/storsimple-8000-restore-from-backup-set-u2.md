@@ -7,13 +7,14 @@ author: alkohli
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Restore a StorSimple volume from a backup set
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

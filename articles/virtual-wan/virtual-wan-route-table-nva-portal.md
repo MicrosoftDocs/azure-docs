@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/19/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---
@@ -42,7 +42,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 ## <a name="vwan"></a>2. Create a virtual WAN
 
-Create a virtual WAN. Use the following example values:
+Create a virtual WAN. You can use the following example values, or replace with your own.
 
 * **Virtual WAN name:** myVirtualWAN
 * **Resource group:** testRG
@@ -52,13 +52,13 @@ Create a virtual WAN. Use the following example values:
 
 ## <a name="hub"></a>3. Create a hub
 
-Create the hub. Use the following example values:
+Create the hub. You can use the following example values, or replace with your own.
 
 * **Location:** West US
 * **Name:** westushub
 * **Hub private address space:** 10.0.1.0/24
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-blank.md)]
 
 ## <a name="route"></a>4. Create and apply a hub route table
 

@@ -1,20 +1,28 @@
 ---
-title: Provision a user on demand by using Azure Active Directory
+title: Provision a user or group on demand using the Azure Active Directory provisioning service
 description: Learn how to provision users on demand in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 01/23/2023
 ms.author: kenwith
 ms.reviewer: arvinh
+zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
 # On-demand provisioning in Azure Active Directory
-Use on-demand provisioning to provision a user into an application in seconds. Among other things, you can use this capability to:
+
+::: zone pivot="cross-tenant-synchronization"
+> [!IMPORTANT]
+> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+::: zone-end
+
+Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
 
 * Troubleshoot configuration issues quickly.
 * Validate expressions that you've defined.
@@ -22,20 +30,34 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 
 ## How to use on-demand provisioning
 
-1. Sign in to the **Azure portal**.
-1. Go to **All services** > **Enterprise applications**.
-1. Select your application, and then go to the provisioning configuration page.
-1. Configure provisioning by providing your admin credentials.
-1. Select **Provision on demand**.
-1. Search for a user by first name, last name, display name, user principal name, or email address.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+::: zone pivot="app-provisioning"
+2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications**.
+
+3. Select your application, and then go to the provisioning configuration page.
+::: zone-end
+
+::: zone pivot="cross-tenant-synchronization"
+2. Go to **Azure Active Directory** > **Cross-tenant Synchronization** > **Configurations**
+
+3. Select your configuration, and then go to the **Provisioning** configuration page.
+::: zone-end
+
+4. Configure provisioning by providing your admin credentials.
+
+5. Select **Provision on demand**.
+
+6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to 5 users. 
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
-   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
-1. Select **Provision** at the bottom of the page.
+7. Select **Provision** at the bottom of the page.
 
-:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
+    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
+
 
 ## Understand the provisioning steps
 
@@ -43,12 +65,12 @@ The on-demand provisioning process attempts to show the steps that the provision
 
 ### Step 1: Test connection
 
-The provisioning service attempts to authorize access to the target application by making a request for a "test user". The provisioning service expects a  response that indicates that the service authorized to continue with the provisioning steps. This step is shown only when it fails. It's not shown during the on-demand provisioning experience when the step is successful.
+The provisioning service attempts to authorize access to the target system by making a request for a "test user". The provisioning service expects a  response that indicates that the service authorized to continue with the provisioning steps. This step is shown only when it fails. It's not shown during the on-demand provisioning experience when the step is successful.
 
 #### Troubleshooting tips
 
-* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target application. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
-* Make sure that the target application supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
+* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target system. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
+* Make sure that the target system supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
 * For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### Step 2: Import user
@@ -113,7 +135,7 @@ The **View details** page shows the properties of the users that were matched in
 #### Troubleshooting tips
 
 * The provisioning service might not be able to match a user in the source system uniquely with a user in the target. Resolve this problem by ensuring that the matching attribute is unique.
-* Make sure that the target application supports filtering on the attribute that's defined as the matching attribute.  
+* Make sure that the target system supports filtering on the attribute that's defined as the matching attribute.  
 
 ### Step 5: Perform action
 
@@ -121,15 +143,16 @@ Finally, the provisioning service takes an action, such as creating, updating, d
 
 Here's an example of what you might see after the successful on-demand provisioning of a user:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot that shows the successful on-demand provisioning of a user.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.png" alt-text="Screenshot that shows the successful on-demand provisioning of a user." lightbox="media/provision-on-demand/success-on-demand-provision.png":::
 
 #### View details
 
-The **View details** section displays the attributes that were modified in the target application. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.
+The **View details** section displays the attributes that were modified in the target system. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.
 
 #### Troubleshooting tips
 
 * Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
+* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. Note that there's a replicate delay of up to a few minutes between when an object is assigned to an application and that assignment being honored by on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
 
@@ -141,11 +164,14 @@ The **View details** section displays the attributes that were modified in the t
 
 There are currently a few known limitations to on-demand provisioning. Post your [suggestions and feedback](https://aka.ms/appprovisioningfeaturerequest) so we can better determine what improvements to make next.
 
+::: zone pivot="app-provisioning"
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* Amazon Web Services (AWS) application does not support on-demand provisioning. 
-* On-demand provisioning of groups and roles isn't supported.
+* On-demand provisioning of groups supports updating up to 5 members at a time
+::: zone-end
+* Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
+* On-demand provisioning of roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
 
 ## Next steps

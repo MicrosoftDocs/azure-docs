@@ -1,6 +1,9 @@
 ---
 title: Auto-optimize - Personalizer
 description: This article provides a conceptual overview of the auto-optimize feature for Azure Personalizer service.
+author: jcodella
+ms.author: jacodel
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse architecture
 description: Learn about the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
-ms.date: 05/11/2021
+ms.date: 08/26/2022
 ms.topic: conceptual
 ---
 
@@ -15,6 +15,9 @@ Azure Lighthouse helps service providers simplify customer engagement and onboar
 > Azure Lighthouse can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant management.
 
 This topic discusses the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
+
+> [!NOTE]
+> Onboarding a customer to Azure Lighthouse requires a deployment by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded).
 
 ## Delegation resources created in the customer tenant
 
@@ -46,7 +49,7 @@ Activity from users in the service provider's tenant is tracked in the activity 
 
 ## How Azure Lighthouse works
 
-At a high level, here's how Azure Lighthouse works:
+At a high level, here's how Azure Lighthouse works for the managing tenant:
 
 1. Identify the [roles](tenants-users-roles.md#role-support-for-azure-lighthouse) that your groups, service principals, or users will need to manage the customer's Azure resources.
 2. Specify this access and onboard the customer to Azure Lighthouse either by [publishing a Managed Service offer to Azure Marketplace](../how-to/publish-managed-services-offers.md), or by [deploying an Azure Resource Manager template](../how-to/onboard-customer.md). This onboarding process creates the two resources described above (registration definition and registration assignment) in the customer's tenant.
@@ -56,6 +59,6 @@ While in most cases only one service provider will be managing specific resource
 
 ## Next steps
 
-- Review [Azure CLI](/cli/azure/managedservices/assignment) and [Azure Powershell](/powershell/module/az.managedservices/new-azmanagedservicesdefinition) commands for working with registration definitions and registration assignments.
+- Review [Azure CLI](/cli/azure/managedservices) and [Azure PowerShell](/powershell/module/az.managedservices) commands for working with registration definitions and registration assignments.
 - Learn about [enhanced services and scenarios](cross-tenant-management-experience.md#enhanced-services-and-scenarios) for Azure Lighthouse.
 - Learn more about how [tenants, users, and roles](tenants-users-roles.md) work with Azure Lighthouse.

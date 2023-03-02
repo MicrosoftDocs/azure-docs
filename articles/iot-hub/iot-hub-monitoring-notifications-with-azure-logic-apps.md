@@ -1,13 +1,13 @@
 ---
 title: IoT remote monitoring and notifications with Azure Logic Apps | Microsoft Docs
 description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
-author: robinsh
+author: kgremban
 keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: robinsh
+ms.author: kgremban
 #I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
 
@@ -43,7 +43,7 @@ In this topic, you set up routing on your IoT hub to send messages in which the 
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
@@ -89,7 +89,7 @@ Create a Service Bus namespace and queue. Later in this topic, you create a rout
 
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
+Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
 
 ### Add a custom endpoint
 

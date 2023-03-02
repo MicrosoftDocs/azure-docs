@@ -4,16 +4,15 @@ metadata:
   description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
   services: active-directory-ds
   author: justinha
-  manager: daveba
+  manager: amycolannino
   
   ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
   ms.service: active-directory
   ms.subservice: domain-services
   ms.workload: identity
-  ms.topic: how-to
-  ms.date: 02/09/2021
+  ms.topic: faq
+  ms.date: 01/29/2023
   ms.author: justinha
-    
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
 
@@ -81,9 +80,14 @@ sections:
           No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users aren't stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
       - question: |
-          Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+          Can a two-way forest trust be created between a resource forest and an on-premises forest?
         answer: |
-          No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
+          No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
+
+      - question: |
+          Can I move a managed domain?
+        answer: |
+          After you create an Azure AD Domain Services managed domain, you can't move it to a different subscription, resource group, or region. As a workaround, you can [delete the managed domain](delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
 
       - question: |
           Can I rename an existing Azure AD Domain Services domain name?
@@ -155,6 +159,11 @@ sections:
           How are Windows Updates applied in Azure AD Domain Services?
         answer: |
           Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
+          
+      - question: |
+          Why do my domain controllers change names?
+        answer: |
+          It is possible that during the maintenance of domain controllers there is a change in their names. To avoid problems with this type of change, it is recommended to not use the names of the domain controllers hardcoded in applications and/or other domain resources, but the FQDN of the domain. This way, no matter what the names of the domain controllers are, you won't need to reconfigure anything after a name change.
 
   - name: Billing and availability
     questions:
@@ -182,6 +191,11 @@ sections:
           Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
         answer: |
           No. Azure AD Domain Services is a pay-as-you-go Azure service and isn't part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You're billed on an hourly basis, depending on usage.
+
+      - question: |
+          Can I create a child domain under a managed domain?
+        answer: |
+          No. Azure AD Domain Services has a single-domain, single-forest design, and you can't create child domains.
 
       - question: |
           What Azure regions is the service available in?

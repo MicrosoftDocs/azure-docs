@@ -2,19 +2,19 @@
 title: About networking in Azure VM disaster recovery with Azure Site Recovery
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/13/2020
-ms.author: harshacs
-
+ms.date: 11/21/2021
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 # About networking in Azure VM disaster recovery
 
 
 
-This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
+This article provides networking guidance for platform connectivity when you're replicating Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Before you start
 
@@ -118,7 +118,8 @@ You can create a network service endpoint in your virtual network for "Storage" 
 - Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
 
 >[!NOTE]
->Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
+>If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md). Also, ensure that you allow access to at least one subnet of source Vnet.
+
 
 ### Forced tunneling
 

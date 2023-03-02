@@ -5,7 +5,7 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/30/2021
 ---
 
 # Conditional deployment in Bicep
@@ -14,6 +14,10 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
+
+### Training resources
+
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Deploy condition
 
@@ -38,7 +42,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. If the identifier of conditional resource is specified in `dependsOn` of another resource (explicit dependency), the dependency is ignored if the condition evaluates to false at template deployment time. If the condition evaluates to true, the dependency is respected. Referencing a property of a conditional resource (implicit dependency) is allowed but may produce a runtime error in some cases.
+Conditions may be used with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
 
 ## New or existing resource
 
@@ -90,10 +94,10 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : json('null'))
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : null)
     }
     protectedSettings: {
-      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : json('null'))
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : null)
     }
   }
 }
@@ -101,10 +105,8 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
 
-You set a [resource as dependent](./resource-declaration.md#set-resource-dependencies) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
-
 ## Next steps
 
-* For a Microsoft Learn module about conditions and loops, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/).
+* Review the Learn module [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 * For recommendations about creating Bicep files, see [Best practices for Bicep](best-practices.md).
-* To create multiple instances of a resource, see [Resource iteration in Bicep](loop-resources.md).
+* To create multiple instances of a resource, see [Iterative loops in Bicep](loops.md).

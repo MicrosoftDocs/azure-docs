@@ -4,6 +4,7 @@ description: Increase efficiency and lower costs by using fewer compute nodes an
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
+ms.devlang: csharp
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes
 
@@ -144,7 +145,7 @@ For more information on adding pools by using the REST API, see [Add a pool to a
       "offer": "ubuntuserver",
       "sku": "18.04-lts"
     },
-    "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+    "nodeAgentSKUId": "batch.node.ubuntu 18.04"
   },
   "targetDedicatedComputeNodes":2,
   "taskSlotsPerNode":4,

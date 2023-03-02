@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/25/2021
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

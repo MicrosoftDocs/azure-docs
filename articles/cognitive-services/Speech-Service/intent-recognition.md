@@ -3,51 +3,47 @@ title: Intent recognition overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Intent recognition allows you to recognize user objectives you have pre-defined. This article is an overview of the benefits and capabilities of the intent recognition service.
 services: cognitive-services
-author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: v-demjoh
+ms.topic: overview
+ms.date: 02/22/2023
 keywords: intent recognition
 ---
 
 # What is intent recognition?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+In this overview, you will learn about the benefits and capabilities of intent recognition. The Cognitive Services Speech SDK provides two ways to recognize intents, both described below. An intent is something the user wants to do: book a flight, check the weather, or make a call. Using intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options you define in the Intent Recognizer or LUIS.
 
-In this overview, you learn about the benefits and capabilities of intent recognition. The Cognitive Services Speech SDK integrates with the Language Understanding service (LUIS) to provide intent recognition. An intent is something the user wants to do: book a flight, check the weather, or make a call.
-Using intent recognition, your applications, tools, and devices can determine what the user wishes to initiate or do based on options you define in LUIS.
+## Pattern matching
 
-## LUIS key required
+The Speech SDK provides an embedded pattern matcher that you can use to recognize intents in a very strict way. This is useful for when you need a quick offline solution. This works especially well when the user is going to be trained in some way or can be expected to use specific phrases to trigger intents. For example: "Go to floor seven", or "Turn on the lamp" etc. It is recommended to start here and if it no longer meets your needs, switch to using LUIS or a combination of the two. 
 
-* LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
-* Speech intent recognition is integrated with the SDK. You can use a LUIS key with the Speech service.
-* Intent recognition through the Speech SDK is [offered at a subset of regions supported by LUIS](./regions.md#intent-recognition).
+Use pattern matching if: 
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
+* You don't have access to a CLU model, but still want intents. 
 
-## Get started
+For more information, see the [pattern matching concepts](./pattern-matching-overview.md) and then:
+* Start with [simple pattern matching](how-to-use-simple-language-pattern-matching.md).
+* Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
 
-See the [quickstart](get-started-intent-recognition.md) to get started with intent recognition.
+## Conversational Language Understanding
 
-## Sample code
+Conversational language understanding (CLU) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.
 
-Sample code for intent recognition:
+Both a Speech resource and Language resource are required to use CLU with the Speech SDK. The Speech resource is used to transcribe the user's speech into text, and the Language resource is used to recognize the intent of the utterance. To get started, see the [quickstart](get-started-intent-recognition-clu.md).
 
-* [Quickstart: Use prebuilt Home automation app](../luis/luis-get-started-create-app.md)
-* [Recognize intents from speech using the Speech SDK for C#](./how-to-recognize-intents-from-speech-csharp.md)
-* [Intent recognition and other Speech services using Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
-* [Recognize intents using Speech SDK for Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
-* [Intent recognition and other Speech services using the Speech SDK for C++ on Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
-* [Intent recognition and other Speech services using the Speech SDK for Java on Windows or Linux](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/console)
-* [Intent recognition and other Speech services using the Speech SDK for JavaScript on a web browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser)
+> [!IMPORTANT]
+> When you use conversational language understanding with the Speech SDK, you are charged both for the Speech-to-text recognition request and the Language service request for CLU. For more information about pricing for conversational language understanding, see [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
-## Reference docs
+For information about how to use conversational language understanding without the Speech SDK and without speech recognition, see the [Language service documentation](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
 
-* [Speech SDK](./speech-sdk.md)
+> [!IMPORTANT]
+> LUIS will be retired on October 1st 2025 and starting April 1st 2023 you will not be able to create new LUIS resources. We recommend [migrating your LUIS applications](/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis) to [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) to benefit from continued product support and multilingual capabilities.
+> 
+> Conversational Language Understanding (CLU) is available for C# and C++ with the [Speech SDK](speech-sdk.md) version 1.25 or later. See the [quickstart](get-started-intent-recognition-clu.md) to recognize intents with the Speech SDK and CLU.
 
 ## Next steps
 
-* Complete the intent recognition [quickstart](get-started-intent-recognition.md)
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
-* [Get the Speech SDK](speech-sdk.md)
+* [Intent recognition with simple pattern matching](how-to-use-simple-language-pattern-matching.md)
+* [Intent recognition with CLU quickstart](get-started-intent-recognition-clu.md)

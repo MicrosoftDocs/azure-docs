@@ -1,38 +1,40 @@
 ---
 title: Export flows from Power Automate to Azure Logic Apps
-description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
+description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, sneshaf, pinath, logicappspm
-ms.topic: conceptual
-ms.date: 02/22/2021
+ms.reviewer: estfan, sneshaf, pinath, azla
+ms.topic: how-to
+ms.date: 01/23/2023
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
 
-To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://make.powerautomate.com) to a Consumption logic app workflow that runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the workflow designer.
 
 > [!IMPORTANT]
-> Export to Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, Power Automate 
+> Export to Azure Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, Power Automate 
 > standardized new flow creation on the [OpenAPI 2.0 protocol](https://swagger.io/specification/v2/). New flows based on 
-> this protocol are incompatible with Logic Apps workflows, so exporting these flows to Logic Apps was disabled. Instead, 
-> you must manually [create logic apps](quickstart-create-first-logic-app-workflow.md) for these flows.
+> this protocol are incompatible with Azure Logic Apps workflows, so exporting these flows to Azure Logic Apps was disabled. 
+> Instead, you must manually [create a logic app workflow](quickstart-create-first-logic-app-workflow.md) for these flows.
 
 Not all Power Automate connectors are available in Azure Logic Apps. You can migrate only Power Automate flows that have the equivalent connectors in Azure Logic Apps. For example, the Button trigger, the Approval connector, and Notification connector are specific to Power Automate. 
 
-* To find which Power Automate connectors don't have Logic Apps equivalents, see [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+* To find which Power Automate connectors don't have Azure Logic Apps equivalents, see [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
-* To find which Logic Apps connectors don't have Power Automate equivalents, see [Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* To find which Azure Logic Apps connectors don't have Power Automate equivalents, see [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The flow that you want to export from Power Automate
 
 ## Export your flow
 
-1. Sign in to [Power Automate](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button > **Export** > **Logic Apps template (.json)**.
+1. Sign in to [Power Automate](https://make.powerautomate.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button > **Export** > **Logic Apps template (.json)**.
 
    ![Export flow from Power Automate](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -166,7 +168,7 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
    After deployment finishes, your logic app is published but isn't activated in the Azure portal.
 
-1. When you're ready to activate your logic app in the Azure portal, find and open your logic app in the Logic App Designer. On the logic app's menu, select **Overview**, and then select **Enable**.
+1. When you're ready to activate your logic app in the Azure portal, find and open your logic app in the workflow designer. On the logic app's menu, select **Overview**, and then select **Enable**.
 
 1. To avoid running duplicate workflows, make sure that you deactivate or delete your original flow.
 
@@ -174,5 +176,4 @@ For more information about these deployment steps, see [Quickstart: Create autom
 
 ## Next steps
 
-* Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
-* Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* [Azure Logic Apps](logic-apps-overview.md)

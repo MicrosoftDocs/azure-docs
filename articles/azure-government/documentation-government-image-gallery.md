@@ -1,19 +1,18 @@
 ---
 title: Azure Government Marketplace images
-description: This article provides an overview of the Azure Government image gallery
+description: This article provides an overview of Azure Government Marketplace image gallery
 services: azure-government
 cloud: gov
 documentationcenter: ''
 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/09/2021 
+ms.date: 08/31/2021 
 ms.custom: devx-track-azurepowershell
-
 ---
+
 # Azure Government Marketplace images
 
 Microsoft Azure Government Marketplace provides a similar experience as Azure Marketplace. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This approach gives you the flexibility to deploy your own standardized images if needed.
@@ -21,6 +20,7 @@ Microsoft Azure Government Marketplace provides a similar experience as Azure Ma
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Images
+
 To obtain a list of virtual machine images available in Azure Government, [connect to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and run the following commands:
 
 ```powershell
@@ -38,8 +38,6 @@ Select-Object @{Name="Entry";Expression={"| " + $_.PublisherName + " | " + $_.Of
 Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
-
-If you'd like to see other images in Azure Government, request them via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
 
 Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 

@@ -2,18 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
-
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
 
 ## Prerequisites
 
@@ -21,8 +18,14 @@ Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the userId string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- Create **two** Communication Services Users and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -37,14 +40,16 @@ Before you get started, make sure to:
 
 We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
-```
-implementation 'com.azure.android:azure-communication-common:1.0.1'
-implementation 'com.azure.android:azure-communication-chat:1.0.0'
+```groovy
+implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
+implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
 implementation 'org.slf4j:slf4j-log4j12:1.7.29'
 ```
 
+Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-common and https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version numbers.
+
 #### Exclude meta files in packaging options in root build.gradle
-```
+```groovy
 android {
    ...
     packagingOptions {
@@ -68,14 +73,29 @@ To import the library into your project using the [Maven](https://maven.apache.o
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
+  <version><!-- Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
+### Set up Azure Function
+Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We highly recommend integrating with Azure Function to avoid hard-coding application parameters.
 
-### Setup the placeholders
+### Set up application constants:
+Create a class `ApplicationConstants` which stores all application constants:
+```java
+public class ApplicationConstants {
+    public static final String SDK_VERSION = "<your_version>";
+    public final static String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
+    public final static String APPLICATION_ID = "Chat_Test_App";
+    public final static String TAG = "[Chat Test App]";
+    public static CommunicationTokenCredential COMMUNICATION_TOKEN_CREDENTIAL;
+}
+```
 
-Open and edit the file `MainActivity.java`. In this Quickstart, we'll add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI. At the top of file, import the `Communication common`, `Communication chat`, and other system libraries:
+### Set up the placeholders
+
+Open and edit the file `MainActivity.java`. In this quick-start, we'll add our code to `MainActivity`, and view the output in the console. This quick-start does not address building a UI. At the top of the file, import the `Azure Communication Common`, `Azure 
+ Communication Chat`, and other system libraries:
 
 ```
 import com.azure.android.communication.chat.*;
@@ -95,16 +115,7 @@ import java.util.List;
 Copy the following code into class `MainActivity` in file `MainActivity.java`:
 
 ```java
-    private String endpoint = "https://<resource>.communication.azure.com";
-    private String firstUserId = "<first_user_id>";
-    private String secondUserId = "<second_user_id>";
-    private String firstUserAccessToken = "<first_user_access_token>";
-    private String threadId = "<thread_id>";
-    private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0";
-    private static final String APPLICATION_ID = "Chat Quickstart App";
-    private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
-    private static final String TAG = "Chat Quickstart App";
+    private ChatAsyncClient chatAsyncClient;
 
     private void log(String msg) {
         Log.i(TAG, msg);
@@ -116,6 +127,8 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
         super.onStart();
         try {
             AndroidThreeTen.init(this);
+
+            // Initialize application parameters if one of the conditions in '### Initialize Application Parameters' are met.
 
             // <CREATE A CHAT CLIENT>
 
@@ -144,12 +157,33 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     }
 ```
 
-1. Replace `<resource>` with your Communication Services resource.
-2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that were generated as part of prerequisite steps.
-3. Replace `<first_user_access_token>` with the Communication Services access token for `<first_user_id>` that was generated as part of prerequisite steps.
+### Initialize Application Parameters
+> [!NOTE]
+> Initializing `ApplicationConstants` needs to be added to `MainActivity.java` if EITHER of the following conditions is met: 1. The push notification feature is NOT enabled. 2. The version for the Azure Communication Chat library for Android is < '2.0.0'. Otherwise, please refer to step 11 in [Android push notifications](../../../tutorials/chat-android-push-notification.md). Please refer to the sample APP of the SDK version that you are consuming for reference.
 
-In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
+`ACS_ENDPOINT`, `FIRST_USER_ID` and `FIRST_USER_ACCESS_TOKEN` are returned from calling Azure Function. Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We use the response from calling Azure Function to initialize the list of parameters:
+* `ACS_ENDPOINT`: the endpoint of your Communication Services resource.
+* `FIRST_USER_ID` and `SECOND_USER_ID`: valid Communication Services user IDs generated by your Communication Services resource.
+* `FIRST_USER_ACCESS_TOKEN`: the communication Services access token for `<FIRST_USER_ID>`.
 
+Code block for initialing application parameters by calling Azure Function: 
+```java
+try {
+        UserTokenClient userTokenClient = new UserTokenClient(AZURE_FUNCTION_URL);
+        //First user context
+        userTokenClient.getNewUserContext();
+        ACS_ENDPOINT = userTokenClient.getACSEndpoint();
+        FIRST_USER_ID = userTokenClient.getUserId();
+        FIRST_USER_ACCESS_TOKEN = userTokenClient.getUserToken();
+        COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
+        //Second user context
+        userTokenClient.getNewUserContext();
+        SECOND_USER_ID = userTokenClient.getUserId();
+    } catch (Throwable throwable) {
+        //Your handling code
+        logger.logThrowableAsError(throwable);
+    }
+```
 
 ### Create a chat client
 
@@ -158,7 +192,7 @@ Replace the comment `<CREATE A CHAT CLIENT>` with the following code (put the im
 ```java
 import com.azure.android.core.http.policy.UserAgentPolicy;
 
-ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
+chatAsyncClient = new ChatClientBuilder()
     .endpoint(endpoint)
     .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
@@ -228,20 +262,35 @@ Replace the comment `<SEND A MESSAGE>` with the following code:
 
 ```java
 // The chat message content, required.
-final String content = "Test message 1";
+final String content = "Please take a look at the attachment";
+
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
+
+// Use metadata optionally to include any additional data you want to send along with the message.
+// This field provides a mechanism for developers to extend chat message functionality and add
+// custom information for your use case. For example, when sharing a file link in the message, you
+// might want to add 'hasAttachment:true' in metadata so that recipient's application can parse
+// that and display accordingly.
+final Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
     .setType(ChatMessageType.TEXT)
     .setContent(content)
-    .setSenderDisplayName(senderDisplayName);
+    .setSenderDisplayName(senderDisplayName)
+    .setMetadata(metadata);
 
-// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+// A string is the response returned from sending a message, it is an id, which is the unique ID
+// of the message.
 chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
 ```
 
 ## Receive chat messages from a chat thread
+
+### Real-time notifications
 With real-time signaling, you can subscribe to new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
 Replace the comment `<RECEIVE CHAT MESSAGES>` with the following code (put the import statements at top of the file):
@@ -273,6 +322,8 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 > 
 > Note with above update, if the application tries to touch any of the notification API like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
 
+### Push notifications
+Please check out [Android push notifications](../../../tutorials/chat-android-push-notification.md) for details.
 
 ## Add a user as a participant to the chat thread
 
@@ -375,3 +426,6 @@ readReceiptsPagedAsyncStream.forEach(readReceipt -> {
 ## Run the code
 
 In Android Studio, hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).

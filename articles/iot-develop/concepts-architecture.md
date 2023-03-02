@@ -1,19 +1,19 @@
 ---
 title: IoT Plug and Play architecture | Microsoft Docs
-description: As a solution builder, understand key architectural elements of IoT Plug and Play.
+description: Understand the key architectural elements of an IoT Plug and Play solution.
 author: ridomin
 ms.author: rmpablos
-ms.date: 09/15/2020
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-manager: philmea
+
 ---
 
 # IoT Plug and Play architecture
 
-IoT Plug and Play enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
+IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
 - _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
@@ -23,19 +23,19 @@ Every model and interface has a unique ID.
 
 The following diagram shows the key elements of an IoT Plug and Play solution:
 
-:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="IoT Plug and Play architecture":::
+:::image type="content" source="media/concepts-architecture/pnp-architecture.svg" alt-text="Diagram that shows the key elements of the IoT Plug and Play architecture." border="false":::
 
 ## Model repository
 
-The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl).
+The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
 
 The web UI lets you manage the models and interfaces.
 
-The model repository has built-in role-based access controls that let you limit access to interface definitions.
+The model repository has built-in role-based access controls that let you manage access to interface definitions.
 
 ## Devices
 
-A device builder implements the code to run on an IoT smart device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
+A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./about-iot-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
@@ -68,13 +68,13 @@ The device SDKs help a module builder to:
 An IoT hub:
 
 - Makes the model ID implemented by a device available to a backend solution.
-- Maintains the digital twin associated with each Plug and Play device connected to the hub.
+- Maintains the digital twin associated with each IoT Plug and Play device connected to the hub.
 - Forwards telemetry streams to other services for processing or storage.
 - Routes digital twin change events to other services to enable device monitoring.
 
 ## Backend solution
 
-A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the service SDKs to implement your backend solution. To understand the capabilities of a connected device, the solution backend:
+A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the Azure IoT service SDKs to implement your backend solution. To understand the capabilities of a connected device, the solution backend:
 
 1. Retrieves the model ID the device registered with the IoT hub.
 1. Uses the model ID to retrieve the interface definitions from any model repository.

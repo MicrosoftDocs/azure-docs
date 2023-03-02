@@ -7,8 +7,8 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: conceptual
-ms.date: 09/28/2020
+ms.topic: how-to
+ms.date: 01/27/2023
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algorithms
@@ -65,11 +65,18 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
+The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [image tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/decision/anomaly-detector/tags).
+
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 | Container | Repository |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
+
+> [!TIP]
+> When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag. They are case sensitive.
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -91,7 +98,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](anomaly-detector-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
@@ -119,7 +126,7 @@ If you intend to run multiple containers with exposed ports, make sure to run ea
 
 Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Anomaly Detector container and the LUIS container running on the HOST together or you can have multiple Anomaly Detector containers running.
 
-Run the first container on port 5000.
+Run the first container on host port 5000.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -129,11 +136,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Run the second container on port 5001.
+Run the second container on host port 5001.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -150,7 +157,7 @@ Use the host, http://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -161,6 +168,9 @@ Use the host, http://localhost:5000, for container APIs.
 If you run the container with an output [mount](anomaly-detector-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## Billing
 

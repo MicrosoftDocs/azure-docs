@@ -7,13 +7,15 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 08/06/2019
+ms.date: 01/04/2023
 
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 
 # Azure Disk Encryption sample scripts
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
@@ -37,7 +39,7 @@ This article provides sample scripts for preparing pre-encrypted VHDs and other 
 
 - **List all encrypted VMSS instances in your subscription**
 
-    You can find all ADE-encrypted VMSS instances and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
+    You can find all ADE-encrypted Virtual Machine Scale Sets instances and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
 
 - **List all disk encryption secrets used for encrypting VMs in a key vault**
 
@@ -53,7 +55,7 @@ The following table shows which parameters can be used in the PowerShell script:
 
 |Parameter|Description|Mandatory?|
 |------|------|------|
-|$resourceGroupName| Name of the resource group to which the KeyVault belongs to.  A new resource group with this name will be created if one doesn't exist.| True|
+|$resourceGroupName| Name of the resource group to which the KeyVault belongs.  A new resource group with this name will be created if one doesn't exist.| True|
 |$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| True|
 |$location|Location of the KeyVault. Make sure the KeyVault and VMs to be encrypted are in the same location. Get a location list with `Get-AzLocation`.|True|
 |$subscriptionId|Identifier of the Azure subscription to be used.  You can get your Subscription ID with `Get-AzSubscription`.|True|
@@ -115,13 +117,13 @@ reboot
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 ## Upload encrypted VHD to an Azure storage account
-After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 
 ## Upload the secret for the pre-encrypted VM to your key vault
-The disk encryption secret that you obtained previously must be uploaded as a secret in your key vault.  This requires granting the set secret permission and the wrapkey permission to the account that will upload the secrets.
+The disk encryption secret that you obtained previously must be uploaded as a secret in your key vault.  To do so, you must grant the set secret permission and the wrapkey permission to the account that will upload the secrets.
 
 ```powershell
 # Typically, account Id is the user principal name (in user@domain.com format)
@@ -160,7 +162,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/wrapkey) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/keys/wrap-key) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

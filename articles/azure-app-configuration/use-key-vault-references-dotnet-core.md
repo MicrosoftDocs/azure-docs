@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in an ASP
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from an ASP.NET Core app
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: alkemper
+ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
@@ -104,7 +104,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     using Azure.Identity;
     ```
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credentials to your Key Vault.
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credential to your Key Vault using the `SetCredential` method. If you have multiple Key Vaults, the same credential will be used for all of them. If your Key Vaults require different credentials, you can set them using `Register` or `SetSecretResolver` methods from the [`AzureAppConfigurationKeyVaultOptions`](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationkeyvaultoptions) class.
 
      #### [.NET Core 5.x](#tab/core5x)
 
@@ -176,6 +176,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 
     ```html
+    @page
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -200,7 +201,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 Azure App Configuration won't access your key vault. Your app will read from Key Vault directly, so you need to grant your app read access to the secrets in your key vault. This way, the secret always stays with your app. The access can be granted using either a [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) or [Azure role-based access control](../key-vault/general/rbac-guide.md).
 
-You use `DefaultAzureCredential` in your code above. It's an aggregated token credential that automatically tries a number of credential types, like `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `VisualStudioCredential`. For more information, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). You can replace `DefaultAzureCredential` with any credential type explicitly. However, using `DefaultAzureCredential` enables you to have the same code that runs in both local and Azure environments. For example, you grant your own credential access to your key vault. `DefaultAzureCredential` automatically falls back to `SharedTokenCacheCredential` or `VisualStudioCredential` when you use Visual Studio for local development.
+You use `DefaultAzureCredential` in your code above. It's an aggregated token credential that automatically tries a number of credential types, like `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `VisualStudioCredential`. For more information, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential). You can replace `DefaultAzureCredential` with any credential type explicitly. However, using `DefaultAzureCredential` enables you to have the same code that runs in both local and Azure environments. For example, you grant your own credential access to your key vault. `DefaultAzureCredential` automatically falls back to `SharedTokenCacheCredential` or `VisualStudioCredential` when you use Visual Studio for local development.
 
 Alternatively, you can set the AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET environment variables, and `DefaultAzureCredential` will use the client secret you have via the `EnvironmentCredential` to authenticate with your key vault. After your app is deployed to an Azure service with managed identity enabled, such as Azure App Service, Azure Kubernetes Service, or Azure Container Instance, you grant the managed identity of the Azure service permission to access your key vault. `DefaultAzureCredential` automatically uses `ManagedIdentityCredential` when your app is running in Azure. You can use the same managed identity to authenticate with both App Configuration and Key Vault. For more information, see [How to use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
 

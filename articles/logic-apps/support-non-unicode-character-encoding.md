@@ -1,12 +1,15 @@
 ---
-title: Support non-Unicode character encoding in Logic Apps
-description: Work with non-Unicode text in Logic Apps. Convert text payloads to UTF-8 using base64 encoding and Azure Functions.
-ms.date: 04/29/2021
-ms.topic: conceptual
-ms.reviewer: logicappspm
+title: Convert non-Unicode encoded text for compatibility
+description: Handle non-Unicode characters in Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
 ms.service: logic-apps
+ms.topic: how-to
+ms.reviewer: estfan, azla
+ms.date: 08/20/2022
 ---
-# Support non-Unicode character encoding in Logic Apps
+
+# Support non-Unicode character encoding in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you work with text payloads, Azure Logic Apps infers the text is encoded in a Unicode format, such as UTF-8. You might have problems receiving, sending, or processing characters with different encodings in your workflow. For example, you might get corrupted characters in flat files when working with legacy systems that don't support Unicode.
 
@@ -18,9 +21,17 @@ This solution works with both *multi-tenant* and *single-tenant* workflows. You 
 
 First, check that your trigger can correctly identify the content type. This step ensures that Logic Apps no longer assumes the text is UTF-8. 
 
-For triggers with the setting **Infer Content Type**, choose **No**. If your trigger doesn't have this option, the content type is set by the incoming message. 
+In triggers and actions that have the property **Infer Content Type**, select **No**.  You can usually find this property in the operation's **Add parameters** list. However, if the operation doesn't include this property, the content type is set by the inbound message.
 
-If you're using the HTTP request trigger for `text/plain` content, you must set the `charset` parameter in the `Content-Type` header of the call. Characters might become corrupted if you don't set the `charset` parameter, or the parameter doesn't match the payload's encoding format. For more information, see [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
+The following list shows some of the connectors where you can disable automatically inferring the content type:
+* [OneDrive](/connectors/onedrive/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Azure File Storage](/connectors/azurefile/)
+* [File System](/connectors/filesystem/)
+* [Google Drive](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+If you're using the Request trigger for `text/plain` content, you must set the `charset` parameter that is in the call's `Content-Type` header. Otherwise, characters might become corrupted, or the parameter doesn't match the payload's encoding format. For more information, review [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
 
 For example, the HTTP trigger converts the incoming content to UTF-8 when the `Content-Type` header is set with the correct `charset` parameter:
 
@@ -38,7 +49,7 @@ If you set the `Content-Type` header to `application/octet-stream`, you also mig
 
 ## Base64 encode content
 
-Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content, make sure you've [converted the text to UTF-8](#convert-payload-encoding). If you base64 decode the content to a string before converting the text to UTF-8, characters might return corrupted.
+Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content to a string, make sure that you [converted the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
 
 Next, convert any .NET-supported encoding to another .NET-supported encoding. Review the [Azure Functions code example](#azure-functions-version) or the [.NET code example](#net-version):
 
@@ -175,7 +186,7 @@ Using these same concepts, you can also [send a non-Unicode payload from your wo
 
 ## Sample payload conversions
 
-In this example, the base64-encoded sample input string is a personal name, *H&eacute;lo&iuml;se*, that contains accented characters.
+In this example, the base64-encoded sample input string is a personal name that contains accented characters: *H&eacute;lo&iuml;se*
 
 Example input:
 

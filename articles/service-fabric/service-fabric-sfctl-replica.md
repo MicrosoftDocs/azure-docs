@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl replica
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing replicas.
-author: jeffj6123
-
 ms.topic: reference
-ms.date: 1/16/2020
-ms.author: jejarry
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl replica

@@ -3,7 +3,7 @@ title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/22/2020
+ms.date: 01/04/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,7 @@ Azure Automation stores certificates securely for access by runbooks and DSC con
 
 ## PowerShell cmdlets to access certificates
 
-The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the Az modules.
 
 |Cmdlet |Description|
 | --- | ---|
@@ -59,7 +59,7 @@ When you create a new certificate, you upload a .cer or .pfx file to Automation.
 1. From your Automation account, on the left-hand pane select **Certificates** under **Shared Resource**.
 1. On the **Certificates** page, select **Add a certificate**.
 1. In the **Name** field, type a name for the certificate.
-1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported.
+1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported. If you are using Azure Automation portal to upload certificates, it might fail for partner (CSP) accounts. We recommend that you use [PowerShell cmdlets](#powershell-cmdlets-to-access-certificates) as a workaround to overcome this issue.
 1. Select **Create** to save the new certificate asset.
 
 ### Create a new certificate with PowerShell

@@ -1,19 +1,18 @@
 ---
-title: 'Tutorial - Create and manage a VPN gateway: Azure portal'
-description: In this tutorial, learn how to create, deploy, and manage an Azure VPN gateway using the portal.
+title: 'Tutorial – Create & manage a VPN gateway – Azure portal'
 titleSuffix: Azure VPN Gateway
+description: In this tutorial, learn how to create and manage an Azure VPN gateway using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 12/20/2022
 
-#Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
-# Tutorial: Create and manage a VPN gateway using Azure portal
+# Tutorial: Create and manage a VPN gateway using the Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You can also create a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md).
+This tutorial helps you create and manage an Azure VPN gateway using the Azure portal. You can also create and manage a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
 
 In this tutorial, you learn how to:
 
@@ -55,8 +54,8 @@ Create a virtual network gateway using the following values:
 * **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw1
-* **Generation:** Generation1
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Virtual network:** VNet1
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new
@@ -65,7 +64,7 @@ Create a virtual network gateway using the following values:
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
 
-A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -73,13 +72,13 @@ A gateway can take up to 45 minutes to fully create and deploy. You can see the 
 
 You can view the gateway public IP address on the **Overview** page for your gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page.":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page used to view the Public IP address field." lightbox="./media/tutorial-create-gateway-portal/address.png":::
 
-To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
+To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 
 ## <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we will resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
 
 [!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 

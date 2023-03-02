@@ -1,24 +1,25 @@
 ---
 title: Integrate Azure Active Directory with Azure Kubernetes Service (legacy)
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster (legacy)
-services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/20/2020
-ms.author: thomasge
+ms.date: 11/11/2021
+ms.author: miwithro
 
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
+
+> [!WARNING]
+> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023.
+>
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
 This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic Kubernetes role in the AKS cluster.
 
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
-
-> [!Important]
-> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 ## The following limitations apply:
 
@@ -242,6 +243,7 @@ error: You must be logged in to the server (Unauthorized)
 * You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 * The user is not a member of more than 200 groups.
 * Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
+* Be sure that only one version of kubectl is installed on your machine at a time. Conflicting versions can cause issues during authorization. To install the latest version, use [az aks install-cli][az-aks-install-cli].
 
 ## Next steps
 
@@ -257,11 +259,11 @@ For best practices on identity and resource control, see [Best practices for aut
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show

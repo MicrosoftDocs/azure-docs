@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 07/07/2021
+ms.date: 02/21/2023
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,29 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid.
+
+### Workaround
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
+
+### Resolution
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -34,7 +57,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. If your runbook is suspended or unexpectedly fails:
 
     * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
-    * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
+    * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
     * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
@@ -43,19 +66,56 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
-## Scenario: PowerShell #Requires statement does not work as expected
+
+## Scenario: Unable to create new Automation job in West Europe region
+
+### Issue
+When creating new Automation jobs, you might experience a delay or failure of job creation. Scheduled jobs will automatically be retired, and jobs executed through the portal can be retired if you see a failure. 
+
+### Cause
+This is because of the high load from customers' runbooks using the Automation service in the West Europe region.
+
+### Resolution
+Perform the following action if it is feasible as per your requirement and environment to reduce the chance of failure: 
+
+- If you’re using the top of the hour for the job creation (at 12:00, 1:00, 2:00, and so on.), typically on the hour, or half hour, we recommend that you move the job start time to five minutes before or after the hour/half hour. This is because a most of the customers use the beginning of the hour for job execution which drastically increases the load on the service, while the load is relatively low at the other time slots.
+
+## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 
 ### Issue
 
-Your Azure Automation cloud or hybrid jobs includes the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, but the statement does not prevent the script from executing when the required condition is not met.
+Your runbook using a managed identity Connect-AzAccount -Identity which attempts to manage Azure objects, fails to work successfully and logs the following error - `this.Client.SubscriptionId cannot be null.`
+
+```error
+get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-azvm + ~~~~~~~~ + CategoryInfo : CloseError: (:) [Get-AzVM], ValidationException + FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.GetAzureVMCommand
+```
 
 ### Cause
 
-Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and will cause the job to fail.
+This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+
+### Resolution
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
+
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
+
+## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
+
+This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](/azure/azure-sql/database/firewall-configure).
+
+### Issue
+
+Attempting to access Azure Storage from a Runbook results in an error similar to the following message: `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### Cause
+
+The Azure Firewall on Azure Storage is enabled.
 
 ### Resolution
 
-Ensure all script requirements are met before execution.
+Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 
@@ -203,26 +263,11 @@ This error can occur if:
 * The subscription name isn't valid.
 * The Azure AD user who's trying to get the subscription details isn't configured as an administrator of the subscription.
 * The cmdlet isn't available.
+* Context switching occurred.
 
 ### Resolution
 
-Follow these steps to determine if you've authenticated to Azure and have access to the subscription that you're trying to select:
-
-1. To make sure that your script works standalone, test it outside of Azure Automation.
-1. Make sure that your script runs the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet before running the `Select-*` cmdlet.
-1. Add `Disable-AzContextAutosave -Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
-1. If you still see the error message, modify your code by adding the `AzContext` parameter for `Connect-AzAccount`, and then execute the code.
-
-   ```powershell
-   Disable-AzContextAutosave -Scope Process
-
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-
-   $context = Get-AzContext
-
-   Get-AzVM -ResourceGroupName myResourceGroup -AzContext $context
-    ```
+For context switching, see [Context switching in Azure Automation](../context-switching.md).
 
 ## <a name="runbook-auth-failure"></a>Scenario: Runbooks fail when dealing with multiple subscriptions
 
@@ -244,33 +289,19 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
    ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
 ```
 
+or like this one:
+
+```error
+Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
+... resources = Get-AzResource -ResourceGroupName $group.ResourceGro ...
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Get-AzResource], CloudException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementation.GetAzureResourceCmdlet
+```
+
 ### Resolution
 
-The subscription context might be lost when a runbook invokes multiple runbooks. To avoid accidentally trying to access the incorrect subscription you should follow the guidance below.
-
-* To avoid referencing the wrong subscription, disable context saving in your Automation runbooks by using the following code at the start of each runbook.
-
-   ```azurepowershell-interactive
-   Disable-AzContextAutosave -Scope Process
-   ```
-
-* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when the runbook is created (that is, when an account signs in) and every time it's changed, and reference the context when you specify an Az cmdlet.
-
-   > [!NOTE]
-   > You should pass in a context object even when manipulating the context directly using cmdlets such as [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) or [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
-
-   ```azurepowershell-interactive
-   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
-   $context = Add-AzAccount `
-             -ServicePrincipal `
-             -TenantId $servicePrincipalConnection.TenantId `
-             -ApplicationId $servicePrincipalConnection.ApplicationId `
-             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
-             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-   $context = Set-AzContext -SubscriptionName $subscription `
-       -DefaultProfile $context
-   Get-AzVm -DefaultProfile $context
-   ```
+To avoid accidentally trying to access the incorrect subscription, see [Context switching in Azure Automation](../context-switching.md).
   
 ## <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure fails because multifactor authentication is enabled
 
@@ -288,7 +319,7 @@ If you have multifactor authentication on your Azure account, you can't use an A
 
 ### Resolution
 
-To use a Classic Run As account with Azure classic deployment model cmdlets, see [Create a Classic Run As account to manage Azure services](../automation-create-standalone-account.md#create-a-classic-run-as-account). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: Runbook fails with "A task was canceled" error message
 
@@ -418,25 +449,31 @@ If the stream contains objects, `Start-AzAutomationRunbook` doesn't handle the O
 Implement a polling logic, and use the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet to retrieve the output. A sample of this logic is defined here:
 
 ```powershell
-$automationAccountName = "ContosoAutomationAccount"
-$runbookName = "ChildRunbookExample"
-$resourceGroupName = "ContosoRG"
+$AutomationAccountName = "ContosoAutomationAccount"
+$RunbookName = "ChildRunbookExample"
+$ResourceGroupName = "ContosoRG"
 
-function IsJobTerminalState([string] $status) {
-    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+function IsJobTerminalState([string]$Status) {
+  $TerminalStates = @("Completed", "Failed", "Stopped", "Suspended")
+  return $Status -in $TerminalStates
 }
 
-$job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
-$pollingSeconds = 5
-$maxTimeout = 10800
-$waitTime = 0
-while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
-   Start-Sleep -Seconds $pollingSeconds
-   $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+$StartAzAutomationRunbookParameters = @{
+  Name = $RunbookName
+  AutomationAccountName = $AutomationAccountName
+  ResourceGroupName = $ResourceGroupName
+}
+$Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
+$PollingSeconds = 5
+$MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
+$WaitTime = 0
+while(-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+   Start-Sleep -Seconds $PollingSeconds
+   $WaitTime += $PollingSeconds
+   $Job = $Job | Get-AzAutomationJob
 }
 
-$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$Job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
@@ -479,7 +516,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 ### Resolution
 
-If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
+If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#update-a-webhook) if it hasn't already expired. 
 
 ## <a name="429"></a>Scenario: 429: The request rate is currently too large
 
@@ -686,11 +723,27 @@ Possible causes for this issue are:
 
 #### Not using a Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
+Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershell-runbook-managed-identity.md#assign-permissions-to-managed-identities) to ensure that you are using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
 [Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+
+## Scenario: Runbook fails with "Parameter length exceeded" error
+
+### Issue
+Your runbook uses parameters and fails with the following error:
+
+```error
+Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.
+```
+
+### Cause
+There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
+
+### Resolution
+To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30,000 characters. 
+
 
 ## Recommended documents
 

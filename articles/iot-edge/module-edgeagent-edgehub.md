@@ -1,9 +1,9 @@
 ---
 title: Properties of the agent and hub module twins - Azure IoT Edge
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -34,24 +34,25 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | runtime.type | Has to be "docker" | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | No |
-| runtime.settings.registryCredentials<br>.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br> Registry credentials are necessary for any private module images. | No |
-| runtime.settings.registryCredentials<br>.{registryId}.password | The password for the container registry. | No |
-| runtime.settings.registryCredentials<br>.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No |  
+| runtime.settings.registryCredentials.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br>Registry credentials are necessary for any private module images. | No |
+| runtime.settings.registryCredentials.{registryId}.password | The password for the container registry. | No |
+| runtime.settings.registryCredentials.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No |  
 | systemModules.edgeAgent.type | Has to be "docker" | Yes |
+| systemModules.edgeAgent.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | systemModules.edgeAgent.settings.image | The URI of the image of the IoT Edge agent. Currently, the IoT Edge agent isn't able to update itself. | Yes |
-| systemModules.edgeAgent.settings<br>.createOptions | A stringified JSON containing the options for the creation of the IoT Edge agent container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
+| systemModules.edgeAgent.settings.createOptions | A stringified JSON containing the options for the creation of the IoT Edge agent container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be "docker" | Yes |
 | systemModules.edgeHub.status | Has to be "running" | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be "always" | Yes |
 | systemModules.edgeHub.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | systemModules.edgeHub.settings.image | The URI of the image of the IoT Edge hub. | Yes |
-| systemModules.edgeHub.settings<br>.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
+| systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{moduleId}.restartPolicy | {"never" \| "always"} | Yes |
 | modules.{moduleId}.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}` | No |
@@ -79,22 +80,24 @@ The following table does not include the information that is copied from the des
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
 | lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| configurationHealth.{deploymentId}.health | `healthy` if the runtime status of all modules set by the deployment {deploymentId} is either `running` or `stopped`, `unhealthy` otherwise |
 | runtime.platform.OS | Reporting the OS running on the device |
 | runtime.platform.architecture | Reporting the architecture of the CPU on the device |
 | systemModules.edgeAgent.runtimeStatus | The reported status of IoT Edge agent: {"running" \| "unhealthy"} |
 | systemModules.edgeAgent.statusDescription | Text description of the reported status of the IoT Edge agent. |
+| systemModules.edgeAgent.exitCode | The exit code reported by the IoT Edge agent container if the container exits |
+| systemModules.edgeAgent.lastStartTimeUtc | Time when IoT Edge agent was last started |
+| systemModules.edgeAgent.lastExitTimeUtc | Time when IoT Edge agent last exited |
 | systemModules.edgeHub.runtimeStatus | Status of IoT Edge hub: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | systemModules.edgeHub.statusDescription | Text description of the status of IoT Edge hub if unhealthy. |
 | systemModules.edgeHub.exitCode | The exit code reported by the IoT Edge hub container if the container exits |
-| systemModules.edgeHub.startTimeUtc | Time when IoT Edge hub was last started |
+| systemModules.edgeHub.lastStartTimeUtc | Time when IoT Edge hub was last started |
 | systemModules.edgeHub.lastExitTimeUtc | Time when IoT Edge hub last exited |
 | systemModules.edgeHub.lastRestartTimeUtc | Time when IoT Edge hub was last restarted |
 | systemModules.edgeHub.restartCount | Number of times this module was restarted as part of the restart policy. |
 | modules.{moduleId}.runtimeStatus | Status of the module: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | modules.{moduleId}.statusDescription | Text description of the status of the module if unhealthy. |
 | modules.{moduleId}.exitCode | The exit code reported by the module container if the container exits |
-| modules.{moduleId}.startTimeUtc | Time when the module was last started |
+| modules.{moduleId}.lastStartTimeUtc | Time when the module was last started |
 | modules.{moduleId}.lastExitTimeUtc | Time when the module last exited |
 | modules.{moduleId}.lastRestartTimeUtc | Time when the module was last restarted |
 | modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy. |
@@ -107,7 +110,7 @@ The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the co
 | -------- | ----------- | -------- |
 | schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
 | routes.{routeName} | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
-| storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. The value can be any positive integer. | Yes |
+| storeAndForwardConfiguration.timeToLiveSecs | The device time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. This time persists over any power offs or restarts. For more information, see [Offline capabilities](offline-capabilities.md#time-to-live). | Yes |
 
 ## EdgeHub reported properties
 

@@ -4,11 +4,11 @@ description: Details of log query audit logs which provide telemetry about log q
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/03/2020
+ms.date: 10/20/2021
 
 ---
 
-# Audit queries in Azure Monitor Logs (preview)
+# Audit queries in Azure Monitor Logs
 Log query audit logs provide telemetry about log queries run in Azure Monitor. This includes information such as when a query was run, who ran it, what tool was used, the query text, and performance statistics describing the query's execution.
 
 
@@ -27,7 +27,7 @@ Access the diagnostic setting for a Log Analytics workspace in the Azure portal 
     [![Diagnostic settings Log Analytics workspace](media/query-audit/diagnostic-setting-workspace.png) ](media/query-audit/diagnostic-setting-workspace.png#lightbox) 
 
 ### Resource Manager template
-You can get an example Resource Manager template from [Diagnostic setting for Log Analytics workspace](../essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-log-analytics-workspace).
+You can get an example Resource Manager template from [Diagnostic setting for Log Analytics workspace](../essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-a-log-analytics-workspace).
 
 ## Audit data
 An audit record is created each time a query is run. If you send the data to a Log Analytics workspace, it's stored in a table called *LAQueryLogs*. The following table describes the properties in each record of the audit data.

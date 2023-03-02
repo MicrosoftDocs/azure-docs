@@ -35,7 +35,7 @@ Here are the errors related to Blob storage for an Azure Stack Edge device.
 |The value for one of the HTTP headers is not in the correct format.|The installed version of the Microsoft Azure Storage Library for Python is not supported by Azure Stack Edge. For supported library versions, see [Supported Azure client libraries](azure-stack-edge-gpu-system-requirements-rest.md#supported-azure-client-libraries).|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] …| Before running Python, set the REQUESTS_CA_BUNDLE environment variable to the path of the Base64-encoded SSL certificate file (see how to [Download the certificate](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates)). For example, run:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternately, add the certificate to the system's certificate store, and then set this environment variable to the path of that store. For example, on Ubuntu, run:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`|
 |The connection times out.|Sign in on your device, and then check whether it's unlocked. Anytime the device restarts, it stays locked until someone signs in.|
-
+|Could not create or update storageaccount. Ensure that the access key for your storage account is valid. If needed, update the key on the device.|Sync the storage account keys. Follow the steps outlined [here](azure-stack-edge-gpu-manage-storage-accounts.md#sync-storage-keys).|
 
 ## Next steps
 

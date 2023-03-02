@@ -4,15 +4,14 @@ description: This document describes the diagnosis process of duplicated attribu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: maheshu
+manager: amycolannino
 editor: billmath
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/11/2018
+ms.date: 01/26/2023
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
@@ -54,7 +53,7 @@ The diagnose feature supports user objects with the following duplicated attribu
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> To access this feature, **Global Admin** permission, or **Contributor** permission from Azure RBAC, is required.
+> To access this feature, **Global Administrator** permission, or **Contributor** permission from Azure RBAC, is required.
 >
 
 Follow the steps from the Azure portal to narrow down the sync error details and provide more specific solutions:
@@ -105,8 +104,8 @@ For the **orphaned object scenario**, only the single user **Joe Johnson** is pr
 This question checks an incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
 1. The conflicting object is newly synced to Azure Active Directory. Compare the objects' attributes:  
    - Display Name
-   - User Principal Name
-   - Object ID
+   - UserPrincipalName or SignInName
+   - ObjectID
 2. If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.
@@ -149,7 +148,7 @@ The specific settings such as [UserWriteback in Azure AD Connect](./how-to-conne
 
 
 **Q.** What permission does a user need to apply the fix?  
-**A.** **Global Admin**, or **Contributor** from Azure RBAC, has permission to access the diagnostic and troubleshooting process.
+**A.** **Global Administrator**, or **Contributor** from Azure RBAC, has permission to access the diagnostic and troubleshooting process.
 
 
 **Q.** Do I have to configure Azure AD Connect or update the Azure AD Connect Health agent for this feature?  

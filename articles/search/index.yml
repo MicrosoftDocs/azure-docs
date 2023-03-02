@@ -27,51 +27,25 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: What is semantic search?
             url: semantic-search-overview.md
-          - text: What is AI enrichment?
-            url: cognitive-search-concept-intro.md
-          - text: What is an indexer?
-            url: search-indexer-overview.md
-          - text: What are Azure Applied AI Services?
-            url: ../applied-ai-services/what-are-applied-ai-services.md
-      - linkListType: video
+      - linkListType: learn
         links:
-          - text: Use AI in search solutions
-            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+          - text: Learning module
+            url: /training/modules/intro-to-azure-search/
 
   # Card
-  - title: Index data
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Data source gallery
-            url: search-data-sources-gallery.md
-          - text: Creating indexes
-            url: search-what-is-an-index.md
-          - text: Importing data
-            url: search-what-is-data-import.md
-      - linkListType: how-to-guide
-        links:
-          - text: Index from Azure Blob Storage
-            url: search-blob-storage-integration.md
-          - text: Index from Azure SQL Database
-            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Cosmos DB
-            url: search-howto-index-cosmosdb.md
-
-  # Card
-  - title: Get started
+  - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a service
+          - text: Create a search service
             url: search-create-service-portal.md
-          - text: Create an index
+          - text: Create a search index
             url: search-get-started-portal.md
           - text: Create a demo app
             url: search-create-app-portal.md
-          - text: Extract text from images and app files
+          - text: Create a skillset
             url: cognitive-search-quickstart-blob.md
-            
+
   # Card
   - title: Develop apps
     linkLists:
@@ -83,42 +57,38 @@ landingContent:
         links:
           - text: Develop in .NET
             url: search-howto-dotnet-sdk.md
-          - text: Call REST APIs in VS Code
-            url: search-get-started-vs-code.md
-          - text: Call REST APIs in Postman
+          - text: Develop in REST
             url: search-get-started-rest.md
       - linkListType: reference
         links:
+          - text: Azure REST API Reference
+            url: /rest/api/searchservice/
           - text: Azure SDK for .NET
             url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
             url: /python/api/overview/azure/search-documents-readme
-          - text: REST API Reference
-            url: /rest/api/searchservice/index
 
   # Card
-  - title: Enrich with AI
+  - title: Index data
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: Skillsets
-            url: cognitive-search-defining-skillset.md
-          - text: Knowledge stores
-            url: knowledge-store-concept-intro.md
-          - text: Projections
-            url: knowledge-store-projections-examples.md
+          - text: What's a search index?
+            url: search-what-is-an-index.md
+          - text: Importing data
+            url: search-what-is-data-import.md
+          - text: Indexer overview
+            url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Attach Cognitive Services
-            url: cognitive-search-attach-cognitive-services.md
-          - text: Define a skillset
-            url: cognitive-search-defining-skillset.md
-          - text: Create a knowledge store
-            url: knowledge-store-create-portal.md
-      - linkListType: reference
-        links:
-          - text: Built-in skills
-            url: cognitive-search-predefined-skills.md
+          - text: Index from Azure Blob Storage
+            url: search-blob-storage-integration.md
+          - text: Index from Azure SQL Database
+            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Index from Azure Cosmos DB
+            url: search-howto-index-cosmosdb.md
+          - text: Index any data
+            url: tutorial-optimize-indexing-push-api.md
          
   # Card
   - title: Query data
@@ -135,7 +105,7 @@ landingContent:
         links:
           - text: Create a simple query
             url: search-query-create.md
-          - text: Use full syntax
+          - text: Create advanced queries
             url: search-query-lucene-examples.md
       - linkListType: reference
         links:
@@ -145,13 +115,13 @@ landingContent:
             url: /rest/api/searchservice/search-documents
 
   # Card
-  - title: Help and feedback
-    linkLists: 
-      - linkListType: reference
-        links: 
-          - text: FAQ
-            url: search-faq-frequently-asked-questions.yml
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/azure-search
-          - text: Request a feature
-            url: https://feedback.azure.com/forums/263029-azure-search
+  - title: Enrich with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is AI enrichment?
+            url: cognitive-search-concept-intro.md
+          - text: Skillsets
+            url: cognitive-search-working-with-skillsets.md
+          - text: Knowledge stores
+            url: knowledge-store-concept-intro.md

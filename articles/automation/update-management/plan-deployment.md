@@ -3,7 +3,7 @@ title: Azure Automation Update Management Deployment Plan
 description: This article describes the considerations and decisions to be made to prepare deployment of Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ Update Management is an Azure Automation feature, and therefore requires an Auto
 
 Update Management depends on a Log Analytics workspace in Azure Monitor to store assessment and update status log data collected from managed machines. Integration with Log Analytics also enables detailed analysis and alerting in Azure Monitor. You can use an existing workspace in your subscription, or create a new one dedicated only for Update Management.
 
-If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md) deployment guide. 
+If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/workspace-design.md) deployment guide. 
 
 ## Step 3 - Supported operating systems
 
@@ -29,7 +29,7 @@ The [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for
 
 On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md). The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
 
-Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with [VM insights](../../azure-monitor/vm/vminsights-overview.md), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with [VM insights](../../azure-monitor/vm/vminsights-overview.md), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration when you connect the management group to the Log Analytics workspace.
 
@@ -51,9 +51,9 @@ If your IT security policies do not allow machines on the network to connect to 
 
 To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## Step 7 - Windows Update client
+## Step 7 - Windows Update Agent
 
-Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
+Azure Automation Update Management relies on the Windows Update Agent to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
 ## Step 8 - Linux repository
 
@@ -80,7 +80,7 @@ Enable Update Management and select machines to be managed using one of the foll
 
 - Using an Azure [Resource Manager template](enable-from-template.md) to deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
-- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc-enabled servers.
 
 - Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) to automate onboarding Azure VMs.
 

@@ -2,17 +2,19 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/04/2022
+ms.service: backup
+author: jyothisuri
+ms.author: jsuri
 ---
-# Offline seeding using Azure Data Box for DPM and MABS (Preview)
+# Offline seeding using Azure Data Box for DPM and MABS
 
 > [!NOTE]
-> This feature is applicable for Data Protection Manager (DPM) 2019 UR2 and later.<br><br>
-> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you're interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> This feature is applicable for Data Protection Manager (DPM) 2019 UR2 (and later) and MABS v3 UR2 (and later).
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
-You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial DPM/MABS backups offline (without using the network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This feature is currently in preview.
+You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial DPM/MABS backups offline (without using the network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network.
 
 Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](backup-azure-backup-server-import-export.md):
 
@@ -124,9 +126,6 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 
     ![Choose initial online replication](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
-    >[!NOTE]
-    > The option to select **Transfer using Microsoft Owned disks** isn't available for MABS v3 since the feature is in preview. Reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
-
 12. Sign into Azure when prompted, using the user credentials that have owner access on the Azure Subscription. After a successful sign-in, the following screen is displayed:
 
     ![After successful login](./media/offline-backup-azure-data-box-dpm-mabs/after-successful-login.png)
@@ -211,9 +210,15 @@ To ensure that the failure is due to the [Issue](#issue) above, perform one of t
 
 #### Step 1
 
-Check if you see the following error message in the DPM/MABS console at the time of configuring offline backup:
+Check if you see one of the following error messages in the DPM/MABS console at the time of configuring offline backup:
 
-![Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+**Unable to create Offline Backup policy for the current Azure account as this server’s authentication information could not be uploaded to Azure. (ID: 100242)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png" alt-text="Azure recovery services agent.":::
+
+**Unable to make service calls to Azure that are required for querying Import Job status and moving backup data into the recovery Services Vault. (ID:100230)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png" alt-text="Screenshot of error screen for Azure recovery services agent.":::
 
 #### Step 2
 

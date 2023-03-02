@@ -1,18 +1,18 @@
 ---
 title: Azure reservation recommendations
 description: Learn about Azure reservation recommendations.
-author: banders
+author: bandersmsft
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 01/05/2023
 ---
 
 # Reservation recommendations
 
-Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs), and through the reservation purchase experience in the Azure portal.
+Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
 
 The following steps define how recommendations are calculated:
 
@@ -20,7 +20,8 @@ The following steps define how recommendations are calculated:
 2. Based on the usage data, the engine simulates your costs with and without reservations.
 3. The costs are simulated for different quantities, and the quantity that maximizes the savings is recommended.
 4. If your resources are shut down regularly, the simulation won't find any savings, and no purchase recommendation is provided.
-5. The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
+5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates, such as Microsoft Azure Consumption Commitment (MACC) and Azure Commitment Discount (ACD) based solely on historic usage.
+    - The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
 
 ## Recommendations in the Azure portal
 
@@ -54,6 +55,7 @@ Reservation purchase recommendations are available in Azure Advisor. Keep in min
 - The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
 - If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.
+- Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
 
 ## Other expected API behavior
 

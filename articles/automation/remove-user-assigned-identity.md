@@ -1,13 +1,13 @@
 ---
-title: Remove user-assigned managed identity for Azure Automation account (preview)
+title: Remove user-assigned managed identity for Azure Automation account
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ---
 
-# Remove user-assigned managed identity for Azure Automation account (preview)
+# Remove user-assigned managed identity for Azure Automation account
 
 You can remove a user-assigned managed identity in Azure Automation by using the Azure portal, PowerShell, the Azure REST API, or an Azure Resource Manager (ARM) template.
 
@@ -38,7 +38,7 @@ Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     ```
 
@@ -69,9 +69,7 @@ You can remove a user-assigned managed identity from the Automation account by u
 
 ### Request body
 
-Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
-
-PATCH
+Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity` using the HTTP **PATCH** method.
 
 ```json
 {
@@ -84,9 +82,7 @@ PATCH
 }
 ```
 
-Scenario: System-assigned managed identity is enabled or is to be enabled. All user-assigned managed identities are to be removed.
-
-PUT
+Scenario: System-assigned managed identity is enabled or is to be enabled. All user-assigned managed identities are to be removed using the HTTP **PUT** method.
 
 ```json
 {
@@ -96,9 +92,7 @@ PUT
 }
 ```
 
-Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
-
-PATCH
+Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity` using the HTTP **PATCH** method.
 
 ```json
 {
@@ -112,9 +106,7 @@ PATCH
 
 ```
 
-Scenario: System-assigned managed identity is disabled or is to be disabled. All user-assigned managed identities are to be removed.
-
-PUT
+Scenario: System-assigned managed identity is disabled or is to be disabled. All user-assigned managed identities are to be removed using the HTTP **PUT** method.
 
 ```json
 {
@@ -236,6 +228,6 @@ Use the [Get-AzAutomationAccount](/powershell/module/az.automation/get-azautomat
 
 ## Next steps
 
-- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation (preview)](enable-managed-identity-for-automation.md).
+- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation](enable-managed-identity-for-automation.md).
 
 - For an overview of Automation account security, see [Automation account authentication overview](automation-security-overview.md).

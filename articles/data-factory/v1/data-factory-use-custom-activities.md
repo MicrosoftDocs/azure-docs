@@ -2,8 +2,9 @@
 title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
@@ -20,7 +21,7 @@ robots: noindex
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning Studio (classic).
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight and Azure Batch.
 
 To move data to/from a data store that Data Factory does not support, create a **custom activity** with your own data movement logic and use the activity in a pipeline. Similarly, to transform/process data in a way that isn't supported by Data Factory, create a custom activity with your own data transformation logic and use the activity in a pipeline.
 
@@ -376,7 +377,7 @@ The method returns a dictionary that can be used to chain custom activities toge
     > [!IMPORTANT]
     > All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
-    ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/Binaries.png" alt-text="Binary output files":::
 
 13. Create a blob container named **customactivitycontainer** if it does not already exist.
 
@@ -422,17 +423,17 @@ Here are the steps you perform in this section:
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
 
-      ![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-menu.png" alt-text="New Azure Data Factory menu":::
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name "CustomActivityFactory" is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
 
-    ![New Azure Data Factory blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-blade.png" alt-text="New Azure Data Factory blade":::
 3. Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 4. Verify that you are using the correct **subscription** and **region** where you want the data factory to be created.
 5. Click **Create** on the **New data factory** blade.
 6. You see the data factory being created in the **Dashboard** of the Azure portal.
 7. After the data factory has been created successfully, you see the Data Factory blade, which shows you the contents of the data factory.
 
-    ![Data Factory blade](media/data-factory-use-custom-activities/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/data-factory-blade.png" alt-text="Data Factory blade":::
 
 ### Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. In this step, you link your Azure Storage account and Azure Batch account to your data factory.
@@ -441,16 +442,16 @@ Linked services link data stores or compute services to an Azure data factory. I
 1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 
-    ![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-data-store-menu.png" alt-text="New data store - Azure Storage":::
 3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
-    ![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/azure-storage-linked-service.png" alt-text="Azure Storage liked service":::
 4. Click **Deploy** on the command bar to deploy the linked service.
 
 #### Create Azure Batch linked service
 1. In the Data Factory Editor, click **... More** on the command bar, click **New compute**, and then select **Azure Batch** from the menu.
 
-    ![New compute - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-compute-batch.png" alt-text="New compute - Azure Batch":::
 2. Make the following changes to the JSON script:
 
    1. Specify Azure Batch account name for the **accountName** property. The **URL** from the **Azure Batch account blade** is in the following format: `http://accountname.region.batch.azure.com`. For the **batchUri** property in the JSON, you need to remove `accountname.` from the URL and use the `accountname` for the `accountName` JSON property.
@@ -626,13 +627,13 @@ In this step, you create datasets to represent input and output data.
 ### Monitor the pipeline
 1. In the Data Factory blade in the Azure portal, click **Diagram**.
 
-    ![Diagram tile](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryBlade.png" alt-text="Diagram tile":::
 2. In the Diagram View, now click the OutputDataset.
 
-    ![Diagram view](./media/data-factory-use-custom-activities/diagram.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/diagram.png" alt-text="Diagram view":::
 3. You should see that the five output slices are in the Ready state. If they are not in the Ready state, they haven't been produced yet.
 
-   ![Output slices](./media/data-factory-use-custom-activities/OutputSlices.png)
+   :::image type="content" source="./media/data-factory-use-custom-activities/OutputSlices.png" alt-text="Output slices":::
 4. Verify that the output files are generated in the blob storage in the **adftutorial** container.
 
    ![output from custom activity][image-data-factory-output-from-custom-activity]
@@ -663,15 +664,15 @@ Do the following additional steps if you are creating Data Factory project in Vi
 ## Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname: job-xxx**. Click **Jobs** from the left menu.
 
-![Azure Data Factory - Batch jobs](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-jobs.png" alt-text="Azure Data Factory - Batch jobs":::
 
 A task is created for each activity run of a slice. If there are five slices ready to be processed, five tasks are created in this job. If there are multiple compute nodes in the Batch pool, two or more slices can run in parallel. If the maximum tasks per compute node is set to > 1, you can also have more than one slice running on the same compute.
 
-![Azure Data Factory - Batch job tasks](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png" alt-text="Azure Data Factory - Batch job tasks":::
 
 The following diagram illustrates the relationship between Azure Data Factory and Batch tasks.
 
-![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+:::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryAndBatch.png" alt-text="Data Factory & Batch":::
 
 ## Troubleshoot failures
 Troubleshooting consists of a few basic techniques:
@@ -1026,14 +1027,13 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
-| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning Studio (classic) model and do sentiment analysis, scoring, prediction etc. |
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
 
 [batch-net-library]: ../../batch/quick-run-dotnet.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
+[batch-technical-overview]:/azure/azure-sql/database/sql-database-paas-overview
 [batch-get-started]: ../../batch/quick-run-dotnet.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -1042,7 +1042,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 
 [new-azure-batch-account]: /previous-versions/azure/mt125880(v=azure.100)
 [new-azure-batch-pool]: /previous-versions/azure/mt125936(v=azure.100)

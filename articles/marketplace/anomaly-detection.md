@@ -4,9 +4,9 @@ description: Learn how automatic anomaly detection for metered billing helps ins
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
+ms.date: 9/27/2021
 ---
 
 # Manage metered billing anomalies in Partner Center
@@ -23,40 +23,44 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
 ## View and manage metered usage anomalies
 
-1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **Usage**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Usage**.
 1. Select the **Metered usage anomalies** tab.
 
-    [![Illustrates the Metered usage anomalies tab on the Usage page.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)<br>
+    [![Illustrates the Metered usage anomalies tab on the Usage page.](./media/anomaly-detection/metered-usage-anomalies-workspaces.png)](./media/anomaly-detection/metered-usage-anomalies-workspaces.png#lightbox)<br>
     ***Figure 1: Metered usage anomalies tab***
 
 1. For any usage anomalies detected against metered billing, as a publisher you will be asked to investigate and confirm if the anomaly is true or not. Select **Mark as anomaly** to confirm the diagnosis.
 
-     [![Illustrates the Mark as anomaly dialog box.](./media/anomaly-detection/mark-as-anomaly.png)](./media/anomaly-detection/mark-as-anomaly.png#lightbox)<br>
+     [![Illustrates the Mark as anomaly dialog box.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
     ***Figure 2: Mark as an anomaly dialog box***
 
 1. If you believe that the overage usage anomaly we detected is not genuine, you can provide that feedback by selecting **Not an anomaly** for the Partner Center flagged anomaly on the particular overage usage.
 
-    [![Illustrates the Why is it not an anomaly dialog box.](./media/anomaly-detection/why-is-it-not-an-anomaly.png)](./media/anomaly-detection/why-is-it-not-an-anomaly.png#lightbox)
+    [![Illustrates the Why is it not an anomaly dialog box.](./media/anomaly-detection/why-is-it-not-an-anomaly-workspaces.png)](./media/anomaly-detection/why-is-it-not-an-anomaly-workspaces.png#lightbox)
     ***Figure 3: Why is it not an anomaly? dialog box***
 
 1. You can scroll down the page to see an inventory list of unacknowledged anomalies. The list provides an inventory of anomalies that you have not acknowledged. You can choose to mark any of the Partner Center flagged anomalies as genuine or false.
 
-   [![Illustrates the Partner Center unacknowledged anomalies list on the Usage page.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)<br>
+   [![Illustrates the Partner Center unacknowledged anomalies list on the Usage page.](./media/anomaly-detection/unacknowledged-anomalies-workspaces.png)](./media/anomaly-detection/unacknowledged-anomalies-workspaces.png#lightbox)<br>
     ***Figure 4: Partner Center unacknowledged anomalies list***
 
     By default, flagged anomalies that have an estimated financial impact greater than 100 USD are shown in Partner Center. However, you can select **All** from the **Estimated financial impact of anomaly** list to see all flagged anomalies.
 
-    :::image type="content" source="./media/anomaly-detection/all-anomalies.png" alt-text="Screenshot of all metered usage anomalies for the selected offer.":::
+    [ ![Screenshot of all metered usage anomalies for the selected offer.](./media/anomaly-detection/all-anomalies.png) ](./media/anomaly-detection/all-anomalies.png#lightbox)
 
 1. You would also see an anomaly action log that shows the actions you took on the overage usages. In the action log, you will be able to see which overage usage events were marked as genuine or false.
 
-   [![Illustrates the Anomaly action log on the Usage page.](./media/anomaly-detection/anomaly-action-log.png)](./media/anomaly-detection/anomaly-action-log.png#lightbox)<br>
+   [![Illustrates the Anomaly action log on the Usage page.](./media/anomaly-detection/anomaly-action-log-workspaces.png)](./media/anomaly-detection/anomaly-action-log-workspaces.png#lightbox)<br>
    ***Figure 5: Anomaly action log***
 
 1. Partner Center analytics will not support restatement of overage usage events in the export reports. Partner Center lets you enter the corrected overage usage for an anomaly and the details are passed on to Microsoft teams for investigation. Based on the investigation, Microsoft will issue credit refunds to the overcharged customer, as appropriate. When you select any of the flagged anomalies, you can select **Mark as anomaly** to mark the usage overage anomaly as genuine.
 
-   [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
+   [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
    ***Figure: 6: Mark as anomaly dialog box***
 
 The first time an overage usage is flagged as irregular in Partner Center, you will get a window of 30 days from that instance to mark the anomaly as genuine or false. After the 30-day period, as the publisher you would not be able to act on the anomalies.

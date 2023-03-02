@@ -4,9 +4,9 @@ description: Learn how to set up Dynamics 365 Customer Engagement to manage lead
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 03/30/2020
+author: urimsft
+ms.author: uridor
+ms.date: 9/14/2022
 ---
 
 # Configure lead management for Dynamics 365 Customer Engagement

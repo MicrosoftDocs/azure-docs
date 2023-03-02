@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 02/23/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
@@ -188,7 +188,7 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/agents/agent-windows.md).
 
     If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -280,7 +280,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 2. Check [Update Management history](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
-3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
+3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 4. Search for changes over a considerable period, such as one day, before the update deployment was run.
 
@@ -335,7 +335,7 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
 
-   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc-enabled servers.
 
    - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
 
@@ -672,7 +672,7 @@ Deploying updates to Linux by classification ("Critical and security updates") h
 
 ### KB2267602 is consistently missing
 
-KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It's updated daily.
+KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/en-us/wdsi/defenderupdates). It's updated daily.
 
 ## Next steps
 

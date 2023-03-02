@@ -1,17 +1,15 @@
 ---
-title: Azure Kubernetes Service as Event Grid source (Preview)
+title: Azure Kubernetes Service as Event Grid source
 description: This article describes how to use Azure Kubernetes Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 author: zr-msft
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 12/02/2022
 ms.author: zarhoads
 ---
 
-# Azure Kubernetes Service (AKS) as an Event Grid source (Preview)
+# Azure Kubernetes Service (AKS) as an Event Grid source
 
-This article provides the properties and schema for AKS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use AKS as an event source.
-
-[!INCLUDE [preview features callout](../aks/includes/preview/preview-callout.md)]
+This article provides the properties and schema for AKS events. It also gives you a list of quick starts and tutorials to use AKS as an event source. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md) and [Cloud event schema](cloud-event-schema.md).
 
 ## Available event types
 
@@ -75,10 +73,7 @@ This section contains an example of what that data would look like for each even
     },
     "dataVersion": "1",
     "metadataVersion": "1",
-    "eventTime": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "eventTime": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -97,10 +92,7 @@ This section contains an example of what that data would look like for each even
       "latestPreviewKubernetesVersion": "1.21.1"
     },
     "specversion": "1.0",
-    "time": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "time": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 
@@ -116,6 +108,4 @@ The data object contains the following properties:
 | `latestPreviewKubernetesVersion`   | string | The latest preview version of Kubernetes available.          |
 
 ## Next steps
-
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md)
+See the following tutorial: [Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid](../aks/quickstart-event-grid.md).

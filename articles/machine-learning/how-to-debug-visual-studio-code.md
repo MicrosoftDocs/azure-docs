@@ -4,14 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Interactively debug Azure Machine Learning code, pipelines, and deployments using Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
-author: luisquintanilla
-ms.author: luquinta
-ms.date: 05/25/2021
+ms.reviewer: ssalgado 
+author: tbombach
+ms.author: tbombach
+ms.date: 10/21/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Interactive debugging with Visual Studio Code
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
@@ -24,7 +28,9 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 * Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+    > The Azure Machine Learning VS Code extension uses the CLI (v2) by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio Code, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop for Mac and Windows
@@ -41,22 +47,25 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 ### Debug experiment locally
 
 > [!IMPORTANT]
-> Before running your experiment locally, make sure that Docker is running.
+> Before running your experiment locally make sure that:
+>
+> * Docker is running.
+> * The `azureML.CLI Compatibility Mode` setting in Visual Studio Code is set to `1.0` as specified in the prerequisites
 
 1. In VS Code, open the Azure Machine Learning extension view.
 1. Expand the subscription node containing your workspace. If you don't already have one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
 1. Expand your workspace node.
 1. Right-click the **Experiments** node and select **Create experiment**. When the prompt appears, provide a name for your experiment.
 1. Expand the **Experiments** node, right-click the experiment you want to run and select **Run Experiment**.
-1. From the list of options to run your experiment, select **Locally**.
-1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. When you enable file share it allows Docker to mount the directory containing your script to the container. Additionally, it also allows Docker to store the logs and outputs from your run in a temporary directory on your system.
+1. From the list of options, select **Locally**.
+1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. When you enable file share, it allows Docker to mount the directory containing your script to the container. Additionally, it also allows Docker to store the logs and outputs from your run in a temporary directory on your system.
 1. Select **Yes** to debug your experiment. Otherwise, select **No**. Selecting no will run your experiment locally without attaching to the debugger.
 1. Select **Create new Run Configuration** to create your run configuration. The run configuration defines the script you want to run, dependencies, and datasets used. Alternatively, if you already have one, select it from the dropdown.
     1. Choose your environment. You can choose from any of the [Azure Machine Learning curated](resource-curated-environments.md) or create your own.
     1. Provide the name of the script you want to run. The path is relative to the directory opened in VS Code.
     1. Choose whether you want to use an Azure Machine Learning dataset or not. You can create [Azure Machine Learning datasets](how-to-manage-resources-vscode.md#create-dataset) using the extension.
     1. Debugpy is required in order to attach the debugger to the container running your experiment. To add debugpy as a dependency,select **Add Debugpy**. Otherwise, select **Skip**. Not adding debugpy as a dependency runs your experiment without attaching to the debugger.
-    1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
+    1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `AzureML: Submit experiment` command into the text box.
 1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your run configuration is created.
 
     When the Docker image build process begins, the contents of the `60_control_log.txt` file stream to the output console in VS Code.
@@ -102,7 +111,7 @@ For more information on using an Azure Virtual Network with Azure Machine Learni
 
 Your ML pipeline steps run Python scripts. These scripts are modified to perform the following actions:
 
-1. Log the IP address of the host that they are running on. You use the IP address to connect the debugger to the script.
+1. Log the IP address of the host that they're running on. You use the IP address to connect the debugger to the script.
 
 2. Start the debugpy debug component, and wait for a debugger to connect.
 
@@ -132,7 +141,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
                         default=300,
-                        help=f'Defines how much time the AML compute target '
+                        help=f'Defines how much time the Azure Machine Learning compute target '
                         f'will await a connection from a debugger client (VSCODE).')
     parser.add_argument('--remote_debug_client_ip', type=str,
                         help=f'Defines IP Address of VS Code client')
@@ -189,7 +198,7 @@ parser.add_argument("--output_train", type=str, help="output_train directory")
 parser.add_argument('--remote_debug', action='store_true')
 parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
-                    help=f'Defines how much time the AML compute target '
+                    help=f'Defines how much time the Azure Machine Learning compute target '
                     f'will await a connection from a debugger client (VSCODE).')
 parser.add_argument('--remote_debug_client_ip', type=str,
                     help=f'Defines IP Address of VS Code client')
@@ -207,11 +216,11 @@ args = parser.parse_args()
 if args.remote_debug:
     print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
     # Log the IP and port
-    # ip = socket.gethostbyname(socket.gethostname())
-    try:
-        ip = args.remote_debug_client_ip
-    except:
-        print("Need to supply IP address for VS Code client")
+    ip = socket.gethostbyname(socket.gethostname())
+    # try:
+    #     ip = args.remote_debug_client_ip
+    # except:
+    #     print("Need to supply IP address for VS Code client")
     print(f'ip_address: {ip}')
     debugpy.listen(address=(ip, args.remote_debug_port))
     # Wait for the timeout for debugger to attach
@@ -229,7 +238,7 @@ if not (args.output_train is None):
 ### Configure ML pipeline
 
 To provide the Python packages needed to start debugpy and get the run context, create an environment
-and set `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
+and set `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']`. Change the SDK version to match the one you're using. The following code snippet demonstrates how to create an environment:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -274,10 +283,10 @@ Timeout for debug connection: 300
 ip_address: 10.3.0.5
 ```
 
-Save the `ip_address` value. It is used in the next section.
+Save the `ip_address` value. It's used in the next section.
 
 > [!TIP]
-> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
+> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure Machine Learning experiment runs and metrics](how-to-log-view-metrics.md).
 
 ### Configure development environment
 
@@ -335,12 +344,15 @@ Save the `ip_address` value. It is used in the next section.
 
 ## Debug and troubleshoot deployments
 
-In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
+In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason can't be determined by extra logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
+
+> [!TIP]
+> Save time and catch bugs early by debugging managed online endpoints and deployments locally. For more information, see [Debug managed online endpoints locally in Visual Studio Code (preview)](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
-Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). Note that when working with compute instances, Docker is already installed.
+Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). When working with compute instances, Docker is already installed.
 
 ### Configure development environment
 
@@ -458,14 +470,14 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
     package.pull()
     ```
 
-    Once the image has been created and downloaded (this process may take more than 10 minutes, so please wait patiently), the image path (includes repository, name, and tag, which in this case is also its digest) is finally displayed in a message similar to the following:
+    Once the image has been created and downloaded (this process may take more than 10 minutes), the image path (includes repository, name, and tag, which in this case is also its digest) is finally displayed in a message similar to the following:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
@@ -492,9 +504,9 @@ Local web service deployments require a working Docker installation on your loca
     docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    This attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container
+    This command attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container
 
-2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation it's `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
+2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation its `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
 
     ![The container VS Code interface](./media/how-to-troubleshoot-deployment/container-interface.png)
 
@@ -507,11 +519,11 @@ Local web service deployments require a working Docker installation on your loca
 
     ![The container run console output](./media/how-to-troubleshoot-deployment/container-run.png)
 
-4. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the __Run__ extention icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+4. To attach VS Code to debugpy inside the container, open VS Code, and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the __Run__ extention icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
     
-    After clicking the green arrow and attaching the debugger, in the container VS Code interface you can see some new information:
+    After you select the green arrow and attach the debugger, in the container VS Code interface you can see some new information:
     
     ![The container debugger attached information](./media/how-to-troubleshoot-deployment/debugger-attached.png)
     
@@ -537,8 +549,7 @@ Now that you've set up VS Code Remote, you can use a compute instance as remote 
 
 Learn more about troubleshooting:
 
-* [Local model deployment](how-to-troubleshoot-deployment-local.md)
-* [Remote model deployment](how-to-troubleshoot-deployment.md)
-* [Machine learning pipelines](how-to-debug-pipelines.md)
-* [ParallelRunStep](how-to-debug-parallel-run-step.md)
-
+* [Local model deployment](./v1/how-to-troubleshoot-deployment-local.md)
+* [Remote model deployment](./v1/how-to-troubleshoot-deployment.md)
+* [Machine learning pipelines](v1/how-to-debug-pipelines.md)
+* [ParallelRunStep](v1/how-to-debug-parallel-run-step.md)

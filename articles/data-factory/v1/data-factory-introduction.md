@@ -5,11 +5,12 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: overview
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
-# Introduction to Azure Data Factory 
+# Introduction to Azure Data Factory V1
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-introduction.md)
 > * [Version 2 (current version)](../introduction.md)
@@ -29,7 +30,7 @@ Next they want to process the data by using Hadoop in the cloud (Azure HDInsight
 
 The company needs a platform where they can create a workflow that can ingest data from both on-premises and cloud data stores. The company also needs to be able to transform or process data by using existing compute services such as Hadoop, and publish the results to an on-premises or cloud data store for BI applications to consume. 
 
-![Data Factory overview](media/data-factory-introduction/what-is-azure-data-factory.png) 
+:::image type="content" source="media/data-factory-introduction/what-is-azure-data-factory.png" alt-text="Data Factory overview"::: 
 
 Azure Data Factory is the platform for these kinds of scenarios. It is a *cloud-based data integration service that allows you to create data-driven workflows in the cloud that orchestrate and automate data movement and data transformation*. Using Azure Data Factory, you can do the following tasks: 
 
@@ -47,7 +48,7 @@ Currently, in Azure Data Factory, the data that workflows consume and produce is
 ## How does it work? 
 The pipelines (data-driven workflows) in Azure Data Factory typically perform the following three steps:
 
-![Three stages of Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
+:::image type="content" source="media/data-factory-introduction/three-information-production-stages.png" alt-text="Three stages of Azure Data Factory":::
 
 ### Connect and collect
 Enterprises have data of various types that are located in disparate sources. The first step in building an information production system is to connect to all the required sources of data and processing. These sources include SaaS services, file shares, FTP, and web services. Then move the data as-needed to a centralized location for subsequent processing.
@@ -108,7 +109,7 @@ Linked services are used for two reasons in Data Factory:
 
 ### Relationship between Data Factory entities
 
-![Diagram: Data Factory, a cloud data integration service - key concepts](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+:::image type="content" source="./media/data-factory-introduction/data-integration-service-key-concepts.png" alt-text="Diagram: Data Factory, a cloud data integration service - key concepts":::
 
 ## Supported regions
 Currently, you can create data factories in the West US, East US, and North Europe regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data by using compute services.

@@ -5,4 +5,4 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ---
-When you're developing locally, app settings go into the [local.settings.json file](../articles/azure-functions/functions-run-local.md#local-settings-file).
+When you're developing locally, add your application settings in the [local.settings.json file](../articles/azure-functions/functions-develop-local.md#local-settings-file) in the `Values` collection. 

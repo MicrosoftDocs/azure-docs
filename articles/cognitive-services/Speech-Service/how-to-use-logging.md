@@ -3,22 +3,18 @@ title: Speech SDK logging - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn about how to enable logging in the Speech SDK (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
-author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
-ms.author: amishu
+ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Enable logging in the Speech SDK
 
 Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging is handled by a static class in Speech SDK’s native library. You can turn on logging for any Speech SDK recognizer or synthesizer instance. All instances in the same process write log entries to the same log file.
-
-> [!NOTE]
-> Logging is available since Speech SDK version 1.4.0 in all supported Speech SDK programming languages, with the exception of JavaScript.
 
 ## Sample
 
@@ -42,6 +38,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 
 ```objc
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
 You can create a recognizer from the config object. This will enable logging for all recognizers.
@@ -138,6 +140,31 @@ self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.
 ```
 
 More about iOS File System is available [here](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+
+## Logging with multiple recognizers
+
+Although a log file output path is specified as a configuration property into a `SpeechRecognizer` or other SDK object, SDK logging is a singleton, *process-wide* facility with no concept of individual instances. You can think of this as the `SpeechRecognizer` constructor (or similar) implicitly calling a static and internal "Configure Global Logging" routine with the property data available in the corresponding `SpeechConfig`.
+
+This means that you cannot, as an example, configure six parallel recognizers to output simultaneously to six separate files. Instead, the latest recognizer created will configure the global logging instance to output to the file specified in its configuration properties and all SDK logging will be emitted to that file.
+
+This also means that the lifetime of the object that configured logging is not tied to the duration of logging. Logging will not stop in response to the release of an SDK object and will continue as long as no new logging configuration is provided. Once started, process-wide logging may be stopped by setting the log file path to an empty string when creating a new object.
+
+To reduce potential confusion when configuring logging for multiple instances, it may be useful to abstract control of logging from objects doing real work. An example pair of helper routines:
+
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
+{
+	auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+	configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+	auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+	auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
+}
+
+void DisableSpeechSdkLogging()
+{
+	EnableSpeechSdkLogging("");
+}
+```
 
 ## Next steps
 

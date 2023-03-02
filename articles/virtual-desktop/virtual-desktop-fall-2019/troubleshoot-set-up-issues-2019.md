@@ -135,7 +135,7 @@ If your operation template goes over the quota limit, you can do one of the foll
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-resource-manager/management/view-activity-logs.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-monitor/essentials/activity-log.md).
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
@@ -166,7 +166,7 @@ Example of raw error:
 
 To fix this, do the following things:
 
-1. Open the Azure Portal and go to the **Virtual networks** tab.
+1. Open the Azure portal and go to the **Virtual networks** tab.
 2. Find your VNET, then select **DNS servers**.
 3. The DNS servers menu should appear on the right side of your screen. On that menu, select **Custom**.
 4. Make sure the DNS servers listed under Custom match your domain controller or Active Directory domain. If you don't see your DNS server, you can add it by entering its value into the **Add DNS server** field.
@@ -409,9 +409,9 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

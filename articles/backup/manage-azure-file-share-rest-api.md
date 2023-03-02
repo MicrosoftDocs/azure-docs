@@ -1,8 +1,10 @@
 ---
-title: Manage Azure File share backup with Rest API
+title: Manage Azure File share backup with REST API
 description: Learn how to use REST API to manage and monitor Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure File share backup with REST API
@@ -33,7 +35,7 @@ For example, the final response of a [trigger backup REST API](backup-azure-file
 }
 ```
 
-The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/2021-02-10/job-details) using a GET request.
+The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a GET request.
 
 ### Tracking the job
 
@@ -122,15 +124,15 @@ For example: To change the protection policy of *testshare* from *schedule1* to 
 
 ## Stop protection but retain existing data
 
-You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to[enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
+You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to [enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
 
 ```json
 {
   "properties": {
     "protectedItemType": "AzureFileShareProtectedItem",
     "sourceResourceId": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/AzureFiles/providers/Microsoft.Storage/storageAccounts/testvault2",
-    "policyId": “" ,
-“protectionState”:”ProtectionStopped”
+    "policyId": "" ,
+"protectionState":"ProtectionStopped"
   }
 }
 ```
@@ -185,7 +187,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## Stop protection and delete data
 
-To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/2021-02-10/protected-items/delete).
+To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

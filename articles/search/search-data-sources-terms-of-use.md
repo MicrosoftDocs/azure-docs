@@ -3,12 +3,12 @@ title: Terms of Use (partner data sources)
 titleSuffix: Azure Cognitive Search
 description: Terms of use for partner and third-party data source connectors.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/29/2021
+ms.date: 09/07/2022
 
 ---
 

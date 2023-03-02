@@ -1,14 +1,16 @@
 ---
-title: Overview - Automate deployment for Azure Logic Apps
+title: Azure Resource Manager templates for Azure Logic Apps
 description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: article
-ms.date: 11/06/2020
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 08/20/2022
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
@@ -78,7 +80,7 @@ Your logic app template uses this file name format:
 A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
-* Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
+* Connections that your logic app uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
 * Other resources that your logic app needs for deployment
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
@@ -311,7 +313,7 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
          "tags": {
            "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
          ]
       }
@@ -532,9 +534,15 @@ This example template shows how you can complete these tasks by defining secured
             // End workflow definition
             // Start workflow definition parameter values
             "parameters": {
-               "authenticationType": "[parameters('TemplateAuthenticationType')]", // Template parameter reference
-               "fabrikamPassword": "[parameters('TemplateFabrikamPassword')]", // Template parameter reference
-               "fabrikamUserName": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               "authenticationType": {
+                  "value": "[parameters('TemplateAuthenticationType')]" // Template parameter reference
+               },
+               "fabrikamPassword": {                  
+                  "value": "[parameters('TemplateFabrikamPassword')]" // Template parameter reference
+               },
+               "fabrikamUserName": {
+                  "value": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               }
             },
             "accessControl": {}
          },
@@ -660,7 +668,7 @@ Here is an example resource definition for an Office 365 Outlook connection and 
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -754,7 +762,7 @@ This example shows the interactions between your logic app's resource definition
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -908,7 +916,7 @@ Here is an example that provides the account name and access key for an Azure Bl
             "tags": {
                "displayName": "LogicApp"
             },
-            "apiVersion": "2016-06-01",
+            "apiVersion": "2019-05-01",
             // Template parameter reference for value to use at deployment
             "dependsOn": [
                "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]"
@@ -917,7 +925,7 @@ Here is an example that provides the account name and access key for an Azure Bl
       },
       // Azure Blob Storage API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -951,7 +959,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 ```json
 {
    <other-template-objects>
-   "type": "MICROSOFT.WEB/CONNECTIONS",
+   "type": "Microsoft.Web/connections",
    "apiVersion": "2016-06-01",
    "name": "[parameters('azuredatalake_1_Connection_Name')]",
    "location": "[parameters('LogicAppLocation')]",
@@ -1238,14 +1246,14 @@ Here is the parameterized sample template that's used by this topic's examples:
          "tags": {
             "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
             "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
          ]
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -1257,7 +1265,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          }
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",

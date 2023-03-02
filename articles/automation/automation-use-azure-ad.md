@@ -2,7 +2,7 @@
 title: Use Azure AD in Azure Automation to authenticate to Azure
 description: This article tells how to use Azure AD within Azure Automation as the provider for authentication to Azure. 
 services: automation
-ms.date: 03/30/2020
+ms.date: 09/23/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -46,7 +46,7 @@ Before installing the Azure AD modules on your computer:
 
 1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
 
-2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide#step-1-install-the-required-software-1).
+2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide&preserve-view=true#step-1-install-the-required-software-1).
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 
@@ -92,10 +92,10 @@ To prepare a new credential asset in Windows PowerShell, your script first creat
 
 ## Manage Azure resources from an Azure Automation runbook
 
-You can manage Azure resources from Azure Automation runbooks using the credential asset. Below is an example PowerShell runbook that collects the credential asset to use for stopping and starting virtual machines in an Azure subscription. This runbook first uses `Get-AutomationPSCredential` to retrieve the credential to use to authenticate to Azure. It then calls the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to connect to Azure using the credential. The script uses the [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription) cmdlet to choose the subscription to work with. 
+You can manage Azure resources from Azure Automation runbooks using the credential asset. Below is an example PowerShell runbook that collects the credential asset to use for stopping and starting virtual machines in an Azure subscription. This runbook first uses `Get-AutomationPSCredential` to retrieve the credential to use to authenticate to Azure. It then calls the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to connect to Azure using the credential. 
 
-```azurepowershell
-Workflow Stop-Start-AzureVM 
+```powershell
+Workflow Workflow
 { 
     Param 
     (    
@@ -110,9 +110,25 @@ Workflow Stop-Start-AzureVM
         $Action 
     ) 
      
-    $credential = Get-AutomationPSCredential -Name 'AzureCredential' 
-    Connect-AzAccount -Credential $credential 
-    Select-AzureSubscription -SubscriptionId $AzureSubscriptionId 
+    # Ensures you do not inherit an AzContext in your runbook
+    Disable-AzContextAutosave -Scope Process
+
+    # Connect to Azure with system-assigned managed identity
+    $AzureContext = (Connect-AzAccount -Identity).context
+
+    # set and store context
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext 
+
+    # get credential
+    $credential = Get-AutomationPSCredential -Name "AzureCredential"
+
+    # Connect to Azure with credential
+    $AzureContext = (Connect-AzAccount -Credential $credential -TenantId $AzureContext.Subscription.TenantId).context 
+
+    # set and store context
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+        -TenantId $AzureContext.Subscription.TenantId `
+        -DefaultProfile $AzureContext
  
     if($AzureVMList -ne "All") 
     { 
@@ -121,14 +137,13 @@ Workflow Stop-Start-AzureVM
     } 
     else 
     { 
-        $AzureVMs = (Get-AzVM).Name 
+        $AzureVMs = (Get-AzVM -DefaultProfile $AzureContext).Name 
         [System.Collections.ArrayList]$AzureVMsToHandle = $AzureVMs 
- 
     } 
  
     foreach($AzureVM in $AzureVMsToHandle) 
     { 
-        if(!(Get-AzVM | ? {$_.Name -eq $AzureVM})) 
+        if(!(Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM})) 
         { 
             throw " AzureVM : [$AzureVM] - Does not exist! - Check your inputs " 
         } 
@@ -139,7 +154,7 @@ Workflow Stop-Start-AzureVM
         Write-Output "Stopping VMs"; 
         foreach -parallel ($AzureVM in $AzureVMsToHandle) 
         { 
-            Get-AzVM | ? {$_.Name -eq $AzureVM} | Stop-AzVM -Force 
+            Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM} | Stop-AzVM -DefaultProfile $AzureContext -Force 
         } 
     } 
     else 
@@ -147,7 +162,7 @@ Workflow Stop-Start-AzureVM
         Write-Output "Starting VMs"; 
         foreach -parallel ($AzureVM in $AzureVMsToHandle) 
         { 
-            Get-AzVM | ? {$_.Name -eq $AzureVM} | Start-AzVM 
+            Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM} | Start-AzVM -DefaultProfile $AzureContext
         } 
     } 
 }

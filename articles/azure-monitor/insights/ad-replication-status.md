@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
+ms.reviewer: shijain
 
 ---
 
@@ -16,9 +17,8 @@ Active Directory is a key component of an enterprise IT environment. To ensure h
 
 The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
-
 ## Installing and configuring the solution
+
 Use the following information to install and configure the solution.
 
 ### Prerequisites
@@ -29,9 +29,11 @@ Use the following information to install and configure the solution.
 
 
 ### Install agents on domain controllers
+
 You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Azure Monitor. To understand how to connect Windows computers to Azure Monitor, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Azure Monitor, see [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 ### Enable non-domain controller
+
 If you don't want to connect any of your domain controllers directly to Azure Monitor, you can use any other computer in your domain connected to Azure Monitor to collect data for the AD Replication Status solution pack and have it send the data.
 
 1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
@@ -113,7 +115,7 @@ You can also click **Export** to export the results to Excel. Exporting the data
 
 ![exported AD replication status errors in Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
-## AD Replication Status FAQ
+## Frequently asked questions
 **Q: How often is AD replication status data updated?**
 A: The information is updated every five days.
 

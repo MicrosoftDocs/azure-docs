@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Azure Arc
+    tocHref: /azure/azure-arc
+    topicHref: /azure/azure-arc
+    items:
+    - name: Arc-enabled servers
+      tocHref: /azure/defender-for-cloud
+      topicHref: /azure/azure-arc/servers
+  - name: Azure Arc
+    tocHref: /windows-server/manage/windows-admin-center/azure
+    topicHref: /azure/azure-arc/servers

@@ -1,12 +1,12 @@
 ---
-title: Pull settingsfromo App Configuration with Azure Pipelines
+title: Pull settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
 services: azure-app-configuration
-author: drewbatgit
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.author: drewbat
+ms.author: malev
 ---
 
 # Pull settings to App Configuration with Azure Pipelines
@@ -18,7 +18,8 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - App Configuration store - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App Configuration task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).  
+- Azure App Configuration task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.). 
+- [Node 16](https://nodejs.org/en/blog/release/v16.16.0/) - for users running the task on self-hosted agents. 
 
 ## Create a service connection
 
@@ -26,7 +27,19 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 
 ## Add role assignment
 
-[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
+Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
+
+1. Go to your target App Configuration store. 
+1. In the left menu, select **Access control (IAM)**.
+1. In the right pane, select **Add role assignments**.
+
+      :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-button.png" alt-text="Screenshot shows the Add role assignments button.":::
+1. For **Role**, select **App Configuration Data Reader**. This role allows the task to read from the App Configuration store. 
+1. Select the service principal associated with the service connection that you created in the previous section.
+
+      :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-reader.png" alt-text="Screenshot shows the Add role assignment dialog.":::
+1. Select **Review + assign**.
+1. If the store contains Key Vault references, go to relevant Key Vault and assign **Key Vault Secret User** role to the service principal created in the previous step. From the Key Vault menu, select **Access policies** and ensure [Azure role-based access control](../key-vault/general/rbac-guide.md) is selected as the permission model.
 
 ## Use in builds
 

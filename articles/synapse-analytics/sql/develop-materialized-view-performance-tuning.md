@@ -1,15 +1,14 @@
 ---
 title: Performance tuning with materialized views
 description: Recommendations and considerations for materialized views to improve your query performance. 
-services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 03/01/2023
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
+ms.reviewer: nibruno; wiassaf
 ---
 
 # Performance tuning with materialized views using dedicated SQL pool in Azure Synapse Analytics
@@ -76,7 +75,7 @@ In comparison to other tuning options, such as scaling and statistics management
 
 Azure data warehouse is a distributed and massively parallel processing (MPP) system.  
 
-Synapse SQL is a distributed query system that enables enterprises to implement data warehousing and data virtualization scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to address streaming and machine learning scenarios. Data in a data warehouse table is distributed across 60 nodes using one of three [distribution strategies](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin, or replicated).  
+Synapse SQL is a distributed query system that enables enterprises to implement data warehousing and data virtualization scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to address streaming and machine learning scenarios. Data in a data warehouse table is distributed across 60 nodes using one of three [distribution strategies](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context) (hash, round_robin, or replicated).  
 
 The data distribution is specified at the table creation time and remains unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that's different from the base tables but optimal for the performance of queries that frequently use the views.  
 
@@ -136,7 +135,10 @@ GROUP BY A, C
 
 **Not all performance tuning requires query change**
 
-The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and to queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used.  
+The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and to queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used. 
+
+- For more information on retrieving the actual execution plan, see [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution). 
+- You can retrieve an [estimated execution plan through SQL Server Management Studio (SSMS)](/sql/relational-databases/performance/display-the-estimated-execution-plan?view=azure-sqldw-latest&preserve-view=true) or [SET SHOWPLAN_XML](/sql/t-sql/statements/set-showplan-xml-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 **Monitor materialized views**
 
@@ -272,7 +274,9 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Check the query's estimated execution plan.  There are 18 shuffles and 17 joins operations, which take more time to execute. Now let's create one materialized view for each of the three sub-SELECT statements.
+Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md). There are 18 shuffles and 17 joins operations, which take more time to execute. 
+
+Now, let's create one materialized view for each of the three sub-SELECT statements.
 
 ```sql
 CREATE materialized view nbViewSS WITH (DISTRIBUTION=HASH(customer_id)) AS
@@ -362,4 +366,6 @@ With materialized views, the same query runs much faster without any code change
 ## Next steps
 
 For more development tips, see [Synapse SQL development overview](develop-overview.md).
- 
+
+- [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor). 
+- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md)

@@ -4,12 +4,12 @@ titleSuffix: Azure API Management
 description: Learn about the developer portal in API Management - a customizable website, where API consumers can explore your APIs.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/15/2021
-ms.author: apimpm 
+ms.date: 10/28/2022
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -23,36 +23,45 @@ As introduced in this article, you can customize and extend the developer portal
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## Migration from the legacy portal
+## Migrate from the legacy portal
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
 
 Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-deprecated-migration.md).
 
-## Customization and styling
-
-The developer portal can be customized and styled through the built-in, drag-and-drop visual editor. See [this tutorial](api-management-howto-developer-portal-customize.md) for more details.
-
-## <a name="managed-vs-self-hosted"></a> Extensibility
+## Customize and style the managed portal
 
 Your API Management service includes a built-in, always up-to-date, **managed** developer portal. You can access it from the Azure portal interface.
 
-If you need to extend it with custom logic, which isn't supported out-of-the-box, you can modify its codebase. The portal's codebase is [available in a GitHub repository](https://github.com/Azure/api-management-developer-portal). For example, you could implement a new widget, which integrates with a third-party support system. When you implement new functionality, you can choose one of the following options:
+[Customize and style](api-management-howto-developer-portal-customize.md) the managed portal through the built-in, drag-and-drop visual editor: 
 
-- **Self-host** the resulting portal outside of your API Management service. When you self-host the portal, you become its maintainer and you are responsible for its upgrades. Azure Support's assistance is limited only to the [basic setup of self-hosted portals](developer-portal-self-host.md).
-- Open a pull request for the API Management team to merge new functionality to the **managed** portal's codebase.
+* Use the visual editor to modify pages, media, layouts, menus, styles, or website settings. 
 
-For extensibility details and instructions, refer to the [GitHub repository](https://github.com/Azure/api-management-developer-portal) and the tutorial to [implement a widget](developer-portal-implement-widgets.md). The tutorial to [customize the managed portal](api-management-howto-developer-portal-customize.md) walks you through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
+* Take advantage of built-in widgets to add text, images, buttons, and other objects that the portal supports out-of-the-box. 
 
+* Control how the portal content appears to different [users and groups](api-management-howto-create-groups.md) configured in your API Management instance. For example, display certain pages only to groups that are associated with particular products, or to users that can access specific APIs. 
+
+> [!NOTE]
+> The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
+
+## <a name="managed-vs-self-hosted"></a> Options to extend portal functionality
+In some cases you might need functionality beyond the customization and styling options provided in the managed developer portal. If you need to implement custom logic, which isn't supported out-of-the-box, you have [several options](developer-portal-extend-custom-functionality.md):
+* [Add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) directly through a developer portal widget designed for small customizations - for example, add HTML for a form or to embed a video player. The custom code is rendered in an inline frame (IFrame).
+* [Create and upload a custom widget](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) to develop and add more complex custom portal features.
+* [Self-host the portal](developer-portal-self-host.md), only if you need to make modifications to the core of the developer portal [codebase](https://github.com/Azure/api-management-developer-portal). This option requires advanced configuration. Azure Support's assistance is limited only to the basic setup of self-hosted portals.
+
+> [!NOTE]
+> Because the API Management developer portal codebase is maintained on [GitHub](https://github.com/Azure/api-management-developer-portal), you can open issues and make pull requests for the API Management team to merge new functionality at any time.
+>
 
 ## Next steps
 
-Learn more about the new developer portal:
+Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Extend functionality of the managed developer portal](developer-portal-extend-custom-functionality.md)
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)
-- [Implement your own widget](developer-portal-implement-widgets.md)
 
 Browse other resources:
 

@@ -2,19 +2,20 @@
 title: Explore Azure Stream Analytics jobs in Visual Studio Code
 description: This article shows you how to export an Azure Stream Analytics job to a local project, list jobs and view job entities.
 ms.service: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.date: 05/15/2019
+author: alexlzx
+ms.author: zhenxilin
+ms.date: 12/27/2022
 ms.topic: how-to
 ---
 
-# Explore Azure Stream Analytics with Visual Studio Code (Preview)
+# Explore Azure Stream Analytics with Visual Studio Code
 
-The Azure Stream Analytics for Visual Studio Code extension gives developers a lightweight experience for managing their Stream Analytics jobs. It can be used on Windows, Mac and Linux. With the Azure Stream Analytics extension, you can:
+The Azure Stream Analytics extension for Visual Studio Code gives you a seamless experience for managing Stream Analytics jobs in the cloud. It can be used on Windows, Mac and Linux. With the Azure Stream Analytics extension, you can:
 
 - [Create](quick-create-visual-studio-code.md), start, and stop jobs
 - Export existing jobs to a local project
 - List jobs and view job entities
+- View job diagram and debug in Job Monitor
 
 ## Export a job to a local project
 
@@ -82,4 +83,4 @@ You can view your job’s diagnostic logs and activity logs for troubleshooting.
 
 ## Next steps
 
-* [Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)](quick-create-visual-studio-code.md)
+* [Create an Azure Stream Analytics cloud job in Visual Studio Code](quick-create-visual-studio-code.md)

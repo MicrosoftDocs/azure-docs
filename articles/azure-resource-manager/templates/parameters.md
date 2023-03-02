@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 09/28/2022
 ---
 
 # Parameters in ARM templates
@@ -12,6 +12,13 @@ This article describes how to define and use parameters in your Azure Resource M
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
 
 Each parameter must be set to one of the [data types](data-types.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
+
+You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ## Minimal declaration
 
@@ -194,7 +201,7 @@ To reference a parameter's value, use the [parameters](template-functions-deploy
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2021-06-01-preview",
       "name": "[parameters('vaultName')]",
       ...
     }
@@ -240,7 +247,7 @@ The following example shows a parameter that is an object. The default value sho
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2021-02-01",
       "name": "[parameters('vNetSettings').name]",
       "location": "[parameters('vNetSettings').location]",
       "properties": {

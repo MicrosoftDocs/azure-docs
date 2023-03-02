@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
@@ -16,7 +17,7 @@ ms.date: 06/02/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -26,13 +27,14 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
     * The [MXCHIP AZ3166 IoT DevKit](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (MXCHIP DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -132,7 +134,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
@@ -229,6 +231,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -258,4 +263,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

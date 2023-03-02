@@ -2,8 +2,11 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry. Create a container registry or replication in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 02/23/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: references_regions, devx-track-azurecli
+
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
@@ -12,14 +15,24 @@ In addition to [geo-replication](container-registry-geo-replication.md), which r
 
 This article shows how to set up a zone-redundant container registry or replica by using the Azure CLI, Azure portal, or Azure Resource Manager template. 
 
-Zone redundancy is a **preview** feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+Zone redundancy is a  feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-## Preview limitations
+## Regional Support
 
-* Currently supported in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Japan East.
-* Region conversions to availability zones aren't currently supported. To enable availability zone support in a region, the registry must either be created in the desired region, with availability zone support enabled, or a replicated region must be added with availability zone support enabled.
+* ACR Availability Zones are supported in the following regions: 
+  
+    |Americas  |Europe  |Africa  |Asia Pacific  |
+    |---------|---------|---------|---------|
+    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>East US 2 EUAP<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>North Europe<br/>Norway East<br/>Sweden Central<br/>Switzerland North<br/>UK South<br/>West Europe    |South Africa North<br/>        |Australia East<br/>Central India<br/>China North 3<br/>East Asia<br/>Japan East<br/>Korea Central<br/>Qatar Central<br/>Southeast Asia<br/>UAE North     |
+
+* Region conversions to availability zones aren't currently supported. 
+* To enable availability zone support in a region, create the registry in the desired region with availability zone support enabled, or add a replicated region with availability zone support enabled.
+* A registry with an AZ-enabled stamp creates a home region replication with an AZ-enabled stamp by default. The AZ stamp can't be disabled once it's enabled.
+* The home region replication represents the home region registry. It helps to view and manage the availability zone properties and can't be deleted.
+* The availability zone is per region, once the replications are created, their states can't be changed, except by deleting and re-creating the replications.
 * Zone redundancy can't be disabled in a region.
 * [ACR Tasks](container-registry-tasks-overview.md) doesn't yet support availability zones.
+
 
 ## About zone redundancy
 
@@ -35,7 +48,7 @@ To use the Azure CLI to enable zone redundancy, you need Azure CLI version 2.17.
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group for the registry.
+If needed, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group for the registry.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -43,7 +56,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### Create zone-enabled registry
 
-Run the [az acr create](/cli/azure/acr#az_acr_create) command to create a zone-redundant registry in the Premium service tier. Choose a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry. In the following example, zone redundancy is enabled in the *eastus* region. See the `az acr create` command help for more registry options.
+Run the [az acr create](/cli/azure/acr#az-acr-create) command to create a zone-redundant registry in the Premium service tier. Choose a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry. In the following example, zone redundancy is enabled in the *eastus* region. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
@@ -65,7 +78,7 @@ In the command output, note the `zoneRedundancy` property for the registry. When
 
 ### Create zone-redundant replication
 
-Run the [az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) command to create a zone-redundant registry replica in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *westus2*. 
+Run the [az acr replication create](/cli/azure/acr/replication#az-acr-replication-create) command to create a zone-redundant registry replica in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -92,7 +105,7 @@ In the command output, note the `zoneRedundancy` property for the replica. When 
 1. In **Location**, select a region that supports zone redundancy for Azure Container Registry, such as *East US*.
 1. In **SKU**, select **Premium**.
 1. In **Availability zones**, select **Enabled**.
-1. Optionally, configure additional registry settings, and then select **Review + create**.
+1. Optionally, configure more registry settings, and then select **Review + create**.
 1. Select **Create** to deploy the registry instance.
 
     :::image type="content" source="media/zone-redundancy/enable-availability-zones-portal.png" alt-text="Enable zone redundancy in Azure portal":::
@@ -109,7 +122,7 @@ To create a zone-redundant replication:
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*. This region is used by the template to set the registry location.
+If needed, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*. This region is used by the template to set the registry location.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -177,7 +190,7 @@ Copy the following contents to a new file and save it using a filename such as `
       {
         "comments": "Container registry for storing docker images",
         "type": "Microsoft.ContainerRegistry/registries",
-        "apiVersion": "2020-11-01-preview",
+        "apiVersion": "2020-11-01",
         "name": "[parameters('acrName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -195,7 +208,7 @@ Copy the following contents to a new file and save it using a filename such as `
       },
       {
         "type": "Microsoft.ContainerRegistry/registries/replications",
-        "apiVersion": "2020-11-01-preview",
+        "apiVersion": "2020-11-01",
         "name": "[concat(parameters('acrName'), '/', parameters('acrReplicaLocation'))]",
         "location": "[parameters('acrReplicaLocation')]",
           "dependsOn": [
@@ -208,14 +221,14 @@ Copy the following contents to a new file and save it using a filename such as `
     ],
     "outputs": {
       "acrLoginServer": {
-        "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries',parameters('acrName')),'2019-12-01-preview').loginServer]",
+        "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries',parameters('acrName')),'2019-12-01').loginServer]",
         "type": "string"
       }
     }
   }
 ```
 
-Run the following [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*
@@ -239,4 +252,4 @@ In the command output, note the `zoneRedundancy` property for the registry and t
 ## Next steps
 
 * Learn more about [regions that support availability zones](../availability-zones/az-region.md).
-* Learn more about building for [reliability](/azure/architecture/framework/resiliency/overview) in Azure.
+* Learn more about building for [reliability](/azure/architecture/framework/resiliency/app-design) in Azure.

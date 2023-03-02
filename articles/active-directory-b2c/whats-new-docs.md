@@ -1,122 +1,82 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 07/12/2021
+ms.date: 03/01/2023
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
 ms.workload: identity
-ms.author: mimart
-author: msmimart
+ms.author: kengaderdus
+author: kengaderdus
 manager: CelesteDG
 ---
 
 # Azure Active Directory B2C: What's new
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
 
-## June 2021
-
-### New articles
-
-- [Enable authentication in your own web API using Azure Active Directory B2C](enable-authentication-web-api.md)
-- [Enable authentication in your own Single Page Application using Azure Active Directory B2C](enable-authentication-spa-app.md)
-- [Publish your Azure AD B2C app to the Azure AD app gallery](publish-app-to-azure-ad-app-gallery.md)
-- [Configure authentication in a sample Single Page application using Azure Active Directory B2C](configure-authentication-sample-spa-app.md)
-- [Configure authentication in a sample web application that calls a web API using Azure Active Directory B2C](configure-authentication-sample-web-app-with-api.md)
-- [Configure authentication in a sample Single Page application using Azure Active Directory B2C options](enable-authentication-spa-app-options.md)
-- [Configure authentication in a sample web application  that calls a web API using Azure Active Directory B2C options](enable-authentication-web-app-with-api-options.md)
-- [Enable authentication in your own web application that calls a web API using Azure Active Directory B2C](enable-authentication-web-app-with-api.md)
-- [Sign-in options in Azure AD B2C](sign-in-options.md)
-
-### Updated articles
-
-- [User profile attributes](user-profile-attributes.md)
-- [Configure authentication in a sample web application using Azure Active Directory B2C](configure-authentication-sample-web-app.md)
-- [Configure authentication in a sample web application using Azure Active Directory B2C options](enable-authentication-web-application-options.md)
-- [Set up a sign-in flow in Azure Active Directory B2C](add-sign-in-policy.md)
-- [Set up a sign-up and sign-in flow in Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
-- [Set up the local account identity provider](identity-provider-local.md)
-- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
-- [Add user attributes and customize user input in Azure Active Directory B2C](configure-user-input.md)
-- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
-
-
-## May 2021
-
-### New articles
-
-- [Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy](oauth2-error-technical-profile.md)
-- [Configure authentication in a sample web application using Azure Active Directory B2C](configure-authentication-sample-web-app.md)
-- [Configure authentication in a sample web application using Azure Active Directory B2C options](enable-authentication-web-application-options.md)
-- [Enable authentication in your own web application using Azure Active Directory B2C](enable-authentication-web-application.md)
-- [Azure Active Directory B2C TLS and cipher suite requirements](https-cipher-tls-requirements.md)
-
-### Updated articles
-
-- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
-- [Mitigate credential attacks in Azure AD B2C](threat-management.md)
-- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
-
-
-## April 2021
-
-### New articles
-
-- [Set up sign-up and sign-in with a eBay account using Azure Active Directory B2C](identity-provider-ebay.md)
-- [Clean up resources and delete the tenant](tutorial-delete-tenant.md)
-- [Define a Conditional Access technical profile in an Azure Active Directory B2C custom policy](conditional-access-technical-profile.md)
-- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
-
-### Updated articles
-
-- [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md)
-- [Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
-- [Secure your API Connector](secure-rest-api.md)
-- [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
-- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
-- [Overview of policy keys in Azure Active Directory B2C](policy-keys-overview.md)
-- [Custom email verification with Mailjet](custom-email-mailjet.md)
-- [Custom email verification with SendGrid](custom-email-sendgrid.md)
-- [Tutorial: Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
-- [Azure AD B2C custom policy overview](custom-policy-overview.md)
-- [User flows and custom policies overview](user-flow-overview.md)
-- [Tutorial: Enable authentication in a single-page application with Azure AD B2C](tutorial-single-page-app.md)
-- [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
-- [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
-- [User flow versions in Azure Active Directory B2C](user-flow-versions.md)
-
-
-## March 2021
-
-### New articles
-
-- [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
-- [Investigate risk with Identity Protection in Azure AD B2C](identity-protection-investigate-risk.md)
-- [Set up sign-up and sign-in with an Apple ID  using Azure Active Directory B2C (Preview)](identity-provider-apple-id.md)
-- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md)
-- [Embedded sign-in experience](embedded-login.md)
-
-### Updated articles
-
-- [Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C](identity-provider-amazon.md)
-- [Set up sign-in with a Salesforce SAML provider by using SAML protocol in Azure Active Directory B2C](identity-provider-salesforce-saml.md)
-- [Migrate an OWIN-based web API to b2clogin.com or a custom domain](multiple-token-endpoints.md)
-- [Technical profiles](technicalprofiles.md)
-- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
-- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
-- [RelyingParty](relyingparty.md)
-
-
-## February 2021
-
-### New articles
-
-- [Securing phone-based multi-factor authentication (MFA)](phone-based-mfa.md)
+## February 2023
 
 ### Updated articles
 
 - [Azure Active Directory B2C code samples](integrate-with-app-code-samples.md)
-- [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md)
-- [Configure session behavior in Azure Active Directory B2C](session-behavior.md)
+- [JSON claims transformations](json-transformations.md)
+- [Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Page layout versions](page-layout.md)
+
+## January 2023
+
+### New articles
+
+- [Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy](partner-grit-app-proxy.md)
+- [Configure Grit's biometric authentication with Azure Active Directory B2C](partner-grit-authentication.md)
+
+### Updated articles
+
+- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md)
+- [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
+- [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](partner-datawiza.md)
+- [Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access](partner-ping-identity.md)
+- [Sign-in options in Azure AD B2C](sign-in-options.md)
+- [Quickstart: Set up sign in for an ASP.NET application using Azure Active Directory B2C](quickstart-web-app-dotnet.md)
+- [Enrich tokens with claims from external sources using API connectors](add-api-connector-token-enrichment.md)
+- [Identity verification and proofing partners](identity-verification-proofing.md)
+- [Configure complexity requirements for passwords in Azure Active Directory B2C](password-complexity.md)
+- [User profile attributes](user-profile-attributes.md)
+- [Azure Active Directory B2C: What's new](whats-new-docs.md)
+- [Tutorial: Configure Azure Active Directory B2C with the Arkose Labs platform](partner-arkose-labs.md)
+- [Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C](partner-zscaler.md)
+- [Tutorial to configure Azure Active Directory B2C with WhoIAM](partner-whoiam.md)
+- [Tutorial to configure Azure Active Directory B2C with Strata](partner-strata.md)
+- [Tutorial for configuring Onfido with Azure Active Directory B2C](partner-onfido.md)
+- [Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication](partner-nevis.md)
+- [Tutorial for configuring LexisNexis with Azure Active Directory B2C](partner-lexisnexis.md)
+- [Tutorial for configuring Jumio with Azure Active Directory B2C](partner-jumio.md)
+- [Tutorial for configuring HYPR with Azure Active Directory B2C](partner-hypr.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+
+## December 2022
+
+### New articles
+
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+- [Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
+- [Azure Active Directory B2C global identity framework proof of concept for region-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
+- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-region-based-design.md)
+- [Azure Active Directory B2C global identity framework](azure-ad-b2c-global-identity-solutions.md)
+
+### Updated articles
+
+- [Set up a resource owner password credentials flow in Azure Active Directory B2C](add-ropc-policy.md)
+- [Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources](api-connectors-overview.md)
+- [Azure Active Directory B2C: Region availability & data residency](data-residency.md)
+- [Tutorial: Configure Experian with Azure Active Directory B2C](partner-experian.md)
+- [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](partner-dynamics-365-fraud-protection.md)
+- [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](partner-datawiza.md)
+- [Configure TheAccessHub Admin Tool with Azure Active Directory B2C](partner-n8identity.md)
+- [Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C](partner-cloudflare.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [What is Azure Active Directory B2C?](overview.md)
+- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)

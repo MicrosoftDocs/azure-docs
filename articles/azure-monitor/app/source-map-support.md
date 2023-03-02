@@ -1,85 +1,87 @@
 ---
 title: Source map support for JavaScript applications - Azure Monitor Application Insights
-description: Learn how to upload source maps to your own storage account Blob container using Application Insights.
+description: Learn how to upload source maps to your Azure Storage account blob container by using Application Insights.
 ms.topic: conceptual
-author: DavidCBerry13
-ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Source map support for JavaScript applications
 
-Application Insights supports the uploading of source maps to your own Storage Account Blob Container.
-Source maps can be used to unminify call stacks found on the end to end transaction details page. Any exception sent by the [JavaScript SDK][ApplicationInsights-JS] or the [Node.js SDK][ApplicationInsights-Node.js] can be unminified with source maps.
+Application Insights supports the uploading of source maps to your Azure Storage account blob container. You can use source maps to unminify call stacks found on the **End-to-end transaction details** page. You can also use source maps to unminify any exception sent by the [JavaScript SDK][ApplicationInsights-JS] or the [Node.js SDK][ApplicationInsights-Node.js].
 
-![Unminify a Call Stack by linking with a Storage Account](./media/source-map-support/details-unminify.gif)
+![Screenshot that shows selecting the option to unminify a call stack by linking with a storage account.](./media/source-map-support/details-unminify.gif)
 
-## Create a new storage account and Blob container
+## Create a new storage account and blob container
 
 If you already have an existing storage account or blob container, you can skip this step.
 
-1. [Create a new storage account][create storage account]
-2. [Create a blob container][create blob container] inside your storage account. Be sure to set the "Public access level" to `Private`, to ensure that your source maps are not publicly accessible.
+1. [Create a new storage account][create storage account].
+1. [Create a blob container][create blob container] inside your storage account. Set **Public access level** to **Private** to ensure that your source maps aren't publicly accessible.
 
-> [!div class="mx-imgBorder"]
->![Your container access level must be set to Private](./media/source-map-support/container-access-level.png)
+    > [!div class="mx-imgBorder"]
+    >![Screenshot that shows setting the container access level to Private.](./media/source-map-support/container-access-level.png)
 
-## Push your source maps to your Blob container
+## Push your source maps to your blob container
 
-You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured Blob container.
+Integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured blob container.
 
-Source maps can be uploaded to your Blob Storage Container with the same folder structure they were compiled & deployed with. A common use case is to prefix a deployment folder with its version, e.g. `1.2.3/static/js/main.js`. When unminifying via an Azure Blob container called `sourcemaps`, it will try to fetch a source map located at `sourcemaps/1.2.3/static/js/main.js.map`.
+You can upload source maps to your Azure Blob Storage container with the same folder structure they were compiled and deployed with. A common use case is to prefix a deployment folder with its version, for example, `1.2.3/static/js/main.js`. When you unminify via an Azure blob container called `sourcemaps`, the pipeline tries to fetch a source map located at `sourcemaps/1.2.3/static/js/main.js.map`.
 
 ### Upload source maps via Azure Pipelines (recommended)
 
-If you are using Azure Pipelines to continuously build and deploy your application, add an [Azure File Copy][azure file copy] task to your pipeline to automatically upload your source maps.
+If you're using Azure Pipelines to continuously build and deploy your application, add an [Azure file copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
 > [!div class="mx-imgBorder"]
-> ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure-file-copy.png)
+> ![Screenshot that shows adding an Azure file copy task to your pipeline to upload your source maps to Azure Blob Storage.](./media/source-map-support/azure-file-copy.png)
 
-## Configure your Application Insights resource with a Source Map storage account
+## Configure your Application Insights resource with a source map storage account
 
-### From the end-to-end transaction details page
+You have two options for configuring your Application Insights resource with a source map storage account.
 
-From the end-to-end transaction details tab, you can click on *Unminify* and it will display a prompt to configure if your resource is unconfigured.
+### End-to-end transaction details tab
 
-1. In the Portal, view the details of an exception that is minified.
-2. Click on *Unminify*
-3. If your resource has not been configured, a message will appear, prompting you to configure.
+From the **End-to-end transaction details** tab, select **Unminify**. Configure your resource if it's unconfigured.
 
-### From the properties page
+1. In the Azure portal, view the details of an exception that's minified.
+1. Select **Unminify**.
+1. If your resource isn't configured, configure it.
 
-If you would like to configure or change the storage account or Blob container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource's *Properties* tab.
+### Properties tab
 
-1. Navigate to the *Properties* tab of your Application Insights resource.
-2. Click on *Change source map blob container*.
-3. Select a different Blob container as your source maps container.
-4. Click `Apply`.
+To configure or change the storage account or blob container that's linked to your Application Insights resource:
+
+1. Go to the **Properties** tab of your Application Insights resource.
+1. Select **Change source map Blob Container**.
+1. Select a different blob container as your source map container.
+1. Select **Apply**.
 
 > [!div class="mx-imgBorder"]
-> ![Reconfigure your selected Azure Blob Container by navigating to the Properties Blade](./media/source-map-support/reconfigure.png)
+> ![Screenshot that shows reconfiguring your selected Azure blob container on the Properties pane.](./media/source-map-support/reconfigure.png)
 
 ## Troubleshooting
 
-### Required Azure role-based access control (Azure RBAC) settings on your Blob container
+This section offers troubleshooting tips for common issues.
 
-Any user on the Portal using this feature must be at least assigned as a [Storage Blob Data Reader][storage blob data reader] to your Blob container. You must assign this role to anyone else that will be using the source maps through this feature.
+### Required Azure role-based access control settings on your blob container
+
+Any user on the portal who uses this feature must be assigned at least as a [Storage Blob Data Reader][storage blob data reader] to your blob container. Assign this role to anyone who might use the source maps through this feature.
 
 > [!NOTE]
-> Depending on how the container was created, this may not have been automatically assigned to you or your team.
+> Depending on how the container was created, this role might not have been automatically assigned to you or your team.
 
 ### Source map not found
 
-1. Verify that the corresponding source map is uploaded to the correct blob container
-2. Verify that the source map file is named after the JavaScript file it maps to, suffixed with `.map`.
-    - For example, `/static/js/main.4e2ca5fa.chunk.js` will search for the blob named `main.4e2ca5fa.chunk.js.map`
-3. Check your browser's console to see if any errors are being logged. Include this in any support ticket.
+1. Verify that the corresponding source map is uploaded to the correct blob container.
+1. Verify that the source map file is named after the JavaScript file it maps to and uses the suffix `.map`.
+   
+   For example, `/static/js/main.4e2ca5fa.chunk.js` searches for the blob named `main.4e2ca5fa.chunk.js.map`.
+1. Check your browser's console to see if any errors were logged. Include this information in any support ticket.
 
-## Next Steps
+## Next steps
 
-* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
-
+[Azure file copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 <!-- Remote URLs -->
 [create storage account]: ../../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal

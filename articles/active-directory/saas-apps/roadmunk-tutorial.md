@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -45,6 +45,8 @@ To integrate Roadmunk into Azure AD, from the gallery, add Roadmunk to your list
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, in the search box, type **Roadmunk**.
 1. Select **Roadmunk** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for Roadmunk
@@ -167,10 +169,10 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 In this section, you test your Azure AD SSO configuration by using the access panel.
 
-In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
 After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. 
 
-Learn how to [enforce session control by using Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Learn how to [enforce session control by using Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

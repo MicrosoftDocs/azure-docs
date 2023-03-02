@@ -2,6 +2,7 @@
 title: Monitor Batch with Azure Application Insights
 description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 04/13/2021
 ---
@@ -10,7 +11,7 @@ ms.date: 04/13/2021
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug applications deployed to Azure services. Use Application Insights to monitor performance counters and exceptions as well as instrument your code with custom metrics and tracing. Integrating Application Insights with your Azure Batch application allows you to gain deep insights into behaviors and investigate issues in near-real time.
 
-This article shows how to add and configure the Application Insights library into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build custom dashboards. For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
+This article shows how to add and configure the Application Insights library into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build custom dashboards. For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/app-insights-overview.md#supported-languages).
 
 A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes.
 
@@ -337,4 +338,4 @@ Due to the large-scale nature of Azure Batch applications running in production,
 ## Next steps
 
 - Learn more about [Application Insights](../azure-monitor/app/app-insights-overview.md).
-- For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
+- For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/app-insights-overview.md#supported-languages).

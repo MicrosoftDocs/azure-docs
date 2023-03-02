@@ -1,23 +1,18 @@
 ---
-title: Troubleshoot Azure Private Link connectivity problems
+title: Troubleshoot Azure Private Link Service connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 services: private-link
-documentationcenter: na
 author: rdhillon
 manager: narayan
-editor: ''
-
 ms.service: private-link
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-
+ms.custom: ignite-2022
 ---
 
-# Troubleshoot Azure Private Link connectivity problems
+# Troubleshoot Azure Private Link Service connectivity problems
 
 This article provides step-by-step guidance to validate and diagnose connectivity for your Azure Private Link setup.
 
@@ -44,7 +39,7 @@ If you experience connectivity problems with your private link setup, review the
 
 1. Review Private Link configuration by browsing the resource.
 
-    a. Go to **Private Link Center**.
+    a. Go to [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-link-tsg/private-link-center.png)
 
@@ -104,7 +99,17 @@ If you experience connectivity problems with your private link setup, review the
 
        ![Verify private link service metrics](./media/private-link-tsg/pls-metrics.png)
 
-1. Contact the [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
+1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#resource-view) for insights and to see a resource view of the resources by going to:
+     - Azure Monitor
+     - Networks
+     - Private Link services
+     - Resource view 
+
+![AzureMonitor](https://user-images.githubusercontent.com/20302679/135001735-56a9484b-f9b4-484b-a503-cfb9d20b264a.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/135001741-8e848c52-d4bb-4646-b0d3-a85614ebe16c.png)
+
+4. Contact the [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
 
 ## Next steps
 

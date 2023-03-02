@@ -2,26 +2,26 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/19/2021
+ms.date: 02/14/2023
 ---
 
 # Message sessions
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## First-in, first out (FIFO) pattern
-To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
+To realize a FIFO guarantee in processing messages in Service Bus queues or subscriptions, use sessions. Service Bus isn't prescriptive about the nature of the relationship between messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
 
-Any sender can create a session when submitting messages into a topic or queue by setting the **session ID** property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
+Any sender can create a session when submitting messages into a topic or queue by setting the **session ID** property to some application-defined identifier that's unique to the session. At the **AMQP 1.0** protocol level, this value maps to the **group-id** property.
 
 On session-aware queues or subscriptions, sessions come into existence when there's at least one message with the session ID. Once a session exists, there's no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the session ID matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends. Service Bus doesn't set any specific rules. For example, your application could set the **Label** property for the first message to **start**, for intermediate messages to **content**, and for the last message to **end**. The relative position of the content messages can be computed as the current message *SequenceNumber* delta from the **start** message *SequenceNumber*.
 
 > [!IMPORTANT]
-> When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
+> When sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
 
 The APIs for sessions exist on queue and subscription clients. There's an imperative model that controls when sessions and messages are received, and a handler-based model that hides the complexity of managing the receive loop. 
 
@@ -35,7 +35,7 @@ Sessions provide concurrent de-multiplexing of interleaved message streams while
 
 A session receiver is created by a client accepting a session. When the session is accepted and held by a client, the client holds an exclusive lock on all messages with that session's **session ID** in the queue or subscription. It will also hold exclusive locks on all messages with the **session ID** that will arrive later.
 
-The lock is released when you call the close related methods on the receiver or when the lock expires. There are methods on the receiver to renew the locks as well. Instead, you can use the automatic lock renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
+The lock is released when you call close methods on the receiver or when the lock expires. There are methods on the receiver to renew the locks as well. Instead, you can use the automatic lock renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
 
 When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream in one queue or subscription is cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
 
@@ -49,22 +49,22 @@ When workflows are processed in high-scale, high-availability cloud systems, the
 
 The session state facility enables an application-defined annotation of a message session inside the broker, so that the recorded processing state relative to that session becomes instantly available when the session is acquired by a new processor.
 
-From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 1 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
+From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 100 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
 
 The methods for managing session state, SetState and GetState, can be found on the session receiver object. A session that had previously no session state returns a null reference for GetState. The previously set session state can be cleared by passing null to the SetState method on the receiver.
 
 Session state remains as long as it isn't cleared up (returning **null**), even if all messages in a session are consumed.
 
-The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore recommended for the application to clean up its retained state to avoid external management cost.
+The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it's therefore recommended for the application to clean up its retained state to avoid external management cost.
 
 ### Impact of delivery count
 
-The definition of delivery count per message in the context of sessions varies slightly from the definition in the absence of sessions. Here is a table summarizing when the delivery count is incremented.
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absence of sessions. Here's a table summarizing when the delivery count is incremented.
 
 | Scenario | Is the message's delivery count incremented |
 |----------|---------------------------------------------|
 | Session is accepted, but the session lock expires (due to timeout) | Yes |
-| Session is accepted, the messages within the session aren't completed (even if they are locked), and the session is closed | No |
+| Session is accepted, the messages within the session aren't completed (even if they're locked), and the session is closed | No |
 | Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here messages are removed from the session) |
 
 ## Request-response pattern
@@ -75,20 +75,33 @@ Multiple applications can send their requests to a single request queue, with a 
 > [!NOTE]
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it is expecting the response is locked. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or a timeout specified on the session receiver for the queue to ensure that responses are available to be locked and processed by specific receivers.
 
+## Sequencing vs. sessions
+[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires sessions. 
+ 
+Say, there are three messages in the queue and two consumers. Consumer 1 picks up message 1. Consumer 2 picks up message 2. Consumer 2 finishes processing message 2 and picks up message 3 while Consumer 1 isn't done with processing message 1 yet. Consumer 2 finishes processing message 3 but consumer 1 is still not done with processing message 1 yet. Finally, consumer 1 completes processing message 1. So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
+
+So, if messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+
 ## Next steps
 You can enable message sessions while creating a queue using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 
 
 Try the samples in the language of your choice to explore Azure Service Bus features. 
+- .NET
+    - [Sending and receiving session messages](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample03_SendReceiveSessions.md)
+    - [Using the session processor](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample05_SessionProcessor.md)
+- Java
+    - [Send messages to a session](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/SendSessionMessageAsyncSample.java)
+    - [Receive messages from the first available session](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ReceiveSingleSessionAsyncSample.java)
+    - [Receive messages from a specific session](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ReceiveNamedSessionAsyncSample.java)
+    - [Process all session messages using a processor](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ServiceBusSessionProcessorSample.java)
+- Python
+    - [Send and receive messages from a session-enabled queue](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/sync_samples/session_send_receive.py)
+    - [Receive messages from multiple available sessions in parallel with a thread pool](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/sync_samples/session_pool_receive.py)
+- JavaScript
+    - [Send to and receive messages from session enabled queues or subscriptions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/session.js)
+    - [Continually read through all available sessions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionRoundRobin.js)
+    - [Use session state](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionState.js)
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-Find samples for the older .NET and Java client libraries below:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
-
+ 
 [1]: ./media/message-sessions/sessions.png
 

@@ -9,7 +9,7 @@ metadata:
   ms.service: azure-policy
   ms.topic: landing-page
   ms.collection: collection
-  author: DCtheGeek
+  author: timwarner-msft
   ms.author: dacoulte
   ms.date: 06/02/2021
 
@@ -98,8 +98,8 @@ landingContent:
             url: ./concepts/regulatory-compliance.md
           - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Azure Policy for VMs
-            url: ./concepts/guest-configuration.md
+          - text: Azure Automanage Machine Configuration
+            url: ../machine-configuration/overview.md
 
   - title: Review & Remediate resources
     linkLists:
@@ -123,7 +123,7 @@ landingContent:
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
+            url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=5b220886-f324-ec11-b6e6-000d3a4f0da0
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 

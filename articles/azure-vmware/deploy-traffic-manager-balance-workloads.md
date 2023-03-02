@@ -2,10 +2,13 @@
 title: Deploy Traffic Manager to balance Azure VMware Solution workloads
 description: Learn how to integrate Traffic Manager with Azure VMware Solution to balance application workloads across multiple endpoints in different regions.
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.service: azure-vmware
+ms.date: 10/26/2022
+ms.custom: engagement-fy23
+
 ---
 
-# Deploy Traffic Manager to balance Azure VMware Solution workloads
+# Deploy Azure Traffic Manager to balance Azure VMware Solution workloads
 
 This article walks through the steps of how to integrate [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) with Azure VMware Solution. The integration balances application workloads across multiple endpoints. This article also walks through the steps of how to configure Traffic Manager to direct traffic between three [Azure Application Gateway](../application-gateway/overview.md) spanning several Azure VMware Solution regions. 
 
@@ -51,7 +54,7 @@ The following steps verify the configuration of your application gateways.
 
    A window opens showing various information on the application gateway. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Screenshot of Application gateway page showing details of the selected application gateway." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-configuration.png" alt-text="Screenshot of Application gateway page showing details of the selected application gateway." lightbox="media/traffic-manager/backend-pool-configuration.png":::
 
 1. Select **Backend pools** to verify the configuration of one of the backend pools. You see one VM backend pool member configured as a web server with an IP address of 172.29.1.10.
  
@@ -65,7 +68,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 1. Select **Segments** to view your configured segments.  You see Contoso-segment1 connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. Select **Tier-1 Gateways** to see a list of Tier-1 gateways with the number of linked segments. 
 

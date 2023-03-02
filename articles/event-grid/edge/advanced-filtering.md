@@ -4,7 +4,7 @@ description: Advanced filtering in Event Grid on IoT Edge.
 manager: rajarv
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
@@ -14,6 +14,10 @@ Event Grid allows specifying filters on any property in the json payload. These 
 * `OperatorType` - The type of comparison.
 * `Key` - The json path to the property on which to apply the filter.
 * `Value` - The reference value against which the filter is run (or) `Values` - The set of reference values against which the filter is run.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 ## JSON syntax
 
@@ -65,7 +69,7 @@ The `Key` property can either be a well-known top-level property, or be a json p
 
 Event Grid doesn't have any special meaning for the `$` character in the Key, unlike the JSONPath specification.
 
-### Event grid schema
+### Event Grid schema
 
 For events in the Event Grid schema:
 

@@ -4,16 +4,15 @@ description: Step-by-step instructions for viewing the service principal of a ma
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 02/15/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -40,7 +39,7 @@ In this article, you learn how to view the service principal of a managed identi
 
 This following command demonstrates how to view the service principal of a VM or application with system assigned identity enabled. Replace `<Azure resource name>` with your own values.
 
-```azurepowershell-interactive
+```powershell
 Get-AzADServicePrincipal -DisplayName <Azure resource name>
 ```
 

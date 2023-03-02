@@ -1,7 +1,9 @@
 ---
-title: Troubleshoot VM and environment failures Azure DevTest Labs
+title: Troubleshoot VM and environment failures
 description: Learn how to troubleshoot virtual machine (VM) and environment creation failures in Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 
@@ -61,6 +63,6 @@ To see the lab template deployment logs, follow these steps:
 3. Look for deployments with a failed status and select it.
 4. On the **Deployment** page, select **Operation details** link for the operation that failed.
 5. You see details about the operation that failed in the **Operation details** window.
-
+ 
 ## Next steps
 See [Troubleshooting artifact failures](devtest-lab-troubleshoot-artifact-failure.md)

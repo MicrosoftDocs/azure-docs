@@ -3,17 +3,24 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/22/2021
+ms.date: 08/08/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
 # Azure EA portal administration
 
 This article explains the common tasks that an administrator accomplishes in the Azure EA portal (https://ea.azure.com). The Azure EA portal is an online management portal that helps customers manage the cost of their Azure EA services. For introductory information about the Azure EA portal, see the [Get started with the Azure EA portal](ea-portal-get-started.md) article.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Activate your enrollment
 
@@ -52,7 +59,11 @@ If your enterprise administrator can't assist you, create an [Azure support requ
 - Enrollment number
 - Email address to add, and authentication type (work, school, or Microsoft account)
 - Email approval from an existing enterprise administrator
-  - If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+
+>[!NOTE]
+>  - We recommend that you have at least one active Enterprise Administrator at all times. If no active Enterprise Administrator is available, contact your partner to change the contact information on the Volume License agreement. Your partner can make changes to the customer contact information by using the Contact Information Change Request (CICR) process available in the eAgreements (VLCM) tool.
+>  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the EA portal and Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 
 ## Create an Azure Enterprise department
 
@@ -83,9 +94,9 @@ After a department is created, the enterprise administrator can add department a
 - Add accounts
 - Remove accounts
 - Download usage details
-- View the monthly usage and charges <sup>1</sup>
+- View the monthly usage and charges ¹
 
-> <sup>1</sup> An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+> ¹ An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
 
 ### To add a department administrator
 
@@ -117,7 +128,7 @@ The structure of accounts and subscriptions impact how they're administered and 
 
 To add an account:
 
-1. In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. In the Azure Enterprise portal, select **Manage** in the left navigation area and then select an enrollment.
 1. Select the **Account** tab. On the **Account** page, select **+Add Account**.
 1. Select a department, or leave it as unassigned, and then select the desired authentication type.
 1. Enter a friendly name to identify the account in reporting.
@@ -136,11 +147,26 @@ To confirm account ownership:
    The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
+## Add an account from another Azure AD tenant
+
+By default, an enrollment is associated with a specific Azure AD tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Azure AD tenant.
+
+To add an account from any tenant:
+
+1.	In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. Select the appropriate enrollment. Note the current setting for **Auth level**, if you want to restore the setting later.
+1.	If not already configured, change the Auth level to **Work and School Account Cross Tenant**.
+1. Add the account using the Azure AD sign in information, as described in the previous section.
+1.	Return the **Auth level** to its previous setting, or set it as **Work and School Account**.
+1.	Sign in to the EA portal to verify that you can view the appropriate subscription offers so that you can then add subscriptions in the Azure portal.
+
 ## Change Azure subscription or account ownership
 
-This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
+This section only applies when a subscription owner is being changed. Changing a subscription ownership doesn't require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
 
 However, an EA admin can't transfer an account from one enrollment to another enrollment. To transfer an account from one enrollment to another, a support request is required. For information about transferring an account from one enrollment to another enrollment, see [Transfer an enterprise account to a new enrollment](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
+
+Pay-as-you-go subscription administrators can also transfer account ownership of their subscriptions to an EA enrollment using this same process.
 
 When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
@@ -191,7 +217,7 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 1. Sign in to the Azure EA Portal as an enterprise administrator.
 1. Select **Manage** on the left navigation.
-1. Select **Department**.
+1. Select **Account**.
 1. Hover over the row with the account and select the pencil icon on the right.
 1. Select the department from the drop-down menu.
 1. Select **Save**.
@@ -402,7 +428,7 @@ You can suppress _approaching coverage period end date_ and _disable and de-prov
 
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you'll receive an e-mail invitation to your account ID.
 
-For more information, create a [support request for sponsorship activation](https://aka.ms/azrsponsorship).
+If you need assistance, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Conversion to work or school account authentication
 

@@ -66,6 +66,9 @@ Here's how you'd use that command to make a VHDX:
 msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\packageName.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps
 ```
 
+>[!NOTE]
+>This command doesn't support package names that are longer than 128 characters or MSIX image names with spaces between characters.
+
 ## Next steps
 
 Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
@@ -78,4 +81,4 @@ To learn how to set up app attach, check out these articles:
 - [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
 - [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
-If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.md) and [App attach glossary](app-attach-glossary.md).
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).

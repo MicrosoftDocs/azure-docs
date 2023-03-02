@@ -2,18 +2,16 @@
 title: 'Connect on-premises networks to a virtual network: Site-to-Site VPN: CLI'
 description: Learn how to create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using the CLI.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 07/26/2021
 ms.author: cherylmc
 
 ---
 # Create a virtual network with a Site-to-Site VPN connection using CLI
 
-This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
+This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
 
 > [!div class="op_single_selector"]
 > * [Azure portal](./tutorial-site-to-site-portal.md)
@@ -32,7 +30,7 @@ Verify that you have met the following criteria before beginning configuration:
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 * This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### <a name="example"></a>Example values
@@ -129,7 +127,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 
 ## <a name="CreateGateway"></a>7. Create the VPN gateway
 
-Create the virtual network VPN gateway. Creating a VPN gateway can take up to 45 minutes or more to complete.
+Create the virtual network VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 Use the following values:
 
@@ -137,7 +135,7 @@ Use the following values:
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Select the Gateway SKU that you want to use. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command. If you run this command using the '--no-wait' parameter, you don't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command. If you run this command using the '--no-wait' parameter, you don't see any feedback or output. This parameter allows the gateway to create in the background. It takes 45 minutes or more to create a gateway.
 
 ```azurecli-interactive
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 

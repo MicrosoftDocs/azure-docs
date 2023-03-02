@@ -3,12 +3,12 @@ title: Azure HDInsight Accelerated Writes for Apache HBase
 description: Gives an overview of the Azure HDInsight Accelerated Writes feature, which uses premium managed disks to improve performance of the Apache HBase Write Ahead Log.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 01/24/2020
+ms.date: 07/18/2022
 ---
 
 # Azure HDInsight Accelerated Writes for Apache HBase
 
-This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/disks-types.md#premium-ssd) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
+This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/disks-types.md#premium-ssds) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
 
 ## Overview of HBase architecture
 

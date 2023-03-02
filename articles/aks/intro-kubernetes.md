@@ -1,24 +1,23 @@
 ---
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
-services: container-service
 ms.topic: overview
-ms.date: 02/24/2021
-
-ms.custom: mvc
+ms.date: 11/18/2022
+ms.custom: mvc, ignite-2022
 ---
 
-# Azure Kubernetes Service
+# What is Azure Kubernetes Service?
 
-Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
+Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided at no cost as a managed Azure resource abstracted from the user. You only pay for and manage the nodes attached to the AKS cluster.
 
 You can create an AKS cluster using:
-* [The Azure CLI](kubernetes-walkthrough.md)
-* [The Azure portal](kubernetes-walkthrough-portal.md)
-* [Azure PowerShell](kubernetes-walkthrough-powershell.md)
-* Using template-driven deployment options, like [Azure Resource Manager templates](kubernetes-walkthrough-rm-template.md) and Terraform 
 
-When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Advanced networking, Azure Active Directory (Azure AD) integration, monitoring, and other features can be configured during the deployment process. 
+* [Azure CLI][aks-quickstart-cli]
+* [Azure PowerShell][aks-quickstart-powershell]
+* [Azure portal][aks-quickstart-portal]
+* Template-driven deployment options, like [Azure Resource Manager templates][aks-quickstart-template], [Bicep](../azure-resource-manager/bicep/overview.md), and Terraform.
+
+When you deploy an AKS cluster, you specify the number and size of the nodes, and AKS deploys and configures the Kubernetes control plane and nodes. [Advanced networking][aks-networking], [Azure Active Directory (Azure AD) integration][aad], [monitoring][aks-monitor], and other features can be configured during the deployment process.
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
@@ -27,8 +26,9 @@ For more information on Kubernetes basics, see [Kubernetes core concepts for AKS
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure AD to:
-* Use Kubernetes role-based access control (Kubernetes RBAC). 
+For improved security and management, you can integrate with [Azure AD][aad] to:
+
+* Use Kubernetes role-based access control (Kubernetes RBAC).
 * Monitor the health of your cluster and resources.
 
 ### Identity and security management
@@ -43,15 +43,16 @@ You can configure an AKS cluster to integrate with Azure AD. With Azure AD integ
 
 For more information on identity, see [Access and identity options for AKS][concepts-identity].
 
-To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks-aad].
+To secure your AKS clusters, see [Integrate Azure AD with AKS][aks-aad].
 
 ### Integrated logging and monitoring
 
-Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both container logs and [the Kubernetes master logs][aks-master-logs], which are:
-* Stored in an Azure Log Analytics workspace.
+[Azure Monitor for Container Health][azure-monitor] collects memory and processor performance metrics from containers, nodes, and controllers within your AKS clusters and deployed applications. You can review both container logs and [the Kubernetes logs][aks-master-logs], which are:
+
+* Stored in an [Azure Log Analytics][azure-logs] workspace.
 * Available through the Azure portal, Azure CLI, or a REST endpoint.
 
-For more information, see [Monitor Azure Kubernetes Service container health][container-health].
+For more information, see [Monitor AKS container health][container-health].
 
 ## Clusters and nodes
 
@@ -63,13 +64,13 @@ For more information about Kubernetes cluster, node, and node pool capabilities,
 
 As demand for resources change, the number of cluster nodes or pods that run your services automatically scales up or down. You can adjust both the horizontal pod autoscaler or the cluster autoscaler to adjust to demands and only run necessary resources.
 
-For more information, see [Scale an Azure Kubernetes Service (AKS) cluster][aks-scale].
+For more information, see [Scale an AKS cluster][aks-scale].
 
 ### Cluster node upgrades
 
-AKS offers multiple Kubernetes versions. As new versions become available in AKS, you can upgrade your cluster using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running applications.  
+AKS offers multiple Kubernetes versions. As new versions become available in AKS, you can upgrade your cluster using the Azure portal, Azure CLI, or Azure PowerShell. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running applications.  
 
-To learn more about lifecycle versions, see [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+To learn more about lifecycle versions, see [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an AKS cluster][aks-upgrade].
 
 ### GPU-enabled nodes
 
@@ -83,23 +84,26 @@ AKS supports the creation of Intel SGX-based, confidential computing node pools 
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
+### Mariner nodes
+
+Mariner is an open-source Linux distribution created by Microsoft, and it’s now available for preview as a container host on Azure Kubernetes Service (AKS). The Mariner container host provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Mariner node pools in a new cluster, add Mariner node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Mariner nodes.
+
+For more information, see [Use the Mariner container host on AKS](use-mariner.md)
+
 ### Storage volume support
 
-To support application workloads, you can mount static or dynamic storage volumes for persistent data. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by either:
-* Azure Disks for single pod access, or 
-* Azure Files for multiple, concurrent pod access.
+To support application workloads, you can mount static or dynamic storage volumes for persistent data. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by:
+
+* [Azure Disks][azure-disk] for single pod access
+* [Azure Files][azure-files] for multiple, concurrent pod access.
 
 For more information, see [Storage options for applications in AKS][concepts-storage].
 
-Get started with dynamic persistent volumes using [Azure Disks][azure-disk] or [Azure Files][azure-files].
-
 ## Virtual networks and ingress
 
-An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with:
-* Other pods in the cluster 
-* Other nodes in the virtual network. 
+An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network and can directly communicate with other pods in the cluster and other nodes in the virtual network.
 
-Pods can also connect to other services in a peered virtual network and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.  
+Pods can also connect to other services in a peered virtual network and on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.  
 
 For more information, see the [Network concepts for applications in AKS][aks-networking].
 
@@ -107,23 +111,24 @@ For more information, see the [Network concepts for applications in AKS][aks-net
 
 The HTTP application routing add-on helps you easily access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster.  
 
-As applications are deployed, publicly accessible DNS names are autoconfigured. The HTTP application routing sets up a DNS zone and integrates it with the AKS cluster. You can then deploy Kubernetes ingress resources as normal.  
+As applications are deployed, publicly accessible DNS names are auto-configured. The HTTP application routing sets up a DNS zone and integrates it with the AKS cluster. You can then deploy Kubernetes ingress resources as normal.  
 
-To get started with ingress traffic, see [HTTP application routing][aks-http-routing].
+To get started with Ingress traffic, see [HTTP application routing][aks-http-routing].
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include Helm and the Kubernetes extension for Visual Studio Code. 
+Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include [Helm][helm] and the [Kubernetes extension for Visual Studio Code][k8s-extension].
 
 Azure provides several tools that help streamline Kubernetes, such as DevOps Starter.  
 
 ### DevOps Starter
 
 DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically:
-* Creates Azure resources (such as AKS); 
-* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI; 
-* Sets up a release pipeline for CD; and, 
-* Generates an Azure Application Insights resource for monitoring. 
+
+* Creates Azure resources (such as AKS).
+* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI.
+* Sets up a release pipeline for CD.
+* Generates an Azure Application Insights resource for monitoring.
 
 For more information, see [DevOps Starter][azure-devops].
 
@@ -135,7 +140,7 @@ To create a private image store, see [Azure Container Registry][acr-docs].
 
 ## Kubernetes certification
 
-AKS has been CNCF-certified as Kubernetes conformant.
+AKS has been [CNCF-certified][cncf-cert] as Kubernetes conformant.
 
 ## Regulatory compliance
 
@@ -143,35 +148,42 @@ AKS is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see [O
 
 ## Next steps
 
-Learn more about deploying and managing AKS with the Azure CLI Quickstart.
+Learn more about deploying and managing AKS.
 
 > [!div class="nextstepaction"]
-> [Deploy an AKS Cluster using Azure CLI][aks-cli]
+> [Cluster operator and developer best practices to build and manage applications on AKS][aks-best-practices]
 
 <!-- LINKS - external -->
-[aks-engine]: https://github.com/Azure/aks-engine
-[kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[compliance-doc]: https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/
+[compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
+[cncf-cert]: https://www.cncf.io/certification/software-conformance/
+[k8s-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
 [aks-aad]: ./azure-ad-integration-cli.md
-[aks-cli]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-template]: ./learn/quick-kubernetes-deploy-rm-template.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
 [aks-networking]: ./concepts-network.md
-[aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [azure-devops]: ../devops-project/overview.md
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
+[azure-disk]: ./azure-disk-csi.md
+[azure-files]: ./azure-files-csi.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
+[aad]: managed-aad.md
+[aks-monitor]: monitor-aks.md
+[azure-monitor]: ../azure-monitor/containers/containers.md
+[azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
+[helm]: quickstart-helm.md
+[aks-best-practices]: best-practices.md

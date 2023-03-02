@@ -2,9 +2,7 @@
 title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
 titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
-services: vpn-gateway
 author: chadmath
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
@@ -55,7 +53,7 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-For the Azure Resource Manager deployment model:
+For the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
@@ -91,6 +89,9 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
+    _For Active/Acive gateways use the following to check the second public IP:_ <br>
+    `https://<YourVirtualNetworkGatewayIP2>:8083/healthprobe`
+
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
 
@@ -99,10 +100,16 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
     ```
 
+> [!Note]
+> Basic SKU VPN gateways do not reply to health probe.
+> They are not recommended for [production workloads](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#workloads).
+
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 
 The perfect forward secrecy feature can cause disconnection problems. If the VPN device has perfect forward secrecy enabled, disable the feature. Then update the VPN gateway IPsec policy.
 
+> [!Note]
+> VPN gateways do not reply to ICMP on their local address.
 ## Next steps
 
 -	[Configure a site-to-site connection to a virtual network](./tutorial-site-to-site-portal.md)

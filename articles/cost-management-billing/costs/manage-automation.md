@@ -3,7 +3,7 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2021
+ms.date: 11/22/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -36,7 +36,13 @@ You might not need to analyze the data daily. If so, consider using Cost Managem
 
 **Usage Details API**
 
-Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. If you have a large amount of cost data, you should request the smallest amount of usage data as possible for a period. To do so, specify either a small time range or use a filter in your request. For example, in a scenario where you need three years of cost data, the API does better when you make multiple calls for different time ranges rather than with a single call. From there, you can load the data into Excel for further analysis.
+Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. Here are recommended best practices:
+
+- If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
+- Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
+- Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
+- If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-export-acm-data.md) as a more scalable solution.
 
 ## Automate retrieval with Usage Details API
 
@@ -91,8 +97,11 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 For modern customers with a Microsoft Customer Agreement, use the following call:
 
 ```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05$top=1000&api-version=2019-10-01
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
+
+> [!NOTE]
+> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
 
 ### Get amortized cost details
 
@@ -159,7 +168,6 @@ With budgets, you're alerted when costs cross a set threshold. You can set up to
     }
   }
 }
-
 ```
 
 Languages supported by a culture code:
@@ -280,14 +288,49 @@ You can configure budgets to start automated actions using Azure Action Groups. 
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load.
 
-### Error code 429 - Call count has exceeded rate limits
+### Query API query processing units
 
-To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. The current throughput limits for our APIs are as follows:
+In addition to the existing rate limiting processes, the [Query API](/rest/api/cost-management/query) also limits processing based on the cost of API calls. The cost of an API call is expressed as query processing units (QPUs). QPU is a performance currency, like [Cosmos DB RUs](../../cosmos-db/request-units.md). They abstract system resources like CPU and memory.
 
-- 30 calls per minute - It's done per scope, per user, or application.
-- 200 calls per minute - It's done per tenant, per user, or application.
+#### QPU calculation
+
+Currently, one QPU is deducted for one month of data queried from the allotted quotas. This logic might change without notice.
+
+#### QPU factors
+
+The following factor affects the number of QPUs consumed by an API request.
+
+- Date range, as the date range in the request increases, the number of QPUs consumed increases.
+
+Other QPU factors might be added without notice.
+
+#### QPU quotas
+
+The following quotas are configured per tenant. Requests are throttled when any of the following quotas are exhausted.
+
+- 12 QPU per 10 seconds
+- 60 QPU per 1 min
+- 600 QPU per 1 hour
+
+The quotas maybe be changed as needed and more quotas may be added.
+
+#### Response headers
+
+You can examine the response headers to track the number of QPUs consumed by an API request and number of QPUs remaining.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-retry-after`
+
+Indicates the time to back-off in seconds. When a request is throttled with 429, back off for the time specified in this header before retrying the request.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-consumed`
+
+QPUs consumed by an API call.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-remaining`
+
+List of remaining quotas.
 
 ## Next steps
 

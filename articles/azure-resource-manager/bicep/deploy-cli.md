@@ -1,33 +1,43 @@
 ---
-title: Deploy resources with Azure CLI and Bicep files
+title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/08/2022
+ms.custom: devx-track-azurecli, seo-azure-cli
 ---
 
-# Deploy resources with Bicep and Azure CLI
+# How to deploy resources with Bicep and Azure CLI
 
 This article explains how to use Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](./overview.md).
 
-To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
+## Prerequisites
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+You need a Bicep file to deploy. The file must be local.
+
+You need Azure CLI and to be connected to Azure:
+
+- **Install Azure CLI commands on your local computer.** To deploy Bicep files, you need [Azure CLI](/cli/azure/install-azure-cli) version **2.20.0 or later**.
+- **Connect to Azure by using [az login](/cli/azure/reference-index#az-login)**. If you have multiple Azure subscriptions, you might also need to run [az account set](/cli/azure/account#az-account-set).
+
+Samples for the Azure CLI are written for the `bash` shell. To run this sample in Windows PowerShell or Command Prompt, you may need to change elements of the script.
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment scope
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
 
-* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
+* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-bicep>
   ```
 
-* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
+* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-bicep>
@@ -35,7 +45,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-bicep>
@@ -43,7 +53,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
 
-* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
+* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-bicep>
@@ -81,7 +91,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote Bicep file
 
-Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 
@@ -100,7 +110,7 @@ az deployment group create \
 
 If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
 
-You can also get the contents of file and provide that content as an inline parameter.
+You can also get the contents of file and provide that content as an inline parameter. Preface the file name with **@**.
 
 ```azurecli-interactive
 az deployment group create \
@@ -133,7 +143,7 @@ To pass in an object, for example, to set tags, use JSON. For example, your Bice
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
 
-```bash
+```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
 --template-file $bicepFile \
@@ -141,6 +151,15 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 ```
 
 Use double quotes around the JSON that you want to pass into the object.
+
+If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the object in the following format:
+
+```azurecli
+$tags="{'Owner':'Contoso','Cost Center':'2345-324'}"
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $bicepFile \
+--parameters resourceName=abcdef4556 resourceTags=$tags
+```
 
 You can use a variable to contain the parameter values. In Bash, set the variable to all of the parameter values and add it to the deployment command.
 
@@ -151,7 +170,7 @@ az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-bicep> \
   --parameters $params
-``` 
+```
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
@@ -161,14 +180,14 @@ Rather than passing parameters as inline values in your script, you may find it 
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
-To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
+To pass a local parameter file, specify the path and file name. The following example shows a parameter file named _storage.parameters.json_. The file is in the same directory where the command is run.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters @storage.parameters.json
+  --parameters storage.parameters.json
 ```
 
 ## Preview changes
@@ -177,11 +196,11 @@ Before deploying your Bicep file, you can preview the changes the Bicep file wil
 
 ## Deploy template specs
 
-Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here's an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). You can also build your Bicep file into an ARM template JSON by using the Bicep CLI, and then create a template spec with the JSON template.
+Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. The [Create template spec sample](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) shows how to create a template spec in a Bicep file. You can also build your Bicep file to JSON by using the Bicep CLI, and then create a template spec with the JSON template.
 
 ## Deployment name
 
-When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep file named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep file named `main.bicep` and don't specify a deployment name, the deployment is named `main`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -207,6 +226,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Next steps
 
-* To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-- To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).
-* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).
+* To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).

@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 08/20/2022
 ---
 
 # Exchange X12 messages for B2B enterprise integration using Azure Logic Apps and Enterprise Integration Pack
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can create workflows that work with X12 messages by using **X12** operations. These operations include triggers and actions that you can use in your workflow to handle X12 communication. You can add X12 triggers and actions in the same way as any other trigger and action in a workflow, but you need to meet extra prerequisites before you can use X12 operations.
 
@@ -345,7 +347,7 @@ To specify these document version numbers and message types, follow these steps:
 
    To update your schema, follow these steps:
 
-   1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
+   1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit a schema](logic-apps-enterprise-integration-schemas.md#edit-schema).
 
    1. In your agreement's message settings, select the revised schema.
 

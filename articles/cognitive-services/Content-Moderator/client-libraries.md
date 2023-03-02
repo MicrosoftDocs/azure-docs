@@ -6,15 +6,14 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 zone_pivot_groups: programming-languages-set-conmod
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 04/19/2021
+ms.date: 09/28/2021
 ms.author: pafarley
-ms.custom: "devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.devlang: csharp, java, python
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: content moderator, azure content moderator, online moderator, content filtering software
-
 ---
 
 # Quickstart: Use the Content Moderator client library

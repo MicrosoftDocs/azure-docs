@@ -3,7 +3,7 @@ title: Linux concurrency best practices for Azure NetApp Files - Session slots a
 description: Describes best practices about session slots and slot table entries for Azure NetApp Files NFS protocol.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.author: b-juche
+ms.date: 08/02/2021
+ms.author: anfdocs
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
 
@@ -43,7 +42,7 @@ A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS
 
 See [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for details.
 
-The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 3,000 slots environment wide.*
+The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 10,000 slots environment wide.*
 
 ### Examples of slot count based on concurrency recommendation 
 
@@ -104,7 +103,7 @@ Example 4 uses the reduced per-client `sunrpc.max_tcp_slot_table_entry` value of
         * The client will issue no more than 8 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
-When using NFSv3, *you should collectively keep the storage endpoint slot count to 2,000 or less*. It is best to set the per-connection value for `sunrpc.max_tcp_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
+When using NFSv3, *you should collectively keep the storage endpoint slot count to 10,000 or less*. It is best to set the per-connection value for `sunrpc.max_tcp_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
 
 ### How to calculate the best `sunrpc.max_tcp_slot_table_entries` 
 
@@ -124,7 +123,7 @@ The following table shows a sample study of concurrency with arbitrary latencies
 
 ### How to calculate concurrency settings by connection count
 
-For example, the workload is an EDA farm, and 200 clients all drive workload to the same storage end point (a storage endpoint is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
+For example, if the workload is an EDA farm and 1,250 clients all drive workload to the same storage end point (a storage end point is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
 
 Assume that the workload is 4,000 MiB/s using a 256-KiB average operation size and an average latency of 10 ms. To calculate concurrency, use the following formula:
 
@@ -134,7 +133,7 @@ The calculation translates to a concurrency of 160:
  
 `(160 = 16,000 × 0.010)`
 
-Given the need for 200 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in extra headroom by setting the number per client to 4 or even 8, keeping under the 2000 recommended slot ceiling. 
+Given the need for 1,250 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in extra headroom by setting the number per client to 4 or even 8, keeping well under the 10,000 recommended slot ceiling. 
 
 ### How to set `sunrpc.max_tcp_slot_table_entries` on the client
 
@@ -146,7 +145,7 @@ Given the need for 200 clients, you could safely set `sunrpc.max_tcp_slot_table_
 
 ## NFSv4.1 
 
-In NFSv4.1, sessions define the relationship between the client and the server. Weather the mounted NFS file systems sit atop one connection or many (as is the case with `nconnect`), the rules for the session apply. At session setup, the client and server negotiate the maximum requests for the session, settling on the lower of the two supported values. Azure NetApp Files supports 180 outstanding requests, and Linux clients default to 64. The following table shows the session limits: 
+In NFSv4.1, sessions define the relationship between the client and the server. Whether the mounted NFS file systems sit atop one connection or many (as is the case with `nconnect`), the rules for the session apply. At session setup, the client and server negotiate the maximum requests for the session, settling on the lower of the two supported values. Azure NetApp Files supports 180 outstanding requests, and Linux clients default to 64. The following table shows the session limits: 
 
 | Azure NetApp Files NFSv4.1 server <br>  Max commands per session | Linux client <br>  Default max commands per session    | Negotiated max commands for the session |
 |-|-|-|
@@ -154,15 +153,15 @@ In NFSv4.1, sessions define the relationship between the client and the server. 
 
 Although Linux clients default to 64 maximum requests per session, the value of `max_session_slots` is tunable.  A reboot is required for changes to take effect.  Use the `systool -v -m nfs` command to see the current maximum in use by the client.  For the command to work, at least one NFSv4.1 mount must be in place:
 
-```
+```shell
 $ systool -v -m nfs
 {
 Module = "nfs"
-…
+...
   Parameters:
-…
-    max_session_slots   = "64"   
-…
+...
+    max_session_slots   = "64"
+...
 }
 ```
 

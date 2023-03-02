@@ -2,18 +2,17 @@
 title: Back up a secret, key, or certificate stored in Azure Key Vault | Microsoft Docs
 description: Use this document to help back up a secret, key, or certificate stored in Azure Key Vault.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 3/18/2021
-ms.author: sudbalas
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
+ms.date: 01/17/2023
+ms.author: mbaldwin
+
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
-# Azure Key Vault backup
+# Azure Key Vault backup and restore
 
 This document shows you how to back up secrets, keys, and certificates stored in your key vault. A backup is intended to provide you with an offline copy of all your secrets in the unlikely event that you lose access to your key vault.
 
@@ -147,4 +146,6 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## Next steps
 
-Turn on [logging and monitoring](./logging.md) for Key Vault.
+
+- [Move an Azure key vault across regions](move-region.md)
+- [Enable Key Vault logging](howto-logging.md) for Key Vault

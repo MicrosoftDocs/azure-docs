@@ -9,7 +9,7 @@ ms.date: 12/02/2019
 
 # Use the .NET SDK for Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
+[Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to the HBase REST API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 
 For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API.
 
@@ -38,7 +38,7 @@ HBase stores data in tables. A table consists of a *Rowkey*, the primary key, an
 
 The data is physically stored in *HFiles*. A single HFile contains data for one table, one region, and one column family. Rows in HFile are stored sorted on Rowkey. Each HFile has a *B+ Tree* index for speedy retrieval of the rows.
 
-To create a new table, specify a `TableSchema` and columns. The following code checks whether the table 'RestSDKTable` already exists - if not, the table is created.
+To create a new table, specify a `TableSchema` and columns. The following code checks whether the table `RestSDKTable` already exists - if not, the table is created.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))

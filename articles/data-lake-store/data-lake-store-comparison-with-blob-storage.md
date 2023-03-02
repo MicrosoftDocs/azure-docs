@@ -2,11 +2,11 @@
 title: Comparison of Azure Data Lake Storage Gen1 with Blob storage
 description: Learn about the differences between Azure Data Lake Storage Gen1 and Azure Blob Storage regarding some key aspects of big data processing.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Comparing Azure Data Lake Storage Gen1 and Azure Blob Storage

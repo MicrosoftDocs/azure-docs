@@ -5,19 +5,17 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: billmath
-  manager: daveba
+  manager: amycolannino
   ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: reference
-  ms.date: 08/23/2019
+  ms.topic: faq
+  ms.date: 02/08/2023
   ms.subservice: hybrid
   ms.author: billmath
   
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory Connect FAQ
 summary: |
 
@@ -42,7 +40,7 @@ sections:
           * [Reducing the Active Directory attack surface](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
           
       - question: |
-          Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?  
+          Will installation work if the Azure Active Directory (Azure AD) Global Administrator has two-factor authentication (2FA) enabled?  
         answer: |
           As of the February 2016 builds, this scenario is supported.
 
@@ -145,7 +143,7 @@ sections:
       - question: |
           Are single label domains (SLDs) supported?  
         answer: |
-          While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly.
+          While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly. In SLD scenarios where the Active Directory NetBIOS domain name differs from the FQDN domain name, it's unsupported to install Azure AD Connect.
           
       - question: |
           Are Forests with disjoint AD domains supported?  
@@ -389,4 +387,3 @@ sections:
           Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?
         answer: |
           The events 6311 - **The server encountered an unexpected error while performing a callback** and 6401 - **The management agent controller encountered an unexpected error** - are always logged after a synchronization step error. To resolve these errors, you need to clean up the synchronization step errors.  For more information, see [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) and [Troubleshoot object synchronization with Azure AD Connect sync](tshoot-connect-objectsync.md)
-

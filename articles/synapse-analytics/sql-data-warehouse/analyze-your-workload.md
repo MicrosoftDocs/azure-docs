@@ -1,15 +1,14 @@
 ---
 title: Analyze your workload for dedicated SQL pool
 description: Techniques for analyzing query prioritization for dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
-author: ronortloff
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.date: 11/03/2021
+ms.author: wiassaf
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
@@ -98,8 +97,7 @@ SELECT  w.[wait_id]
 FROM    sys.dm_pdw_waits w
 JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
 JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
-WHERE    w.[session_id] <> SESSION_ID()
-;
+WHERE    w.[session_id] <> SESSION_ID();
 ```
 
 The `sys.dm_pdw_resource_waits` DMV shows the wait information for a given query. Resource wait time measures the time waiting for resources to be provided. Signal wait time is the time it takes for the underlying SQL servers to schedule the query onto the CPU.
@@ -117,8 +115,7 @@ SELECT  [session_id]
 ,       [resource_class]
 ,       [wait_id]                                   AS queue_position
 FROM    sys.dm_pdw_resource_waits
-WHERE    [session_id] <> SESSION_ID()
-;
+WHERE    [session_id] <> SESSION_ID();
 ```
 
 You can also use the `sys.dm_pdw_resource_waits` DMV calculate how many concurrency slots have been granted.
@@ -128,8 +125,7 @@ SELECT  SUM([concurrency_slots_used]) as total_granted_slots
 FROM    sys.[dm_pdw_resource_waits]
 WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
-AND     [session_id]     <> session_id()
-;
+AND     [session_id]     <> session_id();
 ```
 
 The `sys.dm_pdw_wait_stats` DMV can be used for historic trend analysis of waits.
@@ -142,10 +138,9 @@ SELECT   w.[pdw_node_id]
 ,        w.[signal_time]
 ,        w.[completed_count]
 ,        w.[wait_time]
-FROM    sys.dm_pdw_wait_stats w
-;
+FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-manage-security.md). For further information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+For more information about managing database users and security, see [Secure a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuild-indexes-to-improve-segment-quality).

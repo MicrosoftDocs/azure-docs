@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
+ms.reviewer: shijain
 
 ---
 
@@ -41,7 +42,7 @@ To perform the health check against your SQL Server servers, they require an age
 
 1. Install the [Microsoft Monitoring Agent (MMA)](../agents/agent-windows.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connect-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
 The agent on your SQL Server which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
@@ -154,7 +155,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
 3. In the **Insights** section of the menu, select **More**.  
 4. On the **Overview** page, click the **SQL Health Check** tile.
-5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+5. On the **Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
@@ -189,7 +190,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## SQL Health Check solution FAQ
+## Frequently asked questions
 
 *What checks are performed by the SQL Assessment solution?*
 

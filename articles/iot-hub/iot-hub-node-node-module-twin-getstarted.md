@@ -1,14 +1,13 @@
-﻿---
+---
 title: Start with Azure IoT Hub module identity & module twin (Node.js)
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 08/23/2021
 ms.custom: amqp, devx-track-js
 ---
 
@@ -16,27 +15,24 @@ ms.custom: amqp, devx-track-js
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
+[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, it allows for isolated configuration and conditions for each component.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+At the end of this article, you have two Node.js apps:
+
+* **CreateIdentities**: creates a device identity, a module identity, and associated security keys to connect your device and module clients.
+
+* **UpdateModuleTwinReportedProperties**: sends updated module twin, reported properties to your IoT Hub.
+
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
-
-At the end of this tutorial, you have two Node.js apps:
-
-* **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
-
-* **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
-
-> [!NOTE]
-> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
 ## Get the IoT hub connection string
 
@@ -46,7 +42,7 @@ At the end of this tutorial, you have two Node.js apps:
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a Node.js app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a Node.js app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. The ID and key are case-sensitive. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create a directory to hold your code.
 
@@ -119,7 +115,7 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 Run this using node add.js. It will give you a connection string for your device identity and another one for your module identity.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [Understand the identity registry in your IoT Hub in the IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 
 ## Update the module twin using Node.js device SDK
 
@@ -129,10 +125,10 @@ In this section, you create a Node.js app on your simulated device that updates 
 
    ![Azure portal module detail](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Similar to you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
+2. Similar to what you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
-   > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
+   > The npm install command may feel slow. Be patient -- it's pulling down lots of code from the package repository.
 
    > [!NOTE]
    > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.

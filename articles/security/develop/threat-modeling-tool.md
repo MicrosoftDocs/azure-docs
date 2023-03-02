@@ -3,8 +3,7 @@ title: Microsoft Threat Modeling Tool overview - Azure
 description: Overview of the Microsoft Threat Modeling Tool, containing information on getting started with the tool, including the Threat Modeling process.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 02/16/2017
 ---

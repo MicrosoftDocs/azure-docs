@@ -3,13 +3,13 @@ title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 10/30/2020
-ms.author: aahi
+ms.topic: how-to
+ms.date: 07/22/2021
+ms.author: eur
 ---
 
 # Use Speech service containers with Kubernetes and Helm
@@ -25,8 +25,8 @@ The following prerequisites before using Speech containers on-premises:
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | Install the [Helm CLI][helm-install], which is used to to install a helm chart (container package definition). |
-|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| Helm CLI | Install the [Helm CLI][helm-install], which is used to install a helm chart (container package definition). |
+|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://eastus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## The recommended host computer configuration
 
@@ -234,10 +234,10 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://v2.helm.sh/docs/helm/#helm-test
-[ms-helm-hub]: https://hub.helm.sh/charts/microsoft
+[ms-helm-hub]: https://artifacthub.io/packages/search?repo=microsoft
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->
-[speech-container-host-computer]: speech-container-howto.md#the-host-computer
+[speech-container-host-computer]: speech-container-howto.md#host-computer-requirements-and-recommendations
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md

@@ -3,12 +3,12 @@ title: Initiate a storage account failover
 titleSuffix: Azure Storage
 description: Learn how to initiate an account failover in the event that the primary endpoint for your storage account becomes unavailable. The failover updates the secondary region to become the primary region for your storage account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/07/2021
-ms.author: tamram
+ms.date: 07/22/2022
+ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
@@ -38,7 +38,7 @@ Keep in mind that the following features and services are not supported for acco
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
 - Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
-- A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
+- A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 
 ## Initiate the failover
 
@@ -60,34 +60,9 @@ To initiate an account failover from the Azure portal, follow these steps:
 
 ## [PowerShell](#tab/azure-powershell)
 
-The account failover feature is generally available, but still relies on a preview module for PowerShell. To use PowerShell to initiate an account failover, you must first install the Az.Storage [1.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.1.1-preview) module. Follow these steps to install the module:
+To use PowerShell to initiate an account failover, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later. For more information about installing Azure PowerShell, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
-1. Uninstall any previous installations of Azure PowerShell:
-
-    - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-    - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
-
-1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-1. Close and reopen the PowerShell window after installing PowerShellGet.
-
-1. Install the latest version of Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Install an Azure Storage preview module that supports account failover:
-
-    ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-    ```
-
-To initiate an account failover from PowerShell, execute the following command:
+To initiate an account failover from PowerShell, call the following command:
 
 ```powershell
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name>
@@ -95,7 +70,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 ## [Azure CLI](#tab/azure-cli)
 
-To use Azure CLI to initiate an account failover, execute the following commands:
+To use Azure CLI to initiate an account failover, call the following commands:
 
 ```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
@@ -120,7 +95,7 @@ After you re-enable GRS for your storage account, Microsoft begins replicating t
 - The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
 - If using Blob storage, the number of snapshots per blob.
 - If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
-  
+
 ## Next steps
 
 - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)

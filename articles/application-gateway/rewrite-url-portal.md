@@ -2,11 +2,11 @@
 title: Rewrite URL and query string with Azure Application Gateway - Azure portal
 description: Learn how to use the Azure portal to configure an Azure Application Gateway to rewrite URL and query string
 services: application-gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
-ms.author: azhussai
+ms.author: greglin
 ---
 
 # Rewrite URL with Azure Application Gateway - Azure portal
@@ -92,7 +92,7 @@ In the below example whenever the request URL contains */article*, the URL path 
 
    e. In the **URL query       string value**, enter the new value of the URL query string. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
     
-    `{var_uri_path_1}` and `{var_uri_path_1}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
+    `{var_uri_path_1}` and `{var_uri_path_2}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
     
    f. Select **OK**.
 

@@ -1,11 +1,12 @@
 ---
 title: Mapping dataset columns in Azure Data Factory 
 description: 'Learn how to map source columns to destination columns.'
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 
@@ -128,7 +129,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 ```
 **Column mapping flow:**
 
-![Column mapping flow](./media/data-factory-map-columns/column-mapping-flow.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow.png" alt-text="Column mapping flow":::
 
 ## Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
 In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in "structure" section. 
@@ -167,7 +168,7 @@ In this case, the query results are first mapped to columns specified in "struct
 
 **Column mapping flow**
 
-![Column mapping flow-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow-2.png" alt-text="Column mapping flow-2":::
 
 ## Next steps
 See the article for a tutorial on using Copy Activity: 

@@ -1,17 +1,17 @@
 ---
-title: Micro agent Linux dependencies (Preview)  
+title: Micro agent Linux dependencies  
 description: This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 01/01/2023
 ---
 
-# Micro agent Linux dependencies (Preview)
+# Micro agent Linux dependencies
 
-This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
+This article describes the different Linux OS dependencies for the Defender for IoT micro agent.
 
 ## Linux dependencies
 
-The table below shows the Linux dependencies for each component. 
+The table below shows the Linux dependencies for each component.
 
 | Component | Dependency | Type | Required by IoT SDK | Notes |
 |--|--|--|--|--|
@@ -35,7 +35,9 @@ The table below shows the Linux dependencies for each component.
 |  | libpcap | Library |  |  |
 |  | CONFIG_PACKET=y | Kernel config |  |  |
 |  | CONFIG_NETFILTER =y | Kernel config |  | Optional – Performance improvement |
+| **Login collector** |  |  |  |  |
+|  | Wtmp, btmp | Log files |  | [utmp](https://en.wikipedia.org/wiki/Utmp) |
 
 ## Next steps
 
-[Install the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md).
+[Install the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md).

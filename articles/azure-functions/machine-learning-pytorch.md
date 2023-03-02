@@ -1,18 +1,16 @@
 ---
 title: Deploy a PyTorch model as an Azure Functions application
 description: Use a pre-trained ResNet 18 deep neural network from PyTorch with Azure Functions to assign 1 of 1000 ImageNet labels to an image.
-author: gvashishtha
 
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.author: gopalv
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.date: 01/05/2023
+ms.custom: devx-track-python, devx-track-azurepowershell, py-fresh-zinc
 
 ---
 
 # Tutorial: Deploy a pre-trained image classification model to Azure Functions with PyTorch
 
-In this article, you learn how to use Python, PyTorch, and Azure Functions to load a pre-trained model for classifying an image based on its contents. Because you do all work locally and create no Azure resources in the cloud, there is no cost to complete this tutorial.
+In this article, you learn how to use Python, PyTorch, and Azure Functions to load a pre-trained model for classifying an image based on its contents. Because you do all work locally and create no Azure resources in the cloud, there's no cost to complete this tutorial.
 
 > [!div class="checklist"]
 > * Initialize a local environment for developing Azure Functions in Python.
@@ -101,7 +99,7 @@ In Azure Functions, a function project is a container for one or more individual
     func init --worker-runtime python
     ```
 
-    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
     > [!TIP]
     > Because a function project is tied to a specific runtime, all the functions in the project must be written with the same language.
@@ -159,15 +157,18 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 1. Verify that the *classify* folder contains files named *predict.py* and *labels.txt*. If not, check that you ran the command in the *start* folder.
 
-1. Open *start/requirements.txt* in a text editor and add the dependencies required by the helper code, which should look like the following:
+1. Open *start/requirements.txt* in a text editor and add the dependencies required by the helper code, which should look like:
 
     ```txt
     azure-functions
     requests
     -f https://download.pytorch.org/whl/torch_stable.html
-    torch==1.5.0+cpu
-    torchvision==0.6.0+cpu
+    torch==1.13.0+cpu
+    torchvision==0.14.0+cpu
     ```
+
+    > [!Tip]
+    > The versions of torch and torchvision must match values listed in the version table of the [PyTorch vision repo](https://github.com/pytorch/vision).
 
 1. Save *requirements.txt*, then run the following command from the *start* folder to install the dependencies.
 
@@ -197,7 +198,7 @@ Installation may take a few minutes, during which time you can proceed with modi
     >
     > In a production application, change `*` to the web page's specific origin for added security.
 
-1. Save your changes, then assuming that dependencies have finished installing, start the local function host again with `func start`. Be sure to run the host in the *start* folder with the virtual environment activated. Otherwise the host will start, but you will see errors when invoking the function.
+1. Save your changes, then assuming that dependencies have finished installing, start the local function host again with `func start`. Be sure to run the host in the *start* folder with the virtual environment activated. Otherwise the host will start, but you'll see errors when invoking the function.
 
     ```
     func start

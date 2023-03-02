@@ -5,20 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-
+ms.reviewer: shijain
 ---
 
 # Wire Data 2.0 (Preview) solution in Azure Monitor (Retired)
 
 ![Wire Data symbol](media/wire-data/wire-data2-symbol.png)
 
->[!NOTE]
->The Wire Data solution has been replaced with [VM insights](../vm/vminsights-overview.md) and [Service Map solution](../vm/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor.
+> [!NOTE]
+> The Wire Data solution has been replaced with [VM insights](../vm/vminsights-overview.md) and [Service Map solution](../vm/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor.
 >
->Support for Wire Data solution will end on **March 31, 2022**.  Until the retirement date, existing customers using the Wire Data 2.0 (preview) solution may continue to use it.
+> Support for Wire Data solution will end on **March 31, 2022**.  Until the retirement date, existing customers using the Wire Data 2.0 (preview) solution may continue to use it.
 >
->New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options).
- 
+> New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Microsoft Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-microsoft-sentinel-connection-options).
 
 Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
 
@@ -120,14 +119,14 @@ VMConnection
 
 ### More examples queries
 
-Refer to the [VM insights log search documentation](../vm/vminsights-log-search.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
+Refer to the [VM insights log search documentation](../vm/vminsights-log-query.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
 
 ## Uninstall Wire Data 2.0 Solution
 
 To uninstall Wire Data 2.0 you simply need to remove the Solution from your Log Analytics Workspace(s).  This will result in the following:
 
-* the Wire Data Management pack being removed from the VMs that are connected to the Workspace 
-* the Wire Data data type no longer appearing in your Workspace
+- The Wire Data Management pack being removed from the VMs that are connected to the Workspace.
+- The Wire Data data type no longer appearing in your Workspace
 
 Follow [these instructions](./solutions.md?tabs=portal#remove-a-monitoring-solution) to remove the Wire Data solution.
 
@@ -157,15 +156,15 @@ An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstal
 
 To completely uninstall the Dependency agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
 
-```
+```bash
 rpm -e dependency-agent dependency-agent-connector
 ```
 
 ## Using the Wire Data 2.0 solution
 
-In the **Overview** page for your Log Analytics workspace in the Azure portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the blades in the following table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
+In the **Overview** page for your Log Analytics workspace in the Azure portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the sections in the following table. Each section lists up to 10 items matching that section's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the section or by clicking the section header.
 
-| **Blade** | **Description** |
+| **Section** | **Description** |
 | --- | --- |
 | Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Click a computer in the list to run a log search returning the total number of bytes captured. |
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
@@ -173,17 +172,17 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 ![Wire Data dashboard](./media/wire-data/wire-data-dash.png)
 
-You can use the **Agents capturing network traffic** blade to determine how much network bandwidth is being consumed by computers. This blade can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
+You can use the **Agents capturing network traffic** section to determine how much network bandwidth is being consumed by computers. This section can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
 
-![Screenshot of the Agents capturing network traffic blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
+![Screenshot of the Agents capturing network traffic section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
 
-Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
+Similarly, you can use the **Local Subnets** section to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This section offers a view into those areas.
 
-![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by a each LocalSubnet.](./media/wire-data/log-search-example02.png)
+![Screenshot of the Local Subnets section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each LocalSubnet.](./media/wire-data/log-search-example02.png)
 
-The **Application-level Protocols** blade is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the blade can quickly confirm or disprove your expectation.
+The **Application-level Protocols** section is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the section can quickly confirm or disprove your expectation.
 
-![Screenshot of the Application-level Protocols blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
+![Screenshot of the Application-level Protocols section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
 
 It's also useful to know if protocol traffic is increasing or decreasing over time. For example, if the amount of data being transmitted by an application is increasing, that might be something you should be aware of, or that you might find noteworthy.
 

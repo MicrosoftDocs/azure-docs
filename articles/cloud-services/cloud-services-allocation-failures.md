@@ -3,17 +3,16 @@ title: Troubleshooting Cloud Service (classic) allocation failures | Microsoft D
 description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
 ms.topic: troubleshooting
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Troubleshooting allocation failure when you deploy Cloud Services (classic) in Azure
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 
 ## Summary

@@ -3,10 +3,10 @@
 title: Tutorial develop Node.js module for Linux - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Node.js code and deploy it to an edge device
 services: iot-edge
-author: kgremban
-manager: philmea
+author: PatAltimore
 
-ms.author: kgremban
+
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-js
 
 # Tutorial: Develop and deploy a Node.js IoT Edge module using Linux containers
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use Visual Studio Code to develop Node.js code and deploy it to a device running Azure IoT Edge.
 
@@ -40,18 +40,19 @@ IoT Edge does not support Node.js modules using Windows containers.
 
 Use the following table to understand your options for developing and deploying Node.js modules:
 
-| Node.js | Visual Studio Code | Visual Studio 2017/2019 |
+| Node.js | Visual Studio Code | Visual Studio 2022 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use VS Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use VS Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Use Visual Studio Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use Visual Studio Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use Visual Studio Code for Node.js modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A device running Azure IoT Edge. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in Node.js, install the following additional prerequisites on your development machine:
 
@@ -59,13 +60,13 @@ To develop an IoT Edge module in Node.js, install the following additional prere
 
 ## Create a module project
 
-The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Tools.
+The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Edge extension.
 
 ### Create a new project
 
 Use **npm** to create a Node.js solution template that you can build on top of.
 
-1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
+1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the Visual Studio Code integrated terminal.
 
 2. In the integrated terminal, enter the following command to install **yeoman** and the generator for Node.js Azure IoT Edge module:
 
@@ -73,7 +74,7 @@ Use **npm** to create a Node.js solution template that you can build on top of.
     npm install -g yo generator-azure-iot-edge-module
     ```
 
-3. Select **View** > **Command Palette** to open the VS Code command palette.
+3. Select **View** > **Command Palette** to open the Visual Studio Code command palette.
 
 4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 
@@ -81,7 +82,7 @@ Use **npm** to create a Node.js solution template that you can build on top of.
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Node.js Module**. |
    | Provide a module name | Name your module **NodeModule**. |
@@ -95,7 +96,7 @@ The environment file stores the credentials for your container repository and sh
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
-1. In the VS Code explorer, open the **.env** file.
+1. In the Visual Studio Code explorer, open the **.env** file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
@@ -114,7 +115,7 @@ Currently, Visual Studio Code can develop Node.js modules for Linux AMD64 and Li
 
 Each template comes with sample code included, which takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to IoT Hub. In this section, add code to have NodeModule analyze the messages before sending them.
 
-1. In the VS Code explorer, open **modules** > **NodeModule** > **app.js**.
+1. In the Visual Studio Code explorer, open **modules** > **NodeModule** > **app.js**.
 
 2. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
@@ -169,7 +170,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
 6. Save the app.js file.
 
-7. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+7. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
 8. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
 
@@ -189,7 +190,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
 In the previous section, you created an IoT Edge solution and added code to the NodeModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
+1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
 2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
@@ -199,7 +200,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
+3. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
@@ -207,7 +208,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Deploy modules to device
 
-Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio Code explorer and the Azure IoT Edge extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 
@@ -253,7 +254,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Australian Government ISM PROTECTED blueprint sample controls
 description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
@@ -28,7 +28,7 @@ to support audit requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
 ## Location Constraints
 
@@ -373,7 +373,7 @@ assigning following Azure Policy definitions:
 
 ### 1431 Denial-of-service attack prevention and mitigation strategies are discussed with service providers, specifically: their capacity to withstand denial-of-service attacks, any costs likely to be incurred by customers resulting from denial-of-service attacks, thresholds for notifying customers or turning off their online services during denial-of-service attacks, pre-approved actions that can be undertaken during denial-of-service attacks, denial-of-service attack prevention arrangements with upstream providers to block malicious traffic as far upstream as possible
 
-- DDoS Protection Standard should be enabled
+- DDoS Protection should be enabled
 
 > [!NOTE]
 > Availability of specific Azure Policy definitions may vary in Azure Government and other national

@@ -5,8 +5,9 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 12/06/2022
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
@@ -18,9 +19,11 @@ A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Azure Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Azure Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 The discounts are tiered. Reservations with higher request units provide higher discounts.
 
@@ -117,7 +120,7 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

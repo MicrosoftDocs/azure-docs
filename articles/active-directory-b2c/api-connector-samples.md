@@ -1,12 +1,12 @@
 ---
-title:  Samples of APIs for modifying your Azure AD B2C user flows | Microsoft Docs
+title:  Samples of APIs for modifying your Azure AD B2C user flows  
 description: Code samples for modifying user flows with API connectors 
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
-ms.author: mimart
-ms.date: 07/16/2021
+ms.author: kengaderdus
+ms.date: 11/03/2022
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory

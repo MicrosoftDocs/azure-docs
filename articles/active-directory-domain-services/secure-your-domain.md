@@ -3,14 +3,14 @@ title: Secure Azure AD Domain Services | Microsoft Docs
 description: Learn how to disable weak ciphers, old protocols, and NTLM password hash synchronization for an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: amycolannino
 
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 01/29/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -25,6 +25,8 @@ This article shows you how to harden a managed domain by using setting setting s
 - Disable NTLM password hash synchronization
 - Disable the ability to change passwords with RC4 encryption
 - Enable Kerberos armoring
+- LDAP signing 
+- LDAP channel binding
 
 ## Prerequisites
 
@@ -44,12 +46,13 @@ To complete this article, you need the following resources:
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Security settings**.
 1. Click **Enable** or **Disable** for the following settings:
-   - **TLS 1.2 only mode**
-   - **NTLM authentication****
-   - **Password synchronization from on-premises**
-   - **NTLM password synchronization from on-premises**
-   - **RC4 encryption**
-   - **Kerberos armoring**
+   - **TLS 1.2 Only Mode**
+   - **NTLM v1 Authentication**
+   - **NTLM Password Synchronization**
+   - **Kerberos RC4 Encryption**
+   - **Kerberos Armoring**
+   - **LDAP Signing**
+   - **LDAP Channel Binding**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
@@ -61,6 +64,10 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 - If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not required and prevent any update to an Azure AD DS instance until TLS 1.2 is required.
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
+
+## Audit NTLM failures
+
+While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. For example, connecting to any resource by its IP address, such as DNS Server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you can check for NTLM authentication failures by enabling security auditing for the **Logon/Logoff** > **Audit Logon** event category, where NTLM is specified as the **Authentication Package** in the event details. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
 
 ## Use PowerShell to harden your domain
 

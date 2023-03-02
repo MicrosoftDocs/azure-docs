@@ -8,13 +8,12 @@ manager: RKarlin
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
-ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 12/19/2022
 ms.author: terrylan
 
 ---
@@ -66,7 +65,7 @@ The following sections list best practices for identity and access security usin
 
 In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
-**Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
+**Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative source will increase clarity and reduce security risks from human errors and configuration complexity.
 **Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.
 
 **Best practice**: Integrate your on-premises directories with Azure AD.  
@@ -138,10 +137,10 @@ Identity Secure Score is a set of recommended security controls that Microsoft p
 
 ## Enable password management
 
-If you have multiple tenants or you want to enable users to [reset their own passwords](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), it’s important that you use appropriate security policies to prevent abuse.
+If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
-**Detail**: Use the Azure AD [self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md) feature.
+**Detail**: Use the Azure AD [self-service password reset](../../active-directory/authentication/tutorial-enable-sspr.md) feature.  
 
 **Best practice**: Monitor how or if SSPR is really being used.  
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../../active-directory/authentication/howto-sspr-reporting.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
@@ -167,7 +166,7 @@ Following are options and benefits for enabling two-step verification:
 This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure AD Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure AD Multi-Factor Authentication in the cloud and Azure AD Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
 To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure AD MFA is right for my organization?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
@@ -215,7 +214,7 @@ You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
 **Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
-**Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
+**Best practices**: Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
 Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
@@ -319,14 +318,14 @@ Organizations that are not controlling how resources are created are more suscep
 
 ## Actively monitor for suspicious activities
 
-An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists two Azure AD capabilities that can help organizations monitor their identities:
+An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists Azure AD capabilities that can help organizations monitor their identities:
 
 **Best practice**: Have a method to identify:
 
-- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
-- [Brute force](../../active-directory/reports-monitoring/howto-find-activity-reports.md) attacks against a particular account.
+- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
+- [Brute force](../../active-directory/reports-monitoring/howto-access-activity-logs.md) attacks against a particular account.
 - Attempts to sign in from multiple locations.
-- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
+- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
 - Suspicious IP addresses.
 
 **Detail**: Use Azure AD Premium [anomaly reports](../../active-directory/reports-monitoring/overview-reports.md). Have processes and procedures in place for IT admins to run these reports on a daily basis or on demand (usually in an incident response scenario).
@@ -337,7 +336,7 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
 
 ## Use Azure AD for storage authentication
-[Azure Storage](../../storage/common/storage-auth-aad.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
 
 We recommend that you use [Azure AD for authenticating access to storage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

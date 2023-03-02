@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
+ms.custom: cogserv-non-critical-speech
 ---
 # Design assistant experiences for Windows 10
 

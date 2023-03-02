@@ -1,23 +1,22 @@
 ---
-title: Replicate data over ExpressRoute with Azure Migrate Server Migration
-description: Use Azure ExpressRoute for replication with Azure Migrate Server Migration.
-author: DeSeelam
-ms.author: deseelam
-ms.manager: bsiva
+title: Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
+description: Use Azure ExpressRoute for replication with the Migration and modernization tool.
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 02/22/2021
-
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
-# Replicate data over ExpressRoute with Azure Migrate: Server Migration
+# Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
 
-In this article, you'll learn how to configure the [Azure Migrate: Server Migration](./migrate-services-overview.md#azure-migrate-server-migration-tool) tool to replicate data over an Azure ExpressRoute circuit while you migrate servers to Azure.
+In this article, you'll learn how to configure the [Migration and modernization](./migrate-services-overview.md#migration-and-modernization-tool) tool to replicate data over an Azure ExpressRoute circuit while you migrate servers to Azure. This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity. To use private endpoint support, create a new Azure Migrate project with private endpoint connectivity. See [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Understand Azure ExpressRoute circuits
 
 An ExpressRoute circuit connects your on-premises infrastructure to Microsoft through a connectivity provider. You can configure ExpressRoute circuits to use private peering, Microsoft peering, or both. To learn more about the peering options with ExpressRoute, see [ExpressRoute circuits and peering](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
-The Azure Migrate: Server Migration tool helps you migrate on-premises servers and servers from other clouds to Azure Virtual Machines. The tool sets up an ongoing replication stream to replicate data from the servers to be migrated to managed disks in your Azure subscription. When you're ready to migrate the servers, the replicated data in Azure is used to migrate the servers.
+The Migration and modernization tool helps you migrate on-premises servers and servers from other clouds to Azure Virtual Machines. The tool sets up an ongoing replication stream to replicate data from the servers to be migrated to managed disks in your Azure subscription. When you're ready to migrate the servers, the replicated data in Azure is used to migrate the servers.
 
 You can configure the data replicated from your on-premises servers to be sent to your Azure subscription over the internet or an ExpressRoute connection. Data sent over the internet uses a secure encrypted connection. If you have many servers to migrate, using ExpressRoute for replication can help you migrate  more efficiently by using the provisioned bandwidth available with your ExpressRoute circuit.
 
@@ -27,11 +26,12 @@ In this article, you'll learn how to replicate data by using:
 > * An ExpressRoute circuit with private peering.
 > * An ExpressRoute circuit with Microsoft peering.
 
+> [!Important]
+> This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity.<br>
+> To use private endpoint support end-to-end, create a new Azure Migrate project with private endpoint connectivity. See [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
+
 ## Replicate data by using an ExpressRoute circuit with private peering
 
-> [!Note]
-> This article shows how to replicate over a private peering circuit for [agentless migration of VMware virtual machines to Azure](./tutorial-migrate-vmware.md). To use private endpoint support for [other replication methods](./migrate-services-overview.md#azure-migrate-server-migration-tool), see [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
- 
 In the agentless method for migrating VMware virtual machines to Azure, the Azure Migrate appliance first uploads replication data to a storage account (cache storage account) in your subscription. Azure Migrate then moves the replicated data from the cache storage account to replica-managed disks in your subscription.
 
 To use a private peering circuit for replication, you'll create and attach a private endpoint to the cache storage account. Private endpoints use one or more private IP addresses from your virtual network, which effectively brings the storage account into your Azure virtual network. The private endpoint allows the Azure Migrate appliance to connect to the cache storage account by using ExpressRoute private peering. Data can then be transferred directly on the private IP address. <br/>
@@ -152,7 +152,7 @@ To validate the private link connection, perform a DNS resolution of the cache s
 
 An illustrative example for DNS resolution of the cache storage account. 
 
-- Enter nslookup _storageaccountname_.blob.core.windows.net. Replace <storage-account-name> with the name of the cache storage account created by Azure Migrate.  
+- Enter nslookup _storageaccountname_.blob.core.windows.net. Replace \<storage-account-name\> with the name of the cache storage account created by Azure Migrate.  
 
     You'll receive a message like this:  
 

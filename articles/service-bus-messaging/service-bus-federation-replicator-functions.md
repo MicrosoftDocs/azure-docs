@@ -2,7 +2,7 @@
 title: Message replication tasks and applications - Azure Service Bus | Microsoft Docs
 description: This article provides an overview of building message replication tasks and applications with Azure Functions
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ---
 
 # Message replication tasks and applications

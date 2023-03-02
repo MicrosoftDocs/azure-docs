@@ -2,7 +2,7 @@
 title: Authorize access to Azure Event Hubs
 description: This article provides information about different options for authorizing access to Azure Event Hubs resources. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.author: spelluru
 ---
 
@@ -15,7 +15,7 @@ Azure Event Hubs offers the following options for authorizing access to secure r
 - Shared access signature
 
 > [!NOTE]
-> This article applies to both Event Hubs and [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) scenarios. 
+> This article applies to both Event Hubs and [Apache Kafka](azure-event-hubs-kafka-overview.md) scenarios. 
 
 ## Azure Active Directory
 Azure Active Directory (Azure AD) integration for Event Hubs resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Event Hubs resource.

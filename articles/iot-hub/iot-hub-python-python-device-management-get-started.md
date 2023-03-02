@@ -1,59 +1,58 @@
 ---
 title: Get started with Azure IoT Hub device management (Python) | Microsoft Docs
 description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Python to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.author: robinsh
-ms.custom: mqtt, devx-track-python, devx-track-azurecli
+ms.date: 12/29/2022
+ms.author: kgremban
+ms.custom: mqtt, devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Get started with device management (Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
+[!INCLUDE [iot-hub-include-dm-getstarted](../../includes/iot-hub-include-dm-getstarted.md)]
 
-* Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
+This article shows you how to create:
 
-* Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
+* **dmpatterns_getstarted_device.py**: a simulated device app with a direct method that reboots the device and reports the last reboot time. Direct methods are invoked from the cloud.
 
-* Create a Python console app that calls the reboot direct method in the simulated device app through your IoT hub.
+* **dmpatterns_getstarted_service.py**: a Python console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
-At the end of this tutorial, you have two Python console apps:
-
-* **dmpatterns_getstarted_device.py**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
-
-* **dmpatterns_getstarted_service.py**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
-
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+> [!NOTE]
+> For more information about the SDK tools available to build both device and back-end apps, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## Create a simulated device app
+## Create a device app with a direct method
 
 In this section, you:
 
-* Create a Python console app that responds to a direct method called by the cloud
+* Create a Python console app that responds to a direct method called by the cloud.
 
-* Simulate a device reboot
+* Simulate a device reboot.
 
-* Use the reported properties to enable device twin queries to identify devices and when they last rebooted
+* Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+In Azure Cloud Shell you used above or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
@@ -66,7 +65,6 @@ In this section, you:
 3. Add the following `import` statements at the start of the **dmpatterns_getstarted_device.py** file.
 
     ```python
-    import threading
     import time
     import datetime
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
@@ -78,59 +76,72 @@ In this section, you:
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-5. Add the following function callbacks to implement the direct method on the device.
+5. Add the following function to instantiate a client configured for direct methods on the device.
 
     ```python
-    def reboot_listener(client):
-        while True:
-            # Receive the direct method request
-            method_request = client.receive_method_request("rebootDevice")  # blocking call
+    def create_client():
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            # Act on the method by rebooting the device...
-            print( "Rebooting device" )
-            time.sleep(20)
-            print( "Device rebooted")
+        # Define the handler for method requests
+        def method_request_handler(method_request):
+            if method_request.name == "rebootDevice":
+                # Act on the method by rebooting the device
+                print("Rebooting device")
+                time.sleep(20)
+                print("Device rebooted")
 
-            # ...and patching the reported properties
-            current_time = str(datetime.datetime.now())
-            reported_props = {"rebootTime": current_time}
-            client.patch_twin_reported_properties(reported_props)
-            print( "Device twins updated with latest rebootTime")
+                # ...and patching the reported properties
+                current_time = str(datetime.datetime.now())
+                reported_props = {"rebootTime": current_time}
+                client.patch_twin_reported_properties(reported_props)
+                print( "Device twins updated with latest rebootTime")
 
-            # Send a method response indicating the method request was resolved
-            resp_status = 200
-            resp_payload = {"Response": "This is the response from the device"}
-            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+                # Create a method response indicating the method request was resolved
+                resp_status = 200
+                resp_payload = {"Response": "This is the response from the device"}
+                method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            
+            else:
+                # Create a method response indicating the method request was for an unknown method
+                resp_status = 404
+                resp_payload = {"Response": "Unknown method"}
+                method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+
+            # Send the method response
             client.send_method_response(method_response)
+
+        try:
+            # Attach the handler to the client
+            client.on_method_request_received = method_request_handler
+        except:
+            # In the event of failure, clean up
+            client.shutdown()
+
+        return client
     ```
 
-6. Start the direct method listener and wait.
+6. Start the direct method sample and wait.
 
     ```python
-    def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
-        return client
+    def main():
+        print ("Starting the IoT Hub Python sample...")
+        client = create_client()
 
-    def iothub_client_sample_run():
+        print ("Waiting for commands, press Ctrl-C to exit")
         try:
-            client = iothub_client_init()
-
-            # Start a thread listening for "rebootDevice" direct method invocations
-            reboot_listener_thread = threading.Thread(target=reboot_listener, args=(client,))
-            reboot_listener_thread.daemon = True
-            reboot_listener_thread.start()
-
+            # Wait for program exit
             while True:
                 time.sleep(1000)
-
         except KeyboardInterrupt:
-            print ( "IoTHubDeviceClient sample stopped" )
+            print("IoTHubDeviceClient sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
 
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 7. Save and close the **dmpatterns_getstarted_device.py** file.
@@ -144,9 +155,11 @@ In this section, you:
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## Trigger a remote reboot on the device using a direct method
+## Create a service app to trigger a reboot
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+In Azure Cloud Shell or any other environment with Python, create the console code.
 
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
@@ -234,15 +247,15 @@ In this section, you create a Python console app that initiates a remote reboot 
 
 ## Run the apps
 
-You're now ready to run the apps.
+You're now ready to run the device code and the service code that initiates a reboot of the device.
 
-1. At the command prompt, run the following command to begin listening for the reboot direct method.
+1. At the command prompt where you created the device, run the following command to begin listening for the reboot direct method.
 
     ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
-2. At another command prompt, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command prompt where you create the service, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
     ```cmd/sh
     python dmpatterns_getstarted_service.py

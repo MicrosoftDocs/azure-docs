@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 
@@ -21,7 +21,11 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable system groups:
 
-* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
+
+    > [!NOTE]
+    > You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
+
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
@@ -29,7 +33,7 @@ In addition to these system groups, administrators can create custom groups or [
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+In addition to creating and managing groups in the Azure portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -92,8 +96,10 @@ Once the association is added between the developer and the group, you can view 
 
 ## <a name="next-steps"> </a>Next steps
 
-* Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management],
-* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+* Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management].
+* You can control how the developer portal content appears to different users and groups you've configured. Learn more about [customizing the developer portal](api-management-howto-developer-portal-customize.md#customize-the-portals-content). 
+* Learn how to manage the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications to developers from your API Management instance.
+
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

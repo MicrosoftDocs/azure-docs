@@ -3,22 +3,19 @@ title: How to filter search results - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the 'responseFilter' query parameter.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: scottwhi
+
 ---
 
 # Filtering the answers that the search response includes  
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 When you query the web, Bing returns all the relevant content it finds for the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 

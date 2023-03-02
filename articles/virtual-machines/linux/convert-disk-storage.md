@@ -2,15 +2,17 @@
 title: Convert managed disks storage between different disk types using Azure CLI
 description: How to convert Azure managed disks between the different disks types by using the Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 02/13/2021
+ms.date: 02/09/2023
 ms.author: albecker
 ms.subservice: disks
 ---
 
-# Convert Azure managed disks storage from Standard to Premium or Premium to Standard
+# Change the disk type of an Azure managed disk - CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 
@@ -20,8 +22,12 @@ This article shows how to convert managed disks from one disk type to another by
 
 ## Before you begin
 
-* Disk conversion requires a restart of the virtual machine (VM), so schedule the migration of your disk storage during a pre-existing maintenance window.
-* For unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
+Conversion requires a restart of the virtual machine (VM), so schedule the migration of your disk during a pre-existing maintenance window.
+
+## Restrictions
+
+- You can only change disk type once per day.
+- You can only change the disk type of managed disks. If your disk is unmanaged, [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 
 ## Switch all managed disks of a VM between from one account to another
@@ -31,7 +37,7 @@ This example shows how to convert all of a VM's disks to premium storage. Howeve
  ```azurecli
 
 #resource group that contains the virtual machine
-rgName='yourResourceGroup'
+$rgName='yourResourceGroup'
 
 #Name of the virtual machine
 vmName='yourVM'
@@ -68,7 +74,7 @@ For your dev/test workload, you might want to have a mix of Standard and Premium
  ```azurecli
 
 #resource group that contains the managed disk
-rgName='yourResourceGroup'
+$rgName='yourResourceGroup'
 
 #Name of your managed disk
 diskName='yourManagedDiskName'

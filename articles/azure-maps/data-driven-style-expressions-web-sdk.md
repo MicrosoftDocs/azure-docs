@@ -1,13 +1,12 @@
 ---
 title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Web SDK to adjust styles in maps.
-author: rbrundritt
-ms.author: richbrun
+author: eriklindeman
+ms.author: eriklind
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 
@@ -21,7 +20,7 @@ This video provides an overview of data-driven styling in the Azure Maps Web SDK
 
 </br>
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure of an expression.
 
@@ -574,12 +573,12 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 The following image demonstrates how the colors are chosen for the above expression.
- 
+
 ![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png)
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 The following pseudocode defines the structure of the `step` expression.
 

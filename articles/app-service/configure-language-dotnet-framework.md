@@ -2,7 +2,7 @@
 title: Configure ASP.NET apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
@@ -12,7 +12,7 @@ ms.date: 06/02/2020
 # Configure an ASP.NET app for Azure App Service
 
 > [!NOTE]
-> For ASP.NET Core, see [Configure an ASP.NET Core app for Azure App Service](configure-language-dotnetcore.md)
+> For ASP.NET Core, see [Configure an ASP.NET Core app for Azure App Service](configure-language-dotnetcore.md). If your ASP.NET app runs in a custom Windows or Linux container, see [Configure a custom container for Azure App Service](configure-custom-container.md).
 
 ASP.NET apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
@@ -25,7 +25,7 @@ In App Service, the Windows instances already have all the supported .NET Framew
 For CLR 4 runtime versions (.NET Framework 4 and above):
 
 ```CMD
-ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\"
+ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework"
 ```
 
 Latest .NET Framework version may not be immediately available.
@@ -33,7 +33,7 @@ Latest .NET Framework version may not be immediately available.
 For CLR 2 runtime versions (.NET Framework 3.5 and below):
 
 ```CMD
-ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\"
+ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework"
 ```
 
 ## Show current .NET Framework runtime version
@@ -72,7 +72,7 @@ If you configure an app setting with the same name in App Service and in *web.co
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -102,7 +102,7 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

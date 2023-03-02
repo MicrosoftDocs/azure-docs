@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Float | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Float'
 description: Learn how to configure single sign-on between Azure Active Directory and Float.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +47,8 @@ To configure the integration of Float into Azure AD, you need to add Float from 
 1. In the **Add from the gallery** section, type **Float** in the search box.
 1. Select **Float** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Float
 
 Configure and test Azure AD SSO with Float using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Float.
@@ -82,25 +83,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern: `https://<HOSTNAME>.float.com/login`.
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL and Sign-on URL. Replace <hostname> with your Float hostname. Contact [Float Client support team](mailto:support@float.com) if you are unsure. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Reply URL and Sign-on URL. Replace \<hostname\> with your Float hostname. Contact [Float Client support team](mailto:support@float.com) if you are unsure. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Float application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. In addition to above, Float application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name | Source Attribute|
-	| ---------------| --------- |
-	| email | user.userprincipalname |
+    
+    | Name | Source Attribute|
+    | ---------------| --------- |
+    | email | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Float** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -148,8 +149,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Float for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Float tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Float for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Float tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Float for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Float you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Float you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

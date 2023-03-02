@@ -8,13 +8,16 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 03/02/2021
+ms.topic: how-to
+ms.date: 01/18/2023
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
 
 # Install and run Docker containers for LUIS
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
@@ -32,13 +35,28 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To run the LUIS container, note the following prerequisites:
 
-|Required|Purpose|
-|--|--|
-|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
-|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
-|Azure `Cognitive Services` resource and LUIS [packaged app](luis-how-to-start-new-app.md) file |In order to use the container, you must have:<br><br>* A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. <br>* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Cognitive Services_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the Overview page.<br><br>The [authoring key and endpoint key](luis-limits.md#key-limits) have different purposes. Do not use them interchangeably. |
+* [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
+    * On Windows, Docker must also be configured to support Linux containers.
+    * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
+* A <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Create a LUIS resource"  target="_blank">LUIS resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
+* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+
+### App ID `{APP_ID}`
+
+This ID is used to select the app. You can find the app ID in the [LUIS portal](https://www.luis.ai/) by clicking **Manage** at the top of the screen for your app, and then **Settings**.
+
+:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="The screen for finding your app ID." lightbox="./media/luis-container-how-to/app-identification.png":::
+
+### Authoring key `{AUTHORING_KEY}`
+
+This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. You will need your authoring key if you [export your app using the REST API](#export-published-apps-package-from-api), described later in the article. 
+
+You can get your authoring key from the [LUIS portal](https://www.luis.ai/) by clicking **Manage** at the top of the screen for your app, and then **Azure Resources**.
+
+:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="The screen for finding your authoring resource key." lightbox="./media/luis-container-how-to/authoring-resource.png":::
+
 
 ### Authoring APIs for package file
 
@@ -65,6 +83,10 @@ The below table lists minimum and recommended values for the container host. You
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
+
+The LUIS container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/language` repository and is named `luis`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/language/luis`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/language/luis/tags).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/language/luis` repository:
 
@@ -196,7 +218,7 @@ To download the versioned package, refer to the [API documentation here][downloa
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
@@ -247,8 +269,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 |Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?` `/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?` `/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 
@@ -349,7 +371,7 @@ After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -360,6 +382,8 @@ To shut down the container, in the command-line environment where the container 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

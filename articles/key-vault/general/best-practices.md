@@ -1,5 +1,5 @@
 ---
-title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
+title: Best practices for using Azure Key Vault  | Microsoft Docs
 description: Learn about best practices for Azure Key Vault, including controlling access, when to use separate key vaults, backing up, logging, and recovery options.
 services: key-vault
 author: msmbaldwin
@@ -8,48 +8,60 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 09/04/2022
 ms.author: mbaldwin
-# Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
+# Customer intent: As a developer who's using Key Vault, I want to know the best practices so I can implement them.
 ---
-# Best practices to use Key Vault
+# Best practices for using Azure Key Vault
 
-## Use separate Key Vaults
+Azure Key Vault safeguards encryption keys and secrets like certificates, connection strings, and passwords. This article helps you optimize your use of key vaults.
 
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
+## Use separate key vaults
 
-## Control Access to your vault
+Our recommendation is to use a vault per application per environment (development, pre-production, and production), per region. This helps you not share secrets across environments and regions. It will also reduce the threat in case of a breach.
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
+### Why we recommend separate key vaults
 
-Suggestions while controlling access to your vault are as follows:
-1. Lock down access to your subscription, resource group and Key Vaults (Azure RBAC)
-2. Create Access policies for every vault
-3. Use least privilege access principal to grant access
-4. Turn on Firewall and [VNET Service Endpoints](overview-vnet-service-endpoints.md)
+Key vaults define security boundaries for stored secrets. Grouping secrets into the same vault increases the *blast radius* of a security event because attacks might be able to access secrets across concerns. To mitigate access across concerns, consider what secrets a specific application *should* have access to, and then separate your key vaults based on this delineation. Separating key vaults by application is the most common boundary. Security boundaries, however, can be more granular for large applications, for example, per group of related services.
+
+## Control access to your vault
+
+Encryption keys and secrets like certificates, connection strings, and passwords are sensitive and business critical. You need to secure access to your key vaults by allowing only authorized applications and users. [Azure Key Vault security features](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization. It also describes how to secure access to your key vaults.
+
+Suggestions for controlling access to your vault are as follows:
+- Lock down access to your subscription, resource group, and key vaults (role-based access control (RBAC)).
+- Create access policies for every vault.
+- Use the principle of least privilege access to grant access.
+- Turn on firewall and [virtual network service endpoints](overview-vnet-service-endpoints.md).
+
+## Turn on data protection for your vault
+
+Turn on purge protection to guard against malicious or accidental deletion of the secrets and key vault even after soft-delete is turned on.
+
+For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
+
+## Turn on logging
+
+[Turn on logging](logging.md) for your vault. Also, [set up alerts](alert.md).
 
 ## Backup
 
-Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
+Purge protection prevents malicious and accidental deletion of vault objects for up to 90 days. In scenarios when purge protection is not a possible option, we recommend backup vault objects, which can't be recreated from other sources like encryption keys generated within the vault.
 
-### Azure PowerShell Backup Commands
+For more information about backup, see [Azure Key Vault backup and restore](backup.md)
 
-* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
+## Multitenant solutions and Key Vault
 
-### Azure CLI Backup Commands
+A multitenant solution is built on an architecture where components are used to serve multiple customers or tenants. Multitenant solutions are often used to support software as a service (SaaS) solutions. If you're building a multitenant solution that includes Key Vault, review [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
 
-* [Backup Certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
-* [Backup Key](/cli/azure/keyvault/key#az_keyvault_key_backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
+## Frequently Asked Questions:
+### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
+No. RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions which will then expose secure information to operators across application teams.
+
+## Next steps
+
+Learn more about key management best practices:
+- [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)
+- [Best practices for Azure Managed HSM](../managed-hsm/best-practices.md)
 
 
-## Turn on Logging
-
-[Turn on logging](logging.md) for your Vault. Also set up alerts.
-
-## Turn on recovery options
-
-1. Turn on [Soft Delete](soft-delete-overview.md).
-2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.

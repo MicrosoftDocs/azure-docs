@@ -1,9 +1,9 @@
 ---
 title: Access control and security for IoT Hub | Microsoft Docs
 description: Overview on how to control access to IoT Hub, includes links to depth articles on AAD integration and SAS options.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -20,6 +20,10 @@ There are three different ways for controlling access to IoT Hub:
 - **Azure Active Directory (Azure AD) integration** for service APIs. Azure provides identity-based authentication with AAD and fine-grained authorization with Azure role-based access control (Azure RBAC). Azure AD and RBAC integration is supported for IoT hub service APIs only. To learn more, see [Control access to IoT Hub using Azure Active Directory](iot-hub-dev-guide-azure-ad-rbac.md).
 - **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. To learn more, see [Control access to IoT Hub using shared access signature](iot-hub-dev-guide-sas.md). 
 - **Per-device security credentials**. Each IoT Hub contains an [identity registry](iot-hub-devguide-identity-registry.md) For each device in this identity registry, you can configure security credentials that grant DeviceConnect permissions scoped to the that device's endpoints. To learn more, see [Authenticating a device to IoT Hub](iot-hub-dev-guide-sas.md#authenticating-a-device-to-iot-hub).
+
+
+> [!Tip]
+> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. To learn more about Azure Resource locks, please visit, [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md?tabs=json)
 
 ## Next steps
 

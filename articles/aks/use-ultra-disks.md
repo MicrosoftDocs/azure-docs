@@ -1,13 +1,12 @@
 ---
 title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
-services: container-service
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 1/9/2022
 
 ---
 
-# Use Azure ultra disks on Azure Kubernetes Service (preview)
+# Use Azure ultra disks on Azure Kubernetes Service
 
 [Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
 
@@ -18,43 +17,30 @@ This feature can only be set at cluster creation or node pool creation time.
 > [!IMPORTANT]
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
-### Install aks-preview CLI extension
-
-To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
 ### Limitations
-- See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
-- The supported size range for a Ultra disks is between 100 and 1500
 
-## Create a new cluster that can use Ultra disks
+- Ultra disks can't be used with some features and functionality, such as availability sets or Azure Disk Encryption. Review [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations) before proceeding.
+- The supported size range for ultra disks is between 100 and 1500.
 
-Create an AKS cluster that is able to leverage Ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` flag to set the `EnableUltraSSD` feature.
+## Create a new cluster that can use ultra disks
+
+Create an AKS cluster that is able to leverage Azure ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` flag to set the `EnableUltraSSD` feature.
 
 Create an Azure resource group:
 
 ```azurecli-interactive
-# Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-Create the AKS cluster with support for Ultra Disks.
+Create an AKS-managed Azure AD cluster with support for ultra disks.
 
 ```azurecli-interactive
-# Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
 If you want to create clusters without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
 
-## Enable Ultra disks on an existing cluster
+## Enable ultra disks on an existing cluster
 
 You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use ultra disks by using the `--enable-ultra-ssd` flag.
 
@@ -66,7 +52,7 @@ If you want to create new node pools without support for ultra disks, you can do
 
 ## Use ultra disks dynamically with a storage class
 
-To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-dynamic-pv.md).
+To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning][azure-disk-volume].
 
 ### Create the storage class
 
@@ -79,12 +65,12 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: ultra-disk-sc
-provisioner: kubernetes.io/azure-disk
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 volumeBindingMode: WaitForFirstConsumer # optional, but recommended if you want to wait until the pod that will use this disk is created 
 parameters:
   skuname: UltraSSD_LRS
   kind: managed
-  cachingmode: None
+  cachingMode: None
   diskIopsReadWrite: "2000"  # minimum value: 2 IOPS/GiB 
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
@@ -92,9 +78,12 @@ parameters:
 Create the storage class with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-sc.yaml* file:
 
 ```console
-$ kubectl apply -f azure-ultra-disk-sc.yaml
+kubectl apply -f azure-ultra-disk-sc.yaml
+```
 
+The output from the command resembles the following example:
 
+```console
 storageclass.storage.k8s.io/ultra-disk-sc created
 ```
 
@@ -121,8 +110,12 @@ spec:
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-pvc.yaml* file:
 
 ```console
-$ kubectl apply -f azure-ultra-disk-pvc.yaml
+kubectl apply -f azure-ultra-disk-pvc.yaml
+```
 
+The output from the command resembles the following example:
+
+```console
 persistentvolumeclaim/ultra-disk created
 ```
 
@@ -160,15 +153,19 @@ spec:
 Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 
 ```console
-$ kubectl apply -f nginx-ultra.yaml
+kubectl apply -f nginx-ultra.yaml
+```
 
+The output from the command resembles the following example:
+
+```console
 pod/nginx-ultra created
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod nginx-ultra`, as shown in the following condensed example:
 
 ```console
-$ kubectl describe pod nginx-ultra
+kubectl describe pod nginx-ultra
 
 [...]
 Volumes:
@@ -190,6 +187,9 @@ Events:
 [...]
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -205,8 +205,8 @@ Events:
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[azure-disk-volume]: azure-disk-volume.md
-[azure-files-pvc]: azure-files-dynamic-pv.md
+[azure-disk-volume]: azure-disk-csi.md
+[azure-files-pvc]: azure-files-csi.md
 [premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
@@ -223,3 +223,4 @@ Events:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[use-tags]: use-tags.md

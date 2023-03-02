@@ -1,8 +1,9 @@
 ---
-title: Introduction to Azure Queue Storage - Azure Storage
+title: Introduction to Azure Queue Storage
+titleSuffix: Azure Storage
 description: See an introduction to Azure Queue Storage, a service for storing large numbers of messages. A Queue Storage service contains a URL format, storage account, queue, and message.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
@@ -28,7 +29,7 @@ Queue Storage contains the following components:
 
   `https://myaccount.queue.core.windows.net/images-to-download`
 
-- **Storage account:** All access to Azure Storage is done through a storage account. For information about storage account capacity, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+- **Storage account:** All access to Azure Storage is done through a storage account. For information about storage account capacity, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/queues/toc.json).
 
 - **Queue:** A queue contains a set of messages. The queue name **must** be all lowercase. For information on naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
@@ -36,7 +37,7 @@ Queue Storage contains the following components:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
 - [Get started with Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
 - [Get started with Queue Storage using Java](storage-java-how-to-use-queue-storage.md)
 - [Get started with Queue Storage using Python](storage-python-how-to-use-queue-storage.md)
