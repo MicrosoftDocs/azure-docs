@@ -19,6 +19,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Why is my Azure DevOps repository not refreshing to healthy?](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
 - [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
+- [Why are Delete source code and Write Code permissions required for Azure DevOps?](#why-are-delete-source-and-write-code-permissions-required-for-azure-devops)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
@@ -83,6 +84,10 @@ Data is stored within the region your connector is created in. You should consid
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 
 Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
+
+### Why are Delete Source and Write Code permissions required for Azure DevOps?
+
+Azure DevOps doesn't have the necessary granularity for its permissions. These permissions are required for some of the Defender for DevOps features, such as pull request annotations in order to work.
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
