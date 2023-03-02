@@ -41,23 +41,28 @@ items:
   - name: Map
     expanded: false
     items:
+    - name: Mapping debugger
+      expanded: false
+      items:
+        - name: Mapping debugger
+          href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
       items:
-      - name: Device mappings
+      - name: Configure the device mapping
         href: how-to-configure-device-mappings.md
-      - name: CalculatedContent mappings
+      - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
-      - name: IotJsonPathContentTemplate mappings
+      - name: Use IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
-      - name: Custom functions
+      - name: Use custom functions
         href: how-to-use-custom-functions.md
       - name: Create copies of mappings
         href: how-to-create-mappings-copies.md  
     - name: Destination
       expanded: false
       items:
-      - name: FHIR destination mappings
+      - name: Configure the FHIR destination mapping
         href: how-to-configure-fhir-mappings.md
   - name: Monitor
     expanded: false
