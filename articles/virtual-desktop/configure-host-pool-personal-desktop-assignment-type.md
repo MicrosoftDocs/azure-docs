@@ -190,24 +190,6 @@ Invoke-AzRestMethod @parameters
 >[!NOTE]
 >You can also set the friendly name by using a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
 
-## Assign the session host friendly name
-
-To assign the session host friendly name, run this command in PowerShell:
-
-```powershell
-#Set the friendly name (Change <myFriendlyName>)
-$setNameParams = @{
-  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview"
-  Payload = @{
-    properties = @{
-      friendlyName = 'myFriendlyName'
-    }
-  } | ConvertTo-Json
-  Method = 'PATCH'
-}
-Invoke-AzRestMethod @setNameParams
-```
-
 ### Get the session host friendly name
 
 To get the session host friendly name, run this command in PowerShell
