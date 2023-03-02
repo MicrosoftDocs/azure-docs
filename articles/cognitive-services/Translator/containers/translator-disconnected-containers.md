@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 02/01/2023
+ms.date: 03/02/2023
 ms.author: lajanuar
 ---
 
@@ -29,32 +29,7 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 ## Request access to use containers in disconnected environments
 
-Complete and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the Internet.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
-
-Access is limited to customers that meet the following requirements:
-
-* Your organization should be identified as strategic customer or partner with Microsoft.
-* Disconnected containers are expected to run fully offline, hence your use cases must meet at least one of these or similar requirements:
-  * Environment or device(s) with zero connectivity to internet.
-  * Remote location that occasionally has internet access.
-  * Organization under strict regulation of not sending any kind of data back to cloud.
-* Application completed as instructed. Make certain to pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
-
-## Create a new resource and purchase a commitment plan
-
-1. Create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
-
-1. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
-
-    > [!NOTE]
-    >
-    > * You will only see the option to purchase a commitment tier if you have been approved by Microsoft.
-
-    :::image type="content" source="../media/create-resource-offline-container.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
-
-1. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
+Before you can use Translator containers in disconnected environments, you must first fill out and [submit a request form](../../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 
 ## Gather required parameters
 
@@ -259,16 +234,6 @@ This usage-logs endpoint will return a JSON response similar to the following ex
 }
 ```
 
-### Purchase a different commitment plan for disconnected containers
-
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
-
-You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
-
-### End a commitment plan
-
- If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You'll have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you do so, you won't be charged for the following year.
-
 ## Troubleshooting
 
 Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that occur while starting or running the container.
@@ -276,7 +241,7 @@ Run the container with an output mount and logging enabled. These settings will 
 > [!TIP]
 > For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../containers/disconnected-container-faq.yml).
 
-That's it! You've learned how to create and run disconnected containers for Azure Translator Service.
+That's it! You've learned how to create and run disconnected containers for Azure Translator Service. For information on changing or ending a commitment plan, see the main [disconnected containers article](../../containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers).
 
 ## Next steps
 

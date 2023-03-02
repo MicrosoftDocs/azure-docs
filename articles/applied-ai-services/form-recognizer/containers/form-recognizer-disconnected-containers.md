@@ -7,7 +7,7 @@ ms.subservice: forms-recognizer
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 02/10/2023
+ms.date: 03/02/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
@@ -33,32 +33,7 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 ## Request access to use containers in disconnected environments
 
-Complete and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the Internet.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
-
-Access is limited to customers that meet the following requirements:
-
-* Your organization should be identified as strategic customer or partner with Microsoft.
-* Disconnected containers are expected to run fully offline, hence your use cases must meet one of the following or similar requirements:
-  * Environment or device(s) with zero connectivity to internet.
-  * Remote location that occasionally has internet access.
-  * Organization under strict regulation of not sending any kind of data back to cloud.
-* Application completed as instructed - Pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
-
-## Create a new resource and purchase a commitment plan
-
-1. Create a new [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal.
-
-1. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
-
-    > [!NOTE]
-    >
-    > * You will only see the option to purchase a commitment tier if you have been approved by Microsoft.
-
-    :::image type="content" source="../media/create-resource-offline-container.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
-
-1. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
+Before you can use Form Recognizer containers in disconnected environments, you must first fill out and [submit a request form](../../../cognitive-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../cognitive-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 
 ## Gather required parameters
 
@@ -249,16 +224,6 @@ This usage-logs endpoint returns a JSON response similar to the following exampl
 }
 ```
 
-### Purchase a different commitment plan for disconnected containers
-
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you're charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
-
-You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
-
-### End a commitment plan
-
-If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan expires on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You can continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you cancel at or before that time, there are no charges for the next year.
-
 ## Troubleshooting
 
 Run the container with an output mount and logging enabled. These settings enable the container generates log files that are helpful for troubleshooting issues that occur while starting or running the container.
@@ -268,4 +233,5 @@ Run the container with an output mount and logging enabled. These settings enabl
 
 ## Next steps
 
-[Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
+* [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
+* [Change or end a commitment plan](../../containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)
