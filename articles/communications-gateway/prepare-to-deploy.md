@@ -117,7 +117,7 @@ This step guides you through creating a Key Vault to store a secret for the App 
 
 The App registration you created in [3. Create an App registration to provide Azure Communications Gateway access to the Operator Connect API](#3-create-an-app-registration-to-provide-azure-communications-gateway-access-to-the-operator-connect-api) requires a dedicated Key Vault. The Key Vault is used to store the secret name and secret value (created in the next steps) for the App registration.
 
-1. Create a Key Vault. Follow the steps in [Create a Vault](/azure/key-vault/general/quick-create-portal).
+1. Create a Key Vault. Follow the steps in [Create a Vault](../key-vault/general/quick-create-portal.md).
 1. Provide your onboarding team with the ResourceID and the Vault URI of your Key Vault.
 1. Your onboarding team will use the ResourceID to request a Private-Endpoint. That request triggers two approval requests to appear in the Key Vault.
 1. Approve these requests.
@@ -160,7 +160,7 @@ This step must be performed on your tenant. It gives Azure Communications Gatewa
 
 Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* that you've been issued. You must have two Azure Regions with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
-To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-communications-services-partner).
+To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](../internet-peering/walkthrough-communications-services-partner.md).
     :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
 
 ## 6. Collect basic information for deploying an Azure Communications Gateway

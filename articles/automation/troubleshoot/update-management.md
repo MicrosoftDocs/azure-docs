@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 02/23/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
@@ -672,7 +672,7 @@ Deploying updates to Linux by classification ("Critical and security updates") h
 
 ### KB2267602 is consistently missing
 
-KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It's updated daily.
+KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/en-us/wdsi/defenderupdates). It's updated daily.
 
 ## Next steps
 

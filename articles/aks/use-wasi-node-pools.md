@@ -1,7 +1,6 @@
 ---
 title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
-services: container-service
 ms.topic: article
 ms.date: 10/19/2022
 ---
@@ -168,9 +167,16 @@ spec:
     spec:
       runtimeClassName: wasmtime-slight-v1
       containers:
-        - name: testwasm
+        - name: hello-slight
           image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:latest
           command: ["/"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service

@@ -75,18 +75,18 @@ Industry selection applies only for offers published to AppSource and Consulting
 | Industries |  Verticals |
 | :------------------- | :----------------|
 | Automotive | n/a |
-| Financial Services | Banking<br>Insurance<br>Capital Markets | 
+| Financial Services | Banking<br>Insurance<br>Capital Markets |
 | Government |  Civilian Government<br>Public Safety and Justice |
 | Defense and Intelligence | n/a |
-| Healthcare | Health Payor<br>Health Provider<br>Life Sciences | 
+| Healthcare | Health Payor<br>Health Provider<br>Life Sciences |
 | Education | Higher Education<br>Primary and Secondary Edu/K-12<br>Libraries and Museums |
 | Nonprofit and IGO | n/a |
-| Manufacturing | Process Manufacturing<br>Discrete Manufacturing<br>Agriculture |
+| Manufacturing | Process Manufacturing<br>Discrete Manufacturing|
 | Energy | n/a |
 | Retail | Retail<br>Customer Goods |
-| Media and Communications | Media and Entertainment<br>Telecommunications | 
-| Professional Services | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate | 
-| Distribution | Wholesale<br>Parcel and Package Shipping |  
+| Media and Communications | Media and Entertainment<br>Telecommunications |
+| Professional Services | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate |
+| Distribution | Wholesale<br>Parcel and Package Shipping |
 | Hospitality and Travel | Travel & Transportation<br>Hotels and Leisure<br>Restaurants and Food Services |
 
 ## Applicable products
@@ -97,3 +97,4 @@ Select the applicable products your app works with for the offer to show up unde
 
 - To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](./create-account.md).
 - For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](./publisher-guide-by-offer-type.md).
+

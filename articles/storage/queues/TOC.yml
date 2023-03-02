@@ -148,14 +148,6 @@
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         href: assign-azure-role-data-access.md
-      - name: Authenticate and authorize with Azure AD
-        items:
-          - name: Get an access token for authorization with Azure AD
-            href: ../common/identity-library-acquire-token.md?toc=/azure/storage/queues/toc.json
-          - name: Authorize from an application running in Azure
-            href: authorize-managed-identity.md
-          - name: Authorize from a native or web application
-            href: ../common/storage-auth-aad-app.md?toc=/azure/storage/queues/toc.json
       - name: Authorize with Shared Key
         items:
         - name: View and manage account keys

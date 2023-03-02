@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/12/2021
+ms.date: 12/12/2022
 ms.custom: template-tutorial, engagement-fy23
 ---
 
@@ -79,7 +79,7 @@ In this section, you'll create a virtual network for the load balancer and virtu
     | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-12. Select the **Review + create** tab select **Review + create**.
+12. Select the **Review + create** tab or select the blue **Review + create** button at the bottom of the page.
 
 13. Select **Create**.
 

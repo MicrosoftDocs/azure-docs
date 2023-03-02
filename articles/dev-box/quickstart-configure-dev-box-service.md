@@ -303,7 +303,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). 
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
  
    |Setting  |Value  |
    |---------|---------|
@@ -330,5 +330,3 @@ To learn about how to create and connect to a dev box, advance to the next quick
 
 > [!div class="nextstepaction"]
 > [Create a dev box](./quickstart-create-dev-box.md)
-
-

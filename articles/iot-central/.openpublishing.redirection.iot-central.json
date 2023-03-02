@@ -1122,7 +1122,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
-      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/tutorial-health-data-triage.md",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring/",
       "redirect_document_id": false
     },
     {

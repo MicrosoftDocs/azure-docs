@@ -67,4 +67,4 @@ See the dedicated [Troubleshooting article](troubleshoot-availability.md).
 ## Next steps
 
 - [Multi-step web tests](availability-multistep.md)
-- [URL ping web tests](monitor-web-app-availability.md)
+- [Availability](availability-overview.md)

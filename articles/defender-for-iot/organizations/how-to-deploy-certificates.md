@@ -2,7 +2,7 @@
 title: Deploy SSL/TLS certificates on OT appliances - Microsoft Defender for IoT.
 description: Learn how to deploy SSL/TLS certificates on Microsoft Defender for IoT OT network sensors and on-premises management consoles.
 ms.date: 01/05/2023
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Deploy SSL/TLS certificates on OT appliances

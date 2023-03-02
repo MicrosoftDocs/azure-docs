@@ -216,6 +216,8 @@ items:
           items:
             - name: Turn on transparent data encryption manually
               href: configure-transparent-data-encryption-manually.md
+            - name: Turn on transparent data encryption (preview)
+              href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
             - name: Overview
@@ -252,6 +254,10 @@ items:
       items:
         - name: Manage
           items:
+            - name: Active Directory
+              items:
+                - name: Deploy PostgresSQL server - CLI
+                  href: deploy-active-directory-postgresql-server-cli.md
             - name: Back up and restore
               href: backup-restore-postgresql.md
             - name: Change PostgreSQL port
