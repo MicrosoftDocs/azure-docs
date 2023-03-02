@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 03/02/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -47,6 +47,17 @@ The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) wi
 | Frequency                  | 50/60 Hz                   |
 | Voltage range selection    | Auto ranging: 115-230 V AC |
 | Hot pluggable              | Yes                        |
+
+## Battery specifications for UPS
+
+The Azure Stack Edge Pro R device has the following specifications for UPS:
+
+| Specification  | Value                                             |
+|----------------|---------------------------------------------------|
+| Battery type       | Lithium iron phosphate (LFP) |
+| Battery voltage       | 48 Vdc |
+| Battery capacity | 5.0 Ah | 
+
 
 ## Network specifications
 
