@@ -42,16 +42,16 @@ AzAcSnap 7 is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - Backup (`-c backup`) changes:
-    - Shorten suffix added to the snapshot name.  The previous 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (for example, 2022-11-17T030002-7299835Z) was too long, this is replaced with an 11 character hex-decimal equivalent based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions (for example, F2D212540D5).
+    - Shorten suffix added to the snapshot name.  The previous 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" was too long.  The suffix is now an 11 character hex-decimal based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions for example, F2D212540D5.
     - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
     - Time out when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
-    - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (also known as 'backint'). Therefore, AzAcSnap 'backint' detection logic has been reordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 will continue to disable/enable backint.  As this setting is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
+    - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (also known as 'backint'). Therefore, AzAcSnap 'backint' detection logic has been reordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 continues to disable/enable backint.  As this setting is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
   - Restore (`-c restore`) changes:
     - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
       - via the command-line with `--clonesuffix <custom suffix>`.
       - interactively when running the command without the `--force` option.
-    - When doing a `--restore snaptovol` on ANF, then Volume Clone will also inherit the new 'NetworkFeatures' setting from the Source Volume.
-    - Can now do a restore if there are no Data Volumes configured.  It will only do a restore of the Other Volumes using the Other Volumes latest snapshot (the `--snapshotfilter` option only applies to Data Volumes).
+    - When doing a `--restore snaptovol` on ANF, then Volume Clone inherits the new 'NetworkFeatures' setting from the Source Volume.
+    - Can now do a restore if there are no Data Volumes configured.  It will only restore the Other Volumes using the Other Volumes latest snapshot (the `--snapshotfilter` option only applies to Data Volumes).
     - Extra logging for `-c restore` command to help with user debugging.
   - Test (`-c test`) changes:
     - Now tests managing snapshots for all otherVolume(s) and all dataVolume(s).
@@ -68,7 +68,7 @@ AzAcSnap 7 is being released with the following fixes and improvements:
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
  
-Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we'll have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  This means the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
+Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  Therefore the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
 
 AzAcSnap 6 is being released with the following fixes and improvements:
 
@@ -135,7 +135,7 @@ AzAcSnap v5.1 Preview (Build: 20220125.85030) has been released with the followi
 AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
 
 - Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
-- Fix the installer's check for the location of the hdbuserstore.  The installer would check for the existence of an incorrect source directory for the hdbuserstore for the user running the install - this is fixed to check for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
+- Fix the installer's check for the location of the hdbuserstore.  The installer would search the filesystem for an incorrect source directory for the hdbuserstore location for the user running the install - the installer now searches for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
 ## May-2021
