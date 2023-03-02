@@ -289,6 +289,8 @@ The deployment how-to contains a section on registering models, but you can skip
 
 ### (Preview) No-code model deployment
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for TensorFlow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can use the `deploy()` static function to deploy your model.
 
 ```python
