@@ -537,9 +537,9 @@ items:
     - name: Integrate with Logic Apps
       items:
         - name: Azure Monitor Logs connector
-          href: connectors/connectors-azure-monitor-logs.md
+          href: ../connectors/connectors-azure-monitor-logs.md
         - name: Application Insights connector
-          href: connectors/connectors-azure-application-insights.md
+          href: ../connectors/connectors-azure-application-insights.md
     - name: Data export
       items:
           - name: Workspace data export
