@@ -9,7 +9,7 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Monitoring AKS-hybrid cluster
+# Monitor AKS-hybrid cluster
 
 Each AKS-Hybrid cluster consists of multiple layers:
 
@@ -48,7 +48,7 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Monitoring AKS-hybrid – VM layer
+## Monitor AKS-hybrid – VM layer
 
 This how-to guide provides steps and utility scripts to [Arc connect](/azure/azure-arc/servers/overview)
 the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
@@ -120,7 +120,7 @@ For convenience, you can modify the template file, `arc-connect.env`, to set the
  ./arc-connect.env
 ```
 
-### Adding a data collection rule (DCR)
+### Add a data collection rule (DCR)
 
 Associate the Arc-enabled servers with a DCR to enable the collection of log data into a Log Analytics workspace.
 You can create the DCR via the Azure portal or CLI.
@@ -181,7 +181,7 @@ For convenience, the provided **`assign.sh`** script assigns the built-in policy
 ./assign.sh
 ```
 
-#### Connecting Arc-enabled servers and installing Azure monitoring agent
+#### Connect Arc-enabled servers and install Azure monitoring agent
 
 Use the included **`install.sh`** script to Arc-enroll all server VMs that represent the nodes of the AKS-Hybrid cluster.
 This script creates a Kubernetes daemonSet on the AKS-Hybrid cluster.
@@ -219,7 +219,7 @@ At that point, the Arc-enabled servers appear as resources within the selected r
 > Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
 After you configure a policy, there may be some delay to observe the logs in Azure Log Analytics Workspace
 
-### Monitoring AKS-hybrid – K8s layer
+### Monitor AKS-hybrid – K8s layer
 
 #### Prerequisites-Kubernetes
 
@@ -254,7 +254,7 @@ See the instructions for [assigning required roles](/azure/role-based-access-con
 - [Log Analytics Contributor](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: necessary permissions to enable container monitoring on a CNF (provisioned) cluster.
 - [Log Analytics Reader](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: non-members of the Log Analytics Contributor role, receive permissions to view data in the Log Analytics workspace once you enable container monitoring.
 
-#### Installing the cluster extension
+#### Install the cluster extension
 
 Sign-in into the [Azure Cloud Shell](/azure/cloud-shell/overview) to access the cluster:
 
@@ -280,7 +280,7 @@ az k8s-extension create --name azuremonitor-containers \
   amalogsagent.useAADAuth=true
 ```
 
-#### Using the default Log analytics workspace
+#### Use the default Log analytics workspace
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers \
@@ -293,7 +293,7 @@ az k8s-extension create --name azuremonitor-containers \
   --configuration-settings amalogsagent.useAADAuth=true
 ```
 
-#### Cluster extension validation
+#### Validate Cluster extension
 
 Validate the successful deployment of monitoring agents’ enablement on AKS-Hybrid clusters using the following command:
 
