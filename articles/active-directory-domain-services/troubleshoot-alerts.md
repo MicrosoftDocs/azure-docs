@@ -253,7 +253,7 @@ Review the [Azure AD DS Health](check-health.md) alert and see which Azure AD ex
 Then follow these steps to retry onboarding the custom attribute in the **Custom Attributes** page:
 
 1. Select the attributes that were unsuccessful, then click **Remove** and **Save**.
-1. Wait for the health alert to be removed, or verify that the corresponding attributes have been removed from the "AADDSCustomAttributes" OU from a domain-joined VM.
+1. Wait for the health alert to be removed, or verify that the corresponding attributes have been removed from the **AADDSCustomAttributes** OU from a domain-joined VM.
 1. Select **Add** and choose the desired attributes again, then click **Save**.
 
 Upon successful onboarding, Azure AD DS will back fill synchronized users and groups with the onboarded custom attribute values. The custom attribute values appear gradually, depending on the size of the tenant. To check the backfill status, go to [Azure AD DS Health](check-health.md) and verify the **Synchronization with Azure AD** monitor timestamp has updated within the last hour.
