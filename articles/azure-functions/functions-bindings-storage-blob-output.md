@@ -309,11 +309,11 @@ Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
 
 <!--Same example for input and output. -->
 
-The following example shows blob input and output bindings and [Python code](functions-reference-python.md) that uses these bindings.
+The following example shows blob input and output bindings. The example depends on whether you use the v1 or v2 [Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 
-The code makes a copy of a blob.
+The code creates a copy of a blob.
 
 ```python
 import logging
@@ -456,7 +456,7 @@ For Python v2 functions defined using decorators, the following properties on th
 |-------------|-----------------------------|
 |`arg_name` | The name of the variable that represents the blob in function code. |
 |`path`  | The path to the blob  For the `blob_input` decorator, it's the blob read. For the `blob_output` decorator, it's the output or copy of the input blob. |
-|`connection` | Points to the storage account connection string. |
+|`connection` | The storage account connection string. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
