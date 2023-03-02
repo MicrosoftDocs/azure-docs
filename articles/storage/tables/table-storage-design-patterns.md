@@ -648,14 +648,14 @@ Notice how this example expects the entity it retrieves to be of type **Employee
 You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos DB Table Standard Library.
 
 ```azurecli
-dotnet add package Microsoft.Azure.Cosmos.Table
+dotnet add package Azure.Data.Tables
 ```
 
 To make the below examples work, you'll need to include namespaces:
 
 ```csharp
 using System.Linq;
-using Azure.Data.Table
+using Azure.Data.Tables
 ```
 
 The employeeTable is a CloudTable object that implements a CreateQuery\<ITableEntity>() method, which returns a TableQuery\<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
