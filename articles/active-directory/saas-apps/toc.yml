@@ -1183,6 +1183,8 @@
         href: ihasco-training-tutorial.md
       - name: Illusive Networks
         href: illusive-networks-tutorial.md
+      - name: Illumio SSO
+        href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
       - name: Image Relay
