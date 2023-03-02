@@ -229,6 +229,10 @@ View and change details of your project.  In this tab you can:
 * Edit instructions you give to your labels
 * Edit details of ML assisted labeling, including enable/disable
 
+### Vision Studio tab
+
+If your project was created from [Cognitive Services Vision Studio](../cognitive-services/computer-vision/how-to/model-customization), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+
 ### Access for labelers
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]

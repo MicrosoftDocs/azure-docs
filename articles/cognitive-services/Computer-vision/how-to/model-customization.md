@@ -80,7 +80,9 @@ Once you've added all the class labels, save them, select **start** on the proje
 
 ### AML: Manually label training data
 
-Choose **Start labeling** and follow the prompts to label all of your images. When you're finished, return to the Vision Studio tab in your browser. 
+Choose **Start labeling** and follow the prompts to label all of your images. When you're finished, return to the Vision Studio tab in your browser.
+
+Now select **Add COCO file**, then select **Import COCO file from an Azure ML Data Labeling project**.  This will import the labeled data from Azure Machine Learning.
 
 The COCO file you just created is now stored in the Azure Storage container that you linked to this project. You can now import it into the model customization workflow. Select it from the drop-down list. Once the COCO file is imported into the dataset, the dataset can be used for training a model.
 
