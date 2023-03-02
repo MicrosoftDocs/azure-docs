@@ -27,8 +27,6 @@ In this quickstart, you will use Azure App Configuration in an app running in Az
 
 ## Connect Azure App Configuration to the container app
 
-The first step of this guide is to connect your container app to your configuration store. To do this, add the connection string of your App Configuration store to the secret of your Container App, and add an environment variable to your container to reference the secret. Use [Service Connector](../service-connector/overview.md) to do this in a few steps without managing the connection information yourself.
-
 In the Azure portal, navigate to your Container App instance. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection with your App Configuration store using the settings below.
 
 - In the **Basics** tab:
@@ -39,10 +37,10 @@ In the Azure portal, navigate to your Container App instance. Follow the [Servic
 
 - In the **Authentication** tab:
   - pick **Connection string** authentication type and **Read-Only** for "**Permissions for the connection string**
-  - expand the **Advanced** menu, edit the environment variable name "AZURE_APPCONFIGURATION_CONNECTIONSTRING" by changing it to "ConnectionStrings__AppConfig" and select **Done**
+  - expand the **Advanced** menu. In the Configuration information, there should be an environment variable already created called "AZURE_APPCONFIGURATION_CONNECTIONSTRING". Edit the environment variable by selecting the icon on the right and change the name to *ConnectionStrings__AppConfig*. We need to make this change as *ConnectionStrings__AppConfig* is the name of the environment variable the application built in the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md) will look for. This is the environment variable which contains the connection string for App Configuration. If you have used another application to follow this quickstart, please use the corresponding environment variable name. Then select **Done**.
 - Use default values for everything else.
 
-Once done, an environment variable named **ConnectionStrings__AppConfig** will be added to the container of your Container App. Its value is a reference of the Container App secret, the connection string of your App Configuration store. The _ConnectionStrings__AppConfig_ is the environment variable your app built from the quickstart will look for.
+Once done, an environment variable named **ConnectionStrings__AppConfig** will be added to the container of your Container App. Its value is a reference of the Container App secret, the connection string of your App Configuration store.
 
 ## Build a container
 
