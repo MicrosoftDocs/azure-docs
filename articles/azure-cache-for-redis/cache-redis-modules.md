@@ -35,7 +35,9 @@ Some popular modules are available for use in the Enterprise tier of Azure Cache
 
 
 ## Using modules with active geo-replication
-Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](cache-how-to-active-geo-replication.md). This allows search and JSON structures to be used on groups of caches that are synchronized in an active-active configuration. 
+Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](cache-how-to-active-geo-replication.md). 
+
+Using these modules, you can implement searches across groups of caches that are synchronized in an active-active configuration. Also, you can search JSON structures in your active-active configuration.
 
 ## Client library support
 
@@ -92,9 +94,9 @@ RedisBloom adds four probabilistic data structures to a Redis server: **bloom fi
 
 | **Data structure**   |  **Description**      |  **Example application**|
 | ---------------------|------------------------|-------------------------|
-| **Bloom and Cuckoo filters** | Tells you if an item is either (a) certainly not in a set or (b) potentially in a set.    |   Checking if an email has already been sent to a user|
+| **Bloom and Cuckoo filters** | Tells you if an item is either (a) definitely not in a set or (b) potentially in a set.    |   Checking if an email has already been sent to a user|
 |**Count-min sketch** | Determines the frequency of events in a stream | Counting how many times an IoT device reported a temperature under 0 degrees Celsius.  |
-|**Top-k**   | Finds the `k` most frequently seen items |  Determine the most frequent words used in War and Peace. (for example, setting k = 50 will return the 50 most common words in the book) |
+|**Top-k**   | Finds the `k` most frequently seen items |  Determine the most frequent words used in War and Peace. (for example, setting k = 50 returns the 50 most common words in the book) |
 
 **Bloom and Cuckoo** filters are similar to each other, but each has a unique set of advantages and disadvantages that are beyond the scope of
 this documentation.
