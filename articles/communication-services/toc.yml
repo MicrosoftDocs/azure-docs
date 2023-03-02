@@ -50,7 +50,9 @@ items:
       - name: Handle Email events
         href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md            
+        href: quickstarts/email/logic-app.md
+      - name: Enable User Engagement Tracking
+        href: quickstarts/email/enable-user-engagement-tracking.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
