@@ -1,13 +1,13 @@
 ---
 title: What are connectors
-description: Learn about connectors that help you access data, events, and resources in other apps, services, and systems from workflows in Azure Logic Apps.
+description: Learn how connectors help you access data, events, and resources in other apps, services, and systems from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 03/02/2023
 ms.custom: engagement-fy23
-# As a developer, I want to learn about connectors and how they help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
+# As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
 
 # What are connectors in Azure Logic Apps
@@ -39,13 +39,13 @@ When the trigger fires, the trigger usually passes along event outputs for subse
 
 ## Actions
 
-An *action* is an operation that follows the trigger and performs a specific task in your workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a [SQL Server trigger](/connectors/sql/#triggers) that checks for new customer data in an SQL database. Following the trigger, your workflow can have a [SQL Server action](/connectors/sql/#actions) that gets the customer data. Following the SQL action, your workflow can have a different action that processes the data.
+An action specifies a task to perform and always appears as a subsequent step in the workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a [SQL Server trigger](/connectors/sql/#triggers) that checks for new customer data in an SQL database. Following the trigger, your workflow can have a [SQL Server action](/connectors/sql/#actions) that gets the customer data. Following this SQL Server action, your workflow can use a different action that processes the data, for example, a [Data Operations action](../logic-apps/logic-apps-perform-data-operations.md) that creates a CSV table.
 
 ## Built-in connectors versus managed connectors
 
 In Azure Logic Apps, connectors are either *built-in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multi-tenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-* [Built-in connectors](built-in.md) are designed to run natively inside Azure Logic Apps.
+* [Built-in connectors](built-in.md) are designed to run directly and natively inside Azure Logic Apps.
 
 * [Managed connectors](managed.md) are deployed, hosted, and managed in Azure by Microsoft. Managed connectors mostly provide a proxy or a wrapper around an API that the underlying service or system uses to communicate with Azure Logic Apps.
 
