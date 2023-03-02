@@ -177,25 +177,25 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 ## Additional steps for Azure virtual machine
 
-In case you are executing the procedure on an Azure virtual machine running Linux, there are additional steps to perform:
+In case you are executing the procedure on an Azure virtual machine running Linux, there are additional steps to perform.
 
-1. You must edit the **/etc/netplan/50-cloud-init.yaml** file to include the following parameter for the interface:
+1. Edit the **/etc/netplan/50-cloud-init.yaml** file to include the following parameter for the interface
 
-   ```Terminal
+   ```cli
    renderer: NetworkManager
    ```
    
-1. After editing the file you must run the following two commands:
+1. After editing the file, run the following two commands to load the new configuration
 
-   ```Terminal
+   ```cli
    sudo netplan generate
    ```
 
-   ```Terminal
+   ```cli
    sudo netplan apply
    ```
    
-1. Stop/Start or Redeploy the virtual machine
+1. Stop/Start or Redeploy the virtual machine.
 
 ## Next steps
 
