@@ -39,9 +39,12 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**.
 
-1. In the **SSL/TLS certificate** pane, select either **Import a trusted CA certificate (recommended)** or **Use Locally generated self-signed certificate (Not recommended)** and follow the instructions in the appropriate tab:
+1. In the **SSL/TLS certificate** pane, select one of the following, and then follow the instructions in the relevant tab:
 
-    # [Import a trusted CA certificate (recommended)](#tab/import-trusted-ca-certificate)
+    - **Import a trusted CA certificate (recommended)**
+    - **Use Locally generated self-signed certificate (Not recommended)**
+
+    # [Trusted CA certificates](#tab/import-trusted-ca-certificate)
     
     1. Enter the following parameters:
     
@@ -59,7 +62,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
         :::image type="content" source="media/how-to-deploy-certificates/SSL-recommended.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/SSL-recommended.png":::
     
-    # [Use Locally generated self-signed certificate (Not recommended)](#tab/locally-generated-self-signed-certificate)
+    # [Locally generated self-signed certificates](#tab/locally-generated-self-signed-certificate)
     
     > [!NOTE]
     > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment.
