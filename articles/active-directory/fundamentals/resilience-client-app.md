@@ -16,7 +16,7 @@ ms.date: 02/02/2023
 
 Use the guidance in this article to build resilience into client applications that use the Microsoft identity platform and Azure Active Directory (Azure AD) to sign in users, and perform actions on behalf of those users.
 
-## Microsoft Authentication Library 
+## Use the Microsoft Authentication Library (MSAL)
 
 The Microsoft Authentication Library (MSAL) is part of the Microsoft identity platform. MSAL acquires, manages, caches, and refreshes tokens; it uses best practices for resilience. MSAL helps developers create secure solutions.
 
