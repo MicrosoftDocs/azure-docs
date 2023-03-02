@@ -7,7 +7,7 @@ ms.date: 11/14/2022
 
 # Throttling operations on Azure Service Bus
 
-Cloud native solutions give a notion of unlimited resources that can scale with your workload. While this notion is more true in the cloud than it is with on-premises systems, there are still limitations that exist in the cloud. These limitations may cause throttling of client application requests in both standard and premium tiers as discussed in this article. 
+Cloud native solutions give a notion of unlimited resources that can scale with your workload. While this notion is more true in the cloud than it is with on-premises systems, there are still limitations that exist in the cloud. These limitations may cause [throttling](/azure/architecture/patterns/throttling) of client application requests in both standard and premium tiers as discussed in this article. 
 
 ## Throttling in standard tier
 
@@ -85,6 +85,8 @@ As the Service Bus premium namespace already has dedicated resources, you can re
 When a request is throttled, it implies that the service is busy because it's facing more requests than the resources allow. If the same operation is tried again after a few moments, once the service has worked through its current workload, then the request can be honored.
 
 As throttling is the expected behavior of any cloud native service, retry logic is built into the Service Bus SDK itself. The default is set to auto retry with an exponential back-off to ensure that we don't have the same request being throttled each time. The default retry logic will apply to every operation.
+
+Note that message-processing code that calls other third-party services may be throttled by those other services as well. For more information on how to handle these scenarios, see the [documentation on the Throttling Pattern](/azure/architecture/patterns/throttling).
 
 ### Does throttling result in data loss?
 
