@@ -46,16 +46,7 @@ For more information, see:
 
 ## Supported devices
 
-Defender for IoT's device inventory supports the following device classes:
-
-|Class  |Device type examples  |
-|---------|---------|
-|**Endpoint devices**     |  Workstations, servers, or mobile devices        |
-|**IoT devices**     |   Smart devices, printers, surveillance devices, communication devices, or audio/video devices      |
-|**Medical devices**     |   Glucose meters, monitors      |
-|**Network devices**     |  Switches, routers, controllers, or access points        |
-|**OT devices**     | Industrial and operational devices, such as PLCs, historian devices, HMIs, scales, pneumatic devices, or packaging systems        |
-
+Defender for IoT's device inventory supports device types across a variety of industries and fields.
 
 |Devices  |For example ... |
 |---------|---------|
