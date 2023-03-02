@@ -19,7 +19,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Why is my Azure DevOps repository not refreshing to healthy?](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
 - [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
-- [Why are "Delete source code" and "Write Code" permissions required for ADO?](#why-are-delete-source-and-write-code-permissions-required-for-ado)
+- [Why are Delete source code and Write Code permissions required for Azure DevOps?](#why-are-delete-source-and-write-code-permissions-required-for-azure-devops)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
