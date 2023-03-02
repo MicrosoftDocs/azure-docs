@@ -3,15 +3,15 @@ title: 'Microsoft global network - Azure'
 description: Learn how Microsoft builds and operates one of the largest backbone networks in the world, and why it is central to delivering a great cloud experience.
 services: networking
 documentationcenter: 
-author: KumudD
-manager: 
+author: mbender-ms
+manager: kumudD
 ms.service: virtual-network
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2020
-ms.author: kumud
+ms.author: mbender
 ms.reviewer: ypitsch
 ---
 

@@ -1,21 +1,22 @@
 ---
-title: Use Azure Table Storage and Azure Cosmos DB Table API with C++
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API by using C++.
+title: Use Azure Table Storage and Azure Cosmos DB for Table with C++
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB for Table by using C++.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: cpp
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 10/07/2019
-author: sakash279
-ms.author: akshanka
+author: seesharprun
+ms.author: sidandrews
 ---
-# How to use Azure Table storage and Azure Cosmos DB Table API with C++
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+# How to use Azure Table storage and Azure Cosmos DB for Table with C++
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This guide shows you common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). This article covers the following scenarios:
+This guide shows you common scenarios by using the Azure Table storage service or Azure Cosmos DB for Table. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). This article covers the following scenarios:
 
 * Create and delete a table
 * Work with table entities
@@ -34,7 +35,7 @@ This guide shows you common scenarios by using the Azure Table storage service o
 
 [!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
-### Create an Azure Cosmos DB Table API account
+### Create an Azure Cosmos DB for Table account
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -62,7 +63,7 @@ To use the Azure storage APIs to access tables, add the following `include` stat
 #include <was/table.h>
 ```
 
-An Azure Storage client or Cosmos DB client uses a connection string to store endpoints and credentials to access data management services. When you run a client application, you must provide the storage connection string or Azure Cosmos DB connection string in the appropriate format.
+An Azure Storage client or Azure Cosmos DB client uses a connection string to store endpoints and credentials to access data management services. When you run a client application, you must provide the storage connection string or Azure Cosmos DB connection string in the appropriate format.
 
 ### Set up an Azure Storage connection string
 
@@ -504,9 +505,9 @@ For Visual Studio Community Edition, if your project gets build errors because o
 
 [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB:
+Follow these links to learn more about Azure Storage and the API for Table in Azure Cosmos DB:
 
-* [Introduction to the Table API](introduction.md)
+* [Introduction to the API for Table](introduction.md)
 * [List Azure Storage resources in C++](../../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage documentation](../../storage/index.yml)

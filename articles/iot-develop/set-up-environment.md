@@ -3,12 +3,12 @@ title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Micr
 description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/11/2020
-ms.topic: quickstart
+ms.date: 11/17/2022
+ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-
-# Setup IoT Hub and DPS one time before completing any quickstart, tutorial,or how-to
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials
@@ -19,7 +19,7 @@ Before you can complete any of the IoT Plug and Play quickstarts and tutorials, 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the resources
 

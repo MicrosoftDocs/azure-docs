@@ -176,7 +176,7 @@ Pre-scripts and post-scripts run as runbooks in your Automation account and not 
 
 Pre-tasks and post-tasks run as runbooks and don't natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
 
-* A [managed identity](../automation-security-overview.md#managed-identities-preview) or a Run As account
+* A [managed identity](../automation-security-overview.md#managed-identities) or a Run As account
 * A runbook you want to run
 
 To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management - run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
@@ -185,7 +185,7 @@ To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/pow
 
 Pre-tasks and post-tasks run in the Azure context and don't have access to non-Azure machines. To interact with the non-Azure machines, you must have the following items:
 
-* A [managed identity](../automation-security-overview.md#managed-identities-preview) or a Run As account
+* A [managed identity](../automation-security-overview.md#managed-identities) or a Run As account
 * Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * A parent runbook

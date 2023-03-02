@@ -4,11 +4,13 @@ description: Describes how to remove, replace, and maintain the backup battery m
 author: alkohli
 ms.service: storsimple
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Replace the backup battery module on your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 The primary enclosure Power and Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module).

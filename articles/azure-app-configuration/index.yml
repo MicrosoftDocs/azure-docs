@@ -4,8 +4,8 @@ summary: Learn how to use Azure App Configuration, a managed service that helps 
 metadata:
   title: Azure App Configuration documentation
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
-  author: AlexandraKemperMS
-  ms.author: alkemper
+  author: maud-lv
+  ms.author: malev
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
@@ -27,15 +27,15 @@ landingContent:
       - linkListType: video
         links:
         - text: Getting started with Azure App Configuration
-          url: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+          url: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - text: Feature management
-          url: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+          url: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - text: Making centralized configuration easy
-          url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+          url: /Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show
           url: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - text: Rolling out new features 
-          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
+          url: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
       - linkListType: whats-new
         links:
         - text: Follow our announcements
@@ -48,6 +48,18 @@ landingContent:
           url: concept-key-value.md
         - text: Point-in-time snapshot
           url: concept-point-time-snapshot.md
+        - text: Feature Management
+          url: concept-feature-management.md
+        - text: Configuration files
+          url: concept-config-file.md
+        - text: Azure App Configuration Events 
+          url: concept-app-configuration-event.md
+        - text: Soft delete
+          url: concept-soft-delete.md
+        - text: Geo-replication 
+          url: concept-geo-replication.md
+          
+        
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -137,9 +149,11 @@ landingContent:
       - linkListType: reference
         links:
         - text: .NET Core library
-          url: /dotnet/api/microsoft.featuremanagement
+          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
         - text: .NET Core filter library
-          url: /dotnet/api/microsoft.featuremanagement.featurefilters
+          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+        - text: Java Spring Library
+          url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
   - title: Configuration SDKs and samples
     linkLists:

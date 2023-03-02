@@ -1,14 +1,10 @@
 ---
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 10/24/2022
 author: mikefrobbins
 ms.author: mirobb
-manager: barbkess
+manager: mkluck
 
 ---
 > [!NOTE]
-> This article has been updated to use the Azure Az PowerShell module. The Az PowerShell module is
-> the recommended PowerShell module for interacting with Azure. To get started with the Az
-> PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). To learn how
-> to migrate to the Az PowerShell module, see
-> [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
+> We recommend that you use the Azure Az PowerShell module to interact with Azure. See [Install Azure PowerShell](/powershell/azure/install-az-ps) to get started. To learn how to migrate to the Az PowerShell module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).

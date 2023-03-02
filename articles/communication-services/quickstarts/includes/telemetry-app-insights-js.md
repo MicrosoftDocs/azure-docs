@@ -24,7 +24,7 @@ ms.author: orwatson
 
 ### Create a new Node.js app
 
-If you already have an app using an ACS library, and you are comfortable with JavaScript, feel free to skip to [Setup tracer](#setup-tracer).
+If you already have an app using an Azure Communication Services library, and you are comfortable with JavaScript, feel free to skip to [Setup tracer](#setup-tracer).
 
 To get started, you will need a JS app that uses any one of our client libraries. We will use the [@azure/communication-identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/communication/communication-identity) library to create our app. Follow the steps below to set up your sample app:
 

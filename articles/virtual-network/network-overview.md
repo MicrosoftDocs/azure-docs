@@ -7,7 +7,6 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 08/17/2021
 ms.author: allensu
-
 ---
 
 # Virtual networks and virtual machines in Azure
@@ -50,7 +49,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses
 
-You can assign these types of [IP addresses](../virtual-network/public-ip-addresses.md) to a network interface in Azure:
+You can assign these types of [IP addresses](./ip-services/public-ip-addresses.md) to a network interface in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a virtual network. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a virtual network, your on-premises network, and the Internet (with NAT). At least one private IP address must be assigned to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md).
@@ -75,9 +74,9 @@ This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
+| [Azure portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
+| [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
+| [Azure CLI](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
 | [Template](../virtual-network/template-samples.md) | For more information on deploying a public IP address using a template, see [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
@@ -105,7 +104,7 @@ This table lists the methods that you can use to create a virtual network and su
 
 ## Network security groups
 
-A [network security group (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
 
 NSGs contain two sets of rules, inbound and outbound. The priority for a rule must be unique within each set. 
 
@@ -204,9 +203,9 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure PowerShell](./nat-gateway/tutorial-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure CLI](./nat-gateway/tutorial-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure PowerShell](./nat-gateway/quickstart-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure CLI](./nat-gateway/quickstart-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
 | [Template](./nat-gateway/quickstart-create-nat-gateway-template.md) | Creates a virtual network, subnet, public IP, and NAT gateway resource. |
 
 ## Azure Bastion 
@@ -221,15 +220,14 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 | ------ | ----------- |
 | [Azure portal](../bastion/quickstart-host-portal.md) | Creates a virtual network, subnets, public IP, bastion host, and virtual machines. |
 | [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
-| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. |
+| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host. |
 | [Template](../virtual-network/template-samples.md) | For an example of a template deployment that integrates an Azure Bastion host with a sample deployment, see [Quickstart: Create a public load balancer to load balance VMs by using an ARM template](../load-balancer/quickstart-load-balancer-standard-public-template.md). |
 
 ## Next steps
 For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../virtual-machines/linux/tutorial-virtual-network.md) tutorials.
 
-There are also tutorials on how to load balance VMs and create highly available applications for [Windows](../virtual-machines/windows/tutorial-load-balancer.md) or [Linux](../virtual-machines/linux/tutorial-load-balancer.md).
+There are also quickstarts on how to load balance VMs and create highly available applications using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)
 
-- Learn how to configure [user-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 - Learn how to configure [VNet to VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md).
 - Learn more about [Virtual machine network bandwidth](../virtual-network/virtual-machine-network-throughput.md).

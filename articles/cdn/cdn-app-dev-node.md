@@ -11,7 +11,6 @@ ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: mazha
@@ -44,10 +43,10 @@ You will then be presented a series of questions to initialize your project.  Fo
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the library for Azure Active Directory authentication in Node.js (@azure/ms-rest-nodeauth) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the library for Azure Active Directory authentication in Node.js (@azure/identity) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
 
 ```console
-npm install --save @azure/ms-rest-nodeauth
+npm install --save @azure/identity
 npm install --save @azure/arm-cdn
 ```
 
@@ -65,8 +64,8 @@ After the packages are done installing, the *package.json* file should look simi
   "author": "Cam Soper",
   "license": "MIT",
   "dependencies": {
-    "@azure/arm-cdn": "^5.2.0",
-    "@azure/ms-rest-nodeauth": "^3.0.0"
+    "@azure/arm-cdn": "^7.0.1",
+    "@azure/identity": "^2.0.4"
   }
 }
 ```
@@ -79,7 +78,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 1. Add the "requires" for our NPM packages at the top with the following:
    
     ``` javascript
-    var msRestAzure = require('@azure/ms-rest-nodeauth');
+    const { DefaultAzureCredential } = require("@azure/identity");
     const { CdnManagementClient } = require('@azure/arm-cdn');
     ```
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
@@ -98,7 +97,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 3. Next, we'll instantiate the CDN management client and give it our credentials.
    
     ``` javascript
-    var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
+    var credentials = new DefaultAzureCredential();
     var cdnClient = new CdnManagementClient(credentials, subscriptionId);
     ```
 
@@ -247,7 +246,7 @@ function cdnCreate() {
 }
 
 // create profile <profile name>
-function cdnCreateProfile() {
+async function cdnCreateProfile() {
     requireParms(3);
     console.log("Creating profile...");
     var standardCreateParameters = {
@@ -257,11 +256,11 @@ function cdnCreateProfile() {
         }
     };
 
-    cdnClient.profiles.create( resourceGroupName, parms[2], standardCreateParameters, callback);
+    await cdnClient.profiles.beginCreateAndWait( resourceGroupName, parms[2], standardCreateParameters, callback);
 }
 
 // create endpoint <profile name> <endpoint name> <origin hostname>        
-function cdnCreateEndpoint() {
+async function cdnCreateEndpoint() {
     requireParms(5);
     console.log("Creating endpoint...");
     var endpointProperties = {
@@ -272,7 +271,7 @@ function cdnCreateEndpoint() {
         }]
     };
 
-    cdnClient.endpoints.create(resourceGroupName, parms[2], parms[3], endpointProperties, callback);
+    await cdnClient.endpoints.beginCreateAndWait(resourceGroupName, parms[2], parms[3], endpointProperties, callback);
 }
 ```
 
@@ -281,11 +280,11 @@ Assuming the endpoint has been created, one common task that we might want to pe
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
-function cdnPurge() {
+async function cdnPurge() {
     requireParms(4);
     console.log("Purging endpoint...");
     var purgeContentPaths = [ parms[3] ];
-    cdnClient.endpoints.purgeContent(resourceGroupName, parms[2], parms[3], purgeContentPaths, callback);
+    await cdnClient.endpoints.beginPurgeContentAndWait(resourceGroupName, parms[2], parms[3], purgeContentPaths, callback);
 }
 ```
 
@@ -293,7 +292,7 @@ function cdnPurge() {
 The last function we will include deletes endpoints and profiles.
 
 ```javascript
-function cdnDelete() {
+async function cdnDelete() {
     requireParms(2);
     switch(parms[1].toLowerCase())
     {
@@ -301,14 +300,14 @@ function cdnDelete() {
         case "profile":
             requireParms(3);
             console.log("Deleting profile...");
-            cdnClient.profiles.deleteMethod(resourceGroupName, parms[2], callback);
+            await cdnClient.profiles.beginDeleteAndWait(resourceGroupName, parms[2], callback);
             break;
 
         // delete endpoint <profile name> <endpoint name>
         case "endpoint":
             requireParms(4);
             console.log("Deleting endpoint...");
-            cdnClient.endpoints.deleteMethod(resourceGroupName, parms[2], parms[3], callback);
+            await cdnClient.endpoints.beginDeleteAndWait(resourceGroupName, parms[2], parms[3], callback);
             break;
 
         default:

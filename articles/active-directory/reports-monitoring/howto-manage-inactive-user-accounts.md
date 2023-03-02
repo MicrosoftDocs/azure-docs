@@ -2,20 +2,14 @@
 title: How to manage inactive user accounts in Azure AD | Microsoft Docs
 description: Learn about how to detect and handle user accounts in Azure AD that have become obsolete
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-editor: ''
-
-ms.assetid: ada19f69-665c-452a-8452-701029bf4252
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -56,10 +50,10 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 ### How can I access this property?
 
-The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
+The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph API](/graph/overview#whats-in-microsoft-graph).   
 
 > [!NOTE]
-> The signInActivity Graph API endpoint is not yet supported in US Government GCC High environments.
+> The signInActivity resource type is available only on the Microsoft Graph `beta` endpoint and isn't yet supported in US Government GCC High environments.
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
@@ -73,8 +67,8 @@ To access this property, you need an Azure Active Directory Premium edition.
 
 To read this property, you need to grant the following rights: 
 
-- AuditLogs.Read.All
-- Organization.Read.All  
+- AuditLog.Read.All
+- Directory.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -88,6 +82,10 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 - The last successful sign-in of a user took place before April 2020.
 - The affected user account was never used for a successful sign-in.
+
+### For how long is the last sign-in retained?
+
+The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
 
 ## Next steps
 

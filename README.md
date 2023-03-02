@@ -1,7 +1,6 @@
-
 # Microsoft Azure Documentation
 
-Welcome to the open-source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
+Welcome to the open-source [documentation](/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
 
 ## Getting Started
 
@@ -11,19 +10,13 @@ Contributing to open source is more than just providing updates, it's also about
 
 You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
 
-Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for the [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
+#### GitHub
 
-#### Download
+Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://learn.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
-Install the following tools:
+#### Tools
 
-* [Git](https://git-scm.com/download)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) extension for Visual Studio Code
-
-#### Install
-
-Follow the instructions provided in the [Install content authoring tools](https://docs.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
+To install necessary tools, follow the instructions for [Install content authoring tools](https://learn.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
 
 ## License
 

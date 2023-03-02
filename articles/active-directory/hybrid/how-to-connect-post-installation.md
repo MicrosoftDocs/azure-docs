@@ -4,16 +4,14 @@ description: Learn how to extend the default configuration and operational tasks
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
-editor: curtand
+manager: amycolannino
 
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/26/2019
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

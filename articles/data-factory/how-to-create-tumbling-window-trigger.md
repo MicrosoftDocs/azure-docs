@@ -7,9 +7,9 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
-ms.custom: synapse
+ms.custom: synapse, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/09/2022
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -99,14 +99,14 @@ The following table provides a high-level overview of the major JSON elements th
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | The type of the trigger. The type is the fixed value "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Yes |
 | **runtimeState** | The current state of the trigger run time.<br/>**Note**: This element is \<readOnly>. | String | "Started," "Stopped," "Disabled" | Yes |
-| **frequency** | A string that represents the frequency unit (minutes or hours) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2017-09-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute," "hour"  | Yes |
+| **frequency** | A string that represents the frequency unit (minutes, hours, or months) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2017-09-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "Minute," "Hour", "Month"  | Yes |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. <br/>**Note**: The minimum window interval is 5 minutes. | Integer | A positive integer. | Yes |
 | **startTime**| The first occurrence, which can be in the past. The first trigger interval is (**startTime**, **startTime** + **interval**). | DateTime | A DateTime value. | Yes |
 | **endTime**| The last occurrence, which can be in the past. | DateTime | A DateTime value. | Yes |
 | **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn’t alter the window **startTime**. For example, a **delay** value of 00:10:00 implies a delay of 10 minutes. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is 00:00:00. | No |
 | **maxConcurrency** | The number of simultaneous trigger runs that are fired for windows that are ready. For example, to back fill hourly runs for yesterday results in 24 windows. If **maxConcurrency** = 10, trigger events are fired only for the first 10 windows (00:00-01:00 - 09:00-10:00). After the first 10 triggered pipeline runs are complete, trigger runs are fired for the next 10 windows (10:00-11:00 - 19:00-20:00). Continuing with this example of **maxConcurrency** = 10, if there are 10 windows ready, there are 10 total pipeline runs. If there's only 1 window ready, there's only 1 pipeline run. | Integer | An integer between 1 and 50. | Yes |
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed."  | Integer | An integer, where the default is 0 (no retries). | No |
-| **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. | No |
+| **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. The minimum value is 30. | No |
 | **dependsOn: type** | The type of TumblingWindowTriggerReference. Required if a dependency is set. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
 | **dependsOn: size** | The size of the dependency tumbling window. | Timespan<br/>(hh:mm:ss)  | A positive timespan value where the default is the window size of the child trigger  | No |
 | **dependsOn: offset** | The offset of the dependency trigger. | Timespan<br/>(hh:mm:ss) |  A timespan value that must be negative in a self-dependency. If no value specified, the window is the same as the trigger itself. | Self-Dependency: Yes<br/>Other: No  |
@@ -208,7 +208,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 - **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). 
 
-- **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) to create a data factory and a pipeline.
+- **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](./quickstart-create-data-factory-powershell.md) to create a data factory and a pipeline.
 
 ### Sample Code
 
@@ -285,9 +285,9 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 ### Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
+- Follow the instructions in [Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md) to create a data factory and a pipeline.
 
 ### Sample Code
 
@@ -325,7 +325,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
     }
     ```
 
-2. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) command:
+2. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az-datafactory-trigger-create) command:
 
     > [!IMPORTANT]
     > For this step and all subsequent steps replace `ResourceGroupName` with your resource group name. Replace `DataFactoryName` with your data factory's name.
@@ -334,25 +334,25 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
     az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties @MyTrigger.json  
     ```
 
-3. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+3. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-4. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) command:
+4. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az-datafactory-trigger-start) command:
 
     ```azurecli
     az datafactory trigger start --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-5. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+5. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-6. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
+6. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az-datafactory-trigger-run-query-by-factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
 
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
@@ -363,6 +363,6 @@ To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipe
 
 ## Next steps
 
-* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
 * Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

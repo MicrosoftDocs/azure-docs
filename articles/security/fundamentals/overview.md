@@ -9,12 +9,11 @@ manager: rkarlin
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2021
-ms.author: TomSh
+ms.date: 10/26/2022
+ms.author: terrylan
 
 ---
 
@@ -51,11 +50,15 @@ The built-in capabilities are organized in six functional areas: Operations, App
 
 This section provides additional information regarding key features in security operations and summary information about these capabilities.
 
-### Azure Security Center
+### Microsoft Sentinel
 
-[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Microsoft Sentinel](../../sentinel/overview.md) is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-In addition, Security Center helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Security Center console.
+### Microsoft Defender for Cloud
+
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+
+In addition, Defender for Cloud helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Defender for Cloud console.
 
 ### Azure Resource Manager
 
@@ -83,15 +86,11 @@ Azure Monitor logs can be a useful tool in forensic and other security analysis,
 
 ### Azure Advisor
 
-[Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](../../advisor/advisor-performance-recommendations.md), [security](../../advisor/advisor-security-recommendations.md), and [reliability](../../advisor/advisor-high-availability-recommendations.md) of your resources while looking for opportunities to [reduce your overall Azure spend](../../advisor/advisor-cost-recommendations.md). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Azure Security Center.](../../security-center/security-center-introduction.md)
+[Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](../../advisor/advisor-performance-recommendations.md), [security](../../advisor/advisor-security-recommendations.md), and [reliability](../../advisor/advisor-high-availability-recommendations.md) of your resources while looking for opportunities to [reduce your overall Azure spend](../../advisor/advisor-cost-recommendations.md). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Microsoft Defender for Cloud.](../../security-center/security-center-introduction.md)
 
 ## Applications
 
 The section provides additional information regarding key features in application security and summary information about these capabilities.
-
-### Web Application vulnerability scanning
-
-One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](../../app-service/overview.md) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
 
 ### Penetration Testing
 
@@ -99,7 +98,7 @@ We don’t perform [penetration testing](./pen-testing.md) of your application f
 
 ### Web Application firewall
 
-The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ### Authentication and authorization in Azure App Service
 
@@ -140,7 +139,7 @@ For many organizations, data encryption at rest is a mandatory step towards data
 
 - [Client-side Encryption](../../storage/common/storage-client-side-encryption.md) also provides the feature of encryption at rest.
 
-- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+- [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
 ### Storage Analytics
 
@@ -169,11 +168,17 @@ Network access control is the act of limiting connectivity to and from specific 
 
 A [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md#security) is a basic stateful packet filtering firewall and it enables you to control access based on a 5-tuple. NSGs do not provide application layer inspection or authenticated access controls. They can be used to control traffic moving between subnets within an Azure Virtual Network and traffic between an Azure Virtual Network and the Internet.
 
+#### Azure Firewall
+
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
+
 #### Route Control and Forced Tunneling
 
 The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. For example, if you want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance, you need to be able to control and customize routing behavior. You can do this by configuring User-Defined Routes in Azure.
 
-[User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to insure the most secure route possible. [Forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet.
+[User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to ensure the most secure route possible. [Forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet.
 
 This is different from being able to accept incoming connections and then responding to them. Front-end web servers need to respond to requests from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers can respond.
 
@@ -285,24 +290,29 @@ You can enable the following diagnostic log categories for NSGs:
 
 - Rules counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
-### Security Center
+### Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md) continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 ## Compute
 The section provides additional information regarding key features in this area and summary information about these capabilities.
 
+### Azure confidential computing
+[Azure confidential computing](../../confidential-computing/TOC.yml) provides the final, missing piece, of the data protection protection puzzle. It allows you to keep your data encrypted at all times.  While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestion](../../attestation/overview.md) possible, it allows you to cryptographically verify that the VM you provision has booted securely and is configured correctly, prior to unlocking your data.
+
+The spectrum of option ranges from enabling "lift and shift" scenarios of existing applications, to a full control of security features. For Infrastructure as a Service (IaaS), you can use [confidential virtual machines powered by AMD SEV-SNP](../../confidential-computing/confidential-vm-overview.md) or confidential application enclaves for virtual machines that run [Intel Software Guard Extensions (SGX)](../../confidential-computing/application-development.md). For Platform as a Service, we have multiple [container based](../../confidential-computing/choose-confidential-containers-offerings.md) options, including integrations with [Azure Kubernetes Service (AKS)](../../confidential-computing/confidential-nodes-aks-overview.md).
+
 ### Antimalware & Antivirus
-With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Azure Security Center
+With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Microsoft Defender for Cloud
 
 ### Hardware Security Module
-Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](../../active-directory/index.yml).
 
 ### Virtual machine backup
 [Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
 
 ### Azure Site Recovery
-An important part of your organization's [business continuity/disaster recovery (BCDR)](../../best-practices-availability-paired-regions.md) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
+An important part of your organization's [business continuity/disaster recovery (BCDR)](../../availability-zones/cross-region-replication-azure.md) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
 
 ### SQL VM TDE
 Transparent data encryption (TDE) and column level encryption (CLE) are SQL server encryption features. This form of encryption requires customers to manage and store the cryptographic keys you use for encryption.
@@ -312,16 +322,16 @@ The Azure Key Vault (AKV) service is designed to improve the security and manage
 If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
 
 ### VM Disk Encryption
-[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) is a new capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
+[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) helps you encrypt your IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
 
 ### Virtual networking
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) is isolated from all other Azure Virtual Networks. This isolation helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
 ### Patch Updates
 Patch Updates provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
 
 ### Security policy management and reporting
-[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## Identity and access management
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
@@ -346,7 +356,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 | Free / Common Features     | Basic Features    |Premium P1 Features |Premium P2 Features | Azure Active Directory Join – Windows 10 only related features|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-| 	[Directory Objects](../../active-directory/fundamentals/active-directory-whatis.md),	[User/Group Management (add/update/delete)/ User-based provisioning, Device registration](../../active-directory/fundamentals/active-directory-whatis.md), 	[Single Sign-On (SSO)](../../active-directory/fundamentals/active-directory-whatis.md), 	[Self-Service Password Change for cloud users](../../active-directory/fundamentals/active-directory-whatis.md), 	[Connect (Sync engine that extends on-premises directories to Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md), 	[Security / Usage Reports](../../active-directory/fundamentals/active-directory-whatis.md)       | 	[Group-based access management / provisioning](../../active-directory/fundamentals/active-directory-whatis.md),	[Self-Service Password Reset for cloud users](../../active-directory/fundamentals/active-directory-whatis.md), 	[Company Branding (Logon Pages/Access Panel customization)](../../active-directory/fundamentals/active-directory-whatis.md),	[Application Proxy](../../active-directory/fundamentals/active-directory-whatis.md),	[SLA 99.9%](../../active-directory/fundamentals/active-directory-whatis.md) |  [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](../../active-directory/fundamentals/active-directory-whatis.md),	[Self-Service Password Reset/Change/Unlock with on-premises write-back](../../active-directory/fundamentals/active-directory-whatis.md),	[Multi-Factor Authentication (Cloud and On-premises (MFA Server))](../../active-directory/fundamentals/active-directory-whatis.md),	[MIM CAL + MIM Server](../../active-directory/fundamentals/active-directory-whatis.md), 	[Cloud App Discovery](../../active-directory/fundamentals/active-directory-whatis.md), 	[Connect Health](../../active-directory/fundamentals/active-directory-whatis.md), 	[Automatic password rollover for group accounts](../../active-directory/fundamentals/active-directory-whatis.md)| 	[Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md), 	[Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)|	[Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator BitLocker recovery](../../active-directory/fundamentals/active-directory-whatis.md),	[MDM auto-enrollment, Self-Service BitLocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join](../../active-directory/fundamentals/active-directory-whatis.md)|
+| 	[Directory Objects](../../active-directory/fundamentals/active-directory-whatis.md), [User/Group Management (add/update/delete)/ User-based provisioning, Device registration](../../active-directory/fundamentals/active-directory-whatis.md), [single sign-on (SSO)](../../active-directory/fundamentals/active-directory-whatis.md), [Self-Service Password Change for cloud users](../../active-directory/fundamentals/active-directory-whatis.md), [Connect (Sync engine that extends on-premises directories to Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md), [Security / Usage Reports](../../active-directory/fundamentals/active-directory-whatis.md) | [Group-based access management / provisioning](../../active-directory/fundamentals/active-directory-whatis.md), [Self-Service Password Reset for cloud users](../../active-directory/fundamentals/active-directory-whatis.md), [Company Branding (Logon Pages/Access Panel customization)](../../active-directory/fundamentals/active-directory-whatis.md), [Application Proxy](../../active-directory/fundamentals/active-directory-whatis.md), [SLA 99.9%](../../active-directory/fundamentals/active-directory-whatis.md) |  [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](../../active-directory/fundamentals/active-directory-whatis.md), [Self-Service Password Reset/Change/Unlock with on-premises write-back](../../active-directory/fundamentals/active-directory-whatis.md), [Multi-Factor Authentication (Cloud and On-premises (MFA Server))](../../active-directory/fundamentals/active-directory-whatis.md), [MIM CAL + MIM Server](../../active-directory/fundamentals/active-directory-whatis.md), [Cloud App Discovery](../../active-directory/fundamentals/active-directory-whatis.md), [Connect Health](../../active-directory/fundamentals/active-directory-whatis.md), [Automatic password rollover for group accounts](../../active-directory/fundamentals/active-directory-whatis.md)| [Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md), [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)| [Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator BitLocker recovery](../../active-directory/fundamentals/active-directory-whatis.md), [MDM auto-enrollment, Self-Service BitLocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join](../../active-directory/fundamentals/active-directory-whatis.md)|
 
 - [Cloud App Discovery](/cloud-app-security/set-up-cloud-discovery) is a premium feature of Azure Active Directory that enables you to identify cloud applications that are used by the employees in your organization.
 
@@ -366,4 +376,4 @@ Microsoft uses multiple security practices and technologies across its products 
 
 - Understand your [shared responsibility in the cloud](shared-responsibility.md).
 
-- Learn how [Azure Security Center](../../security-center/security-center-introduction.md) can help you prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources.
+- Learn how [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) can help you prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources.

@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 12/01/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -17,13 +17,10 @@ Host pools are a collection of one or more identical virtual machines within Azu
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation host pool as they do to the standard host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
-You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
+You can debug issues in the validation host pool with either [the diagnostics feature](./troubleshoot-set-up-overview.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
-> We recommend that you leave the validation host pool in place to test all future updates.
-
->[!IMPORTANT]
->Azure Virtual Desktop with Azure Resource Management integration currently has trouble enabling and disabling validation environments. We'll update this article when we've resolved the issue.
+> We recommend that you leave the validation host pool in place to test all future updates. Validation hostpool should only be used for testing, and not in production environments.
 
 ## Create your host pool
 
@@ -37,7 +34,7 @@ You can configure any existing pooled or personal host pool to be a validation h
 
 To use the Azure portal to configure your validation host pool:
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Azure Virtual Desktop**.
 3. In the Azure Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.
@@ -78,9 +75,9 @@ The results from the cmdlet should look similar to this output:
 
 If you haven't already done so, prepare your environment for the Azure CLI and sign in.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) command:
+To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-update) command:
 
 ```azurecli
 az desktopvirtualization hostpool update --name "MyHostPool" \
@@ -100,7 +97,7 @@ az desktopvirtualization hostpool show --name "MyHostPool" \
 
 Service updates happen monthly. If there are major issues, critical updates will be provided at a more frequent pace.
 
-If there are any service updates, make sure you have at least a couple of users sign in each day to validate the environment. We recommend you regularly visit our [TechCommunity site](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) and follow any posts with WVDUPdate to stay informed about service updates.
+If there are any service updates, make sure you have at least a couple of users sign in each day to validate the environment. We recommend you regularly visit our [TechCommunity site](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) and follow any posts with WVDUPdate or AVDUpdate to stay informed about service updates.
 
 ## Next steps
 

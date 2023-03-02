@@ -1,16 +1,18 @@
 ---
 title: Disaster recovery for integration accounts
-description: Set up your integration accounts and B2B artifacts with cross-region disaster recovery in Azure Logic Apps
+description: Set up integration accounts and B2B artifacts for cross-region disaster recovery in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/10/2017
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/23/2022
 ---
 
 # Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 B2B workloads involve money transactions like orders and invoices. 
 During a disaster event, it's critical for a business to quickly 

@@ -2,7 +2,7 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 09/28/2022
 ---
 
 # Variables in ARM templates
@@ -10,6 +10,11 @@ ms.date: 06/24/2021
 This article describes how to define and use variables in your Azure Resource Manager template (ARM template). You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you use that variable as needed throughout your template.
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the template, Resource Manager replaces it with the resolved value.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [variables](../bicep/variables.md).
+
+You are limited to 256 variables in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 ## Define variable
 

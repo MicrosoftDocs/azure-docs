@@ -3,13 +3,16 @@ title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.subservice: dsc
-ms.date: 04/15/2019
+ms.date: 01/03/2022
 ms.topic: conceptual
 ---
 
 # Get started with Azure Automation State Configuration
 
-This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview).
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
+This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
 If you want a sample environment that is already set up without following the steps described in this
 article, you can use the [Azure Automation Managed Node template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). This template sets up a complete State Configuration (DSC) environment, including an Azure VM that is managed by State Configuration (DSC).
@@ -23,8 +26,10 @@ To complete the examples in this article, the following are required:
 
 ## Create a DSC configuration
 
-You create a simple [DSC configuration](/powershell/scripting/dsc/configurations/configurations) that ensures either the
+You create a simple [DSC configuration](/powershell/dsc/configurations/configurations) that ensures either the
 presence or absence of the **Web-Server** Windows Feature (IIS), depending on how you assign nodes.
+
+Configuration names in Azure Automation must be limited to no more than 100 characters.
 
 1. Start [VSCode](https://code.visualstudio.com/docs) (or any text editor).
 1. Type the following text:
@@ -54,7 +59,7 @@ presence or absence of the **Web-Server** Windows Feature (IIS), depending on ho
     ```
 1. Save the file as **TestConfig.ps1**.
 
-This configuration calls one resource in each node block, the [WindowsFeature resource](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). This resource ensures either the presence or absence of the **Web-Server** feature.
+This configuration calls one resource in each node block, the [WindowsFeature resource](/powershell/dsc/reference/resources/windows/windowsfeatureresource). This resource ensures either the presence or absence of the **Web-Server** feature.
 
 ## Import a configuration into Azure Automation
 
@@ -90,7 +95,7 @@ Before you can apply a desired state to a node, a DSC configuration defining tha
 compiled into one or more node configurations (MOF document), and placed on the Automation DSC Pull
 Server. For a more detailed description of compiling configurations in State Configuration (DSC), see [Compile configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 For more information about compiling configurations, see
-[DSC Configurations](/powershell/scripting/dsc/configurations/configurations).
+[DSC Configurations](/powershell/dsc/configurations/configurations).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, click **All resources** and then the name of your Automation account.
@@ -163,7 +168,7 @@ other types of machines, see [Enable machines for management by Azure Automation
    ![Screenshot of the Registration blade](./media/automation-dsc-getting-started/RegisterVM.png)
 
    The node configuration you specified is applied to the VM at intervals specified by the value provided for **Configuration Mode Frequency**. The VM checks for updates to the node configuration at intervals specified by the **Refresh Frequency** value. For more information about how these values are used, see
-   [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+   [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
 
 Azure starts the process of enabling the VM. When it is complete, the VM shows up in the
 **Nodes** tab of the State configuration (DSC) page in the Automation account.
@@ -177,6 +182,22 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 1. On the left, click **All resources** and then the name of your Automation account.
 1. On the Automation account page, click **State configuration (DSC)** under **Configuration Management**.
 1. On the State configuration (DSC) page, click the **Nodes** tab.
+
+
+### DSC nodes status values
+
+The DSC node can take any of the following six values as follows:
+
+- **Failed** - This status is displayed when an error occurs while applying one or more configurations on a node.
+- **Not compliant** - This status is displayed when drift occurs on a node and it requires a close review if it is systematic.
+- **Unresponsive** - This status is displayed when a node has not been checked in for more than 24 hours.
+- **Pending** - This status is displayed when a node has a new configuration to apply and the pull server is awaiting node check in.
+- **In progress** - This status is displayed when a node applies configuration, and the pull server is awaiting status.
+- **Compliant** - This status is displayed when a node has a valid configuration, and no drift occurs presently.
+
+>[!NOTE]
+>- **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
 
 ## View reports for managed nodes
 
@@ -209,7 +230,7 @@ On the blade for an individual report, you can see the following status informat
 - The name, IP address, and configuration mode of the node.
 
 You can also click **View raw report** to see the actual data that the node sends to the server.
-For more information about using that data, see [Using a DSC report server](/powershell/scripting/dsc/pull-server/reportserver).
+For more information about using that data, see [Using a DSC report server](/powershell/dsc/pull-server/reportserver).
 
 It can take some time after a node is enabled before the first report is available. You might
 need to wait up to 30 minutes for the first report after you enable a node.
@@ -239,6 +260,6 @@ If you no longer want a node to be managed by State Configuration, you can unreg
 
 - For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 - To enable the feature for VMs in your environment, see [Enable Azure Automation State Configuration](automation-dsc-onboarding.md).
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

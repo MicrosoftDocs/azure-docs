@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 01/11/2023
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -48,6 +48,7 @@ See the video below an in-depth video tutorial on how to hot-fix your environmen
 
 ## Next steps
 
+- [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md)
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

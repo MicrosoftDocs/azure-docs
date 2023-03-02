@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -46,6 +46,8 @@ To configure the integration of BenQ IAM into Azure AD, you need to add BenQ IAM
 1. In the **Add from the gallery** section, type **BenQ IAM** in the search box.
 1. Select **BenQ IAM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for BenQ IAM
 
 Configure and test Azure AD SSO with BenQ IAM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BenQ IAM.
@@ -79,8 +81,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
-    `https://service-portal.benq.com/login`
+    In the **Logout URL** text box, type the URL:
+    `https://service-portal.benq.com/logout`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BenQ IAM Client support team](mailto:benqcare.us@benq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -177,4 +179,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure BenQ IAM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure BenQ IAM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

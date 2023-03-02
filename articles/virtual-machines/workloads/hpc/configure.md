@@ -1,14 +1,13 @@
 ---
 title: Configuration and Optimization of InfiniBand enabled H-series and N-series Azure Virtual Machines
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Configure and optimize VMs
@@ -23,7 +22,7 @@ On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable R
   - The CentOS-HPC version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers. 
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and GPU drivers.
 
-These VM images (VMI) are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
 - Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -37,8 +36,8 @@ It is also recommended to create [custom VM images](../../linux/tutorial-custom-
 ### VM sizes supported by the HPC VM images
 
 #### InfiniBand OFED support
-The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
-- [H-series](../../sizes-hpc.md): HB, HC, HBv2, HBv3
+The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. ConnectX-3 Pro InfiniBand cards require MOFED 4.9 LTS version. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
+- [H-series](../../sizes-hpc.md): HB, HC, HBv2, HBv3, HBv4
 - [N-series](../../sizes-gpu.md): NDv2, NDv4
 
 #### GPU driver support
@@ -48,19 +47,19 @@ The VM size support matrix for the GPU drivers in supported HPC VM images is as 
 - [N-series](../../sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 - The other 'NC' and 'ND' VM sizes in the [N-series](../../sizes-gpu.md) are supported with the Nvidia GPU drivers.
 
-Also note that all the above VM sizes support "Gen 2" VMs, though some older ones also support "Gen 1" VMs. "Gen 2" support is also indicated with a "01" at the end of the VMI URN or version.
+All of the VM sizes in the N-series support [Gen 2 VMs](../../generation-2.md), though some older ones also support Gen 1 VMs. Gen 2 support is also indicated with a "01" at the end of the image URN or version.
 
 ### CentOS-HPC VM images
 
 #### SR-IOV enabled VMs
-For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
    ```
-- Scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
-- Additionally, details on what's included in the CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+- Scripts used in the creation of the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+- Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
 
 > [!NOTE] 
 > Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -74,15 +73,9 @@ For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances)
 >- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
 >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 
-#### Non SR-IOV enabled VMs
-For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC version 6.5 or a later version, up to 7.4 in the Marketplace are suitable. As an example, for [H16-series VMs](../../h-series.md), versions 7.1 to 7.4 are recommended. These VM images come pre-loaded with the Network Direct drivers for RDMA and Intel MPI version 5.1.
-
-> [!NOTE]
-> On these CentOS-based HPC images for non-SR-IOV enabled VMs, kernel updates are disabled in the **yum** configuration file. This is because the NetworkDirect Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
-
 ### Ubuntu-HPC VM images
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",

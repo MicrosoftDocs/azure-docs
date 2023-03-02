@@ -3,7 +3,7 @@ title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
 description: Describes how to create a capacity pool so that you can create volumes within it.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,20 +11,17 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
-ms.author: b-juche
+ms.date: 02/21/2023
+ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
 
-Creating a capacity pool enables you to create volumes within it.  
+Creating a capacity pool enables you to create volumes within it. 
 
 ## Before you begin 
 
-You must have already created a NetApp account.   
-
-[Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).   
 
 ## Steps 
 
@@ -32,7 +29,7 @@ You must have already created a NetApp account.
     
     ![Navigate to capacity pool](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
-2. Click **+ Add pools** to create a new capacity pool.   
+2. Select **+ Add pools** to create a new capacity pool.   
     The New Capacity Pool window appears.
 
 3. Provide the following information for the new capacity pool:  
@@ -46,7 +43,10 @@ You must have already created a NetApp account.
 
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
-     The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
+     The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
+
+    >[!NOTE]
+    >[!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
@@ -56,9 +56,9 @@ You must have already created a NetApp account.
      > [!IMPORTANT] 
      > Setting **QoS type** to **Manual** is permanent. You cannot convert a manual QoS capacity pool to use auto QoS. However, you can convert an auto QoS capacity pool to use manual QoS. See [Change a capacity pool to use manual QoS](manage-manual-qos-capacity-pool.md#change-to-qos).   
 
-    ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot of new capacity pool options.":::
 
-4. Click **Create**.
+4. Select **Create**.
 
 ## Next steps 
 

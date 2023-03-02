@@ -8,8 +8,8 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 09/09/2021
+ms.custom: synapse, ignite-2022
+ms.date: 11/01/2022
 ---
 
 # Alter row transformation in mapping data flow
@@ -22,9 +22,12 @@ Use the Alter Row transformation to set insert, delete, update, and upsert polic
 
 :::image type="content" source="media/data-flow/alter-row1.png" alt-text="Alter row settings":::
 
-Alter Row transformations will only operate on database, REST, or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
+Alter Row transformations only operate on database, REST, or Azure Cosmos DB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
+
+> [!NOTE]
+> An Alter Row transformation is not needed for Change Data Capture data flows that use native CDC sources like SQL Server or SAP. In those instances, ADF will automatically detect the row marker so Alter Row policies are unnecessary.
 
 ## Specify a default row policy
 
@@ -45,7 +48,7 @@ Each alter row policy is represented by an icon that indicates whether an insert
 
 ## Allow alter row policies in sink
 
-For the alter row policies to work, the data stream must write to a database or Cosmos sink. In the **Settings** tab in your sink, enable which alter row policies are allowed for that sink.
+For the alter row policies to work, the data stream must write to a database or Azure Cosmos DB sink. In the **Settings** tab in your sink, enable which alter row policies are allowed for that sink.
 
 :::image type="content" source="media/data-flow/alter-row2.png" alt-text="Alter row sink":::
 
@@ -54,7 +57,7 @@ The default behavior is to only allow inserts. To allow updates, upserts, or del
 > [!NOTE]
 > If your inserts, updates, or upserts modify the schema of the target table in the sink, the data flow will fail. To modify the target schema in your database, choose **Recreate table** as the table action. This will drop and recreate your table with the new schema definition.
 
-The sink transformation requires either a single key or a series of keys for unique row identification in your target database. For SQL sinks, set the keys in the sink settings tab. For CosmosDB, set the partition key in the settings and also set the CosmosDB system field "id" in your sink mapping. For CosmosDB, it is mandatory to include the system column "id" for updates, upserts, and deletes.
+The sink transformation requires either a single key or a series of keys for unique row identification in your target database. For SQL sinks, set the keys in the sink settings tab. For Azure Cosmos DB, set the partition key in the settings and also set the Azure Cosmos DB system field "id" in your sink mapping. For Azure Cosmos DB, it is mandatory to include the system column "id" for updates, upserts, and deletes.
 
 ## Merges and upserts with Azure SQL Database and Azure Synapse
 

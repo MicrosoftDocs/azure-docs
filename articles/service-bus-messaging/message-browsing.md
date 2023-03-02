@@ -2,7 +2,7 @@
 title: Azure Service Bus - message browsing
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 05/31/2022
 ---
 
 # Message browsing
@@ -15,7 +15,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 | Active messages | Yes |
 | Dead-lettered messages | No | 
 | Locked messages | Yes |
-| Expired messages |  May be (before they are dead-lettered) |
+| Expired messages |  May be (before they're dead-lettered) |
 | Scheduled messages | Yes for queues. No for subscriptions |
 
 ## Dead-lettered messages

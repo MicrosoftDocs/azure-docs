@@ -7,14 +7,18 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 06/12/2018 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/12/2018
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 
 ---
 
 # DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
+
+> [!IMPORTANT]
+> The desired state configuration VM extension for Linux will be [retired on **September 30, 2023**](https://aka.ms/dscext4linuxretirement). If you're currently using the desired state configuration VM extension for Linux, you should start planning your migration to the machine configuration feature of Azure Automanage by using the information in this article.
 
 > [!NOTE]
 > The DSC extension for Linux and the [Log Analytics virtual machine extension for Linux](./oms-linux.md) currently present a conflict
@@ -32,7 +36,7 @@ The DSCForLinux extension is published and supported by Microsoft. The extension
 
 ### Operating system
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/dsc/getting-started/lnxgettingstarted).
 
 ### Internet connectivity
 
@@ -281,7 +285,7 @@ $publicConfig = '{
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration, such as onboarding to Azure Automation.
 
-The sample Resource Manager template is [dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-azure-storage-on-ubuntu) and [dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-public-storage-on-ubuntu).
+The sample Resource Manager template is [dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-azure-storage-on-ubuntu) and [dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-azure-storage-on-ubuntu).
 
 For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 

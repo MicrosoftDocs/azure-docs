@@ -1,39 +1,38 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.1  
+title: Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
-services: synapse-analytics
-author: midesa 
-ms.service: synapse-analytics 
+author: eskot
+ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
-ms.date: 09/22/2021 
-ms.author: midesa 
+ms.date: 11/28/2022
+ms.author: eskot
 ms.custom: has-adal-ref
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.1 
+# Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1. 
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
 
-## Known Issues in Preview
-* Synapse Pipeline/Dataflows support is coming soon.
-* The following connector support are coming soon:
-  * Azure Data Explorer connector
-  * CosmosDB
-  * SQL Server
-* Hyperspace, Spark Cruise, and Dynamic Allocation Executors are coming soon.
+> [!IMPORTANT]
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023.
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.1 will be retired as of January 26, 2024. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+> * We recommend that you upgrade your Apache Spark 3.1 workloads to version 3.2 or 3.3 at your earliest convenience. 
 
 ## Component versions
+
 |  Component   | Version   |  
 | ----- | ----- |
-| Apache Spark | 3.1 |
+| Apache Spark | 3.1.2 |
 | Operating System | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
-| Scala | 2.12  |
+| Scala | 2.12.10  |
+| Hadoop | 3.1.1  |
 | .NET Core | 3.1 |
 | .NET | 2.0.0 |
 | Delta Lake | 1.0 |
 | Python | 3.8 |
+| R (Preview) | 4.2 |
 
 ## Scala and Java libraries
 
@@ -51,9 +50,13 @@ SparkCustomEvents_3.1.2-1.0.0.jar
 
 TokenLibrary-assembly-1.0.jar
 
+VegasConnector-1.0.25.1_2.12.jar
+
 accessors-smart-1.2.jar
 
 activation-1.1.1.jar
+
+adal4j-1.6.3.jar
 
 aircompressor-0.10.jar
 
@@ -89,15 +92,17 @@ avro-mapred-1.8.2-hadoop2.jar
 
 aws-java-sdk-bundle-1.11.375.jar
 
-azure-eventhubs-3.2.2.jar
+azure-eventhubs-3.3.0.jar
 
-azure-eventhubs-spark_2.12-2.3.18.jar
+azure-eventhubs-spark_2.12-2.3.21.jar
 
 azure-keyvault-core-1.0.0.jar
 
 azure-storage-7.0.1.jar
 
-azure-synapse-ml-pandas_2.12-0.1.1.jar
+azure-synapse-ml-pandas_2.12-1.0.0.jar
+
+azure-synapse-ml-predict_2.12-1.0.jar
 
 bcpkix-jdk15on-1.60.jar
 
@@ -157,6 +162,8 @@ commons-net-3.1.jar
 
 commons-pool-1.5.4.jar
 
+commons-pool2-2.6.2.jar
+
 commons-text-1.6.jar
 
 compress-lzf-1.0.3.jar
@@ -165,7 +172,9 @@ config-1.3.4.jar
 
 core-1.1.2.jar
 
-cosmos-analytics-spark-connector_3-1_2-12-assembly-3.0.3.jar
+cosmos-analytics-spark-connector_3-1_2-12-assembly-3.0.4.jar
+
+cudf-21.10.0-cuda11.jar
 
 curator-client-2.12.0.jar
 
@@ -179,7 +188,7 @@ datanucleus-core-4.1.6.jar
 
 datanucleus-rdbms-4.1.19.jar
 
-delta-core_2.12-1.0.0.0.jar
+delta-core_2.12-1.0.0.2b.jar
 
 derby-10.12.1.1.jar
 
@@ -207,39 +216,39 @@ guice-4.0.jar
 
 guice-servlet-4.0.jar
 
-hadoop-annotations-3.1.3.5.0-43944377.jar
+hadoop-annotations-3.1.1.5.0-50849917.jar
 
-hadoop-auth-3.1.3.5.0-43944377.jar
+hadoop-auth-3.1.1.5.0-50849917.jar
 
-hadoop-aws-3.1.3.5.0-43944377.jar
+hadoop-aws-3.1.1.5.0-50849917.jar
 
-hadoop-azure-3.1.3.5.0-43944377.jar
+hadoop-azure-3.1.1.5.0-50849917.jar
 
-hadoop-client-3.1.3.5.0-43944377.jar
+hadoop-client-3.1.1.5.0-50849917.jar
 
-hadoop-common-3.1.3.5.0-43944377.jar
+hadoop-common-3.1.1.5.0-50849917.jar
 
-hadoop-hdfs-client-3.1.3.5.0-43944377.jar
+hadoop-hdfs-client-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-common-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-common-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-core-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-core-3.1.1.5.0-50849917.jar
 
-hadoop-mapreduce-client-jobclient-3.1.3.5.0-43944377.jar
+hadoop-mapreduce-client-jobclient-3.1.1.5.0-50849917.jar
 
-hadoop-openstack-3.1.3.5.0-43944377.jar
+hadoop-openstack-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-api-3.1.3.5.0-43944377.jar
+hadoop-yarn-api-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-client-3.1.3.5.0-43944377.jar
+hadoop-yarn-client-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-common-3.1.3.5.0-43944377.jar
+hadoop-yarn-common-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-registry-3.1.3.5.0-43944377.jar
+hadoop-yarn-registry-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-server-common-3.1.3.5.0-43944377.jar
+hadoop-yarn-server-common-3.1.1.5.0-50849917.jar
 
-hadoop-yarn-server-web-proxy-3.1.3.5.0-43944377.jar
+hadoop-yarn-server-web-proxy-3.1.1.5.0-50849917.jar
 
 hdinsight-spark-metrics_3_1_2-1.0.0.jar
 
@@ -337,6 +346,8 @@ janino-3.0.16.jar
 
 javassist-3.25.0-GA.jar
 
+javatuples-1.2.jar
+
 javax.inject-1.jar
 
 javax.jdo-3.2.0-m3.jar
@@ -409,6 +420,8 @@ jta-1.1.jar
 
 jul-to-slf4j-1.7.30.jar
 
+kafka-clients-2.4.1.5.0-50849917.jar
+
 kerb-admin-1.0.1.jar
 
 kerb-client-1.0.1.jar
@@ -451,6 +464,8 @@ libfb303-0.9.3.jar
 
 libthrift-0.12.0.jar
 
+libvegasjni.so
+
 lightgbmlib-3.2.110.jar
 
 listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
@@ -483,19 +498,19 @@ microsoft-spark.jar
 
 minlog-1.3.0.jar
 
-mmlspark-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-cognitive-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-cognitive-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-core-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-core-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-deep-learning-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-deep-learning-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-lightgbm-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-lightgbm-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-opencv-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-opencv-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
-mmlspark-vw-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-vw-1.0.0-rc3-179-327be83c-SNAPSHOT.jar
 
 mssql-jdbc-8.4.1.jre8.jar
 
@@ -505,13 +520,15 @@ netty-all-4.1.51.Final.jar
 
 nimbus-jose-jwt-4.41.1.jar
 
-notebook-utils-3.0.0-20210820.5.jar
+notebook-utils-3.0.0-20211110.6.jar
 
 objenesis-2.6.jar
 
 okhttp-2.7.5.jar
 
 okio-1.14.0.jar
+
+onnxruntime_gpu-1.8.1.jar
 
 opencsv-2.3.jar
 
@@ -547,13 +564,15 @@ postgresql-42.2.9.jar
 
 protobuf-java-2.5.0.jar
 
-proton-j-0.33.4.jar
+proton-j-0.33.8.jar
 
 py4j-0.10.9.jar
 
 pyrolite-4.30.jar
 
-qpid-proton-j-extensions-1.2.3.jar
+qpid-proton-j-extensions-1.2.4.jar
+
+rapids-4-spark_2.12-21.10.0.jar
 
 re2j-1.1.jar
 
@@ -587,57 +606,69 @@ spark-3.1-rpc-history-server-app-listener_2.12-1.0.0.jar
 
 spark-3.1-rpc-history-server-core_2.12-1.0.0.jar
 
-spark-avro_2.12-3.1.2.5.0-43944377.jar
+spark-avro_2.12-3.1.2.5.0-50849917.jar
 
-spark-catalyst_2.12-3.1.2.5.0-43944377.jar
+spark-catalyst_2.12-3.1.2.5.0-50849917.jar
 
-spark-core_2.12-3.1.2.5.0-43944377.jar
+spark-cdm-connector-assembly-1.19.2.jar
 
-spark-enhancement_2.12-3.1.2.5.0-43944377.jar
+spark-core_2.12-3.1.2.5.0-50849917.jar
+
+spark-enhancement_2.12-3.1.2.5.0-50849917.jar
 
 spark-enhancementui_2.12-1.1.0.jar
 
-spark-graphx_2.12-3.1.2.5.0-43944377.jar
+spark-graphx_2.12-3.1.2.5.0-50849917.jar
 
-spark-hadoop-cloud_2.12-3.1.2.5.0-43944377.jar
+spark-hadoop-cloud_2.12-3.1.2.5.0-50849917.jar
 
-spark-hive-thriftserver_2.12-3.1.2.5.0-43944377.jar
+spark-hive-thriftserver_2.12-3.1.2.5.0-50849917.jar
 
-spark-hive_2.12-3.1.2.5.0-43944377.jar
+spark-hive_2.12-3.1.2.5.0-50849917.jar
 
 spark-kusto-synapse-connector_3.1_2.12-1.0.0.jar
 
-spark-kvstore_2.12-3.1.2.5.0-43944377.jar
+spark-kvstore_2.12-3.1.2.5.0-50849917.jar
 
-spark-launcher_2.12-3.1.2.5.0-43944377.jar
+spark-launcher_2.12-3.1.2.5.0-50849917.jar
 
-spark-microsoft-telemetry_2.12-3.1.2.5.0-43944377.jar
+spark-microsoft-telemetry_2.12-3.1.2.5.0-50849917.jar
 
-spark-microsoft-tools_2.12-3.1.2.5.0-43944377.jar
+spark-microsoft-tools_2.12-3.1.2.5.0-50849917.jar
 
-spark-mllib-local_2.12-3.1.2.5.0-43944377.jar
+spark-mllib-local_2.12-3.1.2.5.0-50849917.jar
 
-spark-mllib_2.12-3.1.2.5.0-43944377.jar
+spark-mllib_2.12-3.1.2.5.0-50849917.jar
 
-spark-network-common_2.12-3.1.2.5.0-43944377.jar
+spark-mssql-connector-1.2.0.jar
 
-spark-network-shuffle_2.12-3.1.2.5.0-43944377.jar
+spark-network-common_2.12-3.1.2.5.0-50849917.jar
 
-spark-repl_2.12-3.1.2.5.0-43944377.jar
+spark-network-shuffle_2.12-3.1.2.5.0-50849917.jar
 
-spark-sketch_2.12-3.1.2.5.0-43944377.jar
+spark-repl_2.12-3.1.2.5.0-50849917.jar
 
-spark-sql_2.12-3.1.2.5.0-43944377.jar
+spark-sketch_2.12-3.1.2.5.0-50849917.jar
 
-spark-streaming_2.12-3.1.2.5.0-43944377.jar
+spark-sql-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
 
-spark-tags_2.12-3.1.2.5.0-43944377.jar
+spark-sql_2.12-3.1.2.5.0-50849917.jar
 
-spark-unsafe_2.12-3.1.2.5.0-43944377.jar
+spark-streaming-kafka-0-10-assembly_2.12-3.1.2.5.0-50849917.jar
 
-spark-yarn_2.12-3.1.2.5.0-43944377.jar
+spark-streaming-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
 
-spark_diagnostic_cli-1.0.7_spark-3.1.2.jar
+spark-streaming_2.12-3.1.2.5.0-50849917.jar
+
+spark-tags_2.12-3.1.2.5.0-50849917.jar
+
+spark-token-provider-kafka-0-10_2.12-3.1.2.5.0-50849917.jar
+
+spark-unsafe_2.12-3.1.2.5.0-50849917.jar
+
+spark-yarn_2.12-3.1.2.5.0-50849917.jar
+
+spark_diagnostic_cli-1.0.10_spark-3.1.2.jar
 
 spire-macros_2.12-0.17.0-M1.jar
 
@@ -649,7 +680,7 @@ spire_2.12-0.17.0-M1.jar
 
 spray-json_2.12-1.3.2.jar
 
-sqlanalyticsconnector_3.1.2-1.0.0.jar
+sqlanalyticsconnector_3.1.2-1.0.1.jar
 
 stax-api-1.0.1.jar
 
@@ -661,7 +692,9 @@ structuredstreamforspark_2.12-3.0.1-2.1.3.jar
 
 super-csv-2.2.0.jar
 
-synapse-spark-telemetry_2.12-0.0.4.jar
+synapse-spark-telemetry_2.12-0.0.6.jar
+
+synfs-3.0.0-20211110.6.jar
 
 threeten-extra-1.5.0.jar
 
@@ -683,12 +716,13 @@ xbean-asm7-shaded-4.15.jar
 
 xz-1.5.jar
 
-zookeeper-3.4.8.5.0-43944377.jar
+zookeeper-3.4.6.5.0-50849917.jar
 
 zstd-jni-1.4.8-1.jar
 
+## Python libraries
 
-## Python libraries 
+_libgcc_mutex=0.1
 
 _openmp_mutex=4.5
 
@@ -718,6 +752,18 @@ async-timeout=3.0.1
 
 attrs=21.2.0
 
+aws-c-cal=0.5.11
+
+aws-c-common=0.6.2
+
+aws-c-event-stream=0.2.7
+
+aws-c-io=0.10.5
+
+aws-checksums=0.1.11
+
+aws-sdk-cpp=1.8.186
+
 azure-datalake-store=0.0.51
 
 azure-identity=2021.03.15b1
@@ -734,7 +780,7 @@ beautifulsoup4=4.9.3
 
 blas=2.109
 
-blas-devel=3.9.0
+blas-devel=3.9.0=9_mkl
 
 blinker=1.4
 
@@ -952,7 +998,7 @@ liac-arff=2.5.0
 
 libaec=1.0.5
 
-libblas=3.9.0
+libblas=3.9.0=9_mkl
 
 libbrotlicommon=1.0.9
 
@@ -960,7 +1006,7 @@ libbrotlidec=1.0.9
 
 libbrotlienc=1.0.9
 
-libcblas=3.9.0
+libcblas=3.9.0=9_mkl
 
 libclang=11.1.0
 
@@ -986,9 +1032,9 @@ libglib=2.68.3
 
 libiconv=1.16
 
-liblapack=3.9.0
+liblapack=3.9.0=9_mkl
 
-liblapacke=3.9.0
+liblapacke=3.9.0=9_mkl
 
 libllvm10=10.0.1
 
@@ -1122,7 +1168,7 @@ packaging=21.0
 
 pandas=1.2.3
 
-parquet-cpp=1.5.1
+parquet-cpp=1.5.1=1
 
 parso=0.8.2
 
@@ -1198,17 +1244,15 @@ pyqtwebengine=5.12.1
 
 pysocks=1.7.1
 
-pyspark=3.1.2
-
 python=3.8.10
 
 python-dateutil=2.8.1
 
 python-flatbuffers=1.12
 
-python_abi=3.8
+python_abi=3.8=2_cp38
 
-pytorch=1.8.1
+pytorch=1.8.1.8_cuda11.1_cudnn8.0.5_0
 
 pytz=2021.1
 
@@ -1366,75 +1410,632 @@ zope.interface=5.4.0
 
 zstd=1.4.9
 
-azure-common=1.1.27
+applicationinsights==0.11.10
 
-azure-core=1.16.0
+argon2-cffi==21.3.0
 
-azure-graphrbac=0.61.1
+argon2-cffi-bindings==21.2.0
 
-azure-mgmt-authorization=0.61.0
+azure-common==1.1.27
 
-azure-mgmt-containerregistry=8.0.0
+azure-core==1.16.0
 
-azure-mgmt-core=1.3.0
+azure-graphrbac==0.61.1
 
-azure-mgmt-keyvault=2.2.0
+azure-identity==1.4.1
 
-azure-mgmt-resource=13.0.0
+azure-mgmt-authorization==0.61.0
 
-azure-mgmt-storage=11.2.0
+azure-mgmt-containerregistry==8.0.0
 
-azureml-core=1.34.0
+azure-mgmt-core==1.3.0
 
-azureml-mlflow=1.34.0
+azure-mgmt-keyvault==2.2.0
 
-azureml-opendatasets=1.34.0
+azure-mgmt-resource==13.0.0
 
-backports-tempfile=1.0
+azure-mgmt-storage==11.2.0
 
-backports-weakref=1.0.post1
+azureml-core==1.34.0
 
-contextlib2=0.6.0.post1
+azureml-dataprep==2.22.2
 
-docker=4.4.4
+azureml-dataprep-native==38.0.0
 
-ipywidgets=7.6.3
+azureml-dataprep-rslex==1.20.2
 
-jeepney=0.6.0
+azureml-dataset-runtime==1.34.0
 
-jmespath=0.10.0
+azureml-mlflow==1.34.0
 
-jsonpickle=2.0.0
+azureml-opendatasets==1.34.0
 
-msrestazure=0.6.4
+azureml-telemetry==1.34.0
 
-mypy=0.780
+backports-tempfile==1.0
 
-mypy-extensions=0.4.3
+backports-weakref==1.0.post1
 
-ndg-httpsclient=0.5.1
+bleach==5.0.1
 
-pandasql=0.7.3
+contextlib2==0.6.0.post1
 
-pathspec=0.8.1
+defusedxml==0.7.1
 
-ruamel-yaml=0.17.4
+distlib==0.3.6
 
-ruamel-yaml-clib=0.2.6
+distro==1.7.0
 
-secretstorage=3.3.1
+docker==4.4.4
 
-sqlalchemy=1.4.20
+dotnetcore2==2.1.23
 
-typed-ast=1.4.3
+fastjsonschema==2.16.1
 
-torchvision=0.9.1
+filelock==3.8.0
 
-websocket-client=1.1.0
+fusepy==3.0.1
 
+importlib-resources==5.9.0
+
+ipywidgets==7.6.3
+
+jeepney==0.6.0
+
+jmespath==0.10.0
+
+jsonpickle==2.0.0
+
+jsonschema==4.15.0
+
+jupyterlab-pygments==0.2.2
+
+jupyterlab-widgets==3.0.3
+
+kqlmagiccustom==0.1.114.post8
+
+lxml==4.6.5
+
+mistune==2.0.4
+
+msal-extensions==0.2.2
+
+msrestazure==0.6.4
+
+mypy==0.780
+
+mypy-extensions==0.4.3
+
+nbclient==0.6.7
+
+nbconvert==7.0.0
+
+nbformat==5.4.0
+
+ndg-httpsclient==0.5.1
+
+nest-asyncio==1.5.5
+
+notebook==6.4.12
+
+pandasql==0.7.3
+
+pandocfilters==1.5.0
+
+pathspec==0.8.1
+
+pkgutil-resolve-name==1.3.10
+
+platformdirs==2.5.2
+
+prettytable==2.4.0
+
+prometheus-client==0.14.1
+
+pyperclip==1.8.2
+
+pyrsistent==0.18.1
+
+pyspark==3.1.2
+
+ruamel-yaml==0.17.4
+
+ruamel-yaml-clib==0.2.6
+
+secretstorage==3.3.1
+
+send2trash==1.8.0
+
+sqlalchemy==1.4.20
+
+terminado==0.15.0
+
+tinycss2==1.1.1
+
+torchvision==0.9.1
+
+traitlets==5.3.0
+
+typed-ast==1.4.3
+
+virtualenv==20.14.0
+
+websocket-client==1.1.0
+
+widgetsnbextension==3.5.2
+
+## R libraries (Preview)
+
+abind 1.4-5
+
+anomalize 0.2.2
+
+anytime 0.3.9
+
+arrow 7.0.0
+
+askpass 1.1
+
+assertthat 0.2.1
+
+backports 1.4.1
+
+base64enc 0.1-3
+
+BH 1.78.0-0
+
+bit 4.0.4
+
+bit64 4.0.5
+
+blob 1.2.3
+
+brew 1.0-7
+
+brio 1.1.3
+
+broom 0.8.0
+
+bslib 0.3.1
+
+cachem 1.0.6
+
+callr 3.7.0
+
+car 3.0-13
+
+carData 3.0-5
+
+caret 6.0-86
+
+cellranger 1.1.0
+
+checkmate 2.1.0
+
+chron 2.3-56
+
+cli 3.3.0
+
+clipr 0.8.0
+
+colorspace 2.0-3
+
+commonmark 1.8.0
+
+config 0.3.1
+
+corrplot 0.92
+
+covr 3.5.1
+
+cpp11 0.4.2
+
+crayon 1.5.1
+
+credentials 1.3.2
+
+crosstalk 1.2.0
+
+curl 4.3.2
+
+data.table 1.14.2
+
+DBI 1.1.2
+
+dbplyr 2.1.1
+
+desc 1.4.1
+
+devtools 2.3.2
+
+diffobj 0.3.5
+
+digest 0.6.29
+
+dplyr 1.0.9
+
+DT 0.22
+
+dtplyr 1.2.1
+
+dygraphs 1.1.1.6
+
+ellipsis 0.3.2
+
+evaluate 0.15
+
+extraDistr 1.9.1
+
+fansi 1.0.3
+
+farver 2.1.0
+
+fastmap 1.1.0
+
+forcats 0.5.1
+
+foreach 1.5.2
+
+forecast 8.13
+
+forge 0.2.0
+
+formatR 1.12
+
+fracdiff 1.5-1
+
+fs 1.5.2
+
+furrr 0.3.0
+
+futile.logger 1.4.3
+
+futile.options 1.0.1
+
+future 1.25.0
+
+future.apply 1.9.0
+
+gargle 1.2.0
+
+generics 0.1.2
+
+gert 1.6.0
+
+ggplot2 3.3.6
+
+gh 1.3.0
+
+gitcreds 0.1.1
+
+glmnet 4.1-4
+
+globals 0.14.0
+
+glue 1.6.2
+
+gower 1.0.0
+
+gridExtra 2.3
+
+gsubfn 0.7
+
+gtable 0.3.0
+
+gtools 3.8.2
+
+hardhat 0.2.0
+
+haven 2.5.0
+
+highr 0.9
+
+hms 1.1.1
+
+htmltools 0.5.2
+
+htmlwidgets 1.5.4
+
+httr 1.4.3
+
+hwriter 1.3.2.1
+
+ids 1.0.1
+
+ini 0.3.1
+
+inline 0.3.19
+
+ipred 0.9-12
+
+isoband 0.2.5
+
+iterators 1.0.14
+
+jquerylib 0.1.4
+
+jsonlite 1.7.2
+
+knitr 1.39
+
+labeling 0.4.2
+
+lambda.r 1.2.4
+
+later 1.3.0
+
+lava 1.6.10
+
+lazyeval 0.2.2
+
+lifecycle 1.0.1
+
+listenv 0.8.0
+
+lme4 1.1-29
+
+lmtest 0.9-40
+
+loo 2.5.1
+
+lubridate 1.8.0
+
+magrittr 2.0.3
+
+maptools 1.1-4
+
+markdown 1.1
+
+MatrixModels 0.5-0
+
+matrixStats 0.62.0
+
+memoise 2.0.1
+
+mime 0.12
+
+minqa 1.2.4
+
+ModelMetrics 1.2.2.2
+
+modelr 0.1.8
+
+munsell 0.5.0
+
+nloptr 2.0.1
+
+notebookutils 3.1.2-20220721.3
+
+numDeriv 2016.8-1.1
+
+openssl 2.0.0
+
+padr 0.6.0
+
+parallelly 1.31.1
+
+pbkrtest 0.5.1
+
+pillar 1.7.0
+
+pkgbuild 1.3.1
+
+pkgconfig 2.0.3
+
+pkgload 1.2.4
+
+plogr 0.2.0
+
+plotly 4.10.0
+
+plotrix 3.8-1
+
+plyr 1.8.7
+
+praise 1.0.0
+
+prettyunits 1.1.1
+
+pROC 1.18.0
+
+processx 3.5.3
+
+prodlim 2019.11.13
+
+progress 1.2.2
+
+progressr 0.10.0
+
+promises 1.2.0.1
+
+prophet 0.6.1
+
+proto 1.0.0
+
+ps 1.7.0
+
+purrr 0.3.4
+
+quadprog 1.5-8
+
+quantmod 0.4.20
+
+quantreg 5.93
+
+R.methodsS3 1.8.1
+
+R.oo 1.24.0
+
+R.utils 2.12.0
+
+r2d3 0.2.6
+
+R6 2.5.1
+
+randomForest 4.7-1
+
+rappdirs 0.3.3
+
+rcmdcheck 1.4.0
+
+RColorBrewer 1.1-3
+
+Rcpp 1.0.8.3
+
+RcppArmadillo 0.11.0.0.0
+
+RcppEigen 0.3.3.9.2
+
+RcppParallel 5.1.5
+
+RcppRoll 0.3.0
+
+readr 2.1.2
+
+readxl 1.4.0
+
+recipes 0.2.0
+
+rematch 1.0.1
+
+rematch2 2.1.2
+
+remotes 2.4.2
+
+reprex 2.0.1
+
+reshape2 1.4.3
+
+reticulate 1.18
+
+rex 1.2.1
+
+rlang 1.0.2
+
+rmarkdown 2.14
+
+RODBC 1.3-19
+
+roxygen2 7.1.2
+
+rprojroot 2.0.3
+
+rsample 0.1.1
+
+RSQLite 2.2.13
+
+rstan 2.21.5
+
+rstantools 2.2.0
+
+rstatix 0.7.0
+
+rstudioapi 0.13
+
+rversions 2.1.1
+
+rvest 1.0.2
+
+sass 0.4.1
+
+scales 1.2.0
+
+selectr 0.4-2
+
+sessioninfo 1.2.2
+
+shape 1.4.6
+
+slider 0.2.2
+
+sourcetools 0.1.7
+
+sp 1.4-7
+
+sparklyr 1.5.2
+
+SparseM 1.81
+
+sqldf 0.4-11
+
+SQUAREM 2021.1
+
+StanHeaders 2.21.0-7
+
+stringi 1.7.6
+
+stringr 1.4.0
+
+sweep 0.2.3
+
+sys 3.4
+
+testthat 3.1.4
+
+tibble 3.1.7
+
+tibbletime 0.1.6
+
+tidyr 1.2.0
+
+tidyselect 1.1.2
+
+tidyverse 1.3.1
+
+timeDate 3043.102
+
+timetk 2.8.0
+
+tinytex 0.38
+
+tseries 0.10-51
+
+tsfeatures 1.0.2
+
+TTR 0.24.3
+
+tzdb 0.3.0
+
+urca 1.3-0
+
+usethis 2.1.5
+
+utf8 1.2.2
+
+uuid 1.1-0
+
+vctrs 0.4.1
+
+viridisLite 0.4.0
+
+vroom 1.5.7
+
+waldo 0.4.0
+
+warp 0.2.0
+
+whisker 0.4
+
+withr 2.5.0
+
+xfun 0.30
+
+xml2 1.3.3
+
+xopen 1.0.0
+
+xtable 1.8-4
+
+xts 0.12.1
+
+yaml 2.3.5
+
+zip 2.2.0
+
+zoo 1.8-10
 
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark Documentation](https://spark.apache.org/docs/3.0.2/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/3.1.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)

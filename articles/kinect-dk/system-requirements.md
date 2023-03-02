@@ -3,11 +3,9 @@ title: Azure Kinect Sensor SDK system requirements
 description: Understand the system requirements for the Azure Kinect Sensor SDK on Windows and Linux.
 author: qm13
 ms.author: quentinm
-ms.custom: 
-- CI 115266
-- CSSTroubleshooting
+ms.custom: CI 115266, CSSTroubleshooting
 manager: dcscontentpm
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 03/05/2021
 ms.topic: article
 keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements

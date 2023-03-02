@@ -68,9 +68,9 @@ For pricing information, see [Automation pricing for Update management](https://
 
 To enable Update Management for your VM:
 
-1. On the leftmost side of the window, select **Virtual machines**.
-1. Choose a VM from the list.
-1. In the **Operations** pane of the VM window, select **Update management**.
+1. Navigate to your VM in the Azure portal (search for **Virtual machines** in the search bar, then choose a VM from the list).
+1. Select **Updates** under Operations.
+1. Click on **Go to Updates using automation**.
 1. The **Enable Update Management** window opens.
 
 Validation is done to determine if Update Management is enabled for this VM. Validation includes checks for a Log Analytics workspace, for a linked Automation account, and for whether the solution is in the workspace.

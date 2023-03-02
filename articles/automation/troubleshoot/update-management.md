@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 02/23/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
@@ -280,7 +280,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 2. Check [Update Management history](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
-3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
+3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 4. Search for changes over a considerable period, such as one day, before the update deployment was run.
 
@@ -672,7 +672,7 @@ Deploying updates to Linux by classification ("Critical and security updates") h
 
 ### KB2267602 is consistently missing
 
-KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It's updated daily.
+KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/en-us/wdsi/defenderupdates). It's updated daily.
 
 ## Next steps
 

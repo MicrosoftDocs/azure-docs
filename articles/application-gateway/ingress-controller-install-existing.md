@@ -2,11 +2,11 @@
 title: Create an ingress controller with an existing Application Gateway 
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
-ms.author: caya
+ms.author: greglin
 ---
 
 # Install an Application Gateway Ingress Controller (AGIC) using an existing Application Gateway
@@ -126,7 +126,7 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 blob to be saved to Kubernetes.
 
 ```azurecli
-az ad sp create-for-rbac --sdk-auth | base64 -w0
+az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0
 ```
 
 2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
@@ -194,7 +194,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
@@ -231,7 +231,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \
@@ -299,7 +299,7 @@ appgw:
 Apply the Helm changes:
   1. Ensure the `AzureIngressProhibitedTarget` CRD is installed with:
       ```bash
-      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/ae695ef9bd05c8b708cedf6ff545595d0b7022dc/crds/AzureIngressProhibitedTarget.yaml
+      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/7b55ad194e7582c47589eb9e78615042e00babf3/crds/AzureIngressProhibitedTarget-v1-CRD-v1.yaml
       ```
   2. Update Helm:
       ```bash
@@ -315,7 +315,7 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
 The object `prohibit-all-targets`, as the name implies, prohibits AGIC from changing config for *any* host and path.
-Helm install with `appgw.shared=true` will deploy AGIC, but will not make any changes to Application Gateway.
+Helm install with `appgw.shared=true` will deploy AGIC, but won't make any changes to Application Gateway.
 
 
 ### Broaden permissions

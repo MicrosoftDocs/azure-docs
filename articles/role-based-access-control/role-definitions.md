@@ -4,11 +4,11 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/28/2021
+ms.date: 08/19/2022
 ms.author: rolyon
 ms.custom:
 ---
@@ -20,7 +20,7 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using Azure PowerShell:
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```
 Name
@@ -34,7 +34,7 @@ NotDataActions []
 AssignableScopes []
 ```
 
-The following shows an example of the properties in a role definition when displayed using the Azure portal, Azure CLI, or the REST API:
+The following shows an example of the properties in a role definition when displayed using the [Azure portal](role-definitions-list.md#azure-portal), [Azure CLI](role-definitions-list.md#azure-cli), or the [REST API](role-definitions-list.md#rest-api):
 
 ```
 roleName
@@ -80,9 +80,9 @@ The `{action}` portion of an action string specifies the type of actions you can
 
 ### Role definition example
 
-Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprint assignments.
+Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in Azure PowerShell:
+Contributor role as displayed in [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```json
 {
@@ -108,7 +108,7 @@ Contributor role as displayed in Azure PowerShell:
 }
 ```
 
-Contributor role as displayed in Azure CLI:
+Contributor role as displayed in [Azure CLI](role-definitions-list.md#azure-cli):
 
 ```json
 {
@@ -335,9 +335,13 @@ The following table shows two examples of the effective date plane permissions f
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) where this role definition can be assigned. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
+The `AssignableScopes` property specifies the scopes (root, management group, subscriptions, or resource groups) where a role definition can be assigned. You can make a custom role available for assignment in only the management group, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
-Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
+For example, if `AssignableScopes` is set to a subscription, that means that the custom role is available for assignment at subscription scope for the specified subscription, resource group scope for any resource group in the subscription, or resource scope for any resource in the subscription.
+
+Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes.
+
+Examples of valid assignable scopes include:
 
 > [!div class="mx-tableFixed"]
 > | Role is available for assignment | Example |
@@ -346,13 +350,18 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
 > | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
+You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+
+Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
+
+For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
 ## Next steps
 
+* [Understand role assignments](role-assignments.md)
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
 * [Azure resource provider operations](resource-provider-operations.md)

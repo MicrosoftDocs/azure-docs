@@ -2,12 +2,12 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 09/28/2022
 ---
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define output values
 
@@ -17,7 +17,7 @@ The syntax for defining an output value is:
 output <name> <data-type> = <value>
 ```
 
-Each output value must resolve to one of the [data types](data-types.md).
+An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md).
 
 The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
@@ -39,23 +39,15 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
-When the value to return depends on a condition in the deployment, use the the `?` operator. For more information, see [Conditional output](#conditional-output).
+## Conditional output
+
+When the value to return depends on a condition in the deployment, use the the `?` operator.
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>
 ```
 
-To return more than one instance of an output value, use the `for` expression. For more information, see [Dynamic number of outputs](#dynamic-number-of-outputs).
-
-```bicep
-output <name> <data-type> = [for <item> in <collection>: {
-  ...
-}]
-```
-
-## Conditional output
-
-You can conditionally return a value. Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed.
 
 To specify a conditional output in Bicep, use the `?` operator. The following example either returns an endpoint URL or an empty string depending on a condition.
 
@@ -82,9 +74,15 @@ output endpoint string = deployStorage ? myStorageAccount.properties.primaryEndp
 
 ## Dynamic number of outputs
 
-In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using iterative output.
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the `for` expression.
 
-In Bicep, add a `for` expression that defines the conditions for the dynamic output. The following example iterates over an array.
+```bicep
+output <name> <data-type> = [for <item> in <collection>: {
+  ...
+}]
+```
+
+The following example iterates over an array.
 
 ```bicep
 param nsgLocation string = resourceGroup().location
@@ -116,13 +114,9 @@ To get an output value from a module, use the following syntax:
 <module-name>.outputs.<property-name>
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-```bicep
-publicIPAddress: {
-  id: publicIP.outputs.resourceID
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
 
 ## Get output values
 
@@ -148,6 +142,10 @@ az deployment group show \
 ```
 
 ---
+
+## Object sorting in outputs
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Next steps
 

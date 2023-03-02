@@ -8,19 +8,18 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
-# Quickstart: Create a Windows virtual machine using an ARM template
+# Quickstart: Create a Windows virtual machine using a template
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This quickstart shows you how to use an Azure Resource Manager template (ARM template) to deploy a Windows virtual machine (VM) in Azure.
+This quickstart shows you how to use an Azure Resource Manager template to deploy a Windows virtual machine (VM) in Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
@@ -85,7 +84,7 @@ When no longer needed, delete the resource group, which deletes the VM and all o
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine using a resource manager template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 
 > [!div class="nextstepaction"]

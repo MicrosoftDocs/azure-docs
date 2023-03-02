@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Manage Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 After you've created your Azure Time Series Insights Gen2 environment by using [the Azure CLI](./how-to-create-environment-using-cli.md) or [the Azure portal](./how-to-create-environment-using-portal.md), you can modify your access policies and other environment attributes to suit your business needs.
 
 ## Manage the environment

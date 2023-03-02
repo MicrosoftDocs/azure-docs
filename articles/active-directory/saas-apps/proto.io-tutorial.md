@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Proto.io supports **SP and IDP** initiated SSO
 
-* Once you configure Proto.io you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Proto.io you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Proto.io from the gallery
 
@@ -48,6 +48,8 @@ To configure the integration of Proto.io into Azure AD, you need to add Proto.io
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Proto.io** in the search box.
 1. Select **Proto.io** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD single sign-on for Proto.io
@@ -162,6 +164,6 @@ When you click the Proto.io tile in the Access Panel, you should be automaticall
 
 - [Try Proto.io with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Proto.io with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

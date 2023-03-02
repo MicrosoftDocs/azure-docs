@@ -32,11 +32,21 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following CLI command:
+    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following Azure CLI or Azure PowerShell command:
+
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    az webapp config set --subscription <sub> -g MyResourceGroupName -n MyAppName --generic-configurations '{"vnetRouteAllEnabled": true}'
     ```
+    
+    # [Azure PowerShell](#tab/azure-powershell) 
+
+    ```azurepowershell
+    Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{vnetRouteAllEnabled = $true}
+    ```
+    
+    ---
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
@@ -53,11 +63,24 @@ Once you have granted permissions to the user-assigned identity, follow these st
 
 1. Configure the app to use this identity for Key Vault reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity.
 
+    # [Azure CLI](#tab/azure-cli)
+    
     ```azurecli-interactive
     userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
     appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
     ```
+    # [Azure PowerShell](#tab/azure-powershell) 
+    
+    ```azurepowershell-interactive   
+    $userAssignedIdentityResourceId = Get-AzUserAssignedIdentity -ResourceGroupName MyResourceGroupName -Name MyUserAssignedIdentityName | Select-Object -ExpandProperty Id
+    $appResourceId = Get-AzFunctionApp -ResourceGroupName MyResourceGroupName -Name MyAppName | Select-Object -ExpandProperty Id
+    
+    $Path = "{0}?api-version=2021-01-01" -f $appResourceId
+    Invoke-AzRestMethod -Method PATCH -Path $Path -Payload "{'properties':{'keyVaultReferenceIdentity':'$userAssignedIdentityResourceId'}}"
+    ```
+    
+    ---
 
 This configuration will apply to all references for the app.
 
@@ -85,20 +108,20 @@ Alternatively:
 
 ## Rotation
 
-If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
+If a version is not specified in the reference, then the app will use the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app that results in a site restart causes an immediate refetch of all referenced secrets.
 
 ## Source Application Settings from Key Vault
 
 Key Vault references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
 
-To use a Key Vault reference for an [application setting](configure-common.md#add-or-edit), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
+To use a Key Vault reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
 > [!TIP]
 > Most application settings using Key Vault references should be marked as slot settings, as you should have separate vaults for each environment.
 
 ### Considerations for Azure Files mounting
 
-Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount Azure Files as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
+Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount [Azure Files](../storage/files/storage-files-introduction.md) as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
 
 When using Key Vault references for this setting, this validation check will fail by default, as the secret itself cannot be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This will bypass all checks, and the content share will not be created for you. You should ensure it is created in advance. 
 
@@ -106,6 +129,10 @@ When using Key Vault references for this setting, this validation check will fai
 > If you skip validation and either the connection string or content share are invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 As part of creating the site, it is also possible that attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files are not copied over, so you will need to ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+
+### Considerations for Application Insights instrumentation
+
+Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](../azure-monitor/app/app-insights-overview.md). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences are not available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](../azure-monitor/app/sdk-connection-string.md#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using the Key Vault references feature.
 
 ### Azure Resource Manager deployment
 

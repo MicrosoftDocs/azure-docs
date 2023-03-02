@@ -1,19 +1,16 @@
 ---
-title: "Use Azure Policy to apply cluster configurations at scale"
-services: azure-arc
-ms.service: azure-arc
-#ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 03/03/2021
-ms.topic: article
-author: mlearned
-ms.author: mlearned
-description: "Use Azure Policy to apply cluster configurations at scale"
-keywords: "Kubernetes, Arc, Azure, K8s, containers"
+title: "Apply Flux v1 configurations at-scale using Azure Policy"
+ms.date: 12/02/2022
+ms.topic: how-to
+description: "Apply Flux v1 configurations at-scale using Azure Policy"
 ---
 
-# Use Azure Policy to apply GitOps configurations at scale
+# Apply Flux v1 configurations at-scale using Azure Policy
 
-You can use Azure Policy to apply configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
+You can use Azure Policy to apply Flux v1 configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
+
+> [!IMPORTANT]
+> This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the article for using policy with Flux v2](./use-azure-policy-flux-2.md). Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 
 To use Azure Policy, select a built-in GitOps policy definition and create a policy assignment. When creating the policy assignment:
 1. Set the scope for the assignment.
@@ -39,13 +36,13 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 1. In the Azure portal, navigate to **Policy**.
 1. In the **Authoring** section of the sidebar, select **Definitions**.
 1. In the "Kubernetes" category, choose the "Configure Kubernetes clusters with specified GitOps configuration using no secrets" built-in policy definition. 
-1. Click on **Assign**.
+1. Select **Assign**.
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
     * If you want to exclude any resources from the policy assignment scope, set **Exclusions**.
 1. Give the policy assignment an easily identifiable **Name** and **Description**.
 1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Next**.
-1. Set the parameter values to be used while creating the `sourceControlConfiguration`.
+1. Set the parameter values to be used while creating the `sourceControlConfigurations` resource.
     * For more information about parameters, see the [tutorial on deploying GitOps configurations](./tutorial-use-gitops-connected-cluster.md).
 1. Select **Next**.
 1. Enable **Create a remediation task**.
@@ -64,9 +61,9 @@ For existing clusters, you may need to manually run a remediation task. This tas
     * In the list, you should see the policy assignment that you created earlier with the **Compliance state** set as *Compliant*.
 1. In the **Settings** section of the sidebar, select **GitOps**.
     * In the configurations list, you should see the configuration created by the policy assignment.
-1. Use `kubectl` to interrogate the cluster. 
-    * You should see the namespace and artifacts that were created by the GitOps configuration.
-    * You should see the objects described by the manifests in the Git repo getting deployed on the cluster.
+1. In the **Kubernetes resources** section of the sidebar, select **Namespaces** and **Workloads**.
+    * You should see the namespace and artifacts that were created by the Flux configuration.
+    * You should see the objects described by the manifests in the Git repo deployed on the cluster.
 
 ## Next steps
 

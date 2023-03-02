@@ -3,7 +3,8 @@ title: Configure operational backup for Azure Blobs
 description: Learn how to configure and manage operational backup for Azure Blobs.
 ms.topic: conceptual
 ms.date: 09/28/2021
-
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Configure operational backup for Azure Blobs
@@ -61,7 +62,7 @@ To assign the required role for storage accounts that you need to protect, follo
         ![Role assignment options](./media/blob-backup-configure-manage/role-assignment-options.png)
 
         >[!NOTE]
-        >The role assignment might take up to 10 minutes to take effect.
+        >The role assignment might take up to 30 minutes to take effect.
 
 ## Create a backup policy
 

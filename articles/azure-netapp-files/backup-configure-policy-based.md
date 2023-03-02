@@ -3,7 +3,7 @@ title: Configure policy-based backups for Azure NetApp Files | Microsoft Docs
 description: Describes how to configure policy-based (scheduled) backups for Azure NetApp Files volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,16 +11,15 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/13/2021
-ms.author: b-juche
+ms.date: 12/13/2022
+ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
 
 Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you will enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
-This article shows you how to configure policy-based backups.  For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
+This article shows you how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
 > [!IMPORTANT]
 > The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
@@ -38,6 +37,8 @@ Backups are long-running operations. The system schedules backups based on the p
 
 Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
 
+[!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
+
 ## Configure and apply a snapshot policy  
 
 You need to create a snapshot policy and associate the snapshot policy to the volume that you want to back up. A single snapshot policy can be attached to multiple volumes. Changes in the snapshot policy can affect the backup functionality of a volume. 
@@ -53,12 +54,16 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 
     Currently, the backup functionality can back up only daily, weekly, and monthly snapshots. (Hourly backups are not supported).   
 
-    * For a daily snapshot configuration, specify the time of the day when you want the snapshot created. 
-    * For a weekly snapshot configuration, specify the day of the week and time of the day when you want the snapshot created. 
-    * For a monthly snapshot configuration, specify the day of the month and time of the day when you want the snapshot created. 
+    * For a *daily* snapshot configuration, specify the time of the day when you want the snapshot created. 
+    * For a *weekly* snapshot configuration, specify the day of the week and time of the day when you want the snapshot created. 
+    * For a *monthly* snapshot configuration, specify the day of the month and time of the day when you want the snapshot created.  
+  
+        > [!IMPORTANT] 
+        > Be sure to specify a day that will work for all intended months.  If you intend for the monthly snapshot configuration to work for all months in the year, pick a day of the month between 1 and 28.  For example, if you specify `31` (day of the month), the monthly snapshot configuration is skipped for the months that have less than 31 days.  
+        
     * For each snapshot configuration, specify the number of snapshots that you want to keep.
 
-    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots will not be created, resulting in daily backups not taking place. The same process and behavior apply to weekly, and monthly backups.  
+    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots will not be created, resulting in daily backups not taking place. The same process and behavior apply to weekly and monthly backups.  
 
     Ensure that each snapshot has a unique snapshot schedule configuration. By design, Azure NetApp Files prevents you from deleting the latest backup. If multiple snapshots have the same time (for example, the same daily and weekly schedule configuration), Azure NetApp Files considers them as the latest snapshots, and deleting those backups is prevented.  
 
@@ -86,19 +91,20 @@ To enable a policy-based (scheduled) backup:
 2. Select your Azure NetApp Files account.
 3. Select **Backups**. 
 
-    ![Screenshot that shows how to navigate to Backups option.](../media/azure-netapp-files/backup-navigate.png)
+  :::image type="content" source="../media/azure-netapp-files/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="../media/azure-netapp-files/backup-navigate.png":::
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
 6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.
 
-    ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
-
+    :::image type="content" source="../media/azure-netapp-files/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="../media/azure-netapp-files/backup-policy-window-daily.png":::
+    
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
     * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
 
-        ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
+    :::image type="content" source="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png" alt-text="Screenshot that shows the Backup Policy window with Snapshot Policy selected." lightbox="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png":::
+
  
 ### Example of a valid configuration
 
@@ -141,7 +147,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is pre-populated.  
 
-    ![Screenshot that shows Configure Backups window.](../media/azure-netapp-files/backup-configure-window.png)
+    :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot that shows Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
 
 
 ## Next steps  

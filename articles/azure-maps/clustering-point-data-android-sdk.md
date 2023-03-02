@@ -1,13 +1,12 @@
 ---
 title: Clustering point data in the Android SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Android SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: anastasia-ms
-ms.author: v-stharr
+author: eriklindeman
+ms.author: eriklind
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -17,7 +16,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Prerequisites
 
@@ -867,7 +866,7 @@ source = new DataSource(
 );
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json");
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json");
 
 //Add data source to the map.
 map.sources.add(source);
@@ -1000,7 +999,7 @@ val source = DataSource(
 )
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json")
 
 //Add data source to the map.
 map.sources.add(source)

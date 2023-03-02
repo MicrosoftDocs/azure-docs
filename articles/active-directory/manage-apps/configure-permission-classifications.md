@@ -1,42 +1,40 @@
 ---
 title: Configure permission classifications
-titleSuffix: Azure AD
 description: Learn how to manage delegated permission classifications.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/31/2021
-ms.author: davidmu
-ms.reviewer: arvindh, luleon, phsignor
+ms.date: 2/24/2023
+ms.author: jomondi
+ms.reviewer: arvindh, luleon, phsignor, jawoods
 ms.custom: contperf-fy21q2
+zone_pivot_groups: enterprise-apps-all
 
 #customer intent: As an admin, I want configure permission classifications for applications in Azure AD
 ---
 
-# Configure permission classifications with Azure Active Directory
+# Configure permission classifications
 
-Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
-
-## Prerequisites
-
-To complete the tasks in this guide, you need the following:
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Global Administrator role.
-- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
-
-## Manage permission classifications
+In this article, you learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
 Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
 
-> [!TIP]
-> The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, `User.Read` and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read the full profile details of the signed-in user and can maintain this access even when the user is no longer using the app.
+The minimum permissions needed to do basic sign-in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
-# [Portal](#tab/azure-portal)
+## Prerequisites
+
+To configure permission classifications, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: A global administrator, or owner of the service principal.
+
+## Manage permission classifications
+
+:::zone pivot="portal"
 
 Follow these steps to classify permissions using the Azure portal:
 
@@ -49,11 +47,20 @@ In this example, we've classified the minimum set of permission required for sin
 
 :::image type="content" source="media/configure-permission-classifications/permission-classifications.png" alt-text="Permission classifications":::
 
-# [PowerShell](#tab/azure-powershell)
 
-You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+:::zone-end
 
-#### List the current permission classifications for an API
+:::zone pivot="aad-powershell"
+
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+
+Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
+
+```powershell
+Connect-AzureAD -Scopes "Policy.ReadWrite.PermissionGrant".
+```
+
+### List the current permission classifications
 
 1. Retrieve the **ServicePrincipal** object for the API. Here we retrieve the ServicePrincipal object for the Microsoft Graph API:
 
@@ -69,7 +76,7 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/pow
        -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
    ```
 
-#### Classify a permission as "Low impact"
+### Classify a permission as "Low impact"
 
 1. Retrieve the **ServicePrincipal** object for the API. Here we retrieve the ServicePrincipal object for the Microsoft Graph API:
 
@@ -94,7 +101,7 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/pow
       -Classification "low"
    ```
 
-#### Remove a delegated permission classification
+### Remove a delegated permission classification
 
 1. Retrieve the **ServicePrincipal** object for the API. Here we retrieve the ServicePrincipal object for the Microsoft Graph API:
 
@@ -118,19 +125,121 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/pow
        -ServicePrincipalId $api.ObjectId `
        -Id $classificationToRemove.Id
    ```
+:::zone-end
 
----
+:::zone pivot="ms-powershell"
+
+You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?preserve-view=true&view=graph-powershell-1.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+
+Run the following command to connect to Microsoft Graph PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
+
+```powershell
+Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant".
+```
+
+### List current permission classifications for an API
+
+1. Retrieve the servicePrincipal object for the API:
+
+   ```powershell
+   $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
+   ```
+
+1. Read the delegated permission classifications for the API:
+
+   ```powershell
+   Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
+   ```
+
+### Classify a permission as "Low impact" 
+
+1. Retrieve the servicePrincipal object for the API:
+
+   ```powershell
+   $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
+   ```
+
+1. Find the delegated permission you would like to classify:
+
+   ```powershell
+   $delegatedPermission = $api.Oauth2PermissionScopes | Where-Object {$_.Value -eq "openid"} 
+   ```
+
+1. Set the permission classification:
+
+   ```powershell
+   $params = @{ 
+
+   PermissionId = $delegatedPermission.Id 
+
+   PermissionName = $delegatedPermission.Value 
+
+   Classification = "Low" 
+
+   } 
+
+   New-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id -BodyParameter $params 
+   ```
+
+### Remove a delegated permission classification 
+
+1. Retrieve the servicePrincipal object for the API:
+
+   ```powershell
+   $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
+   ```
+
+1. Find the delegated permission classification you wish to remove:
+
+   ```powershell
+   $classifications= Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
+
+   $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "openid"}
+   ```
+
+1. Delete the permission classification:
+
+```powershell
+Remove-MgServicePrincipalDelegatedPermissionClassification -DelegatedPermissionClassificationId $classificationToRemove.Id   -ServicePrincipalId $api.id 
+``` 
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+To configure permissions classifications for an enterprise application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+
+You need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
+
+Run the following queries on Microsoft Graph explorer to add a delegated permissions classification for an application.
+
+1. List current permission classifications for an API.
+
+   ```http
+   GET https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
+   ```
+
+1. Add a delegated permission classification for an API. In the following example, we classify the permission as "low impact".
+
+   ```http
+   POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
+   Content-type: application/json
+
+   {
+      "permissionId": "b4e74841-8e56-480b-be8b-910348b18b4c",
+      "classification": "low"
+   }
+   ```
+
+Run the following query on Microsoft Graph explorer to remove a delegated permissions classification for an API.
+
+```http
+DELETE https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications/QUjntFaOC0i-i5EDSLGLTAE
+```
+
+:::zone-end
+
 
 ## Next steps
 
-To learn more:
-
-* [Configure user consent settings](configure-user-consent.md)
-* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-* [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
-* [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
-
-To get help or find answers to your questions:
-
-* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)

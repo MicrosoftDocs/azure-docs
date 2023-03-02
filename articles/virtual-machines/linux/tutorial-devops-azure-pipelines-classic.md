@@ -1,98 +1,103 @@
 ---
-title: Tutorial - Configure rolling deployments for Azure Linux virtual machines
-description: In this tutorial, you learn how to set up a continuous deployment (CD) pipeline. This pipeline incrementally updates a group of Azure Linux virtual machines using the rolling deployment strategy.
+title: Configure rolling deployments for Azure Linux virtual machines
+description: Learn how to set up a classic release pipeline and deploy your application to Linux virtual machines using the rolling deployment strategy.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
-
-ms.assetid: 
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
-ms.date: 4/10/2020
+ms.date: 08/15/2022
 ms.author: moala
 ms.custom: devops
-
-#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use Azure DevOps services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
-# Tutorial - Configure the rolling deployment strategy for Azure Linux virtual machines
+# Configure the rolling deployment strategy for Azure Linux virtual machines
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
+Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. This article will show you how to set up a classic release pipeline that uses the rolling strategy to deploy your web applications to Linux virtual machines.
 
-![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
-
-## Infrastructure as a service (IaaS) - Configure CI/CD
-
-Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
-
-This article shows how to set up a CI/CD pipeline for rolling multimachine deployments from the Azure portal. The Azure portal also supports other strategies like [canary](./tutorial-azure-devops-canary-strategy.md) and [blue-green](./tutorial-azure-devops-blue-green-strategy.md).
-
-### Configure CI/CD on virtual machines
-
-You can add virtual machines as targets to a [deployment group](/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
-
-### Rolling deployments
+## Rolling deployments
 
 In each iteration, a rolling deployment replaces instances of an application's previous version. It replaces them with instances of the new version on a fixed set of machines (rolling set). The following walk-through shows how to configure a rolling update to virtual machines.
 
-Using the continuous-delivery option, you can configure rolling updates to your virtual machines within the Azure portal. Here is the step-by-step walk-through:
+Using **Continuous-delivery**, you can configure rolling updates to your virtual machines within the Azure portal.
 
-1. Sign in to the Azure portal and navigate to a virtual machine.
-1. In the leftmost pane of the VM settings, select **Continuous delivery**. Then select **Configure**.
+[!IMPORTANT] Virtual Machine's Continuous delivery setting will be retired on March 31, 2023. [Learn more](?source=recommendations#retirement)
 
-   ![The Continuous delivery pane with the Configure button](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-1. In the configuration panel, select **Azure DevOps Organization** to choose an existing account or create a new one. Then select the project under which you want to configure the pipeline.  
+1. Sign in to [Azure portal](https://portal.azure.com/) and navigate to a virtual machine.
 
-   ![The Continuous delivery panel](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
+1. Select **Continuous delivery**, and then select **Configure**.
 
-1. A deployment group is a logical set of deployment target machines that represent the physical environments. Dev, Test, UAT, and Production are examples. You can create a new deployment group or select an existing one.
-1. Select the build pipeline that publishes the package to be deployed to the virtual machine. The published package should have a deployment script named deploy.ps1 or deploy.sh in the deployscripts folder in the package's root folder. The pipeline runs this deployment script.
-1. In **Deployment strategy**, select **Rolling**.
-1. Optionally, you can tag each machine with its role. The tags "web" and "db" are examples. These tags help you target only VMs that have a specific role.
-1. Select **OK** to configure the continuous-delivery pipeline.
-1. After configuration finishes, you have a continuous-delivery pipeline configured to deploy to the virtual machine.  
+   :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png" alt-text="A screenshot showing the continuous delivery settings.":::
 
-   ![The Continuous delivery panel showing Deployment history](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+1. Select your **Azure DevOps Organization** and your **Project** from the dropdown menu or **Create** a new one.
 
-1. The deployment details for the virtual machine are displayed. You can select the link to go to the pipeline, **Release-1** to view the deployment, or **Edit** to modify the release-pipeline definition.
+1. Select your **Deployment group** from the dropdown menu or **Create** a new one.
 
-1. If you're configuring multiple VMs, repeat steps 2 through 4 for other VMs to add to the deployment group. If you select a deployment group that already has a pipeline run, the VMs are just added to the deployment group. No new pipelines are created.
-1. After configuration is done, select the pipeline definition, navigate to the Azure DevOps organization, and select **Edit** for the release pipeline.
+1. Select your **Build pipeline**.
 
-   ![Editing the rolling pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+1. Select **Deployment strategy**, and then select **Rolling**.
 
-1. Select **1 job, 1 task** in the **dev** stage. Select the **Deploy** phase.
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png" alt-text="A screenshot showing how to configure a rolling deployment strategy.":::
 
-   ![Rolling pipeline tasks with the Deploy task selected](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+1. Optionally, you can tag each machine with its role such as *web* or *db*. These tags help you target only VMs that have a specific role.
 
-1. From the rightmost configuration pane, you can specify the number of machines that you want to deploy in parallel in each iteration. If you want to deploy to multiple machines at a time, you can specify the number of machines as a percentage by using the slider.  
+1. Select **OK** to configure the continuous delivery pipeline.
 
-1. The Execute Deploy Script task by default executes the deployment script deploy.ps1 or deploy.sh. The script is in the deployscripts folder in the root folder of the published package.
+1. After completion, your continuous delivery pipeline should look similar to the following.  
 
-   ![The Artifacts pane showing deploy.sh in the deployscripts folder](media/tutorial-deployment-strategy/package.png)
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png" alt-text="A screenshot showing the continuous delivery pipeline.":::
 
-## Other deployment strategies
+1. If you want to configure multiple VMs, repeat steps 2 through 4 for the other VMs. If you use the same deployment group that already has a configured pipeline, the new VMs will just be added to the deployment group and no new pipelines will be created.
+
+1. Select the link to navigate to your pipeline, and then select**Edit** to modify the pipeline definition.
+
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png" alt-text="A screenshot showing the pipeline definition.":::
+
+1. Select the tasks in the **dev** stage to navigate to the pipeline tasks, and then select **Deploy**.
+
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png" alt-text="A screenshot showing the pipeline tasks.":::
+
+1. You can specify the number of target machines to deploy to in parallel in each iteration. If you want to deploy to multiple machines, you can specify the number of machines as a percentage by using the slider.
+
+1. The **Execute Deploy Script** task will execute the deployment script located in the root folder of the published artifacts.
+
+    :::image type="content" source="media/tutorial-deployment-strategy/package.png" alt-text="A screenshot showing the published artifacts.":::
+
+## Resources
+
+- [Deploy to Azure virtual machines with Azure DevOps](../../devops-project/azure-devops-project-vms.md)
+- [Deploy to Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+
+## Related articles
 
 - [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 - [Configure the blue-green deployment strategy](./tutorial-azure-devops-blue-green-strategy.md)
 
-## Azure DevOps Projects
+## Retirement
 
-You can get started with Azure easily. With Azure DevOps Projects, start running your application on any Azure service in just three steps by selecting:
+Continuous delivery setting of Virtual Machines will be retired on March 31, 2023. Please switch to directly using Azure DevOps to create customized pipelines for deployment to Azure VMs. Release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) and [Deployments Groups](/azure/devops/pipelines/process/deployment-group-phases) Azure DevOps' features provide similar experiences.
 
-- An application language
-- A runtime
-- An Azure service
+### Migration Steps
+
+There is no migration required as VM CD experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure and Azure DevOps. Users will still be able to perform all operations from Azure DevOps after retirement. You won't be able to create and view pipelines from the Azure portal anymore. 
+
+### FAQ
+
+Where can I set up my CD pipeline after this experience is deprecated?  
+
+You won't be able to view or create Azure DevOps pipelines from an Azure portal Virtual Machine blade after retirement. You still can go to Azure DevOps portal and view or update pipelines. 
+
+Will I lose my earlier configured pipelines? 
+
+No.  Your pipelines will still be available in Azure DevOps. 
+
  
-[Learn more](https://azure.microsoft.com/features/devops-projects/).
- 
-## Additional resources
+How can I configure different deployment strategies? 
 
-- [Deploy to Azure virtual machines by using Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
-- [Implement continuous deployment of your app to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+The current experience uses [deployment groups](/azure/devops/pipelines/process/deployment-group-phases) to create deployment strategies. You can use deployment groups or release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) to build your pipeline with templates.

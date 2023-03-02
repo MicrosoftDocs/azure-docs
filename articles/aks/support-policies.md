@@ -1,7 +1,6 @@
 ---
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
-services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 
@@ -23,17 +22,17 @@ Base infrastructure as a service (IaaS) cloud components, such as compute or net
 
 With AKS, you get a fully managed *control plane*. The control plane contains all of the components and services you need to operate and provide Kubernetes clusters to end users. All Kubernetes components are maintained and operated by Microsoft.
 
-Microsoft manages and monitors the following components through the control pane:
+Microsoft manages and monitors the following components through the control plane:
 
 * Kubelet or Kubernetes API servers
 * Etcd or a compatible key-value store, providing Quality of Service (QoS), scalability, and runtime
 * DNS services (for example, kube-dns or CoreDNS)
-* Kubernetes proxy or networking
-* Any additional addon or system component running in the kube-system namespace
+* Kubernetes proxy or networking (except when [BYOCNI](use-byo-cni.md) is used)
+* Any additional [add-ons][add-ons] or system component running in the kube-system namespace
 
 AKS isn't a Platform-as-a-Service (PaaS) solution. Some components, such as agent nodes, have *shared responsibility*, where users must help maintain the AKS cluster. User input is required, for example, to apply an agent node operating system (OS) security patch.
 
-The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience. For a fully customizable solution, see [AKS Engine](https://github.com/Azure/aks-engine).
+The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience.
 
 ## Shared responsibility
 
@@ -51,16 +50,15 @@ Microsoft provides technical support for the following examples:
 
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes control plane, API server, etcd, and coreDNS, for example).
-* Etcd data store. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to you or any users. They ensure data reliability and consistency. Etcd. on-demand rollback or restore is not supported as a feature.
-* Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
+* Etcd data store. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to you or any users. They ensure data reliability and consistency. On-demand rollback or restore is not supported as a feature.
+* Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI, except when [BYOCNI](use-byo-cni.md) is in use).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and coreDNS.
-* Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
+* Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues, except when [BYOCNI](use-byo-cni.md) is in use. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
   * Kubenet and Azure CNI using managed VNETs or with custom (bring your own) subnets.
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
-  * [Network policies](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
-
+  * [Network policies](use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities)
 
 > [!NOTE]
 > Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
@@ -75,6 +73,7 @@ Microsoft doesn't provide technical support for the following examples:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Network customizations other than the ones listed in the [AKS documentation](./index.yml).
+* Custom or 3rd-party CNI plugins used in [BYOCNI](use-byo-cni.md) mode.
 
 
 ## AKS support coverage for agent nodes
@@ -102,7 +101,7 @@ Similarly, AKS regularly releases new kubernetes patches and minor versions. The
 
 #### User customization of agent nodes
 > [!NOTE]
-> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. 
+> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. Also any change to the nodes' extensions like the CustomScriptExtension one can lead to unexpected behavior and should be prohibited.
 > Avoid performing changes to the agent nodes unless Microsoft Support directs you to make changes.
 
 AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is **not supported**. An example of an unsupported operation is customizing a node pool virtual machine scale set by manually changing configurations through the virtual machine scale set portal or API.
@@ -127,17 +126,17 @@ Although you can sign in to and change agent nodes, doing this operation is disc
 
 You may only customize the NSGs on custom subnets. You may not customize NSGs on managed subnets or at the NIC level of the agent nodes. AKS has egress requirements to specific endpoints, to control egress and ensure the necessary connectivity, see [limit egress traffic](limit-egress-traffic.md). For ingress, the requirements are based on the applications you have deployed to cluster.
 
-## Stopped or de-allocated clusters
+## Stopped, de-allocated, and "Not Ready" nodes
 
-As stated earlier, manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal renders the cluster out of support. The only supported way to stop/de-allocate all nodes is to [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster), which preserves the cluster state for up to 12 months.
+If you do not need your AKS workloads to run continuously, you can [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster) which stops all nodepools and the control plane, and start it again when needed. When you stop a cluster using the `az aks stop` command, the cluster state will be preserved for up to 12 months. After 12 months the cluster state and all of its resources will be deleted.
 
-Clusters that are stopped for more than 12 months will no longer preserve state. 
+Manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal is not a supported way to stop an AKS cluster or nodepool. The cluster will be considered out of support and will be stopped by AKS after 30 days. The clusters will then be subject to the same 12 month preservation policy as a correctly stopped cluster.
 
-Clusters that are de-allocated outside of the AKS APIs have no state preservation guarantees. The control planes for clusters in this state will be archived after 30 days, and deleted after 12 months.
+Clusters with 0 "Ready" nodes (or all "Not Ready") and 0 Running VMs will be stopped after 30 days. 
 
 AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
-If your subscription is suspended or deleted, your cluster's control plane and state will be deleted after 90 days.
+All clusters in a suspended or deleted subscription will be stopped immediately and deleted after 30 days
 
 ## Unsupported alpha and beta Kubernetes features
 
@@ -164,3 +163,6 @@ When a technical support issue is root-caused by one or more upstream bugs, AKS 
   * The issue, including links to upstream bugs.
   * The workaround and details about an upgrade or another persistence of the solution.
   * Rough timelines for the issue's inclusion, based on the upstream release cadence.
+
+
+[add-ons]: integrations.md#add-ons

@@ -1,14 +1,14 @@
 ---
 title: Create Azure Data Factory using .NET SDK
-description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
-author: linda33wj
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location.
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 03/27/2021
-ms.author: jingwang 
-ms.custom: devx-track-azurepowershell
+ms.date: 08/18/2022
+ms.author: jianleishen
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
@@ -33,9 +33,9 @@ The walkthrough in this article uses Visual Studio 2019. The procedures for Visu
 
 From the sections in *How to: Use the portal to create an Azure AD application and service principal that can access resources*, follow the instructions to do these tasks:
 
-1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
-3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
+1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
+3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
 4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
@@ -50,12 +50,12 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataFactory NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    Install-Package Microsoft.Identity.Client
     ```
 
 ## Create a data factory client
@@ -71,7 +71,7 @@ Next, create a C# .NET console application in Visual Studio:
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     ```
 
 2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, and more) and computes (HDInsight and others) used by data factory can be in other regions.
@@ -104,16 +104,22 @@ Next, create a C# .NET console application in Visual Studio:
 > [!NOTE]
 > For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
 >  For example, in US Azure Gov you would use authority of https://login.microsoftonline.us instead of https://login.microsoftonline.com, and use https://management.usgovcloudapi.net instead of https://management.azure.com/, and then create the data factory management client. 
->  You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
+>  You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
-   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-   AuthenticationResult result = context.AcquireTokenAsync(
-       "https://management.azure.com/", cc).Result;
+   IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(applicationId)
+    .WithAuthority("https://login.microsoftonline.com/" + tenantID)
+    .WithClientSecret(authenticationKey)
+    .WithLegacyCacheCompatibility(false)
+    .WithCacheOptions(CacheOptions.EnableSharedCacheOptions)
+    .Build();
+
+   AuthenticationResult result = await app.AcquireTokenForClient(
+     new string[]{ "https://management.azure.com//.default"})
+      .ExecuteAsync();
    ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };

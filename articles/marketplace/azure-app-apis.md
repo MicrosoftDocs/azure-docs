@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 07/01/2021
+ms.date: 8/29/2022
 ---
 
 # Partner Center submission API to onboard Azure apps in Partner Center
@@ -44,7 +44,7 @@ To use the Microsoft Store submission API, you must associate an Azure AD applic
 
 Before you call any of the methods in the Partner Center submission API, you must first obtain an Azure AD access token that you pass to the **Authorization** header of each method in the API. After you obtain an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token so you can continue to use it in future calls to the API.
 
-To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
+To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
 
 JSONCopy
 ```Json
@@ -62,9 +62,9 @@ For the *tenant_id* value in the `POST URI` and the *client_id* and *client_secr
 
 ### Step 3: Use the Microsoft Store submission API
 
-After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the Ingestion API swagger.
+After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the [Ingestion API Swagger](https://ingestionapi-swagger.azureedge.net/#/).
 
-https://apidocs.microsoft.com/services/partneringestion/
+https://ingestionapi-swagger.azureedge.net/#/
 
 ## Next steps
 

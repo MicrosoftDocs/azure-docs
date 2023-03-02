@@ -1,21 +1,22 @@
 ---
-title: Use Azure Storage Table service or Azure Cosmos DB Table API from PHP
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API from PHP.
-author: sakash279
-ms.author: akshanka
+title: Use Azure Storage Table service or Azure Cosmos DB for Table from PHP
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB for Table from PHP.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: php
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 07/23/2020
 ---
-# How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+# How to use Azure Storage Table service or the Azure Cosmos DB for Table from PHP
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB for Table. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 ## Create an Azure service account
 
@@ -25,13 +26,13 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 [!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
-**Create an Azure Cosmos DB Table API account**
+**Create an Azure Cosmos DB for Table account**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a PHP application
 
-The only requirement to create a PHP application to access the Storage Table service or Azure Cosmos DB Table API is to reference classes in the azure-storage-table SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement to create a PHP application to access the Storage Table service or Azure Cosmos DB for Table is to reference classes in the azure-storage-table SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you use Storage Table service or Azure Cosmos DB features that can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
@@ -70,7 +71,7 @@ In the examples below, the `require_once` statement is always shown, but only th
 
 ## Add your connection string
 
-You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+You can either connect to the Azure storage account or the Azure Cosmos DB for Table account. Get the connection string based on the type of account you are using.
 
 ### Add a Storage Table service connection
 
@@ -135,7 +136,7 @@ catch(ServiceException $e){
     $error_message = $e->getMessage();
     // Handle exception based on error codes and messages.
     // Error codes and messages can be found here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
 }
 ```
 
@@ -171,7 +172,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
 }
@@ -214,7 +215,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -240,7 +241,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -272,7 +273,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -306,7 +307,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -342,7 +343,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -387,7 +388,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -414,7 +415,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -475,7 +476,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -504,7 +505,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";

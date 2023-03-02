@@ -4,8 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-author: Sharmistha-Rai
-ms.author: sharrai
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ---
 
 
@@ -30,11 +30,11 @@ Hyper-V without Virtual Machine Manager | You can perform disaster recovery to A
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-Hyper-V (running without Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 with latest updates <br/><br/> **Note:** Server core installation of these operating systems are also supported. | If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md)
-Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Note:** Server core installation of these operating systems are also supported.  | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.
+Hyper-V (running without Virtual Machine Manager) | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 with latest updates <br/><br/> **Note:** Server core installation of these operating systems are also supported. | If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md)
+Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2022  (Server core not supported), Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Note:** Server core installation of these operating systems are also supported.  | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.
 
 > [!NOTE]
-> Ensure that .NET Framework 4.6.2 or higher is present on the on-premise server.
+> Ensure that .NET Framework 4.6.2 or higher is present on the on-premises server.
 
 ## Replicated VMs
 
@@ -69,6 +69,7 @@ Guest VM network: Static IP (Windows) | Yes | Yes
 Guest VM network: Static IP (Linux) | No | No
 Guest VM network: Multi-NIC | Yes | Yes
 Https Proxy | No | No
+Automatic Private IP Addressing (APIPA) | No | No
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
@@ -133,6 +134,7 @@ Zone-redundant storage | No | No
 Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
+Encryption at host | No | No
 Encryption at rest (SSE)| Yes | Yes
 Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Double Encryption at rest <br></br> (Only for failover to managed disks) <br></br> Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
@@ -144,13 +146,16 @@ Modify storage account | No. The target Azure Storage account can't be modified 
 Secure transfer option | Yes | Yes
 UEFI Secure boot | No | No
 
+> [!NOTE]
+> Striped volumes and dynamic disks are not supported for app-consistent snapshots. Ensure that the frequency for app-consistent snapshot is set to zero in the selected replication policy. 
+
 ## Azure compute features
 
 **Feature** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---
 Availability sets | Yes | Yes
 Availability zones | No | No
-HUB | Yes | Yes  
+HUB | Yes | Yes
 Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
 
 ## Azure VM requirements

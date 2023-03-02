@@ -1,20 +1,19 @@
 ---
 title: 'What is password hash synchronization with Azure AD? | Microsoft Docs'
 description: Describes password hash synchronization.
-services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 # What is password hash synchronization with Azure AD?
-Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.
+Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.
 
 Password hash synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. You can use this feature to sign in to Azure AD services like Microsoft 365. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
 
@@ -31,7 +30,7 @@ Password Hash Sync also enables [leaked credential detection](../identity-protec
 > Only new leaked credentials found after you enable PHS will be processed against your tenant. Verifying against previously found credential pairs is not performed.
 
 
-Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) as your sign-in method.
+Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](./how-to-connect-fed-whatis.md) as your sign-in method.
 
 To use password hash synchronization in your environment, you need to:
 

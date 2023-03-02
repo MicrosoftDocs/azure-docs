@@ -4,7 +4,7 @@ description: Understand the body frame, joints, joint coordinates, and joint hie
 author: qm13
 ms.author: quentinm
 ms.reviewer: cedmonds, abalan
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, porting, body, tracking, joint, hierarchy, bone, connection
@@ -27,7 +27,11 @@ The position and orientation of each joint form its own right-handed joint coord
 
 ![Joint coordinates](./media/concepts/joint-coordinates.png)
 
-x-axis - <span style="color: red;">red</span>; y-axis - <span style="color: green;">green</span>; z-axis - <span style="color: blue;">blue</span>
+Legend: | x-axis = red  | y-axis = green | z-axis = blue |
+
+> [!NOTE]
+> The visual output of the `k4abt_simple_3d_viewer.exe` tool is mirrored.
+
 ## Joint hierarchy
 
 A skeleton includes 32 joints with the joint hierarchy flowing from the center of the body to the extremities. Each connection (bone) links the parent joint with a child joint. The figure illustrates the joint locations and connection relative to the human body.

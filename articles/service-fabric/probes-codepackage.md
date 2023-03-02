@@ -1,23 +1,40 @@
 ---
 title: Azure Service Fabric probes
-description: How to model a liveness probe in Azure Service Fabric by using application and service manifest files.
-
+description: How to model a liveness and readiness probe in Azure Service Fabric by using application and service manifest files.
 ms.topic: conceptual
-author: tugup
-ms.author: tugup
-ms.date: 3/12/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
-# Liveness probe
-Starting with version 7.1, Azure Service Fabric supports a liveness probe mechanism for [containerized][containers-introduction-link] applications. A liveness probe helps to report the liveness of a containerized application, which will restart if it doesn't respond quickly.
-This article provides an overview of how to define a liveness probe by using manifest files.
 
-Before you proceed with this article, become familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
+# Service Fabric Probes
+Before you proceed with this article, become familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link]. This article provides an overview of how to define a liveness and readiness probe by using manifest files.
 
-> [!NOTE]
-> Liveness probe is supported only for containers in NAT networking mode.
+## Liveness probe
+Starting with version 7.1, Azure Service Fabric supports a liveness probe mechanism for containerize and non containerized applications. A liveness probe helps to report the liveness of a code package, which will restart if it doesn't respond quickly.
+
+## Readiness probe
+Starting with 8.2, readiness probe is also supported. A readiness probe is used to decide whether a code package is ready to accept traffic. For example if your container is taking a long time to process request or if the request queue is full, then your code package cannot accept anymore traffic and hence the endpoints to reach the code package will be removed. 
+
+The behavior of the Readiness Probe is:
+1.	The container/code package instance starts
+2.	Endpoints are published immediately
+3.	Readiness Probe starts running
+4.	Readiness Probe eventually reaches failure threshold, and the endpoint is removed making it unavailable
+5.	Instance eventually becomes ready
+6.	Readiness Probe notices the instance is ready and publishes endpoint again
+7.	Requests are routed again and succeed since it was ready to serve requests
+
+> [!NOTE] 
+> For Readiness probe, the code package is not restarted, just the endpoints are unpublished so the replica/partition set in not impacted.
+>
 
 ## Semantics
-You can specify only one liveness probe per container and can control its behavior by using these fields:
+You can specify only one liveness and one readiness probe per code package and can control its behavior by using these fields:
+
+* `type`: Used to specify whether the probe type is Liveness or Readiness. Supported values are **Liveness** or **Readiness**
 
 * `initialDelaySeconds`: The initial delay in seconds to start executing the probe after the container has started. The supported value is **int**. The default is 0 and the minimum is 0.
 
@@ -41,7 +58,7 @@ Additionally, Service Fabric will raise the following probe [health reports][hea
     * The probe fails and **failureCount** < **failureThreshold**. This health report stays until **failureCount** reaches the value set in **failureThreshold** or **successThreshold**.
     * On success after failure, the warning remains but with updated consecutive successes.
 
-## Specifying a liveness probe
+## Specifying a probe
 
 You can specify a probe in the ApplicationManifest.xml file under **ServiceManifestImport**.
 
@@ -55,7 +72,7 @@ The probe can be for any of the following:
 
 For an HTTP probe, Service Fabric will send an HTTP request to the port and path that you specify. A return code that is greater than or equal to 200, and less than 400, indicates success.
 
-Here is an example of how to specify an HTTP probe:
+Here is an example of how to specify an HTTP Liveness probe:
 
 ```xml
   <ServiceManifestImport>

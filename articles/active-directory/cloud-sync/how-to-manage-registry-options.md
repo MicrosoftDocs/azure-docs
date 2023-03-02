@@ -4,14 +4,13 @@ description: This article describes how to manage registry options in the Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.reviewer: chmutali
 ms.author: billmath

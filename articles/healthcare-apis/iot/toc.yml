@@ -1,40 +1,94 @@
 items:
-- name: IoT connector
+- name: MedTech service
   href: index.yml
-
 - name: Overview
   expanded: true
   items:
-    - name: About IoT connector
-      href: iot-connector-overview.md
-      
+  - name: What is the MedTech service?
+    href: overview.md
+  - name: Understand the device message data transformation
+    href: understand-service.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy IoT connector
-      expanded: true
-      items:
-        - name: Using portal
-          href: deploy-iot-connector-in-azure.md
-
+  - name: Get started with the MedTech service
+    href: get-started.md
+  - name: Deploy the MedTech service
+    expanded: true
+    items:    
+    - name: Choose a deployment method
+      href: deploy-new-choose.md
+    - name: ARM template
+      href: deploy-new-arm.md
+    - name: Azure PowerShell or the Azure CLI
+      href: deploy-new-powershell-cli.md
+    - name: Azure Bicep
+      href: deploy-new-bicep-powershell-cli.md
+    - name: Azure portal - Manual
+      href: deploy-new-manual.md
+    - name: Azure portal - Configure
+      href: deploy-new-config.md
+    - name: Azure portal - Deploy
+      href: deploy-new-deploy.md   
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Receive device messages through Azure IoT Hub
+    href: device-messages-through-iot-hub.md 
 - name: How-to guides
   expanded: true
+  items: 
+  - name: Map
+    expanded: false
+    items:
+    - name: Device
+      expanded: false
+      items:
+      - name: Device mappings
+        href: how-to-configure-device-mappings.md
+      - name: CalculatedContent mappings
+        href: how-to-use-calculatedcontent-mappings.md
+      - name: IotJsonPathContentTemplate mappings
+        href: how-to-use-iotjsonpathcontenttemplate-mappings.md
+      - name: Custom functions
+        href: how-to-use-custom-functions.md
+      - name: Create copies of mappings
+        href: how-to-create-mappings-copies.md  
+    - name: Destination
+      expanded: false
+      items:
+      - name: FHIR destination mappings
+        href: how-to-configure-fhir-mappings.md
+  - name: Monitor
+    expanded: false
+    items:
+    - name: Use the monitoring tab
+      href: how-to-use-monitoring-tab.md
+    - name: Configure metrics
+      href: how-to-configure-metrics.md
+    - name: Enable diagnostic settings
+      href: how-to-enable-diagnostic-settings.md
+  - name: Troubleshoot
+    expanded: false
+    items:
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Error logs
+      href: troubleshoot-errors-logs.md   
+- name: Concepts
+  expanded: false
   items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
-    - name: IoT data flow
-      href: iot-data-flow.md
-    - name: Use Device mapping
-      href: how-to-use-device-mapping-iot.md
-    - name: Use FHIR destination mapping
-      href: how-to-use-fhir-mapping-iot.md
-    - name: Export IoT connector Metrics through Diagnostic settings
-      href: iot-metrics-diagnostics-export.md
-
+  - name: The MedTech service and Azure Machine Learning Service
+    href: concepts-machine-learning.md
+  - name: The MedTech service and Microsoft Power BI
+    href: concepts-power-bi.md
+  - name: The MedTech service and Microsoft Teams notifications
+    href: concepts-teams.md
 - name: Resources
-  expanded: true
+  expanded: false
   items:
-    - name: Open-source projects
-      href: iot-git-projects.md
-    - name: Troubleshooting guide
-      href: iot-troubleshoot-guide.md
+  - name: FAQs - The MedTech service
+    href: frequently-asked-questions.md
+  - name: Open-source projects
+    href: git-projects.md     
+           

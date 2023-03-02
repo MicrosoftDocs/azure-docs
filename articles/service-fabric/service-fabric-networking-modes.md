@@ -1,12 +1,14 @@
 ---
 title: Configure networking modes for container services 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
-author: athinanthny
-
-ms.topic: conceptual
-ms.date: 2/23/2018
-ms.author: atsenthi
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service Fabric container networking modes
 
 An Azure Service Fabric cluster for container services uses **nat** networking mode by default. When more than one container service is listening on the same port and nat mode is being used, deployment errors can occur. To support multiple container services listening on the same port, Service Fabric offers **Open** networking mode (versions 5.7 and later). In Open mode, each container service has an internal, dynamically assigned IP address that supports multiple services listening on the same port.  

@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 07/05/2021
+ms.date: 01/11/2023
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
@@ -45,7 +45,7 @@ In this tutorial, you create a pipeline that performs the following operations:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) article for steps to create one.
+* **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **raw**. 
 
 ### Create a data source table in Azure SQL Database
@@ -95,40 +95,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Create a data factory
 
-1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
-
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
-
-2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
-
-     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory.png" alt-text="New data factory page":::
-
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
-
-    *Data factory name "ADFTutorialDataFactory" is not available.*
-3. Select **V2** for the **version**.
-4. Select your Azure **subscription** in which you want to create the data factory.
-5. For the **Resource Group**, do one of the following steps:
-
-   1. Select **Use existing**, and select an existing resource group from the drop-down list.
-   2. Select **Create new**, and enter the name of a resource group.   
-         
-    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
-5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-6. De-select **Enable GIT**.     
-7. Click **Create**.
-8. Once the deployment is complete, click on **Go to resource**
-
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png" alt-text="Screenshot shows a message that your deployment is complete and an option to go to resource.":::
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-
-      :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
-
-10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
-11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
-
-    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Screenshot that shows the Manage button.":::
+Follow the steps in the article [Quickstart: Create a data factory by using the Azure portal](quickstart-create-data-factory.md) to create a data factory if you don't already have one to work with.
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL MI.
@@ -225,17 +192,21 @@ In this step, you create a pipeline, which first checks the number of changed re
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png" alt-text="Lookup Activity - name":::
 4. Switch to the **Settings** in the **Properties** window:
+
    1. Specify the SQL MI dataset name for the **Source Dataset** field.
+
    2. Select the Query option and enter the following into the query box:
     ```sql
     DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
     SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers');  
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
-    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
     ```
+
    3. Enable **First row only**
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png" alt-text="Lookup Activity - settings":::
+
 5. Click the **Preview data** button to ensure a valid output is obtained by the lookup activity
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png" alt-text="Lookup Activity - preview":::
@@ -276,7 +247,7 @@ In this step, you create a pipeline, which first checks the number of changed re
       DECLARE @from_lsn binary(10), @to_lsn binary(10); 
       SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
       SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      SELECT * FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
       ```
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png" alt-text="Copy Activity - source settings":::
@@ -313,7 +284,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
-    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
 3. Navigate to the **Copy** activity in the True case of the **If Condition** activity and click on the **Source** tab. Copy the following into the query:
@@ -323,7 +294,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
+    SELECT * FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Click on the **Sink** tab of the **Copy** activity and click **Open** to edit the dataset properties. Click on the **Parameters** tab and add a new parameter called **triggerStart**    
 
@@ -332,31 +303,38 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
    1. Click on the **Connection** tab of the dataset properties and add dynamic content for both the **Directory** and the **File** sections. 
    2. Enter the following expression in the **Directory** section by clicking on the dynamic content link under the textbox:
     
-    ```sql
-    @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
-    ```
+      ```sql
+      @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
+      ```
    3. Enter the following expression in the **File** section. This will create file names based on the trigger start date and time, suffixed with the csv extension:
     
-    ```sql
-    @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
-    ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="Sink Dataset Configuration-3":::
+      ```sql
+      @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="Sink Dataset Configuration-3":::
 
    4. Navigate back to the **Sink** settings in **Copy** activity by clicking on the **IncrementalCopyPipeline** tab. 
    5. Expand the dataset properties and enter dynamic content in the triggerStart parameter value with the following expression:
-     ```sql
-     @pipeline().parameters.triggerStartTime
-     ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="Sink Dataset Configuration-4":::
+
+      ```sql
+      @pipeline().parameters.triggerStartTime
+      ```
+
+     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="Sink Dataset Configuration-4":::
 
 6. Click Debug to test the pipeline and ensure the folder structure and output file is generated as expected. Download and open the file to verify the contents. 
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-3.png" alt-text="Incremental Copy Debug-3":::
+
 7. Ensure the parameters are being injected into the query by reviewing the Input parameters of the pipeline run.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png" alt-text="Incremental Copy Debug-4":::
+
 8. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish all** button. Wait until you see the **Publishing succeeded** message.
+
 9. Finally, configure a tumbling window trigger to run the pipeline at a regular interval and set start and end time parameters. 
+
    1. Click the **Add trigger** button, and select **New/Edit**
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/add-trigger.png" alt-text="Add New Trigger":::
@@ -366,17 +344,19 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger.png" alt-text="Tumbling Window Trigger":::
 
    3. On the next screen, specify the following values for the start and end parameters respectively.
-    ```sql
-    @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
-    @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
-    ```
 
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="Tumbling Window Trigger-2":::
+      ```sql
+      @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
+      @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="Tumbling Window Trigger-2":::
 
 > [!NOTE]
-> Note the trigger will only run once it has been published. Additionally the expected behavior of tumbling window is to run all historical intervals from the start date until now. More information regarding tumbling window triggers can be found [here](./how-to-create-tumbling-window-trigger.md). 
-  
+> The trigger will only run once it has been published. Additionally the expected behavior of tumbling window is to run all historical intervals from the start date until now. More information regarding tumbling window triggers can be found [here](./how-to-create-tumbling-window-trigger.md). 
+
 10. Using **SQL Server Management Studio** make some additional changes to the customer table by running the following SQL:
+
     ```sql
     insert into customers (customer_id, first_name, last_name, email, city) values (4, 'Farlie', 'Hadigate', 'fhadigate3@zdnet.com', 'Reading');
     insert into customers (customer_id, first_name, last_name, email, city) values (5, 'Anet', 'MacColm', 'amaccolm4@yellowbook.com', 'Portsmouth');
@@ -385,10 +365,11 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     delete from customers where customer_id=5;
     ```
 11. Click the **Publish all** button. Wait until you see the **Publishing succeeded** message.  
+
 12. After a few minutes the pipeline will have triggered and a new file will have been loaded into Azure Storage
 
-
 ### Monitor the incremental copy pipeline
+
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. Hover near the name of the pipeline to access the Rerun action and Consumption report.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png" alt-text="Pipeline runs":::

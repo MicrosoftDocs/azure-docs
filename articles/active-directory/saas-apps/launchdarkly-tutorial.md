@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with LaunchDarkly
@@ -51,6 +51,8 @@ To configure the integration of LaunchDarkly into Azure AD, you need to add Laun
 1. In the **Add from the gallery** section, type **LaunchDarkly** in the search box.
 1. Select **LaunchDarkly** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for LaunchDarkly
 
 Configure and test Azure AD SSO with LaunchDarkly using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in LaunchDarkly.
@@ -83,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
 	> [!NOTE]
-	> The Reply URL value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial. If you are intending to use the application in **IDP** mode you need to leave the **Sign on URL** field blank, otherwise you will not be able to initiate the login from the **IDP**. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial. LaunchDarkly currently supports **IDP** initiated SSO. To use this application in **IDP** mode, you need to leave the **Sign on URL** field blank, otherwise you will not be able to initiate the login from the **IDP**. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -159,4 +161,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure LaunchDarkly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure LaunchDarkly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

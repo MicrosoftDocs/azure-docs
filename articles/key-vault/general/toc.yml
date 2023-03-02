@@ -25,6 +25,9 @@
       href: tutorial-net-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in Python
       href: tutorial-python-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in JavaScript
+      href: tutorial-javascript-virtual-machine.md 
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -132,8 +135,6 @@
       href: azure-policy.md
     - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
       href: troubleshoot-azure-policy-for-key-vault.md
-    - name: Back up Individual Key Vault Objects
-      href: backup.md
   - name: Secure
     items:
     - name: Configure key vault networking settings 
@@ -146,6 +147,8 @@
         href: private-link-service.md
       - name: Diagnose Private Links Configuration Issues
         href: private-link-diagnostics.md
+  - name: Back up and restore objects
+    href: backup.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
@@ -160,6 +163,10 @@
     href: whats-new.md
   - name: Monitoring Key Vault data reference
     href: monitor-key-vault-reference.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
   - name: Client libraries
     href: client-libraries.md
   - name: REST API error codes
@@ -181,7 +188,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -193,8 +200,8 @@
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability
@@ -210,4 +217,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

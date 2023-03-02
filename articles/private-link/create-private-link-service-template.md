@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart: Create a private link service in Azure Private Link'
+title: 'Quickstart: Create a private link service - ARM template'
+titleSuffix: Azure Private Link
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/29/2020
 ms.author: allensu
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickstart
 ---
 
-# Quickstart: Create a private link service by using an ARM template
+# Quickstart: Create a private link service using an ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 

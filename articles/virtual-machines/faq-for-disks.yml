@@ -4,12 +4,10 @@ metadata:
   description: "Frequently asked questions about Azure IaaS Linux VM disks and premium disks (managed and unmanaged)"
   author: roygara
   ms.service: storage
-  ms.topic: conceptual
-  ms.date: 06/15/2017
+  ms.topic: faq
+  ms.date: 10/03/2022
   ms.author: rogarana
   ms.subservice: disks
-  
-    
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 summary: This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -25,17 +23,17 @@ sections:
       - question: |
           If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?
         answer: |
-          A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           Are there any transaction costs for standard managed disks?
         answer: |
-          Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?
         answer: |
-          You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           How is pricing of premium managed disks different from unmanaged disks?
@@ -109,7 +107,7 @@ sections:
       - question: |
           Are unmanaged disks still supported?
         answer: |
-          Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
       - question: |
           Can I colocate unmanaged and managed disks on the same VM?
@@ -124,7 +122,7 @@ sections:
       - question: |
           Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
         answer: |
-          Azure Managed Disks currently supports only locally redundant storage managed disks.
+          Azure Managed Disks currently supports only locally redundant storage and zone-redundant storage managed disks.
 
       - question: |
           Can I shrink or downsize my managed disks?
@@ -163,11 +161,6 @@ sections:
           Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
           
           [Generation 2 images](./generation-2.md) can use GPT partitioning on the OS disk as well as the data disks.
-          
-      - question: |
-          What disk types support snapshots?
-        answer: |
-          Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
       - question: |
           What are Azure disk reservations?
@@ -201,12 +194,64 @@ sections:
         answer: |
           Yes, all disk types support single instance VM SLA.
 
+      - question: |
+          Can I attach a disk to a VM in another region?
+        answer: |
+          No. All managed disks, even shared disks, must be in the same region as the VM they are attaching to.
+
+  - name: Snapshots
+    questions:
+      - question: |
+          Can an encrypted incremental snapshot be copied across regions?
+        answer: |
+          Yes.
+
+      - question: |
+          Can multiple incremental snapshots of the same disk be copied in parallel from one region to another?
+        answer: |
+          No, they must wait for the previous copy to finish.
+      
+      - question: |
+          Can incremental snapshots of multiple disks be copied at the same time?
+        answer: |
+          Currently, yes.
+      
+      - question: |
+          How can I check when an incremental snapshot has finished copying to another region?
+        answer: |
+          You can check the status of the copy by checking the **completionPercent** property. A snapshot is ready when this property is 100.
+      
+      - question: |
+          Can I copy snapshots in an order other than their order of creation to another region?
+        answer: |
+          No, snapshots must be copied to other regions in creation order.
+      
+      - question: |
+          If a source incremental snapshot is deleted before a copy across regions completes, what happens?
+        answer: |
+          The copy will fail.
+      
+      - question: |
+          Are managed snapshots and images encrypted?
+        answer: |
+          Yes. All managed snapshots and images are automatically encrypted. 
+
+      - question: |
+          What disk types support snapshots?
+        answer: |
+          Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
+          
+      - question: |
+          What happens if I have multiple incremental snapshots and delete one of them?
+        answer: |
+          Deleting one of your incremental snapshots does not affect subsequent incremental snapshots. The system merges the data occupied by the first snapshot with the next snapshot under the hood to ensure that the subsequent snapshots are not impacted due to the deletion of the first snapshot.
+          
   - name: Azure shared disks
     questions:
       - question: |
           Is the shared disks feature supported for unmanaged disks or page blobs?
         answer: |
-          No, it is only supported for ultra disks and premium SSD managed disks.
+          No, it is only supported for a subset of managed disk types. For details, see the [conceptual article](disks-shared.md).
 
       - question: |
           What regions support shared disks?
@@ -434,11 +479,6 @@ sections:
           Yes.
 
       - question: |
-          Are managed snapshots and images encrypted?
-        answer: |
-          Yes. All managed snapshots and images are automatically encrypted. 
-
-      - question: |
           Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?
         answer: |
           Yes
@@ -454,6 +494,11 @@ sections:
           If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks? 
         answer: |
           Yes.
+      
+      - question: |
+          Can I deploy a VM with an unmanaged disk in the Azure portal?
+        answer: |
+          Not all OS images support deploying with an unmanaged disk in the Azure portal. If your chosen image doesn't support this method of deployment, we recommend that you use managed disks for new workloads and [convert](windows/convert-unmanaged-to-managed-disks.md) your existing disk to a managed disk. If you’re unable to use managed disks, you can deploy a VM using unmanaged disks with either the Azure PowerShell module or the Azure CLI.
 
       - question: |
           Can I attach both premium and standard data disks to a size series that doesn't support Premium SSD disks, such as D, Dv2, G, or F series?
@@ -468,7 +513,7 @@ sections:
       - question: |
           Are there transaction costs to use Premium SSD disks?
         answer: |
-          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           What are the limits for IOPS and throughput that I can get from the disk cache?
@@ -485,14 +530,14 @@ sections:
         answer: |
           There is no downside to the use of TRIM on Azure disks on either premium or standard disks.
 
-  - name: "New disk sizes: Managed and unmanaged"
+  - name: "New disk sizes"
     questions:
       - question: |
           What regions support bursting capability for applicable premium SSD disk size?
         answer: |
           Credit-based bursting is currently supported in all regions in Azure Public Cloud, sovereign clouds are not currently supported.
           
-          On-demand bursting is only available in West Central US.
+          On-demand bursting is available in all public Azure regions.
           
       - question: |
           Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?
@@ -629,4 +674,4 @@ sections:
 
           If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [Microsoft Q&A question page for Azure Storage](/answers/products/azure?product=storage).
 
-          To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
+          To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84).

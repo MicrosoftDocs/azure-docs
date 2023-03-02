@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop remote app streaming? - Azure
 description: An overview of Azure Virtual Desktop remote app streaming.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
 ---
@@ -46,7 +46,7 @@ You can set up your deployment manually by following these tutorials:
 
 If you'd prefer an automatic process, you can use the getting started feature to set up your deployment for you. For more information, check out these articles:
 
-- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions in [For subscriptions with Azure AD DS or AD DS](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds). This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
+- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions for existing Azure AD DS or AD DS. This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
 - [Troubleshoot the getting started feature](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Customize and manage Azure Virtual Desktop
@@ -58,11 +58,12 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 - [How to use Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 - [Using Windows 10 virtual machines with Intune](/mem/intune/fundamentals/windows-10-virtual-machines)
 - [How to deploy an app using MSIX app attach](msix-app-attach.md)
-- [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Use Azure Virtual Desktop Insights to monitor your deployment](../insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up a business continuity and disaster recovery plan](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Scale session hosts using Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up Universal Print](/universal-print/fundamentals/universal-print-getting-started)
 - [Set up the Start VM on Connect feature](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Tag Azure Virtual Desktop resources to manage costs](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Get to know your Azure Virtual Desktop deployment
 
@@ -71,7 +72,7 @@ Read the following articles to understand concepts essential to creating and man
 - [Understanding licensing and per-user access pricing](licensing.md)
 - [Security guidelines for cross-organizational apps](security.md)
 - [Azure Virtual Desktop security best practices](../security-guide.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
-- [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Azure Virtual Desktop Insights glossary](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Estimate total deployment costs](total-costs.md)
 - [Estimate per-user app streaming costs](streaming-costs.md)

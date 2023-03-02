@@ -2,9 +2,9 @@
 title: Audit and manage Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
-author: aashishb
-ms.author: aashishb 
-ms.date: 05/10/2021
+author: jhirono
+ms.author: jhirono 
+ms.date: 10/20/2022
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -33,8 +33,10 @@ The table below includes a selection of policies you can assign with Azure Machi
 | **Private endpoint** | Configure the Azure Virtual Network subnet where the private endpoint should be created. |
 | **Private DNS zone** | Configure the private DNS zone to use for the private link. |
 | **User-assigned managed identity** | Audit or enforce whether workspaces use a user-assigned managed identity. |
+| **Disable public network access** | Audit or enforce whether workspaces disable access from the public internet. |
 | **Disable local authentication** | Audit or enforce whether Azure Machine Learning compute resources should have local authentication methods disabled. |
 | **Modify/disable local authentication** | Configure compute resources to disable local authentication methods. |
+| **Compute cluster and instance is behind virtual network** | Audit whether compute resources are behind a virtual network. |
 
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
@@ -52,7 +54,7 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 ## Conditional access policies
 
-To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
+To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md). To use Conditional Access for Azure Machine Learning workspaces, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Enable self-service using landing zones
 
@@ -96,11 +98,19 @@ To configure this policy, set the effect parameter to __DeployIfNotExists__. Set
 
 ### Workspace should use user-assigned managed identity
 
-Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md).
+Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
 
 To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
 
 If the policy is set to __deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
+
+### Workspace should disable public network access
+
+Controls whether a workspace should disable network access from the public internet.
+
+To configure this policy, set thee effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace that allows network access from the public internet.
 
 ### Disable local authentication
 
@@ -116,11 +126,17 @@ Modifies any Azure Machine Learning compute cluster or instance creation request
 
 To configure this policy, set the effect parameter to __Modify__ or __Disabled__. If set __Modify__, any creation of a compute cluster or instance within the scope where the policy applies will automatically have local authentication disabled.
 
+### Compute cluster and instance is behind virtual network
+
+Controls auditing of compute cluster and instance resources behind a virtual network.
+
+To configure this policy, set the effect parameter to __audit__ or __disabled__. If set to __audit__, you can create a compute that is not configured behind a virtual network and a warning event is created in the activity log.
+
 ## Next steps
 
 * [Azure Policy documentation](../governance/policy/overview.md)
 * [Built-in policies for Azure Machine Learning](policy-reference.md)
-* [Working with security policies with Azure Security Center](../security-center/tutorial-security-policy.md)
+* [Working with security policies with Microsoft Defender for Cloud](../security-center/tutorial-security-policy.md)
 * The [Cloud Adoption Framework scenario for data management and analytics](/azure/cloud-adoption-framework/scenarios/data-management/) outlines considerations in running data and analytics workloads in the cloud.
 * [Cloud Adoption Framework data landing zones](https://github.com/Azure/data-landing-zone) provide a reference implementation for managing data and analytics workloads in Azure.
 * [Learn how to use policy to integrate Azure Private Link with Azure Private DNS zones](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale), to manage private link configuration for the workspace and dependent resources.

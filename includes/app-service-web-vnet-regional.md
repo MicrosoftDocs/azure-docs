@@ -1,9 +1,10 @@
 ---
 author: ccompy
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
+ms.subservice: web-apps
 ---
 Using regional VNet Integration enables your app to access:
 
@@ -46,7 +47,8 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
-* Your app can't resolve addresses in Azure DNS Private Zones without configuration changes.
+* Your app can't resolve addresses in Azure DNS private zones without configuration changes.
+* VNet Integration isn't supported for Docker Compose scenarios in App Service.
 
 VNet Integration depends on a dedicated subnet. When you provision a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. When you scale your app to four instances, then four addresses are used. 
 

@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: redis-cache
-author: curib
+author: flang-msft
 ms.service: cache
 ms.topic: "include"
 ms.date: 10/06/2020
-ms.author: cauribeg
+ms.author: franlanglois
 ms.custom: "include file"
 ---
 
@@ -34,11 +34,11 @@ ms.custom: "include file"
 
 1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
-1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port. You can also select which Redis version you would like use, either 4 or (PREVIEW) 6.
+1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port. You can also select which Redis version you would like use, either 4 or 6.
 
-    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis version 4 or 6.":::
+    :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Redis version 4 or 6.":::
 
-1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. You can also select which Redis version you would like use, either 4 or (PREVIEW) 6.
+1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. You can also select which Redis version you would like use, either 4 or 6.
 
 1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
 
@@ -49,3 +49,5 @@ ms.custom: "include file"
 1. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+
+<!-- Comment to dirty file. -->

@@ -56,7 +56,9 @@ The properties of an access token are:
 * Expiration.
 * Scopes.
 
-An access token is always valid for 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive.
+An access token is valid for a period of time between 1 and 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive.
+To generate a token with a custom validity, specify the desired validity period when generating the token. If no custom validity is specified, the token will be valid for 24 hours. 
+We recommend using short lifetime tokens for one-off meetings and longer lifetime tokens for agents using the application for longer periods of time.
 
 An identity needs a way to request a new access token from a server-side service. The *scope* parameter defines a nonempty set of primitives that can be used. Azure Communication Services supports the following scopes for access tokens.
 
@@ -72,7 +74,7 @@ If you want to remove a user's ability to access specific functionality, revoke 
 
 In Azure Communication Services, a rotation of access keys revokes all active access tokens that were created by using a former access key. All identities lose access to Azure Communication Services, and they must issue new access tokens.
 
-We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or a managed identity. For security reasons, sharing access keys with the client's application isn't recommended.
+We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or Azure AD authentication. Sharing secrets with the client's application isn't recommended for security reasons.
 
 The client application should use a trusted service endpoint that can authenticate your clients. The endpoint should issue access tokens on their behalf. For more information, see [Client and server architecture](./client-and-server-architecture.md).
 

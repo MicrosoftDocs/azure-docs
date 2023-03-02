@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-hub
- author: robinsh
+ author: kgremban
  ms.service: iot-hub
  ms.topic: include
  ms.date: 02/14/2019
- ms.author: robinsh
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -21,7 +21,5 @@ To continue to get started with Azure IoT Hub and to explore all extended IoT sc
 - [Use Power BI to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
 - [Use a web app to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
-
-- [Forecast weather by using the sensor data from your IoT hub in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 
 - [Use ​​Logic ​​Apps for remote monitoring and notifications](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

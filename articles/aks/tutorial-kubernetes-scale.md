@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
-services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 
@@ -171,6 +170,9 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to three. You can use `kubectl get pods` again to see the unneeded pods being removed.
 
+> [!NOTE]
+> For additional examples on using the horizontal pod autoscaler, see [HorizontalPodAutoscaler Walkthrough][kubernetes-hpa-walkthrough].
+
 ## Manually scale AKS nodes
 
 If you created your Kubernetes cluster using the commands in the previous tutorial, it has two nodes. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
@@ -257,6 +259,7 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[kubernetes-hpa-walkthrough]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 [metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 

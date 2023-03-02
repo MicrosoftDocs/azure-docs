@@ -4,6 +4,7 @@ description: Learn how to handle human interaction and timeouts in the Durable F
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, python
 ---
 
 # Human interaction in Durable Functions - Phone verification sample
@@ -49,11 +50,11 @@ This article walks through the following functions in the sample app:
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/function.json":::
 
 Here is the code that implements the function:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/index.js":::
 
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
@@ -94,17 +95,17 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
+> You must first install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package for Functions to run the sample code. Don't also install the main [Twilio nuget package](https://www.nuget.org/packages/Twilio/) because this can cause versioning problems that result in build errors. 
 
 # [JavaScript](#tab/javascript)
 
 The *function.json* is defined as follows:
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/function.json":::
 
 And here is the code that generates the four-digit challenge code and sends the SMS message:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/index.js":::
 
 # [Python](#tab/python)
 

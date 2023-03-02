@@ -9,17 +9,21 @@
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
+
+> [!TIP]
+> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [What is Azure IoT device and application development?](../articles/iot-develop/about-iot-develop.md#selecting-a-service).
 
 ## Prerequisites
 
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
-- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
-- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+- Ubuntu 20.04 LTS
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 Install the following prerequisites on your development machine:
 
@@ -32,14 +36,14 @@ Install the following prerequisites on your development machine:
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a simulated device
-In this section, you configure your local environment, install the Azure IoT C# samples, and run a sample that creates a simulated temperature controller.
+## Run the device sample
+In this section, you configure your local environment, install the Azure IoT C# SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment
 
 1. Open a console such as Windows CMD, PowerShell, or Bash.
 
-1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
+1. Set the following environment variables, using the appropriate commands for your console. The device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **CMD (Windows)**
 
@@ -76,10 +80,10 @@ In this section, you configure your local environment, install the Azure IoT C# 
 
 ### Install the SDK and samples
 
-1. Clone the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) to your local machine.
+1. Clone the [Microsoft Azure IoT SDK for C# (.NET)](https://github.com/Azure/azure-iot-sdk-csharp) to your local machine.
 
     ```console
-    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
 1. Navigate to the sample directory.
@@ -87,13 +91,13 @@ In this section, you configure your local environment, install the Azure IoT C# 
     **Windows**
 
     ```console
-    cd azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController
+    cd azure-iot-sdk-csharp\iothub\device\samples\solutions\PnpDeviceSamples\TemperatureController
     ```
 
     **Linux or Raspberry Pi OS**
 
     ```console
-    cd azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController
+    cd azure-iot-sdk-csharp/iothub/device/samples/solutions/PnpDeviceSamples/TemperatureController
     ```
 
 1. Install the Azure IoT C# SDK and necessary dependencies:
@@ -106,13 +110,13 @@ In this section, you configure your local environment, install the Azure IoT C# 
 
 ### Run the code
 
-1. In your console, run the code sample. The sample creates a simulated temperature controller with thermostat sensors.
+1. In your console, run the code sample. The sample creates a temperature controller with thermostat sensors.
 
     ```console
     dotnet run
     ```
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console:
+    After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console:
 
     ```output
     [10/09/2021 00:29:18]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]

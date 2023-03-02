@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/19/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * CrossKnowledge Learning Suite supports **SP and IDP** initiated SSO
-* Once you configure CrossKnowledge Learning Suite you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure CrossKnowledge Learning Suite you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding CrossKnowledge Learning Suite from the gallery
 
@@ -47,6 +47,8 @@ To configure the integration of CrossKnowledge Learning Suite into Azure AD, you
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **CrossKnowledge Learning Suite** in the search box.
 1. Select **CrossKnowledge Learning Suite** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD single sign-on for CrossKnowledge Learning Suite
 
@@ -149,6 +151,6 @@ When you click the CrossKnowledge Learning Suite tile in the Access Panel, you s
 
 - [Try CrossKnowledge Learning Suite with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect CrossKnowledge Learning Suite with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

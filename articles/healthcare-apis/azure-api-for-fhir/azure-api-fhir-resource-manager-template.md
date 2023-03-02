@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
 description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.author: zxue
-ms.date: 08/05/2021
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
+ms.author: kesheth
+ms.date: 06/03/2022
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
@@ -52,7 +52,7 @@ The template defines one Azure resource:
 
 <!--
 
-Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
@@ -76,7 +76,7 @@ On the **Deploy Azure API for FHIR** page:
 
 4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
-   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
+   [![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png)](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. Select **Review + create**.
 
@@ -223,10 +223,28 @@ For a step-by-step tutorial that guides you through the process of creating an A
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
 
->[!div class="nextstepaction"]
->[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
+
+>[!div class="nextstepaction"]
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

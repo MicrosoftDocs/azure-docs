@@ -2,7 +2,7 @@
 title: Use private endpoints to integrate Azure Functions with a virtual network
 description: This tutorial shows you how to connect a function to an Azure virtual network and lock it down by using private endpoints.
 ms.topic: article
-ms.date: 2/22/2021
+ms.date: 2/10/2023
 
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---
@@ -40,6 +40,7 @@ You'll create a .NET function app in the Premium plan because this tutorial uses
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
+    | **Version** | 6 | This tutorial uses .NET 6.0 running [in the same process as the Functions host](./functions-dotnet-class-library.md). |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
 
 1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings.
@@ -305,13 +306,15 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
+1. Ensure that the **Route All** configuration setting is set to **Enabled**.
+
+    :::image type="content" source="./media/functions-create-vnet/10-enable-route-all.png" alt-text="Screenshot of how to enable route all functionality.":::
+
 ## Configure your function app settings
 
 1. In your function app, in the menu on the left, select **Configuration**.
 
 1. To use your function app with virtual networks, update the app settings shown in the following table. To add or edit a setting, select **+ New application setting** or the **Edit** icon in the rightmost column of the app settings table. When you finish, select **Save**.
-
-    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot of how to configure function app settings for private endpoints.":::
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -320,7 +323,6 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | **WEBSITE_CONTENTSHARE** | files | The name of the file share you created in the storage account. Use this setting with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
     | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create this app setting for the connection string of your Service Bus. This storage connection string is from the [Get a Service Bus connection string](#get-a-service-bus-connection-string) section.|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when your storage account is restricted to a virtual network. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. When your app integrates with a virtual network, it uses the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. |
 
 1. In the **Configuration** view, select the **Function runtime settings** tab.
 
@@ -329,6 +331,9 @@ To use your function app with virtual networks, you need to join it to a subnet.
     :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of how to enable runtime-driven scaling for Azure Functions.":::
 
 ## Deploy a Service Bus trigger and HTTP trigger
+
+> [!NOTE]
+> Enabling Private Endpoints on a Function App also makes the Source Control Manager (SCM) site publicly inaccessible. The following instructions give deployment directions using the Deployment Center within the Function App. Alternatively, use [zip deploy](functions-deployment-technologies.md#zip-deploy) or [self-hosted](/azure/devops/pipelines/agents/docker) agents that are deployed into a subnet on the virtual network.
 
 1. In GitHub, go to the following sample repository. It contains a function app and two functions, an HTTP trigger, and a Service Bus queue trigger.
 
@@ -347,7 +352,7 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | **Repository** | functions-vnet-tutorial | The repository forked from https://github.com/Azure-Samples/functions-vnet-tutorial. |
     | **Branch** | main | The main branch of the repository you created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
-    | **Version** | .NET Core 3.1 | The runtime version. |
+    | **Version** | v4.0 | The runtime version. |
 
 1. Select **Save**. 
 

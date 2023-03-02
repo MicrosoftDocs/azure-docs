@@ -2,8 +2,11 @@
 title: Add a managed identity to a Service Fabric managed cluster node type
 description: This article shows how to add a managed identity to a Service Fabric managed cluster node type
 ms.topic: how-to
-ms.date: 5/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Add a managed identity to a Service Fabric managed cluster node type
@@ -18,6 +21,9 @@ For an example of a Service Fabric managed cluster deployment that makes use of 
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
+
+> [!NOTE]
+> See [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md) for application configuration.
 
 ## Prerequisites
 
@@ -91,7 +97,7 @@ This role assignment can be defined in the resources section template using the 
   ],
   "properties": {
     "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
-    "principalId": "00000000-0000-0000-0000-000000000000"
+    "principalId": "<Service Fabric Resource Provider ID>"
   }
 }
 ```
@@ -101,7 +107,7 @@ This role assignment can be defined in the resources section template using the 
 or created via PowerShell using the principal ID and role definition name:
 
 ```powershell
-New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -PrincipalId "<Service Fabric Resource Provider ID>" -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 ### Deploy managed identity and role assignment.

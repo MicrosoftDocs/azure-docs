@@ -4,7 +4,9 @@ description: Get an overview of tracking customer usage for Azure Applications o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/04/2021
+author: macerru
+ms.author: macerr
+ms.date: 07/07/2022
 ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
@@ -59,7 +61,7 @@ Unlike the tracking IDs that Partner Center creates on your behalf for Azure app
 [guid]::NewGuid()
 ```
 
-You should create a unique GUID for each product and distribution channel. You can use a single GUID for a product's multiple distribution channels if you don't want reporting to be split. Reporting occurs by Microsoft Partner Network ID and GUID.
+You should create a unique GUID for each product and distribution channel. You can use a single GUID for a product's multiple distribution channels if you don't want reporting to be split. Reporting occurs by PartnerID and GUID.
 
 ### Register GUIDs
 
@@ -256,9 +258,6 @@ Learn about the support options in the commercial marketplace at [Support for th
 View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](/partner-center/technical-benefits).
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
-
-## Report
-Reporting for Azure usage tracked via customer usage attribution is not available today for ISV partners. Adding reporting to the Commercial Marketplace Program in Partner Center to cover customer usage attribution is targeted for the second half of 2022.
 
 ## FAQ
 

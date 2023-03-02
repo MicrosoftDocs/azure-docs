@@ -1,9 +1,9 @@
 ---
 title: Azure Automation Hybrid Runbook Worker overview
-description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
+description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 11/09/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,26 +12,27 @@ ms.custom: devx-track-azurepowershell
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and on non-Azure machines through the Arc-enabled servers Connected Machine agent. Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
-
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
+ 
 | Platform | Description |
 |---|---|
-|Agent based (V1)  |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) is completed.|
-|Extension based (V2)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. This is the recommended platform.|
+|**Extension-based (V2)**  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. **This is the recommended platform**.|
+|**Agent-based (V1)** |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) is completed.|
 
-:::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="Hybrid worker group showing platform field":::
+:::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of hybrid worker group showing platform field." lightbox="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-expanded.png":::
 
-Here's a list of benefits available with the extension-based Hybrid Runbook Worker role: 
+For Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers is the same. The purpose of the extension-based approach is to simplify the installation and management of the Hybrid Runbook Worker role and remove the complexity working with the agent-based version. The new extension-based installation doesn't affect the installation or management of an agent-based Hybrid Runbook Worker role. Both Hybrid Runbook Worker types can co-exist on the same machine.
 
-| Benefit | Description |
-|---|---|
-|Seamless onboarding| Removes dependency on a Log Analytics solution for onboarding Hybrid Runbook Workers, which is a multi-step process, time consuming, and error-prone. |
-|Unified onboarding experience| Installation is managed using the same supported methods for Azure and non-Azure machines. |
-|Ease of Manageability| Native integration with ARM identity for Hybrid worker and provides the flexibility for governance at scale through policies and templates. |
-|Azure AD based authentication| Uses VM system assigned-identities provided by Azure AD. This centralizes control and management of identities and resource credentials.|
+The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type, and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
 
-For Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers is the same. The purpose of the extension-based approach is to simplify the installation and management of the Hybrid Runbook Worker role and remove the complexity working with the agent-based version. The new extension-based installation doesn't affect the installation or management of an agent-based Hybrid Runbook Worker role. Both types can co-exists on the same machine.
-The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type, and doesn't include the system Hybrid Runbook Worker required for the Update Management feature. PowerShell support for installing the extension-based Hybrid Runbook Worker is not supported at this time.
+## Benefits of extension-based User Hybrid Workers
+The extension-based approach greatly simplifies the installation and management of the User Hybrid Runbook Worker, removing the complexity of working with the agent-based approach. Here are some key benefits:
+- **Seamless onboarding** – The Agent-based approach for onboarding Hybrid Runbook worker is dependent on the Log Analytics agent, which is a multi-step, time-consuming, and error-prone process. The extension-based approach is no longer dependent on the Log Analytics agent. 
+- **Ease of Manageability** – It offers native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
+- **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials.
+- **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines.
+- **Multiple onboarding channels** – You can choose to onboard and manage extension-based workers through the Azure portal, PowerShell cmdlets, Bicep, ARM templates, REST API and Azure CLI. You can also install the extension on an existing Azure VM or Arc-enabled server within the Azure portal experience of that machine through the Extensions blade.
+- **Default Automatic upgrade** – It offers Automatic upgrade of minor versions by default, significantly reducing the manageability of staying updated on the latest version. We recommend enabling Automatic upgrades to take advantage of any security or feature updates without the manual overhead. You can also opt out of automatic upgrades at any time. Any major version upgrades are currently not supported and should be managed manually.
 
 ## Runbook Worker types
 
@@ -42,13 +43,13 @@ There are two types of Runbook Workers - system and user. The following table de
 |**System** |Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines.<br> This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group. |
 |**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups. |
 
-Agent based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md). The workspace isn't only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
+Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker.
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](automation-windows-hrw-install.md) and for Linux, see [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md).
 
 ## Runbook Worker limits
 
-The following table shows the maximum number of system and user hybrid runbook workers in an Automation account. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
+The following table shows the maximum number of system and user Hybrid Runbook Workers in an Automation account. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
 
 |Worker type| Maximum number supported per Automation Account.|
 |---|---|
@@ -57,9 +58,13 @@ The following table shows the maximum number of system and user hybrid runbook w
 
 ## How does it work?
 
-![Hybrid Runbook Worker overview](media/automation-hybrid-runbook-worker/automation.png)
+Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account. 
 
-Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account; you can't register the hybrid worker across multiple Automation accounts. A hybrid worker can only listen for jobs from a single Automation account. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
+:::image type="content" source="./media/automation-hybrid-runbook-worker/user-hybrid-runbook-worker.png" alt-text="User Hybrid Runbook Worker technical diagram":::
+
+For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-runbook-worker.png" alt-text="System Hybrid Runbook Worker technical diagram":::
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid worker works on a polling mechanism (every 30 secs) and follows an order of first-come, first-serve. Depending on when a job was pushed, whichever hybrid worker pings the Automation service picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds, then there's a high possibility another hybrid worker in the Hybrid Runbook Worker group picked up the job.
 
@@ -67,15 +72,27 @@ A Hybrid Runbook Worker doesn't have many of the [Azure sandbox](automation-runb
 
 To control the distribution of runbooks on Hybrid Runbook Workers and when or how the jobs are triggered, you can register the hybrid worker against different Hybrid Runbook Worker groups within your Automation account. Target the jobs against the specific group or groups in order to support your execution arrangement.
 
+## Common Scenarios for User Hybrid Runbook Workers
+
+- To execute Azure Automation runbooks for in-guest VM management directly on an existing Azure virtual machine (VM) and off-Azure server registered as Azure Arc-enabled server or Azure Arc-enabled VMware VM (preview). Azure Arc-enabled servers can be Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud providers. 
+- To overcome the Azure Automation sandbox limitation - the common scenarios include executing long-running operations beyond three-hour limit for cloud jobs, performing resource-intensive automation operations, interacting with local services running on-premises or in hybrid environment, run scripts that require elevated permissions.
+- To overcome organization restrictions to keep data in Azure for governance and security reasons - as you cannot execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a User Hybrid Runbook Worker.
+- To automate operations on multiple —Off-Azure resources running on-premises or multicloud environments. You can onboard one of those machines as a User Hybrid Runbook Worker and target automation on the remaining machines in the local environment.
+- To access other services privately from the Azure Virtual Network (VNet) without opening an outbound internet connection, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
+
+
 ## Hybrid Runbook Worker installation
 
 The process to install a user Hybrid Runbook Worker depends on the operating system. The table below defines the deployment types.
 
 |Operating System  |Deployment Types  |
 |---------|---------|
-|Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment) |
+|Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment). |
 |Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
-|Either  | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method. |
+|Either  | For user Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method. |
+
+>[!NOTE]
+> Hybrid Runbook Worker is currently not supported on VM Scale Sets.
 
 ## <a name="network-planning"></a>Network planning
 

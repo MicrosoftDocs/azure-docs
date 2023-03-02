@@ -4,7 +4,7 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2021
+ms.date: 07/14/2022
 
 ---
 
@@ -47,8 +47,8 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 7234 format. |
-| x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
-| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](manage-access.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. The Time Generated value cannot be older than 2 days before received time or more than a day in the future. In such case, the time that the message is ingested will be used.|
 | | |
 
 ## Authorization
@@ -163,6 +163,9 @@ If you then submit the following entry, before the record type is created, Azure
 The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:
 
 - tenant
+- TimeGenerated
+- RawData
+
 
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:
@@ -171,7 +174,7 @@ The data posted to the Azure Monitor Data collection API is subject to certain c
 * Maximum of 32 KB for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum of 50 fields for a given type. This is a practical limit from a usability and search experience perspective.  
 * Tables in Log Analytics workspaces support only up to 500 columns (referred to as fields in this article). 
-* Maximum of 50 characters for column names.
+* Maximum of 45 characters for column names.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation finished successfully.
@@ -201,18 +204,19 @@ The complete set of status codes that the service might return is listed in the 
 To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
-In the next sections, you'll find samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
+In this section are samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
 
 For each sample, set the variables for the authorization header by doing the following:
 
 1. In the Azure portal, locate your Log Analytics workspace.
-2. Select **Agents management**.
+2. Select **Agents**.
 2. To the right of **Workspace ID**, select the **Copy** icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the **Copy** icon, and then paste the ID as the value of the **Shared Key** variable.
 
 Alternatively, you can change the variables for the log type and JSON data.
 
-### PowerShell sample
+### [PowerShell](#tab/powershell)
+
 ```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
@@ -223,7 +227,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
+# Optional name of a field that includes the timestamp for the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -260,7 +264,6 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
     return $authorization
 }
 
-
 # Create the function to create and post the request
 Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
@@ -295,7 +298,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### C# sample
+### [C#](#tab/c-sharp)
 ```csharp
 using System;
 using System.Net;
@@ -363,6 +366,7 @@ namespace OIAPIExample
 				client.DefaultRequestHeaders.Add("x-ms-date", date);
 				client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
 
+				// If charset=utf-8 is part of the content-type header, the API call may return forbidden.
 				System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
 				httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 				Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
@@ -381,90 +385,14 @@ namespace OIAPIExample
 
 ```
 
-### Python 2 sample
-```python
-import json
-import requests
-import datetime
-import hashlib
-import hmac
-import base64
+### [Python](#tab/python)
 
-# Update the customer ID to your Log Analytics workspace ID
-customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+>[!NOTE]
+> If using Python 2, you may need to change the line:
+> `bytes_to_hash = bytes(string_to_hash, encoding="utf-8")`
+> to
+> `bytes_to_hash = bytes(string_to_hash).encode("utf-8")`
 
-# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
-shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# The log type is the name of the event that is being submitted
-log_type = 'WebMonitorTest'
-
-# An example JSON web monitor object
-json_data = [{
-   "slot_ID": 12345,
-    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
-    "availability_Value": 100,
-    "performance_Value": 6.954,
-    "measurement_Name": "last_one_hour",
-    "duration": 3600,
-    "warning_Threshold": 0,
-    "critical_Threshold": 0,
-    "IsActive": "true"
-},
-{   
-    "slot_ID": 67890,
-    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
-    "availability_Value": 100,
-    "performance_Value": 3.379,
-    "measurement_Name": "last_one_hour",
-    "duration": 3600,
-    "warning_Threshold": 0,
-    "critical_Threshold": 0,
-    "IsActive": "false"
-}]
-body = json.dumps(json_data)
-
-#####################
-######Functions######  
-#####################
-
-# Build the API signature
-def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
-    x_headers = 'x-ms-date:' + date
-    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
-    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
-    decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
-    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
-    return authorization
-
-# Build and send a request to the POST API
-def post_data(customer_id, shared_key, body, log_type):
-    method = 'POST'
-    content_type = 'application/json'
-    resource = '/api/logs'
-    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
-    content_length = len(body)
-    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
-    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
-
-    headers = {
-        'content-type': content_type,
-        'Authorization': signature,
-        'Log-Type': log_type,
-        'x-ms-date': rfc1123date
-    }
-
-    response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code >= 200 and response.status_code <= 299):
-        print 'Accepted'
-    else:
-        print "Response code: {}".format(response.status_code)
-
-post_data(customer_id, shared_key, body, log_type)
-```
-
-### Python 3 sample
 ```python
 import json
 import requests
@@ -548,7 +476,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 
-### Java sample
+### [Java](#tab/java)
 
 ```java
 
@@ -640,6 +568,7 @@ public class ApiExample {
 
 ```
 
+---
 
 ## Alternatives and considerations
 
@@ -648,7 +577,7 @@ Although the Data Collector API should cover most of your needs as you collect f
 | Alternative | Description | Best suited for |
 |---|---|---|
 | [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, usually instrumented through an SDK within your application, gives you the ability to send custom data through Custom Events. | <ul><li> Data that's generated within your application, but not picked up by the SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that's most often correlated with other application data in Application Insights. </li></ul> |
-| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Security Center, Container insights and virtual machines, and so on). </li></ul> |
+| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Defender for Cloud, Container insights and virtual machines, and so on). </li></ul> |
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
 

@@ -5,7 +5,7 @@ tags: azure-service-management
 
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
-ms.date: 06/23/2021
+ms.date: 12/06/2022
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
@@ -44,4 +44,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).
+Additional Azure PowerShell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).

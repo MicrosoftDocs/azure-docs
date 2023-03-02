@@ -1,20 +1,18 @@
 ---
 title: 'Quickstart: Connect using Azure CLI - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several ways to connect with Azure CLI with Azure Database for MySQL - Flexible Server.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli
+ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal 
+ms.author: shaithal 
+ms.custom: mvc, mode-api
 ms.date: 03/01/2021
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for MySQL - Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using Azure CLI with ```az mysql flexible-server connect``` and execute single query or sql file with ```az mysql flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
 
@@ -24,10 +22,10 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL Flexi
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
-- Login using Azure CLI with ```az login``` command 
+- Log in using Azure CLI with ```az login``` command
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location etc.
 
-## Create an MySQL Flexible Server
+## Create a MySQL Flexible Server
 
 The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
@@ -35,7 +33,7 @@ The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](h
 az mysql flexible-server create --public-access <your-ip-address>
 ```
 
-You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
 
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.
@@ -45,7 +43,7 @@ az mysql flexible-server db create -d newdatabase
 ```
 
 ## View all the arguments
-You can view all the arguments for this command with ```--help``` argument. 
+You can view all the arguments for this command with ```--help``` argument.
 
 ```azurecli
 az mysql flexible-server connect --help
@@ -72,9 +70,9 @@ Successfully connected to mysqldemoserver1.
 ```
 If the connection failed, try these solutions:
 - Check if port 3306 is open on your client machine.
-- if your server administrator user name and password are correct
-- if you have configured firewall rule for your client machine
-- if you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
+- If your server administrator user name and password are correct
+- If you have configured firewall rule for your client machine
+- If you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run multiple queries using interactive mode
 You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command
@@ -159,7 +157,7 @@ You can execute a sql file with the command using ```--file-path``` argument, ``
 az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
 ```
 
-**Example:** 
+**Example:**
 ```azurecli
 az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```
@@ -178,4 +176,3 @@ Closed the connection to mysqldemoserver.
 > [!div class="nextstepaction"]
 * [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md)
 * [Manage the server](./how-to-manage-server-cli.md)
-

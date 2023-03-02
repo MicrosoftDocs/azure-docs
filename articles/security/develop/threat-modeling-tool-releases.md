@@ -9,11 +9,10 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
@@ -35,6 +34,8 @@ The Microsoft Threat Modeling Tool is currently released as a free [click-to-dow
 
 ## Release Notes
 
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.21108.2](threat-modeling-tool-releases-73211082.md) - November 8 2022
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.20927.9](threat-modeling-tool-releases-73209279.md) - September 27 2022
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00729.1](threat-modeling-tool-releases-73007291.md) - July 29 2020
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00714.2](threat-modeling-tool-releases-73007142.md) - July 14 2020
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00316.1](threat-modeling-tool-releases-73003161.md) - March 22 2020

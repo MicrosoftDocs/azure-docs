@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: IoT connector
-summary: IoT connector documentation page for Azure Healthcare APIs (preview). 
+title: MedTech service documentation
+summary: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service.
 
 metadata:
-  title: Azure Healthcare APIs IoT connector
-  description: Data Transformation documentation section for Azure Healthcare APIs
+  title: Azure Health Data Services MedTech service
+  description: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
@@ -13,35 +13,75 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 10/12/2021
+  ms.date: 02/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Deploy IoT connector
+  - title: About the MedTech service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
-          - text: Deploy IoT connector using portal
-            url: deploy-iot-connector-in-azure.md
-            
-  - title: Using IoT connector
+          - text: What is the MedTech service?
+            url: overview.md
+          - text: Understand the device message data transformation
+            url: understand-service.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with the MedTech service
+            url: get-started.md
+           
+  - title: Deploy the MedTech service
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: IoT connector data flow
-            url: iot-data-flow.md
-          - text: Device mapping
-            url: how-to-use-device-mapping-iot.md
-          - text: FHIR destination mapping
-            url: how-to-use-fhir-mapping-iot.md
-          - text: IoMT Connector Data Mapper tool
-            url: https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper
-                   
-  - title: Azure IoT Hub
+          - text: Choose a deployment method
+            url: deploy-new-choose.md
+      - linkListType: quickstart
+        links:     
+          - text: ARM template
+            url: deploy-new-arm.md
+          - text: Azure PowerShell or the Azure CLI
+            url: deploy-new-powershell-cli.md
+          - text: Azure Bicep
+            url: deploy-new-bicep-powershell-cli.md
+          - text: Azure portal
+            url: deploy-new-manual.md
+
+  - title: Configure the MedTech service mappings
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Device mappings
+            url: how-to-configure-device-mappings.md
+          - text: FHIR destination mappings
+            url: how-to-configure-fhir-mappings.md 
+ 
+  - title: Monitor the MedTech service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use the monitoring tab
+            url: how-to-use-monitoring-tab.md
+          - text: Configure metrics
+            url: how-to-configure-metrics.md
+          - text: Enable diagnostic settings
+            url: how-to-enable-diagnostic-settings.md
+
+  - title: Troubleshoot the MedTech service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deployment errors
+            url: troubleshoot-errors-deployment.md
+          - text: Error logs
+            url: troubleshoot-errors-logs.md
+
+  - title: The MedTech service with Azure IoT Hub 
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Receive device data through Azure IoT Hub
-            url: device-data-through-iot-hub.md 
+          - text: Receive device messages through Azure IoT Hub
+            url: device-messages-through-iot-hub.md
+            

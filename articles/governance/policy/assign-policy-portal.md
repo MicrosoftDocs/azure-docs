@@ -84,7 +84,7 @@ disks_ policy definition.
    [modify](./concepts/effects.md#modify) effect. As the policy used for this quickstart doesn't,
    leave it blank. For more information, see
    [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and
-   [how remediation security works](./how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works).
 
 1. Select **Next** at the bottom of the page or the **Non-compliance messages** tab at the top of
    the page to move to the next segment of the assignment wizard.

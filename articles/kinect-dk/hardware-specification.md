@@ -3,16 +3,13 @@ title: Azure Kinect DK hardware specifications
 description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
-ms.custom: 
-- CI 114092
-- CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 ---
 
 # Azure Kinect DK hardware specifications

@@ -1,57 +1,47 @@
 ---
-title: Use triggers and actions in Azure Sentinel playbooks | Microsoft Docs
-description:  Learn in greater depth how to give your playbooks access to the information in your Azure Sentinel alerts and incidents and use that information to take remedial actions.
-services: sentinel
-documentationcenter: na
+title: Use triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
+description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
-# Use triggers and actions in Azure Sentinel playbooks
 
-This document explains the types of triggers and actions in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel and the information in your workspace's tables. It further shows you how to get to specific types of Azure Sentinel information that you are likely to need.
+# Use triggers and actions in Microsoft Sentinel playbooks
 
-This document, along with our guide to [Authenticating playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md). These three documents will refer to each other back and forth.
+This document explains the types of triggers and actions in the [Logic Apps Microsoft Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Microsoft Sentinel and the information in your workspace's tables. It further shows you how to get to specific types of Microsoft Sentinel information that you are likely to need.
 
-For an introduction to playbooks, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
+This document, along with our guide to [Authenticating playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md). These three documents will refer to each other back and forth.
 
-For the complete specification of the Azure Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
+For an introduction to playbooks, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
+
+For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
 
 ## Permissions required
 
 | Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
-| 
+| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 
-[Learn more about permissions in Azure Sentinel](./roles.md).
+[Learn more about permissions in Microsoft Sentinel](./roles.md).
 
-## Azure Sentinel triggers summary
+## Microsoft Sentinel triggers summary
 
-Though the Azure Sentinel connector can be used in a variety of ways, the connector's components can be divided into 2 flows, each triggered by a different Azure Sentinel occurrence:
+Though the Microsoft Sentinel connector can be used in a variety of ways, the connector's components can be divided into three flows, each triggered by a different Microsoft Sentinel occurrence:
 
-| Trigger | Full trigger name in<br>Logic Apps Designer | When to use it | Known limitations 
-| --------- | ------------ | -------------- | -------------- | 
-| **Incident trigger** | "When Azure Sentinel incident creation rule was triggered (Preview)" | Recommended for most incident automation scenarios.<br><br>The playbook receives incident objects, including entities and alerts. Using this trigger allows the playbook to be attached to an **Automation rule**, so it can be triggered when an incident is created in Azure Sentinel, and all the [benefits of automation rules](./automate-incident-handling-with-automation-rules.md) can be applied to the incident. | Playbooks with this trigger can't be run manually from Azure Sentinel.<br><br>Playbooks with this trigger do not support alert grouping, meaning they will receive only the first alert sent with each incident.
-| **Alert trigger** | "When a response to an Azure Sentinel alert is triggered" | Advisable for playbooks that need to be run on alerts manually from the Azure Sentinel portal, or for **scheduled** analytics rules that don't generate incidents for their alerts. | This trigger cannot be used to automate responses for alerts generated by **Microsoft security** analytics rules.<br><br>Playbooks using this trigger cannot be called by **automation rules**. |
-|
+| Trigger&nbsp;(full&nbsp;name in Logic Apps Designer) | When to use it | Known limitations 
+| --------------------- | -------------- | -------------- | 
+| **Microsoft Sentinel incident (Preview)** | Recommended for most incident automation scenarios.<br><br>The playbook receives incident objects, including entities and alerts. Using this trigger allows the playbook to be attached to an **Automation rule**, so it can be triggered when an incident is created (and now, updated as well) in Microsoft Sentinel, and all the [benefits of automation rules](./automate-incident-handling-with-automation-rules.md) can be applied to the incident. | Playbooks with this trigger do not support alert grouping, meaning they will receive only the first alert sent with each incident.<br><br>**UPDATE**: As of February 2023, alert grouping is supported for this trigger.
+| **Microsoft Sentinel alert (Preview)** | Advisable for playbooks that need to be run on alerts manually from the Microsoft Sentinel portal, or for **scheduled** analytics rules that don't generate incidents for their alerts. | This trigger cannot be used to automate responses for alerts generated by **Microsoft security** analytics rules.<br><br>Playbooks using this trigger cannot be called by **automation rules**. |
+| **Microsoft Sentinel entity (Preview)** | To be used for playbooks that need to be run manually on specific entities from an investigation or threat hunting context. | Playbooks using this trigger cannot be called by **automation rules**. |
 
-The schemas used by these two flows are not identical.
-The recommended practice is to use the **Azure Sentinel incident trigger** flow, which is applicable to most scenarios.
+The schemas used by these flows are not identical. The recommended practice is to use the **Microsoft Sentinel incident trigger** flow, which is applicable to most scenarios.
 
 ### Incident dynamic fields
 
-The **Incident** object received from **When Azure Sentinel incident creation rule was triggered** includes the following dynamic fields:
+The **Incident** object received from **Microsoft Sentinel incident** includes the following dynamic fields:
 
 - Incident properties (Shown as "Incident: field name")
 
@@ -69,7 +59,7 @@ The **Incident** object received from **When Azure Sentinel incident creation ru
   - Workspace ID
   - Resource group name
 
-## Azure Sentinel actions summary
+## Microsoft Sentinel actions summary
 
 | Component | When to use it |
 | --------- | -------------- |
@@ -80,47 +70,83 @@ The **Incident** object received from **When Azure Sentinel incident creation ru
 | **Entities - Get \<*entity type*\>** | In playbooks that work on a specific entity type (**IP**, **Account**, **Host**, **URL** or **FileHash**) which is known at playbook creation time, and you need to be able to parse it and work on its unique fields. |
 |
 
-## Work with incidents - Usage Examples
+## Work with incidents - usage examples
 
 > [!TIP] 
-> The actions **Update Incident** and **Add a Comment to Incident** require the **Incident ARM ID**. <br>
-Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID**.
+> The actions **Update Incident** and **Add a Comment to Incident** require the **Incident ARM ID**.
+>
+> Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID**.
 
 ### Update an incident
--  Playbook is triggered **when an incident is created**
+-  Playbook is triggered by **Microsoft Sentinel incident**
 
     ![Incident trigger simple Update flow example](media/playbook-triggers-actions/incident-simple-flow.png)
 
--  Playbook is triggered **when an alert is generated**
+-  Playbook is triggered by **Microsoft Sentinel alert**
 
     ![Alert trigger simple Update Incident flow example](media/playbook-triggers-actions/alert-update-flow.png)
       
 ### Use Incident Information
 
 Basic playbook to send incident details over mail:
--  Playbook is triggered **when an incident is created**
+-  Playbook is triggered by **Microsoft Sentinel incident**
 
     ![Incident trigger simple Get flow example](media/playbook-triggers-actions/incident-simple-mail-flow.png)
 
--  Playbook is triggered **when an alert is generated**
+-  Playbook is triggered by **Microsoft Sentinel alert**
 
     ![Alert trigger simple Get Incident flow example](media/playbook-triggers-actions/alert-simple-mail-flow.png)
 
 ### Add a comment to the incident
 
--  Playbook is triggered **when an incident is created**
+-  Playbook is triggered by **Microsoft Sentinel incident**
 
     ![Incident trigger simple add comment example](media/playbook-triggers-actions/incident-comment.png)
 
--  Playbook is triggered **when an alert is generated**
+-  Playbook is triggered by **Microsoft Sentinel alert**
 
     !["Alert trigger simple add comment example"](media/playbook-triggers-actions/alert-comment.png)
+
+### Disable a user
+
+- Playbook is triggered by **Microsoft Sentinel Entity**
+
+    :::image type="content" source="media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
+
+### Entity playbooks with no incident ID
+
+Playbooks created with the **Entity trigger** often make use of the **Incident ARM ID** field (for example, in order to update an incident after taking action on the entity).
+
+If such a playbook is triggered in a **context unconnected to an incident** (for example, when threat hunting), then there is **no incident** whose ID can populate this field. In this case, the field will be populated with a null value.
+
+**As a result, the playbook may fail to run to completion.** To prevent this failure, it's recommended to create a condition that will check for a value in the incident ID field before taking any actions on it, and prescribe a different set of actions if the field has a null value - that is, if the playbook isn't being run from an incident.
+
+1. Before the first action that refers to the **Incident ARM ID** field, add a step of type **Condition**.
+
+1. Select the **Choose a value** field and enter the **Add dynamic content** dialog.
+
+1. Select the **Expression** tab and the **length(collection)** function.
+
+1. Select the **Dynamic content** tab and the **Incident ARM ID** field.
+
+1. Verify the resulting expression is `length(triggerBody()?['IncidentArmID'])` and select **OK**.
+
+    :::image type="content" source="media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
+
+1. Set the **operator** and **value** in the condition to "is greater than" and "0".
+
+    :::image type="content" source="media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
+
+1. In the **True** frame, add the actions to be taken if the playbook is run from an incident context.
+
+    In the **False** frame, add the actions to be taken if the playbook is run from a non-incident context.
+
 
 ## Work with specific Entity types
 
 The **Entities** dynamic field is an array of JSON objects, each of which represents an entity. Each entity type has its own schema, depending on its unique properties.
 
-The **"Entities - Get \<entity name>"** action allows you to do the following:
+The **"Entities - Get \<entity type>"** action allows you to do the following:
 
 - Filter the array of entities by the requested type.
 - Parse the specific fields of this type, so they can be used as dynamic fields in further actions.
@@ -185,5 +211,5 @@ You can supply the following JSON code to generate the schema. The code shows th
     
 ## Next steps
 
-In this article, you learned more about using the triggers and actions in Azure Sentinel playbooks to respond to threats. 
-- Learn how to [proactively hunt for threats](hunting.md) using Azure Sentinel.
+In this article, you learned more about using the triggers and actions in Microsoft Sentinel playbooks to respond to threats. 
+- Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.

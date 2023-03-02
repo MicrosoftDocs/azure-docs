@@ -1,46 +1,28 @@
 ---
-title: Troubleshooting batch endpoints (preview)
+title: "Troubleshooting batch endpoints"
 titleSuffix: Azure Machine Learning
-description: Tips to help you succeed with batch endpoints.
+description: Learn how to troubleshoot and diagnostic errors with batch endpoints jobs
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
-ms.topic: troubleshooting
-ms.custom: troubleshooting, devplatv2
-ms.reviewer: laobri
-ms.author: tracych
-author: tracych
-ms.date: 05/05/2021
-#Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
-
+ms.subservice: core
+ms.topic: how-to
+author: santiagxf
+ms.author: fasantia
+ms.date: 10/10/2022
+ms.reviewer: larryfr
+ms.custom: devplatv2
 ---
-# Troubleshooting batch endpoints (preview)
 
-Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) (preview) for batch scoring.
+# Troubleshooting batch endpoints
 
- [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-The following table contains common problems and solutions you may see during batch endpoint development and consumption.
+Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you will learn:
 
-| Problem | Possible solution |
-|--|--|
-| Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. For more, see [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md)|
-| Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
-| The resource wasn't found. | Ensure you use `--type batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
-| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be reused to create a new endpoint in the same region. |
-| Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
-
-##  Scoring script requirements
-
-If you're using a non-MLflow model, you'll need to provide a scoring script. The scoring script must contain two functions:
-
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called once at the beginning of the process.
--  `run(mini_batch)`: This function will run for each `mini_batch` instance.
-    -  `mini_batch`: The `mini_batch` value is a list of file paths.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of an input element in the input mini-batch. Make sure that enough data is included in the run result to map a single input to the run output result. Run output will be written in the output file but isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
+> [!div class="checklist"]
+> * How [logs of a batch scoring job are organized](#understanding-logs-of-a-batch-scoring-job).
+> * How to [solve common errors](#common-issues).
+> * Identify [not supported scenarios in batch endpoints](#limitations-and-not-supported-scenarios) and their limitations.
 
 ## Understanding logs of a batch scoring job
 
@@ -52,7 +34,7 @@ Option 1: Stream logs to local console
 
 You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder will be streamed.
 
-```bash
+```azurecli
 az ml job stream -name <job_name>
 ```
 
@@ -65,8 +47,8 @@ az ml job show --name <job_name> --query interaction_endpoints.Studio.endpoint -
 ```
 
 1. Open the job in studio using the value returned by the above command. 
-1. Choose **batchscoring**
-1. Open the **Outputs + logs** tab 
+1. Choose __batchscoring__
+1. Open the __Outputs + logs__ tab 
 1. Choose the log(s) you wish to review
 
 ### Understand log structure
@@ -79,7 +61,7 @@ Because of the distributed nature of batch scoring jobs, there are logs from sev
 
 - `~/logs/job_progress_overview.txt`: This file provides high-level information about the number of mini-batches (also known as tasks) created so far and the number of mini-batches processed so far. As the mini-batches end, the log records the results of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the run result.
+- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. This log provides information on task creation, progress monitoring, the job result.
 
 For a concise understanding of errors in your script there is:
 
@@ -122,9 +104,109 @@ arg_parser.add_argument("--logging_level", type=str, help="logging level")
 args, unknown_args = arg_parser.parse_known_args()
 print(args.logging_level)
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.logging_level.upper())
 logger.info("Info log statement")
 logger.debug("Debug log statement")
 ```
+
+## Common issues
+
+The following section contains common problems and solutions you may see during batch endpoint development and consumption.
+
+### No module named 'azureml'
+
+__Message logged__: `No module named 'azureml'`.
+
+__Reason__: Azure Machine Learning Batch Deployments require the package `azureml-core` to be installed.
+
+__Solution__: Add `azureml-core` to your conda dependencies file.
+
+### Output already exists
+
+__Reason__: Azure Machine Learning Batch Deployment can't overwrite the `predictions.csv` file generated by the output.
+
+__Solution__: If you are indicated an output location for the predictions, ensure the path leads to a non-existing file.
+
+### The run() function in the entry script had timeout for [number] times
+
+__Message logged__: `No progress update in [number] seconds. No progress update in this check. Wait [number] seconds since last update.`
+
+__Reason__: Batch Deployments can be configured with a `timeout` value that indicates the amount of time the deployment shall wait for a single batch to be processed. If the execution of the batch takes more than such value, the task is aborted. Tasks that are aborted can be retried up to a maximum of times that can also be configured. If the `timeout` occurs on each retry, then the deployment job fails. These properties can be configured for each deployment.
+
+__Solution__: Increase the `timemout` value of the deployment by updating the deployment. These properties are configured in the parameter `retry_settings`. By default, a `timeout=30` and `retries=3` is configured. When deciding the value of the `timeout`, take into consideration the number of files being processed on each batch and the size of each of those files. You can also decrease them to account for more mini-batches of smaller size and hence quicker to execute. 
+
+### Dataset initialization failed
+
+__Message logged__: Dataset initialization failed: UserErrorException: Message: Cannot mount Dataset(id='xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', name='None', version=None). Source of the dataset is either not accessible or does not contain any data.
+
+__Reason__: The compute cluster where the deployment is running can't mount the storage where the data asset is located. The managed identity of the compute don't have permissions to perform the mount.
+
+__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+
+### Data set node [code] references parameter dataset_param which doesn't have a specified value or a default value
+
+__Message logged__: Data set node [code] references parameter dataset_param which doesn't have a specified value or a default value.
+
+__Reason__: The input data asset provided to the batch endpoint isn't supported.
+
+__Solution__: Ensure you are providing a data input that is supported for batch endpoints.
+
+### User program failed with Exception: Run failed, please check logs for details
+
+__Message logged__: User program failed with Exception: Run failed, please check logs for details. You can check logs/readme.txt for the layout of logs.
+
+__Reason__: There was an error while running the `init()` or `run()` function of the scoring script.
+
+__Solution__: Go to __Outputs + Logs__ and open the file at `logs > user > error > 10.0.0.X > process000.txt`. You will see the error message generated by the `init()` or `run()` method.
+
+### ValueError: No objects to concatenate
+
+__Message logged__: ValueError: No objects to concatenate.
+
+__Reason__: All the files in the generated mini-batch are either corrupted or unsupported file types. Remember that MLflow models support a subset of file types as documented at [Considerations when deploying to batch inference](how-to-mlflow-batch.md?#considerations-when-deploying-to-batch-inference).
+
+__Solution__: Go to the file `logs/usr/stdout/<process-number>/process000.stdout.txt` and look for entries like `ERROR:azureml:Error processing input file`. If the file type is not supported, please review the list of supported files. You may need to change the file type of the input data or customize the deployment by providing a scoring script as indicated at [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#customizing-mlflow-models-deployments-with-a-scoring-script).
+
+### There is no succeeded mini batch item returned from run()
+
+__Message logged__: There is no succeeded mini batch item returned from run(). Please check 'response: run()' in https://aka.ms/batch-inference-documentation.
+
+__Reason__: The batch endpoint failed to provide data in the expected format to the `run()` method. This may be due to corrupted files being read or incompatibility of the input data with the signature of the model (MLflow).
+
+__Solution__: To understand what may be happening, go to __Outputs + Logs__ and open the file at `logs > user > stdout > 10.0.0.X > process000.stdout.txt`. Look for error entries like `Error processing input file`. You should find there details about why the input file can't be correctly read.
+
+### Audiences in JWT are not allowed
+
+__Context__: When invoking a batch endpoint using its REST APIs.
+
+__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Azure Active Directory tokens are issued for specific actions.
+
+__Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you will need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
+
+## Limitations and not supported scenarios
+
+When designing machine learning solutions that rely on batch endpoints, some configurations and scenarios may not be supported.
+
+The following __workspace__ configurations are __not supported__:
+
+* Workspaces configured with an Azure Container Registries with Quarantine feature enabled.
+* Workspaces with customer-managed keys (CMK).
+
+The following __compute__ configurations are __not supported__:
+
+* Azure ARC Kubernetes clusters.
+* Granular resource request (memory, vCPU, GPU) for Azure Kubernetes clusters. Only instance count can be requested.
+
+The following __input types__ are __not supported__:
+
+* Tabular datasets (V1).
+* Folders and File datasets (V1).
+* MLtable (V2).
+
+## Next steps
+
+* [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md).
+* [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
+* [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md).

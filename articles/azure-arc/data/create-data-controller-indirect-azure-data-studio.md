@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -19,8 +19,9 @@ You can create a data controller using Azure Data Studio through the deployment 
 ## Prerequisites
 
 - You need access to a Kubernetes cluster and have your kubeconfig file configured to point to the Kubernetes cluster you want to deploy to.
-- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio** the Azure Data Studio extensions called **Azure Arc** and Azure CLI with the `arcdata` extension.
+- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio**, the Azure Data Studio extensions called **Azure Arc** and Azure CLI with the `arcdata` extension.
 - You need to log in to Azure in Azure Data Studio.  To do this: type CTRL/Command + SHIFT + P to open the command text window and type **Azure**.  Choose **Azure: Sign in**.   In the panel, that comes up click the + icon in the top right to add an Azure account.
+- You need to run `az login` in your local Command Prompt to login to Azure CLI.
 
 ## Use the Deployment Wizard to create Azure Arc data controller
 
@@ -61,7 +62,7 @@ Creating the controller will take a few minutes to complete. You can monitor the
 >  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller --namespace arc
 ```
 
 ```console
@@ -71,10 +72,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/control-2g7bl --namespace arc
+#kubectl describe pod/control-2g7bl --namespace arc
 ```
 
 ## Troubleshooting creation problems

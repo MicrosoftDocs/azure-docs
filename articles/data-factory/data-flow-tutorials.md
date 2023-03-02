@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/04/2022
 ---
 
 # Mapping data flow video tutorials
@@ -81,6 +81,12 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
+[Flowlets](https://www.youtube.com/watch?v=bVdeBFiiJNQ)
+ 
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
+
 [Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
 
 [Rank transformation](https://youtu.be/6XvgkbMtws0)
@@ -94,6 +100,16 @@ As updates are constantly made to the product, some features have added or diffe
 [Transform complex data types](https://youtu.be/Wk0C76wnSDE)
 
 [Output to next activity](http://youtu.be/r1m3Ya14qpE?hd=1)
+
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
+
+[Assert transformation](https://www.youtube.com/watch?v=8K7flL7JWMo)
+
+[Log assert error rows](https://www.youtube.com/watch?v=VFRx0wjlA4s)
+
+[Fuzzy join](https://www.youtube.com/watch?v=ouMdM4yL78s)
 
 ## Source and sink
 
@@ -173,6 +189,10 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Delete rows in target when not present in source](https://www.youtube.com/watch?v=9i7qf1vczUw)
 
+[Incremental data loading with Azure Data Factory and Azure SQL DB](https://youtu.be/6tNWFErnGGU)
+
+[Transform Avro data from Event Hubs using Parse and Flatten](https://youtu.be/F2x7Eg-635o)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
@@ -186,6 +206,10 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+[Dynamic expressions as parameters](https://www.youtube.com/watch?v=q7W6J-DUuJY)
+
+[User-defined functions](https://www.youtube.com/watch?v=ZFTVoe8eeOc)
 
 ## Metadata
 

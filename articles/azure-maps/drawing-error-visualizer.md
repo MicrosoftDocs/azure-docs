@@ -1,9 +1,9 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/26/2021
+author: eriklindeman
+ms.author: eriklind
+ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -27,9 +27,9 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Download
 
-1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Upload your drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
-2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
+2. Now that the drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
     >[!NOTE]
     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
@@ -79,25 +79,13 @@ The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the 
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 
-Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. To view detailed information about an error or warning, click on the **Details** link. An intractable section will then appear below the list. You may now navigate to each error to learn more details on how to resolve the error.
+Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. To view detailed information about an error or warning, click on the **Details** link. An intractable section will then appear below the list. You may now navigate to each error to learn more details on how to resolve the error.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error Visualizer App - Errors and Warnings":::
 
 ## Next steps
 
-Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](/rest/api/maps/v2/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
-
-> [!div class="nextstepaction"]
-> [Drawing Conversion error codes](drawing-conversion-error-codes.md)
-
-> [!div class="nextstepaction"]
-> [Drawing Package Guide](drawing-package-guide.md)
+Learn more by reading:
 
 > [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
-
-> [!div class="nextstepaction"]
-> [Use the Indoor Maps module](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implement indoor map dynamic styling](indoor-map-dynamic-styling.md)

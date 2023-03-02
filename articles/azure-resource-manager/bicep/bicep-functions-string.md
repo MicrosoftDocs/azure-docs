@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 12/09/2022
 ---
 
 # String functions for Bicep
@@ -55,7 +55,7 @@ The output from the preceding example with the default values is:
 
 ## base64ToJson
 
-`base64tojson`
+`base64ToJson(base64Value)`
 
 Converts a base64 representation to a JSON object.
 
@@ -160,7 +160,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## contains
 
-`contains (container, itemToFind)`
+`contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
@@ -184,9 +184,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -471,6 +471,13 @@ This function is helpful when you need to create a value in the format of a glob
 
 The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
+> [!NOTE]
+> The order of the parameters affects the returned value. For example:
+>
+> `guid('hello', 'world')` and `guid('world', 'hello')`
+>
+> don't return the same value.
+
 The following examples show how to use guid to create a unique value for commonly used levels.
 
 Unique scoped to subscription
@@ -546,6 +553,49 @@ The output from the preceding example with the default values is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
+
 <a id="json"></a>
 
 ## json
@@ -558,7 +608,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns last character of the string, or the last element of the array.
 
@@ -617,7 +667,7 @@ An integer that represents the last position of the item to find. The value is z
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```bicep
 output firstT int = indexOf('test', 't')
@@ -667,10 +717,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -701,7 +751,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a Bicep file returns an error. The function isn't allowed in other parts of the Bicep file because it returns a different value each time it's called. Deploying the same Bicep file with the same parameters wouldn't reliably produce the same results.
 
-The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameter, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
+The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameters, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
 
 The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
 
@@ -989,8 +1039,8 @@ The following example shows how to convert different types of values to strings:
 
 ```bicep
 param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
+  valueA: 10
+  valueB: 'Example Text'
 }
 param testArray array = [
   'a'
@@ -1026,7 +1076,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | stringToParse |Yes |string |The original string from which the substring is extracted. |
 | startIndex |No |int |The zero-based starting character position for the substring. |
-| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. |
+| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. If omitted, the remainder of the string from the start position will be returned.|
 
 ### Return value
 
@@ -1175,7 +1225,7 @@ The output from the preceding example with the default values is:
 
 ## trim
 
-`trim (stringToTrim)`
+`trim(stringToTrim)`
 
 Removes all leading and trailing white-space characters from the specified string.
 
@@ -1209,7 +1259,7 @@ The output from the preceding example with the default values is:
 
 ## uniqueString
 
-`uniqueString (baseString, ...)`
+`uniqueString(baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters.
 
@@ -1253,7 +1303,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
@@ -1276,7 +1326,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 ## uri
 
-`uri (baseUri, relativeUri)`
+`uri(baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
 

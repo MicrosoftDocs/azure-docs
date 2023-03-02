@@ -23,7 +23,6 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
- 
 
 ## Troubleshooting Linux OS disk encryption
 
@@ -133,5 +132,5 @@ To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/a
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
-- [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)
+- [Apply disk encryption in Microsoft Defender for Cloud](../../security-center/asset-inventory.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

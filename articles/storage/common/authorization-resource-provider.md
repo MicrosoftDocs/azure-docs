@@ -2,12 +2,12 @@
 title: Use the Azure Storage resource provider to access management resources
 description: The Azure Storage resource provider is a service that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
 ---
@@ -30,9 +30,9 @@ Azure Storage supports using Azure AD to authorize requests against Blob and Que
 
 Every Azure subscription has an associated Azure Active Directory that manages users, groups, and applications. A user, group, or application is also referred to as a security principal in the context of the [Microsoft identity platform](../../active-directory/develop/index.yml). You can grant access to resources in a subscription to a security principal that is defined in the Active Directory by using Azure role-based access control (Azure RBAC).
 
-When you assign an Azure role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an Azure role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
+When you assign an Azure role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an Azure role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure classic CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Built-in roles for management operations
 
@@ -62,7 +62,7 @@ For code examples that show how to authorize and call management operations from
 - [.NET](https://github.com/Azure-Samples/storage-dotnet-resource-provider-getting-started)
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
 - [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
-- [Python](https://github.com/Azure-Samples/storage-python-manage)
+- [Python](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
 
 ## Azure Resource Manager versus classic deployments
 

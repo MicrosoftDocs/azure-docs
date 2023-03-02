@@ -1,20 +1,20 @@
---- 
-title:  Create an iOS app
+---
+title: Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 10/13/2021
+author: eriklindeman
+ms.author: eriklind
+ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
+ms.custom: mode-other
 ---
 
-# Create an iOS app (Public Preview)
+# Create an iOS app (Preview)
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
-* Setup your development environment.
+* Set up your development environment.
 * Create your own Azure Maps account.
 * Get your primary Azure Maps key to use in the app.
 * Reference the Azure Maps libraries from the project.
@@ -46,7 +46,7 @@ Create a new Azure Maps account with the following steps:
    * Read the _License_ and _Privacy Statement_, and check the checkbox to accept the terms.
    * Select the **Create** button.
 
-    ![Create an Azure maps account.](./media/ios-sdk/quick-ios-app/create-account.png)
+    ![Create an Azure maps account.](./media/shared/create-account.png)
 
 ## Get the primary key for your account
 
@@ -61,7 +61,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 >[!NOTE]
 > This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 <!--
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 -->
 ![Get the subscription key.](./media/ios-sdk/quick-ios-app/get-key.png)
 
@@ -75,7 +75,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 3. Enter app name, bundle ID then select **Next**.
 
-See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
+See the [Creating a Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
 ![Create the first iOS application.](./media/ios-sdk/quick-ios-app/create-app.png)
 
@@ -147,18 +147,12 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 See the following articles for additional code examples:
 
 * [Manage authentication in Azure Maps](how-to-manage-authentication.md)
-
-<!--
-## Additional information
-
-See the following articles for additional code examples:
-
-* [Manage authentication in Azure Maps](how-to-manage-authentication.md)
 * [Change map styles in iOS maps](set-map-style-ios-sdk.md)
 * [Add a symbol layer](add-symbol-layer-ios.md)
-* [Add a line layer](add-line-layer-to-map-ios.md)
+* [Add a line layer](add-line-layer-map-ios.md)
 * [Add a polygon layer](add-polygon-layer-map-ios.md)
 
+<!--
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:

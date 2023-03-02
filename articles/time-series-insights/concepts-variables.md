@@ -10,6 +10,8 @@ ms.date: 01/22/2021
 
 # Time Series Model variables
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes the Time Series Model variables that specify formula and computation rules on events.
 
 Each variable can be one of three kinds: *numeric*, *categorical*, and *aggregate*.

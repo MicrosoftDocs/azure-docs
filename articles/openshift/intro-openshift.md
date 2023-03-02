@@ -1,8 +1,8 @@
 ---
 title: Introduction to Azure Red Hat OpenShift
 description: Learn the features and benefits of Microsoft Azure Red Hat OpenShift to deploy and manage container-based applications.
-author: jimzim
-ms.author: jzim
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
@@ -38,4 +38,4 @@ Azure Red Hat OpenShift offers a Service Level Agreement to guarantee that the s
 Learn the prerequisites for Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Set up your dev environment](tutorial-create-cluster.md)
+> [Create an OpenShift Cluster](tutorial-create-cluster.md)

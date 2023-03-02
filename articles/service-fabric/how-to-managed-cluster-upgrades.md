@@ -2,7 +2,11 @@
 title: Upgrading Azure Service Fabric managed clusters
 description: Learn about options for upgrading your Azure Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Manage Service Fabric managed cluster upgrades
 
@@ -90,7 +94,7 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 
 "value": [
   {
-    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
     "name": "7.2.477.9590",
     "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {

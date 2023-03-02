@@ -4,9 +4,10 @@ description: Learn how to create an Azure container registry by using a Bicep fi
 services: azure-resource-manager
 author: mumian
 ms.author: jgao
-ms.date: 09/27/2021
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: azure-resource-manager
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a container registry by using a Bicep file
@@ -45,6 +46,10 @@ resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview'
     adminUserEnabled: false
   }
 }
+
+@description('Output the login server property for later use')
+output loginServer string = acrResource.properties.loginServer
+
 ```
 
 The following resource is defined in the Bicep file:

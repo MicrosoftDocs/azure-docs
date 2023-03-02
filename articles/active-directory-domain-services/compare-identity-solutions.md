@@ -3,13 +3,13 @@ title: Compare Active Directory-based services in Azure | Microsoft Docs
 description: In this overview, you compare the different identity offerings for Active Directory Domain Services, Azure Active Directory, and Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/08/2020
+ms.date: 01/29/2023
 ms.author: justinha
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.

@@ -4,13 +4,16 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021, ignite-2022
 ---
 
 # Azure disk pools (preview)
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 An Azure disk pool (preview) is an Azure resource that allows your applications and workloads to access a group of managed disks from a single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to Azure VMware Solution hosts as datastores. This allows you to scale your storage independent of your Azure VMware Solution hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances.
 
@@ -26,7 +29,8 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 
 In preview, disk pools have the following restrictions:
 
-- Only premium SSDs or ultra disks can be added to a disk pool.
+- Only premium SSD managed disks and standard SSDs, or ultra disks can be added to a disk pool.
+    - A disk pool can't be configured to contain both ultra disks and premium/standard SSDs. If a disk pool is configured to use ultra disks, it can only contain ultra disks. Likewise, a disk pool configured to use premium and standard SSDs can only contain premium and standard SSDs.
 - Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
 ### Regional availability
@@ -37,29 +41,23 @@ Disk pools are currently available in the following regions:
 - Canada Central
 - Central US
 - East US
+- East US 2
 - West US 2
 - Japan East
 - North Europe
 - West Europe
 - Southeast Asia
 - UK South
+- Korea Central
+- Sweden Central
+- Central India
 
 
 ## Billing
 
-When you deploy a disk pool, there are two main areas that will incur billing costs:
+When you deploy a disk pool, there are two areas that will incur billing costs: The price of the disk pool service fee itself, and the price of each individual disk added to the pool. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and the disk pool. Other than the disk pool and your disks, there are no extra service charges for a disk pool and you will not be billed for the resources deployed in the managed resource group: MSP_(resource-group-name)_(diskpool-name)_(region-name).
 
-- The disks added to the disk pool
-- The Azure resources deployed in the managed resource group that accompany the disk pool. These resources are:
-    - Virtual machines.
-    - Managed disks.
-    - One network interface.
-    - One storage account for diagnostic logs and metrics.
-        
-You will be billed for the resources inside this managed resource group and the individual disks that are the actual data storage. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and all resources deployed in the managed resource group. Other than these resources and your disks, there are no extra service charges for a disk pool. For details on the managed resource group, see the [How it works](#how-it-works) section.
-
-See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) for regional pricing on VMs and disks to evaluate the cost of a disk pool for you. Azure resources consumed by the disk pool can be accounted for in Azure Reservations, if you have them.
-
+See the [Azure managed disk pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for regional pricing on disk pools and disks to evaluate the cost of a disk pool for you.
 
 ## Next steps
 

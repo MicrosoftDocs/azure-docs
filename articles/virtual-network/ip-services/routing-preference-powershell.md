@@ -3,17 +3,15 @@ title: Configure routing preference for a public IP address - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: Learn how to Configure routing preference for a public IP address using Azure PowerShell.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
 ---
+
 # Configure routing preference for a public IP address using Azure PowerShell
 
 This article shows you how to configure routing preference via ISP network (**Internet** option) for a public IP address using Azure PowerShell. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
@@ -59,7 +57,7 @@ $publicIp = New-AzPublicIpAddress  `
 -IpAddressVersion IPv4
 ```
 
-You can associate the above created public IP address with a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](../../virtual-network/associate-public-ip-address-vm.md#azure-cli) to associate the Public IP to your VM. You can also associate the public IP address created above with with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the above created public IP address with a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli) to associate the Public IP to your VM. You can also associate the public IP address created above with with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 ## Clean up resources
 
@@ -72,4 +70,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## Next steps
 
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-- [Configure routing preference for a VM using the Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md).
+- [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md).

@@ -2,8 +2,13 @@
 title: Secure an Azure Service Fabric cluster 
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric cluster security scenarios
 
 An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. It is possible to create an unsecured cluster, however if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
@@ -93,7 +98,7 @@ Some important things to consider:
 * To create certificates for clusters that are running production workloads, use a correctly configured Windows Server certificate service, or one from an approved [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Never use any temporary or test certificates that you create by using tools like MakeCert.exe in a production environment.
 * You can use a self-signed certificate, but only in a test cluster. Do not use a self-signed certificate in production.
-* When generating the certificate thumbprint, be sure to generate a SHA1 thumbprint. SHA1 is what's used when configuring the Client and Cluster certificate thumbprints.
+* When generating the certificate thumbprint, be sure to generate an SHA1 thumbprint. SHA1 is what's used when configuring the Client and Cluster certificate thumbprints.
 
 ### Cluster and server certificate (required)
 

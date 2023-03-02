@@ -1,14 +1,16 @@
 ---
 title: 'Use PowerShell to manage data: Azure Data Lake Storage Gen2'
+titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage directories and files in storage accounts that has hierarchical namespace enabled.
-services: storage
 author: normesta
+
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
+ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
 

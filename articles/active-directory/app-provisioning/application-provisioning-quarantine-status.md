@@ -3,12 +3,12 @@ title: Quarantine status in Azure Active Directory Application Provisioning
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -25,7 +25,7 @@ While in quarantine:
 ## How do I know if my application is in quarantine?
 
 There are three ways to check whether an application is in quarantine:
-  
+
 - In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and review the progress bar for a quarantine message.   
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
@@ -46,6 +46,8 @@ There are three ways to check whether an application is in quarantine:
   - Check for emails from `azure-noreply@microsoft.com`
 
 ## Why is my application in quarantine?
+
+Below are the common reasons your application may go into quarantine
 
 |Description|Recommended Action|
 |---|---|
@@ -69,6 +71,21 @@ A job can go into quarantine regardless of failure counts for issues such as adm
 - A job with 20,000 failures and 100,000 success wouldn't go into quarantine because it does not exceed the 40% failure threshold or the 40,000 failure max.  
 - There's an absolute threshold of 60,000 failures that accounts for both reference and non-reference failures. For example, 40,000 users failed to be provisioned and 21,000 manager updates failed. The total is 61,000 failures and exceeds the 60,000 limit.
 
+**Retry duration**
+
+The logic documented here may be different for certain connectors to ensure best customer experience, but we generally have the below retry cycles after a failure:
+
+After the failure, the first retry will happen in 6 hours.
+- The second retry happens 12 hours after the first failure.
+- The third retry happens 24 hours after the first failure.
+- The fourth retry happens 48 hours after the first failure.
+- The fifth retry happens 96 hours after the first failure.
+- The sixth retry happens 192 hours after the first failure.
+- The seventh retry happens 384 hours after the first failure.
+- The eighth retry happens 768 hours after the first failure.
+
+The retries are stopped after the 8th retry and the escrow entry is removed. The job will continue unless it hits the escrow thresholds from the section above 
+
 
 ## How do I get my application out of quarantine?
 
@@ -83,7 +100,7 @@ After you've resolved the issue, restart the provisioning job. Certain changes t
 - Use the Azure portal to restart the provisioning job. On the application's **Provisioning** page, select **Restart provisioning**. This action fully restarts the provisioning service, which can take some time. A full initial cycle will run again, which clears escrows, removes the app from quarantine, and clears any watermarks. The service will then evaluate all the users in the source system again and determine if they are in scope for provisioning. This can be useful when your application is currently in quarantine, as this article discusses, or you need to make a change to your attribute mappings. Note that the initial cycle takes longer to complete than the typical incremental cycle due to the number of objects that need to be evaluated. You can learn more about the performance of initial and incremental cycles [here](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
- 
+
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```

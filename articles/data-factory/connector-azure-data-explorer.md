@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/14/2021
+ms.date: 07/04/2022
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
@@ -22,10 +22,15 @@ This article describes how to use the copy activity in Azure Data Factory and Sy
 
 ## Supported capabilities
 
-This Azure Data Explorer connector is supported for the following activities:
+This Azure Data Explorer connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that the copy activity supports as sources or sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -83,7 +88,7 @@ The Azure Data Explorer connector supports the following authentication types. S
 
 To use service principal authentication, follow these steps to get a service principal and to grant permissions:
 
-1. Register an application entity in Azure Active Directory by following the steps in [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -180,7 +185,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**, grant at least the **Database viewer** role to your database
     - **As sink**, grant at least the **Database ingestor** role to your database
      
-2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity.
+2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](credentials.md) for each user-assigned managed identity.
 
 The following properties are supported for the Azure Data Explorer linked service:
 

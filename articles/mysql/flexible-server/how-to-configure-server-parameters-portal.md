@@ -1,21 +1,20 @@
 ---
 title: Configure server parameters - Azure portal - Azure Database for MySQL Flexible Server
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL flexible server using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: code-sidd
+ms.author: sisawant
 ms.date: 11/10/2020
 ---
 
 # Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.  
+You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
 
@@ -38,7 +37,7 @@ This article describes how to view and configure server parameters by using the 
 
 ## Setting non-modifiable server parameters
 
-If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server. 
+If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
 1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
 2. Search for `init_connect`
@@ -51,26 +50,6 @@ If the server parameter you want to update is non-modifiable, you can optionally
 > `init_connect` can be used to change parameters that do not require SUPER privilege(s) at the session level. To verify if you can set the parameter using `init_connect`, execute the `set session parameter_name=YOUR_DESIRED_VALUE;` command and if it errors out with **Access denied; you need SUPER privileges(s)** error, then you cannot set the parameter using `init_connect'.
 
 ## Working with the time zone parameter
-
-### Populating the time zone tables
-
-The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
-
-> [!NOTE]
-> If you are running the `mysql.az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
-
-```sql
-CALL mysql.az_load_timezone();
-```
-
-> [!IMPORTANT]
->You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
-
-To view available time zone values, run the following command:
-
-```sql
-SELECT name FROM mysql.time_zone_name;
-```
 
 ### Setting the global level time zone
 
@@ -87,6 +66,10 @@ SET time_zone = 'US/Pacific';
 ```
 
 Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+
+>[!Note]
+> To change time zone at session level, Server parameter time_zone has to be updated globally to required timezone at least once, in order to update the [mysql.time_zone_name](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html) table.
+
 
 ## Next steps
 

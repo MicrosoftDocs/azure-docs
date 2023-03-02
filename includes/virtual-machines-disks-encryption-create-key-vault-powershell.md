@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/15/2020
+ ms.date: 10/25/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -55,3 +55,38 @@
         ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
         ```
+
+### Use a key vault in a different subscription
+
+Alternatively, you can manage your Azure Key Vaults centrally from a single subscription, and use the keys stored in the Key Vault to encrypt managed disks and snapshots in other subscriptions in your organization. This allows your security team to enforce and easily manage a robust security policy to a single subscription.
+
+> [!IMPORTANT]
+> For this configuration, both your Key Vault and your disk encryption set must be in the same region and be using the same tenant.
+
+The following script is an example of how you would configure a disk encryption set to use a key from a Key Vault in a different subscription, but same region:
+
+```azurepowershell
+$sourceSubscriptionId="<sourceSubID>"
+$sourceKeyVaultName="<sourceKVName>"
+$sourceKeyName="<sourceKeyName>"
+
+$targetSubscriptionId="<targetSubID>"
+$targetResourceGroupName="<targetRGName>"
+$targetDiskEncryptionSetName="<targetDiskEncSetName>"
+$location="<targetRegion>"
+
+Set-AzContext -Subscription $sourceSubscriptionId
+
+$key = Get-AzKeyVaultKey -VaultName $sourceKeyVaultName -Name $sourceKeyName
+
+Set-AzContext -Subscription $targetSubscriptionId
+
+$desConfig=New-AzDiskEncryptionSetConfig -Location $location `
+-KeyUrl $key.Key.Kid `
+-IdentityType SystemAssigned `
+-RotationToLatestKeyVersionEnabled $false
+
+$des=New-AzDiskEncryptionSet -Name $targetDiskEncryptionSetName `
+-ResourceGroupName $targetResourceGroupName `
+-InputObject $desConfig
+```

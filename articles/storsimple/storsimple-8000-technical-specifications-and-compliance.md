@@ -9,11 +9,10 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
@@ -21,7 +20,7 @@ ms.author: alkohli
 
 ## Overview
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, storage capacity, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
 

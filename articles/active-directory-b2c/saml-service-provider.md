@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 12/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -36,7 +36,7 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 ![Diagram with Azure Active Directory B2C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
 
-1. The application creates a SAML AuthN request that's sent to the SAML login endpoint for Azure AD B2C.
+1. The application creates a SAML AuthN request that's sent to the SAML sign-in endpoint for Azure AD B2C.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
 3. If the user signs in by using a federated identity provider, a token response is sent to Azure AD B2C.
 4. Azure AD B2C generates a SAML assertion and sends it to the application.
@@ -278,7 +278,7 @@ Save your changes and upload the new *TrustFrameworkExtensions.xml* and *SignUpO
 
 ### Test the Azure AD B2C IdP SAML metadata
 
-After the policy files are uploaded, Azure AD B2C uses the configuration information to generate the identity provider's SAML metadata document that the application will use. The SAML metadata document contains the locations of services, such as sign-in methods, logout methods, and certificates.
+After the policy files are uploaded, Azure AD B2C uses the configuration information to generate the identity provider's SAML metadata document that the application will use. The SAML metadata document contains the locations of services, such as sign-in methods, sign out methods, and certificates.
 
 The Azure AD B2C policy metadata is available at the following URL:
 
@@ -313,7 +313,10 @@ For SAML apps, you need to configure several properties in the application regis
 
 When your SAML application makes a request to Azure AD B2C, the SAML AuthN request includes an `Issuer` attribute. The value of this attribute is typically the same as the application's metadata `entityID` value. Azure AD B2C uses this value to look up the application registration in the directory and read the configuration. For this lookup to succeed, `identifierUri` in the application registration must be populated with a value that matches the `Issuer` attribute.
 
-In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata.
+In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You'll also need to find the `accessTokenAcceptedVersion` parameter and set the value to `2`.
+
+> [!IMPORTANT]
+> If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
 
 The following example shows the `entityID` value in the SAML metadata:
 
@@ -324,7 +327,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://samltestapp2.azurewebsites.net",
+"identifierUris":"https://tenant-name.onmicrosoft.com",
 ```
 
 #### Share the application's metadata with Azure AD B2C
@@ -367,9 +370,9 @@ Using the SAML test application as an example, you'd set the `url` property of `
 ],
 ```
 
-#### Override or set the logout URL (optional)
+#### Override or set the sign-out URL (optional)
 
-The logout URL defines where to redirect the user after a logout request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
+The sign-out URL defines where to redirect the user after a sign-out request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -421,15 +424,16 @@ Select **Login**, and a user sign-in screen should appear. After you sign in, a 
 
 The following SAML application scenarios are supported via your own metadata endpoint:
 
-* Specify multiple logout URLs or POST binding for the logout URL in the application or service principal object.
+* Specify multiple sign-out URLs or POST binding for the sign-out URL in the application or service principal object.
 * Specify a signing key to verify relying party requests in the application or service principal object.
 * Specify a token encryption key in the application or service principal object.
-* Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C.
+* [Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C](saml-service-provider-options.md#configure-idp-initiated-flow).
 
 ## Next steps
 
 - Get the SAML test web app from the [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 - See the [options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
+- Learn how to build [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

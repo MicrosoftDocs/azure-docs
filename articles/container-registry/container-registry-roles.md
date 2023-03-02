@@ -2,7 +2,9 @@
 title: Registry roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
-ms.date: 09/02/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -144,4 +146,4 @@ To create or update a custom role using the JSON description, use the [Azure CLI
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
 
-* Learn about enabling [repository-scoped permissions](container-registry-repository-scoped-permissions.md) (preview) in a container registry.
+* Learn about enabling [repository-scoped permissions](container-registry-repository-scoped-permissions.md) in a container registry.

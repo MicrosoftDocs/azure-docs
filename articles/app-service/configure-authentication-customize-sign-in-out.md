@@ -37,7 +37,7 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. The [Azure Mobile Apps SDKs](https://github.com/Azure/azure-mobile-apps) use this sign-in flow. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
+In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
 
 To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
@@ -91,7 +91,7 @@ Here's a simple sign-out link in a webpage:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -125,13 +125,22 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 Both Microsoft Account and Azure Active Directory lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure AD allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Azure AD sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 
-In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
+1. In [https://resources.azure.com](https://resources.azure.com), At the top of the page, select **Read/Write**.
+2. In the left browser, navigate to **subscriptions** > **_\<subscription-name_** > **resourceGroups** > **_\<resource-group-name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app-name>_** > **config** > **authsettingsV2**.
+3. Click **Edit**.
+4. Add a `loginParameters` array with a `domain_hint` item.
 
-Click **Edit**, modify the following property, and then click **Put**. Be sure to replace _\<domain\_name>_ with the domain you want.
+    ```json
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "login": {
+                "loginParameters": ["domain_hint=<domain-name>"],
+            }
+        }
+    }
+    ```
 
-```json
-"additionalLoginParams": ["domain_hint=<domain_name>"]
-```
+5. Click **Put**.
 
 This setting appends the `domain_hint` query string parameter to the login redirect URL. 
 

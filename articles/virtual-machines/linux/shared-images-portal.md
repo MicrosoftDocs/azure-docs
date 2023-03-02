@@ -1,28 +1,29 @@
 ---
 title: Create shared Azure Linux VM images using the portal 
 description: Learn how to use Azure portal to create and share Linux virtual machine images.
-author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/21/2021
-ms.author: cynthn
+author: sandeepraichura
+ms.author: saraic
+ms.reviewer: cynthn
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create a Shared Image Gallery using the portal
+# Create an Azure Compute Gallery using the portal
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets **Applies to:** :heavy_check_mark: :heavy_check_mark: Uniform scale sets 
 
-A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+An [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
 
 The gallery is a top-level resource that provides full Azure role-based access control (Azure RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Images.
 
-The Shared Image Gallery feature has multiple resource types. We will be using or building these in this article:
+The Azure Compute Gallery feature has multiple resource types. We will be using or building these in this article:
 
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
@@ -66,10 +67,10 @@ If you want to delete individual resources, you need to delete them in reverse o
 
 ## Next steps
 
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can also create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
-For more information about Shared Image Galleries, see the [Overview](../shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../troubleshooting-shared-images.md).
+For more information about Azure Compute Galleries, see the [Overview](../shared-image-galleries.md). If you run into issues, see [Troubleshooting galleries](../troubleshooting-shared-images.md).

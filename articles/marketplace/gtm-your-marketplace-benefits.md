@@ -1,12 +1,12 @@
 ---
-title: Go-To-Market Services - your commercial marketplace benefits, Azure Marketplace
-description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
+title: Go-To-Market Services - Your commercial marketplace benefits, Azure Marketplace
+description: Go-To-Market Services - Describes Microsoft resources that publishers can use.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/23/2021
-author: keferna
-ms.author: keferna
+ms.date: 11/16/2022
+author: pavankumarMSFT
+ms.author: vgandhikota
 ---
 
 # Your commercial marketplace benefits
@@ -18,7 +18,9 @@ Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Part
 > [!NOTE]
 > Currencies ($) referenced in images in this article are Marketplace Reward benefit tiers, which are based on cumulative billed sales or seats sold through Microsoft AppSource and Azure Marketplace.
 
-## Marketplace Rewards
+## ISV Success program and Marketplace rewards
+
+Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available at no cost to all participants of the program.
 
 Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
 
@@ -28,9 +30,9 @@ Your benefits are differentiated based on whether your offer is [List, Trial, or
 
 Based on your eligibility, you will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
-List and trial offers receive one-time use benefits. Transact offers are eligible for evergreen benefit engagement. As transacting partners, as you grow your billed sales through the commercial marketplace, you unlock greater benefits per per billed sales (or seats sold)  tier.
+List and trial offers receive one-time use benefits. Transact offers are eligible for evergreen benefit engagement. As transacting partners, as you grow your billed sales through the commercial marketplace, you unlock greater benefits per billed sales (or seats sold)  tier.
 
-The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform.
+The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform.
 
 You will get support in understanding the resources available to you and in implementing best practices, which you can also [review on your own](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!1039&ithint=file%2cdocx&authkey=!AFs7CHF5_XGje3k).
 
@@ -48,7 +50,7 @@ Detailed descriptions of all program benefits can be found in this [Marketplace 
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 > [!NOTE]
-> If your offer has been live for more than four weeks and you have not received a message, please verify the owner of the offer within your organization. To do this, go into Partner Center and verify the contacts listed. One of these listed contact should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://go.microsoft.com/fwlink/?linkid=2165533).
+> If your offer has been live for more than three weeks and you have not received a message, please verify the owner of the offer within your organization. To do this, go into Partner Center and verify the contacts listed. One of these listed contact should have the communication and next steps.<br<brIf you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the commercial marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -61,7 +63,7 @@ Each time you publish on Microsoft AppSource or Azure Marketplace, you will have
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
-[![Go-To-Market benefits](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png#lightbox)
+:::image type="content" alt-text="Table that shows eligibility requirements." source="./media/gtm-marketplace/summary-table.png" lightbox="./media/gtm-marketplace/summary-table.png":::
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
@@ -69,8 +71,8 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 
 When you go live with your transactable offer in either Microsoft AppSource or Azure Marketplace, you can access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace.
 
->[!NOTE]
->Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2022.
+> [!NOTE]
+> Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2023.
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
@@ -78,15 +80,13 @@ All partners who have a live transactable offer get to work with a dedicated eng
 
 ### Marketing benefits for transact offers
 
-[![Marketing benefits](media/marketplace-publishers-guide/marketing-benefit.png)](media/marketplace-publishers-guide/marketing-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows marketing benefits for transact offers." source="./media/gtm-marketplace/marketing-benefits.png" lightbox="./media/gtm-marketplace/marketing-benefits.png":::
 
-### Sales benefits for transact offers
-
-[![Sales benefits](media/marketplace-publishers-guide/sales-benefit.png)](media/marketplace-publishers-guide/sales-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows sales benefits for transact offers." source="./media/gtm-marketplace/sales-benefits.png" lightbox="./media/gtm-marketplace/sales-benefits.png":::
 
 ### Technical benefits for transact offers
 
-[![Technical benefits](media/marketplace-publishers-guide/technical-benefit.png)](media/marketplace-publishers-guide/technical-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows technical benefits for transact offers." source="./media/gtm-marketplace/technical-benefits.png" lightbox="./media/gtm-marketplace/technical-benefits.png":::
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
@@ -127,3 +127,5 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 - Activate your Marketplace Rewards benefits in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 - Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 - Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.
+
+

@@ -3,11 +3,11 @@ title: Quickstart - Create an Azure Stream Analytics job by Azure Resource Manag
 description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Stream Analytics job.
 services: stream-analytics
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: ahartoon
+ms.author: anboisve
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/28/2020
 ---
 

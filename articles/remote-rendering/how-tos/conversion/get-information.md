@@ -20,15 +20,19 @@ There will be at most one error (either `error` or `internal error`) and there w
 
 ## Example *result* file
 
-The following example describes a conversion that successfully generated an arrAsset. 
+The following example describes a conversion that successfully generated an arrAsset.
 However, since there was a missing texture, the resulting arrAsset may not be as intended.
 
 ```JSON
 [
+  {"conversionId":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"},
   {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
   {"result":"succeeded with warnings"}
 ]
 ```
+
+> [!NOTE]
+> The `conversionId` is an internal Id that does not correlate with the Id that was used to create the conversion.
 
 ## Information about a converted model: The info file
 
@@ -129,11 +133,11 @@ It contains the following information:
 This section provides information about the source scene. There will often be discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of _triangles_ in the whole model. Note that the mesh is triangulated during conversion. This number contributes to the polygon limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: The total number of triangles/points in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
 * `numVertices`: The total number of vertices in the whole model.
 * `numMaterial`: The total number of materials in the whole model.
-* `numFacesSmallestMesh`: The number of triangles in the smallest mesh of the model.
-* `numFacesBiggestMesh`: The number of triangles in the biggest mesh of the model.
+* `numFacesSmallestMesh`: The number of triangles/points in the smallest mesh of the model.
+* `numFacesBiggestMesh`: The number of triangles/points in the biggest mesh of the model.
 * `numNodes`: The number of nodes in the model's scene graph.
 * `numMeshUsagesInScene`: The number of times nodes reference meshes. More than one node may reference the same mesh.
 * `maxNodeDepth`: The maximum depth of the nodes within the scene graph.
@@ -156,8 +160,8 @@ This section records information calculated from the converted asset.
 
 ## Deprecated features
 
-The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these had been the only source of warnings and errors.
-These files are now deprecated. Instead, please use
+The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these files had been the only source of warnings and errors.
+These files are now deprecated. Instead, use
 [result files](#information-about-a-conversion-the-result-file) for this purpose.
 
 ## Next steps

@@ -1,10 +1,11 @@
 ---
-title: Configure IDEMIA with Azure Active Directory B2C 
+title: Configure IDEMIA with Azure Active Directory B2C (Preview) 
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with IDEMIA for relying party to consume IDEMIA or US State issued mobile IDs
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -14,7 +15,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
+# Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials (Preview)
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"
@@ -35,7 +36,7 @@ IDEMIA integration includes the following components:
 
 - **Azure AD B2C** – The authorization server, responsible for verifying the user’s credentials, also known as the Identity Provider (IdP).
 
-- **IDEMIA mID** - OpenID Connect (OIDC) provider configured as [Azure AD B2C external provider](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider)
+- **IDEMIA mID** - OpenID Connect (OIDC) provider configured as [Azure AD B2C external provider](add-identity-provider.md)
 
 - **[IDEMIA mID application](https://idemia-mobile-id.com/)** - A trusted, government-issued digital identity. Mobile ID is a digital version of your driver’s license or state-issued ID that lives in an app on your phone. [IDEMIA](https://idemia-mobile-id.com/).
 
@@ -75,7 +76,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 - Your business web application registered in Azure AD B2C tenant. For testing purposes you can configure https://jwt.ms, a Microsoft-owned web application that displays the decoded contents of a token.
 
@@ -194,7 +195,7 @@ One of the following values must be selected:
 
 The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes such claims as First Name, Last Name, and Driver's License Number, among other items.
 The claims set for any given scope are published in the **scope_to_claims_mapping** section of the discovery API.
-Azure AD B2C requests claims from the claims endpoint and returns those claims in the OutputClaims element. You may need to map the name of the claim defined in your policy to the name defined in the IdP making sure to define the claim type in the [ClaimSchema element](https://docs.microsoft.com/azure/active-directory-b2c/claimsschema):
+Azure AD B2C requests claims from the claims endpoint and returns those claims in the OutputClaims element. You may need to map the name of the claim defined in your policy to the name defined in the IdP making sure to define the claim type in the [ClaimSchema element](claimsschema.md):
 
 ```PowerShell
 <ClaimType Id="documentId">
@@ -292,9 +293,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 - [Learn more about IDEMIA mID](https://www.idemia.com/mobile-id)
 

@@ -1,19 +1,22 @@
 ---
-title: Embed player widget in Power BI - Azure Video Analyzer
+title: Embed player widget in Power BI
 description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This article talks about how to embed videos in Microsoft Power BI to provide a customizable UI for your users.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Embed player widget in Power BI
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Azure Video Analyzer enables you to [record](detect-motion-record-video-clips-cloud.md) video and associated inference metadata to your Video Analyzer cloud resource. Video Analyzer has a [Player Widget](player-widget.md) - an easy-to-embed widget allowing client apps to playback video and inference metadata.
 
 Dashboards are an insightful way to monitor your business and view all your most important metrics at a glance. A Power BI dashboard is a powerful tool to combine video with multiple sources of data including telemetry from IoT Hub. In this tutorial, you will learn how to add one or more player widgets to a dashboard using [Microsoft Power BI](https://powerbi.microsoft.com/) web service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
 
 ## Suggested pre-reading
 
@@ -23,7 +26,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-- Complete either [Detect motion and record video](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
+- Complete either [Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
 
   > [!NOTE]
   > Your video analyzer account should have a minimum of one video recorded to proceed. Check for list of videos by logging into your Azure Video Analyzer account > Videos > Video Analyzer section.
@@ -77,4 +80,4 @@ Here is a sample of multiple videos pinned to a single Power BI dashboard.
 ## Next steps
 
 - [Real-time visualization of AI inference events in Power BI](visualize-ai-events-power-bi.md)
-- Learn more about the [widget API](https://github.com/Azure/video-analyzer/tree/main/widgets)
+- Learn more about the [widget API](https://github.com/Azure/video-analyzer-widgets)

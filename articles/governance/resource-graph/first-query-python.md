@@ -3,9 +3,7 @@ title: 'Quickstart: Your first Python query'
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
 ms.date: 10/01/2021
 ms.topic: quickstart
-ms.custom:
-  - devx-track-python
-  - mode-api
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Python
 
@@ -38,7 +36,7 @@ installed.
    > [!NOTE]
    > Azure CLI is required to enable Python to use the **CLI-based authentication** in the following
    > examples. For information about other options, see
-   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/azure-sdk-authenticate).
+   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/sdk/authentication-overview).
 
 1. Authenticate through Azure CLI.
 
