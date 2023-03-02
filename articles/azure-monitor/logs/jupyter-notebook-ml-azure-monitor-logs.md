@@ -408,3 +408,6 @@ To validate a machine learning model, we need to use some of the data we have to
     filename = './myModel.pkl'
     joblib.dump(gbrt_pipeline, filename)
     ```
+
+## Score new data using the trained model
+
