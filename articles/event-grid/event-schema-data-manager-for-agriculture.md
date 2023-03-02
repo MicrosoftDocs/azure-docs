@@ -48,7 +48,7 @@ This article provides the properties and schema for Azure Data Manager for Agric
 |Microsoft.AgFoodPlatform.HarvestDataChangedV2|Published when a `Harvesting Data` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.TillageDataChangedV2|Published when a `Tillage Data` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.PlantingDataChangedV2|Published when a `Planting Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChangedV2|Published when an image-processing rasterize job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChangedV2|Published when an image-processing rasterizes job's status is changed, for example, job is created, has progressed or completed.|
 |Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChangedV2| Published when a farm operations data ingestion job's status is changed, for example, job is created, has progressed or completed.|
 
 ### Sensor data related event types
