@@ -599,6 +599,9 @@
   - name: Microsoft Energy Data Services
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
+  - name: Data Manager for Agriculture
+    tocHref: /azure/data-manager-for-agri
+    topicHref: /azure/data-manager-for-agri
   - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
