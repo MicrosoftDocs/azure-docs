@@ -28,16 +28,16 @@ In this tutorial, you learn how to create a logic app that uses the Log Analytic
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** > **Web** > **Logic App**.
 
-    ![Screenshot that shows the New logic app window.](./media/automate-with-logic-apps/1createlogicapp.png)
+    ![Screenshot that shows the New logic app window.](./media/connectors-azure-application-insights/1createlogicapp.png)
 
 ### Create a trigger for your logic app
 1. In the **Logic Apps Designer** window, under **Start with a common trigger**, select **Recurrence**.
 
-    ![Screenshot that shows the Logic Apps Designer window.](./media/automate-with-logic-apps/2logicappdesigner.png)
+    ![Screenshot that shows the Logic Apps Designer window.](./media/connectors-azure-application-insights/2logicappdesigner.png)
 
 1. In the **Interval** box, enter **1**. In the **Frequency** box, select **Day**.
 
-    ![Screenshot that shows the Logic Apps Designer Recurrence window.](./media/automate-with-logic-apps/3recurrence.png)
+    ![Screenshot that shows the Logic Apps Designer Recurrence window.](./media/connectors-azure-application-insights/3recurrence.png)
 
 ### Add an Application Insights action
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to create a logic app that uses the Log Analytic
 
 1. Under **Actions**, select **Visualize Analytics query - Azure Application Insights**.
 
-    ![Screenshot that shows the Logic App Designer Choose an action window.](./media/automate-with-logic-apps/4visualize.png)
+    ![Screenshot that shows the Logic App Designer Choose an action window.](./media/connectors-azure-application-insights/4visualize.png)
 
 ### Connect to an Application Insights resource
 
@@ -55,13 +55,13 @@ For this step, you need an application ID and an API key for your resource.
 
 1. Select **API Access** > **Create API key**.
 
-    ![Screenshot that shows the API Access page in the Azure portal with the Create API key button selected.](./media/automate-with-logic-apps/5apiaccess.png)
+    ![Screenshot that shows the API Access page in the Azure portal with the Create API key button selected.](./media/connectors-azure-application-insights/5apiaccess.png)
 
-    ![Screenshot that shows the Application ID in the Azure portal.](./media/automate-with-logic-apps/6apikey.png)
+    ![Screenshot that shows the Application ID in the Azure portal.](./media/connectors-azure-application-insights/6apikey.png)
 
 1. Provide a name for your connection, the application ID, and the API key.
 
-    ![Screenshot that shows the Logic App Designer flow connection window.](./media/automate-with-logic-apps/7connection.png)
+    ![Screenshot that shows the Logic App Designer flow connection window.](./media/connectors-azure-application-insights/7connection.png)
 
 ### Specify the Log Analytics query and chart type
 In the following example, the query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Log Analytics correlates the failed requests based on the `operation_Id` identifier. The query then segments the results by using the autocluster algorithm.
@@ -83,7 +83,7 @@ When you create your own queries, verify that they're working properly in Log An
 
 1. In the **Chart Type** box, select **Html Table**.
 
-    ![Screenshot that shows the Log Analytics query configuration window.](./media/automate-with-logic-apps/8query.png)
+    ![Screenshot that shows the Log Analytics query configuration window.](./media/connectors-azure-application-insights/8query.png)
 
 ### Configure the logic app to send email
 
@@ -93,7 +93,7 @@ When you create your own queries, verify that they're working properly in Log An
 
 1. Select **Send an email - Office 365 Outlook**.
 
-    ![Screenshot that shows the Send an email button on the Office 365 Outlook screen.](./media/automate-with-logic-apps/9sendemail.png)
+    ![Screenshot that shows the Send an email button on the Office 365 Outlook screen.](./media/connectors-azure-application-insights/9sendemail.png)
 
 1. In the **Send an email** window:
 
@@ -102,9 +102,9 @@ When you create your own queries, verify that they're working properly in Log An
    1. Select anywhere in the **Body** box. On the **Dynamic content** menu that opens at the right, select **Body**.
    1. Select the **Add new parameter** dropdown list and select **Attachments** and **Is HTML**.
 
-      ![Screenshot that shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/automate-with-logic-apps/10emailbody.png)
+      ![Screenshot that shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/connectors-azure-application-insights/10emailbody.png)
 
-      ![Screenshot that shows the Add new parameter dropdown list in the Send an email window with the Attachments and Is HTML checkboxes selected.](./media/automate-with-logic-apps/11emailparameter.png)
+      ![Screenshot that shows the Add new parameter dropdown list in the Send an email window with the Attachments and Is HTML checkboxes selected.](./media/connectors-azure-application-insights/11emailparameter.png)
 
 1. On the **Dynamic content** menu:
 
@@ -112,7 +112,7 @@ When you create your own queries, verify that they're working properly in Log An
     1. Select **Attachment Content**.
     1. In the **Is HTML** box, select **Yes**.
 
-       ![Screenshot that shows the Office 365 email configuration screen.](./media/automate-with-logic-apps/12emailattachment.png)
+       ![Screenshot that shows the Office 365 email configuration screen.](./media/connectors-azure-application-insights/12emailattachment.png)
 
 ### Save and test your logic app
 
@@ -120,11 +120,11 @@ When you create your own queries, verify that they're working properly in Log An
 
     You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
 
-    ![Screenshot that shows the Save button on the Logic Apps Designer screen.](./media/automate-with-logic-apps/13save.png)
+    ![Screenshot that shows the Save button on the Logic Apps Designer screen.](./media/connectors-azure-application-insights/13save.png)
 
     When your logic app runs, the recipients you specified in the email list will receive an email that looks like this example:
 
-    ![Image that shows an email message generated by a logic app with a query result set.](./media/automate-with-logic-apps/email-generated-by-logic-app-generated-email.png)
+    ![Image that shows an email message generated by a logic app with a query result set.](./media/connectors-azure-application-insights/email-generated-by-logic-app-generated-email.png)
 
     > [!NOTE]
     > The log app generates an email with a JPG file that depicts the query result set. If your query doesn't return results, the logic app won't create a JPG file.
