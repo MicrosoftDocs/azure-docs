@@ -451,6 +451,8 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with Recognize action 
       href: how-tos/call-automation/recognize-action.md
+    - name: Record every call in the resource
+      href: how-tos/call-automation/record-every-call.md
   - name: Using the Chat SDK
     items: 
     - name: Integrate with Data Loss Prevention policies
