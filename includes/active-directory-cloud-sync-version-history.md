@@ -19,7 +19,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 Release date: September 23, 2022
 
 ### New or changed functionality
- - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility.
+ - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availability.
  - We added support for password writeback in disconnected forests.
  
 ### Fixed issues
