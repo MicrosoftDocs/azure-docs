@@ -11,7 +11,7 @@ ms.author: eur
 The Speech CLI can recognize speech in many file formats and natural languages. For this quickstart, you can use
 a WAV file (16kHz or 8kHz, 16-bit, and mono PCM) that contains English speech.
 
-1. Download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a>.
+1. Download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a>.
 2. Copy the `whatstheweatherlike.wav` file to the same directory as the Speech CLI binary file.
 
 ## Run the Speech CLI

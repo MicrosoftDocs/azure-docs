@@ -31,7 +31,7 @@ In depth samples are available in the [Azure-Samples/cognitive-services-speech-s
 
 ## Batch transcription
 
-Batch transcription is a set of [Speech-to-text REST API](rest-speech-to-text.md) operations that enable you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. For more information on how to use the batch transcription API, see [How to use batch transcription](batch-transcription.md) and [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
+Batch transcription is a set of [Speech-to-text REST API](rest-speech-to-text.md) operations that enable you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. For more information on how to use the batch transcription API, see [How to use batch transcription](batch-transcription.md) and [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/batch).
 
 ## Custom Speech
 

@@ -25,7 +25,7 @@ Speak into the microphone, and you see transcription of your words into text in 
 
 ## Speech-to-text from an audio file
 
-The Speech CLI can recognize speech in many file formats and natural languages. In this example, you can use any WAV file (16 KHz or 8 KHz, 16-bit, and mono PCM) that contains English speech. Or if you want a quick sample, download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> file and copy it to the same directory as the Speech CLI binary file.
+The Speech CLI can recognize speech in many file formats and natural languages. In this example, you can use any WAV file (16 KHz or 8 KHz, 16-bit, and mono PCM) that contains English speech. Or if you want a quick sample, download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> file and copy it to the same directory as the Speech CLI binary file.
 
 Use the following command to run the Speech CLI to recognize speech found in the audio file:
 

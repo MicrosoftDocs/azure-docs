@@ -116,8 +116,8 @@ embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
-- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/dotnetcore/embedded-speech)
-- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/embedded-speech)
+- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/csharp/dotnetcore/embedded-speech)
+- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/csharp/unity/embedded-speech)
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -144,7 +144,7 @@ embeddedSpeechConfig->SetSpeechSynthesisVoice(
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/embedded-speech)
+You can find ready to use embedded speech samples at [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/cpp/embedded-speech)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -169,8 +169,8 @@ embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 ```
 
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
-- [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/embedded-speech)
-- [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/embedded-speech)
+- [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/java/jre/embedded-speech)
+- [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/java/android/embedded-speech)
 ::: zone-end
 
 

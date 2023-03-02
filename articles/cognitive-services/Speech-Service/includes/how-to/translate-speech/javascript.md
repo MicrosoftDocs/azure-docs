@@ -109,7 +109,7 @@ translationRecognizer.recognizeOnceAsync(
 ```
 
 Your code can also handle updates provided while the translation is processing. You can use these updates to provide visual feedback about the translation progress. [This JavaScript
-Node.js example](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/translation.js) shows these kinds of updates. The following code also displays details produced during the translation process:
+Node.js example](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/js/node/translation.js) shows these kinds of updates. The following code also displays details produced during the translation process:
 
 ```javascript
 translationRecognizer.recognizing = function (s, e) {

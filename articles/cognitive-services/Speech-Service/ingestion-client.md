@@ -28,7 +28,7 @@ An Azure Account and an Azure Cognitive Services resource are needed to run the 
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a Cognitive Services resource"  target="_blank">Create a Cognitive Services resource</a> in the Azure portal.
 * Get the resource key and region. After your Cognitive Services resource is deployed, select **Go to resource** to view and manage keys. For more information about Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
-See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
+See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
 
 ## Ingestion Client Features
 
@@ -57,7 +57,7 @@ Besides Cognitive Services, these Azure products are used to complete the soluti
 
 ## Tool customization
 
-The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
+The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/batch).
 
 > [!NOTE]
 > We suggest creating the resources in the same dedicated resource group to understand and track costs more easily.

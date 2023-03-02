@@ -203,7 +203,7 @@ You use Speech-to-text recognition when you need to identify the language in an 
 
 ::: zone pivot="programming-language-csharp"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -322,7 +322,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
 
 ::: zone pivot="programming-language-cpp"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -357,7 +357,7 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 ::: zone pivot="programming-language-java"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
 ### [Recognize once](#tab/once)
 
@@ -393,7 +393,7 @@ result.close();
 
 ::: zone pivot="programming-language-python"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/python/console/speech_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -625,7 +625,7 @@ You use Speech translation when you need to identify the language in an audio so
 > Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 ::: zone pivot="programming-language-csharp"
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -790,7 +790,7 @@ public static async Task MultiLingualTranslation()
 
 ::: zone pivot="programming-language-cpp"
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/cpp/windows/console/samples/translation_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -955,7 +955,7 @@ void MultiLingualTranslation()
 
 ::: zone pivot="programming-language-python"
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/python/console/translation_sample.py).
 
 ### [Recognize once](#tab/once)
 
