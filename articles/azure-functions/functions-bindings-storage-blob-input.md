@@ -244,9 +244,11 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows blob input and output bindings and [Python code](functions-reference-python.md) that uses these bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings and [Python code](functions-reference-python.md) that uses these bindings.
 
 # [v2](#tab/python-v2)
+
+The code makes a copy of a blob.
 
 ```python
 import logging
@@ -267,6 +269,8 @@ def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
 ```
 
 # [v1](#tab/python-v1)
+
+The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
