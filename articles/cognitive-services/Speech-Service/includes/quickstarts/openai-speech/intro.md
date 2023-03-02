@@ -7,7 +7,7 @@ ms.author: eur
 ---
 
 > [!IMPORTANT]
-> To complete the steps in this guide, access must be granted to the Azure OpenAI service in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).
+> To complete the steps in this guide, access must be granted to Microsoft Azure OpenAI Service in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).
 
 In this how-to guide, you can use Speech to converse with Azure OpenAI. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.
 
