@@ -73,7 +73,7 @@ During security principal-based authorization, permissions are evaluated in the 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored.
+Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment and its conditions. That's because the system evaluates Azure role assignments and conditions first, and if the assignment grants sufficient access permission, ACLs are ignored.
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
