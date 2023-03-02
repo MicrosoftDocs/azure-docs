@@ -72,7 +72,7 @@ You can also use an integrated development environment to open the folder.
 
 1. Go to the application folder.
 
-1. Create an *.env* file in the root folder of the project using *.env.sample* as a guide.
+1. Create a *.env* file in the root folder of the project using *.env.sample* as a guide.
 
     ```python
     TENANT_ID=<tenant id>
