@@ -84,7 +84,7 @@ Disable custom alert rules to prevent them from running without deleting them al
 
 In the **Custom alert rules** page, select one or more rules, and then select  **Disable**, **Enable**, or **Delete** in the toolbar as needed.
 
-## Allow DNS traffic on an OT sensor
+## Allow internet connections on an OT network
 
 Decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
