@@ -1,7 +1,7 @@
 ---
 title: Understand billable assets
-titleSuffix: Understand billable assets in Microsoft Defender EASM 
-description: This article describes how users will be billed for their Defender EASM resource usage, and guides them to the dashboard that displays their counts. 
+titleSuffix: Microsoft Defender EASM 
+description: This article describes how users are billed for their Defender EASM resource usage, and guides them to the dashboard that displays their counts. 
 author: danielledennis
 ms.author: dandennis
 ms.service: security
@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Understand billable assets
 
-When customers create their first Microsoft Defender External Attack Surface Management (Defender EASM) resource, they are automatically granted a 30-day free trial.  Once the trial has completed, customers will automatically be charged based on their count of billable assets.   The charged amount will appear on their core Azure billing, with “Defender EASM” appearing as separate line item on their invoice.
+When customers create their first Microsoft Defender External Attack Surface Management (Defender EASM) resource, they are automatically granted a 30-day free trial.  Once the trial has completed, customers are automatically charged based on their count of billable assets.   The charged amount appears on their core Azure billing, with “Defender EASM” appearing as separate line item on their invoice.
 
 
 ## What is a billable asset? 
@@ -23,7 +23,7 @@ The following kinds of assets are considered billable:
 - Approved IP addresses 
   
   
-Assets are only categorized as billable if they have been placed in the Approved Inventory state.  We do not charge for any other state. Additionally, duplicative host assets are NOT included in the billable asset count.  
+Assets are only categorized as billable if they have been placed in the Approved Inventory state.  We don't charge for any other state. Additionally, duplicative host assets are NOT included in the billable asset count.  
 
 
 
@@ -44,7 +44,7 @@ For example: if www.contoso.com has resolved to 1.2.3.4 and 5.6.7.8 in the past 
 - www.contoso.com / 5.6.7.8 
 
 
-The list is then analyzed to identify duplicate entries and eliminate duplicate hosts.  If a host is a subdomain of a parent host that resolves to the same IP address, we will exclude the child from the billable host count. For example, if both www.contoso.com and contoso.com resolve to 1.2.3.4, then we will exclude www.contoso.com/ 1.2.3.4 from our Host Count list. 
+The list is then analyzed to identify duplicate entries and eliminate duplicate hosts.  If a host is a subdomain of a parent host that resolves to the same IP address, we'll exclude the child from the billable host count. For example, if both www.contoso.com and contoso.com resolve to 1.2.3.4, then we'll exclude www.contoso.com/ 1.2.3.4 from our Host Count list. 
 
 
 
@@ -54,9 +54,9 @@ Excluding the IP addresses that resolve to a billable resolving host, all active
  
 For an IP address to be considered active and therefore billable, it must have one of the following:  
 
-- a recent detected open port  
-- a recent detected SSL certificate 
-- recently appeared on a reputation list 
+- A recent detected open port  
+- A recent detected SSL certificate 
+- Recently appeared on a reputation list 
 
 
 These values are all considered “recent” if observed within the last 30 days. 
@@ -72,23 +72,23 @@ For example: if server1.contoso.com has recently resolved to an IP address and i
 
 ## Viewing billable asset data 
 
-Users can view their billable assets count within their Defender EASM resource to better understand how Microsoft determines their pricing. This dashboard displays the total number of assets that are billable and therefore comprise your total spend. Users should expect to see counts from the last 30 days when applicable, excluding the most recent couple days that have not yet processed.   
+Users can view their billable assets count within their Defender EASM resource to better understand how Microsoft determines their pricing. This dashboard displays the total number of assets that are billable and therefore comprise your total spend. Users should expect to see counts from the last 30 days when applicable, excluding the most recent couple days that haven't yet processed.   
 
-Prospective customers accessing Defender EASM with a 30-day trial can also see these billable asset counts. Although these users are not charged until the trial has expired, they can view the billable asset dashboard to better understand how they would be billed according to the size of their attack surface.  
+Prospective customers accessing Defender EASM with a 30-day trial can also see these billable asset counts. Although these users aren't charged until the trial has expired, they can view the billable asset dashboard to better understand how they would be billed according to the size of their attack surface.  
 1. From the Defender EASM resource, select **Billable assets** from the **Manage** section of the left-hand navigation menu.
 
 
-![Screenshot of Billable assets dashboard with left-hand Manage section highlighted in navigation pane.](media/billable-1a.png)
+  ![Screenshot of Billable assets dashboard with left-hand Manage section highlighted in navigation pane.](media/billable-1a.png)
 
 
 2. The chart displays billable asset counts over the past 30 days (if we have 30 days of data). The individual bars are segmented by asset type so users can quickly understand how their billable assets are distributed across their attack surface. Users can view the daily counts for each kind of asset by hovering their mouse over the chart. 
 
-![Screenshot of Billable assets chart showing asset counts when hovering over bar.](media/billable-2a.png)
+  ![Screenshot of Billable assets chart showing asset counts when hovering over bar.](media/billable-2a.png)
 
 
 3. Beneath the chart, users can view their current billable asset counts. These numbers are useful when approximating your monthly spend to best protect your organization’s attack surface.  
 
-![Screenshot of Billable assets counts beneath dashboard.](media/billable-3.png)
+  ![Screenshot of Billable assets counts beneath dashboard.](media/billable-3.png)
 
 
 ## Next steps 
