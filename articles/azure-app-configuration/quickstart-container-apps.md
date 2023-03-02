@@ -75,7 +75,7 @@ Create an Azure Container Registry (ACR). ACR enables you to build, store, and m
 1. To create the container registry, follow the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-portal).
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Take note of the **Login server** value listed on this page. You'll use this information in a later step.
-1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials. If you leave it disabled, you can still connect the container registry and the container app using a managed identity.
+1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials. Alternatively, you can leave it disabled and configure the container app to [pull images from the registry with a managed identity](../container-apps/managed-identity-image-pull.md).
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -145,7 +145,7 @@ Update your Container App to load the container image from your ACR.
     | Setting        | Suggested value            | Description                                                                      |
     |----------------|----------------------------|----------------------------------------------------------------------------------|
     | Image source   | *Azure Container Registry* | Select Azure Container Registry as your image source.                            |
-    | Authentication | *Admin Credentials*        | Use the admin user credential option that was enabled earlier in the container registry. You can also [use a managed identity](../container-apps/managed-identity-image-pull.md?tabs=azure-cli&pivots=azure-portal), in which case you will need to manually enter the image and tag in the form. |
+    | Authentication | *Admin Credentials*        | Use the admin user credential option that was enabled earlier in the container registry. If you didn't enable the admin user but configured to [use a managed identity](../container-apps/managed-identity-image-pull.md?tabs=azure-cli&pivots=azure-portal), you would need to manually enter the image and tag in the form. |
     | Registry       | *myregistry.azurecr.io*    | Select the Azure Container Registry you created earlier.                         |
     | Image          | *aspnetapp*                | Select the docker image you created and pushed to ACR earlier.                   |
     | Image tag      | *v1*                       | Select your image tag from the list.                                             |
@@ -174,6 +174,8 @@ In this quickstart, you:
 - Pushed the image to the Azure Container Registry instance
 - Added the container image to Azure Container Apps
 - Browsed to the URL of the Azure Container Apps instance updated with the settings you configured in your App Configuration store.
+
+The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [[access Container Registry using the managed identity](../container-registry/container-registry-authentication-managed-identity.md)].
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
