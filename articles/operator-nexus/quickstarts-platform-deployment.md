@@ -27,7 +27,7 @@ These steps use commands and parameters that are detailed in the API documents.
 
 ## API guide and metrics
 
-The [API guide](/rest/api/azure/azure-operator-distributed-services) provides
+The [API guide](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/networkcloud/resource-manager) provides
 information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).

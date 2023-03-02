@@ -18,7 +18,7 @@ You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature
 1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md)
-4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Download the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Create an indoor map](tutorial-creator-indoor-maps.md) to obtain a `tilesetId` and `statesetId`.
 6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
 
