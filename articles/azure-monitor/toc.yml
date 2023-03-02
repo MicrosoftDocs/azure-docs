@@ -96,10 +96,6 @@ items:
       items:
         - name: Create a resource
           href: app/resource-manager-app-resource.md
-        - name: Azure App Service
-          href: app/resource-manager-web-app.md
-        - name: Azure Functions
-          href: app/resource-manager-function-app.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
