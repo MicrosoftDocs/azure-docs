@@ -110,6 +110,38 @@ The page units in the model output are computed as shown:
 |PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
+### Extracting barcodes from documents
+
+The Read OCR model in Form Recognizer extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes will be represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes will appear at the end of each page. Note that the `confidence` is hard-coded for the public preview (2023-03-06) release.
+
+#### Supported barcode types
+
+| **Barcode Type**   | **Example**   |
+| --- | --- |
+| QR Code |:::image type="content" source="media/barcodes/qrcode.png" alt-text="Screenshot of the QR Code.":::|
+| Code 39 |:::image type="content" source="media/barcodes/code39.png" alt-text="Screenshot of the Code 39.":::|
+| Code 128 |:::image type="content" source="media/barcodes/code128.png" alt-text="Screenshot of the Code 128.":::|
+| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
+| PDF417 |:::image type="content" source="media/barcodes/pdf417.png" alt-text="Screenshot of the PDF417.":::|
+
+```json
+"content": ":barcode:",
+  "pages": [
+    {
+      "pageNumber": 1,
+      "barcodes": [
+        {
+          "kind": "QRCode",
+          "value": "http://test.com/",
+          "span": { ... },
+          "polygon": [...],
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+```
+
 ### Paragraphs extraction
 
 The Read OCR model in Form Recognizer extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
