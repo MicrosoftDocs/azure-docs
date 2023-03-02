@@ -22,7 +22,7 @@ Below are the qualities of confidential containers:
 
 - Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
 - Ability to extend/build new applications that have confidential computing awareness
-- Allows to remotely challenge the runtime environment for cryptographic proof that states what was initiated as reported by the secure processer 
+- Allows to remotely challenge runtime environment for cryptographic proof that states what was initiated as reported by the secure processor 
 - Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment with hardware based confidential computing offerings
 - Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
