@@ -89,11 +89,12 @@ This architecture features two clusters in different resource groups and virtual
 1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
 1. Connect to `PRIMARYCLUSTER`
-    > ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
+   'ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net'
 
 1. Execute the following command and get the entries of worker nodes IPs and FQDNs  `cat /etc/hosts` 
    
-1. Copy those entries and connect to `SECONDARYCLUSTER` and run `ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
+1. Copy those entries and connect to `SECONDARYCLUSTER` and run 
+   `ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
 
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here. 
 
@@ -178,13 +179,12 @@ This architecture features two clusters in different resource groups and virtual
    # Setting replication factor of newly created remote topics
    Replication.factor=3
  
-   checkpoints.topic.replication.factor=1
-   heartbeats.topic.replication.factor=1
-   offset-syncs.topic.replication.factor=1
- 
-   offset.storage.replication.factor=1
-   status.storage.replication.factor=1
-   config.storage.replication.factor=1
+   checkpoints.topic.replication.factor=3
+   heartbeats.topic.replication.factor=3
+   offset-syncs.topic.replication.factor=3
+   offset.storage.replication.factor=3
+   status.storage.replication.factor=3
+   config.storage.replication.factor=3
    ```
 
 1. Start Mirror Maker2 in `SECONDARYCLUSTER` and it should run fine
@@ -194,7 +194,7 @@ This architecture features two clusters in different resource groups and virtual
    ./bin/connect-mirror-maker.sh ./config/connect-mirror-maker.properties 
    ```
 
-1. Now start producer in PRIMARY CLUSTER  
+1. Now start producer in `PRIMARYCLUSTER`  
 
    ``` 
    export clusterName='primary-kafka-cluster' 
