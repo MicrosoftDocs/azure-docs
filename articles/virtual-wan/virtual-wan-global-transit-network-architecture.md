@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 03/02/2023
 ms.author: cherylmc
 
 ---
@@ -24,6 +24,8 @@ In this model, a spoke can be:
 * Internet
 
 ![hub and spoke](./media/virtual-wan-global-transit-network-architecture/figure1.png)
+
+![hub and spoke](./media/virtual-wan-global-transit-network-architecture/1.png)
 
 **Figure 1: Global transit hub-and-spoke network**
 
@@ -118,7 +120,7 @@ Forced Tunneling can be enabled by configuring the enable default route on a VPN
 
 A virtual hub propagates a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if enable default flag is 'Enabled' on the connection. 
 
-This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route doesn't originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route doesn't originate in the Virtual WAN hub; the default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
 
 ## <a name="security"></a>Security and policy control
 
