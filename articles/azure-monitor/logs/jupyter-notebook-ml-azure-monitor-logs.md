@@ -189,9 +189,9 @@ In this tutorial, you'll:
     
 ## Train the model
 
-Model training is an iterative process that begins with data preparation and cleaning, and includes experimenting with several models until you find a model that best fits your data set.
+Model training is an iterative process that begins with data preparation and cleaning, and might include experimentation with several models until you find a model that's a good fit for your data set.
 
-In this tutorial, for simplicity, we'll: 
+In this tutorial, for the sake of simplicity, we'll: 
 
 - Skip the data cleaning step.
 - Work with six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
