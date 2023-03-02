@@ -13,24 +13,19 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Weather is a highly democratized service in the agriculture industry. Data Manager for Agriculture offers customers the ability to work with the weather provider of their choice. 
 
-Data Manager for Agriculture provides weather data through an extension-based and provider agnostic approach. 
-Customers can work with a provider of their choice by following the steps [here](./how-to-write-weather-extension.md)
-
-Out of the box we support IBM TWC.
+Data Manager for Agriculture provides weather current and forecast data through an extension-based and provider agnostic approach. Customers can work with a provider of their choice by following the steps [here](./how-to-write-weather-extension.md). Out of the box we support IBM TWC.
 
 ## Design overview
 
-Data Manager for Agriculture provides weather data through provider agnostic approach where the user does not have to be familiar with the provider's APIs. Instead, they can use the same Data Manager for Agriculture APIs irrespective of the provider. 
-
-Currently supported weather data provider is [**IBM TWC**](https://developer.ibm.com/components/weather-company/apis/)
+Data Manager for Agriculture provides weather data through provider agnostic approach where the user doesn't have to be familiar with the provider's APIs. Instead, they can use the same Data Manager for Agriculture APIs irrespective of the provider. 
 
 ## Behavior of provider agnostic APIs
 
 * Request weather data for up to 50 locations in a single call.
-* Forecast data provided is not older than 15 mins and the current conditions data is not than 10 mins.
+* Forecast data provided isn't older than 15 mins and the current conditions data isn't older than 10 mins.
 * The SLA for pass-through calls is provider SLA +200 ms. If no data is cached then call is considered pass-through. 
 * Once the initial call is made for a location, the data gets cached for the TTL defined.
-* To keep the cache warm, you can use the parameter called `apiFreshnessTimeInMinutes` in extension. The platform will keep a job running for the amount of time defined and update the cache. The default value is be zero that means the cache will not be kept warm by default
+* To keep the cache warm, you can use the parameter called `apiFreshnessTimeInMinutes` in extension. The platform will keep a job running for the amount of time defined and update the cache. The default value is be zero that means the cache won't be kept warm by default
 
 ### Prerequisite to use IBM TWC weather APIs
 
@@ -44,12 +39,13 @@ The steps to fetch weather data and ingest into Data Manager for Agriculture pla
 
 ## Step 1: Install weather extension
 
-Run the install command through Azure Resource Manager ARMClient tool. Below is the command to install an extension. for more information see API documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri).
+Run the install command through Azure Resource Manager ARM Client tool. The command to install the extension is given here:
 
 ### Install command
 ```azurepowershell-interactive
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-resource-name>/extensions/<extensionid>?api-version=2020-05-12-preview '{}'
 ```
+For more information, see API documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri).
 
 > [!NOTE]
 > All values within < > is to be replaced with your respective environment values.
@@ -131,7 +127,7 @@ armclient put /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
 
 #### IBM TWC
 
-To work with this extension, the `extensionId` used needs to be **IBM.TWC** and the apiNames supported are `15-day-daily-forecast`, `15-day-hourly-forecast` & `currents-on-demand`. For more information on the API inputs, read the documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data/)
+To work with this extension, the `extensionId` used needs to be **IBM.TWC** and the apiNames supported are `15-day-daily-forecast`, `15-day-hourly-forecast` & `currents-on-demand`. For more information, on the API inputs, read the documentation [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data/)
 
 ## Step 2: Fetch weather data
 
