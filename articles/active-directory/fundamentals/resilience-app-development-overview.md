@@ -1,18 +1,18 @@
 ---
-title: Increase resilience of authentication and authorization applications you develop
+title: Increase the resilience of authentication and authorization applications you develop
 description: Overview of our resilience guidance for application development using Azure Active Directory and the Microsoft identity platform
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: janicericketts
+author: jricketts
 ms.author: jricketts
 manager: martinco
-ms.date: 11/23/2020
+ms.date: 03/02/2023
 ---
 
-# Increase resilience of authentication and authorization applications you develop
+# Increase the resilience of authentication and authorization applications you develop
 
 Microsoft Identity uses modern, token-based authentication and authorization. This means that a client application acquires tokens from an Identity provider to authenticate the user and to authorize the application to call protected APIs. A service will validate tokens.
 
