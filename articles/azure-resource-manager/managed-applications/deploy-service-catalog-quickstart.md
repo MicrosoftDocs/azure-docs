@@ -1,19 +1,19 @@
 ---
 title: Deploy a service catalog managed application
-description: Shows consumers of Azure Managed Applications how to deploy a service catalog managed application.
+description: Describes how to deploy a service catalog's managed application for an Azure Managed Application.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.date: 03/01/2023
 ---
 
-# Quickstart: Deploy service catalog managed application
+# Quickstart: Deploy a service catalog managed application
 
 In this quickstart, you use the definition you created in the quickstarts to [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md) to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. The managed application definition deploys an App Service plan, App Service, and storage account.
 
 ## Prerequisites
 
-To complete this quickstart, you need an Azure account with an active subscription. If you completed the quickstart to publish a definition, you should already have an account. Otherwise, [create a free account](https://azure.microsoft.com/free/) before you begin.
+To complete this quickstart, you need an Azure account with an active subscription. If you completed a quickstart to publish a definition, you should already have an account. Otherwise, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create service catalog managed application
 
@@ -70,21 +70,21 @@ After the service catalog managed application is deployed, you have two new reso
 
 ### Managed application
 
-Go to the resource group named **applicationGroup**. The resource group contains your managed application named _demoManagedApplication_.
+Go to the resource group named **applicationGroup** and select **Overview**. The resource group contains your managed application named _demoManagedApplication_.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-application-group.png" alt-text="Screenshot that shows the resource group that contains the managed application.":::
 
-Select the managed application's name to get more information like a link to the managed resource group.
+Select the managed application's name to get more information like the link to the managed resource group.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-application.png" alt-text="Screenshot that shows the managed application's details and highlights the link to the managed resource group.":::
 
 ### Managed resource
 
-Go to the managed resource group with the name prefix **rg-sampleManagedApplication** to display the resources that were deployed. The resource group contains an App Service plan, App Service, and storage account.
+Go to the managed resource group with the name prefix **rg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
 
-The managed resource group and each resource that's created by the managed application has a role assignment. In the [publish the definition](publish-service-catalog-app.md#get-group-id-and-role-definition-id) article, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
+The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
 
 To see the role assignment from the Azure portal:
 
@@ -113,5 +113,5 @@ If you want to delete the managed application definition, delete the resource gr
 
 ## Next steps
 
-- To learn how to create the definition files for a managed application, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
-- To create the definition files for a managed application using your own storage, go to [Quickstart: Bring your own storage to publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
+- To learn how to create and publish the definition files for a managed application, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
+- To use your own storage to create and publish the definition files for a managed application, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).

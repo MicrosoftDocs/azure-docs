@@ -1,6 +1,6 @@
 ---
-title: Bring your own storage to publish an Azure Managed Application definition
-description: Describes how to bring your own storage to publish an Azure Managed Application definition in your service catalog.
+title: Bring your own storage to create and publish an Azure Managed Application definition
+description: Describes how to bring your own storage to create and publish an Azure Managed Application definition in your service catalog.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
@@ -8,7 +8,7 @@ ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subje
 ms.date: 03/01/2023
 ---
 
-# Quickstart: Bring your own storage to publish an Azure Managed Application definition
+# Quickstart: Bring your own storage to create and publish an Azure Managed Application definition
 
 This quickstart provides an introduction to bring your own storage (BYOS) for an [Azure Managed Application](overview.md). You create and publish a managed application definition in your service catalog for members of your organization. When you use your own storage account, your managed application definition can exceed the service catalog's 120-MB limit.
 
@@ -159,7 +159,7 @@ Add the following JSON and save the file. It defines the managed application's r
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
 
 Add the following JSON to the file and save it.
 
@@ -466,7 +466,7 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 ## Create the definition deployment template
 
-Use a Bicep file to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your bring your own storage account.
+Use a Bicep file to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your own storage account.
 
 Open Visual Studio Code, create a file with the name _deployDefinition.bicep_ and save it.
 
@@ -632,4 +632,4 @@ You have access to the managed application definition, but you want to make sure
 You've published the managed application definition. Now, learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy service catalog managed application](deploy-service-catalog-quickstart.md)
+> [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)

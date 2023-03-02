@@ -1,6 +1,6 @@
 ---
-title: Publish Azure Managed Application in service catalog
-description: Describes how to publish an Azure Managed Application in your service catalog that's intended for members of your organization.
+title: Create and publish Azure Managed Application in service catalog
+description: Describes how to create and publish an Azure Managed Application in your service catalog that's intended for members of your organization.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
@@ -10,13 +10,13 @@ ms.date: 03/01/2023
 
 # Quickstart: Create and publish an Azure Managed Application definition
 
-This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You create and publish a managed application that's stored in your service catalog and is intended for members of your organization.
+This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You create and publish a managed application definition that's stored in your service catalog and is intended for members of your organization.
 
 To publish a managed application to your service catalog, do the following tasks:
 
 - Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
--Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
+- Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
 - Deploy the managed application definition so it's available in your service catalog.
 
 If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
@@ -158,7 +158,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
 
 Add the following JSON to the file and save it.
 
@@ -324,13 +324,13 @@ For more information about storage authentication, see [Choose how to authorize 
 
 ## Create the managed application definition
 
-In this section you'll get identity information from Azure Active Directory, create a resource group, and create the managed application definition.
+In this section you get identity information from Azure Active Directory, create a resource group, and create the managed application definition.
 
 ### Get group ID and role definition ID
 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You'll use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use this variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
@@ -348,7 +348,7 @@ principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
 
 ---
 
-Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You'll use this variable's value when you deploy the managed application definition.
+Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use this variable's value when you deploy the managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -448,4 +448,4 @@ You have access to the managed application definition, but you want to make sure
 You've published the managed application definition. Now, learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy service catalog managed application](deploy-service-catalog-quickstart.md)
+> [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)
