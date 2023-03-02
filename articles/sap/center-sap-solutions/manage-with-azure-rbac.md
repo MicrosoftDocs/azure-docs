@@ -185,7 +185,11 @@ To register an existing SAP system and manage that system with Azure Center for 
 
 | Minimum permissions for *users* |
 | ------------------------------- |
-| `Microsoft.Workloads/sapVirtualInstances/write` |
+| `Microsoft.Workloads/sapvirtualInstances/*/read` |
+| `Microsoft.Workloads/sapVirtualInstances/*/write` |
+| `Microsoft.Workloads/Locations/*/read` |
+| `Microsoft.Resources/subscriptions/resourceGroups/read` |
+| `Microsoft.Resources/subscriptions/read` |
 | `Microsoft.Compute/virtualMachines/read` |
 
 | Built-in roles for *user-assigned managed identities* |
@@ -209,6 +213,11 @@ To register an existing SAP system and manage that system with Azure Center for 
 | `Microsoft.Network/networkInterfaces/ipconfigurations/read` |
 | `Microsoft.Network/virtualNetworks/read` |
 | `Microsoft.Network/virtualNetworks/subnets/read` |
+| `Microsoft.Resources/subscriptions/resourceGroups/write` |
+| `Microsoft.Resources/subscriptions/resourceGroups/read` |
+| `Microsoft.Resources/subscriptions/read` |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` |
+| `Microsoft.Resources/tags/*` |
 
 ## View VIS resources 
 
