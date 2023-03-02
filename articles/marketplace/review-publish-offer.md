@@ -28,7 +28,10 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
 
 > [!TIP]
-> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
+> After publishing an offer, the owner of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. In addition, you can add users with either the **developer** or **manager** role from your developer account to receive the notifications. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview). For more information about adding members, see [Notifications](#notifications). 
+
+> [!IMPORTANT]
+> To ensure that you receive critical email notifications, you'll be required to verify your email address in Action Center. Go to [My Preferences](https://partner.microsoft.com/dashboard/actioncenter/mypreferences) in Action Center to verify. 
 
 ## Validation and publishing steps
 
@@ -276,8 +279,27 @@ Users who are no longer associated with an account will have their name removed 
 
 No user is shown for system processes that correspond to [validation and publishing steps](#validation-and-publishing-steps). These events are color-coded according to the completion status of the event.
 
-[![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
+[![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)
+
+](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
+
+### Notifications 
+
+After publishing an offer, the owner of your developer account is always notified of the publishing status and required actions through email and the Action Center in Partner Center. In addition, you can add users with either the **developer** or **manager** role from your developer account to receive the notifications (or remove those who no longer need be notified). 
+
+To add or remove: 
+
+1. On the Review and publish page of a product, look for the section called “Submission notification audience”. 
+2. Click “Click here” to open the Notification Audience Overview page. 
+3. On the Notification Audience Overview page, add or remove audience.  
+
+> [!NOTE]
+> The owner of your developer account is always notified and can’t be removed from audience list. 
+> The audience list is product specific and applied to all submissions of the product. To modify the notification recipients for a different product, follow the steps above for each product. 
 
 ## Next steps
 
 - [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)
+
+
+
