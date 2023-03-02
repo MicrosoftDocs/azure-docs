@@ -159,7 +159,7 @@ In this tutorial, you'll:
     
 ## Explore and visualize log data in your notebook
 
-1. Query the use of all data types in the last week:
+1. Query the use of all data types in the last week.
     
     ```python
     UsageQuery_AllTypes = """
@@ -175,15 +175,23 @@ In this tutorial, you'll:
     
     df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
     ```
-1. Present the data your query returns in a graph:
+    
+1. Present the data your query returns in a graph.
 
     ```python
     showGraph(df_allTypes, "All Data Types - last week usage")
     ```
+
+    The resulting graph looks like this:
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="Screenshot of a graph that shows how much data was ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
+
     
 ## Train the model
 
-1. For simplicity, we'll query only five data types (5 time series). Run Query to bring usage data of selected datatypes, at timeframe of 1 hour. the period we picked for training is three weeks, starting one week back.
+For simplicity, we'll query only six data types (5 time series).
+
+1. Run Query to bring usage data of selected datatypes, at timeframe of 1 hour. the period we picked for training is three weeks, starting one week back.
 
     In reality it iterative process with data preparation/cleaning and running several models until find the best. we will skip data cleaning and run only two models and will pick the best between these two.
 
@@ -216,7 +224,6 @@ In this tutorial, you'll:
     my_data = execQuery(UsageQuery_SelectedDataTypes,start_time,end_time)
     #showGraph(my_data)
     ```
-
 
     This function returns the results of the query for the selected data types
      
