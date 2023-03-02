@@ -25,7 +25,7 @@ Workflows created within Lifecycle Workflows follow the same schedule that you d
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Identity Governance** on the search bar near the top of the page.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. In the left menu, select **Lifecycle workflows (Preview)**.
 

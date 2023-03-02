@@ -347,9 +347,9 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/reference/calicoctl/
+[calicoctl]: https://docs.tigera.io/calico/3.25/reference/calicoctl/
 [calico-support]: https://www.tigera.io/tigera-products/calico/
-[calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
+[calico-logs]: https://docs.tigera.io/calico/3.25/operations/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 [aks-acn-github]: https://github.com/Azure/azure-container-networking/issues
 

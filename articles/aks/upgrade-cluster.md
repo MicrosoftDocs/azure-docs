@@ -12,9 +12,6 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
->[!WARNING]
-> AKS clusters with Calico enabled should not upgrade to Kubernetes v1.25 preview.
-
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
 
