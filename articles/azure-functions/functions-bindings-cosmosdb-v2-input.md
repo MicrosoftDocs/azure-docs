@@ -1522,15 +1522,16 @@ This section contains the following examples that read a single document by spec
 
 <a id="queue-trigger-look-up-id-from-json-python"></a>
 
+The examples depend on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
 ### Queue trigger, look up ID from JSON
 
-The following example shows an Azure Cosmos DB input binding. The function reads a single document and updates the document's text value. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+The following example shows an Azure Cosmos DB input binding. The function reads a single document and updates the document's text value. 
 
 # [v2](#tab/python-v2)
 
 ```python
 @app.route()
-@app.queue_output(arg_name="id", queue_name="outqueue", connection="AzureWebJobsStorage")
 @app.cosmos_db_input(
     arg_name="documents", database_name="<DB_NAME>",
     collection_name="<COLLECTION_NAME>",
@@ -1589,7 +1590,31 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 ### HTTP trigger, look up ID from query string
 
-The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a function that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+
+# [v2](#tab/python-v2)
+
+```python
+@app.route()
+@app.cosmos_db_input(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    connection_string_setting="CONNECTION_STRING")
+def test_function(req: func.HttpRequest,
+    todoitems: func.DocumentList) -> func.HttpResponse:
+     id = req.params.get('id')
+     partitionKeyValue = req.params.get('partitionKeyValue')
+     if not todoitems:
+         logging.warning("ToDo items not found")
+     else:
+        logging.info("Found ToDo item, Text=%s", 
+                     todoitems[0]['description'])
+
+     return 'OK'
+```
+
+# [v1](#tab/python-v1)
+
 
 Here's the *function.json* file:
 
@@ -1641,6 +1666,8 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
     return 'OK'
 ```
+
+---
 
 <a id="http-trigger-look-up-id-from-route-data-python"></a>
 
