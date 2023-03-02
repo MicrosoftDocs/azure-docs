@@ -27,7 +27,7 @@ You can use the Script activity to invoke a SQL script in one of the following d
 - Oracle 
 - Snowflake 
 
-The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Execute SQL task for the following purposes: 
+The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Script task for the following purposes: 
 
 - Truncate a table in preparation for inserting data. 
 - Create, alter, and drop database objects such as tables and views. 
