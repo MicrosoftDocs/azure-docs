@@ -163,11 +163,11 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) using an Application Insights tag.
 
 ### User Voice
 
