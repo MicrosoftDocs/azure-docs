@@ -19,11 +19,11 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
 1. Start by creating a new flow in your preferred environment. Pick the `When a resource event occurs` trigger to get started.
 
-    ![trigger pick](../media/receive-sms/trigger-pick.png)
+    ![Screenshot of trigger pick for Power Automate](../media/receive-sms/trigger-pick.png)
 
 2. Now, lets configure it. The connector requires you to provide a subscription you want to use. (Should be the same subscription where your Azure Communication Services resource is). Specify the type of resource. In this case, choose `Microsoft.Communication.CommunicationServices`. Then you need to provide a resource name for the Azure Communication Services resource you want it to connect to. Finally, we need to pick the event types we want to receive, in this case: `Microsoft.Communication.SMSReceived`.
 
-    ![Event Grid connector](../media/receive-sms/Event%20Grid%20Connector.png)
+    ![Screenshot of event grid connector](../media/receive-sms/event-grid-connector.png)
 
     The connector automatically sets up the event subscription on your behalf and configures the events it wants to receive.
 
@@ -85,19 +85,19 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
     </details>
 
-    ![parse sms json](../media/receive-sms/parse_json_sms.png)
+    ![Screenshot of Parse JSON connector](../media/receive-sms/parse-json-sms.png)
 
-At this point, you've successfully handled the SMS event. You then have multiple options of what to do with it ranging from logging it to responding to it. In the context of this document, lets respond to it. Continue reading to learn the steps to achieve respond to the SMS.
+At this point, you've successfully handled the SMS event. You then have multiple options of what to do with it ranging from logging the event to responding to the SMS. In the context of this document, we will show how to respond to it. Continue reading to learn the steps to respond to the SMS.
 
 ## Responding to the SMS
 
-1. Start by adding the SMS connector into our flow and configuring it with the information for our Azure Communication Services resource. This allows the connector to access the resource and send the SMS on our behalf. You need the `connection string` for your resource.
+1. Start by adding the SMS connector into our flow and configuring it with the information for our Azure Communication Services resource. It allows the connector to access the resource and send the SMS on our behalf. You need the `connection string` for your resource.
 
-    ![set up of sms connector](../media/receive-sms/sms-connection.png)
+    ![Screenshot of set up screen for the SMS connector](../media/receive-sms/sms-connection.png)
 
 2. Next, we configure the connector with the information for the sender and recipient. We use the information from the event we received to populate them. Fip the `to` and `from` numbers to send an SMS back to the original sender. Finally, add a message.
 
-   ![sms configure](../media/receive-sms/sms-configure.png)
+   ![Screenshot of the SMS connector configuration](../media/receive-sms/sms-configure.png)
 
 Now, you can save the flow and test it by sending an SMS to the phone number associated with your Azure Communication Services resource. You should receive back a text message.
 
