@@ -73,6 +73,9 @@
             href: use-gitops-with-helm.md
           - name: At-scale deployment of Flux v1 configurations using Azure Policy
             href: use-azure-policy.md
+      - name: Workload management in a multi-cluster environment with GitOps
+        href: concept-workload-management.md
+
   - name: Security
     items:
     - name: Security baseline
