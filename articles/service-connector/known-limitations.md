@@ -1,6 +1,7 @@
 ---
 title: Service Connector limitations
 description: Learn about current limitations in Service Connector.
+titleSuffix: Service Connector
 ms.service: service-connector
 ms.topic: troubleshooting
 ms.date: 03/02/2023
@@ -12,7 +13,7 @@ author: maud-lv
 
 In this article, learn about Service Connector's existing limitations and how to mitigate them.
 
-### Limitations to automation
+## Limitations to automation
 
 Service Connector has been designed to bring the benefits of easy, secure, and consistent backing service connections to as many Azure services as possible. To do so, Service Connector has been developed as a plugin-resource provider. This allows Service Connector to be integrated into other services. 
 
@@ -26,7 +27,7 @@ We’re working on improving this experience over the next releases. Until then,
 
 - Prior to crafting your automation templates, check to see if there’s been any configuration drift, and whether a resource might have been changed. A good way of doing this would be to use the portal to create and configure your resources as desired and then utilize the available ARM export functionality to pull the latest configuration in the form of an ARM template format as your basis for your automation template.
 
-### Limitations to Azure App Service deployment slots
+## Limitations to Azure App Service deployment slots
 
 If you’re using App Service and have [more than one deployment slot](../app-service/deploy-staging-slots.md), Service Connector won't work. If deployment slots are critical to your way of working, we recommend [using app settings](../app-service/configure-common.md). 
 
