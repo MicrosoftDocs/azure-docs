@@ -19,11 +19,11 @@ recommendations: false
 
 > [!NOTE]
 >
-> The add-on meters for Form Recognizer Studio is only available within the Read and Layout models for the public preview.
+> The add-on meters for Form Recognizer Studio is only available within the Read and Layout models for the public preview (2023-03-06) release.
 >
 
 ## Extracting formulas from documents
-The Read OCR model in Form Recognizer extracts all identified formulas, such as mathematical equations in the `formulas` collection as a top level object under `content`. Inside the `content`, detected formulas will be represented as `:formula:`. Each entry in this collection represents a formula which includes the formula type as `inline` or `display`, and its LaTeX representation as `value` along with its `polygon` coordinates. Initially, formulas will appear at the end of each page. Note that the `confidence` is hard-coded for the public preview (2023-03-??) release.
+The `ocr.formula` premium feature extracts all identified formulas, such as mathematical equations in the `formulas` collection as a top level object under `content`. Inside the `content`, detected formulas will be represented as `:formula:`. Each entry in this collection represents a formula which includes the formula type as `inline` or `display`, and its LaTeX representation as `value` along with its `polygon` coordinates. Initially, formulas will appear at the end of each page. Note that the `confidence` is hard-coded for the public preview (2023-03-06) release.
 
 ```json
 "content": ":formula:",
@@ -52,7 +52,7 @@ The Read OCR model in Form Recognizer extracts all identified formulas, such as 
 
 ## Extracting font styles from documents
 
-The Read OCR model in Form Recognizer extracts all font properties of texts extracted in the `styles` collection as a top level object under `content`. Each style object specifies a single font property, the text span it applies to, and its corresponding confidence score. The existing style property is extended with additional font properties such as `similarFontFamily` for the font of the text, `fontStyle` for styles such as italic and normal, `fontWeight` for bold or normal, `color` for color of the text and `backgroundColor` for color of the text bounding box. 
+The `ocr.font` premium feature extracts all font properties of texts extracted in the `styles` collection as a top level object under `content`. Each style object specifies a single font property, the text span it applies to, and its corresponding confidence score. The existing style property is extended with additional font properties such as `similarFontFamily` for the font of the text, `fontStyle` for styles such as italic and normal, `fontWeight` for bold or normal, `color` for color of the text and `backgroundColor` for color of the text bounding box. 
 
 ```json
 "content": "Foo bar",
