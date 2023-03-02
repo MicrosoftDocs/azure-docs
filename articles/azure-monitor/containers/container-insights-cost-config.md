@@ -158,9 +158,9 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterR
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), select the "Use managed identity (preview)" checkbox
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost/cost-settings-onboarding.png#lightbox)
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost/advanced-collection-settings.png#lightbox)
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 6. Click the blue "Configure" button to finish
 
 
@@ -216,9 +216,9 @@ The collection settings can be modified through the input of the `dataCollection
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost/cost-settings-onboarding.png#lightbox)
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost/advanced-collection-settings.png#lightbox)
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 5. Click the blue "Configure" button to finish
 
 
@@ -277,9 +277,9 @@ The collection settings can be modified through the input of the `dataCollection
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost/cost-settings-onboarding.png#lightbox)
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost/advanced-collection-settings.png#lightbox)
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 6. Click the blue "Configure" button to finish
 
 
