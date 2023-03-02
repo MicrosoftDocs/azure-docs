@@ -56,7 +56,8 @@ The restorable account resource can be extracted from the output of the `az cosm
 Following permissions are required to perform the different activities pertaining to restore for continuous backup mode accounts:
 
 
-> [!NOTE] Permission can be assigned to restorable database account at account scope or subscription scope. Assigning permissions at resource group scope is not supported.
+> [!NOTE] 
+> Permission can be assigned to restorable database account at account scope or subscription scope. Assigning permissions at resource group scope is not supported.
 
 |Permission  |Impact  |Minimum scope  |Maximum scope  |
 |---------|---------|---------|---------|
@@ -82,6 +83,8 @@ Following permissions are required to perform the different activities pertainin
 Roles with permission can be assigned to different scopes to achieve granular control on who can perform the restore operation within a subscription or a given account.
 
 ### Assign capability to restore from any restorable account in a subscription
+- Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
+- Assign the `CosmosRestoreOperator` built in role to the specific restorable database account that needs to be restored. In the following command, the scope for the `RestorableDatabaseAccount` is extracted from the `ID` property of result of execution of `az cosmosdb restorable-database-account list`(if using CLI) or `Get-AzCosmosDBRestorableDatabaseAccount`(if using the PowerShell)
 
 Assign the `CosmosRestoreOperator` built-in role at subscription level
 
