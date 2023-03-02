@@ -141,8 +141,8 @@ landingContent:
             url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
-          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Public preview 
-            url: https://aka.ms/ccaci
+          - text: Confidential containers with Azure Container Instances (ACI) with AMD SEV-SNp Protection - Public preview 
+            url: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-public-preview-of-confidential-containers-on-azure/ba-p/3755623
 
 ## Row 2
 # Card
