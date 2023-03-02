@@ -32,6 +32,8 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache Livy      | 0.7.1  *            | 0.5           |
 | Apache Ambari    | 2.7.0  **            | 2.7.0         |
 | Apache Zeppelin  | 0.10.0 *             | 0.8.0         |
+| Apache Phoenix   | 5.1.2  **             | -       |
+
 
 \* Development
 
