@@ -16,9 +16,7 @@ keywords: speech to text, openai
 
 # Azure OpenAI speech to speech chat 
 
-::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./includes/quickstarts/openai-speech/python.md)]
-::: zone-end
 
 ## Next steps
 
