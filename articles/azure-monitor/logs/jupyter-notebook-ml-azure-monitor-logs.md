@@ -184,18 +184,21 @@ In this tutorial, you'll:
 
     The resulting graph looks like this:
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="Screenshot of a graph that shows how much data was ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="A graph that shows how much data was ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
 
     
 ## Train the model
 
-For simplicity, we'll query only six data types (5 time series).
+Model training is an iterative process that begins with data preparation and cleaning, and includes experimenting with several models until you find a model that best fits your data set.
 
-1. Run Query to bring usage data of selected datatypes, at timeframe of 1 hour. the period we picked for training is three weeks, starting one week back.
+In this tutorial, for simplicity, we'll: 
 
-    In reality it iterative process with data preparation/cleaning and running several models until find the best. we will skip data cleaning and run only two models and will pick the best between these two.
+- Skip the data cleaning step.
+- Work with six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
+- Experiment with only two models to see which best fits our data set.
 
-
+1. Retrieve hourly usage data for our selected data types over the last three weeks. 
+  
     ```python
     datatypes = ["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs", "AzureDiagnostics", "Perf"]
     
@@ -225,26 +228,20 @@ For simplicity, we'll query only six data types (5 time series).
     #showGraph(my_data)
     ```
 
-    This function returns the results of the query for the selected data types
-     
-    ```python
-    def getSelectedDataTypesQuery(datatypesStr, start, end):
-        UsageQuery_SelectedDataTypes = f"""
-        let starttime = {start}d; // Start date for the time series, counting back from the current date
-        let endtime = {end}d; //Jan 13 morning ISR
-        Usage 
-        | project TimeGenerated, DataType, Quantity 
-        | where TimeGenerated between (ago(starttime)..ago(endtime))
-        | where DataType in ({datatypesStr}) 
-        | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
-        """
-        return UsageQuery_SelectedDataTypes
-    ```
-1. Create a graph that shows the usage for the selected data types.
+    This code snippet generates a DataFrame that shows the hourly ingestion in each of the six tables, as retrieved from the Log Analytics workspace:
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png":::
+
+
+1. Plot the data in the DataFrame on a graph.
 
     ```python
-    showGraph(my_data, "Selected Data Types - Hystorical Data Usage (3 weeks)")
+    showGraph(my_data, "Historical data usage (3 weeks) - selected data types")
     ```
+    The resulting graph looks like this:
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks" lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
+
 
 1. Since time information present as a date column, we need expand it into Year, Month, Day, Hour columns using pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components
 
