@@ -134,10 +134,13 @@ az webapp config appsettings set --resource-group myAuthResourceGroup --name fro
 Browse to the frontend app and return the _fake_ profile from the backend. This action validates that the frontend is successfully requesting the profile from the backend, and the backend is returning the profile. 
 
 1. Open the frontend web app in a browser. Replace `<ABC>` with your unique set of initials or numbers. : `https://frontend-<ABC>`.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
+
 1. Select the `Get user's profile` link. 
 1. View the _fake_ profile returned from the backend web app. 
 
-    :::image type="content" source="./media/webapp-profile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
+    :::image type="content" source="./media/tutorial-auth-app/app-profiile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
 
 ## Configure authentication
 
@@ -237,14 +240,6 @@ The commands effectively add a `loginParameters` property with additional custom
 > - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
 ::: zone pivot="platform-linux"
-
-> [!NOTE]
-> For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
->
-> ```azurecli-interactive
-> id=$(az ad app show --id <back-end-client-id> --query id --output tsv)
-> az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
-> ```    
 
 ::: zone-end
     
