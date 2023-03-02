@@ -42,7 +42,7 @@
       items:
         - name: Create Intel SGX enclaves on AKS with CLI
           href: confidential-enclave-nodes-aks-get-started.md
-    - name: Confidential node pools in AKS
+    - name: Confidential VM node pools in AKS
       items:
         - name: Add a confidential VM node pool to your AKS cluster
           href: confidential-node-pool-aks.md
