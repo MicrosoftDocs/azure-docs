@@ -127,6 +127,15 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 
     ![Screenshot of ruleset virtual network links.](./media/dns-resolver-getstarted-portal/ruleset-links.png)
 
+## Delete a virtual network link
+
+Later in this article a rule is created using the private resolver inbound endpoint as a destination. This can cause a DNS resolution loop if the VNet where the resolver is provisioned is also linked to the ruleset.  To fix this issue, remove the link to **myvnet**.
+
+1. Search for **DNS forwarding rulesets** in the Azure services list and select your ruleset (ex: **myruleset**).
+2. Select **Virtual Network Links**, choose **myvnet-link**, select **Remove** and select **OK**.
+
+    ![Screenshot of ruleset virtual network links after removing a link.](./media/dns-resolver-getstarted-portal/ruleset-links-remove.png)
+
 ## Configure a DNS forwarding ruleset
 
 Add or remove specific rules your DNS forwarding ruleset as desired, such as:

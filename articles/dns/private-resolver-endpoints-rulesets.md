@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 03/02/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -34,6 +34,9 @@ The IP address associated with an inbound endpoint is always part of the private
 
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
+> [!NOTE]
+> The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the 5th available IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
+
 ## Outbound endpoints
 
 Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulesets](#dns-forwarding-rulesets).
@@ -57,14 +60,14 @@ A ruleset can't be linked to a virtual network in another region. For more infor
 
 When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules enabled in the ruleset. The linked virtual networks are not required to peer with the virtual network where the outbound endpoint exists, but these networks can be configured as peers. This configuration is common in a hub and spoke design. In this hub and spoke scenario, the spoke vnet doesn't need to be linked to the private DNS zone in order to resolve resource records in the zone. In this case, the forwarding ruleset rule for the private zone sends queries to the hub vnet's inbound endpoint. For example: **azure.contoso.com** to **10.10.0.4**.
 
-The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub vnet: **myeastvnet**, and a spoke vnet: **myeastspoke**.
+The following screenshot shows a DNS forwarding ruleset linked to the spoke virtual network: **myeastspoke**.
 
 ![View ruleset links](./media/private-resolver-endpoints-rulesets/ruleset-links.png)
 
 Virtual network links for DNS forwarding rulesets enable resources in other vnets to use forwarding rules when resolving DNS names. The vnet with the private resolver must also be linked from any private DNS zones for which there are ruleset rules.
 
 For example, resources in the vnet `myeastspoke` can resolve records in the private DNS zone `azure.contoso.com` if:
-- The ruleset provisioned in `myeastvnet` is linked to `myeastspoke` and `myeastvnet`
+- The ruleset provisioned in `myeastvnet` is linked to `myeastspoke`
 - A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
 
 ### Rules
@@ -89,6 +92,14 @@ For example, if you have the following rules:
 | Wildcard | . | 10.100.0.2:53 | Enabled  |
 
 A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rule for `azure.contoso.com` and also the **Contoso** rule for `contoso.com`, but the **AzurePrivate** rule takes precedence because the prefix `azure.contoso` is longer than `contoso`. 
+
+> [!IMPORTANT]
+> If a rule is present in the ruleset that has as its destination a private resolver inbound endpoint, do not link the ruleset to the VNet where the inbound endpoint is provisioned. This configuration can cause DNS resolution loops. For example: In the previous scenario, no ruleset link should be added to `myeastvnet` because the inbound endpoint at `10.10.0.4` is provisioned in `myeastvnet` and a rule is present that resolves `azure.contoso.com` using the inbound endpoint.
+
+#### Rule processing
+
+- If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered will be used unless it doesn't respond. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive. Destination addresses that are marked as unresponsive are not used for 30 minutes.
+- Certain domains will ignore a wildcard rule for DNS resolution, because they are reserved for Azure services. See [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for a list of domains that are reserved. The two-label DNS names listed in this article (ex: windows.net, azure.com, azure.net, windowsazure.us) are reserved for Azure services.
 
 > [!IMPORTANT]
 > - You can't enter the Azure DNS IP address of 168.63.129.16 as the destination IP address for a rule. Attempting to add this IP address will output the error: **Exception while making add request for rule**. 
