@@ -114,5 +114,3 @@ The recommendations listed in the following table are available to Azure AD tena
 
 * [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
 * [Learn more about Microsoft Graph](/graph/overview)
-* [Get started with Azure AD reports](overview-reports.md)
-* [Learn about Azure AD monitoring](overview-monitoring.md)

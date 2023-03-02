@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/24/2023
+ms.date: 03/02/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -48,6 +48,6 @@ The Microsoft Authenticator app is available for Android and iOS. Microsoft Auth
 
 ## Next steps
 
-* [Learn more about Microsoft Graph](/graph/overview)
-* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
-* [Azure AD reports overview](overview-reports.md)
+- [Review the Azure AD recommendations overview](overview-recommendations.md)
+- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)

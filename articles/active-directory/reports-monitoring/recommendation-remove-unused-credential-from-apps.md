@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/09/2023
+ms.date: 03/02/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
@@ -43,5 +43,7 @@ Removing credentials not actively used by applications improves security posture
 
 ## Next steps
 
-- [What is Azure Active Directory recommendations](overview-recommendations.md)
+- [Review the Azure AD recommendations overview](overview-recommendations.md)
+- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
 - [Learn about app and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
