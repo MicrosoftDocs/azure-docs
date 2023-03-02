@@ -16,7 +16,7 @@ items:
   - name: Identity and access
     items:
       - name: Create and manage access tokens
-        href: quickstarts/access-tokens.md
+        href: quickstarts/identity/access-tokens.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
       - name: Quick-create identities for testing
@@ -116,7 +116,7 @@ items:
       - name: Communication as external user
         items:
         - name: Manage access tokens for external users
-          href: quickstarts/identity/access-token-teams-external-users.md 
+          href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting video to your client app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
         - name: Add Teams meeting chat to your client app

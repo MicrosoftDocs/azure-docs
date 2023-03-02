@@ -37,7 +37,7 @@ Each authorization option is briefly described below:
 
 ### Access Key
 
-Access key authentication is suitable for service applications running in a trusted service environment. Your access key can be found in the Azure Communication Services portal. The service application uses it as a credential to initialize the corresponding SDKs. See an example of how it is used in the [Identity SDK](../quickstarts/access-tokens.md). 
+Access key authentication is suitable for service applications running in a trusted service environment. Your access key can be found in the Azure Communication Services portal. The service application uses it as a credential to initialize the corresponding SDKs. See an example of how it is used in the [Identity SDK](../quickstarts/identity/access-tokens.md). 
 
 Since the access key is part of the connection string of your resource, authentication with a connection string is equivalent to authentication with an access key.
 
@@ -70,7 +70,7 @@ The user identity is intended to act as a primary key for logs and metrics colle
 > [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli)
 
 > [!div class="nextstepaction"]
-> [Create user access tokens](../quickstarts/access-tokens.md)
+> [Create user access tokens](../quickstarts/identity/identity/identity/identity/identity/identity/identity/identity/access-tokens.md)
 
 > [!div class="nextstepaction"]
 > [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)

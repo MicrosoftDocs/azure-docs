@@ -66,7 +66,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
     1. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will receive notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of reminders.
 
-    1. As part of the application setup, the service account is used to login into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](../../active-directory/develop/access-tokens.md). and [refresh tokens](../../active-directory/develop/refresh-tokens.md).
+    1. As part of the application setup, the service account is used to login into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](../../active-directory/develop/identity/access-tokens.md). and [refresh tokens](../../active-directory/develop/refresh-tokens.md).
 
     1. The application will require "on behalf of" permissions with the [offline scope](../../active-directory/develop/v2-permissions-and-consent.md#offline_access) to act on behalf of the service account for the purpose of creating meetings. Individual Graph APIs require different scopes, learn more in the links detailed below as we introduce the required APIs.
 
@@ -109,7 +109,7 @@ Attendee experience can be directly embedded into an application or platform usi
 
 2.	Before developers dive into using [Azure Communication Services](../overview.md), they must [create a resource](../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
-3.	Once a resource is created, developers must [generate access tokens](../quickstarts/access-tokens.md?pivots=programming-language-javascript) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/client-and-server-architecture.md).
+3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/client-and-server-architecture.md).
 
 4.	Developers can leverage [headless SDKs](../concepts/teams-interop.md) or [UI Library](https://azure.github.io/communication-ui-library/) using the join link URL to join the Teams meeting through [Teams Interoperability](../concepts/teams-interop.md). Details below:
 
