@@ -21,11 +21,15 @@ This article provides a quick guide on how to share data and receive shares from
 
 1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share data from using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
 
-   :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="The Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="Screenshot that shows the Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**.
+1. Once you have found your data asset, select the **Data Share** button.
 
    :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
+
+1. Select **+New Share**.
+
+   :::image type="content" source="./media/how-to-share-data/select-new-share-inline.png" alt-text="Screenshot of the Data Share management window with the New Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-new-share-large.png":::
 
 1. Specify a name and a description of share contents (optional). Then select **Continue**.
 

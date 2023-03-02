@@ -74,9 +74,13 @@ This registration is only needed the first time when sharing or receiving data i
 
    :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="Screenshot that shows the Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**.
+1. Once you have found your data asset, select the **Data Share** button.
 
    :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
+
+1. Select **+New Share**.
+
+   :::image type="content" source="./media/how-to-share-data/select-new-share-inline.png" alt-text="Screenshot of the Data Share management window with the New Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-new-share-large.png":::
 
 1. Specify a name and a description of share contents (optional). Then select **Continue**.
 
@@ -121,11 +125,11 @@ Once a share is created, you can update description, assets, and recipients.
 > [!NOTE]
 > If you only have the **Reader** role on the source storage account, you will be able to view list of sent shares and received shares but not edit. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
-You can find your sent shares one of two ways:
+You can find your sent shares one of three ways:
 
-* Access the blob storage or ADLS Gen2 asset where the data was shared from in the data catalog. Open it, then select **Data Share** and **Manage data shares**. There you're able to see all the shares for that asset. Select a share, and then select the **Edit** option.
+* Access the blob storage or ADLS Gen2 asset where the data was shared from in the data catalog. Open it, then select **Data Share**. There you're able to see all the shares for that asset. Select a share, and then select the **Edit** option.
 
-   :::image type="content" source="./media/how-to-share-data/manage-data-shares.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Manage data shares button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the data share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
 
    :::image type="content" source="./media/how-to-share-data/select-share-to-edit.png" alt-text="Screenshot of the Manage data shares page with a share selected and the edit button highlighted." border="true":::
 
@@ -135,8 +139,11 @@ You can find your sent shares one of two ways:
 
    :::image type="content" source="./media/how-to-share-data/edit-share-asset.png" alt-text="Screenshot of a data share asset, with the edit button highlighted." border="true":::
 
+* For shares that you sent, you can find them in the **Shares** menu in the Microsoft Purview Data Map.
 
-From either of these places you can:
+   :::image type="content" source="./media/how-to-share-data/select-shares-in-data-map-inline.png" alt-text="Screenshot of the Data Shares menu in the Microsoft Purview Data Map." border="true" lightbox="./media/how-to-share-data/select-shares-in-data-map.png":::
+
+From any of these places you can:
 
 - [Edit share details](#edit-details)
 - [Edit shared assets](#edit-assets)
