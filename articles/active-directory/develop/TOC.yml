@@ -60,9 +60,7 @@
         - name: Application model
           href: application-model.md
         - name: Workload identities
-          href: workload-identities-overview.md
-        - name: Workload identities FAQs
-          href: workload-identities-faqs.md
+          href: /azure/active-directory/workload-identities/workload-identities-overview
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
         - name: How and why apps are added to Azure AD
