@@ -39,9 +39,15 @@ For this tutorial you'll need:
 >* [Create custom type definitions](#create-definitions)
 >* [Initialize assets of custom types](#initialize-assets-of-custom-types)
 
-## What is a *Type* in Microsoft Purview
+## What is an *asset* and *type* in Microsoft Purview
+An *asset* is a metadata element that describes a digital or physical resource. The digital or physical resources that are expected to be cataloged as assets include:
 
-Microsoft Purview relies on the [Type System](https://atlas.apache.org/2.0.0/TypeSystem.html) from Apache Atlas. All metadata objects (assets) managed by Microsoft Purview (out of the box or through custom types) are modeled using type definitions. Understanding the Type System is fundamental to create new custom types in Microsoft Purview.
+* Data sources such as databases, files, and data feed.
+* Analytical models and processes.
+* Bussiness policies and terms.
+* Infrastructure like the server.
+
+Microsoft Purview provides users a flexible *type system* to expand the definition of the asset to include new kinds of resources as they become relevant. Microsoft Purview relies on the [Type System](https://atlas.apache.org/2.0.0/TypeSystem.html) from Apache Atlas. All metadata objects (assets) managed by Microsoft Purview are modeled using type definitions. Understanding the Type System is fundamental to create new custom types in Microsoft Purview.
 
 Essentially, a *Type* can be seen as a *Class* from Object Oriented Programming (OOP):
 
@@ -55,8 +61,6 @@ You can see all type definitions in your Microsoft Purview account by sending a 
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedefs
 ```
 
-Alternatively, you can use the [Microsoft Purview Custom Types Tool](https://github.com/microsoft/Purview-Custom-Types-Tool-Solution-Accelerator) to visualize all the type definitions.
-
 Apache Atlas has few pre-defined system types that are commonly used as supertypes.
 
 For example:
@@ -66,6 +70,8 @@ For example:
 * **Asset**: This type extends from Referenceable and has other attributes such as: *name*, *description* and *owner*.
 
 * **DataSet**: This type extends Referenceable and Asset. Conceptually, it can be used to represent a type that stores data. Types that extend DataSet can be expected to have a Schema. For example, a SQL table.
+
+* **Lineage**: Lineage information helps one understand the origin of data and the transformations it may have gone through before arriving in a file or table. Lineage is calculated through *DataSet* and *Process*: DataSets (input of process) impact some other DataSets (output of process) through Process.
 
 :::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false":::
 
