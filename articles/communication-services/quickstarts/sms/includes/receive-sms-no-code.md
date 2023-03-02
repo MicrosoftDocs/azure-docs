@@ -85,7 +85,7 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
     </details>
 
-    ![Screenshot of Parse JSON connector](../media/receive-sms/parse-json-sms.png)
+    ![Screenshot of Parse JSON connector.](../media/receive-sms/parse-json-sms.png)
 
 At this point, you've successfully handled the SMS event. You then have multiple options of what to do with it ranging from logging the event to responding to the SMS. In the context of this document, we will show how to respond to it. Continue reading to learn the steps to respond to the SMS.
 
