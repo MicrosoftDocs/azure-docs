@@ -160,6 +160,8 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
+      - name: Background removal
+        href: concept-background-removal.md
     - name: Version 3.2
       items:   
       - name: Image tagging
