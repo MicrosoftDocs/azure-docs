@@ -73,15 +73,15 @@ If any of these limitations affect your ability to use Event Grid for device sta
 
 If you need to know the connection state of your devices but the limitations of Event Grid are too restricting for your solution, you can implement the *heartbeat pattern*. In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Even if a device doesn't have any data to send, it still sends an empty device-to-cloud message, usually with a property that identifies it as a heartbeat message. On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution doesn't receive a heartbeat message within the expected time from the device, it assumes that there's a problem with the device.
 
-### Short expiry time pattern
-
-If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages to a device, and messages aren't broadcast to large sets of devices, consider using the *short expiry time pattern*. The short expiry time pattern is a way to determine whether to send cloud-to-device messages by sending messages with a short message expiration time and requesting message acknowledgments from the devices.
-
-For more information, see [Message expiration (time to live)](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
-
 ### Device heartbeat limitations
 
 Since heartbeat messages are implemented as device-to-cloud messages, they count against your [IoT Hub message quota and throttling limits](iot-hub-devguide-quotas-throttling.md).
+
+### Short expiry time pattern
+
+If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages to a device, and messages aren't broadcast to large sets of devices, consider using the *short expiry time pattern* as a simpler alternative to the heartbeat pattern. The short expiry time pattern is a way to determine whether to send cloud-to-device messages by sending messages with a short message expiration time and requesting message acknowledgments from the devices.
+
+For more information, see [Message expiration (time to live)](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
 ## Other monitoring options
 
