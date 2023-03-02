@@ -35,7 +35,7 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache Phoenix   | 5.1.2  **             | -       |
 
 
-\* Development
+\* Under development/Planned
 
 ** Public Preview
 
