@@ -213,7 +213,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: Microsoft Energy Data Services (Preview)
+    - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
       imageSrc: energy-data-services/media/icon/energy-data-services.svg
       azureCategories:
