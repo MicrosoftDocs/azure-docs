@@ -86,9 +86,10 @@ In the **Custom alert rules** page, select one or more rules, and then select  *
 
 ## Allow DNS traffic on an OT sensor
 
-Allow unauthorized internet alerts in bulk by creating an allowlist of domain names on your OT sensor.
+Decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
-When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list. If the domain's FQDN is included in the allowlist, the sensor allows the traffic automatically, without triggering an alert.
+All OT sensor users can view a currently configured list of domains in a [data mining report](how-to-create-data-mining-queries.md), including the FQDNs, resolved IP addresses, and the last resolution time.
+
 
 **To define a DNS allowlist:**
 
@@ -104,18 +105,16 @@ When a DNS allowlist is configured, the sensor checks each unauthorized internet
 
 1. Select **Submit** to save your changes.
 
-> [!TIP]
-> All OT sensor users can view the currently configured list of domains in a data mining report, including the FQDNs, resolved IP addresses, and the last resolution time. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md).
 
-**To view in a data mining report:**
+**To view the current allowlist in a data mining report:**
 
-[Create a custom data mining report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report) and make sure to select **Internet Domain Allowlist** under **DNS** when choosing a category in the **Create new report** pane.
+When selecting a category in your [custom data mining report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report), make sure to select **Internet Domain Allowlist** under the **DNS** category. 
 
 For example:
 
 :::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png" alt-text="Screenshot of how to generate a custom data mining report for the allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png":::
 
-The generated data mining report will then show a list of the allowed domains and each IP address that’s being resolved for those domains, as well as the TTL (in seconds) during which those IP addresses won't trigger an internet connectivity alert. For example:
+The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert. For example:
 
 :::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
 
