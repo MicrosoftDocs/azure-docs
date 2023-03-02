@@ -149,7 +149,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
 An event has the following top-level data:
 
 | Property | Type | Description |
-|:-----:| :----:| :----:|
+|:-----:|:----:|:----:|
 | `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
@@ -164,7 +164,7 @@ An event has the following top-level data:
 An event has the following top-level data:
 
 | Property | Type | Description |
-|:-----:| :----:| :----:|
+|:-----:|:----:|:----:|
 | `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
@@ -180,7 +180,7 @@ The data object has the following common properties:
 ### For resource change related event types
 
 |Property | Type| Description|
-|:-----:| :----:| :----:|
+|:-----:|:----:|:----:|
 |id| String| Unique id of resource.|
 |actionType| String| Indicates the change which triggered publishing of the event. Applicable values are created, updated, deleted.|
 |properties| Object| It contains user defined key–value pairs.|
@@ -194,7 +194,7 @@ The data object has the following common properties:
 ### For job status change related event types
 
 Property| Type| Description
-|:-----:| :----:| :----:|
+|:-----:|:----:|:----:|
 |id|String| Unique ID of the job.|
 |name| string| User-defined name of the job.|
 |status|string|Various states a job can be in.|
