@@ -60,7 +60,7 @@
     displayName: Azure Video Indexer API developer portal, Azure Video Indexer REST API, multiple Azure Video Indexer accounts, An Azure Video Indexer user, Azure Video Indexer API description, Azure Video Indexer client code, different Media Services accounts, Video level access tokens, Account level access tokens, User level access tokens, video artificial intelligence, one integrated service, Reader/Contributor, one active account, detailed video insights, client side calls, Media AI technologies, single subscription key, same account token, new access token, Azure AD, detailed description, specific video, server code, Account tokens, permission level, account token, Authorization API, entire account, user token, AI) technologies, same provider, New users, Operations API, valid tokens, Outlook/Live) accounts, trial accounts, associated accounts, ms.topic, various audio, global reach, cloud platforms, embeddable insight, error page, two ways, permission type, most server, server scenarios, authorization scope, player widgets, Personal Google, subscriptions section, additional call, secondary keys, title, article, tutorial, csharp, Microsoft, development, APIs, developers, scale, availability, reliability, files, URLs, advantage, videoindexer, Prerequisite, api-portal, email, LinkedIn, products, tab, NOTE, Profile, primary, example, videos, download, captions, types, equivalent, JavaScript, clients, reason, things, 1 hour
 - name: Samples
   items:
-  - name: Azure Video Indecreatexer samples
+  - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
   - name: Azure Video Indexer widgets
     href: https://www.npmjs.com/package/@azure/video-indexer-widgets
@@ -133,7 +133,6 @@
     - name: Person
       href: customize-person-model-overview.md
       displayName: multiple Person model support, multiple custom Person models, Azure Video Indexer website, top LinkedIn influencers, to 1 million people, multiple Person models, specific custom model, celebrity recognition feature, separate Person model, specific Person model, one million faces, Person model ID, default Person model, 50 Person models, Azure  description, ms.author, Gate notice, data source, image files, different use-cases, different channels, ms.topic, new face, title, article, overview, conceptual, videos, IMDB, Wikipedia, Customers, name, account, example, content, NOTE, limit, API
-
   - name: Use insights
     items:
     - name: Detect textual logo
@@ -188,7 +187,7 @@
       - name: Animated characters
         href: animated-characters-recognition-how-to.md
         displayName: Azure Video Indexer paid account, Azure Video Indexer access token, Azure Video Indexer platform, The Custom Vision integration, Connect Custom Vision Account, one custom vision model, Azure Video Indexer API, Animated character detection, Prediction resource ID, Custom Vision website, two separate resources, animated characters model, model customization section, good recognition model, animated model, paid accounts, Azure portal, ms.custom, animated content, animated series, two videos, trial account, content model, same region, Japan region, question mark, top-right corner, next step, required fields, relevant documentation, 200 OK response, best practice, unintended results, shorter epis, API Management, Juliako manager, developer portal, other information, initial training, title, description, topic, author, femila, references_regions, date, INCLUDE, deprecation, announcement, grouping, functionality, overview, article, following, cognitive-services, vision-service, NOTE, models, images, classifier, steps, customvision, keys, Endpoint, page, api-details, Operations, apis, call, connection, addition, changes, left, content-model-customization, name, 15 minutes
-      - name: Perbrands-model-with-api.mdson
+      - name: Person
         displayName: customizing
         items:
         - name: using the website

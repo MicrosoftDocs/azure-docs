@@ -16,11 +16,11 @@ ms.custom: aaddev, has-adal-ref, engagement-fy23
 
 # OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform
 
-Knowing about OAuth or OpenID Connect (OIDC) at the protocol level is not required to use the Microsoft identity platform. However, you will encounter protocol terms and concepts as you use the identity platform to add authentication to your apps. As you work with the Azure portal, our documentation, and authentication libraries, knowing some fundamentals can assist your integration and overall experience.
+Knowing about OAuth or OpenID Connect (OIDC) at the protocol level isn't required to use the Microsoft identity platform. However, you'll encounter protocol terms and concepts as you use the identity platform to add authentication to your apps. As you work with the Azure portal, our documentation, and authentication libraries, knowing some fundamentals can assist your integration and overall experience.
 
 ## Roles in OAuth 2.0
 
-Four parties are usually involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. These exchanges are often called *authentication flows* or *auth flows*.
+Four parties are generally involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. These exchanges are often called *authentication flows* or *auth flows*.
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
@@ -89,9 +89,9 @@ Next, learn about the OAuth 2.0 authentication flows used by each application ty
 * [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 * [Microsoft Authentication Library (MSAL)](msal-overview.md)
 
-**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft Authentication Library](reference-v2-libraries.md) is safer and much easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
+**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft Authentication Library](reference-v2-libraries.md) is safer and easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
 
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
 * [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons
 * [On-behalf-of (OBO) flow](v2-oauth2-on-behalf-of-flow.md) - Web APIs that call another web API on a user's behalf
-* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
+* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign out, and single sign-on (SSO)
