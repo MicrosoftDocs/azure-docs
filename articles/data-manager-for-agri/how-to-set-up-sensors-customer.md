@@ -44,7 +44,7 @@ Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> an
 
 You find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image:
 
-![Screenshot showing role assignment.](./media/Role-Assignment.png)
+![Screenshot showing role assignment.](./media/role-assignment1.png)
 
 Click **Add > Add role assignment**, this action opens up a pane on the right side of the portal, choose the  role from the dropdown:
 
