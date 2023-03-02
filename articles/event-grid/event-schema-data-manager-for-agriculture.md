@@ -1,5 +1,5 @@
 ---
-title: Azure Data Manager for Agriculture (Preview)
+title: Azure Data Manager for Agriculture
 description: Describes the properties that are provided for Azure Data Manager for Agriculture events with Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/02/2023
@@ -7,7 +7,7 @@ ms.date: 03/02/2023
 
 # Azure Data Manager for Agriculture (Preview) as Event Grid source
 
-This article provides the properties and schema for Azure FarmBeats events. For an introduction to event schemas, see [Azure Event Grid event schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema).
+This article provides the properties and schema for Azure Data Manager for Agriculture (Preview) events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md) and [Cloud event schema](cloud-event-schema.md).
 
 ## Available event types
 
@@ -81,6 +81,8 @@ This article provides the properties and schema for Azure FarmBeats events. For 
 |Microsoft.AgFoodPlatform.SoilMoistureModelJobStatusChangedV2|Published when a Soil Moisture Model job's status changes, for example, job is created, has progressed or completed.|
 |Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChangedV2|Published when a Sensor Placement Model job's status changes, for example, job is created, has progressed or completed.|
 
+## Example events
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
@@ -147,7 +149,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
 An event has the following top-level data:
 
 | Property | Type | Description |
-| -------- | ---- | ----------- |
+|:-----:| :----:| :----:|
 | `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
@@ -162,7 +164,7 @@ An event has the following top-level data:
 An event has the following top-level data:
 
 | Property | Type | Description |
-| -------- | ---- | ----------- |
+|:-----:| :----:| :----:|
 | `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
@@ -192,7 +194,7 @@ The data object has the following common properties:
 ### For job status change related event types
 
 Property| Type| Description
-|----|----|----|
+|:-----:| :----:| :----:|
 |id|String| Unique ID of the job.|
 |name| string| User-defined name of the job.|
 |status|string|Various states a job can be in.|
