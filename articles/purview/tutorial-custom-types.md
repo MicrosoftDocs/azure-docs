@@ -174,7 +174,7 @@ This relationship has its own definition. The name of the definition is found in
 * The **cardinality** of this relationship attribute is set to *SET, which suggests that it holds a list of related assets.
 * The related asset is of type *azure_sql_column*, as visible in the *typeName* attribute.
 
-In other words, the *columns* relationship relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
+In other words, the *columns* relationship attribute relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
 
 ## Example of a *relationship Type definition*
 
