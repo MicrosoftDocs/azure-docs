@@ -83,7 +83,9 @@ landingContent:
          - text: Kubernetes-hosted client applications
            url: cache-best-practices-kubernetes.md
          - text:  Performance testing
-           url: cache-best-practices-performance.md  
+           url: cache-best-practices-performance.md
+         - text: Enterprise and Enterprise Flash
+           url: cache-best-practices-enterprise-tiers.md
   - title: SDKs and command-lines
     linkLists:
       - linkListType: reference

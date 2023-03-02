@@ -102,6 +102,8 @@
          href: cache-best-practices-kubernetes.md
        - name: Performance testing
          href: cache-best-practices-performance.md
+       - name: Enterprise tiers
+         href: cache-best-practices-enterprise-tiers.md
     - name: Security
       items:
       - name: Network isolation options
