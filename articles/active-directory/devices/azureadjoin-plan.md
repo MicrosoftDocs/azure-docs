@@ -110,7 +110,7 @@ There are two approaches for managing Azure AD joined devices:
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 - **Co-management** -  A device is managed by an MDM provider and Microsoft Endpoint Configuration Manager. In this approach, the Microsoft Endpoint Configuration Manager agent is installed on an MDM-managed device to administer certain aspects.
 
-If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
+If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Intune. 
 
 Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following questions:
 
