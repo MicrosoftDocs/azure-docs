@@ -54,7 +54,7 @@ This how-to guide provides steps and utility scripts to [Arc connect](/azure/azu
 the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
-The following resources provide you support:
+The following resources provide you with support:
 
 - `arc-connect.env`: use this template file to create environment variables needed by included scripts
 [!INCLUDE [arc-connect.env](./includes/arc-connect.md)]
@@ -128,9 +128,9 @@ Information on creating a DCR to collect data from the VMs is available [here](/
 
 The included **`dcr.sh`** script creates a DCR, in the specified resource group, that will configure log collection.
 
-1.Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal. The DCR is created in the specified resource group.
+1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal. The DCR is created in the specified resource group.
 
-2.Create or identify a Log Analytics workspace for log data ingestion as per the DCR.
+2. Create or identify a Log Analytics workspace for log data ingestion as per the DCR.
 Set an environment variable, LAW_RESOURCE_ID to its resource ID.
 Retrieve the resource ID for a known Log Analytics workspace name:
 
@@ -138,7 +138,7 @@ Retrieve the resource ID for a known Log Analytics workspace name:
 export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_GROUP}" -n <law name> --query id -o tsv)
 ```
 
-3.Run the dcr.sh script. It creates a DCR in the specified resource group with name ${RESOURCE_GROUP}-syslog-dcr
+3. Run the dcr.sh script. It creates a DCR in the specified resource group with name ${RESOURCE_GROUP}-syslog-dcr
 
 ```bash
 ./dcr.sh
@@ -147,7 +147,8 @@ export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_
 View/manage the DCR from the Azure portal or [CLI](/azure/monitor/data-collection/rule).
 By default, the Linux Syslog log level is set to "INFO". You can change the log level as needed.
 
-**Note:** Manually, or via a policy, associate servers created prior to the DCR's creation.
+> [!NOTE]
+> Manually, or via a policy, associate servers created prior to the DCR's creation.
 See [remediation task](/azure/governance/policy/how-to/remediate-resources#create-a-remediation-task).
 
 ### Associate Arc-enabled server resources to DCR
@@ -194,13 +195,13 @@ The `daemonSet` also includes a liveness probe that monitors the server connecti
 az hybridaks proxy --resource-group <AKS-Hybrid Cluster Resource Group> --name <AKS-Hybrid Cluster Name> --file <kube-config-filename> &
 ```
 
-3.Set the `kubeconfig` file for using kubectl:
+3. Set the `kubeconfig` file for using kubectl:
 
 ```bash
 export KUBECONFIG=<path-to-kube-config-file>
 ```
 
-4.Run the **`install.sh`** script from the command prompt with kubectl access to the AKS-Hybrid cluster.
+4. Run the **`install.sh`** script from the command prompt with kubectl access to the AKS-Hybrid cluster.
 
 The script deploys the `daemonSet` to the cluster. Monitor the progress as follows:
 
@@ -214,7 +215,8 @@ kubectl logs <podname>
 On completion, the system logs the message "Server monitoring configured successfully".
 At that point, the Arc-enabled servers appear as resources within the selected resource group.
 
-**Note:** Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
+> [!NOTE]
+> Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
 After you configure a policy, there may be some delay to observe the logs in Azure Log Analytics Workspace
 
 ### Monitoring AKS-hybrid – K8s layer
