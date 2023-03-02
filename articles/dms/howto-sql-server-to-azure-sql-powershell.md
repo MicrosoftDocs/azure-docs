@@ -105,6 +105,9 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
+> [!NOTE]
+> If the migration ends with an error when providing source DataSource as public IP address or the DNS of SQL Server, then use the name of the Azure VM running the SQL Server.
+
 The next example shows creation of Connection Info for a server called SQLAzureTarget using sql authentication:
 
 ```powershell
