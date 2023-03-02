@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2023
 ms.author: jammart
 ---
 
@@ -18,13 +18,14 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 - Shared Key authorization
 - Shared access signature (SAS) authorization
 - Role-based access control (Azure RBAC)
+- Attribute-based access control (Azure ABAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). With these two forms of authentication, Azure RBAC and ACLs have no effect.
+[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect.
 
-Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
+Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 
-This article focuses on Azure RBAC and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
+This article focuses on Azure RBAC, ABAC, and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
 
 <a id="role-based-access-control"></a>
 
@@ -41,6 +42,14 @@ The following roles permit a security principal to access data in a storage acco
 | [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
 Roles such as [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), and [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
+
+## Attribute-based access control (Azure ABAC)
+
+Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. You cannot explicitly deny access to specific resources using conditions.
+
+For more information on using Azure ABAC to control access to Azure Storage, see [Authorize access to Azure Blob Storage using Azure role assignment conditions](storage-auth-abac.md).
+
+For the status of attributes applicable to Data Lake Storage Gen2, see [Status of condition features in Azure Storage](../common/authorize-data-access.md#status-of-condition-features-in-azure-storage).
 
 ## Access control lists (ACLs)
 
