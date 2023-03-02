@@ -38,20 +38,25 @@ Create an exception policy, which you will attach to the regular queue, which is
 await routerClient.CreateExceptionPolicyAsync(
     new CreateExceptionPolicyOptions(
             exceptionPolicyId: "Escalate_XBOX_Policy",
-            exceptionRules: new List<ExceptionRule>()
+            exceptionRules: new Dictionary<string, ExceptionRule>()
             {
                 new (
-                    id: "Escalated_Rule",
-                    trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
-                    actions: new List<ExceptionAction>()
                     {
-                        new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
+                        ["Escalated_Rule"] = 
                         {
-                            LabelsToUpsert = new LabelCollection(
-                                new Dictionary<string, object>
+                            id: "Escalated_Rule",
+                            trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
+                            actions: new List<ExceptionAction>()
                             {
-                                ["Escalated"] = true,
-                            })
+                                new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
+                                {
+                                    LabelsToUpsert = new LabelCollection(
+                                        new Dictionary<string, object>
+                                    {
+                                        ["Escalated"] = true,
+                                    })
+                                }
+                            }
                         }
                     }
                 )
@@ -73,9 +78,14 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
         PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 1)"),
         QueueSelectors = new List<QueueSelectorAttachment>()
         {
-            new QueueIdSelector(
-                new ExpressionRule(
-                    "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")"))
+            new QueueLabelSelector()
+            {
+                LabelSelectors = new List<LabelSelectorAttachment>
+                {
+                    new ExpressionRule(
+                        "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")"))
+                }
+            }
         },
         FallbackQueueId = "Default"
     });
@@ -112,11 +122,11 @@ When you submit the Job, specify the Classification Policy ID as follows. For th
 ```csharp
 await routerClient.CreateJobAsync(
     options: new CreateJobWithClassificationPolicyOptions(
-        jobId: "75c5612e-afb4-4e65-a0bf-3d1b950fad7b",
+        jobId: "<jobId>",
         channelId: ManagedChannels.AcsVoiceChannel,
         classificationPolicyId: "Classify_XBOX_Voice_Jobs")
     {
-        WorkerSelectors = new List<WorkerSelectorAttachment>
+        RequestedWorkerSelectors = new List<WorkerSelector>
         {
             new WorkerSelector()
             {

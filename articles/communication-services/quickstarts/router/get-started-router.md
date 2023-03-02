@@ -111,7 +111,7 @@ var job = await routerClient.CreateJobAsync(
     options: new CreateJobOptions(
             jobId: jobId,
             channelId: "my-channel",
-            queueId: queue.Value.Id) // this is optional
+            queueId: queue.Value.Id)
     {
         Priority = 1,
         RequestedWorkerSelectors = new List<WorkerSelector>
@@ -127,7 +127,7 @@ var job = await routerClient.CreateJobAsync(
 
 ## Create a worker
 
-Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
+Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.  Inorder for the worker to receive offers make sure that the property **AvailableForOffers** is set to **true**.
 
 ```csharp
 var worker = await routerClient.CreateWorkerAsync(
@@ -146,7 +146,8 @@ var worker = await routerClient.CreateWorkerAsync(
         Labels = new Dictionary<string, LabelValue>()
         {
             ["Some-Skill"] = new LabelValue(11)
-        }
+        },
+        AvailableForOffers = true
     }
 );
 ```

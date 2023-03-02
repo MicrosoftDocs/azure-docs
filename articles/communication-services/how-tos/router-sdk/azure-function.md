@@ -67,7 +67,7 @@ Inspect your deployed function in the Azure portal and locate the function Uri a
 await client.CreateClassificationPolicyAsync(
     options: new CreateClassificationPolicyOptions("policy-1")
     {
-        PrioritizationRule = new AzureFunctionRule("<insert function uri>", new AzureFunctionRuleCredential("<insert function key>"))
+        PrioritizationRule = new FunctionRule("<insert function uri>", new FunctionRuleCredential("<insert function key>"))
     }
 );
 ```

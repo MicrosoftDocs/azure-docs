@@ -39,9 +39,13 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
         PrioritizationRule = new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
         QueueSelectors = new List<QueueSelectorAttachment>()
         {
-            new QueueIdSelector(
-                new ExpressionRule("If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")")
-            ),
+            new QueueLabelSelector()
+            {
+                LabelSelectors = new List<LabelSelectorAttachment>
+                {
+                    new ExpressionRule("If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")")
+                }
+            }
         }
     });
 ```
@@ -78,7 +82,7 @@ The following example will cause the classification policy to evaluate the Job l
 ```csharp
 var job = await routerClient.CreateJobAsync(
     options: new CreateJobWithClassificationPolicyOptions(
-        jobId: "4ad7f4b9-a0ff-458d-b3ec-9f84be26012b",
+        jobId: "<job id>",
         channelId: "voice",
         classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10")
     {
@@ -127,9 +131,15 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new StaticLabelSelector(
-                new LabelSelector("Foo", LabelOperator.Equal, "Bar")
-            )
+            new StaticWorkerSelectorAttachment()
+            {
+                LabelSelector = new WorkerSelector()
+                {
+                    Key = "Foo",
+                    LabelOperator = LabelOperator.Equal,
+                    Value = "Bar"
+                }
+            }
         }
     });
 ```
@@ -164,12 +174,19 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new ConditionalLabelSelector(
-                condition: new ExpressionRule("job.Urgent = true"),
-                labelSelectors: new List<LabelSelector>
+            new ConditionalWorkerSelectorAttachment()
+            {
+                Condition = new ExpressionRule("job.Urgent = true"),
+                LabelSelectors = new List<WorkerSelector>
                 {
-                    new LabelSelector("Foo", LabelOperator.Equal, "Bar")
+                    new WorkerSelector()
+                    {
+                        Key = "Foo",
+                        LabelOperator = LabelOperator.Equal,
+                        Value = "Bar"
+                    }
                 })
+            } 
         }
     });
 ```
@@ -246,18 +263,22 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new WeightedAllocation(
-                weight: 0.3,
-                labelSelectors: new List<LabelSelector>
+            new WeightedAllocationWorkerSelectorAttachment()
+            {
+                Weight = 0.3,
+                LabelSelectors = new List<WorkerSelector>
                 {
-                    new LabelSelector("Vendor", LabelOperator.Equal, "A")
-                }),
-            new WeightedAllocation(
-                weight: 0.7,
-                labelSelectors: new List<LabelSelector>
-                {
-                    new LabelSelector("Vendor", LabelOperator.Equal, "B")
+                    new WorkerSelector("Vendor", LabelOperator.Equal, "A")
                 })
+            },
+            new WeightedAllocationWorkerSelectorAttachment()
+            {
+                Weight = 0.7,
+                LabelSelectors = new List<WorkerSelector>
+                {
+                    new WorkerSelector("Vendor", LabelOperator.Equal, "B")
+                })
+            }
         }
     });
 ```
@@ -297,7 +318,7 @@ Once the Job Router has received, and classified a Job using a policy, you have 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var reclassifiedJob = await routerClient.ReclassifyJobAsync("4ad7f4b9-a0ff-458d-b3ec-9f84be26012b");
+var reclassifiedJob = await routerClient.ReclassifyJobAsync("<job id>");
 ```
 
 ::: zone-end
@@ -305,7 +326,7 @@ var reclassifiedJob = await routerClient.ReclassifyJobAsync("4ad7f4b9-a0ff-458d-
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.reclassifyJob("4ad7f4b9-a0ff-458d-b3ec-9f84be26012b", {
+await client.reclassifyJob("<jobId>", {
     classificationPolicyId: null,
     labelsToUpdate: {
         Hardware_VIP: true

@@ -40,14 +40,16 @@ await routerClient.CreateJobAsync(
             channelId: "<channel id>",
             queueId: "<queue id>")
     {
-        RequestedWorkerSelectors = new List<WorkerSelectorAttachment>
+        RequestedWorkerSelectors = new List<WorkerSelector>
           {
-            new LabelSelector(    
-              key: "Id",
-              @operator: LabelOperator.Equal,
-              value: "<preferred worker id>",
-              ttl: TimeSpan.FromMinutes(1))    
-          })
+            new WorkerSelector()
+            {
+                Key = "Id",
+                Operator = LabelOperator.Equal,
+                Value = "<preferred worker id>",
+                TTL = TimeSpan.FromMinutes(1)
+            }
+          }
     });
 ```
 

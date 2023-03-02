@@ -37,11 +37,11 @@ var distributionPolicy = await administrationClient.CreateDistributionPolicyAsyn
             minConcurrentOffers: 1,
             maxConcurrentOffers: 10)
     {
-        Name = ""Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
+        Name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
     }
 );
 
-var queue = await administrationClient.CreateQueue(
+var queue = await administrationClient.CreateQueueAsync(
     options: new CreateQueueOptions("XBOX_DEFAULT_QUEUE", "Longest_Idle_45s_Min1Max10")
     {
         Name = "XBOX Default Queue"
