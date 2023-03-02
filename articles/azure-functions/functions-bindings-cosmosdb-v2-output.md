@@ -594,6 +594,18 @@ The following example demonstrates how to write a document to an Azure Cosmos DB
 # [v2](#tab/python-v2)
 
 ```python
+import logging
+import azure.functions as func
+@app.route()
+@app.cosmos_db_output(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    create_if_not_exists=True,
+    connection_string_setting="CONNECTION_SETTING")
+def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
+    request_body = req.get_body()
+    documents.set(func.Document.from_json(request_body))
+    return 'OK'
 ```
 
 # [v1](#tab/python-v1)
