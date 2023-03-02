@@ -1530,14 +1530,13 @@ The following example shows an Azure Cosmos DB input binding. The function reads
 
 ```python
 @app.route()
-@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
+@app.queue_output(arg_name="id", queue_name="outqueue", connection="AzureWebJobsStorage")
 @app.cosmos_db_input(
     arg_name="documents", database_name="<DB_NAME>",
     collection_name="<COLLECTION_NAME>",
     connection_string_setting="CONNECTION_STRING")
-def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
+def test_function(req: func.HttpRequest, id: func.In[func.QueueMessage],
     documents: func.DocumentList) -> func.HttpResponse:
-     id = req.params.get('id')
      document = documents[id]
      document["text"] = "This was updated!"
      return document
