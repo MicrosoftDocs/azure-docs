@@ -91,7 +91,7 @@ You can add lab users manually by providing their email address in the lab confi
 
     :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website.":::
 
-1. Select **Save**.
+1. Select **Add**.
 
     The list displays the email addresses and registration status of the lab users. After a user registers for the lab, the list also displays the user's name.
 
@@ -115,7 +115,7 @@ You use a CSV text file to store comma-separated (CSV) tabular data (numbers and
 
     The **Add users** page shows the email address list from the CSV file.
 
-1. Select **Save**.
+1. Select **Add**.
 
     The **Users** page now shows the list of lab users you uploaded.
 
@@ -206,16 +206,16 @@ You can set an hour quota for a user in one of two ways:
 
 1. In the **Users** pane, select **Quota per user: \<number> hour(s)** on the toolbar.
 
-1. In the **Quota per user** window, specify the number of hours you want to give to each user outside the scheduled time, and then select **Save**.
+1. In the **Quota per user** window, specify the number of hours you want to give to each user outside the scheduled time.
 
     :::image type="content" source="./media/how-to-configure-student-usage/quota-per-user.png" alt-text="Screenshot that shows the Quota per user window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/quota-per-user.png":::
 
-    The changed values are visible on the **Quota per user: \<number of hours>** button on the toolbar and in the users list:
-
-    :::image type="content" source="./media/how-to-configure-student-usage/quota-per-user-after.png" alt-text="Screenshot that shows the updated quota hours in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/quota-per-user-after.png":::
-
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a user. The quota is for the time outside of scheduled hours that a user spends on VMs.
+
+1. Select **Save** to save the changes.
+
+    Notice that the user list shows the updated quota hours for all users.
 
 ### Set additional quotas for specific users
 
@@ -223,15 +223,15 @@ You can specify quotas for certain users beyond the common quotas that were set 
 
 To set additional quotas, do the following:
 
-1. In the **Users** pane, select a user from the list, and then select **Adjust quota** on the toolbar.
+1. In the **Users** pane, select one or more users from the list, and then select **Adjust quota** on the toolbar.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/adjust-quota-button.png" alt-text="Screenshot that shows how to Adjust quota for a specific user in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/adjust-quota-button.png":::
-
-1. In the **Adjust quota for \<selected user or users email address>**, enter the number of additional lab hours you want to grant to the selected user or users, and then select **Apply**.
+1. In the **Adjust quota** window, enter the number of additional lab hours you want to grant to the selected users, and then select **Apply**.
 
     :::image type="content" source="./media/how-to-configure-student-usage/additional-quota.png" alt-text="Screenshot that shows the Adjust quota window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/additional-quota.png":::
 
-    The **Usage** column displays the updated quota for the selected users.
+1. Select **Apply** to save the changes.
+
+    Notice that the user list shows the updated quota hours for the users you selected.
 
 ## User account types
 
