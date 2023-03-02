@@ -233,7 +233,7 @@ In this tutorial, for simplicity, we'll:
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png":::
 
 
-1. Plot the data in the DataFrame on a graph.
+1. Present the data from the DataFrame in a graph.
 
     ```python
     showGraph(my_data, "Historical data usage (3 weeks) - selected data types")
