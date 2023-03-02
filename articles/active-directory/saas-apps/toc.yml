@@ -2816,6 +2816,8 @@
         href: adobe-identity-management-provisioning-oidc-tutorial.md
       - name: Airstack
         href: airstack-provisioning-tutorial.md
+      - name: Akamai Enterprise Application Access
+        href: akamai-enterprise-application-access-provisioning-tutorial.md
       - name: AlertMedia
         href: alertmedia-provisioning-tutorial.md
       - name: AlexisHR
