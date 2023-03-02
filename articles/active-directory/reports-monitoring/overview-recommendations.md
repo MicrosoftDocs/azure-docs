@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/27/2023
+ms.date: 03/02/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ Azure AD only displays the recommendations that apply to your tenant, so you may
 
 ### Recommendations available for all Azure AD tenants
 
-The recommendations listed in the following table are available to all Azure AD tenants. The table provides the impacted resources and links to available documentation.
+The recommendations listed in the following table are available to all Azure AD tenants, regardless of license type. The table provides the impacted resources and links to available documentation.
 
 | Recommendation  | Impacted resources | Availability |
 |---- |---- |---- |
@@ -98,6 +98,17 @@ The recommendations listed in the following table are available to all Azure AD 
 | [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users | Generally available |
 | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | Preview |
 | [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users | Generally available |
+
+### Recommendations available for Workload Identities premium licenses
+
+The recommendations listed in the following table are available to Azure AD tenants with a [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md).
+
+| Recommendation  | Impacted resources | Availability |
+|---- |---- |---- |
+| [Remove unused applications](recommendation-remove-unused-apps.md) | Applications | Preview |
+| [Remove unused credentials from applications](recommendation-remove-unused-credential-from-apps.md) | Applications | Preview |
+| [Renew expiring application credentials](recommendation-renew-expiring-application-credential.md) | Applications | Preview |
+| [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | Preview |
 
 ## How to use Azure AD recommendations
 
