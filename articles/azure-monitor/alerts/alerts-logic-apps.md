@@ -134,7 +134,7 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
         |Short Resource ID|`concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8]`)|
         |Client Api Version|Resource type's api version|
     
-        To find your Resource type's api version, select the **JSON view** link on the top right-hand side of the resource overview page.
+        To find your resource type's api version, select the **JSON view** link on the top right-hand side of the resource overview page.
         The **Resource JSON** page is displayed with the **ResourceID** and **API version** at the top of the page.
 
     The dynamic content now includes tags from the affected resource. You can use those tags when you configure your notifications as described in the following steps.
