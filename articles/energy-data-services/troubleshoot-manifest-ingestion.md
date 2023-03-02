@@ -196,8 +196,6 @@ The output shows the records that were retrieved and were in the system. The rel
     [2023-02-05, 19:14:40 IST] {search_record_ids.py:141} DEBUG - response ids: ['contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a:1675590506723615', 'contoso-dp1:work-product-component--WellLog:5ab388ae0e1b40838c297f0e6559758a    ']
 ```
 
-In the coming release, we plan to enhance the logs by appropriately logging skipped records with reasons.
-
 ## Invalid legal tags or ACLs in the manifest
 
 Records weren't ingested because the manifest contains invalid legal tags or access control lists (ACLs).
@@ -245,8 +243,7 @@ The output indicates records that were retrieved. Manifest entity records that c
 
 ## Known issues
 
-- Exception traces weren't exporting with Airflow task logs because of a known problem in the logs. The patch has been submitted and will be included in the February release.
-- Because there are no specific error logs for referential integrity tasks, you must manually search for the debug log statements to see whether all external records were retrieved via the search service. We intend to improve the logs in the upcoming release by properly logging skipped data with justifications.
+- Because there are no specific error logs for referential integrity tasks, you must manually search for the debug log statements to see whether all external records were retrieved via the search service.
 
 ## Next steps
 
