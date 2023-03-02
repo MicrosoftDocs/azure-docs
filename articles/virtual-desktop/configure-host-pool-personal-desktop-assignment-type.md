@@ -218,7 +218,7 @@ To get the session host friendly name, run this command in PowerShell
 
 ```powershell
 $getParams = @{
-  Path = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview'
+  Path = '/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview'
   Method = 'GET'
 }
 Invoke-AzRestMethod @getParams
