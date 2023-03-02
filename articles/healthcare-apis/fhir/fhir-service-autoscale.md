@@ -35,6 +35,10 @@ To ensure the best possible outcome, we recommend customers to gradually increas
 
 ## FAQ
 
+### What should i do if I recieve high volume of HTTP 429 errors?
+
+We recommend customers to gradually increase the request rate to see if brings reduction in HTTP 429 erros. For consisent 429 errors, we ask customer to create a support ticket through Azure portal on issue observed. Support team will engage to understand scaling trigger needs.
+
 ### What is the cost to enable autoscaling for FHIR service?  
 
 The autoscaling feature incurs no extra costs to customers.
