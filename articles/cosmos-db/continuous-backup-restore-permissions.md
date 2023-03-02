@@ -23,7 +23,7 @@ Scope is a set of resources that have access, to learn more on scopes, see the [
 
 To perform a restore, a user or a principal need the permission to restore (that is *restore/action* permission), and permission to provision a new account (that is *write* permission).  To grant these permissions, the owner can assign the `CosmosRestoreOperator` and `Cosmos DB Operator` built in roles to a principal.
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your subscription.
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your subscription. The `CosmosDBRestoreOperator` role is available at subscription level.
 
 1. Select **Access control (IAM)**.
 
