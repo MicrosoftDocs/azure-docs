@@ -11,15 +11,17 @@ services: iot-edge
 
 # Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file found in the `/etc/aziot` directory on an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
+This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device.
+## Configuration template
 
-> [!IMPORTANT]
-> The hostname, parent_hostname, and trust_bundle_cert parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
->
+A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device. You can copy the contents of the template over to your *config.toml* file and uncomment the sections you need.
 
-## Hostname
+### Top of the config.toml file
+
+The `hostname`, `parent_hostname`, and `trust_bundle_cert` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they are applied correctly.
+
+### Hostname
 
 To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network.
 
@@ -29,7 +31,7 @@ For the **hostname**, replace **my-device** with your device name to override th
 hostname = "my-device"
 ```
 
-## Parent hostname
+### Parent hostname
 
 Parent hostname is used when the IoT Edge device is nested. Every downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify its parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child device, it needs both parameters.
 
@@ -51,7 +53,7 @@ trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
 
 For more information about the IoT Edge trust bundle, see [Manage trusted root CA](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
 
-## Elevated Docker Permissions Flag
+### Elevated Docker Permissions Flag
 
 Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
 
