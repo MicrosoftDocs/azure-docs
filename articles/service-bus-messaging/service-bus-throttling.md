@@ -86,7 +86,8 @@ When a request is throttled, it implies that the service is busy because it's fa
 
 As throttling is the expected behavior of any cloud native service, retry logic is built into the Service Bus SDK itself. The default is set to auto retry with an exponential back-off to ensure that we don't have the same request being throttled each time. The default retry logic will apply to every operation.
 
-Note that message-processing code that calls other third-party services may be throttled by those other services as well. For more information on how to handle these scenarios, see the [documentation on the Throttling Pattern](/azure/architecture/patterns/throttling).
+>[!NOTE]
+> Message-processing code that calls other third-party services may be throttled by those other services as well. For more information on how to handle these scenarios, see the [documentation on the Throttling Pattern](/azure/architecture/patterns/throttling).
 
 ### Does throttling result in data loss?
 
