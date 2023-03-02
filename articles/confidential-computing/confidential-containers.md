@@ -6,7 +6,7 @@ author: agowdamsft
 ms.topic: article
 ms.date: 3/1/2023
 ms.author: amgowda
-ms.service: virtual machines 
+ms.service: virtual-machines 
 ms.subservice: confidential-computing
 ms.custom: ignite-fall-2021
 ---
@@ -31,11 +31,13 @@ Below are the qualities of confidential containers:
 1.	Full guest attestation, which reflects the cryptographic measurement of all hardware and software components running within your Trusted Computing Base (TCB). 
 2.	Tooling to generate policies that will be enforced in the Trusted Execution Environment.
 3.	Open-source sidecar containers for secure key release and encrypted file systems. 
+
+:::image type="content" source="./media/confidential-containers/confidential-container-group.png" alt-text="Graphic of ACI.":::
+
 ## Confidential containers in an Intel SGX enclave through OSS or partner software
 Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing VM nodes](confidential-computing-enclaves.md) as agent pools in a cluster. These nodes allow you to run sensitive workloads within a hardware-based TEE. TEEs allow user-level code from containers to allocate private regions of memory to execute the code with CPU directly. These private memory regions that execute directly with CPU are called enclaves. Enclaves help protect data confidentiality, data integrity and code integrity from other processes running on the same nodes, as well as Azure operator. The Intel SGX execution model also removes the intermediate layers of Guest OS, Host OS and Hypervisor thus reducing the attack surface area. The *hardware based per container isolated execution* model in a node allows applications to directly execute with the CPU, while keeping the special block of memory encrypted per container. Confidential computing nodes with confidential containers are a great addition to your zero-trust, security planning and defense-in-depth container strategy. Learn more on this capability [here](confidential-containers-enclaves.md)
 
 :::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="Graphic of AKS Confidential Compute Node, showing confidential containers with code and data secured inside.":::
-
 
 ## Questions?
 
