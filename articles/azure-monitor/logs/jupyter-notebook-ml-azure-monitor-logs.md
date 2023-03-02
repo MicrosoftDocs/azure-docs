@@ -250,6 +250,105 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
 
-    Guy - show the screenshot from Anomalies_CL table (maybe to start the screenshot from AnomalyTimeGenerated, and not to show TimeGenerated which shows current date - it might confuse)
+    ```python
+    my_data['Year'] = pd.DatetimeIndex(my_data['TimeGenerated']).year
+    my_data['Month'] = pd.DatetimeIndex(my_data['TimeGenerated']).month
+    my_data['Day'] = pd.DatetimeIndex(my_data['TimeGenerated']).day
+    my_data['Hour'] = pd.DatetimeIndex(my_data['TimeGenerated']).hour
+    
+    import pandas as pd
+    import numpy as np
+     
+    def display_options():
+         
+        display = pd.options.display
+        display.max_columns = 7
+        display.max_rows = 10
+        display.max_colwidth = 300
+        display.width = None
+        return None
+     
+    display_options()
+    display(my_data)
+    ```
+    The resulting DataFrame looks like this:
 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-dataframe-split-datetime.png" alt-text="Screenshot that shows a DataFrame with the newly-added Year, Month, Day, and Hour columns.":::
  
+## Split the dataset into a training set and a testing set
+
+To validate a machine learning model, we need to use some of the data we have to train the model and some of data to check how well the trained model is able to predict values the model doesn't yet know.    
+
+1. Use the [TimeSeriesSplit()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) time series cross-validator to split the dataset into a training set and a test set.
+
+    ```python
+    from sklearn.model_selection import TimeSeriesSplit
+    
+    ts_cv = TimeSeriesSplit() #we use default values
+        
+    Y = my_data['ActualUsage']
+    X = my_data[['DataType', 'Year', 'Month', 'Day', 'Hour']] 
+    ```
+
+1. Train and evaluate a linear regression model.
+
+    This script creates a machine learning pipeline that trains and evaluates a machine learning model using the `scikit-learn` library by:  
+     
+    - One-hot encoding categorical variables, which in our case are our data types. 
+    - Scales numerical features - in our case, hourly usage - to the 0-1 range.
+
+    ```python
+    from sklearn.pipeline import make_pipeline
+    from sklearn.compose import ColumnTransformer
+    from sklearn.model_selection import cross_validate
+    from sklearn.preprocessing import OneHotEncoder
+    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.linear_model import RidgeCV
+    import numpy as np
+    
+    categorical_columns = [
+        "DataType"
+       ]
+    
+    one_hot_encoder = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
+    alphas = np.logspace(-6, 6, 25)
+    naive_linear_pipeline = make_pipeline(
+        ColumnTransformer(
+            transformers=[
+                ("categorical", one_hot_encoder, categorical_columns),
+            ],
+            remainder=MinMaxScaler(),
+        ),
+        RidgeCV(alphas=alphas),
+    )
+    
+    
+    naive_linear_pipeline.fit(X, Y)
+    ##predictions = naive_linear_pipeline.predict(X)
+    
+    ##my_data["PredictedUsage"] = predictions
+    ##my_data["Residual"] = my_data["ActualUsage"] - my_data["PredictedUsage"]
+    ##my_data["Residual %"] = abs(my_data["Residual"]) / my_data["PredictedUsage"]*100
+    
+    def evaluate(model, X, Y, cv):
+        cv_results = cross_validate(
+            model,
+            X,
+            Y,
+            cv=cv,
+            scoring=["neg_mean_absolute_error", "neg_root_mean_squared_error"],
+        )
+        mae = -cv_results["test_neg_mean_absolute_error"]
+        rmse = -cv_results["test_neg_root_mean_squared_error"]
+        print(
+            f"Mean Absolute Error:     {mae.mean():.3f} +/- {mae.std():.3f}\n"
+            f"Root Mean Squared Error: {rmse.mean():.3f} +/- {rmse.std():.3f}"
+        )
+    
+    
+    print("score of linear_pipeline:")
+    evaluate(naive_linear_pipeline, X, Y, cv=ts_cv)
+    ```
+    The linear pipeline score for this model is: 
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the linear pipeline score results."::: 
