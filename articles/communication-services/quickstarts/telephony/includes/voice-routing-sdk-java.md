@@ -121,9 +121,9 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
 
 ## Setup Direct Routing configuration
 
-### Create and verify the domain 
+### Verify Domain Ownership
 
-[TBD] Verify domain link
+[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
 
 ### Create Trunks
 
@@ -132,8 +132,8 @@ Register your SBCs by providing their fully qualified domain names and port numb
 ```java
 
 sipRoutingAsyncClient.setTrunksWithResponse(asList(
-	new SipTrunk("sbc.us.mytestdomain.com", 5999),
-	new SipTrunk("sbc.eu.mytestdomain.com", 5999)
+	new SipTrunk("sbc.us.contoso.com", 5999),
+	new SipTrunk("sbc.eu.contoso.com", 5999)
 )).block();
 
 ```
@@ -145,8 +145,8 @@ For outbound calling routing rules should be provided. Each rule consists of two
 ```java
 
 sipRoutingAsyncClient.setRoutes(asList(
-	new SipTrunkRoute("UsRoute", "^\\+1(\\d{10})$").setTrunks(asList("sbc.us.mytestdomain.com")),
-	new SipTrunkRoute("DefaultRoute", "^\\+\\d+$").setTrunks(asList("sbc.us.mytestdomain.com", "sbc.eu.mytestdomain.com"))
+	new SipTrunkRoute("UsRoute", "^\\+1(\\d{10})$").setTrunks(asList("sbc.us.contoso.com")),
+	new SipTrunkRoute("DefaultRoute", "^\\+\\d+$").setTrunks(asList("sbc.us.contoso.com", "sbc.eu.contoso.com"))
 )).block();
 
 ```
@@ -171,8 +171,10 @@ Run the following mvn command to execute the app.
 	mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
-More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).
-
 ## Updating existing configuration
 
 ## Removing a direct routing configuration
+
+
+> [!NOTE]
+> More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).

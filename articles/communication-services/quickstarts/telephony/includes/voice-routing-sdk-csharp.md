@@ -69,6 +69,10 @@ var client = new SipRoutingClient(connectionString);
 
 ## Setup direct routing configuration
 
+### Verify Domain Ownership
+
+[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
+
 ### Create Trunks
 
 Azure Communication Services direct routing allows communication only with registered SBC. To register an SBC you need its FQDN and port.
@@ -100,8 +104,10 @@ await client.SetRoutesAsync(new List<SipTrunkRoute> { usRoute, defaultRoute });
 
 ```
 
-More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
-
 ## Updating existing configuration
 
 ## Removing a direct routing configuration
+
+
+> [!NOTE]
+> More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
