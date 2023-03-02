@@ -15,9 +15,9 @@ ms.author: franlanglois
 
 We strongly recommended that you deploy new caches in a [zone redundant](cache-high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. 
 <!-- I don't quite understand what the last sentence. -->
-This [increases the availability](https://azure.microsoft.com/en-us/support/legal/sla/cache/v1_1/) SLA to 99.99%.
+This [increases the availability](https://azure.microsoft.com/support/legal/sla/cache/v1_1/) SLA to 99.99%.
 
- Zone redundancy is particularly important on the Enterprise tier because it always uses at least three nodes. Two nodes are data nodes, which hold your data. Increasing capacity scales the number of these nodes in even-number increments. There is also an additional node called a quorum node. This node monitors the data nodes and automatically selects the new primary node in case of failover. Zone redundancy ensures that the nodes are distributed evenly across three availability zones, minimizing the potential for quorum loss. Customers are not charged for the quorum node and there is no additional charge for using zone redundancy beyond [intra-zonal bandwidth charges](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
+ Zone redundancy is particularly important on the Enterprise tier because it always uses at least three nodes. Two nodes are data nodes, which hold your data. Increasing capacity scales the number of these nodes in even-number increments. There is also an additional node called a quorum node. This node monitors the data nodes and automatically selects the new primary node in case of failover. Zone redundancy ensures that the nodes are distributed evenly across three availability zones, minimizing the potential for quorum loss. Customers are not charged for the quorum node and there is no additional charge for using zone redundancy beyond [intra-zonal bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Scaling
 
