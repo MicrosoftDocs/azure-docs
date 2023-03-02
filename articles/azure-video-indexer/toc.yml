@@ -60,7 +60,7 @@
     displayName: Azure Video Indexer API developer portal, Azure Video Indexer REST API, multiple Azure Video Indexer accounts, An Azure Video Indexer user, Azure Video Indexer API description, Azure Video Indexer client code, different Media Services accounts, Video level access tokens, Account level access tokens, User level access tokens, video artificial intelligence, one integrated service, Reader/Contributor, one active account, detailed video insights, client side calls, Media AI technologies, single subscription key, same account token, new access token, Azure AD, detailed description, specific video, server code, Account tokens, permission level, account token, Authorization API, entire account, user token, AI) technologies, same provider, New users, Operations API, valid tokens, Outlook/Live) accounts, trial accounts, associated accounts, ms.topic, various audio, global reach, cloud platforms, embeddable insight, error page, two ways, permission type, most server, server scenarios, authorization scope, player widgets, Personal Google, subscriptions section, additional call, secondary keys, title, article, tutorial, csharp, Microsoft, development, APIs, developers, scale, availability, reliability, files, URLs, advantage, videoindexer, Prerequisite, api-portal, email, LinkedIn, products, tab, NOTE, Profile, primary, example, videos, download, captions, types, equivalent, JavaScript, clients, reason, things, 1 hour
 - name: Samples
   items:
-  - name: Azure Video Indecreatexer samples
+  - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
   - name: Azure Video Indexer widgets
     href: https://www.npmjs.com/package/@azure/video-indexer-widgets

@@ -179,8 +179,6 @@ items:
       href: how-to-translate-speech.md
 - name: Intent recognition
   items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Pattern matching concepts
