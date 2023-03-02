@@ -37,7 +37,7 @@
   - name: AKS-Hybrid
     href: howto-hybrid-aks.md
   - name: Monitor AKS-Hybrid Cluster
-    href: howto-monitoring-aks-h-cluster.md
+    href: howto-monitor-aks-h-cluster.md
   - name: Monitor VMs for VNF
     href: howto-monitoring-virtualized-network-functions-virtual-machines.md
   - name: Pre-certification 
