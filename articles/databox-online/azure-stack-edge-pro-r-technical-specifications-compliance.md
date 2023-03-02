@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -55,7 +55,7 @@ The Azure Stack Edge Pro R device has the following specifications for UPS:
 | Specification  | Value                                             |
 |----------------|---------------------------------------------------|
 | Battery type       | Lithium iron phosphate (LFP) |
-| Battery rating       | 48 Vdc |
+| Battery voltage       | 48 Vdc |
 | Battery capacity | 5.0 Ah | 
 
 
