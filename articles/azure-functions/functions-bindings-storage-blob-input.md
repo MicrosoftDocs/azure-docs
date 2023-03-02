@@ -244,7 +244,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows blob input and output bindings. The example depends on whether you use the v1 or v2 [Python programming model](functions-reference-python.md).
+The following example shows blob input and output bindings. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 

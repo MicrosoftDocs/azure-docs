@@ -282,7 +282,7 @@ Write-Host "First document Id modified : $($Documents[0].id)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows an Azure Cosmos DB trigger binding. The example depends on whether you use the v1 or v2 [Python programming model](functions-reference-python.md).
+The following example shows an Azure Cosmos DB trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 
@@ -356,13 +356,13 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using decorators, the following properties on the `blob_input` and `blob_output` decorators define the Blob Storage triggers:
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
 
 | Property    | Description |
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
 |`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the collection being monitored. |
+|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
 |`connection` | The connection string of the Azure Cosmos DB being monitored. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
