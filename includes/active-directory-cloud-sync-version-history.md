@@ -12,6 +12,8 @@ This article lists the versions and features of Azure Active Directory Connect P
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
+Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/cloudsyncrss` into your ![RSS feed reader icon](media/whats-new/feed-icon-16x16.png) feed reader.
+
 ## 1.1.977.0
 
 Release date: September 23, 2022
