@@ -1,0 +1,96 @@
+### YamlMime:Landing
+
+title: Microsoft Entra Workload Identities documentation
+summary: Microsoft Entra Workload Identities helps you manage and secure identities for digital workloads, such as apps and services.
+
+metadata: 
+  author: rwike77
+  description: "Learn how to manage and help secure identities for digital workloads, such as apps and services."
+  manager: celested
+  ms.author: ryanwi
+  ms.date: 03/02/2023
+  ms.service: active-directory
+  ms.subservice: workload-identities
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: About Workload Identities
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are workload identities?
+            url: workload-identities-overview.md
+          - text: Frequently asked questions about license plans
+            url: workload-identities-faqs.md
+  
+  # Card
+  - title: Govern the lifecycle of access to groups, apps, and sites
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is entitlement management?
+            url: entitlement-management-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Manage access to resources - Azure portal
+            url: entitlement-management-access-package-first.md
+          - text: Manage access to resources - Microsoft Graph
+            url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Delegation and roles
+            url: entitlement-management-delegate.md
+  
+  # Card
+  - title: Recertify access to groups, apps, and privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are access reviews?
+            url: access-reviews-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an access review to ensure users do not retain excessive access
+            url: create-access-review.md
+          - text: Review access to group or apps
+            url: perform-access-review.md
+  
+  # Card
+  - title: Govern the lifecycle of users as they join, move within, and leave organizations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Lifecycle Workflows (Preview)?
+            url: what-are-lifecycle-workflows.md
+      - linkListType: tutorial
+        links:
+          - text: On-boarding users to your organization using Lifecycle workflows with Azure portal
+            url: tutorial-onboard-custom-workflow-portal.md
+          - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
+            url: tutorial-onboard-custom-workflow-graph.md
+      - linkListType: concept
+        links:
+          - text: Understanding Lifecycle Workflows 
+            url: understanding-lifecycle-workflows.md
+          - text: Lifecycle Workflows built-in tasks
+            url: lifecycle-workflow-tasks.md  
+  
+  # Card
+  - title: Make users eligible for privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Privileged Identity Management?
+            url: ../privileged-identity-management/pim-configure.md
+  
+  # Card
+  - title: Ensure users see disclaimers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Require users to agree to a terms of use when using an app
+            url: ../conditional-access/terms-of-use.md

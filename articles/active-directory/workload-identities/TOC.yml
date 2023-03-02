@@ -1,0 +1,9 @@
+- name: Microsoft Entra Workload Identities documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are workload identities?
+    href: workload-identities-overview.md
+  - name: Workload identities FAQs
+    href: workload-identities-overview.md
