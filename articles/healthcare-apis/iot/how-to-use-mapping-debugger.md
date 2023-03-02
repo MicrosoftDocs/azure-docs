@@ -37,7 +37,7 @@ In this article, you'll learn how to use the MedTech service Mapping debugger in
      - **FHIR destination mapping**: The FHIR destination mapping currently used by your MedTech service.
      - **Mappings**: Both mappings currently used by your MedTech service
 
-## How to troubleshoot using the Mapping debugger
+## How to troubleshoot the device and FHIR destination mappings using the Mapping debugger
 
 1. If there are errors with the device or FHIR destination mappings, the Mapping debugger will display the issues. In this example, we can see that there are error *warnings* at **Line 12** in the **Device mapping** and at **Line 20** in the **FHIR destination mapping**.
 
