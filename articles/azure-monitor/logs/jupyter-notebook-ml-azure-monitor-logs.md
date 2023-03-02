@@ -11,7 +11,7 @@ ms.date: 02/28/2023
 # Customer intent:  As a data scientist, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
 
 ---
-# Train a regression model to detect anomalies in Azure Monitor Logs by using Jupyter Notebook
+# Tutorial: Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
@@ -44,7 +44,7 @@ In this tutorial, you'll:
     For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
 
 - [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
-- [Pandas library](https://pandas.pydata.org/) for data tables.
+- [Pandas library](https://pandas.pydata.org/) an open source data analysis and manipulation tool tool for Python.
 - [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).
 - [Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) to ingest data you process in Jupyter Notebook back to the Log Analytics workspace.
 
@@ -246,7 +246,7 @@ In this tutorial, for the sake of simplicity, we'll:
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks" lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
 
 
-1. Since time information present as a date column, we need expand it into Year, Month, Day, Hour columns using pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components
+1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
 
     Guy - show the screenshot from Anomalies_CL table (maybe to start the screenshot from AnomalyTimeGenerated, and not to show TimeGenerated which shows current date - it might confuse)
 
