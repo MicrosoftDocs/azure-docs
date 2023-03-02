@@ -31,14 +31,14 @@ This article provides the properties and schema for Azure Data Manager for Agric
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChangedV2| Published when a satellite data ingestion job's status changes, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChangedV2| Published when a satellite data ingestion job's status is changed, for example, job is created, has progressed or completed.|
 
 ### Weather data related event types
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChangedV2|Published when a weather data ingestion job's status changes, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.WeatherDataRefresherJobStatusChangedV2| Published when weather data refresher job status changes, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChangedV2|Published when a weather data ingestion job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.WeatherDataRefresherJobStatusChangedV2| Published when a weather data refresher job status is changed, for example, job is created, has progressed or completed.|
 
 ### Farm activities data related event types
 
@@ -48,8 +48,8 @@ This article provides the properties and schema for Azure Data Manager for Agric
 |Microsoft.AgFoodPlatform.HarvestDataChangedV2|Published when a `Harvesting Data` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.TillageDataChangedV2|Published when a `Tillage Data` is created/updated/deleted.|
 |Microsoft.AgFoodPlatform.PlantingDataChangedV2|Published when a `Planting Data` is created/updated/deleted.|
-|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChangedV2|Published when an image-processing rasterize job's status changes, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChangedV2| Published when a farm operations data ingestion job's status changes, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.ImageProcessingRasterizeJobStatusChangedV2|Published when an image-processing rasterize job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChangedV2| Published when a farm operations data ingestion job's status is changed, for example, job is created, has progressed or completed.|
 
 ### Sensor data related event types
 
@@ -77,9 +77,9 @@ This article provides the properties and schema for Azure Data Manager for Agric
 
 |Event Name | Description|
 |:-----:|:----:|
-|Microsoft.AgFoodPlatform.BiomassModelJobStatusChangedV2|Published when a Biomass Model job's status changes, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.SoilMoistureModelJobStatusChangedV2|Published when a Soil Moisture Model job's status changes, for example, job is created, has progressed or completed.|
-|Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChangedV2|Published when a Sensor Placement Model job's status changes, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.BiomassModelJobStatusChangedV2|Published when a Biomass Model job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SoilMoistureModelJobStatusChangedV2|Published when a Soil Moisture Model job's status is changed, for example, job is created, has progressed or completed.|
+|Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChangedV2|Published when a Sensor Placement Model job's status is changed, for example, job is created, has progressed or completed.|
 
 ## Example events
 
@@ -181,8 +181,8 @@ The data object has the following common properties:
 
 |Property | Type| Description|
 |:-----:|:----:|:----:|
-|id| String| Unique id of resource.|
-|actionType| String| Indicates the change which triggered publishing of the event. Applicable values are created, updated, deleted.|
+|id| String| Unique ID of resource.|
+|actionType| String| Indicates the change, which triggered publishing of the event. Applicable values are created, updated, deleted.|
 |properties| Object| It contains user defined key–value pairs.|
 |modifiedDateTime|String| Indicates the time at which the event was last modified.|
 |createdDateTime| String| Indicates the time at which the resource was created.|
@@ -200,7 +200,7 @@ Property| Type| Description
 |status|string|Various states a job can be in.|
 |isCancellationRequested| boolean|Flag that gets set when job cancellation is requested.|
 |description|string| Textual description of the job.|
-|partyId|string| Party id for which job was created.|
+|partyId|string| Party ID for which job was created.|
 |message|string| Status message to capture more details of the job.|
 |lastActionDateTime|date-time|Date-time when last action was taken on the job, sample format: yyyy-MM-ddTHH:mm:ssZ.|
 |createdDateTime|date-time|Date-time when resource was created, sample format: yyyy-MM-ddTHH:mm:ssZ.|
