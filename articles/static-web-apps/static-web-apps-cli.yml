@@ -430,7 +430,7 @@ directCommands:
   - name: --database-type, -t <DATABASE_TYPE>
     summary: (Required) The type of the database you want to connect (mssql, postgresql, cosmosdb_nosql, mysql).
   - name: --folder-name, -f <FOLDER_NAME>
-    summary: A folder name to override the convention database connection configuration folder name (ensure that you update your CI/CD workflow files accordingly). (default: `swa-db-connections`).
+    summary: A folder name to override the convention database connection configuration folder name (ensure that you update your CI/CD workflow files accordingly). The default value is `swa-db-connections`.
   - name: ---connection-string, -cs <CONNECTION_STRING>
     summary: The connection string of the database you want to connect.
   - name: --cosmosdb_nosql-database, -nd <COSMOSDB_NOSQL_DATABASE>
