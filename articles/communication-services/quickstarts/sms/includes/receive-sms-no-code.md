@@ -19,11 +19,11 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
 1. Start by creating a new flow in your preferred environment. Pick the `When a resource event occurs` trigger to get started.
 
-    ![Screenshot of trigger pick for Power Automate](../media/receive-sms/trigger-pick.png)
+    ![Screenshot of trigger pick for Power Automate.](../media/receive-sms/trigger-pick.png)
 
 2. Now, lets configure it. The connector requires you to provide a subscription you want to use. (Should be the same subscription where your Azure Communication Services resource is). Specify the type of resource. In this case, choose `Microsoft.Communication.CommunicationServices`. Then you need to provide a resource name for the Azure Communication Services resource you want it to connect to. Finally, we need to pick the event types we want to receive, in this case: `Microsoft.Communication.SMSReceived`.
 
-    ![Screenshot of event grid connector](../media/receive-sms/event-grid-connector.png)
+    ![Screenshot of event grid connector.](../media/receive-sms/event-grid-connector.png)
 
     The connector automatically sets up the event subscription on your behalf and configures the events it wants to receive.
 
