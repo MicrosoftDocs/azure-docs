@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Background removal (preview)
 
-The Image Analysis service can divide images into multiple segments or regions. This helps the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
+The Image Analysis service can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
 
 This feature provides two possible outputs based on the customer's needs:
 
@@ -36,7 +36,7 @@ The following example images illustrate what the Image Analysis service returns 
 
 ## Limitations
 
-The background removal operations automatically identify the main foreground object to separate it from the background. This functionality works best for categories such as people, animals, buildings and environmental structures, furniture, vehicles, food, personal belongings, and text and graphics. Sometimes, in ambiguous cases, objects that are not prominent in the foreground may not be identified as part of the foreground.
+The background removal operations automatically identify the main foreground object to separate it from the background. This functionality works best for categories such as people, animals, buildings and environmental structures, furniture, vehicles, food, personal belongings, and text and graphics. Sometimes, in ambiguous cases, objects that aren't prominent in the foreground may not be identified as part of the foreground.
 
 The background removal operation does not use foreground estimation. Therefore, the result images may show some visual artifacts around thin and detailed structures, such as hair or fur, when overlaid against backgrounds that are very different from the original background. 
 
