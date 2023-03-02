@@ -14,14 +14,14 @@ ms.date: 03/02/2023
 
 # Increase the resilience of authentication and authorization applications you develop
 
-The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts. Microsoft identity platform uses token-based authentication and authorization. Client application acquire tokens from an identity provider (IdP) to authenticate users and authorize applications to call protected APIs. A service validates tokens.
+The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts. Microsoft identity platform uses token-based authentication and authorization. Client applications acquire tokens from an identity provider (IdP) to authenticate users and authorize applications to call protected APIs. A service validates tokens.
 
 Learn more: 
 
 [What is the Microsoft identity platform?](../develop/v2-overview.md)
 [Security tokens](../develop/security-tokens.md)
 
-A token is valid for a length of time, and then the app must acquire a new one. Rarely, a call to retrieve a token fails due to network or infrastructure issues or an authentication service outage. In this article, you'll find a list of articles to help increase resilience in applications.
+A token is valid for a length of time, and then the app must acquire a new one. Rarely, a call to retrieve a token fails due to network or infrastructure issues or an authentication service outage. 
 
 The following articles have guidance for client and service applications for a signed in user and daemon applications. They contain best practices for using tokens and calling resources.
 
