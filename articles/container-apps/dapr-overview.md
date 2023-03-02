@@ -336,7 +336,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ## Release cadence for Dapr
 
-We aim to have the latest version of Dapr in Azure Container apps up to four weeks after [the Dapr OSS release][dapr-release].
+The latest version of Dapr in Azure Container Apps will be available within six weeks after [the Dapr OSS release][dapr-release].
 
 ## Limitations
 
