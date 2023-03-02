@@ -58,15 +58,19 @@ Learn more about [authentication concepts](../concepts/authentication.md), call 
 
 To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting a resource group also deletes any other resources that are associated with it. For more information, see the "Clean up resources" section of [Create and manage Communication Services resources](./create-communication-resource.md#clean-up-resources).
 
+::: zone pivot="platform-nocode"
+To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+::: zone-end
+
+::: zone pivot="platform-azportal,programming-language-java,programming-language-python,programming-language-javascript,programming-language-csharp,platform-azcli"
+
 ## Next steps
 
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> * Manage identities
 > * Issue access tokens
-> * Use the Communication Services Identity SDK
-
+> * Manage identities
 
 > [!div class="nextstepaction"]
 > [Add voice calling to your app](./voice-video-calling/getting-started-with-calling.md)
@@ -77,3 +81,15 @@ You might also want to:
  - [Add chat to your app](./chat/get-started.md)
  - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
  - [Deploy trusted authentication service hero sample](../samples/trusted-auth-sample.md)
+
+::: zone-end
+
+::: zone pivot="platform-nocode"
+## Next steps
+
+In this quickstart, you learned how to create a user, delete a user, issue a user an access token and remove user access token using the Azure Communication Services Identity connector. To learn more check the [Azure Communication Services Identity Connector](/connectors/acsidentity/) documentation.
+
+To see how tokens are use by other connectors, check out [how to send a chat message](../chat/logic-app.md) from Power Automate using Azure Communication Services.
+
+To learn more about how to send an email using the Azure Communication Services Email connector check [Send email message in Power Automate with Azure Communication Services](../email/logic-app.md).
+::: zone-end
