@@ -68,10 +68,10 @@ ngrok http 7071
    - `Content-Type`: `application/json`
    - `aeg-event-type`: `Notification`
 
-    ![Screenshot of Postman headers configuration](media/postman-header.png)
+    ![Screenshot of Postman headers configuration.](media/postman-header.png)
 
 6. Select the `Send` button to trigger the event.
 
-    ![Screenshot of Postman send button](media/postman-send.png)
+    ![Screenshot of Postman send button.](media/postman-send.png)
 
     At this point, an event should trigger in your Azure Function. You can verify the event by looking at the execution of your Azure Function. You can then validate that the function is doing its job correctly.
