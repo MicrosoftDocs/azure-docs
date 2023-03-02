@@ -136,14 +136,12 @@ Based on the JSON type definition, let's look at some properties:
 
 * **Category** field describes in what category your type is. The list of categories supported by Apache Atlas can be found [here](https://atlas.apache.org/api/v2/json_TypeCategory.html).
 
-* **ServiceType** lets you group different type definitions in the same group. In our example, a SQL Table is defined under **Azure SQL Database** service type. 
+* **ServiceType** field is useful when browsing assets *by source type* in Microsoft Purview. The *service type* will be an entry point to find all assets that belong to the same *service type* - as defined on their type definition. In the below screenshot of Purview UI, the user limits the result to be the entities specified with *Azure SQL Database* in **serviceType**:
+
+:::image type="content" source="./media/tutorial-custom-types/browse-assets.png" alt-text="Screenshot of the portal showing the path from Data Catalog to Browse to By source type and the asset highlighted.":::
 
 > [!NOTE]
 > **Azure SQL Database** is defined with the same *serviceType* as **Azure SQL Table**.
-
-This field is useful when browsing assets *by source type* in Microsoft Purview. The *service type* will be an entry point to find all assets that belong to the same *service type* - as defined on their type definition. In the below screenshot of Purview UI, the user limits the result to be the entities specified with *Azure SQL Table* in **serviceType**:
-
-:::image type="content" source="./media/tutorial-custom-types/browse-assets.png" alt-text="Screenshot of the portal showing the path from Data Catalog to Browse to By source type and the asset highlighted.":::
 
 * **SuperTypes** describes the *"parent"* types you want to "*inherit*" from.
 
