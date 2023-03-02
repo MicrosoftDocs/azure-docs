@@ -45,7 +45,7 @@ Key differences between persistent and ephemeral OS disks:
 | **Maintenance of VM/VMSS using [healing](understand-vm-reboots.md#unexpected-downtime)** | OS disk data is preserved | OS disk data is not preserved  | 
 | **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates.md#live-migration)** | OS disk data is preserved | OS disk data is preserved  | 
 
-\* 4 TiB is the maximum supported OS disk size. However, many OS disks are partitioned with master boot record (MBR) by default and because of this are limited to 2 TiB. For details, see [OS disk](managed-disks-overview.md#os-disk).
+\* 4 TiB is the maximum supported OS disk size for managed (persistent) disks. However, many OS disks are partitioned with master boot record (MBR) by default and because of this are limited to 2 TiB. For details, see [OS disk](managed-disks-overview.md#os-disk).
 
 ## Placement options for Ephemeral OS disks
 Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
