@@ -84,11 +84,11 @@ Disable custom alert rules to prevent them from running without deleting them al
 
 In the **Custom alert rules** page, select one or more rules, and then select  **Disable**, **Enable**, or **Delete** in the toolbar as needed.
 
-## Learn DNS traffic on an OT sensor
+## Allow DNS traffic on an OT sensor
 
-*Learn* unauthorized internet alerts in bulk by creating an allowlist of domain names on your OT sensor. 
+Allow unauthorized internet alerts in bulk by creating an allowlist of domain names on your OT sensor.
 
-When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list. If the domain's FQDN is included in the allowlist, the sensor learns the traffic automatically, without triggering an alert.
+When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list. If the domain's FQDN is included in the allowlist, the sensor allows the traffic automatically, without triggering an alert.
 
 **To define a DNS allowlist:**
 
@@ -98,14 +98,26 @@ When a DNS allowlist is configured, the sensor checks each unauthorized internet
 
 1. Select **Edit** :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: for the **Internet Domain Allowlist** row. For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-manage-individual-sensors/dns-edit-configuration.png":::
+    :::image type="content" source="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png":::
 
 1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains.
 
 1. Select **Submit** to save your changes.
 
 > [!TIP]
-> All OT sensor users can view the currently configured list of domains in a data mining report, including the FQDNs and resolved IP addresses, and the last resolution time. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md). 
+> All OT sensor users can view the currently configured list of domains in a data mining report, including the FQDNs, resolved IP addresses, and the last resolution time. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md).
+
+**To view in a data mining report:**
+
+[Create a custom data mining report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report) and make sure to select **Internet Domain Allowlist** under **DNS** when choosing a category in the **Create new report** pane.
+
+For example:
+
+:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png" alt-text="Screenshot of how to generate a custom data mining report for the allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png":::
+
+The generated data mining report will then show a list of the allowed domains and each IP address that’s being resolved for those domains, as well as the TTL (in seconds) during which those IP addresses won't trigger an internet connectivity alert. For example:
+
+:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
 
 ## Create alert exclusion rules on an on-premises management console
 
