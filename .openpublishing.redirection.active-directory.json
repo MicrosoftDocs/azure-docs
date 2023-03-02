@@ -161,6 +161,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-overview.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-faqs.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-faqs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
