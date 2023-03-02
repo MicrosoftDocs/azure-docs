@@ -116,7 +116,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
 | Resource Management Private Links | Microsoft.Authorization/resourceManagementPrivateLinks | ResourceManagement |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
-| Azure Monitor Private Link Scope | Microsoft.insights/privatelinkscopes | azuremonitor |
+| Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
