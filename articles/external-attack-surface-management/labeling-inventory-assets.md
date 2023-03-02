@@ -74,7 +74,7 @@ Users can also apply labels to a single asset from the asset details page. This 
  
 3. From this page, select **Modify asset**. 
 
-![Screenshot of asset details page with "Modify asset" button higlighted.](media/labels-7.png)
+![Screenshot of asset details page with "Modify asset" button higlighted.](media/labels-7a.png)
 
 4. Follow steps 5-7 as listed above in the “Inventory list page” section.  
 
