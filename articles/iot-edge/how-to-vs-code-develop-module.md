@@ -260,60 +260,6 @@ For example:
 
 ::: zone-end
 
-### Set IoT Edge runtime version
-
-The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. 
-
-::: zone pivot="iotedge-dev-ext"
-
-1. Select **View** > **Command Palette**.
-1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
-1. Choose the runtime version that your IoT Edge devices are running from the list.
-
-   Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
-
-    ```json
-    ...
-    "systemModules": {
-       "edgeAgent": {
-          ...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-          ...
-       }
-       "edgeHub": {
-          ...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-          ...
-       }
-    }
-    ```
-
-1. After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
-
-::: zone-end
-
-::: zone pivot="iotedge-dev-cli"
-
-1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
-
-    ```json
-    ...
-    "systemModules": {
-        "edgeAgent": {
-        ...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-        ...
-        "edgeHub": {
-        ...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-        ...
-    ```
-
-   You might have to change your `.env` file for the variable `RUNTIME_TAG`, instead of changing the manifest.
-
-::: zone-end
-
 ## Add more modules
 
 To add more modules to your solution, change to the *modules* directory and add them there.
@@ -573,7 +519,7 @@ In each module folder, there are several Docker files for different container ty
 When you debug modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
 
 - Set up your IoT Edge device, build your IoT Edge modules with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
-- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. You can find this file in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
+- Update `launch.json` so that Visual Studio Code can attach to the process in a container on the remote machine. You can find this file in the `.vscode` folder in your workspace, and it updates each time you add a new module that supports debugging.
 - Use Remote SSH debugging to attach to the container on the remote machine.
 
 ### Build and deploy your module to an IoT Edge device
@@ -632,12 +578,12 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
 
 1. In the Visual Studio Code command palette, run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
 1. Select the `deployment.debug.template.json` file for your solution.
-1. In the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer view, right-click the IoT Edge device name for deployment and then choose **Create Deployment for Single Device**.
+1. In the **Azure IoT Hub** > **Devices** section of the Visual Studio Code Explorer view, right-click the IoT Edge device name for deployment and then choose **Create Deployment for Single Device**.
     > [!TIP]
     > To confirm that the device you've chosen is an IoT Edge device, select it to expand the list of modules and verify the presence of **$edgeHub** and **$edgeAgent**. Every IoT Edge device includes these two modules.
 1. Navigate to your solution's **config** folder, select the `deployment.debug.amd64.json` file, and then select **Select Edge Deployment Manifest**.
 
-You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
+You can check your container status from your device or virtual machine by running the `docker ps` command in a terminal. You should see your container listed after running the command. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view. 
 
 > [!IMPORTANT]
 > If you're using a private registry like Azure Container Registry (ACR) for your images, you may need to authenticate to push images. Use `docker login <ACR login server>` or `az acr login --name <ACR name>` to authenticate.
@@ -811,7 +757,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 1. In Visual Studio Code, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
-    :::image type="content" source="media/how-to-vs-code-develop-module/vs-code-breakpoint.png" alt-text="Screenshot of Visual Studio Code attached to a Docker container on a remote device paused at a breakpoint.":::
+    :::image type="content" source="media/how-to-vs-code-develop-module/vs-code-breakpoint.png" alt-text="Screenshot of Visual Studio Code attached to a Docker container on a remote device paused at a breakpoint." lightbox="media/how-to-vs-code-develop-module/vs-code-breakpoint.png":::
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. The example adds a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
 
