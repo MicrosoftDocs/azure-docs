@@ -10,7 +10,7 @@ author: amibp
 ms.reviewer: ssalgado
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 [//]: # (needs PM review; Do URL Links names change if it includes 'Run')
