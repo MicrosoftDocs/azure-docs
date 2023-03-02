@@ -16,7 +16,7 @@ ms.date: 02/28/2023
 
 This article describes reliability support in Azure Database for PostgreSQL - Flexible Server and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Database for PostgreSQL - Flexible Server offers both zonal and zone-redundant availability deployment models with automatic failover capabilities. The availability offering is designed to ensure that committed data is never lost in the case of failures and that the database won't be a single point of failure in your software architecture. When availability is configured, flexible server automatically provisions and manages a standby replica.
+Azure Database for PostgreSQL - Flexible Server offers both zonal and zone-redundant availability deployment models with automatic failover capabilities. The availability offering is designed to ensure that, in the case of failures, committed data is never lost and the database won't become a single point of failure in your software architecture. When availability is configured, flexible server automatically provisions and manages a standby replica.
 
 However, you don't need to have an availability configuration in order to protect your server form unplanned outages. Flexible server offers local redundant storage with 3 copies of data, zone-redundant backup (in regions where it is supported), and also built-in server resiliency to automatically restart a crashed server and even relocate server to another physical node. Zone redundant HA will provide higher uptime by performing automatic failover to another running (standby) server in another zone and thus provides zone-resilient high availability with zero data loss.
 
@@ -26,7 +26,7 @@ Azure availability zones are at least three physically separate groups of datace
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant and zonal models](availability-zones-service-support.md#azure-services-with-availability-zone-support).  
+Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant and zonal models](availability-zones-service-support.md#azure-services-with-availability-zone-support).  Both availability configurations enable automatic failover capability with zero data loss during planned events such as user-initiated scale compute operation, and also during unplanned events such as underlying hardware and software faults, network failures, and availability zone failures.
 
 - **Zone-redundant**. This option provides a complete isolation and redundancy of infrastructure across multiple availability zones within a region. It provides the highest level of availability, but it requires you to configure application redundancy across zones. Zone-redundancy is preferred when you want protection from availability zone level failures and when latency across the availability zone is acceptable. A zone-redundant deployment enables Flexible server to be available across availability zones. You can choose both the region and the availability zones for the primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage (LRS) within each availability zone, which automatically stores **three** data copies. This provides physical isolation of the entire stack between primary and standby servers. 
 
@@ -34,15 +34,22 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - **Zonal**. A zonal deployment is preferred when you want to achieve the highest level of availability within a single availability zone with the lowest network latency. You can choose the region and the availability zone in which to deploy your primary database server. A standby replica server is *automatically* provisioned and managed in the *same* availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage, which automatically stores as *three* data copies each for primary and standby. This provides physical isolation of the entire stack between primary and standby servers within the same availability zone. 
 
-## Availability zones - features
+:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
+
+
+
+>[!NOTE]
+>Both zonal and zone-redundant deployment models architecturally behave the same. Various discussions in the following sections are applicable to both unless called out otherwise.
+
+### Availability zones - features
 
 * Standby replica will be deployed in an exact VM configuration same as the primary server, including vCores, storage, network settings (VNET, Firewall), etc.
 
 * You can add high availability for an existing database server.
 
-* You can remove standby replica by disabling high availability.
+* You can remove standby replica by disabling availability.
 
-* For zone-redundant HA, you can choose your availability zones for your primary and standby database servers.
+* For zone-redundant availability, you can choose availability zones for your primary and standby database servers.
 
 * Operations such as stop, start, and restart are performed on both primary and standby database servers at the same time.
 
@@ -56,16 +63,27 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
   
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service is failed over to reduce downtime.  
 
-## Availability zones - limitations
+### Availability zones - limitations
 
-* High availability is not supported with burstable compute tier.
-* High availability is supported only in regions where multiple zones are available.
-* Due to synchronous replication to the standby server, especially with zone-redundant HA, applications can experience elevated write and commit latency.
+* Application reads are served directly from the primary server, while commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this additional round-trip, applications can expect elevated latency for writes and commits. 
+
+    :::image type="content" source="../postgreSQL/flexible-server/media/business-continuity/concepts-high-availability-steady-state.png" alt-text="high availability - steady state"::: 
+
+    1. Clients connect to the flexible server and perform write operations.
+    
+    2. Changes are replicated to the standby site.
+    
+    3. Primary receives acknowledgment.
+    
+    4. Writes/commits are acknowledged.
 
 * Standby replica cannot be used for read queries.
 
 * Depending on the workload and activity on the primary server, the failover process might take longer than 120 seconds due to recovery involved at the standby replica before it can be promoted. 
+
 * The standby server typically recovers WAL files at the rate of 40 MB/s. If your workload exceeds this limit, you may encounter extended time for the recovery to complete either during the failover or after establishing a new standby. 
+
+* Configuring for availability induces some latency to writes and commits. No impact to read queries. The performance impact varies depending on your workload. As a general guideline, writes and commit impact can be around 20-30% impact.
 
 * Restarting the primary database server also restarts standby replica. 
 
@@ -75,26 +93,31 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 * Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. Currently the server doesn't fail over for these planned operations. 
 
-* If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
+* If logical decoding or logical replication is configured with a availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
+
+* Configuring availability between private (VNET) and public access is not supported. You either configure availability within a VNET (spanned across AZs within a region) or public access.
+
+*  Availability is configured only within a region and across availability zones. It cannot be configured across regions. 
+
 
 >[!IMPORTANT]
 >In both zone-redundant and zonal models, automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 
-:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
+
 
 ### Prerequisites
 
-#### Zone redundancy
+**Zone redundancy:**
 
 - The **zone-redundancy** option is only available in a [regions that support availability zones](../postgresql/flexible-server/overview.md#azure-regions).
 
-Zone-redundancy zones are **not** supported for the following:
+- Zone-redundancy zones are **not** supported for the following:
 
-- Azure Database for PostgreSQL – Single Server SKU.  
-- Burstable compute tier.
-- Regions with single-zone availability
+    - Azure Database for PostgreSQL – Single Server SKU.  
+    - Burstable compute tier.
+    - Regions with single-zone availability
 
-#### Zonal
+**Zonal:**
 
 - The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server. 
 
@@ -104,7 +127,7 @@ Zone-redundancy zones are **not** supported for the following:
 -  **Zone-Redundancy** model offers uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
 -  **Zonal** model offers uptime [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/postgresql).
-- 
+
  To see the SLAs offered with Flexible Server, go to [Azure Database for PostgreSQL SLAs](https://azure.microsoft.com/support/legal/sla/postgresql).
 
 ### Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
@@ -198,11 +221,29 @@ After the failover, while a new standby server is being provisioned (which usual
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both sites.
 
+
+### Fault tolerance
+
+When you enable your server with zone-redundant availability, a physical standby replica with the same compute and storage configuration as the primary is deployed automatically in a different availability zone than the primary. PostgreSQL streaming replication is established between the primary and standby servers.
+
+When the fault is detected by the monitoring system, it initiates a failover workflow that involves making sure the standby has applied all residual WAL files and fully caught up before opening that for read/write. Then DNS is updated with the IP address of the standby before the clients can reconnect to the server with the same endpoint (host name). A new standby is instantiated to keep the configuration in a highly available mode.
+
 ### Downtime
+
+In a typical case, failover time or the downtime experienced by the application perspective is between 60s-120s. This can be longer in cases where the outage incurred during long running transactions, index creation, or during heavy write activities - as the standby may take longer to complete the recovery process.
+
+Since the replication happens in synchronous mode, no data loss is expected.
 
 In all cases, you must observe any downtime from your application/client side. Your application will be able to reconnect after a failover as soon as the DNS is updated. We take care of a few more aspects including LSN comparisons between primary and standby before fencing the writes. But with unplanned failovers, the time taken for the standby can be longer than 2 minutes in some cases due to the volume  of logs to recover before opening for read/write.
 
-### Safe deployment techniques
+>[!NOTE]
+>Applications will not automatically connect to the server after a failover. For that reason, applications should have a retry mechanism to reconnect to the same endpoint (hostname).
+
+For the failover time, we provide guidelines on how long it typically takes for the operation. The official SLA is provided for the overall uptime.
+
+### Health Monitoring
+
+Flexible server has a health monitoring in place that checks for the primary and standby health periodically. If that detects primary server is not reachable after multiple pings, it makes the decision to initiate an automatic failover or not. The algorithm is based on multiple data points to avoid any false positive situation.
 
 The health of primary and standby servers are continuously monitored and appropriate actions are taken to remediate issues including triggering a failover to the standby server. The availability statuses are listed below:
 
@@ -218,20 +259,21 @@ The health of primary and standby servers are continuously monitored and appropr
 >[!NOTE]
 > You can enable availability during server creation or at a later time as well. If you are enabling or disabling availability during post-create stage, it is recommended to perform the operation when the primary server activity is low.
 
-## Steady-state operations
 
-PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server, while commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this additional round-trip, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
+You can also check the availability status on the Azure portal. The overview page of the server shows the Zone redundant availability status and the server status. You can also check the status and the availability zones for primary and standby from the High Availability blade of the server portal.
 
-:::image type="content" source="../postgreSQL/flexible-server/media/business-continuity/concepts-high-availability-steady-state.png" alt-text="high availability - steady state"::: 
+From psql, you can run `select * from pg_stat_replication`, which shows the streaming status, amongst other details.
 
-1. Clients connect to the flexible server and perform write operations.
-2. Changes are replicated to the standby site.
-3. Primary receives acknowledgment.
-4. Writes/commits are acknowledged.
+### Availability zone redeployment and migration
 
-#### Health check
+You can enable or disable zone-redundant or zonal availability models at any time except when the server is in certain states like stopped, restarting, or already in the process of failing over.
 
-Flexible server has a health monitoring in place that checks for the primary and standby health periodically. If that detects primary server is not reachable after multiple pings, it makes the decision to initiate an automatic failover or not. The algorithm is based on multiple data points to avoid any false positive situation.
+If you wish to migrate from zonal to zone-redundant configuration or vice versa, you must perform the following steps:
+
+1. Disable availability support.
+1. Wait for disabling procedure to complete.
+1. Choose the alternate deployment model.
+
 
 ## Disaster recovery: cross region failover
 
