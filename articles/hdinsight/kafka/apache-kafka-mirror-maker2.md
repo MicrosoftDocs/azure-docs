@@ -60,9 +60,10 @@ This architecture features two clusters in different resource groups and virtual
 
 1. Create a new virtual network **kafka-primary-vnet** in **kafka-primary-rg**. Leave the default settings.
 1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**, also with default settings.
-**Note:-** Keep the address of both vnet non overlapping otherwise vnet peering won't work. 
-   Example - 1. kafka-primary-vnet can have address space 10.0.0.0
-             2. kafka-secondary-vnet can have address space 10.1.0.0   
+   > [!NOTE]
+   > Keep the address of both vnet non overlapping otherwise vnet peering won't work.
+   > Example - 1. kafka-primary-vnet can have address space 10.0.0.0
+   >           2. kafka-secondary-vnet can have address space 10.1.0.0  
 1. Create virtual network peerings. This step creates two peerings: one from **kafka-primary-vnet** to **kafka-secondary-vnet**, and one back from **kafka-secondary-vnet** to **kafka-primary-vnet**.
     1. Select the **kafka-primary-vnet** virtual network.
     1. Under **Settings**, select **Peerings**.
@@ -74,10 +75,13 @@ This architecture features two clusters in different resource groups and virtual
 1. Create two new Kafka clusters:
 
    | Cluster name | Resource group | Virtual network | Storage account |
-       |---|---|---|---|
+   |---|---|---|---|
    | primary-kafka-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
    | secondary-kafka-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
-**Note:-** From now onwards we will use `primary-kafka-cluster` as `PRIMARYCLUSTER` and `secondary-kafka-cluster` as `SECONDARYCLUSTER`.
+
+
+> [!NOTE]
+> From now onwards we will use `primary-kafka-cluster` as `PRIMARYCLUSTER` and `secondary-kafka-cluster` as `SECONDARYCLUSTER`.
 
 ## Configure IP Address of PRIMARYCLUSTER Worker Nodes into client machine for DNS Resolution 
 
