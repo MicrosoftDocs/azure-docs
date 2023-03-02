@@ -74,7 +74,7 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
   * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
 * Apache Spark 
-  * Apache Spark 3.3.0 to include several significant new features, performance and other improvements.
+  * Apache Spark 3.3.0 and to include several significant new features, performance and other improvements.
  
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
