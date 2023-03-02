@@ -1,7 +1,7 @@
 ---
 title: Understand the Blob Storage object model
 titleSuffix: Azure Storage
-description: Understand the Blob Storage object model and how to work with data resources using the SDK. This article explores resource types and what happens when application code uses the Azure Blob Storage client libraries to interact with these various resources.
+description: Understand the Blob Storage object model and how to work with data resources using the Azure SDK.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.subservice: blobs
-ms.custom: devx-track-python, devguide-python
+ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
 # Understand the Blob Storage object model
 
-As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. This article explains the purpose of these different resource types and shows how they relate to one another. It also shows how application code uses the Azure Blob Storage client libraries to interact with these various resources.
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. This article explains these resource types and shows how they relate to one another. It also shows how application code uses the Azure Blob Storage client libraries to interact with these various resources.
 
 ## Blob Storage resource types
 
