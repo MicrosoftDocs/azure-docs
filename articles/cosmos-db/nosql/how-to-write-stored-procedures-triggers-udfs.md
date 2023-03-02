@@ -33,6 +33,9 @@ To call a stored procedure, trigger, or UDF, you need to register it. For more i
 
 Stored procedures are written using JavaScript, and they can create, update, read, query, and delete items inside an Azure Cosmos DB container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.
 
+> [!NOTE]
+> Azure Cosmos DB has a different charging policy for stored procedures. Because stored procedures can execute code and consume any number of request units (RUs), each execution requires an upfront charge. This ensures that stored procedure scripts don't impact backend services. The amount charged upfront equals the average charge consumed by the script in previous invocations. The average RUs per operation is reserved before execution. If the invocations have a lot of variance in RUs, your budget utilization might be affected. As an alternative, you should use batch or bulk requests instead of stored procedures to avoid variance around RU charges.  
+
 Here's a simple stored procedure that returns a "Hello World" response.
 
 ```javascript

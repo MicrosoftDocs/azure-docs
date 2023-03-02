@@ -10,7 +10,7 @@ author: ahughes-msft
 ms.reviewer: larryfr
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 ---
 
 # Monitor and collect data from ML web service endpoints

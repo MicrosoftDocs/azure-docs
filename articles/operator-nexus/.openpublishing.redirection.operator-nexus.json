@@ -1,0 +1,15 @@
+
+{
+    "redirections": [    
+        {
+            "source_path": "howto-monitoring-aks-h-cluster.md",
+            "redirect_url": "howto-monitor-aks-h-cluster.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "howto-monitoring-virtualized-network-functions-virtual-machines.md",
+            "redirect_url": "howto-monitor-virtualized-network-functions-virtual-machines.md",
+            "redirect_document_id": false
+        }
+    ]
+}
