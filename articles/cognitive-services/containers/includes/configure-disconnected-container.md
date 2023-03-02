@@ -8,7 +8,7 @@ ms.date: 01/24/2023
 ms.author: aahi
 ---
 
-To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](./configure-disconnected-container.md) for more information.
+To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../disconnected-container.md) for more information.
 
 If you have been approved to run the container disconnected from the internet, use the following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
@@ -43,7 +43,7 @@ Placeholder | Value | Format or example |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
-| `{OUTPUT_PATH}` | The output path for logging [usage records](#usage-records). | `/host/output:/path/to/output/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](../disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
 
