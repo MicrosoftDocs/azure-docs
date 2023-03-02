@@ -48,10 +48,11 @@ The connection logs produced look similar between the tiers, but have some diffe
 ## Prequisites/Limitations of Connection Logging
 
 ### Basic, Standard, and Premium tiers
-- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed inbetween 10-second intervals will not be logged.
-- Authentication events are not logged
+- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals will not be logged.
+- Authentication events are not logged.
 - All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs may cause a small performance degredation to the cache instance.
+- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information. 
 
 ### Enterprise and Enterprise Flash tiers
 - When using **OSS Cluster Policy**, logs will be emitted from each data node. When using **Enterprise Cluster Policy**, only the node being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
@@ -295,25 +296,25 @@ If you send your logs to a storage account, the contents of the logs look like t
 
 ### [Connection Log Contents for Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
 
-These fields and properties appear in the `Connection events` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
+These fields and properties appear in the `ConnectionEvents` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
 | --- | --- | --- |
-| `time` | `TimeGenerated` | The timestamp of when the log was generated in UTC. |
+| `time` | `TimeGenerated` | The timestamp (UTC) when event log was captured. |
 | `location` | `Location` | The location (region) the Azure Cache for Redis instance was accessed in. |
 | `category` | n/a | Available log categories: `ConnectionEvents`. |
 | `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
 | `properties` | n/a | The contents of this field are described in the rows that follow. |
-| `eventEpochTime` | `EventEpochTime` | The timestamp in UNIX epoch format |
-| `clientIP` | `ClientIP` | The Redis client IP address. (if using Azure storage, this will either be in IPv4 or IPv6 format based on cache type) |
-| `privateLinkIpv6` | `PrivateLinkIPv6` | The Redis client private link IPv6 address (only emmited if using both Private Link and log analytics). |
+| `eventEpochTime` | `EventEpochTime` | The UNIX timestamp (number of seconds since January 1, 1970) when the event happened in UTC. This can be conversted to datetime format using function unixtime_seconds_todatetime in log analytics workspace. |
+| `clientIP` | `ClientIP` | The Redis client IP address. (if using Azure storage, this will either be in IPv4 or private link IPv6 format based on cache type) |
+| n/a | `PrivateLinkIPv6` | The Redis client private link IPv6 address (only emitted if using both Private Link and log analytics). |
 | `id` | `ConnectionId` | Unique connection ID assigned by Redis. |
 | `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
 | `eventStatus` |  `EventStatus` | Results of an authentication request as a status code (only applicable for authentication event). |
 
 > [!NOTE]
-> If private link is used, only a IPv6 address will be logged (unless you are streaming the data to log analytics). You can convert the IPv6 address to the equivalent IPv4 address by looking at the last four bytes of data in the IPv6 address. For instance, in the private link IPv6 address "fd40:8913:31:6810:6c31:200:a01:104", the last four bytes in hexadecimal are "0a", "01", "01", and "04". (Note that leading zeros are ommited after each colon.) These correspond to "10", "1", "1", and "4", giving us the IPv4 address "10.1.1.4".  
+> If private link is used, only a IPv6 address will be logged (unless you are streaming the data to log analytics). You can convert the IPv6 address to the equivalent IPv4 address by looking at the last four bytes of data in the IPv6 address. For instance, in the private link IPv6 address "fd40:8913:31:6810:6c31:200:a01:104", the last four bytes in hexadecimal are "0a", "01", "01", and "04". (Note that leading zeros are omitted after each colon.) These correspond to "10", "1", "1", and "4" in decimal, giving us the IPv4 address "10.1.1.4".  
 >
 
 #### Sample storage account log
