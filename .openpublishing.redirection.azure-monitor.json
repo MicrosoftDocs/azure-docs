@@ -5771,6 +5771,16 @@
             "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
             "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
             "redirect_document_id": false
+        },
+      {
+            "source_path_from_root": "/articles/azure-monitor/logs/logicapp-flow-connector.md",
+            "redirect_url": "/azure/connectors/connectors-azure-monitor-logs",
+            "redirect_document_id": false
+        },
+      {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-with-logic-apps.md",
+            "redirect_url": "/azure/connectors/connectors-azure-application-insights",
+            "redirect_document_id": false
         }
     ]
 }
