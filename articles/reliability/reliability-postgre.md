@@ -150,7 +150,7 @@ Some considerations regarding planned failovers:
 * The overall end-to-end operation time may be seen longer than the actual downtime experienced by the application. **Please observe the downtime from the application perspective**.
 * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will  allow the new standby server to be fully established.
 * For the planned failover with reduced downtime, it is recommended to perform during low activity period.
-* See [this guide](how-to-manage-high-availability-portal.md) for managing availability.
+* See [this guide](../postgresql/flexible-server/how-to-manage-high-availability-portal.md) for managing availability.
 
 
 The table below illustrates the steps that are involved with planned failovers.
