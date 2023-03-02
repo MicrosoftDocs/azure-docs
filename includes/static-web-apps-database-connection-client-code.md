@@ -31,19 +31,6 @@ Replace the markup between the `body` tags in the *index.html* file with the fol
 
 Now you can run your website and manipulate data in the database directly.
 
-1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
-
-    To install, use `npm install`.
-
-    ```bash
-    npm install -g @azure/static-web-apps-cli
-    ```
-
-    To update, use `npm update`.
-
-    ```bash
-    npm update
-    ```
 
 1. Start the static web app with the database configuration.
 
