@@ -181,17 +181,17 @@ In case you are executing the procedure on an Azure virtual machine running Linu
 
 1. Edit the **/etc/netplan/50-cloud-init.yaml** file to include the following parameter for the interface
 
-   ```cli
+   ```Terminal
    renderer: NetworkManager
    ```
    
 1. After editing the file, run the following two commands to load the new configuration
 
-   ```cli
+   ```Terminal
    sudo netplan generate
    ```
 
-   ```cli
+   ```Terminal
    sudo netplan apply
    ```
    
