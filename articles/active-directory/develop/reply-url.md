@@ -139,6 +139,10 @@ In this approach:
 > [!WARNING]
 > This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means, like validating the domain name in the redirect URI against the token.
 
+## Converged Applications
+
+Applications that use the v2 authentication endpoint and are configued for converged Microsoft and Azure Active Directory model, "Work of school or personal account", the redirect URIs need to have a common root domain.
+
 ## Next steps
 
 Learn about the app registration [Application manifest](reference-app-manifest.md).
