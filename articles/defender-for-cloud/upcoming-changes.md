@@ -78,7 +78,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 ### Deprecation of App Service language monitoring policies
 
-The following App Service language monitoring policies are set to be deprecated because they're only scoped to Linux apps. Additionally, their monitoring capabilities aren't fully accurate. This has led to false-negatives and inaccurate compliance scores.
+The following App Service language monitoring policies are set to be deprecated because they generate false negatives. To realize the best security value, you should always use the latest language version.
 
 | Policy name | Policy ID |
 |--|--|
@@ -88,9 +88,9 @@ The following App Service language monitoring policies are set to be deprecated 
 | [Function apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) | 7238174a-fd10-4ef0-817e-fc820a951d73 |
 | [App Service apps that use PHP should use the latest 'PHP version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3)| 7261b898-8a84-4db8-9e04-18527132abb3 |
 
-Customers that rely on these policies to check for the latest language version for their App Services, need to find a different solution to confirm that their apps are using the intended language version. 
+Customers can use alternative built-in policies to monitor any specified language version for their App Services. 
 
-Defender for Cloud will have built-in policies available that can be used to monitor a specified version. However, Defender for Cloud won't add these as built-in recommendations. Customers will have the ability to assign them as policies, or add them to Defender for Cloud as part of a custom initiative.
+Defender for Cloud won't include these recommendations as built-in recommendations. You can add them as custom recommendations to have Defender for Cloud monitor them.
 
 ### Multiple changes to identity recommendations
 
