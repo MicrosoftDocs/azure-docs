@@ -8,7 +8,7 @@ ms.custom: mode-portal
 
 # Quickstart: Create a lab using the Azure Lab Services portal
 
-Educators can create labs containing VMs for students using the Azure Lab Services portal.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).
+Educators can create labs containing VMs for students using the Azure Lab Services portal.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).
 
 ## Prerequisites
 
