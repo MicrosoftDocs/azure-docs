@@ -60,7 +60,7 @@ Follow these steps to create a new console application.
     openai.api_type = 'azure'
     openai.api_version = '2022-12-01'
     
-    #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+    # This will correspond to the custom name you chose for your deployment when you deployed a model.
     deployment_id='text-davinci-002' 
     
     # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
@@ -139,9 +139,9 @@ python openai-speech.py
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
-Speak into your microphone when prompted. The console output will include the prompt for you to begin speaking, then your request as text, and then the Azure OpenAI response as text. The Azure OpenAI response should be converted from text to speech and output to the default speaker.
+Speak into your microphone when prompted. The console output includes the prompt for you to begin speaking, then your request as text, and then the response from Azure OpenAI as text. The response from Azure OpenAI should be converted from text to speech and then output to the default speaker.
 
 ```console
 PS C:\dev\openai\python> python.exe .\openai-speech.py
@@ -159,11 +159,11 @@ PS C:\dev\openai\python>
 ```
 
 ## Remarks
-Now that you've completed the quickstart, here are some additional considerations:
+Now that you've completed the quickstart, here are some more considerations:
 
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
-- To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). If the voice does not speak the language of the text returned from Azure OpenAI, the Speech service won't output synthesized audio.
-- To use a different [deployed](/azure/cognitive-services/openai/how-to/create-resource#deploy-a-model) Azure OpenAI model, replace `text-davinci-002` with another [model](/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability). For example, `text-davinci-003` for the latest version of the Davinci model.
+- To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). If the voice doesn't speak the language of the text returned from Azure OpenAI, the Speech service doesn't output synthesized audio.
+- To use a different [model](/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability), replace `text-davinci-002` with the ID of another [deployment](/azure/cognitive-services/openai/how-to/create-resource#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
 - Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/cognitive-services/openai/concepts/content-filter) article.
 
 ## Clean up resources
