@@ -396,6 +396,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/connectors/apis-list.md",
+            "redirect_url": "/azure/connectors/connectors-introduction",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
             "redirect_url": "/azure/connectors/connectors-native-http",
             "redirect_document_id": true
