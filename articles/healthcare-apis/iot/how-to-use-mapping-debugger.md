@@ -6,20 +6,20 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 ms.author: jasteppe
 ---
 
-# How to use the MedTech service Mapping debugger
+# How to use the Mapping debugger
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to use the MedTech service Mapping debugger in the Azure portal. The Mapping debugger is a tool used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations for persistence in the FHIR service. 
+In this article, you'll learn how to use the MedTech service Mapping debugger in the Azure portal. The Mapping debugger is a tool used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR observations for persistence in the FHIR service. 
 
 ## Overview of the Mapping debugger
 
-1. To access the MedTech service's Mapping debugger, select **Mapping debugger** within your MedTech service on the Azure portal. For this article, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service. From this screen, we can see that the Mapping debugger  is presenting the conforming and valid device and FHIR destination mappings that are associated with the MedTech service, and has provided a **Validation** of those mappings.
+1. To access the MedTech service's Mapping debugger, select **Mapping debugger** within your MedTech service on the Azure portal. For this article, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service. From this screen, we can see that the Mapping debugger  is presenting the conforming and valid device and FHIR destination mappings that are associated with this MedTech service, and has provided a **Validation** of those mappings.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-main-screen.png" alt-text="Screenshot of the Mapping debugger main screen." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-main-screen.png":::
 
@@ -30,7 +30,7 @@ In this article, you'll learn how to use the MedTech service Mapping debugger in
    **Upload** - With this selection, you can upload:
     - **Device mapping**: Can be edited and saved (optional) to the MedTech service.
     - **FHIR destination mapping**: Can be edited and saved (optional) to the MedTech service.
-    - **Test device message**: Used by the device and FHIR destination mappings (optional) to view a normalized message and FHIR Observation based on the supplied mappings.
+    - **Test device message**: Used by the device and FHIR destination mappings (optional) to view a normalized message and FHIR observation based on the supplied mappings.
 
    **Download** - With this selection you can download copies of:
      - **Device mapping**: The device mapping currently used by your MedTech service.
@@ -58,12 +58,9 @@ In this article, you'll learn how to use the MedTech service Mapping debugger in
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-successful-save.png" alt-text="Screenshot of the Mapping debugger and a successful the save of the device and FHIR destination mappings." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-successful-save.png":::
 
-   > [!IMPORTANT]
-   > While the Mapping debugger is saving the mappings, the MedTech service will become non-operational until the mappings are successfully saved. Device messages will continue to arrive in your event hub with no data loss. The MedTech service will resume processing those device messages one it becomes operational again.
+## View a normalized message and FHIR observation
 
-## Viewing a normalized message and FHIR observation
-
-1. The Mapping debugger gives you the ability to view the output of the device mapping (normalized message) and FHIR destination mapping (FHIR Observation). Select **Upload** and **Test device message**.
+1. The Mapping debugger gives you the ability to view the output of the device mapping (normalized message) and FHIR destination mapping (FHIR observation). Select **Upload** and **Test device message**.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-select-upload-and-test-device-message.png" alt-text="Screenshot of the Mapping debugger and test device message box." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-select-upload-and-test-device-message.png":::
 
@@ -71,23 +68,23 @@ In this article, you'll learn how to use the MedTech service Mapping debugger in
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-select-test-device-message-manual.png" alt-text="Screenshot of the Mapping debugger and Select a file box." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-select-test-device-message-manual.png":::
 
-3. Copy/paste or type the test device message into the **Upload test device message** box making sure that the **Validation** and **No errors** messages are *green* (meaning that the test device message is conforming and valid). Once confirmed, select the *X* in the right corner to close the **Upload test device message** box.  
+3. Copy/paste or type the test device message into the **Upload test device message** box making sure that the **Validation** and **No errors** messages are *green* (meaning that the test device message is conforming and valid). Once confirmed, select the **X** in the right corner to close the **Upload test device message** box.  
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-input-test-device-message.png" alt-text="Screenshot of the Enter manually box with a validated test device message in the box." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-input-test-device-message.png":::
 
-4. Once a conforming and valid test device is uploaded, the **View normalized message** and **View FHIR Observation** buttons will become available so that you may view the test device message as a normalized message and FHIR Observation. This process can be used to validate and your device and FHIR destination mappings are processing and persisting the test device message according to your requirement.
+4. Once a conforming and valid test device is uploaded, the **View normalized message** and **View FHIR observation** buttons will become available so that you may view the test device message as a normalized message and FHIR observation. This process can be used to validate and your device and FHIR destination mappings are processing and persisting the test device message according to your requirement.
 
-   :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png" alt-text="Screenshot View normalized message and View FHIR Observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png":::
+   :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png" alt-text="Screenshot View normalized message and View FHIR observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png":::
 
-5. Use the **X** in the corner to close the box for each box.
+5. Use the **X** in the corner to close the **Normalized message** and **FHIR observation** boxes.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-normalized-message.png" alt-text="Screenshot of the normalized message." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png":::
 
-   :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-fhir-observation.png" alt-text="Screenshot of the FHIR Observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-fhir-observation.png":::
+   :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-fhir-observation.png" alt-text="Screenshot of the FHIR observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-fhir-observation.png":::
 
 ## Next steps
 
-In this article, you learned about how to use the Mapping debugger to edit/troubleshoot the device and FHIR destination mappings and a view normalized message and FHIR Observation from a test device message.
+In this article, you learned about how to use the Mapping debugger to edit/troubleshoot the MedTech service device and FHIR destination mappings, and view normalized message and FHIR observation from a test device message.
 
 To learn how to troubleshoot MedTech service deployment errors, see
 
@@ -99,5 +96,5 @@ To learn how to troubleshoot errors using the MedTech service logs, see
 > [!div class="nextstepaction"]
 > [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  
