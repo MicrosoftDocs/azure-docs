@@ -76,6 +76,8 @@ You can disable DDoS IP Protection on an existing public IP address.
         --ddos-protection-mode Disabled 
     
 ```
+>[!Note]
+>When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
 
 ## Validate and test
 
@@ -99,9 +101,6 @@ When deleting the resource group, use [az group delete](/cli/azure/group#az-grou
     az group delete \
         --name MyResourceGroup 
 ```
-
->[!Note]
->When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
 
 ## Next steps
 
