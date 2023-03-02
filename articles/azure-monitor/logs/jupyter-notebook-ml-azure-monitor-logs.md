@@ -396,3 +396,15 @@ To validate a machine learning model, we need to use some of the data we have to
     The linear pipeline score for this model is: 
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-gradient-boosting-regression-score.png" alt-text="Printout of the scoring results of the gradient boosting regression model."::: 
+
+    Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - we'll use this model to score new data in our Log Analytics workspace.
+
+1. Save the trained gradient boosting regression model as a pickle file.
+
+    ```python
+    import joblib
+
+    # Save the model as a pickle file
+    filename = './myModel.pkl'
+    joblib.dump(gbrt_pipeline, filename)
+    ```
