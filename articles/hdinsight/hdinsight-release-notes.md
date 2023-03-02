@@ -19,7 +19,7 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 ## Release date: February 28, 2023
 
-This release applies to HDInsight 4.0. and 5.0.  HDInsight release is available to all regions over several days. This release is applicable for image number 2302250400. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number 2302250400. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -69,16 +69,15 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 
 * Cluster name change limitation 
   * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
-* Cluster permissions for secure storage for World Readable  
-  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes contact the storage account. 
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
   * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
-* Apache Spark 
-  * Apache Spark 3.3.0 and Hadoop 3.3.4 under development  to include several significant new features, performance and other improvements.
- 
+* Open-source upgrades
+  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
+
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
-
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
