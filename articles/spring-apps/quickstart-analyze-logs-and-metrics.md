@@ -1,9 +1,8 @@
 ---
-title:  Analyzing logs and metrics using the Azure Spring Apps Consumption Plan
-titleSuffix: Azure Spring Apps Basic/Standard tier
-description: Learn how to analyze logs and metrics in Azure Spring Apps Standard Consumption plan.
+title:  Analyzing logs and metrics in the Azure Spring Apps Consumption plan
+description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard Consumption plan.
 author: KarlErickson
-ms.author: karler
+ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 3/1/2023
@@ -12,7 +11,7 @@ ms.custom: devx-track-java
 
 # Analyze logs and metrics
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Consumption plan ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard Consumption plan.
 
@@ -61,7 +60,7 @@ Use the following steps to query log data.
 
 1. In the Azure portal, go to your Azure Spring Apps instance.
 1. Select **Logs** from the navigation pane.
-1. In the **New Query 1** settings, enter a simple query such as:
+1. In the **New Query 1** settings, enter a simple query such as the following example:
 
    ```sql
     AppEnvSpringAppConsoleLogs_CL
@@ -76,9 +75,9 @@ Use the following steps to perform analytics on log data.
 
 1. In the Azure portal, go to your Azure Spring Apps instance.
 1. Select **Log Analytics** in the navigation pane.
-1. Select the Log Analytics workspace that you chose to store the logs.
+1. Select the Log Analytics workspace where you chose to store the logs.
 1. To open the **Log Search** pane, select **Logs**.
-1. In the **Tables** search box, to view logs, enter a simple query such as:
+1. To view logs, in the **Tables** search box, enter a simple query such as the following example:
 
    ```sql
     AppEnvSpringAppConsoleLogs_CL
@@ -86,7 +85,7 @@ Use the following steps to perform analytics on log data.
    ```
 
 1. To view the search result, select **Run**.
-1. You can search the logs of the specific application, deployment or instance by setting a filter condition:
+1. You can search the logs of the specific application, deployment or instance by setting a filter condition, as shown in the following example:
 
    ```sql
     AppEnvSpringAppConsoleLogs_CL
@@ -97,7 +96,7 @@ Use the following steps to perform analytics on log data.
     > [!NOTE]
     > `==` is case sensitive, but `=~` is not.
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, see [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
+To learn more about the query language used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, see [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## Metrics
 
