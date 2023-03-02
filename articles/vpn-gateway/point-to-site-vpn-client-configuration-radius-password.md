@@ -169,7 +169,7 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 1. In the **Client** section of the connection, select **EAP** for **Authentication**, and enter your username and password. You might have to select the lock icon on the right to save this information. Then, select **Save**.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-password/linux/edit-settings.png" alt-text="Screenshot shows edit connection settings." lightbox="./media/point-to-site-vpn-client-config-radius-password/linux/edit-settings.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-password/linux/edit-settings-v2.png" alt-text="Screenshot shows edit connection settings." lightbox="./media/point-to-site-vpn-client-config-radius-password/linux/edit-settings-v2.png":::
 
 1. Select the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. To initiate the connection, select it.
 
