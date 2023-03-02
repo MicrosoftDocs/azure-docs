@@ -20,7 +20,7 @@ An App Service Environment can host your:
 - Windows web apps
 - Linux web apps
 - Docker containers (Windows and Linux)
-- Functions
+- Functions (Windows and Linux code-only functions, Only Linux Docker containers)
 - Logic apps (Standard)
 
 App Service Environments are appropriate for application workloads that require:
