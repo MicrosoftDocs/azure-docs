@@ -933,6 +933,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Fleet Management System
+        href: fleet-management-system-tutorial.md
       - name: Flexera One
         href: flexera-one-tutorial.md  
       - name: Flipsnack SAML
