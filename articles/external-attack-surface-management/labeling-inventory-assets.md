@@ -21,7 +21,7 @@ Labels help you organize your attack surface and apply business context in a hig
 - were added to your inventory within a specific time range  
 - Labels are free-form text fields, so you can create a label for any use case that applies to your organization. 
 
-![Screenshot of inventory list view with filters column visible.](media/labels-1a.png)
+[![Screenshot of inventory list view with filters column visible.](media/labels-1a.png)](media/labels-1a.png#lightbox)
 
 
 
@@ -60,7 +60,7 @@ Select a color for your new label, then select **Add**. This action will navigat
 
 8. Allow a few moments for the labels to be applied. Once complete, the page will automatically refresh and display your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
 
-![Screenshot of inventory list view with the selected assets now displaying the new label.](media/labels-6.png)
+[![Screenshot of inventory list view with the selected assets now displaying the new label.](media/labels-6.png)](media/labels-6.png#lightbox)
 
 
 ### Asset details page 
@@ -90,7 +90,7 @@ To modify the label itself or delete a label from the system, access the main La
 
 1. Select the **Labels (Preview)** page under the **Manage** section in the left-hand navigation pane of your Defender EASM resource.
 
-![Screenshot of Labels (Preview) page that enables label management.](media/labels-8a.png)
+[![Screenshot of Labels (Preview) page that enables label management.](media/labels-8a.png)](media/labels-8a.png#lightbox)
 
 This page displays all the labels within your Defender EASM inventory. Please note that labels on this page may exist in the system but not be actively applied to any assets. You can also add new labels from this page.  
 
