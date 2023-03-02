@@ -73,8 +73,9 @@ On the pipeline job detail page, you can check the status of the overall job and
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png" alt-text="Screenshot showing pipeline job detail page." lightbox= "./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png":::
 
+#### Try the optimized submission wizard(preview)
 
-There is an optimized pipeline submission wizard(preview) to streamline your pipeline submission experience. It provides spacious space to edit pipeline inputs and outputs, and the ability to modify runtime settings, such as the default compute, at the time of submission.
+There is an optimized pipeline submission wizard to streamline your pipeline submission experience. It provides spacious space to edit pipeline inputs and outputs, and the ability to modify runtime settings, such as the default compute, at the time of submission.
 
 To enable this feature:
 1. Navigate to Azure Machine Learning studio UI.
