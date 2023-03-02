@@ -85,7 +85,7 @@ Defender for DevOps currently doesn't process or store your code, build, and aud
 
 Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
 
-### Why are "Delete Source" and "Write Code" permissions required for ADO?
+### Why are Delete Source and Write Code permissions required for Azure DevOps?
 
 Azure DevOps doesn't have the necessary granularity for its permissions. These permissions are required for some of the Defender for DevOps features, such as pull request annotations in order to work.
 
