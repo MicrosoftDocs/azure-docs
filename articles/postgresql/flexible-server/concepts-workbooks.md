@@ -24,18 +24,18 @@ Azure Database for PostgreSQL Flexible Server has two available templates:
 
 - **Overview**: Displays an instance summary and top-level metrics to help you visualize and understand the resource utilization on your server. This template displays the following views:
 
-    1. Server Summary
-    1. Database Summary
-    1. Connection Metrics
-    1. Performance Metrics
-    1. Storage Metrics
+    * Server Summary
+    * Database Summary
+    * Connection Metrics
+    * Performance Metrics
+    * Storage Metrics
 
-- **Enhanced Metrics**: Displays a summary of Enhanced Metrics for Azure Database for PostgreSQL Flexible Server with more fine-grained database monitoring. To enable these metrics, please enable the server parameters `metrics.collector_database_activity` and `metrics.autovacuum_diagnostics`.These parameters are dynamic and don't require a server restart. For more information, see [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics). This template displays the following views:
+- **Enhanced Metrics**: Displays a summary of Enhanced Metrics for Azure Database for PostgreSQL Flexible Server with more fine-grained database monitoring. To enable these metrics, please enable the server parameters `metrics.collector_database_activity` and `metrics.autovacuum_diagnostics`. These parameters are dynamic and don't require a server restart. For more information, see [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics). This template displays the following views:
 
-    1. Activity Metrics
-    1. Database Metrics
-    1. Autovacuum Metrics
-    1. Replication Metrics
+    * Activity Metrics
+    * Database Metrics
+    * Autovacuum Metrics
+    * Replication Metrics
 
 You can also edit and customize these templates according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
