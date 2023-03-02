@@ -11,18 +11,18 @@ ms.date: 02/28/2023
 
 # Manage your environment
 
-In Azure Deployment Environments Preview, a dev infrastructure manager gives developers access to projects and the environment types associated with them. Once a developer has access, they can create deployments environments based on the pre-configured environment types. The dev infrastructure manager can also give management permissions to the creator of the environment, like Owner or Contributor.
+In Azure Deployment Environments Preview, a dev infra admin gives developers access to projects and the environment types associated with them. Once a developer has access, they can create deployments environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team get to the environment’s resources are defined in the specific environment type.
 
 As a developer, you can create and manage your environments from the developer portal or from the Azure CLI.  
 
 ## Prerequisites
 
 - Access to a project that has at least one environment type.
-- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions.
+- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions to create an environment.
 
 ## Manage an environment by using the developer portal
 
-The developer portal provides a graphical interface for creation and management tasks and provides a visual status for your environments and dev boxes. You can create, redeploy, and delete your environments as needed.
+The developer portal provides a graphical interface for the development teams to create new environments and manage existing environments. You can create, redeploy, and delete your environments as needed.
 
 ### Create an environment by using the developer portal
 
@@ -52,13 +52,13 @@ The developer portal provides a graphical interface for creation and management 
 
    :::image type="content" source="media/how-to-manage-environments/environment-resources-link.png" alt-text="Screenshot showing an environment tile with the Environment Resources link highlighted. ":::
 
-1. The environment resources display in the Azure portal.
+1. The environment resources are displayed in the Azure Portal.
 
    :::image type="content" source="media/how-to-manage-environments/environment-resources.png" alt-text="Screenshot showing environment resources in the Azure portal.":::
 
 ### Redeploy an environment by using the developer portal
 
-When you need to update your environment parameters, you can redeploy it. The redeployment process updates any existing resources with changed properties and creates any new resources from the catalog item in the environment resource group.
+When you need to update your environment, you can redeploy it. The redeployment process updates any existing resources with changed properties or creates any new resources based on the latest configuration of the catalog item.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
@@ -78,7 +78,7 @@ When you need to update your environment parameters, you can redeploy it. The re
 
 1. To view the redeployed resources, select **Environment Resources**.
 
-1. The environment resources display in the Azure portal.
+1. The environment resources are displayed in the Azure Portal.
 
    :::image type="content" source="media/how-to-manage-environments/redeployed-resources.png" alt-text="Screenshot showing redeployed resources in the Azure portal.":::
 
