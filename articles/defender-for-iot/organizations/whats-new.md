@@ -82,9 +82,12 @@ For more information, see [Malware engine alerts](alert-engine-messages.md#malwa
    
 ### Automatically resolved device notifications
 
-Selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days. 
+Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+
+After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. However, you may still have existing notifications to handle from before the update. Handle these notifications as needed to clear them from your OT sensor.
 
 For more information, see [Manage device notifications](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map?branch=pr-en-us-227891#manage-device-notifications).
+
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
