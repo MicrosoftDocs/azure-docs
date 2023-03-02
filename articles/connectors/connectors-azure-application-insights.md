@@ -14,11 +14,11 @@ ms.author: guywild
 Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The [Application Insights connector](/connectors/applicationinsights/) for Azure Logic Apps is the right tool for this purpose.
 
 > [!NOTE]
-> The Application Insights connector has been replaced by the [Azure Monitor connector](../logs/logicapp-flow-connector.md). It's integrated with Azure Active Directory instead of requiring an API key. You can also use it to retrieve data from a Log Analytics workspace.
+> The Application Insights connector has been replaced by the [Azure Monitor connector](../connectors/connectors-azure-monitor-logs.md). It's integrated with Azure Active Directory instead of requiring an API key. You can also use it to retrieve data from a Log Analytics workspace.
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process.
 
-You can also add other actions. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) to help speed up the process of creating your logic app.
+You can also add other actions. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md) to help speed up the process of creating your logic app.
 
 ## Create a logic app for Application Insights
 
