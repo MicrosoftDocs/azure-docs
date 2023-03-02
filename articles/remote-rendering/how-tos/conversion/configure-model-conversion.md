@@ -181,7 +181,7 @@ These adjustments are possible:
 * Specific data streams can be explicitly included or excluded.
 * The accuracy of data streams can be decreased to reduce the memory footprint.
 
-The following `vertex` section in the `.json` file is optional. For each portion that isn't explicitly specified, the conversion service falls back to its default setting.
+The following `vertex` section in the JSON file is optional. For each portion that isn't explicitly specified, the conversion service falls back to its default setting.
 
 ```json
 {
@@ -197,6 +197,7 @@ The following `vertex` section in the `.json` file is optional. For each portion
         "texcoord1" : "NONE"
     },
     ...
+}
 ```
 
 By forcing a component to `NONE`, it's guaranteed that the output mesh doesn't have the respective stream.
@@ -207,73 +208,73 @@ These formats are allowed for the respective components:
 
 | :::no-loc text="Vertex"::: component | Supported formats (bold = default) | Usage in materials |
 |:-----------------|:------------------|:------------------|
-|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT | Vertex position, must always be present. |
-|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE | Vertex colors. See `useVertexColor` property in both [Color materials](../../overview/features/color-materials.md) and [PBR materials](../../overview/features/pbr-materials.md), and `vertexMix` in [Color materials](../../overview/features/color-materials.md). |
-|color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**| Unused, leave it to **NONE**. |
-|normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting in [PBR materials](../../overview/features/pbr-materials.md). |
-|tangent| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
-|binormal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
-|texcoord0| **32_32_FLOAT**, 16_16_FLOAT, NONE | First slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
-|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, NONE | Second slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
+|`position`| `32_32_32_FLOAT`, `16_16_16_16_FLOAT` | Vertex position, must always be present. |
+|`color0`| `8_8_8_8_UNSIGNED_NORMALIZED`, `NONE` | Vertex colors. See `useVertexColor` property in both [Color materials](../../overview/features/color-materials.md) and [PBR materials](../../overview/features/pbr-materials.md), and `vertexMix` in [Color materials](../../overview/features/color-materials.md). |
+|`color1`| `8_8_8_8_UNSIGNED_NORMALIZED`, `NONE`| Unused, leave it to `NONE`. |
+|`normal`| `8_8_8_8_SIGNED_NORMALIZED`, `16_16_16_16_FLOAT`, `NONE` | Used for lighting in [PBR materials](../../overview/features/pbr-materials.md). |
+|`tangent`| `8_8_8_8_SIGNED_NORMALIZED`, `16_16_16_16_FLOAT`, `NONE` | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
+|`binormal`| `8_8_8_8_SIGNED_NORMALIZED`, `16_16_16_16_FLOAT`, `NONE` | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
+|`texcoord0`| `32_32_FLOAT`, `16_16_FLOAT`, `NONE` | First slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
+|`texcoord1`| `32_32_FLOAT`, `16_16_FLOAT`, `NONE` | Second slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
 
 #### Supported component formats
 
-The memory footprints of the formats are as follows:
+The following table describes the memory footprints of supported component formats:
 
 | Format | Description | Bytes per :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
-|32_32_FLOAT|two-component full floating point precision|8
-|16_16_FLOAT|two-component half floating point precision|4
-|32_32_32_FLOAT|three-component full floating point precision|12
-|16_16_16_16_FLOAT|four-component half floating point precision|8
-|8_8_8_8_UNSIGNED_NORMALIZED|four-component byte, normalized to `[0; 1]` range|4
-|8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to `[-1; 1]` range|4
+|`32_32_FLOAT`|two-component full floating-point precision|8
+|`16_16_FLOAT`|two-component half floating-point precision|4
+|`32_32_32_FLOAT`|three-component full floating-point precision|12
+|`16_16_16_16_FLOAT`|four-component half floating-point precision|8
+|`8_8_8_8_UNSIGNED_NORMALIZED`|four-component byte, normalized to the `[0; 1]` range|4
+|`8_8_8_8_SIGNED_NORMALIZED`|four-component byte, normalized to the `[-1; 1]` range|4
 
 #### Best practices for component format changes
 
-* `position`: It's rare that reduced accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization artifacts, even for small models.
-* `normal`, `tangent`, `binormal`: Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there's no reason to increase their accuracy. In some cases, though, these components can be set to **NONE**:
-  * `normal`, `tangent`, and `binormal` are only needed when at least one material in the model should be lit. In ARR this is the case when a [PBR material](../../overview/features/pbr-materials.md) is used on the model at any time.
-  * `tangent` and `binormal` are only needed when any of the lit materials uses a normal map texture.
-* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2048 x 2048 pixels. If those limits are exceeded, the quality of texture mapping will suffer.
+* `position`: It's rare that reduced accuracy is sufficient. `16_16_16_16_FLOAT` introduces noticeable quantization artifacts, even for small models.
+* `normal`, `tangent`, and `binormal`: Typically, these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there's no reason to increase their accuracy. In some cases, though, these components can be set to `NONE`:
+  * `normal`, `tangent`, and `binormal` are needed only when at least one material in the model should be lit. In Azure Remote Rendering, this is the case when a [PBR material](../../overview/features/pbr-materials.md) is used on the model at any time.
+  * `tangent` and `binormal` are needed only when any of the lit materials use a normal map texture.
+* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (`16_16_FLOAT`) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2,048 × 2,048 pixels. If those limits are exceeded, the quality of texture mapping decreases.
 
 #### Example
 
 Assume you have a photogrammetry model, which has lighting baked into the textures. All that is needed to render the model are :::no-loc text="vertex"::: positions and texture coordinates.
 
-By default the converter has to assume that you may want to use PBR materials on a model at some time, so it will generate `normal`, `tangent`, and `binormal` data for you. So, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices"::: resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance and you may even run out of memory.
+By default, the converter has to assume that you might want to use PBR materials on a model at some time, so it generates `normal`, `tangent`, and `binormal` data for you. So, the per-:::no-loc text="vertex"::: memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices":::, resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance, and you might even run out of memory.
 
-Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per :::no-loc text="vertex":::. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
+Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in the `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE`, and set `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per :::no-loc text="vertex":::. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
 ## Settings for point clouds
 
-When converting a point cloud, only a small subset of properties from the schema is used. Other properties are being ignored, if specified.
+When a point cloud is converted, only a small subset of properties from the schema is used. Other properties are ignored unless they are specified.
 
 The properties that do have an effect on point cloud conversion are:
 
-* `scaling` - same meaning as for triangular meshes.
-* `recenterToOrigin` - same meaning as for triangular meshes.
-* `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
-* `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY, LAS, LAZ and XYZ) is true.
-
-* `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md).
+* `scaling`: The same meaning as for triangular meshes.
+* `recenterToOrigin`: The same meaning as for triangular meshes.
+* `axis`: The same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, but most point cloud data will be rotated compared to the renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
+* `gammaToLinearVertex`: Similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space.The default value for point cloud formats (`E57`, `PLY`, `LAS`, `LAZ`, and `XYZ`) is `true`.
+* `generateCollisionMesh`: Similar to triangular meshes, to support [spatial queries](../../overview/features/spatial-queries.md), you must enable this flag.
 
 ## Memory optimizations
 
-Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance, or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
+Memory consumption of loaded content might become a bottleneck on the rendering system. If the memory payload becomes too large, it might compromise rendering performance or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
 
 > [!NOTE]
-> The following optimizations apply to triangular meshes. There is no way to optimize the output of point clouds through conversion settings.
+> The following optimizations apply to triangular meshes. You can't optimize the output of point clouds through conversion settings.
 
 ### Instancing
 
-Instancing is a concept where meshes are reused for parts with distinct spatial transformations, as opposed to every part referencing its own unique geometry. Instancing has significant impact on the memory footprint.
+In instancing, meshes are reused for parts that have distinct spatial transformations instead of each part referencing its own unique geometry. Instancing has a significant impact on memory footprint.
+
 Example use cases for instancing are the screws in an engine model or chairs in an architectural model.
 
 > [!NOTE]
-> Instancing can improve the memory consumption (and thus loading times) significantly, however the improvements on the rendering performance side are insignificant.
+> Instancing can improve the memory consumption (and thus loading times) significantly, but the improvements on rendering performance are insignificant.
 
-The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion doesn't perform extra deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup.
+The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion doesn't perform extra deep analysis of mesh data to identify reusable parts. The content creation tool and its export pipeline are the decisive criteria for proper instancing setup.
 
 A simple way to test whether instancing information is preserved during conversion is to look at the [output statistics](get-information.md#example-info-file). Specifically, check the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, meshes are shared across instances.
 
@@ -293,11 +294,11 @@ If memory is a concern, configure the renderer by using the [depth-based composi
 
 ### Decrease vertex size
 
-As discussed in the [best practices for component format changes](configure-model-conversion.md#best-practices-for-component-format-changes) section, adjusting the vertex format can decrease the memory footprint. However, this option should be the last resort.
+As discussed in [Best practices for component format changes](configure-model-conversion.md#best-practices-for-component-format-changes), adjusting the vertex format can decrease the memory footprint. However, this option should be the last resort.
 
 ### Texture sizes
 
-Depending on the type of scenario, the amount of texture data might outweigh the memory used for mesh data. Photogrammetry models are candidates.
+Depending on the type of scenario, the amount of texture data might outweigh the memory that's used for mesh data. Photogrammetry models are candidates.
 The conversion configuration doesn't provide a way to automatically scale down textures. If necessary, texture scaling must be done as a client-side pre-processing step. But the conversion step does choose a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * `BC1` for opaque color textures
