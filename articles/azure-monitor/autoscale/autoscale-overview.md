@@ -57,7 +57,7 @@ You can set up autoscale via:
 
 ## Architecture
 
-The following diagram shows the autoscale architecture.  
+The following diagram shows the autoscale architecture.
 
  ![Diagram that shows autoscale flow.](./media/autoscale-overview/Autoscale_Overview_v4.png)
 
@@ -128,7 +128,7 @@ In contrast, vertical scaling keeps the same number of resources constant but gi
 
 ## Supported services for autoscale
 
-The following services are supported by autoscale.
+Autoscale supports the following services.
 
 | Service                                           | Schema and documentation                                                                                                                           |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
