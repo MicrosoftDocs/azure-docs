@@ -157,7 +157,7 @@ In this tutorial, you'll:
      graph.show()
     ```
    
-## Explore and visualize data from your Log Analytics workspace in your notebook
+## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
 1. Check how much data was ingested into each of the tables in the workspace every hour over the last week.
     
