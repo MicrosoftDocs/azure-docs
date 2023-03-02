@@ -24,16 +24,16 @@ Follow these steps to enable Managed Identity for Media Services and Storage and
    :::image type="content" source="./media/storage-behind-firewall/trusted-service-verify-assigned-roles.png" alt-text="Screenshot of assigned roles from the Azure portal.":::
 1. Navigate to your Media Services account and select **Storage accounts**.
 
-   :::image type="content" source="./media/storage-behind-firewall/trusted-service-mediaservices-managed-identity-menu.png" alt-text="Screenshot of Assigned Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
+   :::image type="content" source="./media/storage-behind-firewall/trusted-service-media-services-managed-identity-menu.png" alt-text="Screenshot of Assigned Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
 1. Select **Managed identity**. A warning that you have no managed identities will appear. Select **Click here** to configure one.
 
-   :::image type="content" source="./media/storage-behind-firewall/trusted-service-mediaservices-managed-identity-selection.png" alt-text="Screenshot of enable System Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
+   :::image type="content" source="./media/storage-behind-firewall/trusted-service-media-services-managed-identity-selection.png" alt-text="Screenshot of enable System Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
 1. Select **User** or **System-assigned** identity. In this case, choose **System-assigned**.
 1. Select **Save**.
 1. Select **Storage accounts** in the menu and select **Managed identity** again. This time, the banner that you don’t have a managed identity shouldn't appear. Instead, you can now select the managed identity in the dropdown menu.
 1. Select **System-assigned**.
 
-   :::image type="content" source="./media/storage-behind-firewall/trusted-service-mediaservices-managed-identity-system-assigned-selection.png" alt-text="Screenshot of Azure portal to select System Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
+   :::image type="content" source="./media/storage-behind-firewall/trusted-service-media-services-managed-identity-system-assigned-selection.png" alt-text="Screenshot of Azure portal to select System Managed Identity role on the connected storage account for Media Services from the Azure portal.":::
 1. Select **Save**.
 1. Navigate to your Storage account. Select **Networking** from the menu and select **Enabled from selected virtual networks and IP addresses** in the **Public network access** section.
 
