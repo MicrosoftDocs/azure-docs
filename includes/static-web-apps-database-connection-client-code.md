@@ -475,6 +475,12 @@ Now that you've worked with your site locally, you can now deploy it to Azure.
 
 To deploy this site to production, you just need to commit the configuration file and push your changes to the server.
 
+1. Add the file changes to track.
+
+  ```bash
+    git add .
+    ```
+
 1. Commit the configuration changes.
 
     ```bash
@@ -487,15 +493,6 @@ To deploy this site to production, you just need to commit the configuration fil
     git push origin main
     ```
 
-1. Wait for your web app to build.
-
-1. Go to your static web app in the browser.
-
-1. Select the **List** button to list all items.
-
-    The output should resemble what's shown in this screenshot.
-
-    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
 
 
 ## Connect the database to your static web app
@@ -519,3 +516,16 @@ Use the following steps to create a connection between the Static Web Apps insta
     | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
 
 1. Select **OK**.
+
+## Verify that your database is connected to your Static Web Apps resource
+
+Once you have connected your database to your Static Web Apps resource and that your new static web app content has been built and deployed, use the following steps to verify that your database has been properly connected to your Static Web Apps resource.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Essentials* section, select the **URL** of your Static Web Apps resource to navigate to your static web app.
+
+1. Select the **List** button to list all items.
+	
+	    The output should resemble what's shown in this screenshot.
+	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
