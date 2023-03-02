@@ -32,7 +32,7 @@ ngrok http 7071
 
 1. Open Postman and create a new request.
 
-    ![Screenshot of Postman body configuration](media/postman-body.png)
+    ![Screenshot of Postman body configuration.](media/postman-body.png)
 
 2. Select the `POST` method.
 
