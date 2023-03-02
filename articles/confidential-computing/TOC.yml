@@ -117,7 +117,7 @@
         href: confidential-containers-enclaves.md
     - name: Confidential node pools on AKS
       items: 
-      - name: Confidential node pools in AKS (preview)
+      - name: Confidential VM node pools in AKS
         href: confidential-node-pool-aks.md
 - name: How To
   expanded: true
