@@ -496,7 +496,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
-> [!WARNING]
+> [!NOTE]
 > Language detection with custom models can be used in OnLine transcription only. Batch transcription supports language detection for base models. 
 
 ::: zone pivot="programming-language-csharp"
