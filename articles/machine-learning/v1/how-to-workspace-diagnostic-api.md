@@ -26,7 +26,7 @@ In this article, learn how to use the workspace diagnostics from the Azure Machi
 
 ## Prerequisites
 
-* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
+* An Azure Machine Learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml).
 
 ## Diagnostics from Python
