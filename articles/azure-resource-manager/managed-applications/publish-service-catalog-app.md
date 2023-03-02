@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 02/21/2023
+ms.date: 03/01/2023
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -51,11 +51,11 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
     },
-    "appServicePlanNamePrefix": {
+    "appServicePlanName": {
       "type": "string",
-      "maxLength": 27,
+      "maxLength": 40,
       "metadata": {
-        "description": "App Service plan name prefix."
+        "description": "App Service plan name."
       }
     },
     "appServiceNamePrefix": {
@@ -85,7 +85,6 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     }
   },
   "variables": {
-    "appServicePlanName": "[format('{0}{1}', parameters('appServicePlanNamePrefix'), uniqueString(resourceGroup().id))]",
     "appServicePlanSku": "F1",
     "appServicePlanCapacity": 1,
     "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
@@ -95,7 +94,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2022-03-01",
-      "name": "[variables('appServicePlanName')]",
+      "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('appServicePlanSku')]",
@@ -108,7 +107,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "httpsOnly": true,
         "siteConfig": {
           "appSettings": [
@@ -120,7 +119,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },
@@ -141,7 +140,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
   "outputs": {
     "appServicePlan": {
       "type": "string",
-      "value": "[variables('appServicePlanName')]"
+      "value": "[parameters('appServicePlanName')]"
     },
     "appServiceApp": {
       "type": "string",
@@ -184,14 +183,14 @@ Add the following JSON to the file and save it.
           {
             "name": "appServicePlanName",
             "type": "Microsoft.Common.TextBox",
-            "label": "App Service plan name prefix",
-            "placeholder": "App Service plan name prefix",
+            "label": "App Service plan name",
+            "placeholder": "App Service plan name",
             "defaultValue": "",
-            "toolTip": "Use alphanumeric characters or hyphens with a maximum of 27 characters.",
+            "toolTip": "Use alphanumeric characters or hyphens with a maximum of 40 characters.",
             "constraints": {
               "required": true,
-              "regex": "^[a-z0-9A-Z-]{1,27}$",
-              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a maximum of 27 characters."
+              "regex": "^[a-z0-9A-Z-]{1,40}$",
+              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a maximum of 40 characters."
             },
             "visible": true
           },
@@ -201,11 +200,11 @@ Add the following JSON to the file and save it.
             "label": "App Service name prefix",
             "placeholder": "App Service name prefix",
             "defaultValue": "",
-            "toolTip": "Use alphanumeric characters or hyphens with a maximum of 47 characters.",
+            "toolTip": "Use alphanumeric characters or hyphens with minimum of 2 characters and maximum of 47 characters.",
             "constraints": {
               "required": true,
-              "regex": "^[a-z0-9A-Z-]{1,47}$",
-              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a maximum of 47 characters."
+              "regex": "^[a-z0-9A-Z-]{2,47}$",
+              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a minimum of 2 characters and maximum of 47 characters."
             },
             "visible": true
           }
@@ -247,7 +246,7 @@ Add the following JSON to the file and save it.
     ],
     "outputs": {
       "location": "[location()]",
-      "appServicePlanNamePrefix": "[steps('webAppSettings').appServicePlanName]",
+      "appServicePlanName": "[steps('webAppSettings').appServicePlanName]",
       "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]",
       "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
       "storageAccountType": "[steps('storageConfig').storageAccounts.type]"
@@ -449,4 +448,4 @@ You have access to the managed application definition, but you want to make sure
 You've published the managed application definition. Now, learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy service catalog app](deploy-service-catalog-quickstart.md)
+> [Quickstart: Deploy service catalog managed application](deploy-service-catalog-quickstart.md)

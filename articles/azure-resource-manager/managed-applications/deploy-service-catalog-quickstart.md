@@ -4,12 +4,12 @@ description: Shows consumers of Azure Managed Applications how to deploy a servi
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 02/21/2023
+ms.date: 03/01/2023
 ---
 
 # Quickstart: Deploy service catalog managed application
 
-In this quickstart, you use the definition you created in [publish the definition](publish-service-catalog-app.md) or [publish the definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md) to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. The managed application definition deploys an App Service plan, App Service, and storage account.
+In this quickstart, you use the definition you created in the quickstarts to [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md) to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. The managed application definition deploys an App Service plan, App Service, and storage account.
 
 ## Prerequisites
 
@@ -30,7 +30,9 @@ In the Azure portal, use the following steps:
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/create-service-catalog-managed-application.png" alt-text="Screenshot of search result for Service Catalog Managed Application with create button highlighted.":::
 
-1. The portal shows the managed application definitions that you can access. From the available definitions, select the one you want to deploy. In this quickstart, use the **Sample managed application** definition that you created in the preceding quickstart. Select **Create**.
+1. Select **Sample managed application** and then select **Create**.
+
+   The portal displays the managed application definitions that you created with the quickstart articles to publish an application definition.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/select-service-catalog-managed-application.png" alt-text="Screenshot that shows managed application definitions that you can deploy.":::
 
@@ -48,16 +50,14 @@ In the Azure portal, use the following steps:
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/web-app-settings.png" alt-text="Screenshot that highlights the required information on the Web App settings tab.":::
 
-   During deployment, the prefixes are concatenated with a unique string to create a name that's globally unique across Azure.
-
-   - **App Service plan name prefix**: Create a prefix for the plan name. Maximum of 27 alphanumeric characters or hyphens. For example, _demoAppServicePlan_.
-   - **App Service name prefix**: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_.
+   - **App Service plan name**: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
+   - **App Service name prefix**: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
 
 1. Enter a prefix for the storage account name and select the storage account type. Select **Next: Review + create**.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/storage-settings.png" alt-text="Screenshot that shows the information needed to create a storage account.":::
 
-   - **Storage account name prefix**: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.  Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
+   - **Storage account name prefix**: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
    - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard LRS.
 
 1. Review the summary of the values you selected and verify **Validation Passed** is displayed. Select **Create** to deploy the managed application.
@@ -106,10 +106,12 @@ When your finished with the managed application, you can delete the resource gro
 
 When the resource group that contains the managed application is deleted, the managed resource group is also deleted. In this example, when _applicationGroup_ is deleted the  _rg-sampleManagedApplication_ resource group is also deleted.
 
-If you want to delete the managed application definition, you can delete the resource groups you created in the quickstart to [publish the definition](publish-service-catalog-app.md).
+If you want to delete the managed application definition, delete the resource groups you created in the quickstart articles.
+
+- **Publish application definition**: _packageStorageGroup_ and _appDefinitionGroup_.
+- **Publish definition with bring your own storage**: _packageStorageGroup_, _byosDefinitionStorageGroup_, and _byosAppDefinitionGroup_.
 
 ## Next steps
 
-- To learn how to create the definition files for a managed application, see [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
-- For Azure CLI, see [Deploy managed application with Azure CLI](./scripts/managed-application-cli-sample-create-application.md).
-- For PowerShell, see [Deploy managed application with PowerShell](./scripts/managed-application-poweshell-sample-create-application.md).
+- To learn how to create the definition files for a managed application, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
+- To create the definition files for a managed application using your own storage, go to [Quickstart: Bring your own storage to publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
