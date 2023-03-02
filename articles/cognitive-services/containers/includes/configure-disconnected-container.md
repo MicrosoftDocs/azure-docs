@@ -8,7 +8,7 @@ ms.date: 01/24/2023
 ms.author: aahi
 ---
 
-To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../disconnected-container.md) for more information.
+To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../disconnected-containers.md) for more information.
 
 If you have been approved to run the container disconnected from the internet, use the following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 

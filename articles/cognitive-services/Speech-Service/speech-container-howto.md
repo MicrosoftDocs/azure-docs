@@ -488,7 +488,7 @@ Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pr
 
 ### Run the container disconnected from the internet (authorization required)
 
-To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../disconnected-container.md) for more information.
+To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../containers/disconnected-containers.md) for more information.
 
 In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
 
@@ -528,7 +528,7 @@ Placeholder | Value | Format or example |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
-| `{OUTPUT_PATH}` | The output path for logging [usage records](../disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](../containers/disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory` |
 | `{MODEL_PATH}` | The path where the model is located. | `/path/to/model/` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
