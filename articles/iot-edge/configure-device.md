@@ -1,6 +1,6 @@
 ---
-title: Configure IoT Edge device settings
-description: This article shows you how to configure IoT Edge device settings and options using the config.toml file.
+title: Configure Azure IoT Edge device settings
+description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
 ms.date: 02/27/2023
