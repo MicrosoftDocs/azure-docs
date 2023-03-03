@@ -18,6 +18,7 @@ ms.custom: mvc, engagement-fy23
 
 ## Update (February 2023)
 - Discovery and assessment of SQL Server Always On Failover Cluster Instances and Always On Availability Groups is now supported. [Learn more](how-to-discover-applications.md).
+- Public Preview: Modernize your ASP.NET web apps onto Azure Kubernetes Service (AKS) directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
 
 ## Update (January 2023)
 - Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate business case and assessments. ASP as a savings option assumption/setting is now available for business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment. 
@@ -65,7 +66,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (June 2022)
 
-- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
+- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-modernize-asp-net-appservice-code.md)
 
 ## Update (May 2022)
 - Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
