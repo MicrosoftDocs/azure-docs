@@ -57,7 +57,7 @@ Before your source code is executed on the frontend, the App Service injects the
 
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository. 
 
-    ```bash
+    ```azurecli-interactive
     git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
 
@@ -142,7 +142,7 @@ Browse to the frontend app and return the _fake_ profile from the backend. This 
 
     :::image type="content" source="./media/tutorial-auth-aad/app-profile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
 
-    The `withAuthentication` value of false indicates the authentication isn't set up yet. 
+    The `withAuthentication` value of **false** indicates the authentication _isn't_ set up yet. 
 
 ## Configure authentication
 
@@ -320,6 +320,8 @@ if (bearerToken) {
 
     :::image type="content" source="./media/tutorial-auth-aad/app-profile.png" alt-text="Screenshot of web browser showing frontend application after successfully getting fake profile from backend app.":::
 
+    The `withAuthentication` value of **true** indicates the authentication _is_ set up yet. 
+
 ## When access tokens expire
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
@@ -341,7 +343,7 @@ The frontend and backend apps both have `/debug` routes to help debug the authen
 * Microsoft Graph profile name for signed in user is displayed.
 * Frontend app's **scope** for the token has `user_impersonation`. If your scope doesn't include this, it could be an issue of timing. Verify your frontend app's login parameters in [Azure resources](https://resources.azure.com). Wait a few minutes for the replication of the authentication.
 
-## Did the application source code deploy correctly to each web app?
+### Did the application source code deploy correctly to each web app?
 
 1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
 1. In the new browser tab, select **Browse Directory -> Site wwwroot**.
@@ -411,4 +413,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript)
+> [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md)
