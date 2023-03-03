@@ -276,7 +276,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With a user token, an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide.
+With a user token, an authenticated call agent can be instantiated. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide.
 
 For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 

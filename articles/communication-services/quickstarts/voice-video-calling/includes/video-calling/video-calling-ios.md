@@ -6,7 +6,7 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling SDK to add one on one video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for iOS.
+Get started with Azure Communication Services by using the Communication Services calling SDK to add one on one video calling to your app. You learn how to start and answer a video call using the Azure Communication Services Calling SDK for iOS.
 
 ## Sample Code
 
@@ -58,7 +58,7 @@ end
 
 ### Request access to the microphone and camera
 
-To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that will be included in the dialog the system uses to request access from the user.
+To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that includes the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
 
@@ -87,11 +87,11 @@ The following classes and interfaces handle some of the major features of the Az
 | `CallClient`                   | The `CallClient` is the main entry point to the Calling SDK.                                                                                                                         |
 | `CallAgent`                  | The `CallAgent` is used to start and manage calls.                                                                                                                                   |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.                                                                                     |
-| `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
+| `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ## Create the Call Agent
 
-Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We'll attach business logic to these controls in this quickstart.
+Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
 
 ```Swift
 struct ContentView: View {
@@ -236,9 +236,9 @@ struct ContentView_Previews: PreviewProvider {
 
 ### Authenticate the client
 
-In order to initialize a `CallAgent` instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
+In order to initialize a `CallAgent` instance, you need a User Access Token which enable it to make, and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation, if you don't have a token available.
 
-Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You'll need to replace `<USER ACCESS TOKEN>` with a valid user access token** for your resource:
+Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You need to replace `<USER ACCESS TOKEN>` with a valid **user access token** for your resource:
 
 ```Swift
 var userCredential: CommunicationTokenCredential?
@@ -294,9 +294,9 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 
 ## Display local video
 
-Before starting a call, you can manage settings related to video. In this quickstart we'll introduce the implementation of toggling local video before or during a call.
+Before starting a call, you can manage settings related to video. In this quickstart, we introduce the implementation of toggling local video before or during a call.
 
-First we need to access local cameras with `deviceManager`. Once the desired camera is selected, we can construct `LocalVideoStream` and create a `VideoStreamRenderer` and then attach it to `previewView`. During the call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants. This function also works with handling incoming calls.
+First we need to access local cameras with `deviceManager`. Once the desired camera is selected, we can construct `LocalVideoStream` and create a `VideoStreamRenderer`, and then attach it to `previewView`. During the call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants. This function also works with handling incoming calls.
 
 ```Swift
 func toggleLocalVideo() {
@@ -376,7 +376,7 @@ func toggleLocalVideo() {
 
 ## Place an outgoing call
 
-The `startCall` method is set as the action that will be performed when the Start Call button is tapped. In this quickstart, outgoing calls are audio only by default. To start a call with video, we need to set `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call.
+The `startCall` method is set as the action that is performed when the Start Call button is tapped. In this quickstart, outgoing calls are audio only by default. To start a call with video, we need to set `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call.
 
 ```Swift
 func startCall() {
@@ -468,7 +468,7 @@ func showIncomingCallBanner(_ incomingCall: IncomingCall?) {
 }
 ```
 
-The actions attached to `answer` and `decline` are implemented as below. In order to answer the call with video, we need to turn the local video on and set the options of `AcceptCallOptions` with `localVideoStream`.
+The actions attached to `answer` and `decline` are implemented as the following code. In order to answer the call with video, we need to turn on the local video and set the options of `AcceptCallOptions` with `localVideoStream`.
 
 ```Swift
 func answerIncomingCall() {
@@ -598,7 +598,7 @@ public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
 
 ## Remote participant Management
 
-All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
+All remote participants are represented with the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
 
 We can implement a `RemoteParticipantObserver` class to subscribe to the updates on remote video streams of remote participants.
 

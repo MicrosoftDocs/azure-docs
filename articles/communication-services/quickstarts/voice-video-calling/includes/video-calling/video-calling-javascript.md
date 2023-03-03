@@ -6,7 +6,7 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
+Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample Code
 
@@ -49,7 +49,7 @@ npm install @azure/communication-calling@1.4.4 --save
 
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+This quickstart uses Webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -57,7 +57,7 @@ npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-d
 
 Here's the code:
 
-Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
+Create an `index.html` file in the root directory of your project. We use this file to configure a basic layout that allow the user to place a 1:1 video call.
 
 ```html
 <!-- index.html -->
@@ -146,7 +146,7 @@ let remoteVideosGallery = document.getElementById('remoteVideosGallery');
 let localVideoContainer = document.getElementById('localVideoContainer');
 
 /**
- * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make outgoing calls and receive incoming calls. 
+ * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which enable us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
@@ -509,15 +509,18 @@ Open your browser and on two tabs navigate to http://localhost:8080/.You should 
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
-On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).
+On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token.
+
+Refer to the [user access token documentation](../../../access-tokens.md), if you don't already have tokens available to use.
+
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following screen:
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
 
-On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab starts the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
 
-From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following screen:
+From the second tab, click on the "Accept Call" button and the call starts and connect. You should see the following screen:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page - d":::
 
 Both tabs are now successfully in a 1 to 1 video call. Both tabs can hear each other's audio and see each other video stream.

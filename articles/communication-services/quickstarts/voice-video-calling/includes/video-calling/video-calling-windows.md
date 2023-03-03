@@ -52,10 +52,10 @@ Add the following code to your `Package.appxmanifest` by right-clicking and choo
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
 We also need to preview the local video and render the remote video of the other participant. So we need two elements to display the video streams.
 
-Open the `MainPage.xaml` of your project and replace the content with following implementation. 
+Open the `MainPage.xaml` of your project and replace the content with following implementation.
 
 ```C#
 <Page
@@ -167,15 +167,15 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following options: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following options: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ### Authenticate the client
 
-To initialize a `CallAgent` you need a User Access Token. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
+To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
-Once you have a token, initialize a `CallAgent` instance with it, which will enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
+Once you have a token, initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
@@ -195,7 +195,8 @@ this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaElement`, we can see the preview of the local video. 
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaElement`, we can see the preview of the local video.
+
 ```C#
 var startCallOptions = new StartCallOptions();
 
@@ -372,7 +373,7 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
@@ -536,15 +537,15 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following options: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ### Authenticate the client
 
-To initialize a `CallAgent` you will need a User Access Token. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
+To initialize a `CallAgent`, you will need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
-Once you have a token initialize a `CallAgent` instance with it, which will enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
+Once you have a token initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
@@ -564,7 +565,7 @@ this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement` we can see the preview of the local video. 
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement`, we can see the preview of the local video. 
 ```C#
 var startCallOptions = new StartCallOptions();
 
@@ -740,7 +741,7 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 

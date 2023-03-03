@@ -36,7 +36,7 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 >[!IMPORTANT]
 >Pre-Call diagnostics are available starting on the version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
 
-To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
+To Access the Pre-Call API, you will need to initialize a `callClient`, and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";

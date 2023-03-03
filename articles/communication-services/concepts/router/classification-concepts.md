@@ -30,7 +30,7 @@ The process of classifying a Job involves optionally setting the following prope
 
 The priority of a Job can be resolved during classification using one of many rule engines.
 
-See, the [Rule concepts](router-rule-concepts.md) page, for more information.
+For more information, see the [Rule concepts](router-rule-concepts.md) page.
 
 ## Worker selectors
 

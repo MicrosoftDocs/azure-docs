@@ -130,11 +130,11 @@ The following classes and interfaces handle some of the major features of the Az
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.| 
-| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following: `CommunicationUserIdentifier`,`PhoneNumberIdentifier` or `CallingApplication.` |
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`,`PhoneNumberIdentifier` or `CallingApplication.` |
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token, which will enable us to make and receive calls.
+Initialize a `CallAgent` instance with a User Access Token, which enable us to make and receive calls.
 
 In the following code, you need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
 

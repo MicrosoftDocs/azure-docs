@@ -50,8 +50,8 @@ Check `Internet (Client & Server)` to gain inbound and outbound access to the In
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
-Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`: 
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
+Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
 
 ```C#
 <Page
@@ -145,11 +145,11 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ### Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
+Initialize a `CallAgent` instance with a User Access Token which enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
 In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
 
@@ -203,7 +203,7 @@ await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, ()
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
 
@@ -247,8 +247,8 @@ Right click your project and go to `Manage Nuget Packages` to install `Azure.Com
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
-Open the `MainWindow.xaml` of your project and add the `Grid` node to your `Window`: 
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
+Open the `MainWindow.xaml` of your project and add the `Grid` node to your `Window`:
 
 ```C#
 <Window
@@ -334,11 +334,11 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following options: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ### Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
+Initialize a `CallAgent` instance with a User Access Token, which enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
 In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
 
@@ -397,8 +397,8 @@ this.DispatcherQueue.TryEnqueue(() => {
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
-You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
+You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-winui-app.png" alt-text="Screenshot showing running the WinUI quickstart app":::

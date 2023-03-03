@@ -20,7 +20,7 @@ The Calling SDK enables end-user devices to drive voice and video communication 
 
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane.
-- **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) which are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
+- **Addressing** - Azure Communication Services provides [generic identities](../identity-model.md), which are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
 - **Notifications** - The Calling SDK provides APIs allowing clients receive a notification of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
@@ -74,7 +74,7 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
-- The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, please visit, [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+- The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 
 ## UI Library
 
@@ -91,7 +91,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
-While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
+While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded.
 
 ## Calling SDK timeouts
 
@@ -123,11 +123,11 @@ The following table represents the set of supported browsers, which are currentl
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
-- iOS or Android not support Outgoing Screen Sharing functionality.
+- iOS or Android not supports Outgoing Screen Sharing functionality.
 - Firefox support is in public preview.
 - ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
-- [An iOS app on Safari can't enumerate or select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) for example, Bluetooth; this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
+- [An iOS app on Safari can't enumerate or select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados), for example, Bluetooth. This issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 
@@ -153,7 +153,7 @@ For local development, you can use `http://localhost`.
 
 ### Embed the Communication Services Calling SDK in an iframe
 
-A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted by various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
+A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is available in various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
 
 If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
 
