@@ -94,8 +94,9 @@ This architecture features two clusters in different resource groups and virtual
 1. Execute the following command and get the entries of worker nodes IPs and FQDNs  `cat /etc/hosts` 
    
 1. Copy those entries and connect to `SECONDARYCLUSTER` and run 
-   `ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
-
+   ```
+   ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
+   ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here. 
 
 1. Save and close the file. 
