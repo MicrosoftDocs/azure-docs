@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 01/27/2023
+ms.date: 03/02/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -439,12 +439,13 @@ Please check the pod status and logs to fix this issue, you can also try to upda
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container. The error in this scenario is that this container is crashing when running, which means scoring can't happen. This error happens when:
 
-- There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
-    - A package that was imported but isn't in the conda environment.
+- There's an error in `score.py`. Use `get-logs` to diagnose common problems:
+    - A package that `score.py` tries to import isn't included in the conda environment.
     - A syntax error.
     - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](#deploy-locally) instead.
 - Readiness or liveness probes aren't set up correctly.
+- Container initialization is taking too long so that readiness or liveness probes fail beyond failure threshold. In this case, adjust [probe settings](reference-yaml-deployment-managed-online#probesettings) to allow longer time to initialize the container, or try a bigger VM SKU among [supported VM SKUs](reference-managed-online-endpoints-vm-sku-list) which will accelerate the initialization.
 - There's an error in the environment set up of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
