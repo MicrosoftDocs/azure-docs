@@ -39,7 +39,7 @@ In this mode, you choose when to initiate an update to the scale set instances. 
 
 The Upgrade Policy can be set during scale set creation. Include the Upgrade Policy flag and set it to either Automatic, Rolling or Manual. If using Rolling, include the MaxSurge flag and set it to either true or false. 
 
-#### [CLI](#tab/bash)
+### [CLI](#tab/cli)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
@@ -54,7 +54,7 @@ az vmss create \
     --generate-ssh-keys
 ```
 
-#### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.compute/new-azvmss).
 
 ```azurepowershell-interactive
@@ -68,7 +68,7 @@ New-AzVmss `
     -ImageName "Win2019Datacenter"
 ```
 
-#### [Template](#tab/template)
+### [Template](#tab/template)
 When using an ARM template, add the upgradePolicy to the properties section: 
 
 ```ARM
@@ -89,7 +89,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
-#### [CLI](#tab/bash)
+### [CLI](#tab/cli)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli-interactive
@@ -101,7 +101,7 @@ az vmss update \
     --max-surge true
 ```
 
-#### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
@@ -116,7 +116,7 @@ Set-AzVmssRollingUpgradePolicy `
 Update-AzVMSS -VMScaleSetName $vmss
 ```
 
-#### [Template](#tab/template)
+### [Template](#tab/template)
 
 Add the following to your ARM template: 
 
@@ -141,20 +141,20 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While upgrading, the instances may be restarted.
 
-#### [CLI](#tab/bash)
+### [CLI](#tab/cli)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
-#### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance).
     
 ```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
-#### [REST API](#tab/rest) 
+### [REST API](#tab/rest) 
 Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances).
 
 ```rest
@@ -170,7 +170,7 @@ There's' one type of modification to global scale set properties that doesn't fo
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
 
-#### [CLI](#tab/bash)
+### [CLI](#tab/cli)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
@@ -191,7 +191,6 @@ Reimage a Virtual Machine Scale Set instance using [reimage](/rest/api/compute/v
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
 ```
 ---
-
 
 ## Next steps
 You can also perform common management tasks on scale sets with the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
