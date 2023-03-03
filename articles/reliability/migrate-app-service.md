@@ -24,11 +24,10 @@ An App Service lives in an App Service plan (ASP), and the App Service plan exis
 
 - For App Services that are configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a VM instance capacity larger than three is specified and the number of instances is a multiple of three (3 * N), the instances will be spread evenly. However, if the number of instances is not a multiple of three, the remainder of the instances will get spread across the remaining one or two zones.
 
-> [NOTE!]
+> [!NOTE]
 > [App Service SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) is calculated based on the Maximum Available Minutes and Downtime which is standard irrespective of availability zone enablement. Downtime for the App Service is defined as the following.
 >
 > “Downtime: The total accumulated Deployment Minutes, across all Apps deployed by Customer in a given Microsoft Azure subscription, during which the App is unavailable. A minute is considered unavailable for a given App when there is no connectivity between the App and Microsoft’s Internet gateway.”
-
 
 ## Prerequisites
 
