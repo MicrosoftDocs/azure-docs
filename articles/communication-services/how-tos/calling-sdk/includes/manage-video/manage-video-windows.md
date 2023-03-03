@@ -128,7 +128,7 @@ this.callAgent.OnCallsUpdated += Agent_OnCallsUpdatedAsync;
 this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 ```
 
-`<AUTHENTICATION_TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
+`<AUTHENTICATION_TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.
 
 ## Place a 1:1 call with video camera
 
