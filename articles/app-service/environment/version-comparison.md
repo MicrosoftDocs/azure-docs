@@ -4,7 +4,9 @@ description: This article provides an overview of the App Service Environment ve
 author: seligj95
 ms.date: 3/3/2023
 ms.author: jordanselig
+ms.topic: article
 ---
+# App Service Environment version comparison
 
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over the earlier versions.
 
@@ -16,7 +18,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)  |
-|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](netowrking.md) on the customer's virtual network         |
+|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](networking.md) on the customer's virtual network         |
 |Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
 |Zone redundancy     |No         |No - [zone pinning](zone-redundancy.md) to one zone is available         |[Yes](../../reliability/migrate-app-service-environment.md)         |
 |Dedicated host group     |No         |No         |Yes (not compatible with zone redundancy)         |
@@ -49,7 +51,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 App Service Environment v1 and v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following table lists the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 to ensure you aren't over-provisioned.
 
-|Isolated |Cores    |RAM (GB) |         |Isolated v2|Cores    |RAM (GB) |
+|Isolated |Cores    |RAM (GB) |&rarr;   |Isolated v2|Cores    |RAM (GB) |
 |:-------:|:-------:|:-------:|:-------:|:---------:|:-------:|:-------:|
 |I1       |1        |3.5      |&rarr;   |I1v2       |2        |8        |
 |I2       |2        |7        |&rarr;   |I2v2       |4        |16       |
