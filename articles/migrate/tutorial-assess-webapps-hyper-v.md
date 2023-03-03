@@ -1,15 +1,15 @@
 ---
-title: Tutorial to assess web apps for migration to Azure App Service
-description: Learn how to create assessment for Azure App Service in Azure Migrate
+title: Tutorial to assess web apps for migration to Azure App Service for Hyper-V VMs
+description: Learn how to create assessment for Azure App Service for Hyper-V VMs in Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 06/27/2022
+ms.date: 03/03/2023
 ms.custom: engagement-fy23
 ---
 
 
-# Tutorial: Assess ASP.NET web apps for migration to Azure App Service
+# Tutorial: Assess ASP.NET web apps for migration to Azure App Service for Hyper-V VMs
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md)
+- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-hyper-v.md)
 - If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Run an assessment
@@ -35,17 +35,17 @@ Run an assessment as follows:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Screenshot of dropdown to choose assessment type as Azure App Service.":::
 
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 
 4. Select **Edit** to review the assessment properties.
 
-     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
+     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Screenshot of Edit button from where assessment properties can be customized.":::
 
 5. Here's what's included in Azure App Service assessment properties:
 
@@ -70,11 +70,11 @@ Run an assessment as follows:
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Screenshot of Refresh discovery and assessment tool data.":::
 
 1. Select the number next to Azure App Service assessment.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Screenshot of Navigating to created assessment.":::
 
 1. Select the assessment name, which you wish to view.
 
@@ -85,7 +85,7 @@ Run an assessment as follows:
 1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Azure App Service assessment.
 2. Select the assessment name, which you wish to view.
 
-  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview.":::
+  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="Screenshot of App Service assessment overview.":::
 
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
@@ -102,7 +102,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
 
 1. Select **Azure App Service readiness**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Screenshot of Azure App Service readiness details.":::
 
 1. Review Azure App Service readiness column in table, for the assessed web apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
@@ -138,9 +138,9 @@ I1  | 8
 P1v2  | 8
 P1v3  | 16
 
-:::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Cost details":::
+:::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Screenshot of Cost details.":::
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
 - [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.
