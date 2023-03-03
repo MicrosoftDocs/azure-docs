@@ -125,7 +125,7 @@ string resourceEndpoint = "<ACS_RESOURCE_ENDPOINT>";
 EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new DefaultAzureCredential());
 ```
 
-## Contruct your email message
+## Construct your email message
 
 To send an Email message, you need to
 - Define the email subject and body  
