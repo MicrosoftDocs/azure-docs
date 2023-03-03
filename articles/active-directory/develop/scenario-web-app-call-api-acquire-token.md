@@ -182,21 +182,23 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # [Python](#tab/python)
 
-In the Python sample, the code that calls Microsoft Graph is in [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+In the Python sample, the code that calls the API is in [app.py#L56-67](TODO).
 
-The code attempts to get a token from the token cache. Then, after setting the authorization header, it calls the web API. If it can't get a token, it signs the user in again.
+The code attempts to get a token from the token cache. If it can't get a token, it redirects the user to the sign-in route. Otherwise, it can proceed to call the API.
 
 ```python
-@app.route("/graphcall")
-def graphcall():
-    token = _get_token_from_cache(app_config.SCOPE)
-    if not token:
+@app.route("/call_downstream_api")
+def call_downstream_api():
+    token = auth.get_token_for_user(app_config.SCOPE)
+    if "error" in token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service.
+    # Use access token to call downstream api
+    api_result = requests.get(
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
-        ).json()
-    return render_template('display.html', result=graph_data)
+        timeout=30,
+    ).json()
+    return render_template('display.html', result=api_result)
 ```
 
 ---

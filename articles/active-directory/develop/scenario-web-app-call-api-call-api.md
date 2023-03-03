@@ -180,16 +180,18 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 # [Python](#tab/python)
 
 ```python
-@app.route("/graphcall")
-def graphcall():
-    token = _get_token_from_cache(app_config.SCOPE)
-    if not token:
+@app.route("/call_downstream_api")
+def call_downstream_api():
+    token = auth.get_token_for_user(app_config.SCOPE)
+    if "error" in token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service.
+    # Use access token to call downstream api
+    api_result = requests.get(
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
-        ).json()
-    return render_template('display.html', result=graph_data)
+        timeout=30,
+    ).json()
+    return render_template('display.html', result=api_result)
 ```
 
 ---
