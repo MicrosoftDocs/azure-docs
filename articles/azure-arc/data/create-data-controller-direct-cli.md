@@ -34,7 +34,7 @@ Creating an Azure Arc data controller in direct connectivity mode involves the f
 You can create them individually or in a unified experience. 
 --->
 
-## Deploy - unified experience
+<!--- ## Deploy - unified experience --->
 
 <!--- In the unified experience, you can ---> Create the Arc data controller extension, custom location, and Arc data controller all in one command as follows: 
 
