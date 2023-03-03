@@ -73,7 +73,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe"--runtime "NODE:16-lts"
@@ -101,7 +101,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
@@ -140,7 +140,9 @@ Browse to the frontend app and return the _fake_ profile from the backend. This 
 1. Select the `Get user's profile` link. 
 1. View the _fake_ profile returned from the backend web app. 
 
-    :::image type="content" source="./media/tutorial-auth-app/app-profiile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
+    :::image type="content" source="./media/tutorial-auth-aad/app-profile-without-authentication.png" alt-text="Screenshot of browser with fake profile returned from server.":::
+
+    The `withAuthentication` value of false indicates the authentication isn't set up yet. 
 
 ## Configure authentication
 
@@ -247,62 +249,63 @@ Your apps are now configured. The front end is now ready to access the back end 
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-## Call the authenticated backend
+## Frontend calls the authenticated backend
 
-Use the App Service injected `x-ms-token-aad-access-token` header to programmatically access the user's accessToken.
+The frontend app needs to pass the user's authentication with the correct `user_impersonation` scope to the backend. The following steps review the code provided in the sample for this functionality. 
 
-    ```javascript
-    // Frontend - get access token from injected header
-    let accessToken = req.headers['x-ms-token-aad-access-token'];
-    console.log(`/get-profile:accessToken= ${accessToken}`);
-    if (!accessToken) {
-        return res.render(`${__dirname}/views/profile`, { error: 'Client: No access token found' });
-    }
-    ```
-
-1. The local backend app in Visual Studio Code.
-
-    ```bash
-    cd ../backend && code .
-    ```
+1. Use the frontend App Service injected `x-ms-token-aad-access-token` header to programmatically get the user's accessToken.
 
     ```javascript
-    // Backend - get remote profile
-    const bearerToken =
-    req.headers['Authorization'] || req.headers['authorization'];
-    console.log(`bearerToken: ${bearerToken}`);
-    
-    const accessToken = bearerToken.split(' ')[1];
-    console.log(`accessToken: ${accessToken}`);
-    
-    function validAccessToken(accessToken) {
-        // access token validation removed for brevity
-        return true;
-    }
-    
-    // headers, bearerToken, and env returned for debugging only
-    if (accessToken && validAccessToken(accessToken)) {
-        return res.status(200).json({
-            route: '/profile success',
-            profile: {
-                displayName: 'John Doe',
-            },
-            headers: req.headers, //
-            bearerToken,
-            env: process.env,
-            error: null,
-        });
+    // ./src/server.js
+    const accessToken = req.headers['x-ms-token-aad-access-token'];
+    ```
+
+1. Use the accessToken in the `Authentication` header as the `bearerToken` value. 
+
+    ```javascript
+    // ./src/remoteProfile.js
+    // Get profile from backend
+    const response = await fetch(remoteUrl, {
+        cache: "no-store", // no caching -- for demo purposes only
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+    if (response.ok) {
+        const apiResponse = await response.json();
+        console.log(`profile: ${JSON.stringify(apiResponse?.profile)}`);
     } else {
-        return res.status(200).json({
-            route: '/profile failure - empty or invalid accessToken',
-            profile: null,
-            headers: req.headers, //
-            bearerToken,
-            env: process.env,
-            error: 'empty or invalid accessToken',
-        });
+        // error handling
     }
     ```
+
+
+## <a name="#call-api-securely-from-server-code"></a>Backend returns profile to frontend
+
+The App service rejects the request with a 401 HTTP error code before the request reaches your application code. When your application code is reached, extract the bearerToken to get the accessToken. 
+
+The local backend app in Visual Studio Code.
+
+```javascript
+// ./src/server.js
+const bearerToken = req.headers['Authorization'] || req.headers['authorization'];
+
+if (bearerToken) {
+    const accessToken = bearerToken.split(' ')[1];
+    console.log(`backend server.js accessToken: ${!!accessToken ? 'found' : 'not found'}`);
+
+    // TODO: get profile from Graph API
+    // provided in next article in this series
+    // return await getProfileFromMicrosoftGraph(accessToken)
+
+    // return fake profile for this tutorial
+    return {
+        "displayName": "John Doe",
+        "withAuthentication": !!accessToken ? true : false
+    }
+}
+```
 
 ## Browse to the apps
 
@@ -397,12 +400,6 @@ In the preceding steps, you created Azure resources in a resource group.
     ```azurecli-interactive
     
     ```
-
-## Troubleshooting
-
-az account set --subscription bb881e62-cf77-4d5d-89fb-29d71e930b66
-az configure --defaults group=diberry-app-service-aad
-az webapp list-runtimes
 
 <a name="next"></a>
 ## Next steps
