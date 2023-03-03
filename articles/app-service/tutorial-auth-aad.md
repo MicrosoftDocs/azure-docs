@@ -208,11 +208,11 @@ Now that you've enabled authentication and authorization to both of your apps, e
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
-In this step, you **grant the front-end app access to the backend app** on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
+In this step, you **grant the frontend app access to the backend app** on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-1. In the **Authentication** page for the front-end app, select your front-end app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
+1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
+1. Select **Add a permission**, then select **My APIs** > **\backend-<ABC>**.
 
 1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -220,14 +220,14 @@ In this step, you **grant the front-end app access to the backend app** on the u
 
 ### Configure App Service to return a usable access token
 
-The front-end app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
+The frontend app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
-In the Cloud Shell, run the following commands on the front-end app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\<front-end-app-name>* and *\<back-end-client-id>*.
+In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\frontend-<ABC>* and *\<back-end-client-id>*.
 
 ```azurecli-interactive
-authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
+authSettings=$(az webapp auth show -g myAuthResourceGroup -n frontend-<ABC>)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}')
-az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
+az webapp auth set --resource-group myAuthResourceGroup --name frontend-<ABC> --body "$authSettings"
 ```
 
 The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
@@ -239,7 +239,7 @@ The commands effectively add a `loginParameters` property with additional custom
 > [!TIP]
 > - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
 > - To configure the required scopes using a web interface instead, see the Microsoft steps at [Refresh auth tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
-> - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
+> - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the frontend app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
 ::: zone pivot="platform-linux"
 
@@ -309,7 +309,7 @@ if (bearerToken) {
 
 ## Browse to the apps
 
-1. Use the frontend web site in a browser. The URL is in the formate of `https://<FRONTEND-APP-NAME>.azurewebsites.net/`.
+1. Use the frontend web site in a browser. The URL is in the formate of `https://frontend-<ABC>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
 1. After authentication completes, the frontend application returns the home page of the app.
 
@@ -337,7 +337,7 @@ The authentication in this procedure is provided at the hosting platform layer b
 The frontend and backend apps both have `/debug` routes to help debug the authentication when this application doesn't return the _fake_ profile. The frontend debug route provides the critical pieces to validate:
 
 * Environment variables: 
-    * The `BACKEND_URL` is configured correctly as `https://<YOUR-BACKEND_APP_NAME>..azurewebsites.net`. Don't include that trailing forward slash or the route.
+    * The `BACKEND_URL` is configured correctly as `https://backend-<ABC>.azurewebsites.net`. Don't include that trailing forward slash or the route.
 * HTTP headers:
     * The `x-ms-token-*` headers are injected. 
 * Microsoft Graph profile name for signed in user is displayed.
