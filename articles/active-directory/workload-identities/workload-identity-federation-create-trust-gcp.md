@@ -2,7 +2,7 @@
 title: Access Azure resources from Google Cloud without credentials
 description: Access Azure AD protected resources from a service running in Google Cloud without using secrets or certificates.  Use workload identity federation to set up a trust relationship between an app in Azure AD and an identity in Google Cloud. The workload running in Google Cloud can get an access token from Microsoft identity platform and access Azure AD protected resources.
 services: active-directory
-author: OwenRichards1
+author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/06/2023
-ms.author: owenrichards
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: udayh
 #Customer intent: As an application developer, I want to create a trust relationship with a Google Cloud identity so my service in Google Cloud can access Azure AD protected resources without managing secrets.
@@ -24,7 +24,7 @@ Software workloads running in Google Cloud need an Azure Active Directory (Azure
 
 ## Create an app registration in Azure AD
 
-[Create an app registration](quickstart-register-app.md) in Azure AD. 
+[Create an app registration](/azure/active-directory/develop/quickstart-register-app.md) in Azure AD. 
 
 Take note of the *object ID* of the app (not the application (client) ID) which you need in the following steps.  Go to the [list of registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal, select your app registration, and find the **Object ID** in **Overview**->**Essentials**.
 
@@ -170,7 +170,7 @@ private String getGoogleIdToken() throws IOException {
 
 ### Exchange the identity token for an Azure AD access token
 
-Now that your app running in Google Cloud has an identity token from Google, exchange it for an access token from Microsoft identity platform. Use the [Microsoft Authentication Library (MSAL)](msal-overview.md) to pass the Google token as a client assertion. The following MSAL versions support client assertions:
+Now that your app running in Google Cloud has an identity token from Google, exchange it for an access token from Microsoft identity platform. Use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to pass the Google token as a client assertion. The following MSAL versions support client assertions:
 - [MSAL Go (Preview)](https://github.com/AzureAD/microsoft-authentication-library-for-go)
 - [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node)
 - [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)

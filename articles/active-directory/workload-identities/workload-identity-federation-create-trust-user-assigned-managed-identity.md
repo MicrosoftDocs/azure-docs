@@ -2,7 +2,7 @@
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
 description: Set up a trust relationship between a user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
-author: davidmu1
+author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/19/2023
-ms.author: davidmu
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
@@ -591,4 +591,4 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Next steps
 
-- For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
+- For information about the required format of JWTs created by external identity providers, read about the [assertion format](/azure/active-directory/develop/active-directory-certificate-credentials#assertion-format).

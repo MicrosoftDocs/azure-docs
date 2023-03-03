@@ -23,3 +23,7 @@
         href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
+- name: Reference
+  items:
+    - name: Federated identity credentials considerations and limitations
+      href: workload-identity-federation-considerations.md

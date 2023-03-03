@@ -773,9 +773,7 @@
             - name: Signing key rollover
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
-              href: userinfo.md
-            - name: Federated identity credentials considerations and limitations
-              href: workload-identity-federation-considerations.md
+              href: userinfo.md            
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
