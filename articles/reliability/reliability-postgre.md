@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Database for PostgreSQL - Flexi
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: conceptual
-ms.service: azure-functions
+ms.service: postgresql
 ms.custom: references_regions, subject-reliability
 ms.date: 02/28/2023
 ---
