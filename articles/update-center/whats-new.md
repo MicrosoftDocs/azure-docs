@@ -1,10 +1,11 @@
 ---
 title: What's new in Update management center (Preview)
 description: Learn about what's new and recent updates in the Update management center (Preview) service.
+ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/03/20223
+ms.date: 03/03/2023
 ---
 
 # What's new in Update management center (Preview)
