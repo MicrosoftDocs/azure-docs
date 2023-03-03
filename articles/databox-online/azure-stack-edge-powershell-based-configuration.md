@@ -1075,6 +1075,7 @@ The example below shows a static ACS configuration, followed by an example that 
     acsVIP                       nfsVIP
     ------                       ------
     @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File Syst...
+    }
     ```
 
 1. Fetch the updated `DeviceVIP` configuration.
@@ -1146,49 +1147,21 @@ The example below shows a DHCP configuration.
     Get-DeviceVip | to-json
     ```
 
-1. Set the `DeviceVIP` property with DHCP enabled.
-
-    ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
-    ```
-
-1. Update the device with the `DeviceVIP` property.
-
-    ```azurepowershell
-    Set-DeviceVip -vip $acsVip
-    ```	
-
-    Here is sample output:
-
-    ```output
-    acsVIP                                                                                         nfsVIP
-    ------                                                                                         ------
-    @{type=ACS; name=Azure Consistent Services; address=192.168.2.8; network=; isDhcpEnabled=True} @{ty...
-
-    PS C:\>
-    ```
-
-1.	Fetch the updated `DeviceVIP` configuration.
-
-    ```azurepowershell
-    Get-DeviceVip | to-json
-    ```
-
-    Here is sample output:
+    Here's sample output showing **nfsVIP setting "isDhcpEnabled":  false** on the device:
 
     ```output
     {
     "acsVIP":  {
                    "type":  "ACS",
                    "name":  "Azure Consistent Services",
-                   "address":  "192.168.2.8",
+                   "address":  "192.168.181.10",
                    "network":  {
                                    "name":  "Cluster Network 1",
                                    "address":  "192.168.0.0",
                                    "subnet":  "255.255.0.0",
                                    "dhcpEnabled":  true
                                },
-                   "isDhcpEnabled":  true
+                   "isDhcpEnabled":  false
                },
     "nfsVIP":  {
                    "type":  "NFS",
@@ -1205,7 +1178,91 @@ The example below shows a DHCP configuration.
                                 "dhcpEnabled":  true
                             },
                             {
-                                "name":  "Cluster Network 4",
+                                "name":  "Cluster Network 2",
+                                "address":  "10.139.218.0",
+                                "subnet":  "255.255.255.0",
+                                "dhcpEnabled":  false
+                            },
+                            {
+                                "name":  "Cluster Network 3",
+                                "address":  "10.126.72.0",
+                                "subnet":  "255.255.248.0",
+                                "dhcpEnabled":  true
+                            }
+                        ]
+    }
+    ```
+
+1. Set the `DeviceVIP` property to enable DHCP.
+
+    ```azurepowershell
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    ```
+
+1. Update the device with the `DeviceVIP` property.
+
+    ```azurepowershell
+    Set-DeviceVip -vip $nfsVip
+    ```	
+
+    Here's sample output:
+
+    ```output
+    acsVIP                                                                                             nfsVIP
+    ------                                                                                             ------
+    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File System; address=192.168.3.63; network=; ...
+    }
+    ```
+
+1.	Fetch the updated `DeviceVIP` configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+    Here's sample output:
+
+    ```output
+    {
+    "acsVIP":  {
+                   "type":  "ACS",
+                   "name":  "Azure Consistent Services",
+                   "address":  "192.168.181.10",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  true
+                               },
+                   "isDhcpEnabled":  false
+               },
+    "nfsVIP":  {
+                   "type":  "NFS",
+                   "name":  "Network File System",
+                   "address":  "192.168.3.63",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  true
+                               },
+                   "isDhcpEnabled":  true
+               },
+    "clusterNetworks":  [
+                            {
+                                "name":  "Cluster Network 1",
+                                "address":  "192.168.0.0",
+                                "subnet":  "255.255.0.0",
+                                "dhcpEnabled":  true
+                            },
+                            {
+                                "name":  "Cluster Network 2",
+                                "address":  "10.139.218.0",
+                                "subnet":  "255.255.255.0",
+                                "dhcpEnabled":  false
+                            },
+                            {
+                                "name":  "Cluster Network 3",
                                 "address":  "10.126.72.0",
                                 "subnet":  "255.255.248.0",
                                 "dhcpEnabled":  true
@@ -1213,6 +1270,7 @@ The example below shows a DHCP configuration.
                         ]
     }
     PS C:\>
+ 
     ```
 
 ## Troubleshooting
