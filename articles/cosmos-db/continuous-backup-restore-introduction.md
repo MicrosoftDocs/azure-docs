@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 03/02/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, ignite-2022
@@ -43,7 +43,7 @@ By default, Azure Cosmos DB stores continuous mode backup data in locally redund
 
 In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within 100 seconds. If the Azure Storage backup media is down or unavailable, the mutations are persisted locally until the media is available. Then the mutations are flushed out to prevent any loss in fidelity of operations that can be restored.
 
-You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored.
+You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored. The newly restored database account’s consistency setting will be same as the source database account’s consistency settings.  
 
 > [!NOTE]
 > With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](/azure/architecture/reliability/architect) feature enabled for that region. The restore action always restores data into a new account.
@@ -52,13 +52,12 @@ You can choose to restore any combination of provisioned throughput containers, 
 
 The following configurations aren't restored after the point-in-time recovery:
 
-* Firewall, VNET, Data plane RBAC or private endpoint settings.
-* Consistency settings. By default, the account is restored with session consistency.  
+* Firewall, VNET, Data plane RBAC or private endpoint settings. 
 * Regions.
 * Stored procedures, triggers, UDFs.
 * Role-based access control assignments. These will need to be re-assigned.
 
-You can add these configurations to the restored account after the restore is completed.
+You can add these configurations to the restored account after the restore is completed. An ability to prevent public access to restored account is described [here-to-befilled with url]().
 
 ## Restorable timestamp for live accounts
 
