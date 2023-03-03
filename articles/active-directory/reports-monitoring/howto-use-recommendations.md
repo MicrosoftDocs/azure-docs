@@ -41,6 +41,8 @@ Some recommendations may require a P2 or other license. Refer to the [Recommenda
 
 ## How to read a recommendation
 
+To view the details of a recommendation, sign in to Azure using a least-privileged role for read-only access.
+
 Each recommendation provides the same set of details that explain what the recommendation is, why it's important, and how to fix it.
 
 The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
@@ -53,7 +55,7 @@ The **Priority** of a recommendation could be low, medium, or high. These values
 
 The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
 
-![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/overview-recommendations/recommendation-status-risk.png)
+![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/howto-use-recommendations/recommendation-status-risk.png)
 
 The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
 
