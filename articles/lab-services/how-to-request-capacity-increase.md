@@ -36,7 +36,7 @@ Before you begin your request for a core limit increase, you should make sure th
 
 Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-## Determine the number of VM cores in your request
+### Determine the number of VM cores in your request
 
 In your support request, you need to provide the number of additional VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
 
@@ -60,17 +60,21 @@ To create a request for Azure Lab Services capacity, you need to have a lab plan
 
 Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
 
+### Determine the regions for your labs
+
+Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+
 ### Determine the number of VM cores in your request
 
 In your support request, you need to provide the total number of cores. This total includes both your existing number of cores, and the cores you want to add.
 
 Azure Lab Services groups VM sizes together in size groups:
 
-- Small / Medium / Large Cores
-- Medium (Nested Virtualization) / Large (Nested Virtualization) Cores
-- Small (GPU Compute) Cores
-- Small GPU (Visualization) Cores
-- Medium GPU (Visualization) Cores
+- Small / Medium / Large cores
+- Medium (Nested Virtualization) / Large (Nested Virtualization) cores
+- Small (GPU Compute) cores
+- Small GPU (Visualization) cores
+- Medium GPU (Visualization) cores
 
 You request VM cores for a specific Azure region. When you select the region in the support request, you can view your current usage and limit per size group.
 
