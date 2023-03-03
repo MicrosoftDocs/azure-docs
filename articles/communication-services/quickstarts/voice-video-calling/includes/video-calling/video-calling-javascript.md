@@ -19,13 +19,13 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -511,7 +511,7 @@ Open your browser and on two tabs navigate to http://localhost:8080/.You should 
 
 On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token.
 
-Refer to the [user access token documentation](../../../access-tokens.md), if you don't already have tokens available to use.
+Refer to the [user access token documentation](../../../identity/access-tokens.md), if you don't already have tokens available to use.
 
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following screen:
 
