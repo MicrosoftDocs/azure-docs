@@ -36,7 +36,7 @@ Choose the log category and metric category you want to monitor.
 |Log | Description |
 |----|----|
 | **ApplicationConsole** | Console log of all customer applications. |
-| **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. All available LogTypes are `ConfigServer`(Basic/Standard tier only), `ServiceRegistry`(all tiers), `ApiPortal`(Enterprise tier only), `ApplicationConfigurationService`(Enterprise tier only), `SpringCloudGateway` (Enterprise tier only), `SpringCloudGatewayOperator` (Enterprise tier only) |
+| **SystemLogs** | All available LogTypes are `ConfigServer`(Basic/Standard tier only), `ServiceRegistry`(all tiers), `ApiPortal`(Enterprise tier only), `ApplicationConfigurationService`(Enterprise tier only), `SpringCloudGateway` (Enterprise tier only), `SpringCloudGatewayOperator` (Enterprise tier only) |
 | **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs. |
 | **BuildLogs** | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage. |
 
