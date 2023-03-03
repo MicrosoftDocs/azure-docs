@@ -36,9 +36,9 @@ Before you begin your request for a core limit increase, you should make sure th
 
 Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-## Determine the total number of cores in your request
+## Determine the number of VM cores in your request
 
-In your support request, you need to provide the total number of additional VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request additional VM cores for a specific size group.
+In your support request, you need to provide the number of additional VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
 
 - Small / Medium / Large cores
 - Medium (Nested Virtualization) / Large (Nested Virtualization) cores
@@ -48,7 +48,7 @@ In your support request, you need to provide the total number of additional VM c
 
 To determine the total number of cores for your request: `total VM cores = (# cores for the selected VM size) * (# VMs)`
 
-For example, you need additional capacity for 20 *Medium* VMs. The total number of VM cores for 20 Medium VMs is 80 (4 cores per VM * 20).
+For example, you need more capacity for 20 *Medium* VMs. The total number of VM cores for 20 Medium VMs is 80 (4 cores per VM * 20).
 
 ## [Lab Plans - August 2022 version](#tab/Labplans/)
 
@@ -58,11 +58,11 @@ To create a request for Azure Lab Services capacity, you need to have a lab plan
 
 ### Verify available capacity
 
-Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You'll be able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
+Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
 
-### Determine the total number of cores in your request
+### Determine the number of VM cores in your request
 
-In the request for additional VM cores, you need to calculate the total number of cores. This total includes both your existing number of cores, and the cores you want to add.
+In your support request, you need to provide the total number of cores. This total includes both your existing number of cores, and the cores you want to add.
 
 Azure Lab Services groups VM sizes together in size groups:
 
@@ -76,7 +76,7 @@ You request VM cores for a specific Azure region. When you select the region in 
 
 To determine the total number of cores for your request: `total VM cores = (current # cores for the size group) + ((# cores for the selected VM size) * (# VMs))`
 
-For example, you need additional capacity for 20 *Medium* VMs. You already have the following VMs:
+For example, you need more capacity for 20 *Medium* VMs. You already have the following VMs:
 
 | VM size   | Cores per VM | # VMs | Total cores |
 | --------- | -----------: | ----: | ----------: |
@@ -87,24 +87,6 @@ For example, you need additional capacity for 20 *Medium* VMs. You already have 
 The current #cores for the Small/Medium/Large size group is 20 (Small) + 80 (Medium) = 100 cores. You don't count the *Small GPU* cores because they're in a different size group.
 
 The total number of VMs for 20 additional Medium VMs is then 100 + (4 cores per Medium VM) * 20 = 180 cores.
-
-1. **Select the VM size you want** 
-
-    In the virtual machine size list, select the VM size you want to use:
- 
-    :::image type="content" source="./media/how-to-request-capacity-increase/multiple-sku.png" alt-text="Screenshot showing the core increase request with a virtual machine size selected.":::
- 
-1. **Next calculate the total cores needed for the VM size**
-
-    Using the figures in the table above and the number of cores per VM size in the dropdown, you can calculate the total number of cores as shown:
-
-    - *Small:* 40 small VMs x 2 cores = 80 cores
-
-1. **Enter the resulting total number of cores in your request**
- 
-     :::image type="content" source="./media/how-to-request-capacity-increase/total-cores-grouped.png" alt-text="Screenshot showing the total number of cores in each group.":::
-
-Remember that the total number of cores includes both the existing cores and the new cores you're requesting.
 
 ---
 
@@ -136,7 +118,7 @@ You can follow these steps to request a core limit increase:
 
 When you request core limit increase, you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team is able to process your request. 
 
-Depending on whether you user lab accounts or lab plans, you need to provide different information on the **Quota details** page.
+Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
 
 #### [Lab Account (Classic) - May 2019 version](#tab/LabAccounts/)
 
@@ -162,13 +144,13 @@ Depending on whether you user lab accounts or lab plans, you need to provide dif
 | --------- | --------- |
 | **Deployment Model** | *Lab Plan*|
 | **Region** | Select the region in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies) where you want the extra cores. |
-| **Does you virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
+| **Does your virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
 | **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
-| **Requested total core limit** | Enter the total number of cores you require. This includes your existing cores + the number of additional cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
+| **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of additional cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
 
 ---
 
-When you've entered the required information and any additional details, select **Save and continue**.
+When you've entered the required information and any extra details, select **Save and continue**.
 
 ## Complete the support request
 
