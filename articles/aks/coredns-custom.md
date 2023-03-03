@@ -4,7 +4,7 @@ description: Learn how to customize CoreDNS to add subdomains or extend custom D
 ms.subservice: aks-networking
 author: asudbring
 ms.topic: how-to
-ms.date: 03/15/2019
+ms.date: 03/03/2023
 ms.author: allensu
 
 #Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network
@@ -12,159 +12,177 @@ ms.author: allensu
 
 # Customize CoreDNS with Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) uses the [CoreDNS][coredns] project for cluster DNS management and resolution with all *1.12.x* and higher clusters. Previously, the kube-dns project was used. This kube-dns project is now deprecated. For more information about CoreDNS customization and Kubernetes, see the [official upstream documentation][corednsk8s].
+Azure Kubernetes Service (AKS) uses the [CoreDNS][coredns] project for cluster DNS management and resolution with all *1.12.x* and higher clusters. For more information about CoreDNS customization and Kubernetes, see the [official upstream documentation][corednsk8s].
 
-As AKS is a managed service, you cannot modify the main configuration for CoreDNS (a *CoreFile*). Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default AKS CoreDNS ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
+AKS is a managed service, so you can't modify the main configuration for CoreDNS (a *CoreFile*). Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default AKS CoreDNS ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
-This article shows you how to use ConfigMaps for basic customization options of CoreDNS in AKS. This approach differs from configuring CoreDNS in other contexts such as using the CoreFile. Verify the version of CoreDNS you are running as the configuration values may change between versions.
+This article shows you how to use ConfigMaps for basic CoreDNS customization options of in AKS. This approach differs from configuring CoreDNS in other contexts, such as CoreFile.
 
 > [!NOTE]
-> `kube-dns` offered different [customization options][kubednsblog] via a Kubernetes config map. CoreDNS is **not** backwards compatible with kube-dns. Any customizations you previously used must be updated for use with CoreDNS.
+> Previously, kube-dns was used for cluster DNS management and resolution, but it's now deprecated. `kube-dns` offered different [customization options][kubednsblog] via a Kubernetes config map. CoreDNS is **not** backwards compatible with kube-dns. Any customizations you previously used must be updated for CoreDNS.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+* This article assumes that you have an existing AKS cluster. If you need an AKS cluster, you can create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
+* Verify the version of CoreDNS you're running. The configuration values may change between versions.
+* When creating a configuration like the examples below, your names in the *data* section must end in either *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
-When creating a configuration like the examples below, your names in the *data* section must end in either *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS Configmap which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
-
-## What is supported/unsupported
+## Plugin support
 
 All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported.
 
 ## Rewrite DNS
 
-One scenario you have is to perform on-the-fly DNS name rewrites. In the following example, replace `<domain to be written>` with your own fully qualified domain name. Create a file named `corednsms.yaml` and paste the following example configuration:
+You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  test.server: | # you may select any name here, but it must end with the .server file extension
-    <domain to be rewritten>.com:53 {
-    log
-    errors
-    rewrite stop {
-      name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
-      answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
-    }
-    forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
-    }
-```
+1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to replace `<domain to be rewritten>` with your own fully qualified domain name.
 
-> [!IMPORTANT]
-> If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: coredns-custom
+    namespace: kube-system
+  data:
+    test.server: | # you may select any name here, but it must end with the .server file extension
+      <domain to be rewritten>.com:53 {
+      log
+      errors
+      rewrite stop {
+        name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+        answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
+      }
+      forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
+      }
+  ```
 
-Create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest:
+  > [!IMPORTANT]
+  > If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
 
-```console
-kubectl apply -f corednsms.yaml
-```
+2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-To verify the customizations have been applied, use the [kubectl get configmaps][kubectl-get] and specify your *coredns-custom* ConfigMap:
+  ```console
+  kubectl apply -f corednsms.yaml
+  ```
 
-```
-kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
-```
+3. Verify the customizations have been applied using the [`kubectl get configmaps`][kubectl-get] and specify your *coredns-custom* ConfigMap.
 
-Now force CoreDNS to reload the ConfigMap. The [kubectl delete pod][kubectl delete] command isn't destructive and doesn't cause down time. The `kube-dns` pods are deleted, and the Kubernetes Scheduler then recreates them. These new pods contain the change in TTL value.
+  ```console
+  kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
+  ```
 
-```console
-kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-```
+4. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] command and the `kube-dns` label. This command isn't destructive and doesn't cause downtime. It deletes the `kube-dns` pods, and then the Kubernetes Scheduler recreates them. The new pods contain the change in TTL value.
 
-> [!Note]
-> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** label.
+  ```console
+  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+  ```
 
 ## Custom forward server
 
-If you need to specify a forward server for your network traffic, you can create a ConfigMap to customize DNS. In the following example, update the `forward` name and address with the values for your own environment. Create a file named `corednsms.yaml` and paste the following example configuration:
+If you need to specify a forward server for your network traffic, you can create a ConfigMap to customize DNS.
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  test.server: | # you may select any name here, but it must end with the .server file extension
-    <domain to be rewritten>.com:53 {
-        forward foo.com 1.1.1.1
-    }
-```
+1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to replace the `forward` name and the address with the values for your own environment.
 
-As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: coredns-custom
+    namespace: kube-system
+  data:
+    test.server: | # you may select any name here, but it must end with the .server file extension
+      <domain to be rewritten>.com:53 {
+          forward foo.com 1.1.1.1
+      }
+  ```
 
-```console
-kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
-```
+2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+
+  ```console
+  kubectl apply -f corednsms.yaml
+  ```
+
+3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+
+  ```console
+  kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+  ```
 
 ## Use custom domains
 
 You may want to configure custom domains that can only be resolved internally. For example, you may want to resolve the custom domain *puglife.local*, which isn't a valid top-level domain. Without a custom domain ConfigMap, the AKS cluster can't resolve the address.
 
-In the following example, update the custom domain and IP address to direct traffic to with the values for your own environment. Create a file named `corednsms.yaml` and paste the following example configuration:
+1. Create a new file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address to direct traffic to with the values for your own environment.
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  puglife.server: | # you may select any name here, but it must end with the .server file extension
-    puglife.local:53 {
-        errors
-        cache 30
-        forward . 192.11.0.1  # this is my test/dev DNS server
-    }
-```
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: coredns-custom
+    namespace: kube-system
+  data:
+    puglife.server: | # you may select any name here, but it must end with the .server file extension
+      puglife.local:53 {
+          errors
+          cache 30
+          forward . 192.11.0.1  # this is my test/dev DNS server
+      }
+  ```
 
-As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
+2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-```console
-kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
-```
+  ```console
+  kubectl apply -f corednsms.yaml
+  ```
+
+3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+
+  ```console
+  kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+  ```
 
 ## Stub domains
 
-CoreDNS can also be used to configure stub domains. In the following example, update the custom domains and IP addresses with the values for your own environment. Create a file named `corednsms.yaml` and paste the following example configuration:
+CoreDNS can also be used to configure stub domains.
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  test.server: | # you may select any name here, but it must end with the .server file extension
-    abc.com:53 {
-        errors
-        cache 30
-        forward . 1.2.3.4
-    }
-    my.cluster.local:53 {
-        errors
-        cache 30
-        forward . 2.3.4.5
-    }
+1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domains and IP addresses with the values for your own environment.
 
-```
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: coredns-custom
+    namespace: kube-system
+  data:
+    test.server: | # you may select any name here, but it must end with the .server file extension
+      abc.com:53 {
+          errors
+          cache 30
+          forward . 1.2.3.4
+      }
+      my.cluster.local:53 {
+          errors
+          cache 30
+          forward . 2.3.4.5
+      }
 
-As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
+    ```
 
-```console
-kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
-```
+2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+
+  ```console
+  kubectl apply -f corednsms.yaml
+  ```
+
+3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+
+  ```console
+   kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+   ```
 
 ## Hosts plugin
 
-As all built-in plugins are supported this means that the CoreDNS [Hosts][coredns hosts] plugin is available to customize as well:
+All built-in plugins are supported, so the [CoreDNS hosts][coredns hosts] plugin is available to customize as well.
 
 ```yaml
 apiVersion: v1
@@ -184,7 +202,7 @@ data:
 
 ## Troubleshooting
 
-For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS Resolution][coredns-troubleshooting].
+For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS resolution][coredns-troubleshooting].
 
 To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
 
@@ -199,7 +217,7 @@ data:
         log
 ```
 
-After you apply the configuration changes, use the `kubectl logs` command to view the CoreDNS debug logging. For example:
+After you apply the configuration changes, use the `kubectl logs` command to view the CoreDNS debug logging.
 
 ```console
 kubectl logs --namespace kube-system --selector k8s-app=kube-dns
@@ -215,7 +233,6 @@ To learn more about core network concepts, see [Network concepts for application
 [kubednsblog]: https://www.danielstechblog.io/using-custom-dns-server-for-domain-specific-name-resolution-with-azure-kubernetes-service/
 [coredns]: https://coredns.io/
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
-[dnscache]: https://coredns.io/plugins/cache/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
