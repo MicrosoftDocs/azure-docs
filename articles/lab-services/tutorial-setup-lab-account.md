@@ -42,7 +42,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
 1. On the **Lab account** tile, select **Create** > **Lab account**.
 
-    :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="Screenshot of how to search for and create a lab account by using the Azure Marketplace.":::
+    :::image type="content" source="./media/tutorial-setup-lab-account/select-lab-accounts-service.png" alt-text="Screenshot of how to search for and create a lab account by using the Azure Marketplace.":::
 
 1. On the **Basics** tab of the **Create a lab account** page, provide the following information:
 
