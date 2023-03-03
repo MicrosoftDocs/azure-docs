@@ -116,7 +116,7 @@ Download user credentials again to access your cluster by following the steps in
 
 ## Upgrade to AKS-managed Azure AD integration
 
-If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
