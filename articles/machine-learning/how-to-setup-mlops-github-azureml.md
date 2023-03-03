@@ -35,7 +35,7 @@ In this article, you learn about using Azure Machine Learning to set up an end-t
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Machine Learning](https://azure.microsoft.com/free/).
 - An Azure Machine Learning workspace.
 - Git running on your local machine.
-- Github as the source control repository
+- GitHub as the source control repository
 
 > [!NOTE]
 >
