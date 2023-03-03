@@ -10,7 +10,7 @@ author: dem108
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt, troubleshoot
+ms.custom: UpdateFrequency5, deploy, docker, prebuilt, troubleshoot
 ---
 # Troubleshooting prebuilt docker images for inference
 
