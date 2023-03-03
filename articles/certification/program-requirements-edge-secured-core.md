@@ -281,7 +281,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
-|Requirements dependency||TPM v2.0 device|TPM v2.0,Secure Element|
+|Requirements dependency||TPM v2.0 device|TPM v2.0 or <sup>*<sup>other supported method|
 |Status|Required|2023|2023|
 |Validation Type|Manual/Tools|||
 |Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
@@ -532,8 +532,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
 |Requirements dependency||TPM v2.0 device|TPM v2.0,Secure Element|
 |Status|Required|2023|2023|
-|Validation Type|Manual/Tools|||
-|Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
+|Validation Type|Pre-validated, no additional validation is required|||
+|Validation|Provided by Microsoft|||
 |Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|||
 
 ---
@@ -543,8 +543,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
-|Validation Type|Manual/Tools|
-|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 </br>
@@ -554,8 +554,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft 3rd party</li></ul> |
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources| https://trustedcomputinggroup.org/ |
 
 ---
@@ -565,8 +565,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to validate the boot integrity of the device.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 ---
@@ -577,8 +577,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Dependency||TPM 2.0|To be announced|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
 
 ---
@@ -588,8 +588,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Optional|Comming soon|Comming soon|
 |Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
 
 ## Linux Configuration Requirements
@@ -599,8 +599,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 ---
@@ -610,8 +610,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
-|Validation Type|Manual/Tools|
-Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
 
 ---
@@ -621,8 +621,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of this test is to validate that authorized code runs with least privilege.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 ---
@@ -632,8 +632,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 
@@ -643,8 +643,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
-|Validation Type|Manual/Tools|
-|Validation	|<ol><li>Device must generate security logs and alerts.</li><li>Device logs and alerts messages to Azure Security Center.</li><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
@@ -655,8 +655,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
 |Dependency|azure-osconfig|
-|Validation Type|Manual/Tools|
-|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol>|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 ---
