@@ -48,9 +48,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
-|Target Availability|2022|
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
 |Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
@@ -61,7 +60,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to validate that DMA is not enabled on externally accessible ports.|
 |Requirements dependency|Only if DMA capable ports exist|
 |Validation Type|Manual/Tools|
@@ -73,7 +72,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Firmware.Protection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Requirements dependency|DRTM + UEFI|
 |Validation Type|Manual/Tools|
@@ -85,7 +84,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Firmware.SecureBoot|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Requirements dependency|UEFI|
 |Validation Type|Manual/Tools|
@@ -97,7 +96,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Firmware.Attestation|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Requirements dependency|Azure Attestation Service|
 |Validation Type|Manual/Tools|
@@ -112,7 +111,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure Secure-boot and BitLocker is enabled and bound to PCR7.|
@@ -123,7 +122,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Encryption.TLS|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
 |Requirements dependency|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements may require greater versions for other services. |
 |Validation Type|Manual/Tools|
@@ -135,7 +134,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Protection.CodeIntegrity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of this requirement is to validate that code integrity is available on this device.|
 |Requirements dependency|HVCI is enabled on the device.|
 |Validation Type|Manual/Tools|
@@ -147,7 +146,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|Required|2023|2024|
 |Description|The purpose of the requirement is to validate that services listening for input from the network are not running with elevated privileges.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that 3rd party services accepting network connections are not running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
