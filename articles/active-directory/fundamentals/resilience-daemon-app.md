@@ -14,7 +14,7 @@ ms.date: 03/03/2023
 
 # Increase the resilience of authentication and authorization in daemon applications you develop
 
-Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. This includes background processes, services, server to server apps, and applications without users.
+Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
 
 See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 
@@ -22,13 +22,13 @@ See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 
 ## Managed identities for Azure resources
 
-If you are building daemon apps on Microsoft Azure, use managed identities for Azure resources, which manages secrets and credentials. The feature improves resilience by handling certificate expiry, rotation, or trust. 
+If you're building daemon apps on Microsoft Azure, use managed identities for Azure resources, which handle secrets and credentials. The feature improves resilience by handling certificate expiry, rotation, or trust. 
 
 See, [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
-Managed identities use long-lived access tokens and information from Microsoft identity platform to acquire new tokens before tokens expires. Your app runs while acquiring new tokens.
+Managed identities use long-lived access tokens and information from Microsoft identity platform to acquire new tokens before tokens expire. Your app runs while acquiring new tokens.
 
-Managed identities use regional endpoints which helps prevent out-of-region failures by consolidating service dependencies. Regional endpoints help keep traffic in a geographical area. For example, if your Azure resource is in WestUS2, all traffic stays in WestUS2. 
+Managed identities use regional endpoints, which help prevent out-of-region failures by consolidating service dependencies. Regional endpoints help keep traffic in a geographical area. For example, if your Azure resource is in WestUS2, all traffic stays in WestUS2. 
 
 ## Microsoft Authentication Library
 
@@ -36,7 +36,7 @@ If you develop daemon apps and don't use managed identities, use the Microsoft A
 
 See, [Overview of the Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
 
-### Microsoft.Identity.Web for .NET Developers
+### Microsoft.Identity.Web for .NET developers
 
 If you develop daemon apps on ASP.NET Core, use the Microsoft.Identity.Web library to ease authorization. It includes distributed token cache strategies for distributed apps that run in multiple regions.
 
@@ -51,7 +51,7 @@ If you don't use MSAL for authentication and authorization, there are best pract
 
 An application acquires tokens from an identity provider (IdP) to authorize the application to call protected APIs. When your app receives tokens, the response with the tokens contains an `expires\_in` property that tells the application how long to cache, and reuse, the token. Ensure applications use the `expires\_in` property to determine token lifespan. Confirm application don't attempt to decode an API access token. Using the cached token prevents unnecessary traffic between an app and Microsoft identity platform. Users are signed in to your application for the token's lifetime.
 
-## Error response handling
+## HTTP 429 and 5x error codes
 
 Use the following sections to learn about HTTP 429 and 5x error codes
 
