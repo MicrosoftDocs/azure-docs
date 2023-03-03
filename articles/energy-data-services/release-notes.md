@@ -27,8 +27,7 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 
 ### Product Access Update
 
-Beginning on February 15, 2023, customers of Microsoft Energy Data Services can search for and provision their instances of the product without a request for access. Customers can go directly to the Azure Marketplace to create an instance under their selected subscription.
-
+Azure Data Manager for Energy was avaiable for selected customers during Preview. As of February 15, 2023, customers can search for and provision their instances directly from the Azure Portal [here] (https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview). 
 
 ### Product Billing Update
 
