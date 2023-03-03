@@ -103,7 +103,7 @@ The following scenarios are supported when collaborating with an organization fr
 
 The following limitations apply when collaborating with users from another Microsoft cloud:
 
-- User's from another Microsoft cloud must be invited using their user principal name. [Email as sign in](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not current supported when collaborating with users from antoher Microsoft cloud.
+- User's from another Microsoft cloud must be invited using their user principal name. [Email as sign in](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from antoher Microsoft cloud.
 
 ## Next steps
 
