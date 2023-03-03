@@ -32,7 +32,7 @@ This article details what is communicated to users and where they can view infor
 - Global Admin/Tenant Admin
 - Azure Service Health Privacy reader (New custom role)
 
-## Viewing Impacted Resources for Security Incidents on the Service Health Portal 
+## Viewing Impacted Resources for Security Incidents on the Service Health Portal
 
 In the Azure portal, the Impacted Resources tab under Service Health > Security Advisories displays resources that are affected by a security incident. The following example of the Impacted Resources tab shows an incident with confirmed affected resources.
 
