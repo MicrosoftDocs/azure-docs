@@ -69,15 +69,15 @@ Use the Azure CLI to create an Azure Container Apps Environment with a virtual n
 
 - Install the Azure Spring Apps extension with the following command:
 
-```azurecli
-az extension add --name containerapp --upgrade
-```
+   ```azurecli
+    az extension add --name containerapp --upgrade
+   ```
 
-- Set the following variables names to your settings, or as otherwise specified.
-- `$RESOURCE_GROUP` - The name of the resource group that contains your Azure Spring Apps Instance.
-- `$LOCATION` - Set to `East US`.
-- `$VNET_NAME` - Set to name of virtual network associated with your Azure Spring Apps instance.
-- `$AZURE_CONTAINER_APPS_ENVIRONMENT` - Set to the name to be used for your Azure Container Apps Environment.
+- Set the following variables names:
+  - `$RESOURCE_GROUP` - Set to the name of the resource group that contains your Azure Spring Apps instance.
+  - `$LOCATION` - Set to `East US`.
+  - `$VNET_NAME` - Set to name to be used for the virtual network associated with your Azure Spring Apps instance.
+  - `$AZURE_CONTAINER_APPS_ENVIRONMENT` - Set to the name to be used for your Azure Container Apps Environment.
 
 ## Setup
 
@@ -107,11 +107,11 @@ az extension add --name containerapp --upgrade
 
 1. Set the following environment variables to the variables you defined previously.
 
-```bash
+   ```bash
     RESOURCE_GROUP = $RESOURCE_GROUP
     LOCATION = $LOCATION
     APP_ENVIRONMENT = $AZURE_CONTAINER_APPS_ENVIRONMENT
-```
+   ```
 
 ## Create an environment
 
@@ -119,8 +119,8 @@ An Azure Container Apps Environment creates a secure boundary around a group of 
 
 1. Create an Azure virtual network to associate with the Azure Container Apps Environment. The virtual network must have a subnet available for the environment deployment.
 
-> [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required.
+   > [!NOTE]
+   > You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required.
 
    ```azurecli
     az network vnet create \
@@ -134,25 +134,25 @@ An Azure Container Apps Environment creates a secure boundary around a group of 
     az network vnet subnet create \
     --resource-group $RESOURCE_GROUP \
     --vnet-name $VNET_NAME \
-    --name infrastructure-subnet \
+    --name $INFRASTRUCTURE_SUBNET \
     --address-prefixes 10.0.0.0/23
    ```
 
 1. With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
    ```bash
-    INFRASTRUCTURE_SUBNET = `az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
+    $INFRASTRUCTURE_SUBNET = `az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
    ```
 
 1. Create the Azure Container Apps Environment using the virtual network deployed in the preceding steps.
 
-```azurecli
+   ```azurecli
     az containerapp env create \
     --name $APP_ENVIRONMENT \
     --resource-group $RESOURCE_GROUP \
     --location $LOCATION \
     --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
-```
+   ```
 
 > [!NOTE]
 > You can create an internal Azure Container Apps Environment that doesn't use a public static IP, but rather only internal IP addresses available in the custom virtual network. For more information see [Create an Internal App Environment](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment).
