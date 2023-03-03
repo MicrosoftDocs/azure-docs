@@ -63,11 +63,11 @@ Installing the Chaos agent on Virtual Machine Scale Sets may fail with without s
 1. From the left pane menu, choose **Upgrade policy**.
 1. Check the **Upgrade mode** to see if it's set to **Manual - Existing instances must be manually upgraded**.
 
-If the Upgrade policy is set to **Manual**, you must upgrade your VMSS instances so that Chaos agent installation completes.
+If the Upgrade policy is set to **Manual**, you must upgrade your Virtual Machine Scale Sets instances so that Chaos agent installation completes.
 
 #### Upgrade instances from Azure portal
 
-You can upgrade you Virtual Machine Scale Sets instances from Azure portal:
+You can upgrade your Virtual Machine Scale Sets instances from Azure portal:
 
 1. Log in to Azure portal.
 1. Select **Virtual Machine Scale Set**.
