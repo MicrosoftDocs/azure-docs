@@ -60,7 +60,7 @@ In some scenarios, you might need more setup before you configure the Conditiona
 - **Okta device trust to device-based CA**: Conditional Access offers two possible options when you evaluate a user's device:
 
   - [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
-  - [Enroll the device in Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
+  - [Enroll the device in Microsoft Intune](#configure-device-compliance) and assign a compliance policy.
 
 ### Hybrid Azure AD join configuration
 
@@ -81,7 +81,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 
 ### Configure device compliance
 
-Hybrid Azure AD join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Endpoint Manager:
+Hybrid Azure AD join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Microsoft Intune:
 
 - **Compliance overview**: Refer to [device compliance policies in Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
 - **Device compliance**: Create [policies in Intune](/mem/intune/protect/create-compliance-policy).

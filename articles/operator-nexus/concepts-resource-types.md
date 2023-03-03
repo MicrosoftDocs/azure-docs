@@ -20,34 +20,33 @@ Figure: Resource model
 
 ## Platform components
 
-Your Operator Nexus Cluster (or simply instance) platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
+The Operator Nexus Cluster (or Instance) platform components include the infrastructure and the platform components used to manage these infrastructure resources.
 
-### Network fabric controller
+### Network Fabric controller
 
-The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an Operator Nexus instance.
-The NFC resource is created in the Resource group specified by you in your Azure subscription.
+The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices deployed in an Operator Nexus instance.
 NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
 The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
-An NFC can manage the network fabric of many (subject to limits) Operator Nexus on-premises instances.
+An NFC can manage the network fabric of many (subject to limits) Operator Nexus instances.
 
 ### Network fabric
 
 The Network fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each Operator Nexus instance has one Network fabric.
 
 The Network fabric Controller (NFC) performs the lifecycle management of the network fabric.
-It configures and bootstraps the network fabric resources. 
+It configures and bootstraps the network fabric resources.
 
 ### Cluster manager
 
-A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
+The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
-### Operator nexus cluster
+### Cluster
 
-An Operator Nexus cluster models a collection of racks, bare metal machines, storage, and networking.
-Each cluster (sometimes also referred as Operator Nexus instance) is mapped to the on-premises Network fabric. An Operator Nexus cluster provides a holistic view of the deployed capacity.
-Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. An Operator Nexus cluster is also the basic unit for compute and storage upgrades.
+The Cluster (or Compute Cluster) resource models a collection of racks, bare metal machines, storage, and networking.
+Each cluster is mapped to the on-premises Network fabric. A cluster provides a holistic view of the deployed compute capacity.
+Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. A cluster is also the basic unit for compute and storage upgrades.
 
 ### Network rack
 
