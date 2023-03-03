@@ -53,7 +53,7 @@ While still in the application directory, install the Azure Communication Servic
 pip install azure-communication-phonenumbers==1.1.0b3
 ```
 
-## Authenticate the Client
+## Authenticate the client
 
 The `SipRoutingClient` is enabled to use Azure Active Directory Authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Azure Active Directory and you can install it using the `pip install` command.
 

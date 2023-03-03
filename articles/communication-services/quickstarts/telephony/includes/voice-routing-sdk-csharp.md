@@ -56,7 +56,7 @@ using Azure.Communication.PhoneNumbers.SipRouting;
 
 ## Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
+Sip Routing client can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
 
 ``` csharp
 
