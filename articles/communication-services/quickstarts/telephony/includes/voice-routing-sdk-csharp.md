@@ -82,7 +82,7 @@ Azure Communication Services direct routing allows communication only with regis
 // Register your SBCs by providing their fully qualified domain names and port numbers.
 var usSbcFqdn = "sbc.us.contoso.com";
 var euSbcFqdn = "sbc.eu.contoso.com";
-var sbcPort = 5061;
+var sbcPort = 1234;
 
 var usTrunk = new SipTrunk(usSbcFqdn, sbcPort);
 var euTrunk = new SipTrunk(euSbcFqdn, sbcPort);

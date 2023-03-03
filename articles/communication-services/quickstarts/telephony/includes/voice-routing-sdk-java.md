@@ -132,8 +132,8 @@ Register your SBCs by providing their fully qualified domain names and port numb
 ```java
 
 sipRoutingAsyncClient.setTrunksWithResponse(asList(
-	new SipTrunk("sbc.us.contoso.com", 5999),
-	new SipTrunk("sbc.eu.contoso.com", 5999)
+	new SipTrunk("sbc.us.contoso.com", 1234),
+	new SipTrunk("sbc.eu.contoso.com", 1234)
 )).block();
 
 ```

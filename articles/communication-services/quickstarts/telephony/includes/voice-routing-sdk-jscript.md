@@ -94,10 +94,10 @@ Register your SBCs by providing their fully qualified domain names and port numb
   await client.setTrunks([
     {
       fqdn: 'sbc.us.contoso.com',
-      sipSignalingPort: 5061
+      sipSignalingPort: 1234
     },{
       fqdn: 'sbc.eu.contoso.com',
-      sipSignalingPort: 5061
+      sipSignalingPort: 1234
     }
   ]);
 
