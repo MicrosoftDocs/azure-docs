@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 02/22/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -123,7 +123,7 @@ For anyone that has used Azure AD to [provision identities into a SaaS applicati
 
 In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md)
+In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md). You will also need at least one Azure AD Premium P1 license in the target tenant to enable auto-redemption. 
 
 ## Frequently asked questions
 
@@ -236,6 +236,11 @@ Does cross-tenant synchronization enhance any cross-tenant Microsoft 365 app acc
 
 - Cross-tenant synchronization utilizes a feature that improves the user experience by suppressing the first-time B2B consent prompt and redemption process in each tenant.
 - Synchronized users will have the same cross-tenant Microsoft 365 experiences available to any other B2B collaboration user.
+
+Can cross-tenant synchronization enable people search scenarios where synchronized users appear in the global address list of the target tenant?
+
+- Yes, but you must set the value for the **showInAddressList** attribute of synchronized users to **True**, which is not set by default. If you want to create a unified address list, you'll need to set up a [mesh peer-to-peer topology](./cross-tenant-synchronization-topology.md#mesh-peer-to-peer). For more information, see [Step 9: Review attribute mappings](./cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+- Cross-tenant synchronization creates B2B collaboration users and doesn't create contacts.
 
 #### Teams
 

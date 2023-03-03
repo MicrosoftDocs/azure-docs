@@ -36,7 +36,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Start by enabling the [Defender for IoT data connector](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
+Start by enabling the [Defender for IoT data connector](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
 
 **To enable the Defender for IoT data connector**:
 

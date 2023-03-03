@@ -106,6 +106,9 @@ In this section, create a Python script to send events to the event hub that you
     * `EVENT_HUB_CONNECTION_STR`
     * `EVENT_HUB_NAME`
 
+    > [!NOTE]
+    > Make sure that **EVENT_HUB_NAME** is the name of the event hub and not the Event Hubs namespace. If this value is incorrect, you will receive the error code: `CBS Token authentication failed.`.
+
     ```python
     import asyncio
     
@@ -360,7 +363,7 @@ If you don't see events in the receiver window or the code reports an error, try
 
 * If you see authorization errors with *recv.py* when accessing storage, make sure you followed the steps in [Create an Azure storage account and a blob container](#create-an-azure-storage-account-and-a-blob-container) and assigned the **Storage Blob Data Contributor** role to the service principal.
 
-* If you receive events with different partition IDs, this result is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
+* If you receive events with different partition IDs, this result is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](./event-hubs-features.md#partitions).
 
 ## Next steps
 

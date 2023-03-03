@@ -4,7 +4,7 @@ description: How to write a custom token provider as an Azure Function and deplo
 services: azure-fluid
 author: hickeys
 ms.author: hickeys
-ms.date: 10/05/2021
+ms.date: 02/05/2023
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/tokenproviders/
@@ -30,7 +30,7 @@ The complete solution has two pieces:
 
 ### Create an endpoint for your TokenProvider using Azure Functions
 
-Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint. The example below implements that pattern in a class called [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class). It accepts the URL to your Azure Function, `userId` and`userName`. 
+Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint.
 
 This example demonstrates how to create your own **HTTPTrigger Azure Function** that fetches the token by passing in your tenant key.
 
@@ -98,7 +98,7 @@ TokenProviders can be implemented in many ways, but must implement two separate 
 
 To ensure that the tenant secret key is kept secure, it's stored in a secure backend location and is only accessible from within the Azure Function. To retrieve tokens, you need to make a `GET` or `POST` request to your deployed Azure Function, providing the `tenantID` and `documentId`, and `userID`/`userName`. The Azure Function is responsible for the mapping between the tenant ID and a tenant key secret to appropriately generate and sign the token.
 
-This example implementation below uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code.
+The example implementation below handles making these requests to your Azure Function. It uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code.
 
 ```typescript
 import { ITokenProvider, ITokenResponse } from "@fluidframework/routerlicious-driver";
@@ -146,6 +146,19 @@ export class AzureFunctionTokenProvider implements ITokenProvider {
     }
 }
 ```
+
+### Add efficiency and error handling
+
+The `AzureFunctionTokenProvider` is a simple implementation of `TokenProvider` which should be treated as a starting point when implementing your own custom token provider. For the implementation of a production-ready token provider, you should consider various failure scenarios which the token provider needs to handle. For example, the `AzureFunctionTokenProvider` implementation fails to handle network disconnect situations because it doesn't cache the token on the client side. 
+
+When the container disconnects, the connection manager attempts to get a new token from the TokenProvider before reconnecting to the container. While the network is disconnected, the API get request made in `fetchOrdererToken` will fail and throw a non-retryable error. This in turn leads to the container being disposed and not being able to reconnect even if a network connection is re-established. 
+
+A potential solution for this disconnect issue is to cache valid tokens in [Window.localStorage](https://developer.mozilla.org/docs/Web/API/Window/localStorage). With token-caching the container will retrieve a valid stored token instead of making an API get request while the network is disconnected. Note that a locally stored token could expire after a certain period of time and you would still need to make an API request to get a new valid token. In this case, additional error handling and retry logic would be required to prevent the container from disposing after a single failed attempt. 
+
+How you choose to implement these improvements is completely up to you and the requirements of your application. Note that with the `localStorage` token solution, you'll also see performance improvements in your application because you're removing a network request on each `getContainer` call. 
+
+Token-caching with something like `localStorage` may come with security implications, and it is up to your discretion when deciding what solution is appropriate for your application. Whether or not you implement token-caching, you should add error-handling and retry logic in `fetchOrdererToken` and `fetchStorageToken` so that the container isn't disposed after a single failed call. Consider, for example, wrapping the call of `getToken` in a `try` block with a `catch` block that retries and throws an error only after a specified number of retries.
+
 ## See also
 
 - [Add custom data to an auth token](connect-fluid-azure-service.md#adding-custom-data-to-tokens)

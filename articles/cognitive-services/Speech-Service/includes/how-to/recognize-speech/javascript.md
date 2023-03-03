@@ -48,11 +48,11 @@ const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpe
 
 function fromFile() {
     let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 
-    recognizer.recognizeOnceAsync(result => {
+    speechRecognizer.recognizeOnceAsync(result => {
         console.log(`RECOGNIZED: Text=${result.text}`);
-        recognizer.close();
+        speechRecognizer.close();
     });
 }
 fromFile();
@@ -81,10 +81,10 @@ function fromStream() {
     });
  
     let audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    recognizer.recognizeOnceAsync(result => {
+    let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    speechRecognizer.recognizeOnceAsync(result => {
         console.log(`RECOGNIZED: Text=${result.text}`);
-        recognizer.close();
+        speechRecognizer.close();
     });
 }
 fromStream();
@@ -130,7 +130,7 @@ In contrast, you can use continuous recognition when you want to control when to
 Start by defining the input and initializing [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer):
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+const speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 Next, subscribe to the events sent from [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer):
@@ -141,11 +141,11 @@ Next, subscribe to the events sent from [`SpeechRecognizer`](/javascript/api/mic
 * [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```javascript
-recognizer.recognizing = (s, e) => {
+speechRecognizer.recognizing = (s, e) => {
     console.log(`RECOGNIZING: Text=${e.result.text}`);
 };
 
-recognizer.recognized = (s, e) => {
+speechRecognizer.recognized = (s, e) => {
     if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
         console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
@@ -154,7 +154,7 @@ recognizer.recognized = (s, e) => {
     }
 };
 
-recognizer.canceled = (s, e) => {
+speechRecognizer.canceled = (s, e) => {
     console.log(`CANCELED: Reason=${e.reason}`);
 
     if (e.reason == sdk.CancellationReason.Error) {
@@ -163,22 +163,22 @@ recognizer.canceled = (s, e) => {
         console.log("CANCELED: Did you set the speech resource key and region values?");
     }
 
-    recognizer.stopContinuousRecognitionAsync();
+    speechRecognizer.stopContinuousRecognitionAsync();
 };
 
-recognizer.sessionStopped = (s, e) => {
+speechRecognizer.sessionStopped = (s, e) => {
     console.log("\n    Session stopped event.");
-    recognizer.stopContinuousRecognitionAsync();
+    speechRecognizer.stopContinuousRecognitionAsync();
 };
 ```
 
 With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
 
 ```javascript
-recognizer.startContinuousRecognitionAsync();
+speechRecognizer.startContinuousRecognitionAsync();
 
 // Make the following call at some point to stop recognition:
-// recognizer.stopContinuousRecognitionAsync();
+// speechRecognizer.stopContinuousRecognitionAsync();
 ```
 
 ## Change the source language
@@ -190,6 +190,12 @@ speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
 The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+
+## Language identification
+
+You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text).
 
 ## Use a custom endpoint
 

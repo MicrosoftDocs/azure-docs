@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a virtual network using a Resource Manager template'
+title: 'Quickstart: Create a virtual network - Resource Manager template'
 titleSuffix: Azure Virtual Network
 description: Learn how to use a Resource Manager template to create an Azure virtual network.
 services: virtual-network

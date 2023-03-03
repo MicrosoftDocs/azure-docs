@@ -2,7 +2,7 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/15/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
 
@@ -44,7 +44,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 To make all your certificates accessible, set the value to `*`.
 
 > [!NOTE]
-> If your are using `*` for the App Setting, you will need to restart your web app after adding a new certificate to your web app to ensure that new certificate becomes accessible to your app.
+> When `WEBSITE_LOAD_CERTIFICATES` is set `*`, all previously added certificates are accessible to application code. If you add a certificate to your app later, restart the app to make the new certificate accessible to your app. For more information, see [When updating (renewing) a certificate](#when-updating-renewing-a-certificate).
 
 ## Load certificate in Windows apps
 
@@ -177,6 +177,20 @@ var cert = new X509Certificate2(bytes);
 ```
 
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+
+## When updating (renewing) a certificate
+
+When you renew a certificate and add it to your app, it gets a new thumbprint, which also needs to be [made accessible](#make-the-certificate-accessible). How it works depends on your certificate type.
+
+If you manually upload the [public](configure-ssl-certificate.md#upload-a-public-certificate) or [private](configure-ssl-certificate.md#upload-a-private-certificate) certificate:
+
+- If you list thumbprints explicitly in `WEBSITE_LOAD_CERTIFICATES`, add the new thumbprint to the app setting.
+- If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, restart the app to make the new certificate accessible.
+
+If you renew a certificate [in Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-certificate.md#renew-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when synchronizing your app with the renewed certificate.
+
+- If `WEBSITE_LOAD_CERTIFICATES` contains the old thumbprint of your renewed certificate, the daily sync updates the old thumbprint to the new thumbprint automatically.
+- If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, the daily sync makes the new certificate accessible automatically.
 
 ## More resources
 

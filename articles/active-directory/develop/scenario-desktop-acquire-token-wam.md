@@ -129,7 +129,7 @@ Applications cannot remove accounts from Windows!
 - Removes app-only (not OS-wide) accounts.
 
 >[!NOTE]
-> Ony users can remove OS accounts, whereas apps themselves cannot. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled, the same OS accounts will still be returned.
+> Only users can remove OS accounts, whereas apps themselves cannot. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled, the same OS accounts will still be returned.
 
 ## Other considerations
 

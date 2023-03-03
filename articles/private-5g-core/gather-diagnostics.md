@@ -23,15 +23,20 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 ## Collect values for diagnostics package gathering
 
-1. Create a storage account for diagnostics.
-    1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration:
-        1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
-        1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
+1. [Create a storage account](../storage/common/storage-account-create.md) for diagnsotics with the following additional configuration:
+    1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
+    1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
+    1. Make a note of the **Container blob** URL. For example:  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername`  
+        1. Navigate to your **Storage account**.
+        1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
+        1. Select **Container properties** in the context menu.
+        1. Copy the contents of the **URL** field in the **Container properties** view.
 1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
     > [!TIP]
-    > Make sure same User-assigned identity is used during site creation.
+    > Make sure the same User-assigned identity is used during site creation.
 1. Navigate to the **Packet core control plane** resource for the site.
 1. Select **Identity** under **Settings** on the left side menu.
 1. Toggle **Modify user assigned managed identity?** to **Yes** and select **+ Add**.
@@ -45,8 +50,16 @@ You must already have an AP5GC site deployed to collect diagnostics.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
 1. Select **Diagnostics Collection** under the **Support + Troubleshooting** section on the left side. This will open a **Diagnostics Collection** view.
-1. Enter the **Storage account blob URL** that was configured for diagnostics storage. For example:
-    `https://storageaccount.blob.core.windows.net/diags/diagsPackage_1.zip`
+1. Enter the **Container URL** that was configured for diagnostics storage and append the file name that you want to give the diagnostics. For example:  
+    `https://storageaccountname.blob.core.windows.net/diagscontainername/diagsPackageName.zip`  
+    > [!TIP]
+    > The **Container URL** should have been noted during creation. If it wasn't:
+    >
+    >    1. Navigate to your **Storage account**.
+    >    1. Select the **...** symbol on the right side of the container blob that you want to use for diagnostics collection.
+    >    1. Select **Container properties** in the context menu.
+    >    1. Copy the contents of the **URL** field in the **Container properties** view.
+
 1. Select **Diagnostics collection**.
 1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once AP5GC reports that the upload has succeeded, report the SAS URL to Azure support.
     1. Generate a SAS URL by selecting **Generate SAS** on the blob details blade.
@@ -56,7 +69,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 ## Troubleshooting
 
 - If diagnostics file collection fails, an activity log will appear in the portal allowing you to troubleshoot via ARM:
-  - If an invalid storage account blob URL was passed, the request will be rejected and report **400 Bad Request**. Repeat the process with the correct storage account blob URL.
+  - If an invalid container URL was passed, the request will be rejected and report **400 Bad Request**. Repeat the process with the correct container URL.
   - If the asynchronous part of the operation fails, the asynchronous operation resource is set to **Failed** and reports a failure reason.
 - Additionally, check that the same user-assigned identity was added to both the site and storage account.
 - If this does not resolve the issue, share the correlation ID of the failed request with AP5GC support for investigation.

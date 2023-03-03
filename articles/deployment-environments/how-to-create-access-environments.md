@@ -92,7 +92,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> --environment-type <environment-type-name> 
+       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name> 
        --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
    ```
 
@@ -101,7 +101,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    ```json
    $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
    az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
+       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name> 
        --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
        --parameters $params
    ```

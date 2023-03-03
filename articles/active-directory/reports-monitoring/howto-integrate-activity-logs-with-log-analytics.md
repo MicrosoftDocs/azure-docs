@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/02/2022
+ms.date: 02/02/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -68,10 +68,13 @@ Follow the steps below to send logs from Azure Active Directory to Azure Monitor
     * `ADFSSignInLogs` Active Directory Federation Services (ADFS)
     * `RiskyUsers`
     * `UserRiskEvents`
-    * `AADServicePrincipalRiskEvents`
+    
 
     The following logs are in preview but still visible in Azure AD. At this time, selecting these options will not add new logs to your workspace unless your organization was included in the preview.
 
+    * `AADServicePrincipalRiskEvents`
+    * `EnrichedOffice365AuditLogs`
+    * `MicrosoftGraphActivityLogs`
     * `NetworkAccessTrafficLogs`
     * `RiskyServicePrincipals`
 

@@ -2,9 +2,7 @@
 title: 'Configure Azure VPN Client - Azure AD authentication - macOS'
 description: 'Learn how to configure a macOS VPN client to connect to a virtual network using VPN Gateway Point-to-Site and Azure Active Directory authentication.'
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/22/2022

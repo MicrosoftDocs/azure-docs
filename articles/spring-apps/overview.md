@@ -128,7 +128,7 @@ Azure Spring Apps, including Enterprise tier, runs on Azure in a fully managed e
 | Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
 | Connect Spring applications and interact with your cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
 | Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |
-| Use familiar development tools.                                    | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven, or Gradle                                       |
+| Use familiar development tools.                                    | IntelliJ, Visual Studio Code, Eclipse, Spring Tool Suite, Maven, or Gradle                                       |
 
 After you create your Enterprise tier service instance and deploy your applications, you can monitor with Application Insights or any other application performance management tools of your choice.
 
@@ -165,3 +165,5 @@ As a quick reference, the articles listed above and the articles in the followin
 > [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md)
 
 Samples are available on GitHub. See [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).
+
+For feature updates about Azure Spring Apps, see [Azure updates](https://azure.microsoft.com/updates/?query=spring).

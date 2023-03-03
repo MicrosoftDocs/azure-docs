@@ -1,12 +1,10 @@
 ---
-title: Azure virtual network service endpoint policies | Microsoft Docs
+title: Azure virtual network service endpoint policies
 description: Learn how to filter Virtual Network traffic to Azure service resources using Service Endpoint Policies
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: allensu

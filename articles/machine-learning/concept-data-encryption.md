@@ -1,5 +1,5 @@
 ---
-title: Data encryption with Azure Machine learning
+title: Data encryption with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how Azure Machine Learning computes and data stores provides data encryption at rest and in transit.'
 services: machine-learning
@@ -165,7 +165,7 @@ Microsoft may collect non-user identifying information like resource names (for 
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming your jobs, avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
+You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the Azure Machine Learning Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
 
 ## Using Azure Key Vault
 

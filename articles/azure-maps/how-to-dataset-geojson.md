@@ -1,8 +1,8 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -29,7 +29,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 >[!IMPORTANT]
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
-> - In the URL examples in this article you will need to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package
 
@@ -37,7 +37,7 @@ For more information on the GeoJSON package, see the [Geojson zip package requir
 
 ### Upload the GeoJSON package
 
-Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the Drawing package to Azure Maps Creator account.
+Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the drawing package to Azure Maps Creator account.
 
 The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2](creator-long-running-operation-v2.md).
 
@@ -70,7 +70,7 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
 
 > [!IMPORTANT]
-> This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted Drawing package.
+> This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted drawing package.
 
 To create a dataset:
 
@@ -116,7 +116,7 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 
 | Identifier   | Description                                                       |
 |--------------|-------------------------------------------------------------------|
-| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a Drawing package][conversion]. |
+| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package][conversion]. |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package). |
 
 ## Geojson zip package requirements

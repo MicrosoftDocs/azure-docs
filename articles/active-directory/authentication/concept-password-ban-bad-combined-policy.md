@@ -46,7 +46,7 @@ Password expiration policies are unchanged but they're included in this topic fo
 
 You can also use PowerShell to remove the never-expires configuration, or to see user passwords that are set to never expire.
 
-The following expiration requirements apply to other providers that use Azure AD for identity and directory services, such as Microsoft Endpoint Manager and Microsoft 365. 
+The following expiration requirements apply to other providers that use Azure AD for identity and directory services, such as Microsoft Intune and Microsoft 365. 
 
 | Property | Requirements |
 | --- | --- |

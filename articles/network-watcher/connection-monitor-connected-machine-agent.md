@@ -1,5 +1,5 @@
 ---
-title: Install the Azure Connected Machine agent for Connection Monitor
+title: Install the Azure Connected Machine agent for connection monitor
 description: This article describes how to install Azure Connected Machine agent
 services: network-watcher
 author: halkazwini
