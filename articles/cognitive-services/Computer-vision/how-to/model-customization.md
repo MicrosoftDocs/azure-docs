@@ -109,8 +109,6 @@ After training has completed, you can view the model's performance evaluation. S
 
 By default, performance is estimated based on data in the training dataset. You can optionally create evaluation datasets (using the same process as above) to use at this step for further model evaluation.
 
-:::image type="content" source="../media/customization/evaluation.png" alt-text="Screenshot of evaluation.":::
-
 ![Screenshot of evaluation]( ../media/customization/training-result.png)
 
 ## Use custom model to generate predictions
