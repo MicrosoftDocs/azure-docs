@@ -10,7 +10,7 @@ author: xiaoharper
 ms.reviewer: franksolomon
 ms.date: 11/28/2022
 ms.topic: how-to
-ms.custom: synapse-azureml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, synapse-azureml, sdkv1, event-tier1-build-2022
 #Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 ---
 

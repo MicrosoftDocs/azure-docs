@@ -22,9 +22,9 @@ When users authenticate into your corporate intranet or web-based applications, 
 
 The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
-The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Instructions for the legacy company branding customization process can be found in the [Customize branding](customize-branding.md) article.
+> [!NOTE]
+> Instructions for the legacy company branding customization process can be found in the **[Customize branding](customize-branding.md)** article.<br><br>The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
 
 ## User experience
 
@@ -39,7 +39,7 @@ In the following examples replace the contoso.com with your own tenant name, or 
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-## License requirements
+## Role and license requirements
 
 Adding custom branding requires one of the following licenses:
 
@@ -51,11 +51,17 @@ For more information about licensing and editions, see the [Sign up for Azure AD
 
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
 
+The **Global Administrator** role is required to customize company branding.
+
 ## Before you begin
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests authenticate using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
 **Images have different image and file size requirements.** Take note of the image requirements for each option. You may need to use a photo editor to create the right size images. The preferred image type for all images is PNG, but JPG is accepted. 
+
+**Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
+
+## How to navigate the company branding process
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
 

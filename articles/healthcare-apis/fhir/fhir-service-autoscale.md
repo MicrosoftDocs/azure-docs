@@ -13,7 +13,7 @@ ms.author: kesheth
 
 Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. 
 
-Autoscaling is a capability to dynamically scale FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscaling capability and the process is automated. This capability provides elasticity and enables provisioning of additional instances for FHIR service customers on demand.
+Autoscaling is a capability to dynamically scale FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscaling capability and the process is automated. This capability provides elasticity and enables provisioning of more instances for FHIR service customers on demand.
 
 The autoscaling feature for FHIR service is available in all regions where the FHIR service is supported.
 > [!NOTE]
@@ -38,6 +38,10 @@ To ensure the best possible outcome, we recommend customers to gradually increas
 ### What is the cost to enable autoscaling for FHIR service?  
 
 The autoscaling feature incurs no extra costs to customers.
+
+### What should customers do if there is high volume of HTTP 429 errors?
+
+We recommend customers to gradually increase the request rate to see if brings reduction in HTTP 429 errors. For consistent 429 errors, we ask customer(s) to create a support ticket through Azure portal on issue observed. Support team will engage to understand scaling trigger needs.
 
 ## Next steps
 
