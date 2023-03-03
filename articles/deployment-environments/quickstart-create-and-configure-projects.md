@@ -65,11 +65,14 @@ In this quickstart you assign the Owner role to the system-assigned managed iden
 
     :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
 
-1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
-    - In **Scope**, select **Subscription**.
-    - In **Subscription**, select the subscription in which to use the managed identity.
-    - In **Role**, select **Owner**.
-    - Select **Save**.
+1. In Azure role assignments, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Owner|
+
 ## Configure a project
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
@@ -104,12 +107,13 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot that shows the Access control pane.":::
-
-1. In **Add role assignment**, enter the following information, and then select **Save**:
-
-    1. On the **Role** tab, select either [DevCenter Project Admin](how-to-configure-project-admin.md) or [Deployment Environments user](how-to-configure-deployment-environments-user.md).
-    1. On the **Members** tab, select either a **User, group, or service principal** or a **Managed identity** to assign access.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **[Deployment Environments user](how-to-configure-deployment-environments-user.md)**. |
+    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
