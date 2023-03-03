@@ -44,7 +44,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
     name: coredns-custom
     namespace: kube-system
   data:
-    test.server: | # you may select any name here, but it must end with the .server file extension
+    test.override: |
       <domain to be rewritten>.com:53 {
       log
       errors
@@ -71,7 +71,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
   kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
   ```
 
-4. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] command and the `kube-dns` label. This command isn't destructive and doesn't cause downtime. It deletes the `kube-dns` pods, and then the Kubernetes Scheduler recreates them. The new pods contain the change in TTL value.
+4. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] command and the `kube-dns` label. This command deletes the `kube-dns` pods, and then the Kubernetes Scheduler recreates them. The new pods contain the change in TTL value.
 
   ```console
   kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
@@ -105,7 +105,7 @@ If you need to specify a forward server for your network traffic, you can create
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
   ```console
-  kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
   ```
 
 ## Use custom domains
@@ -138,7 +138,7 @@ You may want to configure custom domains that can only be resolved internally. F
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
   ```console
-  kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
   ```
 
 ## Stub domains
@@ -177,7 +177,7 @@ CoreDNS can also be used to configure stub domains.
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
   ```console
-   kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+   kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
    ```
 
 ## Hosts plugin
@@ -204,7 +204,9 @@ data:
 
 For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS resolution][coredns-troubleshooting].
 
-To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
+### Enable DNS query logging
+
+1. Add the following configuration to your coredns-custom ConfigMap:
 
 ```yaml
 apiVersion: v1
@@ -217,10 +219,20 @@ data:
         log
 ```
 
-After you apply the configuration changes, use the `kubectl logs` command to view the CoreDNS debug logging.
+2. Apply the configuration changes and force CoreDNS to reload the ConfigMap using the following commands:
+
+  ```console
+  # Apply configuration changes
+  kubectl apply -f corednsms.yaml
+
+  # Force CoreDNS to reload the ConfigMap
+  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+  ```
+
+3. View the CoreDNS debug logging using the `kubectl logs` command.
 
 ```console
-kubectl logs --namespace kube-system --selector k8s-app=kube-dns
+kubectl logs --namespace kube-system -l k8s-app=kube-dns
 ```
 
 ## Next steps
