@@ -5,11 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.date: 03/03/2023
-=======
-ms.date: 02/24/2023
->>>>>>> e8333ea140e5c9726281be3037a04f9fb95d118d
 ---
 
 # Support matrix for Hyper-V assessment
