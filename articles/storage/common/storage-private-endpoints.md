@@ -10,7 +10,8 @@ ms.topic: conceptual
 ms.date: 03/03/2023
 ms.author: jammart
 ms.reviewer: santoshc
-ms.subservice: common, engagement-fy23
+ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Use private endpoints for Azure Storage
