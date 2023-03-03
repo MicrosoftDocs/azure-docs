@@ -1,22 +1,24 @@
 ---
 title: Increase the resilience of authentication and authorization in daemon applications you develop
-description: Guidance for increasing resiliency of authentication and authorization in daemon application using the Microsoft identity platform 
+description: Learn to increase authentication and authorization resiliency in daemon application using the Microsoft identity platform 
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: janicericketts
+author: jricketts
 ms.author: jricketts
 manager: martinco
-ms.date: 11/23/2020
+ms.date: 03/03/2023
 ---
 
 # Increase the resilience of authentication and authorization in daemon applications you develop
 
-This article provides guidance on how developers can use the Microsoft identity platform and Azure Active Directory to increase the resilience of daemon applications. This includes background processes, services, server to server apps, and applications without users.
+Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. This includes background processes, services, server to server apps, and applications without users.
 
-![A daemon application making a call to Microsoft identity](media/resilience-daemon-app/calling-microsoft-identity.png)
+See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
+
+   ![A daemon application making a call to Microsoft identity platform.](media/resilience-daemon-app/calling-microsoft-identity.png)
 
 ## Use Managed Identities for Azure Resources
 
