@@ -672,6 +672,56 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    Get-DeviceConfigurationStatus | To-json
    ```
 
+   Here's sample output:
+
+   ```output
+   
+   PS C:\> Get-DeviceConfigurationStatus | to-json
+   {
+    "deviceConfiguration":  {
+                                "status":  "Complete",
+                                "results":  [
+                                                {
+                                                    "declarationName":  "Network",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "Activation",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "DeviceEndpoint",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "WebProxy",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "Time",
+                                                    "resultCode":  "NotExecuted",
+                                                    "errorCode":  "None",
+                                                    "message":  ""
+                                                },
+                                                {
+                                                    "declarationName":  "Update",
+                                                    "resultCode":  "NotExecuted",
+                                                    "errorCode":  "None",
+                                                    "message":  ""
+                                                }
+                                            ]
+                            }
+   }
+   ```
+
 1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
@@ -696,7 +746,8 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
                                                     }
                                                 ]
                                   },
-
+               }
+   }
    ```
 
 ## Quickly fetch or change device configuration settings
@@ -721,7 +772,7 @@ Use the following steps to sign in to the device, fetch the status of the `WebPr
    $p.device.webproxy
    ```
 
-   Here's a sample output:
+   Here's sample output:
 
    ```output
    PS C:\> $p.device.webproxy
@@ -776,7 +827,7 @@ Use the following steps to sign in to the device, fetch the status of the `WebPr
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output:
+   Here's sample output:
 
    ```output
      "webProxy":  {
@@ -854,7 +905,7 @@ Use the following steps to sign in to the device and run device diagnostics to v
    Get-DeviceDiagnostic | To-json
    ```
    
-   Here's an example output:
+   Here's sample output:
 
    ```output
           PS C:\> Get-DeviceDiagnostic | To-json
