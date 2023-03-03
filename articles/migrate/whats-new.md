@@ -13,6 +13,9 @@ ms.custom: mvc, engagement-fy23
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2023)
+- Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
+
 ## Update (February 2023)
 - Discovery and assessment of SQL Server Always On Failover Cluster Instances and Always On Availability Groups is now supported. [Learn more](how-to-discover-applications.md).
 
