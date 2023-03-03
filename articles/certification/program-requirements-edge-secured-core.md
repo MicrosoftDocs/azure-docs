@@ -24,8 +24,6 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 5. Provides data in-transit protection
 6. Built in security agent and hardening
 
-## Preview Program Support
-While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like to participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
 
 Overview content
 ::: zone pivot="platform-windows"
