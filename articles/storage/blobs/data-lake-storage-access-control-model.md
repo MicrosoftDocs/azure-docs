@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/03/2023
 ms.author: jammart
 ---
 
@@ -57,7 +57,10 @@ ACLs give you the ability to apply "finer grain" level of access to directories 
 
 ## How permissions are evaluated
 
-During security principal-based authorization, permissions are evaluated in the following order.
+During security principal-based authorization, permissions are evaluated as shown in the following diagram.
+
+> [!div class="mx-imgBorder"]
+> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
 1. Azure determines whether a role assignment exists for the principal.
     1. If a role assignment exists, the role assignment conditions (2) are evaluated next.
@@ -70,10 +73,8 @@ During security principal-based authorization, permissions are evaluated in the 
     1. If the ACLs permit the requested level of access, access is granted.
     1. If not, access is denied.
 
-> [!div class="mx-imgBorder"]
-> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
-
-Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment and its conditions. That's because the system evaluates Azure role assignments and conditions first, and if the assignment grants sufficient access permission, ACLs are ignored.
+> [!IMPORTANT]
+> Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment and its conditions. That's because the system evaluates Azure role assignments and conditions first, and if the assignment grants sufficient access permission, ACLs are ignored.
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
