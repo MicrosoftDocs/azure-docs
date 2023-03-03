@@ -273,8 +273,8 @@ The frontend app needs to pass the user's authentication with the correct `user_
         }
     });
     if (response.ok) {
-        const apiResponse = await response.json();
-        console.log(`profile: ${JSON.stringify(apiResponse?.profile)}`);
+        const { profile } = await response.json();
+        console.log(`profile: ${profile}`);
     } else {
         // error handling
     }
