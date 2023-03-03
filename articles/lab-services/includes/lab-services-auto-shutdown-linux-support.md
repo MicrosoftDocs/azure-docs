@@ -21,5 +21,3 @@ The following list provides the supported Linux distribution Azure Marketplace i
 - Ubuntu Server 20.04 LTS
 - Ubuntu Server 20.04 LTS (Gen2)
 - Ubuntu-HPC 20.04 (Gen2)
-
-Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
