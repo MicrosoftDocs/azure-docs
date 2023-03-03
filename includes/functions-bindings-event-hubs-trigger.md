@@ -428,11 +428,9 @@ For Python v2 functions defined using a decorator, the following properties on t
 
 | Property    | Description |
 |-------------|-----------------------------|
-|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
-|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
-|`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
-|`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
+|`arg_name` | The name of the variable that represents the event item in function code. |
+|`event_hub_name`  | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|`connection`  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections). |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
