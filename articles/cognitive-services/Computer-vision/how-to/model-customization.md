@@ -56,17 +56,17 @@ To create a new dataset, select **add new dataset**. Enter a name and select a d
 
 Then, select the container from the Azure Blob Storage account where you stored the training images. Check the box to allow Vision Studio to read and write to the blob storage container. This is a necessary step to import labeled data. Create the dataset.
 
-## Create an AML labeling project
+## Create an Azure Machine Learning labeling project
 
 You need a COCO file to convey the labeling information. An easy way to generate a COCO file is to create an Azure Machine Learning project, which comes with a data-labeling workflow.
 
-In the dataset details page, select **Add a new Data Labeling project**. Name it and select **Create a new workspace**. That will open a new Azure portal tab where you can create the AML project.
+In the dataset details page, select **Add a new Data Labeling project**. Name it and select **Create a new workspace**. That will open a new Azure portal tab where you can create the Azure Machine Learning project.
 
-![Choose AML]( ../media/customization/vision-studio-create-datalabel2.png)
+![Choose Azure Machine Learning]( ../media/customization/vision-studio-create-datalabel2.png)
 
-Once the AML project is created, return to the Vision Studio tab and select it under **Workspace**. The AML portal will then open in a new browser tab.
+Once the Azure Machine Learning project is created, return to the Vision Studio tab and select it under **Workspace**. The Azure Machine Learning portal will then open in a new browser tab.
 
-## AML: Create labels
+## Azure Machine Learning: Create labels
 
 To start labeling, follow the **Please add label classes** prompt to add label classes.
 
@@ -78,7 +78,7 @@ Once you've added all the class labels, save them, select **start** on the proje
 
 ![Start labeling]( ../media/customization/aml-label-data.png)
 
-### AML: Manually label training data
+### Azure Machine Learning: Manually label training data
 
 Choose **Start labeling** and follow the prompts to label all of your images. When you're finished, return to the Vision Studio tab in your browser. 
 
@@ -87,7 +87,7 @@ The COCO file you just created is now stored in the Azure Storage container that
 > [!NOTE]
 > ## Import COCO files from elsewhere
 >
-> If you have a ready-made COCO file you want to import, go to the **Datasets** tab and select `Add COCO files to this dataset`. You can choose to add a specific COCO file from a Blob storage account or import from the AML labeling project. 
+> If you have a ready-made COCO file you want to import, go to the **Datasets** tab and select `Add COCO files to this dataset`. You can choose to add a specific COCO file from a Blob storage account or import from the Azure Machine Learning labeling project. 
 >
 > ![Choose COCO]( ../media/customization/vision-studio-import-coco-file.png)
 >
