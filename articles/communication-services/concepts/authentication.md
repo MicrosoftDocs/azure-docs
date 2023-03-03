@@ -55,7 +55,7 @@ Use our [Trusted authentication service hero sample](../samples/trusted-auth-sam
 
 ### User Access Tokens
 
-User access tokens are generated using the Identity SDK and are associated with users created in the Identity SDK. See an example of how to [create users and generate tokens](../quickstarts/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and Azure AD authentication in that it is used to authenticate a user rather than a secured Azure resource.
+User access tokens are generated using the Identity SDK and are associated with users created in the Identity SDK. See an example of how to [create users and generate tokens](../quickstarts/identity/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and Azure AD authentication in that it is used to authenticate a user rather than a secured Azure resource.
 
 ## Using identity for monitoring and metrics
 
@@ -70,7 +70,7 @@ The user identity is intended to act as a primary key for logs and metrics colle
 > [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli)
 
 > [!div class="nextstepaction"]
-> [Create user access tokens](../quickstarts/identity/identity/identity/identity/identity/identity/identity/identity/access-tokens.md)
+> [Create user access tokens](../quickstarts/identity/access-tokens.md)
 
 > [!div class="nextstepaction"]
 > [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
