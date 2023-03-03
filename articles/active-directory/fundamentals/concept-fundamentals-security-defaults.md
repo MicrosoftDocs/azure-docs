@@ -51,6 +51,8 @@ To enable security defaults in your directory:
 1. Select **Manage security defaults**.
 1. Set the **Enable security defaults** toggle to **Yes**.
 1. Select **Save**.
+> [!TIP]
+> We recommend enforcing all your users to go through interactive sign in (at least once) to ensure that they can go through multifactor authentication registration after anabling security defaults.
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
 
