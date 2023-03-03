@@ -25,13 +25,13 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 
 ## February 2023
 
-### Compliant with M14 OSDU™ release
+### Compliant with M14 OSDU&trade; release
 
-Azure Data Manager for Energy Preview is now compliant with the M14 OSDU™ milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU™ M14](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M14-Release-Notes).
+Azure Data Manager for Energy Preview is now compliant with the M14 OSDU&trade; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&trade; M14](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M14-Release-Notes).
 
 ### Product Billing Enabled
 
-Billing for Azure Data Manager for Energy is enabled. During Preview, the price for each instance is based on a fixed per-hour consumption. [Pricing information for Azure Data Manager for Energy.](https://azure.microsoft.com/en-gb/pricing/details/energy-data-services/#pricing)
+Billing for Azure Data Manager for Energy Preview is enabled. During Preview, the price for each instance is based on a fixed per-hour consumption. [Pricing information for Azure Data Manager for Energy Preview.](https://azure.microsoft.com/en-gb/pricing/details/energy-data-services/#pricing)
 
 
 ### Available on Azure Marketplace
@@ -41,7 +41,7 @@ You can go directly to the [Azure Marketplace](https://azuremarketplace.microsof
 
 ### Enable Resource sharing (CORS)
 
-CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin. You can set CORS rules for each Azure Data Manager for Energy instance. When you set CORS rules for the instance they get applied automatically across all the services and storage accounts linked with Azure Data Manager for Energy Preview. [How to enable CORS.]( ../energy-data-services/how-to-enable-CORS.md)
+CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin. You can set CORS rules for each Azure Data Manager for Energy Preview instance. When you set CORS rules for the instance they get applied automatically across all the services and storage accounts linked with Azure Data Manager for Energy Preview. [How to enable CORS.]( ../energy-data-services/how-to-enable-CORS.md)
 
 ## January 2023
 
@@ -51,7 +51,7 @@ You can use a managed identity to authenticate to any [service that supports Azu
 
 ### Availability zone support
 
-Availability Zones are physically separate locations within an Azure region made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones provide in-region High Availability and protection against local disasters. Azure Data Manager for Energy Preview supports zone-redundant instance by default and there's no setup required by the Customer. [Learn more.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all)
+Availability Zones are physically separate locations within an Azure region made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones provide in-region High Availability and protection against local disasters. Azure Data Manager for Energy Preview supports zone-redundant instance by default and there's no setup required by the customer. [Learn more.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all)
 
 <hr width=100%>
 
@@ -59,7 +59,7 @@ Availability Zones are physically separate locations within an Azure region made
 
 ### Support for Lockbox
 
-Most operations, support, and troubleshooting performed by Microsoft personnel don't require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Azure Data Manager for Energy Preview provides you an interface to review, approve or reject data access requests. Azure Data Manager for Energy Preview now supports Lockbox. [Learn more](../security/fundamentals/customer-lockbox-overview.md).
+Most operations, support, and troubleshooting performed by Microsoft personnel don't require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Azure Data Manager for Energy Preview provides you with an interface to review, approve or reject data access requests. Azure Data Manager for Energy Preview now supports Lockbox. [Learn more](../security/fundamentals/customer-lockbox-overview.md).
 
 
 <hr width=100%>
@@ -68,7 +68,7 @@ Most operations, support, and troubleshooting performed by Microsoft personnel d
 
 ### Support for Private Links
 
-Azure Private Link on Azure Data Manager for Energy Preview provides private access to the service. With Azure Private Link traffic between your private network and Azure Data Manager for Energy Preview travels over the Microsoft backbone network therefore, limiting any exposure over the internet. By using Azure Private Link, you can connect to an Azure Data Manager for Energy Preview instance from your virtual network via a private endpoint. You can limit access to your Azure Data Manager for Energy Preview instance over these private IP addresses. [Create a private endpoint for Azure Data Manager for Energy Preview](how-to-set-up-private-links.md).
+Azure Private Link on Azure Data Manager for Energy Preview provides private access to the service. With Azure Private Link, traffic between your private network and Azure Data Manager for Energy Preview travels over the Microsoft backbone network, therefore limiting any exposure over the internet. By using Azure Private Link, you can connect to an Azure Data Manager for Energy Preview instance from your virtual network via a private endpoint. You can limit access to your Azure Data Manager for Energy Preview instance over these private IP addresses. [Create a private endpoint for Azure Data Manager for Energy Preview](how-to-set-up-private-links.md).
 
 ### Encryption at Rest using Customer Managed Keys
 
@@ -82,9 +82,9 @@ Azure Data Manager for Energy Preview supports customer managed encryption keys 
 
 ### Key Announcement: Preview Release
 
-Azure Data Manager for Energy Preview is now available in public preview. Information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Energy Preview will be updated monthly.
+Azure Data Manager for Energy is now available in preview. Information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Energy Preview will be updated monthly.
 
-Azure Data Manager for Energy Preview is developed in alignment with the emerging requirements of the OSDU™ technical standard, version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
+Azure Data Manager for Energy Preview is developed in alignment with the emerging requirements of the OSDU&trade; technical standard, version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
 
 ### Partition & User Management
 
