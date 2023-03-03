@@ -26,7 +26,7 @@ Calls and meetings can be established in various ways by various users.  We'll d
 - Guest: a participant who is not a member of the tenant of the Organizer.  May include a member of a different tenant, PSTN (dial-in) user, etc. (Note that this use of Guest is specific to this description and broader than used within IC3 generally, but useful for the discussion here)
 - Call: refers to a 1:1 call and\or to a Group call to a larger group.  For the purposes of this conversation, they should be the same.
 
-For EU commuinication resources, when the organizer, initiator, or guests join a call from the EU, processing and storage of personal data will be limited to the EU.
+For EU communication resources, when the organizer, initiator, or guests join a call from the EU, processing and storage of personal data will be limited to the EU.
 
 ## Messaging
 
