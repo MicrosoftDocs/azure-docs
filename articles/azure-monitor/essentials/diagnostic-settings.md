@@ -207,7 +207,7 @@ After a few moments, the new setting appears in your list of settings for this r
 
 # [PowerShell](#tab/powershell)
 
-Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting?view=azps-9.1.0&preserve-view=true) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
+Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You can't use this method for an activity log. Instead, use [Create diagnostic setting in Azure Monitor by using an Azure Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with PowerShell.
