@@ -20,9 +20,10 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 **This article applies to:** ✔️ Basic/Standard tier
 
 This quickstart explains how to deploy a Spring Boot web application to Azure Spring Apps. The sample project is a typical 3 layers web application:
-    1. Frontend is a bounded [React js](https://reactjs.org/) application.
-    2. Backend is a spring web application that use Spring Data JPA to access a relational database.
-    3. [H2](https://www.h2database.com/html/main.html) is used as the relational database.
+
+1. Frontend is a bounded [React js](https://reactjs.org/) application.
+2. Backend is a spring web application that use Spring Data JPA to access a relational database.
+3. A relational database. [H2](https://www.h2database.com/html/main.html) is used in localhost. [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) is used when deploy to Azure Spring Apps.
 
 Here is the diagram about the system:
 
