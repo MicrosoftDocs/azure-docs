@@ -26,17 +26,15 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 
 * Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled data services (SQL Managed Instances, PostgreSQL server (preview)), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
-
 * Deploy services to your cluster to take advantage of specific hardware and comply with data residency requirements:
 
   * [Azure Arc-enabled data services](../data/overview.md)
-  * [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
+  * [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json)
   * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
   * [App Services on Azure Arc](../../app-service/overview-arc-integration.md)
   * [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
 
-## Connect clusters to Azure Arc
+## Azure Arc connection
 
 When the [Azure Arc agents are deployed to the cluster](quickstart-connect-cluster.md), an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit. Once connected to Azure, the cluster will be represented as its own resource in Azure Resource Manager and can be organized using resource groups and tagging.
 
