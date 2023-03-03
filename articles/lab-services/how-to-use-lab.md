@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/01/2023
 ---
 
 # Access a lab in Azure Lab Services
