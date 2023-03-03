@@ -10,7 +10,7 @@ ms.author: scottpolly
 author: s-polly
 ms.date: 08/16/2022
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
 

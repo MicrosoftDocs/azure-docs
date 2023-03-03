@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dem108
 ms.author:  sehan
 ms.reviewer: mopeakande
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: UpdateFrequency5, seodec18, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 01/04/2023
 ---
 
