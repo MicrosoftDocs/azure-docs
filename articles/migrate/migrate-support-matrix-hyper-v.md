@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 03/03/2023
 ---
 
 # Support matrix for Hyper-V assessment
@@ -95,6 +95,23 @@ Support | Details
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+## Web apps discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have a web server installed, Azure Migrate discovers web apps on the server.
+The user can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+After the appliance is connected, it gathers configuration data for ASP.NET web apps(IIS web server) and Java web apps(Tomcat servers). Web apps configuration data is updated once every 24 hours.
+
+Support | ASP.NET web apps | Java web apps
+--- | --- | ---
+**Stack** | VMware, Hyper-V, and Physical servers | VMware, Hyper-V, and Physical servers
+**Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
+**Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
+**Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.
+**Required privileges** | local admin | root or sudo user 
+
+> [!NOTE]
+> Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
