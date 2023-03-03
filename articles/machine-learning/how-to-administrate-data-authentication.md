@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: xunwan
-author: xunwan
+author: SturgeonMi
 ms.reviewer: larryfr
 ms.date: 01/20/2023
 ms.custom: engagement-fy23
