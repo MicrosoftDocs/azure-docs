@@ -56,9 +56,7 @@ items:
       - name: Use IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Use custom functions
-        href: how-to-use-custom-functions.md
-      - name: Create copies of mappings
-        href: how-to-create-mappings-copies.md  
+        href: how-to-use-custom-functions.md 
     - name: Destination
       expanded: false
       items:
