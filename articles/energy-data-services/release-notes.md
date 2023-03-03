@@ -31,7 +31,7 @@ Azure Data Manager for Energy Preview is now compliant with the M14 OSDU&trade; 
 
 ### Product Billing Enabled
 
-Billing for Azure Data Manager for Energy Preview is enabled. During Preview, the price for each instance is based on a fixed per-hour consumption. [Pricing information for Azure Data Manager for Energy Preview.](https://azure.microsoft.com/en-gb/pricing/details/energy-data-services/#pricing)
+Billing for Azure Data Manager for Energy Preview is enabled. During Preview, the price for each instance is based on a fixed per-hour consumption. [Pricing information for Azure Data Manager for Energy Preview.](https://azure.microsoft.com/pricing/details/energy-data-services/#pricing)
 
 
 ### Available on Azure Marketplace
