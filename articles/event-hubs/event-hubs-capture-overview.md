@@ -64,7 +64,7 @@ You can configure Capture at the event hub creation time using the [Azure portal
 
 ## How Event Hubs Capture is charged
 
-Capture feature is charged monthly in Standard tier and no charge in premium tier as it is already included in the premium tier. The charge is directly proportional to the number of throughput units or processing units purchased for the namespace. As throughput units or processing units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+The capture feature is included in the premium tier so there is no additional charge for that tier. For the Standard tier, the feature is charged monthly, and the charge is directly proportional to the number of throughput units or processing units purchased for the namespace. As throughput units or processing units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 Capture doesn't consume egress quota as it is billed separately. 
 
