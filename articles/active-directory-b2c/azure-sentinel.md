@@ -1,10 +1,10 @@
 ---
-title: Secure Azure AD B2C with Microsoft Sentinel
+title: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
 titleSuffix: Azure AD B2C
-description: In this tutorial, you use Microsoft Sentinel to perform security analytics for Azure Active Directory B2C data.
+description: Use Microsoft Sentinel to perform security analytics for Azure Active Directory B2C data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
@@ -12,64 +12,75 @@ ms.topic: tutorial
 ms.date: 03/03/2023
 ms.author: gasinh
 ms.subservice: B2C
-#Customer intent: As an IT professional, I want to gather logs and audit data by using Microsoft Sentinel and Azure Monitor so that I can secure my applications that use Azure Active Directory B2C.
+#Customer intent: As an IT professional, I want to gather logs and audit data using Microsoft Sentinel and Azure Monitor to secure applications that use Azure Active Directory B2C.
 ---
 
 # Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
 
-You can further secure your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. Microsoft Sentinel is a cloud-native SIEM (security information and event management) and SOAR (security orchestration, automation, and response) solution. Microsoft Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
+Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
-By using Microsoft Sentinel with Azure AD B2C, you can:
+See, [What is Microsoft Sentinel?](../../sentinel/overview.md)
 
-- Detect previously undetected threats and minimize false positives by using Microsoft's analytics and threat intelligence.
-- Investigate threats with AI. Hunt for suspicious activities at scale, and tap into years of cybersecurity-related work at Microsoft.
-- Respond to incidents rapidly with built-in orchestration and automation of common tasks.
-- Meet security and compliance requirements for your organization.
+More uses for Microsoft Sentinel, with Azure AD B2C, are:
+
+* Detect previously undetected threats and minimize false positives with analytics and threat intelligence features
+* Investigate threats with artificial intelligence (AI)
+  * Hunt for suspicious activities at scale, and benefit from the experience of years of cybersecurity work at Microsoft
+* Respond to incidents rapidly with common taske orchestration and automation 
+* Meet your organization's security and compliance requirements 
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Transfer Azure AD B2C logs to a Log Analytics workspace.
-> * Enable Microsoft Sentinel in a Log Analytics workspace.
-> * Create a sample rule in Microsoft Sentinel that will trigger an incident.
-> * Configure an automated response.
+> * Transfer Azure AD B2C logs to a Log Analytics workspace
+> * Enable Microsoft Sentinel in a Log Analytics workspace
+> * Create a sample rule in Microsoft Sentinel to trigger an incident
+> * Configure an automated response
 
 ## Configure Azure AD B2C with Azure Monitor Log Analytics
 
-To define where logs and metrics for a resource should be sent, enable **Diagnostic settings** in Azure AD within your Azure AD B2C tenant. Then, [configure Azure AD B2C to send logs to Azure Monitor](./azure-monitor.md).
+To define where logs and metrics for a resource are sent, 
+
+1. Enable **Diagnostic settings** in Azure AD, in your Azure AD B2C tenant.
+2. Configure Azure AD B2C to send logs to Azure Monitor.
+
+Learn more, [Monitor Azure AD B2C with Azure Monitor](./azure-monitor.md).
 
 ## Deploy a Microsoft Sentinel instance
 
-After you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable a Microsoft Sentinel instance.
+After you configure your Azure AD B2C instance to send logs to Azure Monitor, enable an instance of Microsoft Sentinel.
 
 >[!IMPORTANT]
->To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
+>To enable Microsoft Sentinel, obtain Contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, use Contributor or Reader permissions on the resource group to which the workspace belongs.
 
-1. Go to the [Azure portal](https://portal.azure.com). Select the subscription where the Log Analytics workspace is created.
+1. Go to the [Azure portal](https://portal.azure.com). 
+2. Select the subscription where the Log Analytics workspace is created.
+3. Search for and select **Microsoft Sentinel**.
 
-2. Search for and select **Microsoft Sentinel**.
-
-   ![Screenshot that shows searching for Microsoft Sentinel in the Azure portal.](./media/azure-sentinel/azure-sentinel-add.png)
+   ![Screenshot of Azure Sentinel entered into the search field and the Azure Sentinel option that appears.](./media/azure-sentinel/azure-sentinel-add.png)
 
 3. Select **Add**.
+4. In the **search workspaces** field, select the new workspace.
 
-4. Select the new workspace.
-
-   ![Screenshot that shows where to select a Microsoft Sentinel workspace.](./media/azure-sentinel/create-new-workspace.png)
+   ![Screenshot of the search workspaces field under Choose a workspace to add to Azure Sentinel.](./media/azure-sentinel/create-new-workspace.png)
 
 5. Select **Add Microsoft Sentinel**.
 
 >[!NOTE]
->You can [run Microsoft Sentinel](../sentinel/quickstart-onboard.md) on more than one workspace, but the data is isolated to a single workspace.
+>It's possible to run Microsoft Sentinel on more than one workspace, however data is isolated in a single workspace.</br> See, [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
 
 ## Create a Microsoft Sentinel rule
 
-Now that you've enabled Microsoft Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
+After you enable Microsoft Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
 
-You can create [custom analytics rules](../sentinel/detect-threats-custom.md) to discover threats and anomalous behaviors in your environment. These rules search for specific events or sets of events and alert you when certain event thresholds or conditions are reached. Then they generate incidents for further investigation.
+You can create custom analytics rules to discover threats and anomalous behaviors in your environment. These rules search for specific events, or event sets, and alert you when event thresholds or conditions are met. Then incidents are generated for investigation.
+
+See, [Create custom analytics rules to detect threats](../sentinel/detect-threats-custom.md)
 
 >[!NOTE]
->Microsoft Sentinel provides built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
+>Microsoft Sentinel has templates to create threat detection rules that search your data for suspicious activity. There are no native Azure AD B2C connectors at this time. For this tutorial, you create a rule.
+
+### Notification rule for unsuccessful forced access
 
 In the following example, you receive a notification if someone tries to force access to your environment but isn't successful. It might mean a brute-force attack. You want to get notified for two or more unsuccessful logins within 60 seconds.
 
