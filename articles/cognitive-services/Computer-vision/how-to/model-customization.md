@@ -33,16 +33,11 @@ Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) an
 
 On the next screen, the **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
 
-![Choose Resource Page]( ../media/customization/generic-image-classification-vision-studio-step1.png)
+![Choose Resource Page]( ../media/customization/custom-model.png)
 
 ## Prepare training images
 
 You need to upload your training images to an Azure Blob Storage container. Go to your storage resource in the Azure portal and navigate to the **Storage browser** tab. Here you can create a blob container and upload your images. Put them all at the root of the container.
-
-> [!NOTE]
-> If this storage account belongs to a different Azure subscription than the Computer Vision resource, then you need to manually give the Computer Vision resource permission to read from it. You can give permission by turning on System managed identities for the Computer Vision resource, then assigning the identity to a role that has permission to read from the blob container.
-
-![Screenshot of role assignment in the Azure portal]( ../media/customization/roleassignment.png)
 
 ## Add a dataset
 
@@ -52,7 +47,7 @@ To create a new dataset, select **add new dataset**. Enter a name and select a d
 
 
 
-![Choose Blob Storage]( ../media/customization/vision-studio-create-dataset.png)
+![Choose Blob Storage]( ../media/customization/create-dataset.png)
 
 Then, select the container from the Azure Blob Storage account where you stored the training images. Check the box to allow Vision Studio to read and write to the blob storage container. This is a necessary step to import labeled data. Create the dataset.
 
@@ -62,7 +57,7 @@ You need a COCO file to convey the labeling information. An easy way to generate
 
 In the dataset details page, select **Add a new Data Labeling project**. Name it and select **Create a new workspace**. That will open a new Azure portal tab where you can create the Azure Machine Learning project.
 
-![Choose Azure Machine Learning]( ../media/customization/vision-studio-create-datalabel2.png)
+![Choose Azure Machine Learning]( ../media/customization/dataset-details.png)
 
 Once the Azure Machine Learning project is created, return to the Vision Studio tab and select it under **Workspace**. The Azure Machine Learning portal will then open in a new browser tab.
 
@@ -70,13 +65,14 @@ Once the Azure Machine Learning project is created, return to the Vision Studio 
 
 To start labeling, follow the **Please add label classes** prompt to add label classes.
 
-![Label classes]( ../media/customization/aml-label-classes.png)
-
-![Finished label classes]( ../media/customization/aml-labels.png)
+![Label classes]( ../media/customization/aml-home-page.png)
 
 Once you've added all the class labels, save them, select **start** on the project, and then select **Label data** at the top.
 
-![Start labeling]( ../media/customization/aml-label-data.png)
+![Start labeling]( ../media/customization/aml-label-categories.png)
+
+![Start labeling]( ../media/customization/aml-start.png)
+
 
 ### Azure Machine Learning: Manually label training data
 
@@ -91,7 +87,7 @@ The COCO file you just created is now stored in the Azure Storage container that
 >
 > If you have a ready-made COCO file you want to import, go to the **Datasets** tab and select `Add COCO files to this dataset`. You can choose to add a specific COCO file from a Blob storage account or import from the Azure Machine Learning labeling project. 
 >
-> ![Choose COCO]( ../media/customization/vision-studio-import-coco-file.png)
+> ![Choose COCO]( ../media/customization/import-coco.png)
 >
 > [!INCLUDE [coco-files](../includes/coco-files.md)]
 
@@ -99,13 +95,13 @@ The COCO file you just created is now stored in the Azure Storage container that
 
 To start training a model with your COCO file, go to the **Custom models** tab and select **Add a new model**. Enter a name for the model and select `Image classification` or `Object detection` as the model type.
 
-![Create custom model]( ../media/customization/vision-studio-trainnewclassifier-model.png)
+![Create custom model]( ../media/customization/start-model-training.png)
 
 Select your dataset, which is now associated with the COCO file containing the labeling information.
 
-![Choose dataset]( ../media/customization/vision-studio-train-model-choosedataset.png)
-
 Then select a time budget and train the model. For small examples, you can use a `1 hour` budget.
+
+![Review training details]( ../media/customization/train-model.png)
 
 It may take some time for the training to complete. Image Analysis 4.0 models can be very accurate with only a small set of training data, but they take longer to train than previous models.
 
@@ -115,13 +111,13 @@ After training has completed, you can view the model's performance evaluation. S
 
 By default, performance is estimated based on data in the training dataset. You can optionally create evaluation datasets (using the same process as above) to use at this step for further model evaluation.
 
-:::image type="content" source="../media/customization/evaluation.png" alt-text="Screenshot of evaluation.":::
+![Screenshot of evaluation]( ../media/customization/training-result.png)
 
 ## Use custom model to generate predictions
 
 Once you've built a custom model, you can go back to the **Extract common tags from images** tile in Vision Studio and test it by selecting it in the drop-down menu and then uploading new images.
 
-![Screenshot of selecing test model in Vision Studio.]( ../media/customization/evaluate-model.png)
+![Screenshot of selecing test model in Vision Studio.]( ../media/customization/quick-test.png)
 
 The prediction results will appear in the right column.
 
