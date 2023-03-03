@@ -131,9 +131,9 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | Name      | Value     |
 | --------- | --------- |
 | **Deployment Model** | *Lab Account (Classic)* |
-| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=lab-services) you would like to increase. |
-| **Alternate regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=lab-services), in case your preferred regions have no available capacity. |
-| **Virtual network regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=lab-services) where you might host virtual networks for [advanced networking](./how-to-connect-peer-virtual-network.md). |
+| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) you would like to increase. |
+| **Alternate regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services), in case your preferred regions have no available capacity. |
+| **Virtual network regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you might host virtual networks for [advanced networking](./how-to-connect-peer-virtual-network.md). |
 | **Virtual machine size** | Select the VM size for which you need additional capacity. |
 | **Requested additional core limit** | Enter the number of additional cores for your subscription. |
 | **What is the lab account name?** | Only applies if you're adding cores to an existing lab. Select the lab account name. |
@@ -147,7 +147,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | Name      | Value     |
 | --------- | --------- |
 | **Deployment Model** | *Lab Plan*|
-| **Region** | Select the region in the [Azure geography](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
+| **Region** | Select the region in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
 | **Does your virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
 | **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
 | **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of additional cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
