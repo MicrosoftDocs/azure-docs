@@ -6,7 +6,8 @@ ms.author: marielherzog #Required; microsoft alias of author; optional team alia
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 09/01/2022
 ms.service: energy-data-services
-ms.custom: template-overview, ignite-2022
+ms.custom: template-overview
+ms.custom: references_regions 
 ---
 
 # Domain data management services (DDMS)
@@ -61,7 +62,7 @@ Well Logs are measurements taken while drilling, which tells energy companies in
 
 Well Log data can come in different formats. It's indexed by depth or time and the increment of these measurements can vary. Well Logs typically contain multiple attributes for each vertical measurement. Well Logs can therefore be small or for more modern Well Logs that use high frequency data, greater than 1 Gb. Well Log data is smaller than seismic data, however, there are hundreds of wells associated with any oil exploration project. This scenario is common in mature areas that have been heavily drilled such as the Permian Basin in West Texas.
 
-As a geoscientists therefore you want to access numerous well logs in a single session. You  often look at all historical drilling programs in an area. As a result, you can look at Well Log data that was collected using a wide variety of instruments and technology. This data can vary widely in format, quality, and sampling. The Wellbore DMS resolves this data through the OSDU&trade; schemas to deliver the data to the consuming applications.
+As a geoscientist you want to access numerous well logs in a single session. You  often look at all historical drilling programs in an area. As a result, you can look at Well Log data that was collected using a wide variety of instruments and technology. This data can vary widely in format, quality, and sampling. The Wellbore DMS resolves this data through the OSDU&trade; schemas to deliver the data to the consuming applications.
 
 Here are the services that the Wellbore DMS offers - 
 
