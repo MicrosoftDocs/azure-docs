@@ -210,17 +210,17 @@ Continuous Access Evaluation (CAE) increases application security and resilience
 
 Learn more:
 
-[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md)
-[Securing applications with Continuous Access Evaluation](/security/zero-trust/develop/secure-with-cae)
-[Critical event evaluation](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation)
-[Conditional Access policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation),
-[How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+* [Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md)
+* [Securing applications with Continuous Access Evaluation](/security/zero-trust/develop/secure-with-cae)
+* [Critical event evaluation](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation)
+* [Conditional Access policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation)
+* [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 
 If you develop resource APIs, go to openid.net for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
 
 ## Next steps
 
-- [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
-- [Increase the resilience of authentication and authorization in daemon applications you develop](resilience-daemon-app.md)
-- [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
-- [Build resilience in your customer identity and access management with Azure AD B2C](resilience-b2c.md)
+* [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+* [Increase the resilience of authentication and authorization in daemon applications you develop](resilience-daemon-app.md)
+* [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
+* [Build resilience in your customer identity and access management with Azure AD B2C](resilience-b2c.md)
