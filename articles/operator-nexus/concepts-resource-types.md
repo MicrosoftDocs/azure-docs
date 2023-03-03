@@ -20,22 +20,21 @@ Figure: Resource model
 
 ## Platform components
 
-Your Operator Nexus Cluster (or simply instance) platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
+The Operator Nexus Cluster (or Instance) platform components include the infrastructure and the platform components used to manage these infrastructure resources.
 
-### Network fabric controller
+### Network Fabric controller
 
 The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices deployed in an Operator Nexus instance.
-The NFC resource is created in the Resource group specified by you in your Azure subscription.
 NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
 The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
-An NFC can manage the network fabric of many (subject to limits) Operator Nexus on-premises instances.
+An NFC can manage the network fabric of many (subject to limits) Operator Nexus instances.
 
 ### Network fabric
 
 The Network fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each Operator Nexus instance has one Network fabric.
 
 The Network fabric Controller (NFC) performs the lifecycle management of the network fabric.
-It configures and bootstraps the network fabric resources. 
+It configures and bootstraps the network fabric resources.
 
 ### Cluster manager
 
