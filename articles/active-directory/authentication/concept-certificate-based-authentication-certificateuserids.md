@@ -150,7 +150,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificate
 ConsistencyLevel: eventual
 ```
 
-You can also use the `eq`, `not`, and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
+You can also use the `not` and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
             
 ## Update certificateUserIds using Microsoft Graph queries
 
