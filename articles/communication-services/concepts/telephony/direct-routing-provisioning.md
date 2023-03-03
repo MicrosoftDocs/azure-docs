@@ -25,9 +25,13 @@ For information about whether Azure Communication Services direct routing is the
 
 ### Validate domain ownership
 
-Please follow [these instructions](../../how-tos/telephony/domain-validation.md) to validate a domain ownership of your SBC
+Follow [these instructions](../../how-tos/telephony/domain-validation.md) to validate a domain ownership of your SBC
 
-### Configure using Azure portal 
+### Adding a Session Border Controller and configure 
+
+Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
+
+<!-- ### Configure using Azure portal 
 1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
 
 2. Enter a fully qualified domain name (FQDN) and signaling port for the SBC.
@@ -41,7 +45,7 @@ Please follow [these instructions](../../how-tos/telephony/domain-validation.md)
 
 3. When you're done, select Next.
 
-    If everything is set up correctly, you should see an exchange of OPTIONS messages between Microsoft and your Session Border Controller. Use your SBC monitoring/logs to validate the connection.
+    If everything is set up correctly, you should see an exchange of OPTIONS messages between Microsoft and your Session Border Controller. Use your SBC monitoring/logs to validate the connection. -->
 
 ## Outbound voice routing considerations
 
