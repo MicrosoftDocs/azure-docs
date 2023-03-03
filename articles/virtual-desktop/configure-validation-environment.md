@@ -1,14 +1,14 @@
 ---
-title: Azure Virtual Desktop host pool service updates - Azure
-description: How to create a validation host pool to monitor service updates before rolling out updates to production.
+title: Configure a host pool as a validation environment - Azure
+description: How to configure a host pool as a validation environment to test service updates before they roll out to production.
 author: Heidilohr
-ms.topic: tutorial
-ms.date: 12/01/2021
+ms.topic: how-to
+ms.date: 03/01/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Tutorial: Create a host pool to validate service updates
+# Configure a host pool as a validation environment
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
@@ -20,7 +20,7 @@ To ensure your apps work with the latest updates, the validation host pool shoul
 You can debug issues in the validation host pool with either [the diagnostics feature](./troubleshoot-set-up-overview.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
-> We recommend that you leave the validation host pool in place to test all future updates. Validation hostpool should only be used for testing, and not in production environments.
+> We recommend that you leave the validation host pool in place to test all future updates. Validation host pools should only be used for testing, and not in production environments.
 
 ## Create your host pool
 
@@ -28,7 +28,7 @@ You can configure any existing pooled or personal host pool to be a validation h
 - [Tutorial: Create a host pool with Azure Marketplace or the Azure CLI](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 
-## Define your host pool as a validation host pool
+## Define your host pool as a validation environment
 
 ### [Portal](#tab/azure-portal)
 
