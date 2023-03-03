@@ -497,7 +497,7 @@ The Mediatek MT3620AN must be included in your design. For any component that ca
 
 All operating systems on device must meet Secured Core requirements
 
-Additional considerations for Azure Sphere are provided as an application note here: [Azure Sphere application notes](../../azure-sphere/app-notes/app-notes-overview)
+Additional considerations for Azure Sphere are provided as an application note here: [Azure Sphere application notes](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)
 
 
 ## Sphere Hardware/Firmware Requirements
@@ -575,7 +575,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this reqiurement is to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources|[Data at rest protection on Azure Sphere](../../azure-sphere/app-notes/app-notes-overview)|
+|Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
 
 ---
 </br>
@@ -627,7 +627,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources|[Collect and interpret error data - Azure Sphere](../../azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](../../azure-sphere/deployment/configure-crash-dumps)|
+|Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
 </br>
