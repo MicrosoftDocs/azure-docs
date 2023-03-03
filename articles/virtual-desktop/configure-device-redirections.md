@@ -176,19 +176,19 @@ When enabled, WebAuthn requests from the session are sent to the local PC to be 
 
 ## Disable drive redirection
 
-If you're making RDP connections from personal resources to corporate ones on the web or Windows Desktop client, you'll need to disable drive redirection for security purposes. To disable drive redirection:
+If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you'll need to disable drive redirection for security purposes. To disable drive redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
-1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+2. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
 
-1. Create the following registry key:
+3. Create the following registry key:
 
    - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
    - **Type**: REG_DWORD
    - **Name**: DisableDriveRedirection
 
-1. Set the value of the registry key to **0**.
+4. Set the value of the registry key to **0**.
 
 ## Disable printer redirection
 
