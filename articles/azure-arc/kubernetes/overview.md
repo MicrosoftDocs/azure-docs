@@ -36,7 +36,9 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 
 ## Azure Arc connection
 
-When the [Azure Arc agents are deployed to the cluster](quickstart-connect-cluster.md), an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit. Once connected to Azure, the cluster will be represented as its own resource in Azure Resource Manager and can be organized using resource groups and tagging.
+When the [Azure Arc agents are deployed to the cluster](quickstart-connect-cluster.md), an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit.
+
+Once connected to Azure, the cluster will be represented as its own resource in Azure Resource Manager and can be organized using resource groups and tagging.
 
 ## Supported Kubernetes distributions
 
