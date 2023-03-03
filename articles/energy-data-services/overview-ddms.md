@@ -55,7 +55,7 @@ Due to this extraordinary data size, geoscientists working on-premises struggle 
 
 The seismic DMS is part of the OSDU&trade; platform and enables users to connect seismic data to cloud storage to applications. It allows secure access to metadata associated with seismic data to efficiently retrieve and handle large blocks of data for OpenVDS, ZGY, and other seismic data formats. The DMS therefore enables users to stream huge amounts of data in OSDU&trade; compliant applications in real time. Enabling the seismic DMS on Azure Data Manager for Energy Preview opens a pathway for Azure customers to bring their seismic data to the cloud and take advantage of Azure storage and high performance computing.
 
-## OSDU&trade; - Wellbore DMS
+### OSDU&trade; - Wellbore DMS
 
 Well Logs are measurements taken while drilling, which tells energy companies information about the subsurface. Ultimately, they reveal whether hydrocarbons are present (or if the well is dry). Logs contain many attributes that inform geoscientists about the type of rock, its quality, and whether it contains oil, water, gas, or a mix. Energy companies use these attributes to determine the quality of a reservoir – how much oil or gas is present, its quality, and ultimately, economic viability. Maintaining Well Log data and ensuring easy access to historical logs is critical to energy companies. The Wellbore DMS facilitates access to this data in any OSDU&trade; compliant application. The Wellbore DMS was contributed by SLB to OSDU&trade;.
 
@@ -70,9 +70,14 @@ Here are the services that the Wellbore DMS offers -
 - **Ingestion**  - connection to file, interpretation software, system of records, and acquisition systems
 - **Contextualization** (Contextualized Access)
 
-## OSDU&trade; - Well Delivery DMS
+### OSDU&trade; - Well Delivery DMS
 
 The Well Delivery DMS stores critical drilling domain information related to the planning and execution of a well. Throughout a drilling program, engineers and domain experts need to access a wide variety of data types including activities, trajectories, risks, subsurface information, equipment used, fluid and cementing, rig utilization, and reports. Integrating this collection of data types together are the cornerstone to drilling insights. At the same time, until now, there was no industry wide standardization or enforced format. The common standards the Well Delivery DMS enables is critical to the Drilling Value Chain as it connects a diverse group of personas including operations, oil companies, service companies, logistics companies, etc.
+
+### SLB&trade; - Petrel Data Services
+Geoscientists working in [Petrel](https://www.software.slb.com/products/petrel) build Petrel Projects to store, track, share, and communicate their technical work. A Petrel project stores associated data in a .PET manifest file. It also keeps track of the your windows within Petrel and setup. Petrel Data Services is an open DMS and does not require any additional licensing to get started. You can ingest Petrel projects to Petrel Data Services using open API’s. By moving to Petrel on Azure Data Manager for Energy Preview, you can leverage Petrel Data Services Project Explorer UI to discover all the Petrel projects across your organization. You can create and save projects as well as track version history and experience unparalleled performance. This enables you to collaborate in real time with data permanently stored in Azure Data Manager for Energy.
+
+Additionally, Petrel Data Services serves to liberate data stored in Petrel .PET files to their respective DDMS for search and utilization in external applications. For example, you can upload a Petrel project containing many well logs to Azure Data Manager for Energy Preview. With data liberation, once the project is saved, the Wellbore data liberation service is triggered and that well log is extracted to the wellbore DMS. The association with the .PET Petrel project is tracked through lineage and the you can use that well log in the full any ISV open app ecosystem. Petrel Data Services offers round trip data liberation and consumption for seismic, wellbore, and Petrel Project data.
 
 ## Next steps
 Learn more about DDMS concepts below.

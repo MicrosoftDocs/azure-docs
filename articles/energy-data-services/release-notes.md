@@ -38,6 +38,8 @@ Billing for Azure Data Manager for Energy Preview is enabled. During Preview, th
 
 You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview) to create an Azure Data Manager for Energy Preview instance in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
 
+### Support for Petrel Data Services
+Azure Data Manager for Energy Preview supports [Petrel Data Services](overview-ddms.md#) that allows you to use [Petrel](https://www.software.slb.com/products/petrel) from SLB&trade; with Azure Data Manager from Energy as its data store. You can view your Petrel projects, liberate data from Petrel, and collaborate in real time with data permanently stored in Azure Data Manager for Energy. 
 
 ### Enable Resource sharing (CORS)
 
@@ -47,7 +49,7 @@ CORS provides a secure way to allow one origin (the origin domain) to call APIs 
 
 ### Managed Identity Support 
 
-You can use a managed identity to authenticate to any [service that supports Azure AD (Active Directory) authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md) with Azure Data Manager for Energy Preview. For example, you can write a script in Azure Function to ingest data in Azure Data Manager for Energy Preview. Now, you can use managed identity to connect to Azure Data Manager for Energy Preview using system or user assigned managed identity from other Azure services. [Learn more.]( ../energy-data-services/how-to-use-managed-identity.md)
+You can use a managed identity to authenticate to any [service that supports Azure AD (Active Directory) authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md) with Azure Data Manager for Energy Preview. For example, you can write a script in Azure Function to ingest data in Azure Data Manager for Energy Preview. Now, you can use managed identity to connect to Azure Data Manager for Energy Preview using system or user assigned managed identity from other Azure services. [Learn more.](../energy-data-services/how-to-use-managed-identity.md)
 
 ### Availability zone support
 
