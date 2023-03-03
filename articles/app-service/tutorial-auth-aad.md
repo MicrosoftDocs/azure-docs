@@ -212,7 +212,7 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **\backend-<ABC>**.
+1. Select **Add a permission**, then select **My APIs** > **\backend-\<ABC\>**.
 
 1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -222,7 +222,7 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 The frontend app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
-In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\frontend-<ABC>* and *\<back-end-client-id>*.
+In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\frontend-\<ABC\>* and *\<back-end-client-id>*.
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n frontend-<ABC>)
