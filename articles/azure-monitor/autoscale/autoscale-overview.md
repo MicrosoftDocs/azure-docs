@@ -11,7 +11,7 @@ ms.reviewer:
 
 ---
 
-# Overview of autoscale in Microsoft Azure
+# Overview of autoscale in Azure
 
 This article describes the autoscale feature in Azure Monitor and its benefits.
 
@@ -32,7 +32,7 @@ For example, scale out your application by adding VMs when the average CPU usage
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. You can also perform other actions like sending email, notifications, or webhooks to trigger processes in other systems.
 
-## Scaling out and scaling up
+## Scale out and scale up
 
 Autoscale scales in and out, which is an increase or decrease of the number of resource instances. Scaling in and out is also called horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation because you can use it to run a large number of VMs to handle load.
 
@@ -136,7 +136,7 @@ Autoscale supports the following services.
 | Web Apps feature of Azure App Service                                         | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
-| Azure Stream Analytics                            | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
+| Azure Stream Analytics                            | [Autoscale streaming units (preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
 | Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](https://learn.microsoft.com/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
 | Azure Machine Learning workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |

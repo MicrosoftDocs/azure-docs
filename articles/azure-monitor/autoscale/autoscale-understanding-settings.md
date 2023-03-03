@@ -1,6 +1,6 @@
 ---
 title: Understand autoscale settings in Azure Monitor
-description: This article explains autoscale settings, how they work, and how they apply to Azure Virtual Machines, Azure Cloud Services, and the Web Apps feature of Azure Monitor.
+description: This article explains autoscale settings, how they work, and how they apply to Azure Virtual Machines, Azure Cloud Services, and the Web Apps feature of Azure App Service.
 author: EdB-MSFT
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -238,7 +238,7 @@ There are three types of autoscale profiles:
                 }
         
     ```
-    
+
 ## Autoscale evaluation
 
 Autoscale settings can have multiple profiles. Each profile can have multiple rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Autoscale then evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type.

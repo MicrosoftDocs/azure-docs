@@ -1,6 +1,6 @@
 ---
 title: Best practices for autoscale
-description: Autoscale patterns in Azure for Web Apps, Azure Virtual Machine Scale Sets, and Azure Cloud Services.
+description: Autoscale patterns in the Web Apps feature of Azure App Service, Azure Virtual Machine Scale Sets, and Azure Cloud Services.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
@@ -42,7 +42,7 @@ When you use a scale-in and scale-out rule, ideally use the same metric to contr
 In this example, you can have a situation in which the memory usage is over 90% but the CPU usage is under 45%. This scenario can lead to flapping for as long as both conditions are met.
 
 ### Choose the appropriate statistic for your diagnostics metric
-For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum*, and *Total* as a metric to scale by. The most common statistic is *Average*.
+For diagnostics metrics, you can choose among **Average**, **Minimum**, **Maximum**, and **Total** as a metric to scale by. The most common statistic is **Average**.
 
 ### Considerations for scaling threshold values for special metrics
 For special metrics such as an Azure Storage or Azure Service Bus queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the threshold value for this metric.

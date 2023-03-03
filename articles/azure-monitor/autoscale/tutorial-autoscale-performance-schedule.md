@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a web app and App Service plan
-1. In the navigation pane on the left, select **Create a resource**.
+1. On the menu on the left, select **Create a resource**.
 1. Search for and select the **Web App** item and select **Create**.
 1. Select an app name like **MyTestScaleWebApp**. Create a new resource group **myResourceGroup** or place it into a resource group of your choosing.
 
@@ -39,7 +39,7 @@ Within a few minutes, your resources should be provisioned. Use the web app and 
    ![Screenshot that shows creating a new app service in the portal.](./media/tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## Go to autoscale settings
-1. In the navigation pane on the left, select **Monitor**. Then select the **Autoscale** tab.
+1. On the menu on the left, select **Monitor**. Then select the **Autoscale** tab.
 1. A list of the resources under your subscription that support autoscale are listed here. Identify the App Service plan that was created earlier in the tutorial, and select it.
 
     ![Screenshot shows the Azure portal with Monitor and Autoscale selected.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
@@ -117,7 +117,7 @@ To trigger the scale-out condition in the autoscale setting you created, the web
 
 1. In quick succession, reload the page more than 10 times.
 
-1. In the navigation pane on the left, select **Monitor**. Then select the **Autoscale** tab.
+1. On the menu on the left, select **Monitor**. Then select the **Autoscale** tab.
 
 1. From the list, select the App Service plan used throughout this tutorial.
 
@@ -134,7 +134,7 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 
 1. Load the Azure portal.
 
-1. In the navigation pane on the left, select **Monitor**. Then select the **Autoscale** tab.
+1. On the menu on the left, select **Monitor**. Then select the **Autoscale** tab.
 
 1. From the list, select the App Service plan used throughout this tutorial.
 
@@ -157,14 +157,6 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 1. Confirm delete by entering **yes** in the text box, and then select **Delete**.
 
 ## Next steps
-
-In this tutorial, you:
-> [!div class="checklist"]
-> * Created a web app and App Service plan.
-> * Configured autoscale rules for scale-in and scale-out based on the number of requests the web app received.
-> * Triggered a scale-out action and watched the number of instances increase.
-> * Triggered a scale-in action and watched the number of instances decrease.
-> * Cleaned up your resources.
 
 To learn more about autoscale settings, continue on to the [autoscale overview](../autoscale/autoscale-overview.md).
 
