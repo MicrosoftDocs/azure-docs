@@ -132,7 +132,6 @@ Add the following to your ARM template:
             "pauseTimeBetweenBatches": "PT2S",
 	           "MaxSurge": "true"
 ```
-
 ---
 
 ## Performing Manual Upgrades
@@ -155,13 +154,12 @@ Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powers
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
-#### [REST API](#tab/restapi) 
+#### [REST API](#tab/rest) 
 Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
 ```
-
 ---
 
 ## Exceptions to Upgrade Policy
@@ -186,13 +184,12 @@ Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/mo
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
 ```
 
-### [REST API](#tab/restapi) 
+### [REST API](#tab/rest) 
 Reimage a Virtual Machine Scale Set instance using [reimage](/rest/api/compute/virtualmachinescalesets/reimage).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
 ```
-
 ---
 
 
