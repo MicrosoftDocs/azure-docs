@@ -6,11 +6,10 @@ services: active-directory-b2c
 author: gargi-sinha
 manager: CelesteDG
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 03/03/2023
 ms.author: gasinh
 ms.subservice: B2C
 #Customer intent: As an IT professional, I want to gather logs and audit data by using Microsoft Sentinel and Azure Monitor so that I can secure my applications that use Azure Active Directory B2C.
