@@ -18,8 +18,7 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 The following video provides a quick overview of the steps involved when planning your provisioning integration with SAP SuccessFactors. 
 
-> [!VIDEO https://www.youtube.com/watch?v=66v2FR2-QrY]   
-
+> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
 
 ## Overview
 

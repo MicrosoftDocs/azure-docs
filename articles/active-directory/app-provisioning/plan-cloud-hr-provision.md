@@ -27,7 +27,7 @@ Azure AD uses this integration to enable the following cloud HR application (app
 
 The following video provides guidance on planning your HR-driven provisioning integrations.  
 
-> [!VIDEO https://www.youtube.com/watch?v=HsdBt40xEHs]
+> [!VIDEO https://www.youtube-nocookie.com/embed/HsdBt40xEHs]
 
 > [!NOTE]
 > This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).

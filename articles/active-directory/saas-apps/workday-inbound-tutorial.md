@@ -22,8 +22,7 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
 
-> [!VIDEO https://www.youtube.com/watch?v=TfndXBlhlII] 
-
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 
