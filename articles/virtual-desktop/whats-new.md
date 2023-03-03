@@ -202,7 +202,7 @@ The Azure Virtual Desktop metadata database located in Australia is now in publi
 
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
 
-Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
+Deploying Intune user configuration policies from the Microsoft Intune admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
 
 - User scope policies using the Settings catalog.
 - User certificates via Templates.
@@ -240,7 +240,7 @@ Here's what changed in April 2022:
 
 ### Intune device configuration for Windows multi-session now generally available
 
-Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multi-session VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
+Deploying Intune device configuration policies from the Microsoft Intune admin center to Windows multi-session VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
 
 ### Scheduled Agent Updates public preview
 
@@ -367,7 +367,7 @@ Screen capture protection is now supported on the macOS client and the Azure Gov
 
 ### Azure Active Directory domain join 
 
-Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Endpoint Manager (Intune) is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
@@ -389,7 +389,7 @@ You can also now set host pool, app group, and workspace diagnostic settings whi
 
 ### Azure Active Directory domain join
 
-Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
 ### Azure China
 
@@ -433,7 +433,7 @@ All available images in the Azure Virtual Desktop image gallery that include Mic
 
 ### Azure Active Directory Domain Join for Session hosts is in public preview
 
-You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Endpoint Manager. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### FSLogix version 2105 is now available
 
@@ -521,9 +521,9 @@ We've expanded our Azure control plane presence to the United Arab Emirates (UAE
 
 On September 30, 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
 
-### Microsoft Endpoint Manager public preview
+### Microsoft Intune public preview
 
-We've started the public preview for Microsoft Endpoint Manager support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the public preview for Microsoft Intune support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 public preview
 
@@ -811,7 +811,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
-- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Intune. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## August 2020
 

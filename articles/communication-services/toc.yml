@@ -33,14 +33,19 @@ items:
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
-      href: concepts/network-traversal.md    
-
+      href: concepts/network-traversal.md
   - name: Common scenarios
     items:
     - name: Virtual visit
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+  - name: Privacy and compliance
+    items:
+    - name: Data residency and user privacy
+      href: concepts/privacy.md
+    - name: Azure Government
+      href: concepts/government.md  
   - name: Service limits
     href: concepts/service-limits.md
   - name: Troubleshooting
@@ -48,15 +53,18 @@ items:
   - name: Help and support options
     href: support.md
 - name: Quickstart 
+  expanded: true
   items:
   - name: SMS
-    expanded: true
     items:
     - name: Get a phone numbers
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
-    - name: Receive an SMS
+    - name: Send an SMS in Azure Logic Apps
+      href: quickstarts/sms/logic-app.md
+    - name: Receive and reply to SMS
+      href: quickstarts/sms/receive-sms.md
   - name: Voice and Video Calling
     items:
     - name:  Connect to a call
@@ -93,10 +101,12 @@ items:
     items:
     - name: Connect to a chat 
       items:
-      - name: Create and manage access tokens
+      - name: Create an access tokens
         href: quickstarts/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
+      - name: Send Chat messages in Azure Logic Apps
+        href: quickstarts/chat/logic-app.md
     - name: Connect to Teams
       items:
       - name: Use an external identity
@@ -125,6 +135,8 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Send an Email in Azure Logic Apps
+      href: quickstarts/email/logic-app.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -147,7 +159,10 @@ items:
       items:
       - name: View SMS events
         href: quickstarts/sms/handle-sms-events.md
-      - name: Log SMS events
+      - name: Validate events
+        href: how-tos/event-grid/view-events-request-bin.md
+      - name: Local testing events
+        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -230,6 +245,10 @@ items:
       items:
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
+      - name: Validate events
+        href: how-tos/event-grid/view-events-request-bin.md
+      - name: Local testing events
+        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -248,9 +267,8 @@ items:
       href: quickstarts/chat/quickstart-botframework-integration.md
     - name: Add file sharing to your application with UI Library
       href: tutorials/file-sharing-tutorial.md
-    - name: Events
-      items:
-      - name: View Chat events
+    - name: Integrate with Data Loss Prevention policies
+      href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Mobile integrations
       items:
       - name: Enable Push Notifications in your chat app
@@ -267,6 +285,12 @@ items:
           href: how-tos/ui-library-sdk/data-model.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
+    - name: Events
+      items:
+      - name: Validate events
+        href: how-tos/event-grid/view-events-request-bin.md
+      - name: Locally testing events
+        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -295,6 +319,14 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with Recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: Record every call in the resource
+        href: how-tos/call-automation/record-every-call.md
+    - name: Events
+      items:
+      - name: Validate events
+        href: how-tos/event-grid/view-events-request-bin.md
+      - name: Locally testing events
+        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -311,6 +343,10 @@ items:
       items:
       - name: View email events
         href: quickstarts/email/handle-email-events.md
+      - name: Validate events
+        href: how-tos/event-grid/view-events-request-bin.md
+      - name: Locally testing events
+        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -321,12 +357,13 @@ items:
         href: quickstarts/telemetry-application-insights.md
 - name: Samples 
   items:
-  - name: SMS
   - name: Voice and Video Calling
     items:
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
-    - name: Cross-platform (Xamarin & React Native)
+    - name: Xamarin calling sample
+      href: samples/ui-library-cross-platform.md
+    - name: React Native calling sample
       href: samples/ui-library-cross-platform.md
     - name: Web calling sample
       href: samples/web-calling-sample.md
@@ -340,7 +377,7 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Phone Calling
     items:
-    - name: Call Automation appointment reminder sample
+    - name: Apointment remainder sample
       href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
@@ -586,10 +623,6 @@ items:
     items:
     - name: Overview
       href: concepts/network-traversal.md    
-  - name: Data residency and user privacy
-    href: concepts/privacy.md
-  - name: Azure Government
-    href: concepts/government.md  
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
@@ -688,13 +721,3 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library for Calling (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html 
-- name: To be removed / consolidated 
-  items: 
-  - name: Send an SMS in Azure Logic Apps
-    href: quickstarts/sms/logic-app.md
-  - name: Send Chat messages in Azure Logic Apps
-    href: quickstarts/chat/logic-app.md
-  - name: Send an Email in Azure Logic Apps
-    href: quickstarts/email/logic-app.md
-  - name: Join a Teams meeting
-    href: how-tos/calling-sdk/teams-interoperability.md
