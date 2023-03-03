@@ -19,7 +19,7 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 ## Release date: February 28, 2023
 
-This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number 2302250400. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -28,7 +28,11 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 * HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
+For workload specific versions, see 
+
+* [HDInsight 4.0 component versions](./hdinsight-40-component-versioning.md)
+* [HDInsight 5.0 component versions](./hdinsight-50-component-versioning.md)
+* [HDInsight 5.1 component versions](./hdinsight-51-component-versioning.md)
 
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
@@ -60,6 +64,10 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
  
 **Ambari CVEs**
   * Multiple Ambari CVEs are fixed.
+
+> [!NOTE]
+> ESP isn't supported for Kafka and HBase in this release.
+>
 
 ![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 

@@ -102,7 +102,7 @@ After the appliance is connected, it gathers configuration data for ASP.NET web 
 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
-**Stack** | VMware only. | VMware only.
+**Stack** |VMware, Hyper-V, and Physical servers | VMware, Hyper-V, and Physical servers
 **Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
 **Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
 **Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.
