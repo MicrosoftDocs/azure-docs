@@ -1,5 +1,5 @@
 ---
-title: Use ISV solutions with data manager for agriculture.
+title: Use ISV solutions with Data Manager for Agriculture.
 description: Learn how to use APIs from a third-party solution
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -11,17 +11,16 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How do I use an ISV solution?
 
-## Overview
 Once you've installed an ISV solution from Azure portal, use this document to understand how to make API calls from your application. Integration (request/response) is done through APIs asynchronously.
 
 A high level view of how you can create a new request and get responses from the ISV partners solution:
 
-![Screenshot showing access flow for ISV APIs](./media/3p-solutions-new.png)
+>:::image type="content" source="./media/3p-solutions-new.png" alt-text="Screenshot showing access flow for ISV API.":::
 
 * Step 1: You make an API call for a PUT request with the required parameters (for example Job ID, Farm details)
     * The Data Manager API receives this request and authenticates it.  If the request is invalid, you'll get an error code back.
 * Step 2: If the request is valid, the Data Manager creates a PUT request to ISV Partners solution API.
-* Step 3: The ISV solution then makes a GET request to the weather service in Data Manager that is required for processing.
+* Step 3: The ISV solution then makes a GET request to the weather service in data manager that is required for processing.
 * Step 4: The ISV solution completes the processing the request and submits a response back to the Data Manager.
     * If there's any error when this request is submitted, then you may have to verify the configuration and parameters. If you're unable to resolve the issue then contact us at madma@microsoft.com
 * Step 5: Now you make a call to Data Manager using the Job ID to get the final response.
@@ -32,4 +31,4 @@ Once all the request/responses are successfully processed, the status of the req
 
 ## Next steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri).

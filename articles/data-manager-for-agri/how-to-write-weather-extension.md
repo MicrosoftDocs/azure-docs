@@ -1,5 +1,5 @@
 ---
-title: Installing weather extension.
+title: Installing weather extension in Azure Data Manager for Agriculture
 description: Provides guidance to use weather extension
 author: lbethapudi
 ms.author: lbethapudi
@@ -108,7 +108,7 @@ This section consists of basic information regarding the API. It's used by Data 
 
 This section takes in the authentication related parameters as supported by the `apiName`. As Data Manager for Agriculture supports two types of auth-related keys (`x-ms-farmBeats-data-provider-id` & `x-ms-farmBeats-data-provider-key`) in the api header section, the extension file needs to explicitly provide the key name of its respective authentication keys as required by the `apiName`.
 
-As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
+As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
 
 ##### Sample authentication parameters
 
@@ -320,8 +320,8 @@ In this section, the extension provides the units information for each of the pa
 
 > [!NOTE]
 >
-> 1. If for a particular parameter if units are not applicable do not mention the units for those alone (Ex: weatherDescriptor)
-> 2. If for a particular parameter if the units are same for all the units system then mention the same in all units system. (Ex: cloudCover)
+> * For a particular parameter if units are not applicable then do not mention the units for those alone (Ex: weatherDescriptor)
+> * For a particular parameter if the units are same for all the units system then mention the same in all units system. (Ex: cloudCover)
 
 ##### Sample platform & custom parameters
 
@@ -437,12 +437,11 @@ Template is the mapping information provided by the extension to convert the ext
 Template solution is found to be one of the most effective ways to parse the JSON output provided by the extension. In the case of weather extension, **Data Manager for Agriculture expects the extension to be written using [HandleBars](https://handlebarsjs.com/guide/#what-is-handlebars) template**. HandleBars is an open source templating language with simple to use expressions.
 
 > [!NOTE]
->
 > It is highly recommended to try-out the [HandleBars template](https://handlebarsjs.com/examples/simple-expressions.html) with the examples provided and learn how to make use of the helper functions to build your own parsing logic if it is not already provided by Data Manager for Agriculture.
 
 On a high-level this is how templates will work, by taking the API response as the input and generating the output in the format expected by Data Manager for Agriculture.
 
-![template flow](./media/template-flow.PNG)
+>:::image type="content" source="./media/template-flow.png" alt-text="Screen Shot of template flow.":::
 
 As shown in the above figure, validate your template against the respective API response and use the validated template in the extension. Below is an example of an API response and its respective platform and custom template.
 
@@ -650,5 +649,4 @@ In the below example, to pick the precipitation of `"type": "RAIN"` this functio
 * **GetValueFromObject(string jsonString, string key)** - Given a json object as string, it gets the value based on key.
 
 > [!NOTE]
->
 > If the extension you are writing requires additional helper functions to parse the API response write to us at madma@microsoft.com

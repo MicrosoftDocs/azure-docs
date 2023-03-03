@@ -1,4 +1,4 @@
-- name: Microsoft Azure Data Manager for Agriculture Preview Documentation
+- name: Microsoft Azure Data Manager for Agriculture Preview documentation
   href: index.yml
 - name: Overview
   items:
@@ -8,37 +8,37 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Quickstart Install Azure Data Manager for Agriculture Preview
+    - name: Quickstart install Azure Data Manager for Agriculture Preview
       href: quickstart-install-data-manager-for-agriculture.md
 - name: Concepts
   items:
-    - name: Hierarchy Model
+    - name: Hierarchy model
       href: concepts-hierarchy-model.md
-    - name: Farm Operations Data Ingestion
+    - name: Farm operations data ingestion
       href: concepts-ingest-farm-operations-data.md
-    - name: Satellite Data Ingestion
+    - name: Satellite data ingestion
       href: concepts-ingest-satellite-imagery.md
-    - name: Weather Data Ingestion
+    - name: Weather data ingestion
       href: concepts-ingest-weather-data.md
-    - name: Sensor Data Ingestion
+    - name: Sensor data ingestion
       href: concepts-ingest-sensor-data.md
 - name: How-to guides
   items:
-    - name: Use ISV Solutions
+    - name: Use ISV solutions
       href: how-to-set-up-isv-solution.md
-    - name: Set-up Sensors as a Customer
+    - name: Set-up sensors as a customer
       href: how-to-set-up-sensors-customer.md
-    - name: Set-up sensors as a Partner
+    - name: Set-up sensors as a partner
       href: how-to-set-up-sensors-partner.md
-    - name: Use Tissue Sampling APIs
+    - name: Use tissue sampling APIs
       href: how-to-use-nutrient-apis.md
 - name: References
   items:
   - name: REST API
     items:
     - name: Overview
-      href: https://review.learn.microsoft.com/rest/api/data-manager-for-agri/
+      href: https://learn.microsoft.com/rest/api/data-manager-for-agri/
   - name: Resources
     items:
-  - name: Region availability
-    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
+    - name: Region availability
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all

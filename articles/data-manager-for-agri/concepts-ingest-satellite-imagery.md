@@ -1,5 +1,5 @@
 ---
-title: Ingesting satellite data.
+title: Ingesting satellite data in Azure Data Manager for Agriculture
 description: Provides step by step guidance to ingest Satellite data
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -16,7 +16,7 @@ Our data manager  supports geospatial and temporal data. Remote sensing satellit
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
-![Diagram showing satellite data ingestion flow.](./media/satellite-flow.png)
+>:::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow..":::
 
 ## Satellite sources supported by Azure Data Manager for Agriculture
 In our public preview, we support ingesting data from Sentinel-2 constellation.
@@ -67,4 +67,4 @@ The image names and resolutions that are supported by APIs used to ingest and re
 
 ## Next steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri).

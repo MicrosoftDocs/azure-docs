@@ -1,5 +1,5 @@
 ---
-title: Sensor partner integration. 
+title: Sensor partner integration in Azure Data Manager for Agriculture
 description: Provides guidance to set up your sensors as a partner
 author: gourdsay
 ms.author: angour
@@ -17,7 +17,7 @@ The below section of this document talks about the onboarding steps needed to in
 
 Onboarding covers the steps required by both customers & partners to integrate with Data Manager for Agriculture and start receiving/sending sensor telemetry respectively.
 
-![Screenshot showing sensor partners flow.](./media/sensor-partners-flow.png)
+>:::image type="content" source="./media/sensor-partners-flow.png" alt-text="Screenshot showing sensor partners flow.":::
 
 From the above figure, the blocks highlighted in white are the steps taken by a partner, and the ones highlighted in black are done by customers.
 
@@ -73,22 +73,22 @@ The customer has made Data Manager for Agriculture aware that they need to get s
 
 1. **Consent link & Tenant ID** – In this step, the customer will provide a consent link & tenant ID. The integration link looks like shown in the example:
 
-`fb-resource-name.farmbeats.com/sensor-partners/partnerId/integrations/IntegrationId/:check-consent?key=jgtHTFGDR?api-version=2021-07-31-preview`
+    `fb-resource-name.farmbeats.com/sensor-partners/partnerId/integrations/IntegrationId/:check-consent?key=jgtHTFGDR?api-version=2021-07-31-preview`
+    
+    In addition to the consent link, customers would also provide a tenant ID. This tenant ID will be used to fetch the access token required to call into the customer’s API endpoint.
+    
+    The partners will validate the consent link by making a GET call on the check consent link API. As the link is fully pre-populated request URI as expected by Data Manager for Agriculture. As part of the GET call, the partners will check for a 200 OK response code and IntegrationId to be passed in the response.
 
-In addition to the consent link, customers would also provide a tenant ID. This tenant ID will be used to fetch the access token required to call into the customer’s API endpoint.
-
-The partners will validate the consent link by making a GET call on the check consent link API. As the link is fully pre-populated request URI as expected by Data Manager for Agriculture. As part of the GET call, the partners will check for a 200 OK response code and IntegrationId to be passed in the response.
-
-Once the valid response is received, partners will have to store two sets of information
-
-* API endpoint (This can be extracted from the first part of the integration link)
-* IntegrationId (This will be returned as part of the response to GET call)
-
-Post validating and storing these data points, partners can start allowing customers to add specific/all sensors for which they want the data to be pushed into Data Manager for Agriculture.
+    Once the valid response is received, partners will have to store two sets of information
+    
+    * API endpoint (This can be extracted from the first part of the integration link)
+    * IntegrationId (This will be returned as part of the response to GET call)
+    
+    Post validating and storing these data points, partners can start allowing customers to add specific/all sensors for which they want the data to be pushed into Data Manager for Agriculture.
 
 2. **Add sensors/devices** – Now, the partner knows for which customer (API endpoint) do they need to integrate with, however, they still don’t know for which all sensors do they need to push the data. Hence, partners will be collecting the sensor/device information for which the data needs to be pushed. This data can be collected either manually or through portal UI.
 
-Post adding the sensors/devices, the customer can expect the respective sensors’ data flow into their Data Manager for Agriculture instance. This step marks the completion of customer onboarding to fetch sensor data.
+    Post adding the sensors/devices, the customer can expect the respective sensors’ data flow into their Data Manager for Agriculture instance. This step marks the completion of customer onboarding to fetch sensor data.
 
 ## Partner flow: Phase 2
 
@@ -121,7 +121,7 @@ The response should look like:
 }
 ```
 
-Using the generated access_token, partners will call the customers’ data plane endpoint to create sensor model, sensor, and device objects in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. Refer to the [partner API documentation](https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations?branch=main) for more information on the partner APIs.
+Using the generated access_token, partners will call the customers’ data plane endpoint to create sensor model, sensor, and device objects in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. Refer to the [partner API documentation](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations) for more information on the partner APIs.
 
 As part of the sensor creation API, the partners will be providing the sensor ID, once the sensor resource is created, partners will call into the get connection string API to get a connection string for that sensor.
 
@@ -156,3 +156,7 @@ Partner is now all set to start pushing sensor data for all sensors using the re
 ```
 
 This marks the completion of the onboarding flow for partners as well. Once the data is pushed to IOTHub, the customers would be able to query sensor data using the egress API.
+
+## Next steps
+
+* Test our APIs [here](/rest/api/data-manager-for-agri).
