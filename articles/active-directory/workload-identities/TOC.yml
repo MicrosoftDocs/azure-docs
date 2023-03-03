@@ -15,8 +15,8 @@
         href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json     
       - name: Managed identities
         href: ../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
-      - name: How and why applications are added to Azure AD
-        href: ../develop/active-directory-how-applications-are-added.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: Securing workload identities
+        href: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Connect without secrets
@@ -29,6 +29,8 @@
         href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
+    - name: Securing workload identities with Identity Protection
+      href: 
 - name: Reference
   items:
     - name: Federated identity credentials considerations and limitations

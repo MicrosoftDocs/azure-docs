@@ -11,3 +11,6 @@
   - name: Active Directory
     tocHref: /azure/active-directory/managed-identities-azure-resources/
     topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/identity-protection/
+    topicHref: /azure/active-directory/index
