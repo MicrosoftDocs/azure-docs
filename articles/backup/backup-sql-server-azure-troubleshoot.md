@@ -328,4 +328,4 @@ This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
-For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](/azure/azure-sql/virtual-machines/windows/backup-restore#azbackup).
+For more information about [Azure Backup for SQL VMs](/azure/azure-sql/virtual-machines/windows/backup-restore#azbackup).
