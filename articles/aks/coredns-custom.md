@@ -37,45 +37,45 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
 
 1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to replace `<domain to be rewritten>` with your own fully qualified domain name.
 
-  ```yaml
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: coredns-custom
-    namespace: kube-system
-  data:
-    test.override: |
-      <domain to be rewritten>.com:53 {
-      log
-      errors
-      rewrite stop {
-        name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
-        answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
-      }
-      forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
-      }
-  ```
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: coredns-custom
+       namespace: kube-system
+     data:
+       test.override: |
+         <domain to be rewritten>.com:53 {
+         log
+         errors
+         rewrite stop {
+           name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+           answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
+         }
+         forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
+         }
+     ```
 
-  > [!IMPORTANT]
-  > If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
+     > [!IMPORTANT]
+     > If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
 
 2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-  ```console
-  kubectl apply -f corednsms.yaml
-  ```
+     ```console
+     kubectl apply -f corednsms.yaml
+     ```
 
 3. Verify the customizations have been applied using the [`kubectl get configmaps`][kubectl-get] and specify your *coredns-custom* ConfigMap.
 
-  ```console
-  kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
-  ```
+     ```console
+     kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
+     ```
 
 4. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] command and the `kube-dns` label. This command deletes the `kube-dns` pods, and then the Kubernetes Scheduler recreates them. The new pods contain the change in TTL value.
 
-  ```console
-  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-  ```
+     ```console
+     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     ```
 
 ## Custom forward server
 
@@ -83,30 +83,30 @@ If you need to specify a forward server for your network traffic, you can create
 
 1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to replace the `forward` name and the address with the values for your own environment.
 
-  ```yaml
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: coredns-custom
-    namespace: kube-system
-  data:
-    test.server: | # you may select any name here, but it must end with the .server file extension
-      <domain to be rewritten>.com:53 {
-          forward foo.com 1.1.1.1
-      }
-  ```
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: coredns-custom
+       namespace: kube-system
+     data:
+       test.server: | # you may select any name here, but it must end with the .server file extension
+         <domain to be rewritten>.com:53 {
+             forward foo.com 1.1.1.1
+         }
+     ```
 
 2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-  ```console
-  kubectl apply -f corednsms.yaml
-  ```
+     ```console
+     kubectl apply -f corednsms.yaml
+     ```
 
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
-  ```console
-  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-  ```
+     ```console
+     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     ```
 
 ## Use custom domains
 
@@ -114,32 +114,32 @@ You may want to configure custom domains that can only be resolved internally. F
 
 1. Create a new file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address with the values for your own environment.
 
-  ```yaml
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: coredns-custom
-    namespace: kube-system
-  data:
-    puglife.server: | # you may select any name here, but it must end with the .server file extension
-      puglife.local:53 {
-          errors
-          cache 30
-          forward . 192.11.0.1  # this is my test/dev DNS server
-      }
-  ```
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: coredns-custom
+       namespace: kube-system
+     data:
+       puglife.server: | # you may select any name here, but it must end with the .server file extension
+         puglife.local:53 {
+             errors
+             cache 30
+             forward . 192.11.0.1  # this is my test/dev DNS server
+         }
+     ```
 
 2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-  ```console
-  kubectl apply -f corednsms.yaml
-  ```
+     ```console
+     kubectl apply -f corednsms.yaml
+     ```
 
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
-  ```console
-  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-  ```
+     ```console
+     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     ```
 
 ## Stub domains
 
@@ -147,38 +147,38 @@ CoreDNS can also be used to configure stub domains.
 
 1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domains and IP addresses with the values for your own environment.
 
-  ```yaml
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: coredns-custom
-    namespace: kube-system
-  data:
-    test.server: | # you may select any name here, but it must end with the .server file extension
-      abc.com:53 {
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: coredns-custom
+       namespace: kube-system
+     data:
+       test.server: | # you may select any name here, but it must end with the .server file extension
+         abc.com:53 {
           errors
           cache 30
           forward . 1.2.3.4
-      }
-      my.cluster.local:53 {
-          errors
-          cache 30
-          forward . 2.3.4.5
-      }
+         }
+         my.cluster.local:53 {
+             errors
+             cache 30
+             forward . 2.3.4.5
+         }
 
-    ```
+     ```
 
 2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
 
-  ```console
-  kubectl apply -f corednsms.yaml
-  ```
+     ```console
+     kubectl apply -f corednsms.yaml
+     ```
 
 3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
 
-  ```console
-   kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-   ```
+     ```console
+     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     ```
 
 ## Hosts plugin
 
@@ -208,32 +208,32 @@ For general CoreDNS troubleshooting steps, such as checking the endpoints or res
 
 1. Add the following configuration to your coredns-custom ConfigMap:
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  log.override: | # you may select any name here, but it must end with the .override file extension
-        log
-```
+   ```yaml
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: coredns-custom
+     namespace: kube-system
+   data:
+     log.override: | # you may select any name here, but it must end with the .override file extension
+           log
+   ```
 
 2. Apply the configuration changes and force CoreDNS to reload the ConfigMap using the following commands:
 
-  ```console
-  # Apply configuration changes
-  kubectl apply -f corednsms.yaml
+     ```console
+     # Apply configuration changes
+     kubectl apply -f corednsms.yaml
 
-  # Force CoreDNS to reload the ConfigMap
-  kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
-  ```
+     # Force CoreDNS to reload the ConfigMap
+     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     ```
 
 3. View the CoreDNS debug logging using the `kubectl logs` command.
 
-```console
-kubectl logs --namespace kube-system -l k8s-app=kube-dns
-```
+   ```console
+   kubectl logs --namespace kube-system -l k8s-app=kube-dns
+   ```
 
 ## Next steps
 
