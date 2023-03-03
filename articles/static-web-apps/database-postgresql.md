@@ -240,6 +240,41 @@ With the static web app configured to connect to the database, you can now verif
 
 [!INCLUDE [Database connection  - client code](../../includes/static-web-apps-database-connection-client-code.md)]
 
+## Connect the database to your static web app
+
+Use the following steps to create a connection between the Static Web Apps instance of your site and your database.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Settings* section, select **Database connection**.
+
+1. Under the *Production* section, select the **Link existing database** link.
+
+1. In the *Link existing database* window, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Database Type | Select your database type from the dropdown list. |
+    | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Name | Select the database server name that has your desired database. |
+    | Database Name | Select the name of the database you want to link to your static web app. |
+    | Authentication Type | Select **Connection string**, and enter the PostgreSQL user name and password. For PostgreSQL Single Server, do not include the `@servername` suffix. |
+
+1. Select **OK**.
+
+## Verify that your database is connected to your Static Web Apps resource
+
+Once you have connected your database to your Static Web Apps resource and that your new static web app content has been built and deployed, use the following steps to verify that your database has been properly connected to your Static Web Apps resource.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Essentials* section, select the **URL** of your Static Web Apps resource to navigate to your static web app.
+
+1. Select the **List** button to list all items.
+	
+	    The output should resemble what's shown in this screenshot.
+	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+	    
 ## Clean up resources
 
 If you want to remove the resources created during this tutorial, you need to unlink the database and remove the sample data.

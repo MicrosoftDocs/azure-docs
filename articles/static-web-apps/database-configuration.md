@@ -37,7 +37,7 @@ The purpose of the configuration file is to:
 - Define entity security rules
 - Control development configuration settings
 
-If you're using Azure Cosmos DB with GraphQL, then you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
+If you're using Azure Cosmos DB with GraphQL, you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
 
 ## Sample configuration file
 
@@ -91,8 +91,8 @@ The following sample configuration file shows you how to connect to an Azure SQL
 | Property | Description |
 |---|---|
 | `$schema` | The version of the [Database API builder](https://github.com/Azure/data-api-builder) used by Azure Static Web Apps to interpret the configuration file. |
-| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The entire data-source object is overwritten upon deployment when a database is connected to your Static Web Apps resource. During local development, the connection string defined in the configuration file is what is used to connect to the database.  |
-| `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your  localhost address and port. |
+| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The connection string is overwritten upon deployment when a database is connected to your Static Web Apps resource. During local development, the connection string defined in the configuration file is what is used to connect to the database.  |
+| `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your localhost address and port. The host.mode is overwritten to `production` when a database is connected to your Static Web Apps resource. |
 | `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities. |
 
 ### Generate configuration file
