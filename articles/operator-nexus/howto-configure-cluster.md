@@ -23,7 +23,7 @@ This article describes how to create a Cluster by using the Azure Command Line I
 The [API guide](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/networkcloud/resource-manager) provides
 information on the resource providers and resource models, and the APIs.
 
-The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+The metrics generated from the logging data are available in [Azure Monitor metrics](./list-of-metrics-collected.md).
 
 
 ## Create a Cluster
