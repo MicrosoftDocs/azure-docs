@@ -24,7 +24,7 @@ An [application](/azure/active-directory/develop/app-objects-and-service-princip
 
 A [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) is the *local* representation, or application instance, of a global application object in a specific tenant. An application object is used as a template to create a service principal object in every tenant where the application is used.  The service principal object defines what the app can actually do in a specific tenant, who can access the app, and what resources the app can access.
 
-A [managed identity](../managed-identities-azure-resources/overview.md) is a special type of service principal that eliminates the need for developers to manage credentials.
+A [managed identity](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json) is a special type of service principal that eliminates the need for developers to manage credentials.
 
 Here are some ways that workload identities in Azure AD are used:
 
@@ -43,7 +43,7 @@ At a high level, there are two types of identities: human and machine/non-human 
 
 Here are some ways you can use workload identities:
 
-- Access Azure AD protected resources without needing to manage secrets for workloads that run on Azure using [managed identity](../managed-identities-azure-resources/overview.md).
+- Access Azure AD protected resources without needing to manage secrets for workloads that run on Azure using [managed identity](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
 - Access Azure AD protected resources without needing to manage secrets for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure using [workload identity federation](workload-identity-federation.md).
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 - Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md), and [Continuous access evaluation for workload identities](../conditional-access/concept-continuous-access-evaluation-workload.md).
