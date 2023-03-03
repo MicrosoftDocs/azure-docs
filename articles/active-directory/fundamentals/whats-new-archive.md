@@ -29,6 +29,149 @@ The What's new in Azure Active Directory? release notes provide information abou
 
 ---
 
+## August 2022 
+
+### General Availability - Ability to force reauthentication on Intune enrollment, risky sign-ins, and risky users
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+
+
+Customers can now require a fresh authentication each time a user performs a certain action. Forced reauthentication supports requiring a user to reauthenticate during Intune device enrollment, password change for risky users, and risky sign-ins.
+
+For more information, see: [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time)
+
+---
+
+### General Availability - Multi-Stage Access Reviews
+
+**Type:** Changed feature  
+**Service category:** Access Reviews  
+**Product capability:** Identity Governance  
+
+Customers can now meet their complex audit and recertification requirements through multiple stages of reviews. For more information, see: [Create a multi-stage access review](../governance/create-access-review.md#create-a-multi-stage-access-review).
+
+
+
+---
+
+### Public Preview - External user leave settings
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** B2B/B2C 
+
+Currently, users can self-service leave for an organization without the visibility of their IT administrators. Some organizations may want more control over this self-service process.
+
+With this feature, IT administrators can now allow or restrict external identities to leave an organization by Microsoft provided self-service controls via Azure Active Directory in the Microsoft Entra portal. In order to restrict users to leave an organization, customers need to include "Global privacy contact" and "Privacy statement URL" under tenant properties.
+ 
+A new policy API is available for the administrators to control tenant wide policy:
+[externalIdentitiesPolicy resource type](/graph/api/resources/externalidentitiespolicy?view=graph-rest-beta&preserve-view=true)
+
+ For more information, see:
+
+- [Leave an organization as an external user](../external-identities/leave-the-organization.md)
+- [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md)
+
+
+
+---
+
+### Public Preview - Restrict self-service BitLocker for devices
+
+**Type:** New feature  
+**Service category:** Device Registration and Management  
+**Product capability:** Access Control
+
+In some situations, you may want to restrict the ability for end users to self-service BitLocker keys. With this new functionality, you can now turn off self-service of BitLocker keys, so that only specific individuals with right privileges can recover a BitLocker key.
+
+For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/device-management-azure-portal.md#block-users-from-viewing-their-bitlocker-keys-preview)
+
+
+---
+
+### Public Preview- Identity Protection Alerts in Microsoft 365 Defender
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection 
+
+Identity Protection risk detections (alerts) are now also available in Microsoft 365 Defender to provide a unified investigation experience for security professionals. For more information, see: [Investigate alerts in Microsoft 365 Defender](/microsoft-365/security/defender/investigate-alerts?view=o365-worldwide#alert-sources&preserve-view=true)
+
+
+
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - August 2022
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration 
+
+In August 2022, we've added the following 40 new applications in our App gallery with Federation support
+
+[Albourne Castle](https://village.albourne.com/castle), [Adra by Trintech](../saas-apps/adra-by-trintech-tutorial.md), [workhub](../saas-apps/workhub-tutorial.md), [4DX](../saas-apps/4dx-tutorial.md), [Ecospend IAM V1](https://iamapi.sb.ecospend.com/account/login), [TigerGraph](../saas-apps/tigergraph-tutorial.md), [Sketch](../saas-apps/sketch-tutorial.md), [Lattice](../saas-apps/lattice-tutorial.md), [snapADDY Single Sign On](https://app.snapaddy.com/login), [RELAYTO Content Experience Platform](https://relayto.com/signin), [oVice](https://tour.ovice.in/login), [Arena](../saas-apps/arena-tutorial.md), [QReserve](../saas-apps/qreserve-tutorial.md), [Curator](../saas-apps/curator-tutorial.md), [NetMotion Mobility](../saas-apps/netmotion-mobility-tutorial.md), [HackNotice](../saas-apps/hacknotice-tutorial.md), [ERA_EHS_CORE](../saas-apps/era-ehs-core-tutorial.md), [AnyClip Teams Connector](https://videomanager.anyclip.com/login), [Wiz SSO](../saas-apps/wiz-sso-tutorial.md), [Tango Reserve by AgilQuest (EU Instance)](../saas-apps/tango-reserve-tutorial.md), [valid8Me](../saas-apps/valid8me-tutorial.md), [Ahrtemis](../saas-apps/ahrtemis-tutorial.md), [KPMG Leasing Tool](../saas-apps/kpmg-tool-tutorial.md) [Mist Cloud Admin SSO](../saas-apps/mist-cloud-admin-tutorial.md), [Work-Happy](https://live.work-happy.com/?azure=true), [Ediwin SaaS EDI](../saas-apps/ediwin-saas-edi-tutorial.md), [LUSID](../saas-apps/lusid-tutorial.md), [Next Gen Math](https://nextgenmath.com/), [Total ID](https://www.tokyo-shoseki.co.jp/ict/), [Cheetah For Benelux](../saas-apps/cheetah-for-benelux-tutorial.md), [Live Center Australia](https://au.livecenter.com/), [Shop Floor Insight](https://www.dmsiworks.com/apps/shop-floor-insight), [Warehouse Insight](https://www.dmsiworks.com/apps/warehouse-insight), [myAOS](../saas-apps/myaos-tutorial.md), [Hero](https://admin.linc-ed.com/), [FigBytes](../saas-apps/figbytes-tutorial.md), [VerosoftDesign](https://verosoft-design.vercel.app/), [ViewpointOne - UK](https://identity-uk.team.viewpoint.com/), [EyeRate Reviews](https://azure-login.eyeratereviews.com/), [Lytx DriveCam](../saas-apps/lytx-drivecam-tutorial.md)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest 
+
+
+
+
+
+---
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - August 2022
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration  
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Ideagen Cloud](../saas-apps/ideagen-cloud-provisioning-tutorial.md)
+- [Lucid (All Products)](../saas-apps/lucid-all-products-provisioning-tutorial.md)
+- [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](../saas-apps/palo-alto-networks-cloud-identity-engine-provisioning-tutorial.md)
+- [SuccessFactors Writeback](../saas-apps/sap-successfactors-writeback-tutorial.md)
+- [Tableau Cloud](../saas-apps/tableau-online-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+
+---
+### General Availability - Workload Identity Federation with App Registrations are available now
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Developer Experience 
+
+Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials. 
+
+For more information on this capability and supported scenarios, see [Workload identity federation](../develop/workload-identity-federation.md).
+
+
+---
+
+### Public Preview - Entitlement management automatic assignment policies
+
+**Type:** Changed feature  
+**Service category:** Entitlement Management  
+**Product capability:** Identity Governance 
+
+In Azure AD entitlement management, a new form of access package assignment policy is being added. The automatic assignment policy includes a filter rule, similar to a dynamic group, that specifies the users in the tenant who should have assignments. When users come into scope of matching that filter rule criteria, an assignment is automatically created, and when they no longer match, the assignment is removed.
+
+ For more information, see: [Configure an automatic assignment policy for an access package in Azure AD entitlement management (Preview)](../governance/entitlement-management-access-package-auto-assignment-policy.md).
+
+
+
+---
+
 ## July 2022
  
 ### Public Preview - ADFS to Azure AD: SAML App Multi-Instancing
@@ -3218,10 +3361,10 @@ Customers can work around this requirement for testing purposes by using a featu
 **Service category:** Device Registration and Management  
 **Product capability:** Identity Security & Protection
  
-Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
+Azure AD and Microsoft Intune teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
 
 The following preview capabilities will allow you to:
-- Provision Android shared devices at scale with Microsoft Endpoint Manager
+- Provision Android shared devices at scale with Microsoft Intune
 - Secure your access for shift workers using device-based conditional access
 - Customize sign-in experiences for the shift workers with Managed Home Screen
 
@@ -9320,357 +9463,3 @@ For more information, see:
 - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
 
 ---
-
-## December 2017
-
-### Terms of use in the Access Panel
-
-**Type:** New feature
-**Service category:** Terms of use
-**Product capability:** Compliance
-
-You now can go to the Access Panel and view the terms of use that you previously accepted.
-
-Follow these steps:
-
-1. Go to the [MyApps portal](https://myapps.microsoft.com), and sign in.
-
-2. In the upper-right corner, select your name, and then select **Profile** from the list.
-
-3. On your **Profile**, select **Review terms of use**.
-
-4. Now you can review the terms of use you accepted.
-
-For more information, see the [Azure AD terms of use feature (preview)](../conditional-access/terms-of-use.md).
-
----
-
-### New Azure AD sign-in experience
-
-**Type:** New feature
-**Service category:** Azure AD
-**Product capability:** User authentication
-
-The Azure AD and Microsoft account identity system UIs were redesigned so that they have a consistent look and feel. In addition, the Azure AD sign-in page collects the user name first, followed by the credential on a second screen.
-
-For more information, see [The new Azure AD sign-in experience is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/).
-
----
-
-### Fewer sign-in prompts: A new "keep me signed in" experience for Azure AD sign-in
-
-**Type:** New feature
-**Service category:** Azure AD
-**Product capability:** User authentication
-
-The **Keep me signed in** check box on the Azure AD sign-in page was replaced with a new prompt that shows up after you successfully authenticate.
-
-If you respond **Yes** to this prompt, the service gives you a persistent refresh token. This behavior is the same as when you selected the **Keep me signed in** check box in the old experience. For federated tenants, this prompt shows after you successfully authenticate with the federated service.
-
-For more information, see [Fewer sign-in prompts: The new "keep me signed in" experience for Azure AD is in preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/).
-
----
-
-### Add configuration to require the terms of use to be expanded prior to accepting
-
-**Type:** New feature
-**Service category:** Terms of use
-**Product capability:** Compliance
-
-An option for administrators requires their users to expand the terms of use prior to accepting the terms.
-
-Select either **On** or **Off** to require users to expand the terms of use. The **On** setting requires users to view the terms of use prior to accepting them.
-
-For more information, see the [Azure AD terms of use feature (preview)](../conditional-access/terms-of-use.md).
-
----
-
-### Scoped activation for eligible role assignments
-
-**Type:** New feature
-**Service category:** Privileged Identity Management
-**Product capability:** Privileged Identity Management
-
-You can use scoped activation to activate eligible Azure resource role assignments with less autonomy than the original assignment defaults. An example is if you're assigned as the owner of a subscription in your tenant. With scoped activation, you can activate the owner role for up to five resources contained within the subscription (such as resource groups and virtual machines). Scoping your activation might reduce the possibility of executing unwanted changes to critical Azure resources.
-
-For more information, see [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md).
-
----
-
-### New federated apps in the Azure AD app gallery
-
-**Type:** New feature
-**Service category:** Enterprise apps
-**Product capability:** 3rd Party Integration
-
-In December 2017, we've added these new apps with Federation support to our app gallery:
-
-[Accredible](../saas-apps/accredible-tutorial.md), Adobe Experience Manager, [EFI Digital StoreFront](../saas-apps/efidigitalstorefront-tutorial.md), [Communifire](../saas-apps/communifire-tutorial.md)
-CybSafe, [FactSet](../saas-apps/factset-tutorial.md), [IMAGE WORKS](../saas-apps/imageworks-tutorial.md), [MOBI](../saas-apps/mobi-tutorial.md), [MobileIron Azure AD integration](../saas-apps/mobileiron-tutorial.md), [Reflektive](../saas-apps/reflektive-tutorial.md), [SAML SSO for Bamboo by resolution GmbH](../saas-apps/bamboo-tutorial.md), [SAML SSO for Bitbucket by resolution GmbH](../saas-apps/bitbucket-tutorial.md), [Vodeclic](../saas-apps/vodeclic-tutorial.md), WebHR, Zenegy Azure AD Integration.
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
-
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md).
-
----
-
-### Approval workflows for Azure AD directory roles
-
-**Type:** Changed feature
-**Service category:** Privileged Identity Management
-**Product capability:** Privileged Identity Management
-
-Approval workflow for Azure AD directory roles is generally available.
-
-With approval workflow, privileged-role administrators can require eligible-role members to request role activation before they can use the privileged role. Multiple users and groups can be delegated approval responsibilities. Eligible role members receive notifications when approval is finished and their role is active.
-
----
-
-### Pass-through authentication: Skype for Business support
-
-**Type:** Changed feature
-**Service category:** Authentications (Logins)
-**Product capability:** User authentication
-
-Pass-through authentication now supports user sign-ins to Skype for Business client applications that support modern authentication, which includes online and hybrid topologies.
-
-For more information, see [Skype for Business topologies supported with modern authentication](/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
-
----
-
-### Updates to Azure AD Privileged Identity Management for Azure RBAC (preview)
-
-**Type:** Changed feature
-**Service category:** Privileged Identity Management
-**Product capability:** Privileged Identity Management
-
-With the public preview refresh of Azure AD Privileged Identity Management (PIM) for Azure role-based access control (Azure RBAC), you can now:
-
-* Use Just Enough Administration.
-* Require approval to activate resource roles.
-* Schedule a future activation of a role that requires approval for both Azure AD and Azure roles.
-
-For more information, see [Privileged Identity Management for Azure resources (preview)](../privileged-identity-management/azure-pim-resource-rbac.md).
-
----
-
-## November 2017
-
-### Access Control service retirement
-
-**Type:** Plan for change
-**Service category:** Access Control service
-**Product capability:** Access Control service
-
-Azure Active Directory Access Control (also known as the Access Control service) will be retired in late 2018. More information that includes a detailed schedule and high-level migration guidance will be provided in the next few weeks. You can leave comments on this page with any questions about the Access Control service, and a team member will answer them.
-
----
-
-### Restrict browser access to the Intune Managed Browser
-
-**Type:** Plan for change
-**Service category:** Conditional Access
-**Product capability:** Identity security and protection
-
-You can restrict browser access to Office 365 and other Azure AD-connected cloud apps by using the Intune Managed Browser as an approved app.
-
-You now can configure the following condition for application-based Conditional Access:
-
-**Client apps:** Browser
-
-**What is the effect of the change?**
-
-Today, access is blocked when you use this condition. When the preview is available, all access will require the use of the managed browser application.
-
-Look for this capability and more information in upcoming blogs and release notes.
-
-For more information, see [Conditional Access in Azure AD](../conditional-access/overview.md).
-
----
-
-### New approved client apps for Azure AD app-based Conditional Access
-
-**Type:** Plan for change
-**Service category:** Conditional Access
-**Product capability:** Identity security and protection
-
-The following apps are on the list of [approved client apps](../conditional-access/concept-conditional-access-conditions.md#client-apps):
-
-- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
-- Microsoft StaffHub
-
-For more information, see:
-
-- [Approved client app requirement](../conditional-access/concept-conditional-access-conditions.md#client-apps)
-- [Azure AD app-based Conditional Access](../conditional-access/app-based-conditional-access.md)
-
----
-
-### Terms-of-use support for multiple languages
-
-**Type:** New feature
-**Service category:** Terms of use
-**Product capability:** Compliance
-
-Administrators now can create new terms of use that contain multiple PDF documents. You can tag these PDF documents with a corresponding language. Users are shown the PDF with the matching language based on their preferences. If there is no match, the default language is shown.
-
----
-
-### Real-time password writeback client status
-
-**Type:** New feature
-**Service category:** Self-service password reset
-**Product capability:** User authentication
-
-You now can review the status of your on-premises password writeback client. This option is available in the **On-premises integration** section of the [Password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) page.
-
-If there are issues with your connection to your on-premises writeback client, you see an error message that provides you with:
-
-- Information on why you can't connect to your on-premises writeback client.
-- A link to documentation that assists you in resolving the issue.
-
-For more information, see [on-premises integration](../authentication/concept-sspr-howitworks.md#on-premises-integration).
-
----
-
-### Azure AD app-based Conditional Access
-
-**Type:** New feature
-**Service category:** Azure AD
-**Product capability:** Identity security and protection
-
-You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](../conditional-access/concept-conditional-access-conditions.md#client-apps) that support Intune app protection policies by using [Azure AD app-based Conditional Access](../conditional-access/app-based-conditional-access.md). Intune app protection policies are used to configure and protect company data on these client applications.
-
-By combining [app-based](../conditional-access/app-based-conditional-access.md) with [device-based](../conditional-access/require-managed-devices.md) Conditional Access policies, you have the flexibility to protect data for personal and company devices.
-
-The following conditions and controls are now available for use with app-based Conditional Access:
-
-**Supported platform condition**
-
-- iOS
-- Android
-
-**Client apps condition**
-
-- Mobile apps and desktop clients
-
-**Access control**
-
-- Require approved client app
-
-For more information, see [Azure AD app-based Conditional Access](../conditional-access/app-based-conditional-access.md).
-
----
-
-### Manage Azure AD devices in the Azure portal
-
-**Type:** New feature
-**Service category:** Device registration and management
-**Product capability:** Identity security and protection
-
-You now can find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release, you can:
-
-- View all your devices that are available for Conditional Access in Azure AD.
-- View properties, which include your hybrid Azure AD-joined devices.
-- Find BitLocker keys for your Azure AD-joined devices, manage your device with Intune, and more.
-- Manage Azure AD device-related settings.
-
-For more information, see [Manage devices by using the Azure portal](../devices/device-management-azure-portal.md).
-
----
-
-### Support for macOS as a device platform for Azure AD Conditional Access
-
-**Type:** New feature
-**Service category:** Conditional Access
-**Product capability:** Identity security and protection
-
-You now can include (or exclude) macOS as a device platform condition in your Azure AD Conditional Access policy. With the addition of macOS to the supported device platforms, you can:
-
-- **Enroll and manage macOS devices by using Intune.** Similar to other platforms like iOS and Android, a company portal application is available for macOS to do unified enrollments. You can use the new company portal app for macOS to enroll a device with Intune and register it with Azure AD.
-- **Ensure macOS devices adhere to your organization's compliance policies defined in Intune.** In Intune on the Azure portal, you now can set up compliance policies for macOS devices.
-- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional Access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific Conditional Access policies for the targeted application set in Azure.
-
-For more information, see:
-
-- [Create a device compliance policy for macOS devices with Intune](/mem/intune/protect/compliance-policy-create-mac-os)
-- [Conditional Access in Azure AD](../conditional-access/overview.md)
-
----
-
-### Network Policy Server extension for Azure AD Multi-Factor Authentication
-
-**Type:** New feature
-**Service category:**  Multifactor authentication
-**Product capability:** User authentication
-
-The Network Policy Server extension for Azure Active Directory (Azure AD) Multi-Factor Authentication adds cloud-based multifactor authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
-
-This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Active Directory Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
-
-For more information, see [Integrate your existing Network Policy Server infrastructure with Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
-
----
-
-### Restore or permanently remove deleted users
-
-**Type:** New feature
-**Service category:** User management
-**Product capability:** Directory
-
-In the Azure AD admin center, you can now:
-
-- Restore a deleted user.
-- Permanently delete a user.
-
-**To try it out:**
-
-1. In the Azure AD admin center, select [All users](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) in the **Manage** section.
-
-2. From the **Show** list, select **Recently deleted users**.
-
-3. Select one or more recently deleted users, and then either restore them or permanently delete them.
-
----
-
-### New approved client apps for Azure AD app-based Conditional Access
-
-**Type:** Changed feature
-**Service category:** Conditional Access
-**Product capability:** Identity security and protection
-
-The following apps were added to the list of [approved client apps](../conditional-access/concept-conditional-access-conditions.md#client-apps):
-
-- Microsoft Planner
-- Azure Information Protection
-
-For more information, see:
-
-- [Approved client app requirement](../conditional-access/concept-conditional-access-conditions.md#client-apps)
-- [Azure AD app-based Conditional Access](../conditional-access/app-based-conditional-access.md)
-
----
-
-### Use "OR" between controls in a Conditional Access policy
-
-**Type:** Changed feature
-**Service category:** Conditional Access
-**Product capability:** Identity security and protection
-
-You now can use "OR" (require one of the selected controls) for Conditional Access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using multifactor authentication "OR" to be on a compliant device.
-
-For more information, see [Controls in Azure AD Conditional Access](../conditional-access/controls.md).
-
----
-
-### Aggregation of real-time risk detections
-
-**Type:** Changed feature
-**Service category:** Identity protection
-**Product capability:** Identity security and protection
-
-In Azure AD Identity Protection, all real-time risk detections that originated from the same IP address on a given day are now aggregated for each risk detection type. This change limits the volume of risk detections shown without any change in user security.
-
-The underlying real-time detection works each time the user signs in. If you have a sign-in risk security policy set up to multifactor authentication or block access, it is still triggered during each risky sign-in.
-
-

@@ -2,7 +2,6 @@
 title: Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 01/17/2023
 ms.author: qpetraroia

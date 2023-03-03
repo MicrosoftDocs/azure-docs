@@ -375,6 +375,8 @@ items:
       href: power-bi-visual-manage-access.md
     - name: Use Azure Maps in Power Apps
       href: /powerapps/maker/canvas-apps/geospatial-component-map
+  - name: Use your own data storage
+    href: how-to-create-data-registries.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
   - name: Show right attribution
@@ -411,6 +413,8 @@ items:
       href: /rest/api/maps/data
     - name: Data V2
       href: /rest/api/maps/data-v2
+    - name: Data Registry
+      href: /rest/api/maps/data-registry
     - name: Elevation
       href: /rest/api/maps/elevation
     - name: Geolocation

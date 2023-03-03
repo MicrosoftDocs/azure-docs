@@ -43,7 +43,8 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). ||
-
+| `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolve. ||
+| `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolve ||
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED
 WEBSITE_CLOUD_NAME

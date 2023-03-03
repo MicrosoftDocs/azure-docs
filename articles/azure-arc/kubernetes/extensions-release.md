@@ -78,6 +78,8 @@ For more information, see [App Service, Functions, and Logic Apps on Azure Arc (
 
 ## Azure Event Grid on Kubernetes
 
+- **Supported distributions**: AKS, Red Hat OpenShift
+
 Event Grid is an event broker used to integrate workloads that use event-driven architectures. This extension lets you create and manage Event Grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters.
 
 For more information, see [Event Grid on Kubernetes with Azure Arc (Preview)](../../event-grid/kubernetes/overview.md).

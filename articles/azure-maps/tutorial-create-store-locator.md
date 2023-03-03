@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps to create store locator web applications'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/03/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -468,7 +468,7 @@ To add the JavaScript:
 
     ```
 
-3. Add the following initialization code. Make sure to replace `<Your Azure Maps Key>` with your primary subscription key.
+3. Add the following initialization code. Make sure to replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
    > [!Tip]
    > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
