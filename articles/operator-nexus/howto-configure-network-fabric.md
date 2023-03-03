@@ -169,7 +169,7 @@ Expected output:
 }
 ```
 
-## List or get network Fabric
+## List or get Network Fabric
 
 ```azurecli
 az nf fabric list --resource-group "NFResourceGroup"  
@@ -260,7 +260,7 @@ Expected output:
 
 ## Add Racks
 
-On creating Network Fabric, one aggregate rack and two or more compute racks should be added to the Network Fabric. The number of racks should match the physical racks in the Operator Nexus instance
+On creating Network Fabric, add one aggregate rack and two or more compute racks to the Network Fabric. The number of racks should match the physical racks in the Operator Nexus instance
 
 ### Add Aggregate Rack
 

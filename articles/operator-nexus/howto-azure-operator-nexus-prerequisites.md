@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 # Operator Nexus Azure resources prerequisites
 
 To get started with Operator Nexus, you need to create a Network Fabric Controller (NFC) and then a Cluster Manager (CM)
-in your target Azure region. This Azure region will be connected to your on-premise instances.
+in your target Azure region.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
 The NFC/CM pair lifecycle manages up to 32 Azure Operator Nexus instances deployed in your sites connected to this Azure region.
@@ -54,7 +54,7 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
     service-provider side. For an ExpressRoute circuit to be operational,
     Circuit status must be Enabled, and Provider status must be
     Provisioned
-- Set up Key Vault to store encryption and security tokens, service principals,
+- Set up Azure Key Vault to store encryption and security tokens, service principals,
   passwords, certificates, and API keys
 - Set up Log Analytics WorkSpace (LAW) to store logs and analytics data for
   Operator Nexus subcomponents (Network Fabric, Cluster, etc.)
@@ -62,7 +62,7 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS
   - this storage isn't for user/consumer data.
 
-### Install CLI Extensions and sign-in to your Azure subscription
+## Install CLI Extensions and sign-in to your Azure subscription
 
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
@@ -78,7 +78,8 @@ Install latest version of the
 >[!NOTE]
 >The account must have permissions to read/write/publish in the subscription
 
-### Create steps
+## Create steps
 
 - Step 1: [Create Network Fabric Controller](./howto-configure-network-fabric-controller.md)
 - Step 2: [Create Cluster Manager](./howto-cluster-manager.md)
+- 
