@@ -28,7 +28,11 @@ This service is currently in preview, and the API may change in the future.
 
 The following example images illustrate what the Image Analysis service returns when removing the background of an image and creating an alpha matte. 
 
-|Original image  |Background removed  |Alpha matte  |
+
+|Original image  |With background removed  |Alpha matte  |
+|---------|---------|---------|
+
+| | | |
 |---------|---------|---------|
 | :::image type="content" source="media/background-removal/building1.png" alt-text="Photo of a city near water.":::    |  :::image type="content" source="media/background-removal/building1-result.png" alt-text="Photo of a city near water; sky is whited out.":::       |   :::image type="content" source="media/background-removal/building1-matte.png" alt-text="Alpha matte of a city skyline.":::      |
 |   :::image type="content" source="media/background-removal/person5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person5-result.png" alt-text="Photo of a group of people using a tablet; background is whited out.":::     |   :::image type="content" source="media/background-removal/person5-matte.png" alt-text="Alpha matte of a group of people.":::      |
@@ -41,11 +45,12 @@ It's important to note the limitations of background removal:
 - Objects that aren't prominent in the foreground may not be identified as part of the foreground.
 - Images with thin and detailed structures, like hair or fur, may show some artifacts when overlaid on backgrounds with strong contrast to the original background.
 - The latency of the background removal operation will be higher, up to several seconds, for large images.
-   - We suggest you experiment with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on a downsampled version of the image, then resizing the alpha matte to the original size and applying it to the original image).
+
+   We suggest you experiment with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on a downsampled version of the image, then resizing the alpha matte to the original size and applying it to the original image).
 
 ## Use the API
 
-The background removal feature is available through the [Analyze Image](https://aka.ms/vision-4-0-ref) API. Call `imageanalysis:segment` with your original image in the request body.
+The background removal feature is available through the [Image Analysis - Segment](https://aka.ms/vision-4-0-ref) API (`imageanalysis:segment`). You can call this API through REST calls.
 
 ## Next steps
 
