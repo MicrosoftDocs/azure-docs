@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/27/2023
+ms.date: 03/03/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -16,9 +16,7 @@ The traditional [Azure Container Networking Interface (CNI)](./configure-azure-c
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network (VNet) subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (using the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
-> Azure CNI Overlay is currently **_unavailable_** in the following regions:
-> - South Central US
-> - West US
+> Azure CNI Overlay is currently **_unavailable_** in the **West US** region. All other public regions are supported. 
 
 
 ## Overview of overlay networking
