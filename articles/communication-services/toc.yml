@@ -65,7 +65,7 @@ items:
       href: quickstarts/sms/logic-app.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
-  - name: Voice and Video Calling
+  - name: Voice and Video
     items:
     - name:  Connect to a call
       items:
@@ -95,7 +95,7 @@ items:
         href: quickstarts/rooms/get-started-rooms.md
       - name: Join a room call
         href: quickstarts/rooms/join-rooms-call.md
-    - name: Leverage UI components for Calling
+    - name: Leverage UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
   - name: Chat
     items:
@@ -115,7 +115,7 @@ items:
           href: quickstarts/chat/meeting-interop.md   
     - name: Leverage UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
-  - name: Phone Calling
+  - name: Phone calling
     items:
     - name: Get a phone numbers
       href: quickstarts/telephony/get-phone-number.md
@@ -129,13 +129,13 @@ items:
       href: quickstarts/email/create-email-communication-resource.md
     - name: Get a free Azure managed domain
       href: quickstarts/email/add-azure-managed-domains.md
-    - name: Add a Custom domain
+    - name: Add a custom domain
       href: quickstarts/email/add-custom-verified-domains.md
     - name: Connect domain to send email
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
-    - name: Send an Email in Azure Logic Apps
+    - name: Send an email in Azure Logic Apps
       href: quickstarts/email/logic-app.md
   - name: Network Traversal
     items:
@@ -153,7 +153,7 @@ items:
       items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
-      - name: Apply for a Short Code
+      - name: Apply for a short code
         href: quickstarts/sms/apply-for-short-code.md
     - name: Events
       items:
@@ -171,9 +171,9 @@ items:
         href: concepts/analytics/insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
-  - name: Voice and Video Calling
+  - name: Voice and Video
     items:
-    - name: Prepare a Node.js web app for Calling
+    - name: Setup for Node.JS app 
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
@@ -217,7 +217,7 @@ items:
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
       - name: Get users ready for their call with UI Library
         items:
-        - name: Call Readiness Overview
+        - name: Call readiness overview
           href: tutorials/call-readiness/call-readiness-overview.md
         - name: 1. Ensure user is on a supported browser
           href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
@@ -231,13 +231,13 @@ items:
         href: how-tos/calling-sdk/callkit-integration.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
-      - name: Using the mobile UI Library
+      - name: Using the mobile UI Library for voice and video
         items: 
-        - name: Setup Localization
+        - name: Setup localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Setup Theming
+        - name: Setup theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Participant View Data Injection
+        - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
@@ -267,21 +267,21 @@ items:
       href: quickstarts/chat/quickstart-botframework-integration.md
     - name: Add file sharing to your application with UI Library
       href: tutorials/file-sharing-tutorial.md
-    - name: Integrate with Data Loss Prevention policies
+    - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Mobile integrations
       items:
-      - name: Enable Push Notifications in your chat app
+      - name: Enable push notifications in your chat app
         href: tutorials/add-chat-push-notifications.md
-      - name: Using Chat SDK with React Native
+      - name: Using chat SDK with React Native
         href: quickstarts/chat/react-native.md
       - name: Using the mobile UI Library
         items: 
-        - name: Setup Localization
+        - name: Setup localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Setup Theming
+        - name: Setup theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Participant View Data Injection
+        - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
@@ -299,7 +299,7 @@ items:
         href: concepts/analytics/insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
-  - name: Phone Calling
+  - name: Phone calling
     items:
     - name: Add emergency calling to your app
       href: quickstarts/telephony/emergency-calling.md
@@ -315,9 +315,9 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
-      - name: Customize voice prompts to users with Play action 
+      - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
-      - name: Gather user input with Recognize action 
+      - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
@@ -357,7 +357,7 @@ items:
         href: quickstarts/telemetry-application-insights.md
 - name: Samples 
   items:
-  - name: Voice and Video Calling
+  - name: Voice and Video
     items:
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
@@ -375,7 +375,7 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
-  - name: Phone Calling
+  - name: Phone calling
     items:
     - name: Apointment remainder sample
       href: samples/call-automation-appointment-reminder.md
@@ -395,7 +395,7 @@ items:
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
-      - name: Presence Events
+      - name: Presence events
         href: ../event-grid/communication-services-presence-events.md
   - name: SMS
     items:
@@ -403,7 +403,7 @@ items:
       href: concepts/sms/concepts.md
     - name: FAQ
       href: concepts/sms/sms-faq.md
-    - name: SDK Features
+    - name: SDK features
       href: concepts/sms/sdk-features.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
@@ -411,13 +411,13 @@ items:
       items:
       - name: Phone number types
         href: concepts/numbers/number-types.md
-      - name: Short Code Program Brief Filling Guidelines
+      - name: Short code program brief filling guidelines
         href: concepts/sms/program-brief-guidelines.md
     - name: Events
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
-      - name: SMS Events
+      - name: SMS events
         href: ../event-grid/communication-services-telephony-sms-events.md
     - name: Analytics
       items:
@@ -527,7 +527,7 @@ items:
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
-      - name: Chat Events
+      - name: Chat events
         href: ../event-grid/communication-services-chat-events.md
     - name: Mobile integrations
       items:
@@ -539,7 +539,7 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics overview
         href: concepts/metrics.md
-  - name: Phone Calling
+  - name: Phone calling
     items:
     - name: Telephony
       items:
@@ -583,7 +583,7 @@ items:
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
-      - name: Voice and video calling Events
+      - name: Voice and video events
         href: ../event-grid/communication-services-voice-video-events.md
     - name: Analytics
       items:
@@ -611,7 +611,7 @@ items:
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
-      - name: Email Events
+      - name: Email events
         href: ../event-grid/communication-services-email-events.md
     - name: Analytics
       items:
