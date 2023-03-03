@@ -11,7 +11,7 @@ zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 author: ositanachi
 ms.author: osiotugo
-ms.custom: deploy, cliv1, sdkv1
+ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 ---
 
 # Profile your model to determine resource utilization
