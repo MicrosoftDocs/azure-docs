@@ -36,7 +36,7 @@ chatClient.on("chatMessageEdited", (e) => {
 });
 ```
 
-####  Data Loss Prevention with retreiving previous chat messages 
+####  Data Loss Prevention with retrieving previous chat messages 
 ```javascript
 const messages = chatThreadClient.listMessages();
 for await (const message of messages) {
