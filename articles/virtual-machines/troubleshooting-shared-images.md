@@ -8,7 +8,7 @@ ms.reviewer: cynthn, mattmcinnes
 ms.subservice: gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 02/28/23
+ms.date: 02/28/2023
 ---
 
 # Troubleshoot images in an Azure Compute Gallery
