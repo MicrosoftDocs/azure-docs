@@ -2,11 +2,28 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/15/2021
+ms.date: 03/03/2023
 ms.author: glenga
 ---
 
 Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string. 
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -235,7 +252,23 @@ Complete PowerShell examples are pending.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 
-The following example shows an Event Hubs trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
+The following example shows an Event Hubs trigger binding and a Python function that uses the binding. The function reads [event metadata](#event-metadata) and logs the message. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="EventHubTrigger1")
+@app.event_hub_message_trigger(arg_name="myhub", event_hub_name="samples-workitems",
+                               connection=""CONNECTION_SETTING"") 
+def test_function(myhub: func.EventHubEvent):
+    logging.info('Python EventHub trigger processed an event: %s',
+                myhub.get_body().decode('utf-8'))
+```
+
+# [v1](#tab/python-v1)
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -266,6 +299,8 @@ def main(event: func.EventHubEvent):
     for key in event.metadata:
         logging.info(f'Metadata: {key} = {event.metadata[key]}')
 ```
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -383,6 +418,25 @@ Use the `EventHubTriggerAttribute` to define a trigger on an event hub, which su
 ---
 
 ::: zone-end  
+
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
+|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
+|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
+|`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
+|`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -399,6 +453,13 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
 
