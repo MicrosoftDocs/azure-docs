@@ -52,7 +52,7 @@ The developer portal provides a graphical interface for the development teams to
 
    :::image type="content" source="media/how-to-manage-environments/environment-resources-link.png" alt-text="Screenshot showing an environment tile with the Environment Resources link highlighted. ":::
 
-1. The environment resources are displayed in the Azure Portal.
+1. The environment resources are displayed in the Azure portal.
 
    :::image type="content" source="media/how-to-manage-environments/environment-resources.png" alt-text="Screenshot showing environment resources in the Azure portal.":::
 
@@ -78,7 +78,7 @@ When you need to update your environment, you can redeploy it. The redeployment 
 
 1. To view the redeployed resources, select **Environment Resources**.
 
-1. The environment resources are displayed in the Azure Portal.
+1. The environment resources are displayed in the Azure portal.
 
    :::image type="content" source="media/how-to-manage-environments/redeployed-resources.png" alt-text="Screenshot showing redeployed resources in the Azure portal.":::
 
