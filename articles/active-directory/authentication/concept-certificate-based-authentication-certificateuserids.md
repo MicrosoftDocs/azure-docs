@@ -146,10 +146,11 @@ Authorized callers can run Microsoft Graph queries to find all the users with a 
 To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
 
 ```http
-GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')
+GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
+ConsistencyLevel: eventual
 ```
 
-You can also use the `eq`, `not`, and `startsWith` operators to match the filter condition.
+You can also use the `eq`, `not`, and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
             
 ## Update certificateUserIds using Microsoft Graph queries
 
