@@ -4,15 +4,12 @@ description: Learn about what's new and recent updates in the Update management 
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/2/2022
+ms.date: 03/03/20223
 ---
 
 # What's new in Update management center (Preview)
 
 [Update management center (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center (Preview).
-
-## Update (December 2022)
-
 
 ## Update (November 2022)
 **New region support** - Update management center (Preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
