@@ -24,7 +24,7 @@ ms.author: nikuklic
 1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
 
 2. Enter a fully qualified domain name (FQDN) and signaling port for the SBC.
-    - Domain part of your SBC FQDN must be verified before you can add it to your direct routing configuration. See [Validate domain ownership](#validate-domain-ownership) 
+    - Domain part of your SBC FQDN must be verified before you can add it to your direct routing configuration. See [prerequisites](#prerequisites) 
     - SBC certificate must match the name; wildcard certificates are supported.
     - The `*.onmicrosoft.com` and `*.azure.com` domains can’t be used for the FQDN of the SBC.
 
