@@ -31,11 +31,19 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 > [!TIP]
 > You are automatically authenticated for Azure CLI in every session.
 
-### Select the Bash environment
+### Registering your subscription with Azure Cloud Shell
 
-Check that the environment drop-down from the left-hand side of shell window says `Bash`.
+Azure Cloud Shell needs access to manage resources. Access is provided through namespaces that must
+be registered to your subscription. Use the following commands to register the Microsoft.CloudShell
+RP namespace in your subscription:
 
-![Screenshot showing how to select the Bash environment for the Azure Cloud Shell.][04]
+```azurecli-interactive  
+az account set --subscription <Subscription Name or Id>
+az provider register --namespace Microsoft.CloudShell
+```
+
+> [!NOTE]
+> You only need to register the namespace once per subscription.
 
 ### Set your subscription
 

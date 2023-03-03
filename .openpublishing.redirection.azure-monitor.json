@@ -1,5 +1,10 @@
 {
     "redirections": [
+       {
+            "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot.md",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/azure-monitor/best-practices.md",
             "redirect_url": "/azure/azure-monitor/getting-started",
@@ -28,6 +33,31 @@
         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-web-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-function-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-function-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/web-app-extension-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio-codelens.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
             "redirect_document_id": false
         },
         {
@@ -77,7 +107,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-troubleshoot.md",
-            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot",
             "redirect_document_id": false
         },
         {
@@ -199,6 +229,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/troubleshoot-portal-connectivity.md",
             "redirect_url": "/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-load-failure.md",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting",
             "redirect_document_id": false
         },
         {

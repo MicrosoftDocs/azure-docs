@@ -459,7 +459,7 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Availability overview](availability-overview.md)
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)

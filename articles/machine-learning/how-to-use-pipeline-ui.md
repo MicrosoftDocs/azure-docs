@@ -19,6 +19,11 @@ Azure Machine Learning studio provides UI to build and debug your pipeline. You 
 
 This article will introduce how to use the studio UI to build and debug machine learning pipelines.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Build machine learning pipeline
 
 ### Drag and drop components to build pipeline
@@ -244,7 +249,7 @@ Status and definitions:
 
 | Status | What does it mean? | Time estimation | Next step |
 |------|--------------|-------------|----------|
-| Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
+| Not started | Job is submitted from client side and accepted in Azure Machine Learning services. Time spent in this stage is mainly in Azure Machine Learning service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
 |Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you're using curated or registered custom environment, this time should be very short. | Check image building log. |
 |Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster.| If you're using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
 |Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if there's any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |

@@ -35,7 +35,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
 |Chipset|Intel C256|
 |Memory|1x 8-GB Dual Rank x8 DDR4-3200|
-|Storage|4x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
 |Network controller|On-board: 2x 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |On-board| iLO Port Card 1 Gb|
