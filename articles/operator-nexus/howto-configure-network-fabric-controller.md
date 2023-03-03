@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus : How to configure Network Fabric Controller"
-description: How to configure Network Fabric Controller
+title: "Azure Operator Nexus: How to configure Network fabric Controller"
+description: How to configure Network fabric Controller
 author: surajmb #Required
 ms.author: surmb #Required
 ms.service: azure  #Required
@@ -8,15 +8,20 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
-# Create and modify a Network Fabric Controller using Azure CLI
+# Create and modify a network fabric controller using Azure CLI
 
-This article describes how to create a Network Fabric Controller by using the Azure Command Line Interface (AzureCLI).
-This document also shows you how to check the status, or delete a Network Fabric Controller.
+This article describes how to create a Network fabric controller (NFC) by using the Azure Command Line Interface (AzureCLI).
+This document also shows you how to check the status, or delete a Network fabric controller.
 
 ## Prerequisites
 
-- The User must make sure all the Pre-Requisites are met prior moving on to the next steps
-- Before the User starts with NFC deployment, the ExpressRoute circuit has to be validated with the right connectivity (CircuitID)(AuthID), otherwise the NFC provisioning would fail.
+You must implement all the Pre-requisites prior to creating a network fabric controller (NFC).
+
+Names, such as for resources, shouldn't contain the underscore (\_) character.
+
+### Validate ExpressRoute circuit
+
+Validate the ExpressRoute circuit(s) for correct connectivity (CircuitID)(AuthID);  NFC provisioning would fail if connectivity is incorrect.
 
 ### Install CLI extensions
 
@@ -37,15 +42,15 @@ Check the subscriptions for the account.
 az account list
 ```
 
-Select the subscription for which you want to create a Network Fabric Controller. This subscription will be used across all Operator Nexus resources.
+Select the subscription for which you want to create a Network fabric Controller. All Operator Nexus resources, associated with this NFC, will use this subscription.
 
 ```azurecli
 az account set --subscription "<subscription ID>"
 ```
 
-## Register providers for Managed Network Fabric
+## Register providers for managed network fabric
 
-You can skip this step if your subscription is already registered with the Microsoft.ManagedNetworkFabric Resource Provider. Otherwise, proceed with the following steps:
+You must register your subscription with the `Microsoft.ManagedNetworkFabric` Resource Provider, if not previously registered.
 
 In Azure CLI, enter the following commands:
 
@@ -59,49 +64,53 @@ Monitor the registration process. Registration may take up to 10 minutes.
 az provider show -n Microsoft.ManagedNetworkFabric -o table
 ```
 
-Once registered, you should see the RegistrationState state for the namespace change to Registered.
+Once registered, you should see the `RegistrationState` state for the namespace change to `Registered`.
 
 If you've already registered, you can verify using the `show` command.
 
-## Create a Network Fabric Controller
+## Create a network fabric controller
 
-If you don't have a resource group created already, you must create a resource group before you create your Network Fabric Controller.
+You must create a resource group before you create your NFC.
 
-> [!NOTE]
-> You should create a separate Resource Group for Network Fabric Controller (NFC) and a separate one for Network fabric (NF). The value (\_) underscore is not supported for any of the naming conventions, for example (Resource Name or Resource Group.
+**Note**: You should create a separate Resource Group for NFC and a separate one for the on-premises Network fabric (NF).
 
-You can create a resource group by running the following command:
+You create resource groups by running the following commands:
 
 ```azurecli
 az group create -n NFCResourceGroupName -l "East US"
 ```
 
+```azurecli
+az group create -n NFResourceGroupName -l "East US"
+```
+
 ## Attributes for NFC creation
 
-| Parameter              | Description                                                                                                                                                                                                                                                                                             | values                                                                                                                                                                                                                                                                                                                            | Example                                                                                                                                                                                                                                                          | Required     | Type   |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------ |
-| Resource-Group         | A resource group is a container that holds related resources for an Azure solution.                                                                                                                                                                                                                     | NFCResourceGroupName                                                                                                                                                                                                                                                                                                              | ATTNFCResourceGroupName                                                                                                                                                                                                                                          | True         | String |
-| Location               | The Azure Region is mandatory to provision your deployment.                                                                                                                                                                                                                                             | eastus, westus3                                                                                                                                                                                                                                                                                                                    | eastus                                                                                                                                                                                                                                                           | True         | String |
-| Resource-Name          | The Resource-name will be the name of the Fabric                                                                                                                                                                                                                                                        | nfcname                                                                                                                                                                                                                                                                                                                           | ATTnfcname                                                                                                                                                                                                                                                       | True         | String |
-| NFC IP Block           | This Block is the NFC IP subnet, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the Express Route Circuits.                                                                                                                                                         | 10.0.0.0/19                                                                                                                                                                                                                                                                                                                       | 10.0.0.0/19                                                                                                                                                                                                                                                      | Not Required | String |
+| Parameter | Description | values | Example | Required     | Type   |
+|---------|------------------------------|----------------------------|----------------------------|------------|------|
+| Resource-Group | A resource group is a container that holds related resources for an Azure solution. | NFCResourceGroupName | XYZNFCResourceGroupName | True | String |
+| Location | The Azure Region is mandatory to provision your deployment. | eastus, westus3 | eastus | True         | String |
+| Resource-Name | The Resource-name will be the name of the Fabric | nfcname | XYZnfcname | True         | String |
+| NFC IP Block | This Block is the NFC IP subnet, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the ExpressRoute IPs | 10.0.0.0/19 | 10.0.0.0/19 | Not Required | String |
 | Express Route Circuits | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute Circuit ID and Auth key for an NFC to successfully provision. There are two Express Route Circuits, one for the Infrastructure services and other one for Workload (Tenant) services | --workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' <br /><br /> --infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' | subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}] | True         | string |
 
-Here is an example of how you can create a Network Fabric Controller using the Azure CLI.
+Here's an example of how you can create an NFC using the Azure CLI.
 For more information, see [attributes section](#attributes-for-nfc-creation).
 
 ```azurecli
-
 az nf controller create \
---resource-group "NFCResourceGroupName" \
---location "eastus"  \
---resource-name "nfcname" \
---ipv4-address-space "10.0.0.0/19" \
---infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]'
---workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]'
+  --resource-group "NFCResourceGroupName" \
+  --location "eastus"  \
+  --resource-name "nfcname" \
+  --ipv4-address-space "10.0.0.0/19" \
+  --infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]'
+  --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 ```
 
-> [!NOTE]
-> The NFC creation takes between 30-45 mins. Start using the show commands to monitor the progress of the NFC creation. You'll start to see different provisioning states while monitoring the progress of NFC creation such as, Accepted, updating and Succeeded/Failed.
+**Note:** The NFC creation takes between 30-45 mins.
+Use the `show` command to monitor NFC creation progress.
+You'll see different provisioning states such as, Accepted, updating and Succeeded/Failed.
+Delete and recreate the NFC if the creation fails (`Failed`).
 
 Expected output:
 
@@ -135,10 +144,10 @@ Expected output:
     "lastModifiedBy": "email@address.com",
 ```
 
-## Get Network Fabric Controller
+## Get network fabric controller
 
 ```azurecli
-az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:
@@ -193,14 +202,13 @@ Expected output:
 }
 ```
 
-## Delete Network Fabric Controller
+## Delete network fabric controller
+
+You should delete an NFC only after deleting all associated network fabrics.
 
 ```azurecli
-az nf controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az nf controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
-
-> [!NOTE]
-> If NF is created, then make sure the NF is deleted first before you delete the NFC.
 
 Expected output:
 
@@ -215,8 +223,8 @@ Expected output:
 ```
 
 > [!NOTE]
-> It will take 30 mins to delete the NFC. Verify the hosted resources in Azure portal whether or not it's deleted. Delete and recreate NFC if you run into NFC provisioning issue (Failed).
+> It takes 30 mins to delete the NFC. In the Azure portal, verify that the hosted resources have been deleted.
 
-### Next steps
+## Next steps
 
-Once you've successfully created a Network Fabric Controller, the next step is to create a [Cluster Manager](./howto-cluster-manager.md).
+Once you've successfully created an NFC, the next step is to create a [Cluster Manager](./howto-cluster-manager.md).
