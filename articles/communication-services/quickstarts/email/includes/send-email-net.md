@@ -91,7 +91,9 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
+| EmailSendOperation | This class holds the email opertion status of the email api.                                             |
 | SendStatusResult | This class holds lists of status of the email message delivery.                                             |
+| EmailSendResult | This class holds lists of result of the email message delivery.                                             |
 
 ## Authenticate the client
 
@@ -113,8 +115,7 @@ To authenticate using Azure Active Directory, install the Azure.Identity library
 ```console
 dotnet add package Azure.Identity
 ```
-
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using
@@ -124,55 +125,103 @@ string resourceEndpoint = "<ACS_RESOURCE_ENDPOINT>";
 EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new DefaultAzureCredential());
 ```
 
-## Send an email message
+## Contruct your email message
 
 To send an Email message, you need to
-- Construct the email content and body using EmailContent 
-- Add Recipients 
-- Construct your email message with your Sender information you get your MailFrom address from your verified domain.
-- Include your Email Content and Recipients and include attachments if any 
-- Calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
+- Define the email subject and body  
+- Define your Sender and Recipient Address
+- Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
 
-EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
-emailContent.PlainText = "This email message is sent from Azure Communication Service Email using .NET SDK.";
-List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
-EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
-EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
-SendEmailResult emailResult = emailClient.Send(emailMessage,CancellationToken.None);
+var subject = "Welcome to Azure Communication Service Email APIs.";
+var htmlContent = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email.</h4><p>This mail was send using .NET SDK!!</p></body></html>";
+var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
+var recipient = "emailalias@contoso.com";
 
 ```
-## Getting MessageId to track email delivery
-
-To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
+## Send and track email delivery
+To send an Email message, you need to
+- Call the SendAsync method. 
+- To track the status of email delivery, you need to get the operationId back from SendAsync Callback method and track the status. 
+- EmailSendOperation returns  "Succeeded" EmailSendStatus that email is out of delivery Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
- Console.WriteLine($"MessageId = {emailResult.MessageId}");
-```
-## Getting status on email delivery
-To get the delivery status of email call GetMessageStatus API with MessageId
-```csharp
-Response<SendStatusResult> messageStatus = null;
-messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
-Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
-TimeSpan duration = TimeSpan.FromMinutes(3);
-long start = DateTime.Now.Ticks;
-do
-{
-    messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
-    if (messageStatus.Value.Status != SendStatus.Queued)
+  try
     {
-        Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
-        break;
-    }
-    Thread.Sleep(10000);
-    Console.WriteLine($"...");
+        Console.WriteLine("Sending email...");
+        EmailSendOperation emailSendOperation = await emailClient.SendAsync(Azure.WaitUntil.Completed, sender, recipient, subject, htmlContent);
+        EmailSendResult statusMonitor = emailSendOperation.Value;
 
-} while (DateTime.Now.Ticks - start < duration.Ticks);
+        string operationId = emailSendOperation.Id;
+        var emailSendStatus = statusMonitor.Status;
+
+        if (emailSendStatus == EmailSendStatus.Succeeded)
+        {
+            Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
+        }
+        else
+        {
+            Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
+            return;
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error in sending email, {ex}");
+    }
+ //Console.WriteLine($"MessageId = {emailResult.MessageId}");
+```
+## Sending Email Async and getting status on email delivery 
+If you are sending lot of emails and want to track the delivery status of email do not wait for SendAsync API to complete. You can track then with EmailSendOperation to async.
+```csharp
+try
+{
+    Console.WriteLine("Sending email with Async no Wait...");
+    EmailSendOperation emailSendOperation = await emailClient.SendAsync(Azure.WaitUntil.Started,  sender, recipient, subject, htmlContent);
+
+    var cancellationToken = new CancellationTokenSource(TimeSpan.FromMinutes(2));
+
+    // Poll for email send status manually
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        await emailSendOperation.UpdateStatusAsync();
+        if (emailSendOperation.HasCompleted)
+        {
+            break;
+        }
+        Console.WriteLine("Email send operation is still running...");
+        await Task.Delay(1000);
+    }
+
+    if (emailSendOperation.HasValue)
+    {
+        EmailSendResult statusMonitor = emailSendOperation.Value;
+        string operationId = emailSendOperation.Id;
+        var emailSendStatus = statusMonitor.Status;
+
+        if (emailSendStatus == EmailSendStatus.Succeeded)
+        {
+            Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
+        }
+        else
+        {
+            Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
+            return;
+        }
+    }
+    else if (cancellationToken.IsCancellationRequested)
+    {
+        Console.WriteLine($"We have timed out while  polling for email status");
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error in sending email, {ex}");
+}
 ```
 
 [!INCLUDE [Email Message Status](./email-message-status.md)]
@@ -186,10 +235,71 @@ dotnet run
 ```
 ## Sample code
 
-
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
 
 ## Advanced
+To send an Email message using object model to consturct the email payload
+- Construct the email content and body using EmailContent 
+- Add Recipients 
+- Construct your email message with your Sender information you get your MailFrom address from your verified domain.
+- Include your Email Content and Recipients and include attachments if any 
+```csharp
+
+EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
+
+var subject = "Welcome to Azure Communication Service Email APIs.";
+
+var emailContent = new EmailContent(subject)
+{
+    PlainText = "This email message is sent from Azure Communication Service Email using .NET SDK.",
+    Html = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email using .NET SDK.</h4><p>Happy Learning!!</p></body></html>"
+};
+
+var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
+ 
+List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
+
+EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
+
+var emailMessage = new EmailMessage(sender, emailRecipients, emailContent)
+{
+    // Header name is "x-priority" or "x-msmail-priority"
+    // Header value is a number from 1 to 5. 1 or 2 = High, 3 = Normal, 4 or 5 = Low
+    // Not all email clients recognize this header directly (outlook client does recognize)
+    Headers =
+    {
+        // Set Email Importance to High
+        { "x-priority", "1" },
+        { "", "" }
+    }
+};
+
+try
+{
+    Console.WriteLine("Sending email to multiple recipients...");
+    EmailSendOperation emailSendOperation = await emailClient.SendAsync(Azure.WaitUntil.Completed, emailMessage);
+    EmailSendResult statusMonitor = emailSendOperation.Value;
+
+    string operationId = emailSendOperation.Id;
+    var emailSendStatus = statusMonitor.Status;
+
+    if (emailSendStatus == EmailSendStatus.Succeeded)
+    {
+        Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
+    }
+    else
+    {
+        Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
+        return;
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error in sending email, {ex}");
+}
+
+```
+
 
 ### Send an email message to multiple recipients
 
@@ -223,12 +333,13 @@ You can download the sample app demonstrating this from [GitHub](https://github.
 We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
 
 ```csharp
+var filePath = "C:\Users\Documents\attachment.pdf";
 byte[] bytes = File.ReadAllBytes(filePath);
 string attachmentFileInBytes = Convert.ToBase64String(bytes);
 
 var emailAttachment = new EmailAttachment(
-    "<your-attachment-name>",
-    <EmailAttachmentType>,
+    filePath,
+    MediaTypeNames.Application.Pdf,
     attachmentFileInBytes
 );
 
