@@ -1,7 +1,7 @@
 ---
 title: Get started with custom claims providers (preview)
 titleSuffix: Microsoft identity platform
-description: Use a custom authentication extension to augment tokens with claims from an external identity system. Learn how to create and deploy a custom authentication extension REST API. The REST API receives HTTP requests, or events, from the Azure AD event service and return attributes from an external data store. Learn how to register the custom authentication extensions so the Azure AD event service sends an HTTP request, or event, to your custom authentication extensionsAPI endpoint.
+description: Learn how to develop and register an Azure Active Directory custom extensions REST API. The custom extension allows you to source claims from a data store that is external to Azure Active Directory.  
 services: active-directory
 author: yoelhor
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.reviewer: JasSuri
 
 # Configure a custom claim provider token issuance event (preview)
 
-This article describes how to configure and setup a custom authentication extension with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
+This article describes how to configure and setup a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application.
 
@@ -194,11 +194,11 @@ Create an Application Registration to authenticate your custom extension to your
 1. Paste the URL: `https://graph.microsoft.com/v1.0/applications`
 1. Select **Request Body** and paste the following JSON:
 
-```json
-{
-  "displayName": "authenticationeventsAPI"
-}
-```
+    ```json
+    {
+      "displayName": "authenticationeventsAPI"
+    }
+    ```
 
 1. Select **Run Query** to submit the request.
 
@@ -210,11 +210,11 @@ Create a service principal in the tenant for the authenticationeventsAPI app reg
 1. Paste the URL: `https://graph.microsoft.com/v1.0/servicePrincipals`
 1. Select **Request Body** and paste the following JSON:
 
-```json
-{
-    "appId": "{authenticationeventsAPI_AppId}"
-}
-```
+    ```json
+    {
+        "appId": "{authenticationeventsAPI_AppId}"
+    }
+    ```
 
 1. Select **Run Query** to submit the request.
 
@@ -226,37 +226,37 @@ Update the newly created application to set the application ID URI value, the ac
 1. Paste the URL: `https://graph.microsoft.com/v1.0/applications/{authenticationeventsAPI_ObjectId}`
 1. Select **Request Body** and paste the following JSON:
 
-Set the application ID URI value in the *identifierUris* property. Replace `{Function_Url_Hostname}` with the hostname of the `{Function_Url}` you recorded earlier. 
-
-Set the `{authenticationeventsAPI_AppId}` value with the App ID generated from the app registration created in the previous step.
-
-An example value would be `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as it is used in following steps and is referenced as `{functionApp_IdentifierUri}`.
-
-```json
-{
-    "identifierUris": [
-        "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
-    ],    
-    "api": {
-        "requestedAccessTokenVersion": 2,
-        "acceptMappedClaims": null,
-        "knownClientApplications": [],
-        "oauth2PermissionScopes": [],
-        "preAuthorizedApplications": []
-    },
-    "requiredResourceAccess": [
-        {
-            "resourceAppId": "00000003-0000-0000-c000-000000000000",
-            "resourceAccess": [
-                {
-                    "id": "214e810f-fda8-4fd7-a475-29461495eb00",
-                    "type": "Role"
-                }
-            ]
-        }
-    ]
-}
-```
+    Set the application ID URI value in the *identifierUris* property. Replace `{Function_Url_Hostname}` with the hostname of the `{Function_Url}` you recorded earlier. 
+    
+    Set the `{authenticationeventsAPI_AppId}` value with the App ID generated from the app registration created in the previous step.
+    
+    An example value would be `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as it is used in following steps and is referenced as `{functionApp_IdentifierUri}`.
+    
+    ```json
+    {
+        "identifierUris": [
+            "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
+        ],    
+        "api": {
+            "requestedAccessTokenVersion": 2,
+            "acceptMappedClaims": null,
+            "knownClientApplications": [],
+            "oauth2PermissionScopes": [],
+            "preAuthorizedApplications": []
+        },
+        "requiredResourceAccess": [
+            {
+                "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                "resourceAccess": [
+                    {
+                        "id": "214e810f-fda8-4fd7-a475-29461495eb00",
+                        "type": "Role"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
 1. Select **Run Query** to submit the request.
 
@@ -268,35 +268,35 @@ Next, you register the custom extension. You register the custom extension by as
 1. Paste the URL: `https://graph.microsoft.com/beta/identity/customAuthenticationExtensions`
 1. Select **Request Body** and paste the following JSON:
 
-Replace `{Function_Url}` with the hostname of your Azure Function app. Replace `{functionApp_IdentifierUri}` with the identifierUri used in the previous step.
-
-```json
-{
-    "@odata.type": "#microsoft.graph.onTokenIssuanceStartCustomExtension",
-    "displayName": "onTokenIssuanceStartCustomExtension",
-    "description": "Fetch additional claims from custom user store",
-    "endpointConfiguration": {
-        "@odata.type": "#microsoft.graph.httpRequestEndpoint",
-        "targetUrl": "{Function_Url}"
-    },
-    "authenticationConfiguration": {
-        "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
-        "resourceId": "{functionApp_IdentifierUri}"
-    },
-    "clientConfiguration": {
-        "timeoutInMilliseconds": 2000,
-        "maximumRetries": 1
-    },
-    "claimsForTokenConfiguration": [
-        {
-            "claimIdInApiResponse": "DateOfBirth"
+    Replace `{Function_Url}` with the hostname of your Azure Function app. Replace `{functionApp_IdentifierUri}` with the identifierUri used in the previous step.
+    
+    ```json
+    {
+        "@odata.type": "#microsoft.graph.onTokenIssuanceStartCustomExtension",
+        "displayName": "onTokenIssuanceStartCustomExtension",
+        "description": "Fetch additional claims from custom user store",
+        "endpointConfiguration": {
+            "@odata.type": "#microsoft.graph.httpRequestEndpoint",
+            "targetUrl": "{Function_Url}"
         },
-        {
-            "claimIdInApiResponse": "CustomRoles"
-        }
-    ]
-}
-```
+        "authenticationConfiguration": {
+            "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
+            "resourceId": "{functionApp_IdentifierUri}"
+        },
+        "clientConfiguration": {
+            "timeoutInMilliseconds": 2000,
+            "maximumRetries": 1
+        },
+        "claimsForTokenConfiguration": [
+            {
+                "claimIdInApiResponse": "DateOfBirth"
+            },
+            {
+                "claimIdInApiResponse": "CustomRoles"
+            }
+        ]
+    }
+    ```
 
 1. Select **Run Query** to submit the request.
 
@@ -444,15 +444,15 @@ Next, create the claims mapping policy, which describes which claims can be issu
 1. Paste the URL: `https://graph.microsoft.com/v1.0/policies/claimsmappingpolicies`
 1. Select **Request Body** and paste the following JSON:
 
-```json
-{
-    "definition": [
-        "{\"ClaimsMappingPolicy\":{\"Version\":1,\"IncludeBasicClaimSet\":\"true\",\"ClaimsSchema\":[{\"Source\":\"CustomClaimsProvider\",\"ID\":\"DateOfBirth\",\"JwtClaimType\":\"dob\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CustomRoles\",\"JwtClaimType\":\"my_roles\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CorrelationId\",\"JwtClaimType\":\"correlationId\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"ApiVersion\",\"JwtClaimType\":\"apiVersion \"},{\"Value\":\"tokenaug_V2\",\"JwtClaimType\":\"policy_version\"}]}}"
-    ],
-    "displayName": "MyClaimsMappingPolicy",
-    "isOrganizationDefault": false
-}
-```
+    ```json
+    {
+        "definition": [
+            "{\"ClaimsMappingPolicy\":{\"Version\":1,\"IncludeBasicClaimSet\":\"true\",\"ClaimsSchema\":[{\"Source\":\"CustomClaimsProvider\",\"ID\":\"DateOfBirth\",\"JwtClaimType\":\"dob\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CustomRoles\",\"JwtClaimType\":\"my_roles\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"CorrelationId\",\"JwtClaimType\":\"correlationId\"},{\"Source\":\"CustomClaimsProvider\",\"ID\":\"ApiVersion\",\"JwtClaimType\":\"apiVersion \"},{\"Value\":\"tokenaug_V2\",\"JwtClaimType\":\"policy_version\"}]}}"
+        ],
+        "displayName": "MyClaimsMappingPolicy",
+        "isOrganizationDefault": false
+    }
+    ```
 
 1. Record the `ID` generated in the response, later it's referred to as `{claims_mapping_policy_ID}`.
 1. Select **Run Query** to submit the request.
@@ -469,11 +469,11 @@ Assign the claims mapping policy to the `servicePrincipal` of *My Test Applicati
 1. Paste the URL: `https://graph.microsoft.com/v1.0/servicePrincipals/{test_App_Service_Principal_ObjectId}/claimsMappingPolicies/$ref`
 1. Select **Request Body** and paste the following JSON:
 
-```json
-{
-    "@odata.id": "https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/{claims_mapping_policy_ID}"
-}
-```
+    ```json
+    {
+        "@odata.id": "https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/{claims_mapping_policy_ID}"
+    }
+    ```
 
 1. Select **Run Query** to submit the request.
 
@@ -497,7 +497,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 1. Unselect the **Token store** option.
 1. Select **Add** to add authentication to your Azure Function.
 
-    :::image type="content" border="false"  source="media/custom-extension-get-started/configure-auth-function-app.png" alt-text="Screenshot that shows how to add authentication to your function app." lightbox="media/custom-extension-get-started/configure-auth-function-app.png":::
+    :::image type="content" border="true"  source="media/custom-extension-get-started/configure-auth-function-app.png" alt-text="Screenshot that shows how to add authentication to your function app." lightbox="media/custom-extension-get-started/configure-auth-function-app.png":::
 
 ### 5.1 Using OpenID Connect identity provider
 

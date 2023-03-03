@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Custom claims providers
 
-In this reference article, you can learn about the REST API schema and Claims mapping policy structure for custom claim provider events.
+In this reference article, you can learn about the REST API schema and claims mapping policy structure for custom claim provider events.
 
 ## Token issuance start event
 

@@ -1,7 +1,7 @@
 ---
 title: Custom authentication extension 
 titleSuffix: Microsoft identity platform
-description: Use a custom authentication extension to augment tokens with claims from an external identity system or role management system. Custom authentication extensions can be used to migrate from AD FS or legacy systems.  You can also integrate with data stores external to your Azure AD directory or keep sensitive information stored outside of your Azure AD directory.
+description: Use Azure Active Directory custom extensions to customize your user's sign-in experience by using REST APIs or outbound webhooks.
 services: active-directory
 author: yoelhor
 manager: CelesteDG
@@ -32,8 +32,6 @@ The following diagram depicts the sign-in flow integrated with a custom extensio
 1. The **REST API** returns an HTTP response to Azure AD.
 1. The Azure AD **custom extension** processes the response and customizes the authentication based on the event type and the HTTP response payload.
 1. A **token** is returned to the **app**.
-
-Depending on the custom extension, it could be integrated in different authentication journeys, for example self-service sign-up.
 
 ## Custom extension REST API endpoint
 

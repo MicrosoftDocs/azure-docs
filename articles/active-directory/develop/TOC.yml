@@ -72,7 +72,7 @@
     - name: Custom Authentication Extensions
       displayName: Custom Authentication Extensions
       items:
-        - name: Custom extensions
+        - name: Overview
           href: custom-extension-overview.md
         - name: Custom claims provider
           href: custom-claims-provider-overview.md

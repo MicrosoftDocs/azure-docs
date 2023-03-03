@@ -17,9 +17,9 @@ ms.custom: aaddev
 #Customer intent: As a developer, I want to learn about custom claims provider so that I can augment tokens with claims from an external identity system or role management system.
 ---
 
-# Custom claims provider
+# Custom claims provider (preview)
 
-This article provides an overview to the custom claims provider, as part of [custom authentication extensions](./custom-extension-overview.md). 
+This article provides an overview to the Azure Active Directory (Azure AD) custom claims provider. 
 When a user authenticates to an application, a custom claims provider can be used to add  claims into the token. A custom claims provider is made up of a custom extension that calls an external REST API, to fetch claims from external systems. A custom claims provider can be assigned to one or many applications in your directory.
 
 Key data about a user is often stored in systems external to Azure AD. For example, secondary email, billing tier, or sensitive information. Some applications may rely on these attributes for the application to function as designed. For example, the application may block access to certain features based on a claim in the token.
@@ -31,9 +31,9 @@ Use a custom claims provider for the following scenarios:
 
 ## Token issuance start event listener
 
-A custom claims provider allows mapping claims from an external source into the token when the user signs into an application. It uses a custom extension to fetch attributes from an external REST API. The custom extension uses the **token issuance start** event listener, which causes it to be triggered when a token is about to be issued by Azure AD. The trigger event is configured within the custom extension, by using the **token issuance start** event type.
+An event listener is a procedure that waits for an event to occur. The custom extension uses the **token issuance start** event listener. The  event is triggered when a token is about to be issued to your application. When the event is triggered the custom extension REST API is called to fetch attributes from external systems.
 
-For an example using a custom claims provider with the **token issuance start**, check out the [get started with custom claims providers](custom-extension-get-started.md) article.
+For an example using a custom claims provider with the **token issuance start** event listener, check out the [get started with custom claims providers](custom-extension-get-started.md) article.
 
 ## Next steps
 

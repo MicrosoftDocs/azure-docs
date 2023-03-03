@@ -175,7 +175,7 @@ To test your API directly from the Postman, follow these steps:
 One of the most common issues is that your custom claims provider API doesn't respond within the two-seconds timeout. If your REST API doesn't respond in subsequent retries, then the authentication fails. To improve the performance of your REST API, follow the below suggestions:
 
 1. If your API accesses any downstream APIs, cache the access token used to call these APIs, so a new token doesn't have to be acquired on every execution.
-1. Performance issues are often been in a downstream service. Add logging, which records the process time to call to any downstream services. 
+1. Performance issues are often related to downstream services. Add logging, which records the process time to call to any downstream services. 
 1. If you use a cloud provider to host your API, use a hosting plan that keeps the API always "warm". For Azure Functions, it can be either [the Premium plan or Dedicated plan](../../azure-functions/functions-scale.md).
 1. [Run automated integration tests](test-automate-integration-testing.md) for your authentications. You can also use Postman or other tools to test just your API performance.
 
