@@ -6,6 +6,17 @@ ms.date: 11/14/2022
 ms.author: eur
 ---
 
+### February 2023 release
+
+#### Prebuilt Neural TTS Voices (GA)
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male) |
+| `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural` (Male) |
+
 ### December 2022 release
 
 #### Batch synthesis REST API (Preview)

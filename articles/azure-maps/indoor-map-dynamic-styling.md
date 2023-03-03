@@ -1,8 +1,8 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -18,7 +18,7 @@ You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature
 1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md)
-4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Download the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Create an indoor map](tutorial-creator-indoor-maps.md) to obtain a `tilesetId` and `statesetId`.
 6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
 
@@ -66,7 +66,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 3. Enter a **Request name** for the request, such as *POST Data Upload*.
 
-4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
+4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `statesetId` with the `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}

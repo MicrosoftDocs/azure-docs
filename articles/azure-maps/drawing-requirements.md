@@ -1,10 +1,10 @@
 ---
 title: Drawing package requirements in Microsoft Azure Maps Creator
 titleSuffix: Microsoft Azure Maps Creator
-description: Learn about the Drawing package requirements to convert your facility design files to map data
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 03/18/2022
+description: Learn about the drawing package requirements to convert your facility design files to map data
+author: eriklindeman
+ms.author: eriklind
+ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,17 +13,17 @@ services: azure-maps
 
 # Drawing package requirements
 
-You can convert uploaded Drawing packages into map data by using the [Azure Maps Conversion service](/rest/api/maps/v2/conversion). This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can convert uploaded drawing packages into map data by using the [Azure Maps Conversion service](/rest/api/maps/v2/conversion). This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-For a guide on how to prepare your Drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
+For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
 
 ## Prerequisites
 
-The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software.
+The drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software.
 
-You can choose any CAD software to produce the drawings in the Drawing package.  
+You can choose any CAD software to produce the drawings in the drawing package.  
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts the Drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts the drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
 
 ## Glossary of terms
 
@@ -40,12 +40,12 @@ For easy reference, here are some terms and definitions that are important as yo
 
 ## Drawing package structure
 
-A Drawing package is a .zip archive that contains the following files:
+A drawing package is a .zip archive that contains the following files:
 
 - DWG files in AutoCAD DWG file format.
-- A _manifest.json_ file that describes the DWG files in the Drawing package.
+- A _manifest.json_ file that describes the DWG files in the drawing package.
 
-The Drawing package must be zipped into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the package, but the manifest file must live at the root directory of the zipped package. The next sections detail the requirements for the DWG files, manifest file, and the content of these files. To view a sample package, you can download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The drawing package must be zipped into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the package, but the manifest file must live at the root directory of the zipped package. The next sections detail the requirements for the DWG files, manifest file, and the content of these files. To view a sample package, you can download the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## DWG file conversion process
 
@@ -69,14 +69,14 @@ The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) does the follo
 
 ## DWG file requirements
 
-A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels will have three DWG files in the Drawing package.
+A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels will have three DWG files in the drawing package.
 
 Each DWG file must adhere to the following requirements:
 
 - The DWG file must define the _Exterior_ and _Unit_ layers. It can optionally define the following layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 - The DWG file can't contain features from multiple levels.
 - The DWG file can't contain features from multiple facilities.
-- The DWG must reference the same measurement system and unit of measurement as other DWG files in the Drawing package.
+- The DWG must reference the same measurement system and unit of measurement as other DWG files in the drawing package.
 
 ## DWG layer requirements
 
@@ -114,7 +114,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 
 If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
-You can see an example of the Exterior layer as the outline layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Exterior layer as the outline layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Unit layer
 
@@ -129,7 +129,7 @@ The Units layer should adhere to the following requirements:
 
 Name a unit by creating a text object in the UnitLabel layer, and then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-You can see an example of the Units layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Units layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Wall layer
 
@@ -138,7 +138,7 @@ The DWG file for each level can contain a layer that defines the physical extent
 - Walls must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 - The wall layer or layers should only contain geometry that's interpreted as building structure.
 
-You can see an example of the Walls layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Walls layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Door layer
 
@@ -158,7 +158,7 @@ The DWG file for each level can contain a Zone layer that defines the physical e
 
 Name a zone by creating a text object in the ZoneLabel layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
-You can see an example of the Zone layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Zone layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### UnitLabel layer
 
@@ -168,7 +168,7 @@ The DWG file for each level can contain a UnitLabel layer. The UnitLabel layer a
 - Unit labels must fall entirely inside the bounds of their unit.
 - Units must not contain multiple text entities in the UnitLabel layer.
 
-You can see an example of the UnitLabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the UnitLabel layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### ZoneLabel layer
 
@@ -178,7 +178,7 @@ The DWG file for each level can contain a ZoneLabel layer. This layer adds a nam
 - Zones labels must fall inside the bounds of their zone.
 - Zones must not contain multiple text entities in the ZoneLabel layer.
 
-You can see an example of the ZoneLabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the ZoneLabel layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Manifest file requirements
 
@@ -284,9 +284,9 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameSubtitle| string | false |Subtitle of the zone. |
 |zoneSetId| string | false | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |
 
-### Sample Drawing package manifest
+### Sample drawing package manifest
 
-Below is the manifest file for the sample Drawing package. Go to the [Sample Drawing package for Azure Maps Creator](https://github.com/Azure-Samples/am-creator-indoor-data-examples) on GitHub to download the entire package.
+Below is the manifest file for the sample drawing package. Go to the [Sample drawing package for Azure Maps Creator](https://github.com/Azure-Samples/am-creator-indoor-data-examples) on GitHub to download the entire package.
 
 #### Manifest file
 
@@ -417,22 +417,10 @@ Below is the manifest file for the sample Drawing package. Go to the [Sample Dra
 
 ## Next steps
 
-When your Drawing package meets the requirements, you can use the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map by using the indoor maps module.
-
-> [!div class="nextstepaction"]
-> [Creator Facility Ontology](creator-facility-ontology.md)
-
-> [!div class="nextstepaction"]
-> [Creator for indoor maps](creator-indoor-maps.md)
-
-> [!div class="nextstepaction"]
-> [Drawing Package Guide](drawing-package-guide.md)
-
-> [!div class="nextstepaction"]
-> [Creator  for indoor maps](creator-indoor-maps.md)
-
 > [!div class="nextstepaction"]
 > [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
 
+Learn more by reading:
+
 > [!div class="nextstepaction"]
-> [Indoor maps dynamic styling](indoor-map-dynamic-styling.md)
+> [Creator for indoor maps](creator-indoor-maps.md)

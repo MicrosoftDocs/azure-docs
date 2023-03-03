@@ -11,17 +11,36 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL trigger for Functions (preview)
 
+::: zone pivot="programming-language-csharp"
+
 > [!NOTE]
-> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported.
+> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not currently supported.
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted.
 
 For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
-## Example usage
-<a id="example"></a>
+## Functionality Overview
 
-::: zone pivot="programming-language-csharp"
+The Azure SQL Trigger binding uses a polling loop to check for changes, triggering the user function when changes are detected. At a high level the loop looks like this:
+
+```
+while (true) {
+    1. Get list of changes on table - up to a maximum number controlled by the Sql_Trigger_MaxBatchSize setting
+    2. Trigger function with list of changes
+    3. Wait for delay controlled by Sql_Trigger_PollingIntervalMs setting
+}
+```
+
+Changes will always be processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about this:
+
+1. If changes to multiple rows are made at once the exact order that they'll be sent to the function is based on the order returned by the CHANGETABLE function
+2. Changes are "batched" together for a row - if multiple changes are made to a row between each iteration of the loop then only a single change entry will exist for that row that shows the difference between the last processed state and the current state
+3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows then the half that wasn't changed a second time will be processed first. This is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
+
+See [Work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it's used by applications such as Azure SQL triggers.
+
+## Example usage
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
@@ -88,48 +107,30 @@ Isolated worker process isn't currently supported.
 -->
 ---
 
-
-::: zone-end
-
-::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
-
-> [!NOTE]
-> In the current preview, Azure SQL triggers are only supported by [C# class library functions](functions-dotnet-class-library.md)
-
-::: zone-end
-
-
-::: zone pivot="programming-language-csharp"
-## Attributes 
+## Attributes
 
 The [C# library](functions-dotnet-class-library.md) uses the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute to declare the SQL trigger on the function, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | Required. The name of the table being monitored by the trigger.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.| 
-
-
-::: zone-end
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.|
 
 ## Configuration
 
 <!-- ### for another day ###
-::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"  
-
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
 
-::: zone-end -->
-
+-->
 
 In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
 
 | App Setting | Description|
 |---------|---------|
-|**Sql_Trigger_BatchSize** |This controls the number of changes processed at once before being sent to the triggered function. The default value is 100.|
+|**Sql_Trigger_BatchSize** |This controls the maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|This controls the delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
 |**Sql_Trigger_MaxChangesPerWorker**|This controls the upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
@@ -138,7 +139,7 @@ In addition to the required ConnectionStringSetting [application setting](./func
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [VS Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
@@ -166,7 +167,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
 ## Enable runtime-driven scaling
 
-Optionally, your functions can scale automatically based on the amount of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
+Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
 
 [!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
@@ -175,3 +176,12 @@ Optionally, your functions can scale automatically based on the amount of change
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
+
+> [!NOTE]
+> In the current preview, Azure SQL triggers are only supported by [C# class library functions](functions-dotnet-class-library.md)
+
+::: zone-end

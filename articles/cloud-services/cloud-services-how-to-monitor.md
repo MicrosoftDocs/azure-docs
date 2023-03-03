@@ -3,11 +3,11 @@ title: Monitor an Azure Cloud Service (classic) | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Introduction to Cloud Service (classic) Monitoring

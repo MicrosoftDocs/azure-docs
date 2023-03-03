@@ -54,13 +54,13 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub has to verify that you really own the CA certificate.  It does so by generating a random challenge that you sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as recommended, then only you will possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, you complete this step by uploading a file containing the results.
 
-Learn how to [register your CA certificate](./tutorial-x509-scripts.md)
+Learn how to [register your CA certificate](./tutorial-x509-prove-possession.md)
 
 ## Create a device on IoT Hub
 
 To prevent device impersonation, IoT Hub requires that you let it know what devices to expect.  You do this by creating a device entry in the IoT hub's device registry.  This process is automated when using [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
-Learn how to [manually create a device in IoT Hub](./tutorial-x509-scripts.md).
+Learn how to [manually create a device in IoT Hub](./iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
 ## Authenticate devices signed with X.509 CA certificates
 
@@ -68,7 +68,7 @@ With your X.509 CA certificate registered and devices signed into a certificate 
 
 A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device’s X.509 certificate.
 
-Learn how to [complete this device connection step](./tutorial-x509-scripts.md).
+Learn how to [complete this device connection step](./tutorial-x509-prove-possession.md).
 
 ## Next Steps
 

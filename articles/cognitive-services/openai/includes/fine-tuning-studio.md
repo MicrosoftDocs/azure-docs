@@ -1,5 +1,5 @@
 ---
-title: 'How to customize a model with Azure OpenAI (Studio)'
+title: 'How to customize a model with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI by using the Azure OpenAI Studio
 services: cognitive-services
@@ -17,9 +17,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource
     
     For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
@@ -99,14 +99,14 @@ Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="
 
 #### Landing page
 
-You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
+You'll first land on our main page for Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
 Select the **Start fine-tuning a custom model** button under **Manage deployments and models** section of the landing page, highlighted in the following picture, to start fine-tuning a custom model. 
 
 > [!NOTE]
 > If your resource doesn't have a model already deployed in it, a warning is displayed. You can ignore that warning for the purposes of fine-tuning a model, because you'll be fine-tuning and deploying a new customized model.
 
-:::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
+:::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
 ### Start the wizard from the Models page
 
