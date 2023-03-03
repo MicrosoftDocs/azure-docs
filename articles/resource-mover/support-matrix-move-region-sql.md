@@ -7,7 +7,7 @@ ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: ankitadutta
-ms.custom: UpdateFrequency.5
+ms.custom: UpdateFrequency2
 
 
 ---

@@ -7,7 +7,7 @@ ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: aarthiv
-ms.custom: UpdateFrequency.5
+ms.custom: UpdateFrequency2
 
 ---
 # Support for moving extension resource types between Azure regions
