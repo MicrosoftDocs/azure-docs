@@ -387,7 +387,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-        - http:
+      - http:
           paths:
           - path: /hello-world-one(/|$)(.*)
             pathType: Prefix
@@ -421,7 +421,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-        - http:
+      - http:
           paths:
           - path: /static(/|$)(.*)
             pathType: Prefix
