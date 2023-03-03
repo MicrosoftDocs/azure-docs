@@ -334,32 +334,18 @@
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
       href: ../connectors/connectors-create-api-office365-outlook.md
-    - name: OneDrive
-      href: ../connectors/connectors-create-api-onedrive.md
-    - name: OneDrive for Business
-      href: ../connectors/connectors-create-api-onedriveforbusiness.md
     - name: Oracle Database
       href: ../connectors/connectors-create-api-oracledatabase.md
-    - name: Outlook.com
-      href: ../connectors/connectors-create-api-outlook.md
     - name: Recurrence
       href: ../connectors/connectors-native-recurrence.md
     - name: Request / Response
       href: ../connectors/connectors-native-reqres.md
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
-    - name: Salesforce
-      href: ../connectors/connectors-create-api-salesforce.md
     - name: SAP
       href: logic-apps-using-sap-connector.md
-    - name: SFTP
-      href: ../connectors/connectors-create-api-sftp.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
-    - name: SharePoint
-      href: ../connectors/connectors-create-api-sharepoint.md
-    - name: Slack
-      href: ../connectors/connectors-create-api-slack.md
     - name: Sliding Window
       href: ../connectors/connectors-native-sliding-window.md
     - name: SMTP

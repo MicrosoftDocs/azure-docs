@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atmos to support provisioning with Azure AD
 
-1. Log in to the [Management Console](https://auth.axissecurity.com/).
+1. Log in to the Axis Management Console.
 1. Navigate to **Settings**-> **Identity Providers** screen.
 1. Hover over the **Azure Identity Provider** and select **edit**.
 1. Navigate to **Advanced Settings**.
@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Atmos from the Azure AD application gallery
 
-Add Atmos from the Azure AD application gallery to start managing provisioning to Atmos. If you have previously setup Atmos for SSO, you can use the same application. However the recommendation is to create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Atmos from the Azure AD application gallery to start managing provisioning to Atmos. If you have previously setup Atmos for SSO, you can use the same application. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 

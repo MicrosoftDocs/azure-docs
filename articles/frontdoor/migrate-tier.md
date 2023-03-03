@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 02/22/2023
 ms.author: duau
 ---
 
@@ -26,7 +26,12 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
         * Register the service principal for **Microsoft.AzureFrontDoor-Cdn** as an app in your Azure Active Directory using Azure PowerShell.
         * Grant **Microsoft.AzureFrontDoor-Cdn** access to your Key Vault.
     * Session affinity gets enabled from the origin group settings in the Azure Front Door Standard or Premium profile. In Azure Front Door (classic), session affinity is managed at the domain level. As part of the migration, session affinity is based on the Classic profile's configuration. If you have two domains in the Classic profile that shares the same backend pool (origin group), session affinity has to be consistent across both domains in order for migration to be compatible.
-    
+
+> [!NOTE]
+> You don't need to make any DNS changes before or during the migration process.
+> 
+> However, when the migration is completed and traffic flows through your new Azure Front Door Standard or Premium profile, you should update your DNS records. For more information, see [Update DNS records](#update-dns-records).
+
 ## Validate compatibility
 
 1. Go to the Azure Front Door (classic) resource and select **Migration** from under *Settings*.
@@ -122,6 +127,14 @@ Select **Grant** to add managed identities from the last section to all the Key 
 1. The Front Door (classic) profile is now in a **Disabled** state and can be deleted from your subscription.
 
     :::image type="content" source="./media/migrate-tier/classic-profile.png" alt-text="Screenshot of the overview page of a Front Door (classic) in a disabled state.":::
+
+## Update DNS records
+
+Your old Azure Front Door (classic) instance uses a different fully qualified domain name (FQDN) than Azure Front Door Standard and Premium. For example, an Azure Front Door (classic) endpoint might be `contoso.azurefd.net`, while the Azure Front Door Standard or Premium endpoint might be `contoso-mdjf2jfgjf82mnzx.z01.azurefd.net`. For more information about Azure Front Door Standard and Premium endpoints, see [Endpoints in Azure Front Door](./endpoint.md).
+
+You don't need to update your DNS records before or during the migration process. Azure Front Door automatically sends traffic that it receives on the Azure Front Door (classic) endpoint to your Azure Front Door Standard or Premium profile without you making any configuration changes.
+
+However, when your migration is finished, we strongly recommend that you update your DNS records to direct traffic to the new Azure Front Door Standard or Premium endpoint. Changing your DNS records helps to ensure that your profile continues to work in the future. The change in DNS record doesn't cause any downtime. You don't need to plan this update to happen at any specific time, and you can schedule it at your convenience.
 
 ## Next steps
 

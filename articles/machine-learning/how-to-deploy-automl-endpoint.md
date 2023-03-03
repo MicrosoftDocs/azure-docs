@@ -197,7 +197,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 1. Configure workspace details and get a handle to the workspace:
 
     ```python
-    # enter details of your AzureML workspace
+    # enter details of your Azure Machine Learning workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AZUREML_WORKSPACE_NAME>"

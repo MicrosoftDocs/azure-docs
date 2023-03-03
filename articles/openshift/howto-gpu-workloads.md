@@ -1,7 +1,7 @@
 ---
 title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
 description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
-author: johnmarc
+author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat

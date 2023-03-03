@@ -64,7 +64,7 @@ sections:
       - question: |
           Can I add a VM from the same availability set to different backend pools of a load balancer?
         answer: |
-          Adding a VM from the same availability set to different backend pools isn't possible.
+          Adding a VM from the same availability set to different backend pools isn't possible if the load balancer is NIC based. However, with IP-based load balancer this constraint is lifted.
 
       - question: |
           What is the maximum data throughput that can be achieved via an Azure Load Balancer?

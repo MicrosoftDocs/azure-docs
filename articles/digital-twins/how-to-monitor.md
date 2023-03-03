@@ -75,9 +75,9 @@ Metrics having to do with data ingress:
 | IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
 | IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it's ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
 
-### Bulk operation metrics (from the Import Jobs API)
+### Bulk operation metrics (from the Jobs API)
 
-Metrics having to do with bulk operations from the [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
+Metrics having to do with bulk operations from the [Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |

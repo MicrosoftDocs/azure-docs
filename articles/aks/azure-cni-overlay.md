@@ -3,11 +3,10 @@ title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS) 
 description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 author: asudbring
 ms.author: allensu
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/07/2023
+ms.date: 02/24/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -18,10 +17,8 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 
 > [!NOTE]
 > Azure CNI Overlay is currently **_unavailable_** in the following regions:
-> - East US 2
 > - South Central US
 > - West US
-> - West US 2
 
 
 ## Overview of overlay networking
@@ -65,6 +62,18 @@ The following are additional factors to consider when planning pods IP address s
 * **Kubernetes service address range**: The size of the service address CIDR depends on the number of cluster services you plan to create. It must be smaller than `/12`. This range should also not overlap with the pod CIDR range, cluster subnet range, and IP range used in peered VNets and on-premises networks.
 
 * **Kubernetes DNS service IP address**: This is an IP address within the Kubernetes service address range that's used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
+
+## Network security groups
+
+Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet [network security group][nsgs] rules are applied. If the subnet NSG contains deny rules that would impact the pod CIDR traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
+
+* Traffic from the node CIDR to the node CIDR on all ports and protocols
+* Traffic from the node CIDR to the pod CIDR on all ports and protocols (required for service traffic routing)
+* Traffic from the pod CIDR to the pod CIDR on all ports and protocols (required for pod to pod and pod to service traffic, including DNS)
+
+Traffic from a pod to any destination outside of the pod CIDR block will utilize SNAT to set the source IP to the IP of the node where the pod is running.
+
+If you wish to restrict traffic between workloads in the cluster, [network policies][aks-network-policies] are the recommended solution.
 
 ## Maximum pods per node
 
@@ -151,3 +160,6 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
+[aks-egress]: limit-egress-traffic.md
+[aks-network-policies]: use-network-policies.md
+[nsg]: /azure/virtual-network/network-security-groups-overview

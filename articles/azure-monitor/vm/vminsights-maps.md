@@ -11,10 +11,10 @@ ms.date: 06/08/2022
 # Use the Map feature of VM insights to understand application components
 In VM insights, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
 
-For information about configuring VM insights, see [Enable VM insights](./vminsights-enable-overview.md).
+For information about configuring VM insights, see [Enable VM insights](vminsights-enable-overview.md).
 
 ## Prerequisites
-To enable the map feature in VM insights, the virtual machine requires one of the following. See [Enable VM insights on unmonitored machine](vminsights-maps.md) for details on each.
+To enable the map feature in VM insights, the virtual machine requires one of the following. See [Enable VM insights on unmonitored machine](vminsights-enable-overview.md) for details on each.
 
 - Azure Monitor agent with **processes and dependencies** enabled.
 - Log Analytics agent enabled for VM insights. 

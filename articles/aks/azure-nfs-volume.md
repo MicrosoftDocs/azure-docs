@@ -2,7 +2,6 @@
 title: Manually create a Linux NFS Server persistent volume for Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create an Ubuntu Linux NFS Server persistent volume for use with pods in Azure Kubernetes Service (AKS)
-services: container-service
 author: ozboms
 ms.topic: article
 ms.date: 06/13/2022

@@ -14,6 +14,8 @@ items:
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
       href: whats-new.md
+    - name: Azure OpenAI FAQ
+      href: faq.yml
 - name: Quickstarts
   href: quickstart.md
 - name: Concepts
@@ -76,6 +78,8 @@ items:
   items: 
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
+    - name: Intro to Azure OpenAI training
+      href: /training/modules/explore-azure-openai/
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use

@@ -198,5 +198,5 @@ The following screenshot shows an example of the audit log. To filter the logs f
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)
