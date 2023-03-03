@@ -12,8 +12,9 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/link)
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/link.
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` com
     dotnet new console -o DirectRoutingQuickstart
 ```
 
-This command creates a simple "Hello World" C# project with a single source file: Program.cs.
+This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 Change your directory to the newly created app folder and use the dotnet build command to compile your application.
 
 ``` console
@@ -46,7 +47,7 @@ While still in the application directory, install the Azure Communication PhoneN
     dotnet add package Azure.Communication.PhoneNumbers --version 1.1.0-beta.3
 ```
 
-Add a using directive to the top of Program.cs to include the namespaces.
+Add a using directive to the top of **Program.cs** to include the namespaces.
 
 ``` csharp
 
@@ -56,7 +57,7 @@ using Azure.Communication.PhoneNumbers.SipRouting;
 
 ## Authenticate the client
 
-Sip Routing client can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal](https://portal.azure.com/). 
 
 ``` csharp
 

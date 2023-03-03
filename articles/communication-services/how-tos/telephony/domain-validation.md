@@ -36,17 +36,17 @@ Make sure to add and verify domain name portion of the FQDN and keep in mind tha
 1. Enter the domain part of SBC’s fully qualified domain name.
 1. Reenter the domain name.
 1. Select Confirm and then select Add.
-1. 
-<picture here>
+
+:::image type="content" source="./media/add-domain-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
 
 1. Select Verify next to new domain that is now visible in Domain’s list.
 1. Azure portal will generate a value for a TXT record, you need to add that record to your registrars or DNS hosting provider website to set up your domain.
 
-<another picture here>
+:::image type="content" source="./media/txt-record-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
 
 [!Note] It might take up to 30 minutes for new DNS record to propagate on the Internet
 
-1. Select Next. If everything is set up correctly, you should see Domain status changed to Verified next to the added domain.
+1. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
 
 #### Edit existing domain record
 
