@@ -54,17 +54,15 @@ Each recommendation provides the same set of details that explain what the recom
 
 The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
 
-![Screenshot of the Mark as options.](./media/overview-recommendations/recommendation-mark-as-options.png)
-
 The **Priority** of a recommendation could be low, medium, or high. These values are determined by several factors, such as security implications, health concerns, or potential breaking changes.
-
-![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/overview-recommendations/recommendation-status-risk.png)
 
 - **High**: Must do. Not acting will result in severe security implications or potential downtime.
 - **Medium**: Should do. No severe risk if action isn't taken.
 - **Low**: Might do. No security risks or health concerns if action isn't taken.
 
 The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
+
+![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/overview-recommendations/recommendation-status-risk.png)
 
 The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
 

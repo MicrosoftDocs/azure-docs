@@ -36,7 +36,7 @@ To update the status of a recommendation or a related resource, sign in to Azure
 
 1. Select a recommendation from the list to view the details, status, and action plan. 
 
-    ![Screenshot of the list of recommendations.](./media/overview-recommendations/recommendations-list.png)
+    ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
 1. Follow the **Action plan**.
 
@@ -45,11 +45,11 @@ To update the status of a recommendation or a related resource, sign in to Azure
     - The status for the resource appears as regular text, but you can right-click on the status to open the menu.
     - You can set each resource to a different status as needed.
     
-    ![Screenshot of the status options for a resource.](./media/overview-recommendations/resource-mark-as-option.png)
+    ![Screenshot of the status options for a resource.](./media/howto-use-recommendations/resource-mark-as-option.png)
 
 1. The recommendation service automatically marks the recommendation as complete, but if you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
 
-    ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/overview-recommendations/recommendation-mark-as-options.png)
+    ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/howto-use-recommendations/recommendation-mark-as-options.png)
 
     - Mark a recommendation as **Dismissed** if you think the recommendation is irrelevant or the data is wrong.
         - Azure AD asks for a reason why you dismissed the recommendation so we can improve the service.
