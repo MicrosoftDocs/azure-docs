@@ -9,7 +9,7 @@ ms.date: 05/10/2022
 
 # Quickstart: Create a lab using an ARM template
 
-This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
