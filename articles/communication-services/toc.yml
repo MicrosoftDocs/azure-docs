@@ -87,7 +87,7 @@ items:
       href: quickstarts/voice-video-calling/get-started-volume-indicator.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
-    - name: Modifying and replacing the background image
+    - name: Background blur and effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
   - name: Call Automation
     items:
@@ -245,7 +245,7 @@ items:
         href: concepts/voice-video-calling/media-quality-sdk.md
       - name: Video constraints
         href: concepts/voice-video-calling/video-constraints.md
-      - name: Customizing the video background
+      - name: Background blur and effects
         href: concepts/voice-video-calling/video-effects.md
       - name: Pre-Call diagnostics
         href: concepts/voice-video-calling/pre-call-diagnostics.md
