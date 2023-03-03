@@ -33,7 +33,7 @@ The convert phase consists of two steps, which you complete in sequence:
 > [!NOTE]
 > You can import a resource by opening the Visual Studio Code command palette. Use <kbd>Ctrl+Shift+P</kbd> on Windows and Linux and <kbd>⌘+Shift+P</kbd> on macOS.
 >
-> Visual Studio Code enables you to paste JSON as Bicep. For more information, see [Paste JSON as Bicep](./visual-studio-code.md#paste-json-as-bicep-preview).
+> Visual Studio Code enables you to paste JSON as Bicep. For more information, see [Paste JSON as Bicep](./visual-studio-code.md#paste-as-bicep-preview).
 
 ## Phase 2: Migrate
 

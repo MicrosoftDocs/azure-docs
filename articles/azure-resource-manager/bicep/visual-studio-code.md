@@ -134,7 +134,7 @@ To enable the feature:
 1. Expand **Extensions** and then select **Bicep**.
 1. Select **Decompile on Paste** and **Enable paste as Bicep**.
 
-    :::image type="content" source="./media/visual-studio-code/enable-paste-as-bicep.png" alt-text="Screenshot of Visual Studio Code Paste as Bicep.":::
+    :::image type="content" source="./media/visual-studio-code/enable-paste-json.png" alt-text="Screenshot of Visual Studio Code Paste as Bicep.":::
 
 By using this feature, you can paste:
 
