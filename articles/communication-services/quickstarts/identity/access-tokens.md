@@ -41,11 +41,11 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 ::: zone-end
 
 ::: zone pivot="platform-azportal"
-[!INCLUDE [AzPortal](./includes/access-tokens/access-token-azportal.md)]
+[!INCLUDE [AzPortal](./includes/access-tokens/access-token-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-nocode"
-[!INCLUDE [No Code](./includes/access-tokens/access-token-nocode.md)]
+[!INCLUDE [No Code](./includes/access-tokens/access-token-no-code.md)]
 ::: zone-end
 
 ## Use identity for monitoring and metrics
