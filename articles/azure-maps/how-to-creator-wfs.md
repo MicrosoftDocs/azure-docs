@@ -1,18 +1,18 @@
 ---
-title: Query datasets with WFS API
+title: Query datasets using the Web Feature Service
 titleSuffix: Microsoft Azure Maps Creator
-description: How to Query datasets with WFS API
-author: stevemunk
-ms.author: eriklind
-ms.date: 02/28/2023
+description: How to Query datasets with Web Feature Service (WFS) 
+author: brendansco
+ms.author: Brendanc
+ms.date: 03/03/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Query datasets with WFS API
+# Query datasets using the Web Feature Service
 
-This article describes how to query Azure Maps Creator [datasets] using [WFS API]. You can use the WFS API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level.
+This article describes how to query Azure Maps Creator [datasets] using [Web Feature Service (WFS)]. You can use the WFS API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level.
 
 ## Prerequisites
 
@@ -113,6 +113,7 @@ After the response returns, copy the feature `id` for one of the `unit` features
 
 [datasets]: /rest/api/maps/v2/dataset
 [WFS API]: /rest/api/maps/v2/wfs
+ [Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
 [Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services

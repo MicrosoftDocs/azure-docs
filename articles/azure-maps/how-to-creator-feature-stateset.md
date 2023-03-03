@@ -2,9 +2,9 @@
 title: Create a feature stateset
 titleSuffix: Microsoft Azure Maps Creator
 description: How to create a feature stateset using the Creator REST API.
-author: stevemunk
-ms.author: eriklind
-ms.date: 02/28/2023
+author: brendansco
+ms.author: Brendanc
+ms.date: 03/03/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -77,7 +77,7 @@ Next, set the `Content-Type` to `application/json` in the **Header** of the requ
 
 If using a tool like [Postman], it should look like this:
 
-:::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+:::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="A screenshot of the header tab information for stateset creation.":::
 
 Finally, in the **Body** of the HTTP request, include the style information in raw JSON format, this applies different colors to the `occupied` property depending on its value:
 

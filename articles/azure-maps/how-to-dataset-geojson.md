@@ -132,7 +132,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 
 ### Facility ontology 2.0 validations in the Dataset
 
-[Facility ontology] defines how Azure Maps Creator internally stores facility data, divided into feature classes, in a Creator dataset. When importing a GeoJSON package, anytime a feature is added or modified, a series of validations run. This includes referential integrity checks as well as geometry and attribute validations. These validations are described in more detail below.
+[Facility ontology] defines how Azure Maps Creator internally stores facility data, divided into feature classes, in a Creator dataset. When importing a GeoJSON package, anytime a feature is added or modified, a series of validations run. This includes referential integrity checks and geometry and attribute validations. These validations are described in more detail below.
 
 - The maximum number of features that can be imported into a dataset at a time is 150,000.
 - The facility area can be between 4 and 4,000 Sq Km.
