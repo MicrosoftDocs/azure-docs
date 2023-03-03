@@ -130,6 +130,4 @@ To work with this extension, the `extensionId` used needs to be **IBM.TWC** and 
 
 ## Step 2: Fetch weather data
 
-Once the credentials required to access the APIs is obtained, you need to call the fetch weather data API [here](rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather) to fetch weather data.
-
-
+Once the credentials required to access the APIs is obtained, you need to call the fetch weather data API [here](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather) to fetch weather data.

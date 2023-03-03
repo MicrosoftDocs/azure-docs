@@ -108,7 +108,7 @@ This section consists of basic information regarding the API. It's used by Data 
 
 This section takes in the authentication related parameters as supported by the `apiName`. As Data Manager for Agriculture supports two types of auth-related keys (`x-ms-farmBeats-data-provider-id` & `x-ms-farmBeats-data-provider-key`) in the api header section, the extension file needs to explicitly provide the key name of its respective authentication keys as required by the `apiName`.
 
-As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job?branch=main&tabs=HTTP)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
+As Data Manager for Agriculture collects the authentication information via the api header (in the [Create Weather Job API](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather/create-data-delete-job)). Authentication parameter mapping is done to ensure that Data Manager for Agriculture can pass the key accordingly to the extension as required.
 
 ##### Sample authentication parameters
 
