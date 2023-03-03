@@ -46,7 +46,7 @@ The steps you'll take are:
 1. If you already completed the earlier training tutorial, "Train model responsibly", you can skip to #3 in the prerequisites.
 1. If you haven't completed the earlier tutorial, be sure to do the following: 
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 20 cores) available for the compute instances you'll use in this tutorial.
+    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow.
 
         > [!NOTE]
         > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, you must have a quota for `ceil(1.2*number of instances requested for deployment)*number of cores for the VM SKU`. This translates to `ceil(1.2*1)*4` for the Standard_DS3_v2 VM and `ceil(1.2*2)*4` for the Standard_F4s_v2 VM, for a total of 20 cores.
