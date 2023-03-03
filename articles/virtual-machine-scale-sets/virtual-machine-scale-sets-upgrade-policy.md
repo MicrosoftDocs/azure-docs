@@ -136,10 +136,7 @@ Add the following to your ARM template:
 
 ## Performing Manual Upgrades
  
-If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
-
-> [!NOTE]
-> While upgrading, the instances may be restarted.
+If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. While upgrading, the instances may be restarted.
 
 ### [CLI](#tab/cli)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
@@ -164,11 +161,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Exceptions to Upgrade Policy
 
-There's' one type of modification to global scale set properties that doesn't follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
-
-> [!NOTE]
-> The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
-
+There's' one type of modification to global scale set properties that doesn't follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost. You can do this reimage using:
 
 ### [CLI](#tab/cli)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
