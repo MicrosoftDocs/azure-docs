@@ -84,10 +84,10 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes.                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content.                               |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
-| EmailContent        | This class contains the subject and the body of the email message. The importance can also be set within the EmailContent class.                     |
+| EmailContent        | This class contains the subject and the body of the email message. You have to specify atleast one of PlainText or Html content   |
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
