@@ -93,7 +93,7 @@ This registration is only needed the first time when sharing or receiving data i
     >[!IMPORTANT]
     >The target storage account needs to be in the same Azure region as the source storage account.
 
-1. Configure the **Path** (either a new container name, or the name of an existing share container) and, if needed, **New folder** (a new folder name for the share within in your container).
+1. Configure the **Path** (either a new container name, or the name of an existing share container) and, **New folder** (a new folder name for the share within in your container).
 
 1. Select **Attach to target**.
 
