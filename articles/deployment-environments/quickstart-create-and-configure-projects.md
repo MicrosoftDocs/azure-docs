@@ -111,7 +111,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     
     | Setting | Value |
     | --- | --- |
-    | **Role** | Select **[Deployment Environments user](how-to-configure-deployment-environments-user.md)**. |
+    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 

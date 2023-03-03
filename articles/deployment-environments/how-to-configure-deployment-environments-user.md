@@ -36,7 +36,7 @@ When you assign the role at the project level, the user can perform the precedin
     
     | Setting | Value |
     | --- | --- |
-    | **Role** | Select **[Deployment Environments user](how-to-configure-deployment-environments-user.md)**. |
+    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
@@ -59,7 +59,7 @@ The users can now view the project and all the environment types that you've ena
     
     | Setting | Value |
     | --- | --- |
-    | **Role** | Select [Deployment Environments user](how-to-configure-deployment-environments-user.md). |
+    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
