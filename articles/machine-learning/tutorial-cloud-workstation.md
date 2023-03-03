@@ -15,12 +15,12 @@ ms.date: 02/22/2023
 
 # Tutorial: Model development on a cloud workstation
  
-Learn how prototype in a notebook to develop a training script on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
+Learn how to develop a training script with a notebook on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
 
 > [!div class="checklist"]
 > * Set up and configuring the cloud workstation. Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
 > * Use cloud-based development environments.
-> * Use MLflow to track your model metrics, all from within the notebook.
+> * Use MLflow to track your model metrics, all from within a notebook.
 
 
 ## Prerequisites
@@ -39,44 +39,15 @@ A Jupyter Notebook is a good place to start learning about Azure Machine Learnin
 
 ## Connect to a compute instance
 
-Before you dive into code, you'll need to connect to a compute instance, which is the pre-configured cloud machine that runs your code.
-
-If you don't have a compute instance yet, select **Create compute** on the landing page of **Notebooks**. You can use the default configurations to set it up quickly. It takes a few minutes to start.
-
-If you do have a compute instance, start it if it's not already running.
-
-:::image type="content" source="media/tutorial-cloud-workstation/start-compute.png" alt-text="Screenshot showing the start compute tool in the notebook toolbar":::
-
-## Create a notebook
-
-1. Select **+ Files**, and choose **Create new file**.
-
-    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
-
-1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
-1. On the top right, observe the kernel dropdown menu. While you can use any of the built-in kernels right away, in this tutorial you're going to create a new kernel to generate an environment that has all the packages and libraries you need.
-
-  
-1. Copy and paste the following import code into the first cell of your notebook, _but don't run it yet._
-
-    ```python
-    import os
-    import argparse
-    import pandas as pd
-    import mlflow
-    import mlflow.sklearn
-    from sklearn.ensemble import GradientBoostingClassifier
-    from sklearn.metrics import classification_report
-    from sklearn.model_selection import train_test_split
-    ```
+Before you dive into code, you'll need to connect to a compute instance, which is a pre-configured cloud machine that runs your code.
 
 ## Set up a new environment for prototyping (optional)
 
 In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. To create the new Jupyter kernel your notebook will connect to, you'll use a YAML file that defines the dependencies.
 
-The code in this tutorial works in the default environment that's on the compute instance. If you wish to skip creating one, skip to [Develop a training script](#develop-a-training-script). Or continue on to learn how to create a new environment, which you might need in the future.
+The code in this tutorial works in the default environment that's on the compute instance. If you wish to skip creating one, skip to [Create a notebook](#create-a-notebook). Or continue on to learn how to create a new environment, which you might need in the future.
 
-## Upload a file
+## Optional environment: 1. Upload a file
 
 Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
@@ -91,13 +62,15 @@ You'll see the *workstation_env.yml* file under your username folder in the **Fi
 
 You may not always need to define a new environment. There are kernels pre-installed on the compute instance, already configured for many common machine learning model development tasks. (In fact, this tutorial works with a pre-installed kernel.  But you're learning how to build your own, since you may need to do that for other jobs.)
 
-## Create a new kernel
+## Optional environment: 2. Create a new kernel
 
 Now use the Azure Machine Learning terminal to generate a new kernel, using the *workstation_env.yml* file.
 
-1. On the left, select **Open terminal** to open a terminal window.
+1. Select **Terminal** to open a terminal window.  You can also open the terminal from the left command bar:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
+
+1. Start your compute instance it if it's not already running.
 
 1. View your current conda environments. The active environment is marked with a *.
 
@@ -132,11 +105,31 @@ Now use the Azure Machine Learning terminal to generate a new kernel, using the 
 
 1. Close the terminal window.
 
-## Connect notebook to the new kernel
+## Create a notebook
 
-Now that you created the kernel, connect the notebook to this kernel to start running code.
+1. Select **+ Files**, and choose **Create new file**.
 
-In the top right kernel selector of the notebook, check to see if the new kernel is listed. If it is, select it. If you don't see it, select the refresh button to load the new kernel, and then select it.
+    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
+
+1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
+1. Start your compute instance it if it's not already running.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/start-compute.png" alt-text="Screenshot showing the start compute tool in the notebook toolbar":::
+1. Copy and paste the following import code into the first cell of your notebook, _but don't run it yet._
+
+    ```python
+    import os
+    import argparse
+    import pandas as pd
+    import mlflow
+    import mlflow.sklearn
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.metrics import classification_report
+    from sklearn.model_selection import train_test_split
+    ```
+
+1. On the top right, once the compute instance is running, you'll see the kernel dropdown menu. The default kernel for the notebook is one that will work for this tutorial.  
+1. If you created a new kernel, select it now.
 
 ## Develop a training script
 
