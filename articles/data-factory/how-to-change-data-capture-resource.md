@@ -111,7 +111,7 @@ In this tutorial, you follow these steps:
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-78.png" alt-text="Screenshot of the column mapping page to allow users to editing column mappings." lightbox="media/adf-cdc/change-data-capture-resource-78.png":::
 
-   You can add additional column mappings using the **New mapping** button. Use the drop-down lists to select the **Mapping method**, **Source column**, and **Target** column. Also, if you want to track the delete operation for supported sink types, you can select the **Keys** column. You can click **Data Preview - Refresh** button to visualize how the data will look at the target.
+You can add additional column mappings using the **New mapping** button. Use the drop-down lists to select the **Mapping method**, **Source column**, and **Target** column. Also, if you want to track the delete operation for supported sink types, you can select the **Keys** column. You can click **Data Preview - Refresh** button to visualize how the data will look at the target.
   
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-79.png" alt-text="Screenshot of the Add new mapping icon to add new column mappings, drop down with mapping methods, select Keys column and Data preview refresh button for allowing users to visualize data at target." lightbox="media/adf-cdc/change-data-capture-resource-79.png":::
 
