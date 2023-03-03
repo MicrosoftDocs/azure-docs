@@ -6,7 +6,7 @@
   - name: What are workload identities?
     href: workload-identities-overview.md
   - name: Workload identities FAQs
-    href: workload-identities-overview.md
+    href: workload-identities-faqs.md
 - name: Concepts
   items:
       - name: Workload identity federation
