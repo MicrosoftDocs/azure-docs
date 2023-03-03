@@ -159,13 +159,24 @@ After updating the model of an existing scale set, ensure that the latest model 
 
 You can modify the automatic repairs policy of an existing scale set through the Azure portal.
 
+> **NOTE**
+> Install the Application Health Extension in your VMSS before following the below steps.
+
 1. Go to an existing Virtual Machine Scale Set.
 1. Under **Settings** in the menu on the left, select **Health and repair**.
 1. Enable the **Monitor application health** option.
-1. Locate the **Automatic repair policy** section.
-1. Turn **On** the **Automatic repairs** option.
-1. In **Grace period (min)**, specify the grace period in minutes, allowed values are between 30 and 90 minutes.
-1. When you're done, select **Save**.
+4. Choose **Application Health extension** from the Application health monitor dropdown list to monitor application health using the Application Health VM extension.
+5. From **Protocol** dropdown list, choose the network protocol used by your application to report health. Select the appropriate protocol based on your application requirements. Protocol options are **HTTP, HTTPS** or **TCP**.
+6. In the **Port number** configuration box, type the network port used to monitor application health.
+7. For **Path**, provide the application endpoint path (e.g. "/" or ") used to report application health.
+
+> **NOTE** 
+> Application Health extension will ping this path inside each virtual machine in the scale set to get application health status for each instance.If the endpoint responds with a status 200 (OK), then the instance is marked as "Healthy". In all the other cases (including if the endpoint is unreachable), the instance is marked "Unhealthy".
+
+8. Locate the **Automatic repair policy** section. Automatic repairs can be used to delete unhealthy instances from the scale set and create new ones to replace them.
+4. Turn **On** the **Automatic repairs** option.
+5. In **Grace period (min)**, specify the grace period in minutes, allowed values are between 30 and 90 minutes.
+6. When you're done, select **Save**.
 
 ### REST API
 
