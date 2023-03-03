@@ -9,11 +9,11 @@ ms.author: sidandrews
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
-# Configure Azure Private Link for Azure Cosmos DB
+# Configure Azure Private Link for an Azure Cosmos DB account
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-By using Azure Private Link, you can connect to an Azure Cosmos DB account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos DB account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see [What is Azure Private Link?](../private-link/private-link-overview.md)
+By using Azure Private Link, you can connect to an Azure Cosmos DB account through a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos DB account over private IP addresses. When Private Link is combined with restrictive NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!NOTE]
 > Private Link doesn't prevent your Azure Cosmos DB endpoints from being resolved by public DNS. Filtering of incoming requests happens at application level, not transport or network level.
@@ -410,9 +410,9 @@ $deploymentOutput
 
 In the PowerShell script, the `GroupId` variable can contain only one value. That value is the API type of the account. Allowed values are: `Sql`, `SqlDedicated`, `MongoDB`, `Cassandra`, `Gremlin`, and `Table`. Some Azure Cosmos DB account types are accessible through multiple APIs. For example:
 
-* An API for NoSQL account has an added option for accounts configured to use the [Dedicated Gateway](./dedicated-gateway.md).
-* An API for Gremlin account can be accessed from both Gremlin and API for NoSQL accounts.
-* An API for Table account can be accessed from both Table and API for NoSQL accounts.
+* The API for NoSQL accounts has an added option for accounts configured to use the [dedicated gateway](./dedicated-gateway.md).
+* The API for Gremlin accounts can be accessed from both Gremlin and API for NoSQL accounts.
+* The API for Table accounts can be accessed from both Table and API for NoSQL accounts.
 
 For those accounts, you must create one private endpoint for each API type. If you're creating a private endpoint for `SqlDedicated`, you only need to add a second endpoint for `Sql` if you want to also connect to your account using the standard gateway. The corresponding API type is specified in the `GroupId` array.
 
