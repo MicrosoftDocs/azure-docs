@@ -210,6 +210,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 - Learn more about [additional settings and preferences you can set on the Dapr extension][dapr-settings].
 - Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
+- Try out [Dapr Workflow on your Dapr extension for AKS][dapr-workflow]
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
@@ -223,6 +224,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [install-cli]: /cli/azure/install-azure-cli
 [dapr-migration]: ./dapr-migration.md
 [dapr-settings]: ./dapr-settings.md
+[dapr-workflow]: ./dapr-workflow.md
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
