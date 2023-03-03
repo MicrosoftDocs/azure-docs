@@ -22,7 +22,7 @@ Use the Image Analysis client library for C# to analyze an image to read text an
 > You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) for scenarios involving local images.
 
 > [!TIP]
-> The Analysis 4.0 API can do many different operations. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
+> The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
@@ -193,7 +193,7 @@ In this quickstart, you learned how to install the Image Analysis client library
 
 
 > [!div class="nextstepaction"]
->[Call the Analysis 4.0 API](../../how-to/call-analyze-image-40.md)
+>[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/csharp/image-analysis/dotnetcore).

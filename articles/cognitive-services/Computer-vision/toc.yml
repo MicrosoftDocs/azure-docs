@@ -126,7 +126,7 @@ items:
     items:
     - name: Version 4.0 (preview)
       items:
-      - name: Call the Image Analysis API
+      - name: Call the Analyze API
         href: how-to/call-analyze-image-40.md
       - name: Create a custom model
         href: how-to/model-customization.md
@@ -136,7 +136,7 @@ items:
         href: how-to/image-retrieval.md
     - name: Version 3.2
       items:
-      - name: Call the Image Analysis API
+      - name: Call the Analyze API
         href: how-to/call-analyze-image.md
       - name: Analyze videos in real time
         href: how-to/analyze-video.md

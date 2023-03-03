@@ -1,5 +1,5 @@
 ---
-title: Call the Image Analysis 4.0 API
+title: Call the Image Analysis 4.0 Analyze API
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the Image Analysis 4.0 API and configure its behavior.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 01/24/2023
 ms.custom: "seodec18"
 ---
 
-# Call the Image Analysis 4.0 API (preview)
+# Call the Image Analysis 4.0 Analyze API (preview)
 
 This article demonstrates how to call the Image Analysis 4.0 API to return information about an image's visual features. It also shows you how to parse the returned information.
 
@@ -86,6 +86,7 @@ var analysisOptions = new ImageAnalysisOptions()
     Features =
             ImageAnalysisFeature.CropSuggestions
         | ImageAnalysisFeature.Captions
+        | ImageAnalysisFeature.DenseCaptions
         | ImageAnalysisFeature.Objects
         | ImageAnalysisFeature.People
         | ImageAnalysisFeature.Text
@@ -107,6 +108,7 @@ image_analysis_options = visionsdk.ImageAnalysisOptions()
 image_analysis_options.features = (
     visionsdk.ImageAnalysisFeature.CROP_SUGGESTIONS |
     visionsdk.ImageAnalysisFeature.CAPTIONS |
+    visionsdk.ImageAnalysisFeature.DENSECAPTIONS |
     visionsdk.ImageAnalysisFeature.OBJECTS |
     visionsdk.ImageAnalysisFeature.PEOPLE |
     visionsdk.ImageAnalysisFeature.TEXT |
@@ -128,6 +130,7 @@ analysisOptions->SetFeatures(
 {
     ImageAnalysisFeature::CropSuggestions,
     ImageAnalysisFeature::Captions,
+    ImageAnalysisFeature::DenseCaptions,
     ImageAnalysisFeature::Objects,
     ImageAnalysisFeature::People,
     ImageAnalysisFeature::Text,
@@ -174,6 +177,7 @@ var analysisOptions = new ImageAnalysisOptions()
     Features =
         ImageAnalysisFeature.CropSuggestions
         | ImageAnalysisFeature.Captions
+        | ImageAnalysisFeature.DenseCaptions
         | ImageAnalysisFeature.Objects
         | ImageAnalysisFeature.People
         | ImageAnalysisFeature.Text
