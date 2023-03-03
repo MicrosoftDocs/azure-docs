@@ -6,7 +6,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/03/2023
 ms.author: banders
 ---
 
@@ -138,8 +138,9 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 You can assign these roles from [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
-2. At the top of the page, select **Role Assignment**.
-3. To make modifications, add user as a Reservation Administrator or Reservation Reader using Access control.
+1. Select a reservation that you have access to.
+1. At the top of the page, select **Role Assignment**.
+1. To make modifications, add a user as a Reservation Administrator or Reservation Reader using Access control.
 
 ## Add a Reservation Administrator role at the tenant level using Azure PowerShell script
 
