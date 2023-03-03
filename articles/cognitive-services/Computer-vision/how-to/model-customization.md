@@ -39,11 +39,6 @@ On the next screen, the **Choose the model you want to try out** drop-down lets 
 
 You need to upload your training images to an Azure Blob Storage container. Go to your storage resource in the Azure portal and navigate to the **Storage browser** tab. Here you can create a blob container and upload your images. Put them all at the root of the container.
 
-> [!NOTE]
-> If this storage account belongs to a different Azure subscription than the Computer Vision resource, then you need to manually give the Computer Vision resource permission to read from it. You can give permission by turning on System managed identities for the Computer Vision resource, then assigning the identity to a role that has permission to read from the blob container.
-
-![Screenshot of role assignment in the Azure portal]( ../media/customization/roleassignment.png)
-
 ## Add a dataset
 
 To train a custom model, you need to associate it with a **Dataset** where you provide images and their label information as training data. In Vision Studio, select the **Datasets** tab to view your datasets.
