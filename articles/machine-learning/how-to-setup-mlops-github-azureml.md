@@ -62,7 +62,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
     ![Screenshot of the cloud shell environment dropdown.](./media/how-to-setup-mlops-azureml/PS_CLI1_1.png)
 
-1. Copy the following bash commands to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription. 
+1. Copy the following bash commands to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for GitHub Actions to properly use resources in that subscription. 
 
     ``` bash
     projectName="<your project name>"
@@ -79,7 +79,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
 1. Copy your edited commands into the Azure Shell and run them (**Ctrl** + **Shift** + **v**).
 
-1. After running these commands, you'll be presented with information related to the service principal. Save this information to a safe location, it will be use later in the demo to configure Azure DevOps.
+1. After running these commands, you'll be presented with information related to the service principal. Save this information to a safe location, you'll use it later in the demo to configure Azure DevOps.
 
     ```json
 
@@ -110,7 +110,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
     ![Screenshot of service principal setup.](./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
 
-1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
+1. Go through the process of creating a Service Principal (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
 1. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 
@@ -124,11 +124,11 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
 ---
 
-## Set up GitHub Repo
+## Set up GitHub repo
 
 1. Fork the [MLOps v2 Demo Template Repo](https://github.com/Azure/mlops-v2-gha-demo) in your GitHub organization
 
-1. Go to https://github.com/Azure/mlops-v2-gha-demo/fork to fork the mlops v2 demo repo into your Github org. This repo has reusable mlops code that can be used across multiple projects. 
+1. Go to https://github.com/Azure/mlops-v2-gha-demo/fork to fork the MLOps v2 demo repo into your Github org. This repo has reusable MLOps code that can be used across multiple projects. 
 
    ![image](./media/how-to-setup-mlops-azureml/gh-fork.png)
 
@@ -156,13 +156,13 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
 
 
-## Deploying Machine Learning Project Infrastructure Using GitHub Actions
-This step deploys the training pipeline to the Azure Machine Learning workspace created in the previous steps. 
+## Deploy machine learning project infrastructure with GitHub Actions
+This step deploys the training pipeline to the Machine Learning workspace created in the previous steps. 
 
 > [!TIP]
 > Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
-### Configure Azure ML Environment Parameters
+### Configure Machine Learning environment parameters
  1. Go to your repository and select the `config-infra-prod.yml` file in the root.
 
     This config file uses the namespace and postfix values the names of the artifacts to ensure uniqueness. Update the following section in the config to your liking. Default values and settings in the files are show below:
@@ -181,13 +181,13 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
     > If you are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
     > The enable_monitoring flag in these files defaults to False. Enabling this flag will add additional elements to the deployment to support Azure ML monitoring based on https://github.com/microsoft/AzureML-Observability. This will include an ADX cluster and increase the deployment time and cost of the MLOps solution.
    
-### Deploy Azure Machine Learning Infrastructure
+### Deploy Machine Learning infrastructure
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**
 
    ![GitHub actions](./media/how-to-setup-mlops-azureml/gh-actions.png)
 
-   This will display the pre-defined GitHub workflows associated with your project. For a classical machine learning project, the available workflows will look similar to this:
+This displays the pre-defined GitHub workflows associated with your project. For a classical machine learning project, the available workflows look similar to this:
 
    ![GitHub workflows](./media/how-to-setup-mlops-azureml/gh-workflows.png)
 
@@ -195,11 +195,11 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
    ![GitHub deploy-infra](./media/how-to-setup-mlops-azureml/gh-deploy-infra.png)
 
-1. On the right side of the page, select **Run workflow** and select the branch to run the workflow on. This may deploy Dev Infrastructure if you've created a dev branch or Prod infrastructure if deploying from main. Monitor the pipline for successful completion.
+1. On the right side of the page, select **Run workflow** and select the branch to run the workflow on. This may deploy Dev Infrastructure if you've created a dev branch or Prod infrastructure if deploying from main. Monitor the workflow for successful completion.
 
    ![GitHub infra pipeline](./media/how-to-setup-mlops-azureml/gh-infra-pipeline.png)
 
-1. When the pipeline has complete successfully, you can find your Azure ML Workspace and associated resources by logging in to the Azure Portal. Next, a model training and scoring pipelines will be deployed into the new Azure Machine Learning environment.
+1. When the pipeline has complete successfully, you can find your Azure ML Workspace and associated resources by logging in to the Azure Portal. Next, a model training and scoring pipelines will be deployed into the new Machine Learning environment.
 
 
 ## Sample Training and Deployment Scenario      
@@ -210,7 +210,7 @@ This training pipeline contains the following steps:
 
 **Prepare Data**
    - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
-   - Input: Local data under ./data/ (multiple .csv files)
+   - Input: Local data under `./data/` (multiple .csv files)
    - Output: Single prepared dataset (.csv) and train/val/test datasets.
 
 **Train Model**
@@ -227,13 +227,13 @@ This training pipeline contains the following steps:
 **Register Model**
    - This component scores the model based on how accurate the predictions are in the test set.
    - Input: Trained model and the deploy flag.
-   - Output: Registered model in Azure Machine Learning.
+   - Output: Registered model in Machine Learning.
 
 ## Deploying the Model Training Pipeline
 
-Next, you will deploy the model training pipeline to your new Azure Machine Learning workspace. This pipeline will create a compute cluster instance, register a training environment defining the necessary Docker image and python packages, register a training dataset, then start the training pipeline described in the last section. When the job is complete, the trained model will be registered in the Azure ML workspace and be available for deployment.
+Next, you will deploy the model training pipeline to your new Machine Learning workspace. This pipeline will create a compute cluster instance, register a training environment defining the necessary Docker image and python packages, register a training dataset, then start the training pipeline described in the last section. When the job is complete, the trained model will be registered in the Azure ML workspace and be available for deployment.
 
-1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**  
+1. In your GitHub project repository (example: taxi-fare-regression), select **Actions**  
  
    ![GitHub actions page](./media/how-to-setup-mlops-azureml/gh-actions.png)
       
@@ -241,14 +241,14 @@ Next, you will deploy the model training pipeline to your new Azure Machine Lear
 
    ![Pipeline Run](./media/how-to-setup-mlops-azureml/gh-training-pipeline.png)
    
-1. Once completed, a successful run will register the model in the Azure Machine Learning workspace. 
+1. Once completed, a successful run will register the model in the Machine Learning workspace. 
    
     ![Training Step](./media/how-to-setup-mlops-azureml/gh-training-step.png)
 
 > [!NOTE] 
 > If you want to check the output of each individual step, for example to view output of a failed run, click a job output, and then click each step in the job to view any output of that step. 
 
-With the trained model registered in the Azure Machine learning workspace, you are ready to deploy the model for scoring.
+With the trained model registered in the Machine learning workspace, you are ready to deploy the model for scoring.
 
 ### Deploying the Trained Model
 
