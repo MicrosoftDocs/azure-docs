@@ -178,7 +178,7 @@ When enabled, WebAuthn requests from the session are sent to the local PC to be 
 
 If you're making RDP connections from personal resources to corporate ones on the web or Windows Desktop client, you'll need to disable drive redirection for security purposes. To disable drive redirection:
 
-1. Open the registry editor (regedit).
+1. Open the **Registry Editor (regedit)**.
 
 1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
 
@@ -187,6 +187,38 @@ If you're making RDP connections from personal resources to corporate ones on th
    - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
    - **Type**: REG_DWORD
    - **Name**: DisableDriveRedirection
+
+1. Set the value of the registry key to **0**.
+
+## Disable printer redirection
+
+If you're making RDP connections from personal resources to corporate ones on the web or Windows Desktop client, you'll need to disable printer redirection for security purposes. To disable printer redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+
+1. Create the following registry key:
+
+   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
+   - **Type**: REG_DWORD
+   - **Name**: DisablePrinterRedirection
+
+1. Set the value of the registry key to **0**.
+
+## Disable clipboard redirection
+
+If you're making RDP connections from personal resources to corporate ones on the web or Windows Desktop client, you'll need to disable clipboard redirection for security purposes. To disable clipboard redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+
+1. Create the following registry key:
+
+   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
+   - **Type**: REG_DWORD
+   - **Name**: DisableClipboardRedirection
 
 1. Set the value of the registry key to **0**.
 
