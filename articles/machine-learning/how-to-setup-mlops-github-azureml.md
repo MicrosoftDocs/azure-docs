@@ -1,5 +1,5 @@
 ---
-title: Set up MLOps with Github
+title: Set up MLOps with GitHub
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample MLOps environment in AzureML with GitHub Actions
 services: machine-learning
