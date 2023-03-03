@@ -150,7 +150,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 * `unlitMaterials`: By default, the conversion creates [physically based rendering (PBR) materials](../../overview/features/pbr-materials.md). When this option is set, the converter instead treats all materials as [color materials](../../overview/features/color-materials.md). If you have data that already incorporates lighting, such as models created through photogrammetry, this option allows you to quickly enforce the correct conversion for all materials. You won't need to [override each material](override-materials.md) individually.
 
-### Conversion from earlier FBX formats and a Phong material model
+### Conversion from earlier FBX formats and Phong material models
 
 * `fbxAssumeMetallic`: Earlier versions of the FBX format define their materials by using a Phong material model. The conversion process must infer how these materials map to the renderer's [PBR model](../../overview/features/pbr-materials.md). Usually this mapping works well, but an ambiguity can arise when a material has no textures, high specular values, and a non-grey albedo color. In this scenario, the conversion must choose between prioritizing the high specular values, defining a highly reflective and metallic material where the albedo color dissolves away, or prioritizing the albedo color by defining something, like in a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in ambiguous scenarios. You can set this parameter to `false` for the opposite effect.
 
