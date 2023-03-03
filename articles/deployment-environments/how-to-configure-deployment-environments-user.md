@@ -37,7 +37,7 @@ When you assign the role at the project level, the user can perform the precedin
     | Setting | Value |
     | --- | --- |
     | **Role** | Select **[Deployment Environments user](how-to-configure-deployment-environments-user.md)**. |
-    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::
@@ -60,7 +60,7 @@ The users can now view the project and all the environment types that you've ena
     | Setting | Value |
     | --- | --- |
     | **Role** | Select [Deployment Environments user](how-to-configure-deployment-environments-user.md). |
-    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::

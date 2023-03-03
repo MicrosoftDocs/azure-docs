@@ -112,7 +112,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     | Setting | Value |
     | --- | --- |
     | **Role** | Select **[Deployment Environments user](how-to-configure-deployment-environments-user.md)**. |
-    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::

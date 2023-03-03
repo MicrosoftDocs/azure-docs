@@ -36,7 +36,7 @@ When you assign the role at the project level, the user can perform the precedin
     | Setting | Value |
     | --- | --- |
     | **Role** | Select **DevCenter Project Admin**. |
-    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have administrative access to the project. |
 
     :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane.":::
@@ -59,7 +59,7 @@ The users can now view the project and manage all the environment types that you
     | Setting | Value |
     | --- | --- |
     | **Role** | Select **DevCenter Project Admin**. |
-    | **Assign access to** | Select a **User, group, or service principal**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have administrative access to the project. |
 
     :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane.":::
