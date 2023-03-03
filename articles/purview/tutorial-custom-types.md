@@ -151,7 +151,7 @@ Below you can see an example of how the **Schema** tab looks like for an asset o
 
 :::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset.":::
 
-In our JSON, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns**, which can be seen in the **relationshipAttributeDefs** array:
+**relationshipAttributeDefs** are calculated through the relationship type definitions. In our JSON, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns** - which is one of elements from **relationshipAttributeDefs** array, as shown below:
 
 ```json
 ...
@@ -167,7 +167,7 @@ In our JSON, we can see that **schemaElementsAttributes**  points to the relatio
   ]
 ```
 
-This relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case, it's *azure_sql_table_columns*.
+Each relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case, it's *azure_sql_table_columns*.
 
 * The **cardinality** of this relationship attribute is set to *SET, which suggests that it holds a list of related assets.
 * The related asset is of type *azure_sql_column*, as visible in the *typeName* attribute.
