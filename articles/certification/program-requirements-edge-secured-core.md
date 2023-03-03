@@ -528,9 +528,9 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the device identify is rooted in hardware.||
 |Requirements dependency|||
-|Validation Type|Pre-validated, no additional validation is required|||
-|Validation|Provided by Microsoft|||
-|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|||
+|Validation Type|Pre-validated, no additional validation is required||
+|Validation|Provided by Microsoft||
+|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)||
 
 ---
 </br>
@@ -572,7 +572,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Dependency||TPM 2.0|To be announced|
+|Dependency|||
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -597,7 +597,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this reqiurement is to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
+|Resources|[Data at rest protection on Azure Sphere](../azure-sphere/app-notes/app-notes-overview)|
 
 ---
 </br>
@@ -652,7 +652,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
+|Resources|[Collect and interpret error data - Azure Sphere](../azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](../azure-sphere/deployment/configure-crash-dumps)|
 
 ---
 </br>
