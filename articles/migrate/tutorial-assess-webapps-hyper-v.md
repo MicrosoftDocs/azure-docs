@@ -35,17 +35,17 @@ Run an assessment as follows:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate":::
 
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Screenshot of dropdown to choose assessment type as Azure App Service.":::
 
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 
 4. Select **Edit** to review the assessment properties.
 
-     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
+     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Screenshot of Edit button from where assessment properties can be customized.":::
 
 5. Here's what's included in Azure App Service assessment properties:
 
@@ -70,11 +70,11 @@ Run an assessment as follows:
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Screenshot of Refresh discovery and assessment tool data.":::
 
 1. Select the number next to Azure App Service assessment.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Screenshot of Navigating to created assessment.":::
 
 1. Select the assessment name, which you wish to view.
 
@@ -85,7 +85,7 @@ Run an assessment as follows:
 1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Azure App Service assessment.
 2. Select the assessment name, which you wish to view.
 
-  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview.":::
+  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="Screenshot of App Service assessment overview.":::
 
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
@@ -102,7 +102,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
 
 1. Select **Azure App Service readiness**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details.":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Screenshot of Azure App Service readiness details.":::
 
 1. Review Azure App Service readiness column in table, for the assessed web apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
@@ -138,7 +138,7 @@ I1  | 8
 P1v2  | 8
 P1v3  | 16
 
-:::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Cost details":::
+:::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Screenshot of Cost details.":::
 
 ## Next steps
 
