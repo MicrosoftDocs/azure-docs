@@ -3,7 +3,7 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 03/03/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -24,7 +24,7 @@ This article assumes you've already downloaded and installed the Azure Virtual D
 
 ### Define variables
 
-The PowerShell commands listed in this article require defining the following variables:
+The PowerShell commands listed in this article require defining the following variables with the placeholder values replaced with the values relevant to your account and deployment:
 
 ```powershell
 #Define variables
@@ -153,7 +153,7 @@ To reassign a personal desktop in the Azure portal:
 
 ## Reassign a personal desktop using PowerShell
 
-To reassign a personal desktop, run this command:
+To reassign a personal desktop, run this command with the placeholder values replaced with values relevant to your deployment:
 
 ```powershell
 $reassignDesktopParams = @{
@@ -167,11 +167,11 @@ $reassignDesktopParams = @{
 Invoke-AzRestMethod @reassignDesktopParams
 ```
 
-## Give session hosts within a personal host pools a friendly name
+## Give session hosts in a personal host pool a friendly name
 
 You can give personal desktops you create *friendly names* to help users distinguish them in their feeds.
 
-To give a host pool a friendly name, run the following command in PowerShell:
+To give a session host a friendly name, run the following command in PowerShell with the placeholder values replaced with values relevant to your deployment:
 
 ```powershell
 $body = '{ "properties": {
@@ -180,7 +180,7 @@ $body = '{ "properties": {
 
 $parameters = @{
     Method = 'Patch'
-    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
+    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview"
     Payload = $body
 }
 
@@ -192,7 +192,7 @@ Invoke-AzRestMethod @parameters
 
 ### Get the session host friendly name
 
-To get the session host friendly name, run this command in PowerShell
+To get the session host friendly name, run this command in PowerShell with the placeholder values replaced with values relevant to your deployment:
 
 ```powershell
 $getParams = @{
@@ -204,7 +204,7 @@ Invoke-AzRestMethod @getParams
 
 ## Next steps
 
-Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These articles will show you how to connect to a session using the client of your choice:
+Now that you've configured the personal desktop assignment type and given your session host a friendly name, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These articles will show you how to connect to a session using the client of your choice:
 
 - [Connect with the Windows Desktop client](./users/connect-windows.md)
 - [Connect with the web client](./users/connect-web.md)
