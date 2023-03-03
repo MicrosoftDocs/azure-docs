@@ -55,6 +55,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 To initialize a composite, and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 
+
 ## Teams interoperability
 
 For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Communication Services. To enable Teams interoperability, use either the default features in the call composite or the chat composite, or use UI components to build a custom experience.

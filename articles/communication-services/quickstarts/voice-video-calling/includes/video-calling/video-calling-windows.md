@@ -171,7 +171,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ### Authenticate the client
 
-To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
+To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide.
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
@@ -541,7 +541,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ### Authenticate the client
 
-To initialize a `CallAgent`, you will need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
+To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide.
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 

@@ -35,14 +35,14 @@ The Azure Communication Calling SDK allows you to create video effects that othe
 - An Azure account with an active subscription is required. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) on how to create an Azure account.
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A User Access Token to instantiate a call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
+- A User Access Token to instantiate a call client. Learn how to [create and manage user access tokens](../../quickstarts/identity/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
 - Azure Communication Calling client library is properly set up and configured (https://www.npmjs.com/package/@azure/communication-calling).
 
 An example using the Azure CLI to
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/access-tokens.md?pivots=platform-azcli).
+For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
