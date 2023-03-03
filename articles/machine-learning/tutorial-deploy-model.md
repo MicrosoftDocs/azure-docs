@@ -43,20 +43,18 @@ The steps you'll take are:
 
 ## Prerequisites
 
-1. If you already completed the earlier training tutorial, "Train model responsibly", you can skip to #3 in the prerequisites.
+1. If you already completed the earlier training tutorial, "Train a model", you can skip to #3 in the prerequisites.
 1. If you haven't completed the earlier tutorial, be sure to do the following: 
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
     * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow.
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory.  <!-- MA: update this location** -->
-    * View VM quota and ensure you have enough available quota to create online deployments. In this tutorial, you will need at least 8 cores of STANDARD_DS3_v2 and 12 cores of STANDARD_F4s_v2.
-    
-        > [!NOTE]
-        > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. To ensure proper resource allocation, you must have a quota equal to the product of:
-        > - `ceil(1.2 * number of instances requested for deployment)`
-        > - `number of cores for the VM SKU`
-        > This translates to `ceil(1.2 * 1) * 4` = `8` (cores) for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` (cores) for the `Standard_F4s_v2` VM.
-        To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
+    > [!NOTE]
+    > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. To ensure proper resource allocation, you must have a quota equal to the product of:
+    * `ceil(1.2 * number of instances requested for deployment)`
+    * `number of cores for the VM SKU`
+    This translates to `ceil(1.2 * 1) * 4` = `8` (cores) for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` (cores) for the `Standard_F4s_v2` VM.
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
     * Or open the notebook by opening  **update these locations** from the [**Samples**](quickstart-create-resources.md#learn-from-sample-notebooks) section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.<!-- MA: update this location** -->
