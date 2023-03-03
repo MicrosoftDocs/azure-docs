@@ -281,7 +281,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
-|Requirements dependency||TPM v2.0 device|TPM v2.0 <sup>or *other supported method</sup>|
+|Requirements dependency||TPM v2.0 device|TPM v2.0 </br><sup>or *other supported method</sup>|
 |Status|Required|2023|2023|
 |Validation Type|Manual/Tools|||
 |Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
@@ -327,7 +327,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Dependency||TPM 2.0|TPM 2.0 <sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
+|Dependency||TPM 2.0|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and applicable runtime measurements can be collected and remotely attested to the Microsoft Azure Attestation service.|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) </br> Certification portal test includes an attestation client that when combined with the TPM 2.0 can validate the Microsoft Azure Attestation service.|
@@ -527,11 +527,11 @@ Additional considerations for Azure Sphere are provided as an application note h
 
 
 ---
-|Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
-|Requirements dependency||TPM v2.0 device|TPM v2.0,Secure Element|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Hardware.Identity|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of the test is to validate the device identify is rooted in hardware.||
+|Requirements dependency|||
 |Validation Type|Pre-validated, no additional validation is required|||
 |Validation|Provided by Microsoft|||
 |Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|||
@@ -539,10 +539,10 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
+|Name|SecuredCore.Hardware.MemoryProtection|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of the test is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -550,20 +550,20 @@ Additional considerations for Azure Sphere are provided as an application note h
 </br>
 
 ---
-|Name|SecuredCore.Firmware.Protection|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Firmware.Protection|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources| https://trustedcomputinggroup.org/ |
+|Resources||
 
 ---
 </br>
 
-|Name|SecuredCore.Firmware.SecureBoot|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Firmware.SecureBoot|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to validate the boot integrity of the device.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
@@ -572,33 +572,11 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Firmware.Attestation|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Firmware.Attestation|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Dependency||TPM 2.0|To be announced|
-|Validation Type|Automated|
-|Validation|Provided by Microsoft|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
-
----
-</br>
-
-|Name|SecuredCore.Hardware.SecureEnclave|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Optional|Comming soon|Comming soon|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
-|Validation Type|Automated|
-|Validation|Provided by Microsoft|
-|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
-
-## Linux Configuration Requirements
-
----
-|Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -606,9 +584,31 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Encryption.TLS|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Hardware.SecureEnclave|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of this reqiurement is to validate hardware security that is accessible from a secure operating system.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
+|Resources||
+
+## Linux Configuration Requirements
+
+---
+|Name|SecuredCore.Encryption.Storage|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of this reqiurement is to validate that sensitive data can be encrypted on non-volatile storage.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
+|Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
+
+---
+</br>
+
+|Name|SecuredCore.Encryption.TLS|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
@@ -617,9 +617,9 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Protection.CodeIntegrity|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Protection.CodeIntegrity|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of this test is to validate that authorized code runs with least privilege.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
@@ -628,10 +628,21 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Protection.NetworkServices|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
+|Resources||
+
+---
+</br>
+
+|Name|SecuredCore.Protection.NetworkFirewall|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of this requirement is to validate that applications cannot connect to endpoints that have not been authorized.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -639,21 +650,44 @@ Additional considerations for Azure Sphere are provided as an application note h
 
 ## Sphere Software/Service Requirements
 ---
-|Name|SecuredCore.Built-in.Security|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Name|SecuredCore.Built-in.Security|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
 |Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
 </br>
 
-|Name|SecuredCore.Manageability.Configuration|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
+|Name|SecuredCore.Manageability.Configuration|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of this requirement is to validate the device supports remote adiministration via service-based configuration control.|
+|Dependency||
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
+|Resources||
+
+---
+</br>
+
+|Name|SecuredCore.Update|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
+|Resources||
+
+---
+</br>
+
+|Name|SecuredCore.Protection.Baselines|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration|
 |Dependency|azure-osconfig|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
@@ -662,35 +696,12 @@ Additional considerations for Azure Sphere are provided as an application note h
 ---
 </br>
 
-|Name|SecuredCore.Update|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Audit|2023|2023|
-|Description|The purpose of the test is to validate the device can receive and update its firmware and software.|
-|Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
-|Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
-
----
-</br>
-
-|Name|SecuredCore.Protection.Baselines|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
-|Description|The purpose of the test is to validate the extent to which the device implements the Azure Security Baseline|
-|Dependency|azure-osconfig|
-|Validation Type|Manual/Tools|
-|Validation|OSConfig is present on the device and reporting to what extent it implemets the Azure Security Baseline.|
-|Resources| <ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines </li><li> https://www.cisecurity.org/cis-benchmarks/ </li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux|</li></ul>
-
----
-</br>
-
-|Name|SecuredCore.Protection.SignedUpdates|x86/AMD64|Arm64|
-|:---|:---|:---|:---|
-|Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that updates must be signed.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
+|Name|SecuredCore.Protection.SignedUpdates|Sphere|
+|:---|:---|:---|
+|Status|Required|2023|
+|Description|The purpose of the requirement is to validate that updates must be signed.|
+|Validation Type|Automated|
+|Validation|Provided by Microsoft|
 |Resources||
 
 
