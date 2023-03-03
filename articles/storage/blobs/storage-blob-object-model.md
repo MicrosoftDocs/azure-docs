@@ -21,9 +21,9 @@ As you build applications to work with data resources in Azure Blob Storage, you
 
 The Azure Blob Storage client libraries allow you to interact with three types of resources in the storage service:
 
-- Storage accounts
-- Blob containers
-- Blobs
+- [Storage accounts](#storage-accounts)
+- [Blob containers](#containers)
+- [Blobs](#blobs)
 
 The following diagram shows the relationship between these resources:
 
@@ -65,11 +65,11 @@ The URI for a blob is similar to:
 
 For more information about naming blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-## Interact with data resources using the Azure SDK
+## Work with data resources using the Azure SDK
 
 The Azure REST API consists of service endpoints that support sets of HTTP operations, or methods. These operations allow access to create, retrieve, update, or delete data resources in the service. 
 
-While you could work directly with the resources via REST API calls, the Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
+While you could work directly with the resources via REST API calls in your code, the Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
 
 ## [.NET](#tab/dotnet)
 
