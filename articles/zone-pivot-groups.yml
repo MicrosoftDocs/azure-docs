@@ -1015,6 +1015,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-power
+  title: JS and Power Platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: platform-power
+    title: Power Platform
 - id: acs-js-csharp-python
   title: Programming languages
   prompt: Choose a programming language
