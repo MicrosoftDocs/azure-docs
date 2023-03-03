@@ -16,7 +16,7 @@ ms.author: tchladek
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 3.7+.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
 
@@ -59,7 +59,7 @@ pip install azure-communication-identity
 
 Instantiate a `CommunicationIdentityClient` with your connection string. The following code, which you add to the `try` block, retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
 
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../create-communication-resource.md#store-your-connection-string).
+For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code demonstrates how to retrieve your connection string
@@ -70,7 +70,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../identity/service-principal.md).
+Alternatively, if you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../../identity/service-principal.md).
 
 ```python
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
@@ -90,7 +90,7 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue an access token
 
-Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
+Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
 
 ```python
 # Issue an access token with a validity of 24 hours and the "voip" scope for an identity
@@ -114,7 +114,7 @@ token_result = client.get_token(identity, ["voip"], token_expires_in=token_expir
 
 ## Create an identity and issue an access token in the same request
 
-You can use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
+You can use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../../concepts/authentication.md).
 
 ```python
 # Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity

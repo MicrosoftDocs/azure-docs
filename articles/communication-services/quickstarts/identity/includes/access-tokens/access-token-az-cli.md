@@ -1,10 +1,25 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: ddematheu2
+manager: chpalm
+ms.service: azure-communication-services
+ms.subservice: identity
+ms.date: 07/20/2022
+ms.topic: include
+ms.custom: mode-other
+ms.author: dademath
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
 ## Setting up
+
 ### Add the extension
 Add the Azure Communication Services extension for Azure CLI by using the `az extension` command.
 
@@ -102,7 +117,7 @@ az communication identity user create --connection-string "<yourConnectionString
 
 ### Create an identity and issue an access token in the same request
 
-Run the following command to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
+Run the following command to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../../concepts/authentication.md).
 
 ```azurecli-interactive
 az communication identity token issue --scope chat --connection-string "<yourConnectionString>"
@@ -114,7 +129,7 @@ Make this replacement in the code:
 
 ### Issue access token
 
-Run the following command to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
+Run the following command to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../../concepts/authentication.md).
 
 ```azurecli-interactive
 az communication identity token issue --scope chat --user "<userId>" --connection-string "<yourConnectionString>"
@@ -129,7 +144,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ### Issue access token with multiple scopes
 
-Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens).
+Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../../concepts/identity-model.md#access-tokens).
 
 ```azurecli-interactive
 az communication identity token issue --scope chat voip --user "<userId>" --connection-string "<yourConnectionString>"

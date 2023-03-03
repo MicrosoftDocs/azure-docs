@@ -16,7 +16,7 @@ ms.author: tchladek
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
@@ -71,7 +71,7 @@ The `--save` option lists the library as a dependency in your *package.json* fil
 
 Instantiate `CommunicationIdentityClient` with your connection string. The following code, which you add to the `Main` method, retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
 
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../create-communication-resource.md#store-your-connection-string).
+For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).
 
 ```javascript
 // This code demonstrates how to fetch your connection string
@@ -97,7 +97,7 @@ const tokenCredential = new AzureKeyCredential(accessKey);
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../identity/service-principal.md).
+If you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../../identity/service-principal.md).
 
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
@@ -117,7 +117,7 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue an access token
 
-Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
+Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
 
 ```javascript
 // Issue an access token with a validity of 24 hours and the "voip" scope for an identity
