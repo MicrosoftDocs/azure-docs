@@ -88,7 +88,7 @@ You'll need to enter the following identity parameters when deploying session ho
 > [!IMPORTANT]
 > The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
 > 
-> When joining an Azure AD DS domain, the account you use must be part of the AAD DC administrators group.
+> When joining an Azure AD DS domain, the account you use must be part of the *AAD DC administrators* group.
 
 ## Operating systems and licenses
 
