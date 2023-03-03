@@ -40,6 +40,7 @@ recommendations: false
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
+| [Health insurance card](#heath-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and more information from US health insurance cards.| 
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
 | [Invoice](#invoice)  | Automate invoice processing for English and Spanish invoices. |
 | [Receipt](#receipt)  | Extract receipt data from English receipts.|
@@ -89,6 +90,19 @@ The general document model is ideal for extracting common key-value pairs from f
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
 
+
+### Health insurance card 
+
+[:::image type="icon" source="media/studio/health-insurance-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
+
+The Health Insurance Card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and more information from US health insurance cards.
+
+***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
+
+:::image type="content" source="./media/studio/ihealth-nsurance-card.png" alt-text="Screenshot of a sample US health insurance card.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: Health insurance card model](concept-insurance-card.md)
 
 ### W-2 
 
@@ -186,6 +200,7 @@ A composed model is created by taking a collection of custom models and assignin
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-healthInsuranceCard.us](concept-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
