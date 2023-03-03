@@ -1,29 +1,22 @@
 ---
-title: "Operator Nexus: Platform deployment"
-description: Learn the steps for deploying the Operator Nexus platform.
+title: "Azure Operator Nexus: How to configure the Cluster deployment"
+description: Learn the steps for deploying the Operator Nexus Cluster.
 author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
-ms.topic: quickstart #Required; leave this attribute/value as-is.
-ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Platform deployment
+# Create and provision a Cluster using Azure CLI
 
-In this quickstart, you'll learn step by step process to deploy the Azure Operator Nexus platform.
-
-- Step 1: Create Network fabric
-- Step 2: Create a Cluster
-- Step 3: Provision the Network fabric
-- Step 4: Provision the Cluster
-
-These steps use commands and parameters that are detailed in the API documents.
+This article describes how to create a Cluster by using the Azure Command Line Interface (AzCLI). This document also shows you how to check the status, update, or delete a Cluster.
 
 ## Prerequisites
 
-- Verify that Network fabric Controller and Cluster Manger exist in your Azure region
-- Complete the [prerequisite steps](./quickstarts-platform-prerequisites.md).
+- Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
+- Verify that Network Fabric is successfully provisioned
 
 ## API guide and metrics
 
@@ -32,113 +25,16 @@ information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
-## Step 1: Create network fabric
 
-The network fabric instance (NF) is a collection of all network devices
-described in the previous section, associated with a single Operator Nexus instance. The NF
-instance interconnects compute servers and storage instances within an Operator Nexus
-instance. The NF facilitates connectivity to and from your network to
-the Operator Nexus instance.
-
-Create the Network fabric:
-
-```azurecli
-az nf fabric create --resource-group $FABRIC_RG --location $LOCATION \
-  --resource-name $FABRIC_RESOURCE_NAME --nf-sku "$NF_SKU" \
-  --nfc-id "$NFC_ID" \
-  --nni-config '{"layer2Configuration": null, "layer3Configuration":{"primaryIpv4Prefix":"$L3_IPV4_PREFIX1", \
-       "secondaryIpv4Prefix": "$L3_IPV4_PREFIX2", "fabricAsn":$NNI_FABRIC_ASN, "peerAsn":$NNI_PEER_ASN}}' \
-  --ts-config '{"primaryIpv4Prefix":"$TS_IPV4_PREFIX1", "secondaryIpv4Prefix":"$TS_IPV4_PREFIX2", \
-       "username":"$TS_USER", "password": "$TS_PASS"}' \
-  --managed-network-config '{"ipv4Prefix":"{ManagedNetworkIPV4Prefix}", \
-       "managementVpnConfiguration":{"optionBProperties":{"importRouteTargets":["$IR_TARGETS"], \
-       "exportRouteTargets":["$ER_TARGETS"]}}, "workloadVpnConfiguration":{"optionBProperties":{"importRouteTargets":["WL_IR_TARGETS"], \
-       "exportRouteTargets":["WL_ER_TARGETS"]}}'
-
-az nf fabric show --resource-group "$FABRIC_RG" \
-  --resource-name "$FABRIC_RESOURCE_NAME"
-```
-
-Create the Network fabric Racks (Aggregate and Compute Racks).
-Repeat for each rack in the SKU.
-
-```azurecli
-az nf rack create  \
---resource-group "$FABRIC_RG"  \
---location "$LOCATION"  \
---network-rack-sku "$RACK_SKU"  \
---nf-id "$FABRIC_ID" \
---resource-name "$RACK_RESOURCE_NAME"
-```
-
-Update the Network fabric Device names and Serial Numbers for all devices.
-Repeat for each device in the SKU.
-
-```azurecli
-az nf device update  --resource-group "$FABRIC_RG" \
-  --location "$LOCATION"  \
-  --resource-name "$DEVICE_RESOURCE_NAME" \
-  --device-name "$DEVICE_NAME" \
-  --network-device-role "$DEVICE_ROLE" --serial-number "$DEVICE_SN"
-```
-
-### Parameters for network fabric operations
-
-| Parameter name       | Description                                                                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FABRIC_RESOURCE_NAME | Resource Name of the Network fabric Controller                                                                                                             |
-| LOCATION             | The Azure Region where the NFC will be deployed (for example, `eastus`)                                                                                    |
-| FABRIC_RG            | The resource group name                                                                                                                                    |
-| NF_SKU               | SKU of the Network fabric that needs to be created                                                                                                         |
-| NFC_ID               | Reference to Network fabric Controller                                                                                                                     |
-| NNI_FABRIC_ASN       | ASN of PE devices                                                                                                                                          |
-| NNI_PEER_ASN         | Router ID to be used for MP-BGP between PE and CE                                                                                                          |
-| L3_IPV4_PREFIX1      | L3 IPV4 Primary Prefix                                                                                                                                     |
-| L3_IPV4_PREFIX2      | L3 IPV4 Secondary Prefix                                                                                                                                   |
-| TS_IPV4_PREFIX1      | Primary TS IPV4 Prefix                                                                                                                                     |
-| TS_IPV4_PREFIX2      | Secondary TS IPV4 Prefix                                                                                                                                   |
-| TS_USER              | Username of Terminal Server                                                                                                                                |
-| TS_PASS              | Password for Terminal Server username                                                                                                                      |
-| IR_TARGETS           | Import route targets of management VPN (MP-BGP) to NFC via PE devices and express route.                                                                   |
-| ER_TARGETS           | Export route targets of management VPN (MP-BGP) to NFC via PE devices and express route.                                                                   |
-| WL_IR_TARGETS        | Import route targets of workload VPN (MP-BGP) to NFC via PE devices and express route.                                                                     |
-| WL_ER_TARGETS        | Export route targets of workload VPN (MP-BGP) to NFC via PE devices and express route.                                                                     |
-| RACK_SKU             | SKU of the Network fabric Rack that needs to be created                                                                                                    |
-| RACK_RESOURCE_NAME   | RACK resource name                                                                                                                                         |
-| DEVICE_RESOURCE_NAME | Device resource name                                                                                                                                       |
-| DEVICE_NAME          | Device customer name                                                                                                                                       |
-| DEVICE_ROLE          | Device Type (CE/NPB/MGMT/TOR)                                                                                                                              |
-| DEVICE_SN            | Device serial number for DHCP using format `*VENDOR*;*DEVICE_MODEL*;*DEVICE_HW_VER*;*DEVICE_SN*` (for example, `Arista;DCS-7280DR3K-24;12.04;JPE22113317`) |
-
-### NF validation
-
-The Network fabric creation will result in the Fabric Resource and other hosted resources to be created in the Fabric hosted resource groups. The other resources include racks, devices, MTU size, IP address prefixes.
-
-View the status of the Fabric:
-
-```azurecli
-az nf fabric show --resource-group "$FABRIC_RG" \
-  --resource-name $FABRIC_RESOURCE_NAME"
-```
-
-The Fabric deployment is complete when the `provisioningState` of the resource shows: `"operationalState": "Succeeded"`
-
-### NF logging
-
-Fabric create Logs can be viewed in the following locations:
-
-1. Azure portal Resource/ResourceGroup Activity logs.
-2. Azure CLI with `--debug` flag passed on command-line.
-
-## Step 2: create a cluster
+## Create a Cluster
 
 The Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
-You should have successfully created the Network fabric for this on-premises deployment.
+You should have successfully created the Network Fabric for this on-premises deployment.
 Each Operator Nexus on-premises instance has a one-to-one association
-with a Network fabric.
+with a Network Fabric.
 
 Create the Cluster:
 
@@ -228,53 +124,18 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
 The Cluster deployment is complete when the `provisioningState` of the resource
 shows: `"provisioningState": "Succeeded"`
 
-#### Cluster logging
+### Cluster logging
 
 Cluster create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 3: provision network fabric
-
-The network fabric instance (NF) is a collection of all network devices
-associated with a single Operator Nexus instance.
-
-Provision the Network fabric:
-
-```azurecli
-az nf fabric provision --resource-group "$FABRIC_RG" \
-  --resource-name "$FABRIC_RESOURCE_NAME"
-```
-
-### NF provisioning validation
-
-Provisioning of the fabric will result in the Fabric racks and device resources created
-in the Fabric hosted resource groups. The following data is returned as a result of
-successful Network fabric create: racks, MTU size, IP address prefixes, etc.
-
-View the status of the fabric:
-
-```azurecli
-az nf fabric show --resource-group "$FABRIC_RG" \
-  --resource-name "$FABRIC_RESOURCE_NAME"
-```
-
-The Fabric provisioning is complete when the `provisioningState` of the resource
-shows: `"provisioningState": "Succeeded"`
-
-### Logging
-
-Fabric create Logs can be viewed in the following locations:
-
-1. Azure portal Resource/ResourceGroup Activity logs.
-2. Azure CLI with `--debug` flag passed on command-line.
-
-## Step 4: Deploy cluster
+## Deploy Cluster
 
 Once a Cluster has been created and the Rack Manifests have been added, the
-deploy cluster action can be triggered. The deploy cluster action creates the
-bootstrap image and deploys the cluster.
+deploy cluster action can be triggered. The deploy Cluster action creates the
+bootstrap image and deploys the Cluster.
 
 Deploy Cluster will initiate a sequence of events to occur in the Cluster Manager
 
