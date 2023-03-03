@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 # Operator Nexus Azure resources prerequisites
 
 To get started with Operator Nexus, you need to create a Network Fabric Controller (NFC) and then a Cluster Manager (CM)
-in your target Azure region. This Azure region will be connected to your on-premise instances.
+in your target Azure region.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
 The NFC/CM pair lifecycle manages up to 32 Azure Operator Nexus instances deployed in your sites connected to this Azure region.
