@@ -20,7 +20,6 @@ ms.author: sanchezjuan
 
 - An active Logic Apps resource (logic app), or [create a blank logic app but with the trigger that you want to use](../../../../../logic-apps/quickstart-create-first-logic-app-workflow.md). Currently, the Azure Communication Services Identity connector provides only actions, so your logic app requires a trigger, at minimum.
 
-
 ## Create user
 
 Add a new step in your workflow by using the Azure Communication Services Identity connector, follow these steps in Power Automate with your Power Automate flow open in edit mode.
@@ -44,7 +43,6 @@ Add a new step in your workflow by using the Azure Communication Services Identi
     :::image type="content" source="../../media/logic-app/azure-communications-services-connector-create-user-action.png" alt-text="Screenshot that shows the Azure Communication Services connector Create user action.":::
 
     :::image type="content" source="../../media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Azure Communication Services connector Create user action advanced options.":::
-
 
 ## Issue a user access token
 
@@ -75,7 +73,6 @@ After you have a Communication Services identity, you can use the Issue a user a
  
 This will revoke all user access tokens for the specified user, there are no outputs for this action.
 
-
 ## Delete a user
 
 After you have a Communication Services identity, you can use the Issue a user access token action to delete an access token  . The following steps will show you how:
@@ -88,7 +85,6 @@ After you have a Communication Services identity, you can use the Issue a user a
     :::image type="content" source="../../media/logic-app/azure-communications-services-connector-delete-user-id.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Delete user action input.":::
 
     This will remove the user and revoke all user access tokens for the specified user, there are no outputs for this action.
-
 
 ## Test your logic app
 
