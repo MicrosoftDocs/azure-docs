@@ -28,7 +28,7 @@ recommendations: false
 The `ocr.formula` premium feature extracts all identified formulas, such as mathematical equations in the `formulas` collection as a top level object under `content`. Inside the `content`, detected formulas are represented as `:formula:`. Each entry in this collection represents a formula that includes the formula type as `inline` or `display`, and its LaTeX representation as `value` along with its `polygon` coordinates. Initially, formulas appear at the end of each page.
 
    > [!NOTE]
-   > The `confidence` scored is hard-coded for the `2023-03-06` public preview.
+   > The `confidence` score is hard-coded for the `2023-03-06` public preview.
 
    ```json
    "content": ":formula:",
@@ -99,4 +99,4 @@ The `ocr.font` premium feature extracts all font properties of texts extracted i
 
 > [!div class="nextstepaction"]
 > Learn more:
-> [**Read model**](concept-read.md) [**Layout model**](./concept-layout.md).
+> [**Read model**](concept-read.md) [**Layout model**](concept-layout.md).

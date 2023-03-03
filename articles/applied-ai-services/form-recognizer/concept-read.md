@@ -116,7 +116,7 @@ The Read OCR model extracts all identified barcodes in the `barcodes` collection
 
 | **Barcode Type**   | **Example**   |
 | --- | --- |
-| QR Code |:::image type="content" source="media/barcodes/qrcode.png" alt-text="Screenshot of the QR Code.":::|
+| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
 | Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
 | Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
 | UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|

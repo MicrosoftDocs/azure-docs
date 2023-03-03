@@ -24,14 +24,14 @@ recommendations: false
 
 ## Extract content from large documents with small texts (high resolution documents)
 
-Recognizing small text from large-size documents, like engineering drawings, is a challenging task because the text is often mixed with other graphical elements and have varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Form Recognizer now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
+The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Form Recognizer now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
 
 ## Extracting formulas from documents
 
 The `ocr.formula` capability extracts all identified formulas, such as mathematical equations, in the `formulas` collection as a top level object under `content`. Inside `content`, detected formulas are represented as `:formula:`. Each entry in this collection represents a formula that includes the formula type as `inline` or `display`, and its LaTeX representation as `value` along with its `polygon` coordinates. Initially, formulas appear at the end of each page.
 
    > [!NOTE]
-   > The `confidence` scored is hard-coded for the `2023-03-06` public preview release.
+   > The `confidence` score is hard-coded for the `2023-03-06` public preview release.
 
    ```json
    "content": ":formula:",
@@ -102,4 +102,4 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
 
 > [!div class="nextstepaction"]
 > Learn more:
-> [**Read model**](concept-read.md) [**Layout model**](./concept-layout.md).
+> [**Read model**](concept-read.md) [**Layout model**](concept-layout.md).
