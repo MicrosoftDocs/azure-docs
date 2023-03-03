@@ -24,7 +24,7 @@ Before you get started, make sure to:
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/identity/access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity//access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
