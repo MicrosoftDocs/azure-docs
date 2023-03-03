@@ -54,11 +54,7 @@ For example, you need additional capacity for 20 *Medium* VMs. The total number 
 
 ### Create a lab plan
 
-To create a request for Azure Lab Services capacity, you need to have a lab plan. If you don't already have a lab plan, you can create a temporary lab plan for requesting capacity, and delete the plan afterwards. 
-
-Because capacity is assigned to your subscription, it's not affected when you create or delete lab plans. The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created. This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](./capacity-limits.md#per-customer-assigned-capacity).
-
-Follow these steps to [create a lab plan](./quick-create-lab-plan-portal.md). You can skip advanced networking, adding images, and assigning permissions. You can select any region. Optionally, you can delete this lab plan after you complete the capacity request.
+To create a request for Azure Lab Services capacity, you need to have a lab plan. If you don't already have a lab plan, follow these steps to [create a lab plan](./quick-create-lab-plan-portal.md).
 
 ### Verify available capacity
 
