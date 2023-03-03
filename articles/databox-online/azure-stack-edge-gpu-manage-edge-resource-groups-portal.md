@@ -29,7 +29,7 @@ Follow these steps to view the Edge resource groups for the current subscription
     ![Screenshot of the Resources view for virtual machines on an Azure Stack Edge device. The Edge Resource groups tab is shown and highlighted.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-01.png)
 
     > [!NOTE]
-    > You can get the same listing by using [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in Azure PowerShell after you set up the Azure Resource Manager environment on your device. For more information, see [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md).
+    > You can get the same listing by using [Get-AzResource](/powershell/module/az.resources/get-azresource) in Azure PowerShell after you set up the Azure Resource Manager environment on your device. For more information, see [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md).
 
 
 ## Delete an Edge resource group

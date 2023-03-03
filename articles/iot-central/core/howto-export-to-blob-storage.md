@@ -19,7 +19,6 @@ To learn how to manage data export by using the IoT Central REST API, see [How t
 
 ## Set up a Blob Storage export destination
 
-
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
 - Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
@@ -183,23 +182,40 @@ The following example shows an exported telemetry message:
 
 For Blob Storage, messages are batched and exported once per minute.
 
-The following snippet shows this property in the message exported to Blob Storage:
+The following snippet shows a property change message exported to Blob Storage:
 
 ```json
 {
-  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
-  "messageSource":"telemetry",
-  "deviceId":"sample-device-01",
-  "schema":"default@v1",
-  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
-  "enqueuedTime":"2021-01-29T16:45:39.143Z",
-  "telemetry":{
-    "temperature":8.341033560421833
-  },
-  "messageProperties":{
-    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
-  },
-  "enrichments":{}
+    "applicationId": "fb74969c-8682-4708-af01-33499a7f7d98",
+    "messageSource": "properties",
+    "deviceId": "Pepjmh1Hcc",
+    "enqueuedTime": "2023-03-02T10:35:39.281Z",
+    "enrichments": {},
+    "messageType": "devicePropertyReportedChange",
+    "schema": "default@v1",
+    "templateId": "dtmi:azureiot:ddzig4ascxz",
+    "properties": [
+        {
+            "component": "device_info",
+            "name": "swVersion",
+            "value": "12"
+        },
+        {
+            "component": "device_info",
+            "name": "osName",
+            "value": "Android"
+        },
+        {
+            "component": "device_info",
+            "name": "processorArchitecture",
+            "value": "arm64-v8a"
+        },
+        {
+            "component": "device_info",
+            "name": "processorManufacturer",
+            "value": "unknown"
+        }
+    ]
 }
 ```
 
