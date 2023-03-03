@@ -63,6 +63,17 @@ The following are additional factors to consider when planning pods IP address s
 
 * **Kubernetes DNS service IP address**: This is an IP address within the Kubernetes service address range that's used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
 
+## Network security groups
+
+Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet NSG rules are applied. If the subnet NSG contains deny rules that would impact this traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
+
+* Traffic from the node CIDR to the node CIDR on all ports and protocols
+* Traffic from the node CIDR to the pod CIDR on all ports and protocols
+* Traffic from the pod CIDR to the node CIDR on all ports and protocols
+* Traffic from the pod CIDR to the pod CIDR on all ports and protocols
+
+If you wish to restrict traffic between workloads in the cluster, [network policies][aks-network-policies] are the recommended solution.
+
 ## Maximum pods per node
 
 You can configure the maximum number of pods per node at the time of cluster creation or when you add a new node pool. The default for Azure CNI Overlay is 30. The maximum value that you can specify in Azure CNI Overlay is 250, and the minimum value is 10. The maximum pods per node value configured during creation of a node pool applies to the nodes in that node pool only.
@@ -148,3 +159,5 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
+[aks-egress]: limit-egress-traffic.md
+[aks-network-policies]: use-network-policies.md
