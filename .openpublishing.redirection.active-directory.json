@@ -11115,6 +11115,11 @@
       "source_path_from_root": "/articles/active-directory/governance/create-access-review-privileged-access-groups.md",
       "redirect_url": "/azure/active-directory/governance/create-access-review-pim-for-groups",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-resource-forest.md",
+      "redirect_url": "/azure/active-directory-domain-services/concepts-forest-trust",
+      "redirect_document_id": false
     }
   ]
 }

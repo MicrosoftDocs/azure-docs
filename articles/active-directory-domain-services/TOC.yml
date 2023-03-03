@@ -47,12 +47,8 @@
       href: scenarios.md
     - name: Replica sets
       href: concepts-replica-sets.md
-    - name: Forests and trusts
-      items:
-        - name: Resource forests
-          href: concepts-resource-forest.md
-        - name: Forest trusts
-          href: concepts-forest-trust.md
+    - name: Forests trusts
+      href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works

@@ -339,7 +339,7 @@ If you need to update an existing one-way outbound forest from the managed domai
 
 ### Update a forest trust
 
-In normal operation, the managed domain forest and on-premises forest negotiate a regular password update process between themselves. This is part of the normal AD DS trust relationship security process. You don't need to manually rotate the trust password unless the trust relationship has experienced an issue and you want to manually reset to a known password. For more information, see [trusted domain object password changes](concepts-forest-trust.md#tdo-password-changes).
+In normal operation, the managed domain and on-premises forest negotiate a regular password update process between themselves. This is part of the normal AD DS trust relationship security process. You don't need to manually rotate the trust password unless the trust relationship has experienced an issue and you want to manually reset to a known password. For more information, see [trusted domain object password changes](concepts-forest-trust.md#tdo-password-changes).
 
 The following example steps show you how to update an existing trust relationship if you need to manually reset the outbound trust password:
 
@@ -387,8 +387,8 @@ If you no longer need the one-way outbound forest trust from the managed domain 
 
 To remove the one-way inbound trust from the on-premises AD DS forest, connect to a management computer with access to the on-premises AD DS forest and complete the following steps:
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
-1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
+1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**.
+1. Right-select domain, such as *onprem.contoso.com*, select **Properties**.
 1. Choose **Trusts** tab, then select the existing incoming trust from your managed domain forest.
 1. Select **Remove**, then confirm that you wish to remove the incoming trust.
 
@@ -403,10 +403,9 @@ In this article, you learned how to:
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
 > * Test and validate the trust relationship for authentication and resource access
 
-For more conceptual information about forest types in Azure AD DS, see [What are forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+For more conceptual information about forest types in Azure AD DS, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
-[concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
