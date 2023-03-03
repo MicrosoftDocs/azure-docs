@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 02/23/2023
+ms.date: 03/03/2023
 ms.author: jasteppe
 ---
 
-# Understand the MedTech service device message data transformation
+# Understand the device message data transformation
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
