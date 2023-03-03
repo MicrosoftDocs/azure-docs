@@ -45,7 +45,7 @@ Dev Box helps dev infra teams provide the appropriate dev boxes for each user’
 ### IT admin scenarios
 Dev Box has the following benefits for IT admins: 
 - You can manage Dev Boxes like any other device.
-    - Dev boxes automatically enroll in Intune. Use Microsoft Endpoint Manager Portal to manage the dev boxes just like any other device on your network.
+    - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage the dev boxes just like any other device on your network.
     - Keep all Windows devices up to date by using Intune’s expedited quality updates to deploy zero-day patches across your organization.
     - If a dev box is compromised, isolate it while helping the dev box user get back up and running on a new dev box.
 - Dev Box provides secure access in a secure environment.

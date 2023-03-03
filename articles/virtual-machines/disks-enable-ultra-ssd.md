@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 03/02/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
