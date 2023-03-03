@@ -31,6 +31,9 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
+> [!NOTE]
+> There is no way to calculate the append blob used capacity directly from the Azure Portal. But you get the Used Capacity of an Append blob by removing the total used capacity of a Block blob capacity from the total used capacity of a page blob, Or through any API.
+
 #### Blob storage
 
 This table shows [Blob storage metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
