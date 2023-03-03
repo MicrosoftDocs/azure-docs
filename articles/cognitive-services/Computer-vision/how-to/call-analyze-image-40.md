@@ -31,7 +31,7 @@ var imageSource = VisionSource.FromUrl(new Uri("https://docs.microsoft.com/azure
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
 
 #### [Python](#tab/python)
@@ -44,7 +44,7 @@ vision_source = visionsdk.VisionSource(url=image_url)
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](tbd) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
 #### [C++](#tab/cpp)
 
@@ -55,7 +55,7 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/cpp/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
 #### [REST](#tab/rest)
 
@@ -75,7 +75,7 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 
 #### [C#](#tab/csharp)
 
-Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
+Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis.
 
 ```csharp
 var analysisOptions = new ImageAnalysisOptions()
@@ -96,7 +96,7 @@ var analysisOptions = new ImageAnalysisOptions()
 
 #### [Python](#tab/python)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/tbd) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis.
 
 ```python
 # Set the language and one or more visual features as analysis options
@@ -117,7 +117,7 @@ image_analysis_options.features = (
 ```
 #### [C++](#tab/cpp)
 
-Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
+Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis.
 
 ```cpp
 // Creates the options object that will control the ImageAnalyzer
