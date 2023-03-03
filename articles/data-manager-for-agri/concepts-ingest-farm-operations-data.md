@@ -1,5 +1,5 @@
 ---
-title: Ingesting Farm Operations Data.
+title: Ingesting farm operations data in Data Manager for Agriculture
 description: Provides step by step guidance to ingest Farm Operations data
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -480,4 +480,4 @@ Azure Data Manager for Agriculture will return all staged (farm, field, boundary
 
 ## Next steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri).

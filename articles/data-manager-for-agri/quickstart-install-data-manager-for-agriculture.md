@@ -1,5 +1,5 @@
 ---
-title: How to Install Data Manager for Agriculture.
+title: How to install Azure Data Manager for Agriculture
 description: Provides step by step guidance to install Data Manager for Agriculture
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -9,15 +9,14 @@ ms.date: 12/26/2022
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart install Azure Data Manager for Agriculture Preview
+# Quickstart install Azure Data Manager for Agriculture preview
+
+Use this document to get started with the steps to install Data Manager for Agriculture. Make sure that  your Azure subscription ID is in our allowlist. Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Azure Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
 ## 1: Register resource provider
-
-After you have confirmation that your Azure subscription ID is in our allowlist, then use the below steps to install Data Manager for Agriculture through Azure portal UI.
 
 Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
@@ -44,17 +43,16 @@ Provide the required details for creating an Azure Data Manager for Agriculture 
 
 After providing the details and accepting terms and conditions, click on "review + create" followed by the create button. This starts the process of deploying the Azure Data Manager for Agriculture resource.
 
-![Screenshot showing data manager for agriculture resource creation flow on Azure portal.](./media/resource-creation-new.png)
-
+>:::image type="content" source="./media/resource-creation-new.png" alt-text="Screenshot showing data manager for agriculture resource creation flow on Azure portal.":::
 ## 4: Azure app registration
 
 You can access Data Manager for Agriculture resource through an app registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
 
 Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until step 8** to generate the following information:
 
-1. **Application (client) ID**
-2. **Directory (tenant) ID**
-3. **App Name**
+* **Application (client) ID**
+* **Directory (tenant) ID**
+* **App Name**
 
 Write down these three values,  you would need them in the next step.
 
@@ -73,7 +71,7 @@ Log in to Azure portal and navigate to the newly created resource (`<Name>-resou
 
 Click on the Azure Data Manager for Agriculture resource tab, you can find the IAM menu option on the left hand side of the option pane as shown in the image:
 
-![Screenshot showing role assignment in data Manager.](./media/role-assignment1.png)
+>:::image type="content" source="./media/role-assignment-1.png" alt-text="Screenshot showing role assignment in data Manager.":::
 
 Click **Add > Add role assignment**, and this opens up a pane the right side of the portal, choose one of the three roles from the dropdown:
 
@@ -91,7 +89,7 @@ To complete the role assignment do the following steps:
 
 4. Click **Save** to assign the role.
 
-![Screenshot showing app selection for authorization.](./media/app-selection.png)
+>:::image type="content" source="./media/app-selection-1.png" alt-text="Screenshot showing app selection for authorization.":::
 
 This ensures that the App (registered in the previous step) has been granted access (based on the role assigned) to Azure Data Manager for Agriculture Resource.
 
@@ -148,5 +146,5 @@ With working **API endpoint (instanceUri)** and **access_token**, you now can st
 
 ## Next steps
 
-1. See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md)
-2. Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri/?branch=main)
+* See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md).
+* Understand our APIs [here](/rest/api/data-manager-for-agri).

@@ -17,29 +17,29 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Data Manager for Agriculture Preview
+  - title: About Azure Data Manager for Agriculture preview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Data Manager for Agriculture Preview?
+          - text: What is Azure Data Manager for Agriculture preview?
             url: Overview-azure-data-manager-for-agriculture.md
       - linkListType: quickstart
         links:
-          - text: Install Azure Data Manager for Agriculture Preview instance
+          - text: Install Azure Data Manager for Agriculture preview instance
             url: quickstart-install-data-manager-for-agriculture.md
       - linkListType: concept
         links:
-          - text: Hierarchy Model
+          - text: Hierarchy model
             url: concepts-hierarchy-model.md
-          - text: Farm Operations Data Ingestion
+          - text: Farm operations data ingestion
             url: concepts-ingest-farm-operations-data.md
-          - text: Satellite Data Ingestion
+          - text: Satellite data ingestion
             url: concepts-ingest-satellite-imagery.md
-          - text: Weather Forecast Data Ingestion
+          - text: Weather forecast data ingestion
             url: concepts-ingest-weather-data.md
-          - text: Sensor Data Ingestion
+          - text: Sensor data ingestion
             url: concepts-ingest-sensor-data.md
-  - title: Understanding ISV Solutions
+  - title: Understanding ISV solutions
     linkLists:
       - linkListType: concept
         links:
@@ -49,15 +49,15 @@ landingContent:
         links:
           - text: Use ISV APIs
             url: how-to-set-up-isv-solution.md
-  - title: Using Sensors
+  - title: Using sensors
     linkLists:
       - linkListType: concept
         links:
-          - text: Sensor Data Ingestion
+          - text: Sensor data ingestion
             url: concepts-ingest-sensor-data.md
       - linkListType: how-to-guide
         links:
-          - text: Set up Sensors as a Partner
+          - text: Set up sensors as a partner
             url: how-to-set-up-sensors-partner.md
-          - text: Set up Sensors as a Customer
+          - text: Set up sensors as a customer
             url: how-to-set-up-sensors-customer.md

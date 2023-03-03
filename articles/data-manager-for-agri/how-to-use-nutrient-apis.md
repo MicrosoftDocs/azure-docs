@@ -1,5 +1,5 @@
 ---
-title: Use plant tissue nutrients APIs. 
+title: Use plant tissue nutrients APIs in Azure Data Manager for Agriculture
 description: Learn how to store nutrient data in Azure Data Manager for Agriculture
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -16,7 +16,7 @@ Analyzing the nutrient composition of the crop is vital to ensure good harvest. 
 ## Tissue sample model
 Here's how we have modeled tissue analysis in Azure Data Manager for Agriculture:
 
-![Screenshot showing entity relationships.](./media/schema1.png)
+>:::image type="content" source="./media/schema-1.png" alt-text="Screenshot showing entity relationships.":::
 
 * Step 1: Create a **plant tissue analysis** resource for every sample you get tested.
 * Step 2: For each nutrient that is being tested, create a nutrient analysis resource with plant tissue analysis as parent created in step 1. 
@@ -26,6 +26,6 @@ Here's how we have modeled tissue analysis in Azure Data Manager for Agriculture
 > [!Note]
 > One plant tissue analysis resource is created per sample. One point boundary can be associated with it.
 
-### Next steps
+## Next steps
 
-Using our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri).

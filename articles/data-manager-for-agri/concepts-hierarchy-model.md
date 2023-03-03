@@ -60,4 +60,4 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ## Next steps
 
-* Test our APIs [here](/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri).

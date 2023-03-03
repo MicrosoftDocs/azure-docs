@@ -9,7 +9,7 @@ ms.date: 02/14/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Sensor Integration as a Customer
+# Sensor integration as a customer
 
 Follow the steps to integrate with a sensor partner to enable the partner to start pushing the data into your Data Manager for Agriculture instance.
 
@@ -29,7 +29,7 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 5. Now, look for `Davis Instruments WeatherLink Data Manager for Agriculture Connector` under All Applications tab in `App Registrations` page (illustrated with a generic Partner in the image).
 
-![Screenshot showing the partners message,](./media/sensor-partners.png)
+    >:::image type="content" source="./media/sensor-partners.png" alt-text="Screenshot showing the partners message.":::
 
 6. Copy the Application (client) ID for the specific partner app that you want to provide access to.
 
@@ -44,7 +44,7 @@ Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> an
 
 You find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image:
 
-![Screenshot showing role assignment.](./media/role-assignment1.png)
+>:::image type="content" source="./media/role-assignment-1.png" alt-text="Screenshot showing role assignment.":::
 
 Click **Add > Add role assignment**, this action opens up a pane on the right side of the portal, choose the  role from the dropdown:
 
@@ -60,7 +60,7 @@ To complete the role assignment, do the following steps:
 
 4. Click **Save** to assign the role.
 
-![Screenshot showing app selection for authorization.](./media/sensor-partner-role.png)
+>:::image type="content" source="./media/sensor-partner-role.png" alt-text="Screenshot showing app selection for authorization.":::
 
 This step ensures that the sensor partner app has been granted access (based on the role assigned) to Azure Data Manager for Agriculture  Resource.
 
@@ -68,81 +68,81 @@ This step ensures that the sensor partner app has been granted access (based on 
 
 1. You need to enable sensor integration before initiating calls. This step provisions required internal Azure resources for sensor integration in your Data Manager for Agriculture instance. You can do this by running the following <a href="https://github.com/projectkudu/ARMClient" target=" blank">armclient</a> command.
 
-```armclient 
-armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
-```
-
-Sample output:
-
-```json
-{
-  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
-  "type": "Microsoft.AgFoodPlatform/farmBeats",
-  "sku": {
-    "name": "A0"
-  },
-  "systemData": {
-    "createdBy": "<customer-id>",
-    "createdByType": "User",
-    "createdAt": "2022-03-11T03:36:32Z",
-    "lastModifiedBy": "<customer-id>",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2022-03-11T03:40:06Z"
-  },
-  "properties": {
-    "instanceUri": "https://<farmbeats-instance-name>.farmbeats.azure.net/",
-    "provisioningState": "Succeeded",
-    "sensorIntegration": {
-      "enabled": "True",
-      "provisioningState": "**Creating**"
-    },
-    "publicNetworkAccess": "Enabled"
-  },
-  "location": "eastus",
-  "name": "myfarmbeats"
-}
-```
+    ```armclient 
+    armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
+    ```
+    
+    Sample output:
+    
+    ```json
+    {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
+      "type": "Microsoft.AgFoodPlatform/farmBeats",
+      "sku": {
+        "name": "A0"
+      },
+      "systemData": {
+        "createdBy": "<customer-id>",
+        "createdByType": "User",
+        "createdAt": "2022-03-11T03:36:32Z",
+        "lastModifiedBy": "<customer-id>",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2022-03-11T03:40:06Z"
+      },
+      "properties": {
+        "instanceUri": "https://<farmbeats-instance-name>.farmbeats.azure.net/",
+        "provisioningState": "Succeeded",
+        "sensorIntegration": {
+          "enabled": "True",
+          "provisioningState": "**Creating**"
+        },
+        "publicNetworkAccess": "Enabled"
+      },
+      "location": "eastus",
+      "name": "myfarmbeats"
+    }
+    ```
 
 2. The job can take a few minutes to complete. To know the status of the job, you can use the following  armclient command:
 
-```armclient 
-armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview
-```
+    ```armclient 
+    armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview
+    ```
 
 3. To verify completed status, look at the **provisioningState** attribute. The status needs to change to "Succeeded” from “Creating” in the earlier step.  
 
-Sample output: 
-```json
-{
-  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
-  "type": "Microsoft.AgFoodPlatform/farmBeats",
-  "sku": {
-    "name": "A0"
-  },
-  "systemData": {
-    "createdBy": "<customer-id>",
-    "createdByType": "User",
-    "createdAt": "2022-03-11T03:36:32Z",
-    "lastModifiedBy": "<customer-id>",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2022-03-11T03:40:06Z"
-  },
-  "properties": {
-    "instanceUri": "https://<customer-host-name>.farmbeats.azure.net/",
-    "provisioningState": "Succeeded",
-    "sensorIntegration": {
-      "enabled": "True",
-      "provisioningState": "**Succeeded**"
-    },
-    "publicNetworkAccess": "Enabled"
-  },
-  "tags": {
-    "usage": "<sensor-partner-id>"
-  },
-  "location": "eastus",
-  "name": "<customer-id>"
-}
-```
+    Sample output: 
+    ```json
+    {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
+      "type": "Microsoft.AgFoodPlatform/farmBeats",
+      "sku": {
+        "name": "A0"
+      },
+      "systemData": {
+        "createdBy": "<customer-id>",
+        "createdByType": "User",
+        "createdAt": "2022-03-11T03:36:32Z",
+        "lastModifiedBy": "<customer-id>",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2022-03-11T03:40:06Z"
+      },
+      "properties": {
+        "instanceUri": "https://<customer-host-name>.farmbeats.azure.net/",
+        "provisioningState": "Succeeded",
+        "sensorIntegration": {
+          "enabled": "True",
+          "provisioningState": "**Succeeded**"
+        },
+        "publicNetworkAccess": "Enabled"
+      },
+      "tags": {
+        "usage": "<sensor-partner-id>"
+      },
+      "location": "eastus",
+      "name": "<customer-id>"
+    }
+    ```
 With the sensor integration step complete, you can now create sensor integration objects. 
 
 ## Step 4: Create integration object
@@ -189,3 +189,6 @@ Use the `SensorEvents` collection to call into the `SensorEvents_List` API and c
 
 API Endpoint: GET /sensor-events
 
+## Next steps
+
+* Test our APIs [here](/rest/api/data-manager-for-agri).
