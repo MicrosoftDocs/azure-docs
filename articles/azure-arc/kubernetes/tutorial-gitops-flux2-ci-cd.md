@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Connect Azure Container Registry to Kubernetes
 
-Enable your Kubernetes cluster to pull images from your Azure Container Registry. If it's private, authentication will be required.
+Enable your Kubernetes cluster to pull images from your Azure Container Registry. If it's private, authentication is required.
 
 #### Connect Azure Container Registry to existing AKS clusters
 
@@ -74,7 +74,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-password=<service-principal-password>
 ```
 
-To avoid having to set an imagePullSecret for every Pod, consider adding the imagePullSecret to the Service account in the `dev` and `stage` namespaces. See the [Kubernetes tutorial](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) for more information.
+To avoid having to set an imagePullSecret for every Pod, consider adding the imagePullSecret to the Service account in the `dev` and `stage` namespaces. For more information, see the [Kubernetes tutorial](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account).
 
 Depending on the CI/CD orchestrator you prefer, you can proceed with instructions either for Azure DevOps or for GitHub.
 
@@ -82,7 +82,7 @@ Depending on the CI/CD orchestrator you prefer, you can proceed with instruction
 
 This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, and Azure CLI.
 
-Make sure to complete the following:
+Make sure to complete the following steps first:
 
 * Sign into [Azure DevOps Services](https://dev.azure.com/).
 * Verify you have "Build Admin" and "Project Admin" permissions for [Azure Repos](/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
@@ -93,7 +93,7 @@ Import an [application repository](./conceptual-gitops-ci-cd.md#application-repo
 
 * **arc-cicd-demo-src** application repository
   * URL: https://github.com/Azure/arc-cicd-demo-src
-  * Contains the example Azure Vote App that you will deploy using GitOps.
+  * Contains the example Azure Vote App that you'll deploy using GitOps.
   * Import the repository with name `arc-cicd-demo-src`
 
 * **arc-cicd-demo-gitops** GitOps repository
@@ -118,7 +118,7 @@ The GitOps connection that you create will automatically:
 * Sync the manifests in the manifest directory.
 * Update the cluster state.
 
-The CI/CD workflow will populate the manifest directory with extra manifests to deploy the app.
+The CI/CD workflow populates the manifest directory with extra manifests to deploy the app.
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly imported **arc-cicd-demo-gitops** repository in Azure Repos.
 
@@ -142,13 +142,13 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. Check the state of the deployment in Azure portal.
    * If successful, you'll see both `dev` and `stage` namespaces created in your cluster.
-   * You can also check on Azure Portal page of your K8s cluster on `GitOps` tab a configuration `cluster-config` is created.
+   * You can also confirm that on the Azure portal page of your cluster, a configuration `cluster-config` is created on the f`GitOps` tab.
 
 ### Import the CI/CD pipelines
 
-Now that you've synced a GitOps connection, you'll need to import the CI/CD pipelines that create the manifests.
+Now that you've synced a GitOps connection, you need to import the CI/CD pipelines that create the manifests.
 
-The application repository contains a `.pipeline` folder with the pipelines you'll use for PRs, CI, and CD. Import and rename the three pipelines provided in the sample repository:
+The application repository contains a `.pipeline` folder with pipelines used for PRs, CI, and CD. Import and rename the three pipelines provided in the sample repository:
 
 | Pipeline file name | Description |
 | ------------- | ------------- |
@@ -158,7 +158,7 @@ The application repository contains a `.pipeline` folder with the pipelines you'
 
 ### Connect Azure Container Registry to Azure DevOps
 
-During the CI process, you'll deploy your application containers to a registry. Start by creating an Azure service connection:
+During the CI process, you deploy your application containers to a registry. Start by creating an Azure service connection:
 
 1. In Azure DevOps, open the **Service connections** page from the project settings page. In TFS, open the **Services** page from the **settings** icon in the top menu bar.
 2. Choose **+ New service connection** and select the type of service connection you need.
@@ -169,9 +169,9 @@ During the CI process, you'll deploy your application containers to a registry. 
    * This option authorizes YAML pipeline files for service connections.
 5. Choose **OK** to create the connection.
 
-### Configure PR Service Connection
+### Configure PR service connection
 
-CD pipeline manipulates PRs in the GitOps repository. It needs a Service Connection for that:
+CD pipeline manipulates PRs in the GitOps repository. It needs a service connection in order to do this. To configure this connection:
 
 1. In Azure DevOps, open the **Service connections** page from the project settings page. In TFS, open the **Services** page from the **settings** icon in the top menu bar.
 2. Choose **+ New service connection** and select `Generic` type.
@@ -279,7 +279,7 @@ You're now ready to deploy to the `dev` and `stage` environments.
 
 #### Create environments
 
-In Azure DevOps project create `Dev` and `Stage` environments. See [Create and target an environment](/azure/devops/pipelines/process/environments) for more details.
+In your Azure DevOps project, create `Dev` and `Stage` environments. For details, see [Create and target an environment](/azure/devops/pipelines/process/environments).
 
 ### Give more permissions to the build service
 
@@ -318,7 +318,7 @@ The CI pipeline:
 
 #### CD pipeline
 
-During the initial CD pipeline run, you'll be asked to give the pipeline access to the GitOps repository. Select View when prompted that the pipeline needs permission to access a resource. Then, select Permit to grant permission to use the GitOps repository for the current and future runs of the pipeline.
+During the initial CD pipeline run, you need to give the pipeline access to the GitOps repository. Select **View** when prompted that the pipeline needs permission to access a resource. Then, select **Permit** to grant permission to use the GitOps repository for the current and future runs of the pipeline.
 
 The successful CI pipeline run triggers the CD pipeline to complete the deployment process. You'll deploy to each environment incrementally.
 
@@ -329,7 +329,7 @@ The successful CI pipeline run triggers the CD pipeline to complete the deployme
 >    * It should be `arc-cicd-demo-src CI`.
 > 1. Rerun the CI pipeline.
 
-Once the template and manifest changes to the GitOps repository have been generated, the CD pipeline will create a commit, push it, and create a PR for approval.
+Once the template and manifest changes to the GitOps repository have been generated, the CD pipeline creates a commit, pushes it, and creates a PR for approval.
 
 1. Find the PR created by the pipeline to the GitOps repository.
 1. Verify the changes to the GitOps repository. You should see:
@@ -338,7 +338,7 @@ Once the template and manifest changes to the GitOps repository have been genera
 1. If everything looks good, approve and complete the PR.
 
 1. After a few minutes, Flux picks up the change and starts the deployment.
-1. Monitor the Git Commit status on the Commit history tab. Once it is `succeeded` the CD pipeline will go ahead and start automated testing
+1. Monitor the Git Commit status on the Commit history tab. Once it is `succeeded`, the CD pipeline starts automated testing.
 1. Forward the port locally using `kubectl` and ensure the app works correctly using:
 
     ```console
@@ -373,8 +373,7 @@ With this baseline set of templates and manifests representing the state on the 
 
 2. Since "Cats vs Dogs" isn't getting enough votes, change it to "Tabs vs Spaces" to drive up the vote count.
 
-3. Commit the change in a new branch, push it, and create a pull request.
-   * This is the typical developer flow that will start the CI/CD lifecycle.
+3. Commit the change in a new branch, push it, and create a pull request. This sequence of steps is the typical developer flow that starts the CI/CD lifecycle.
 
 ### PR validation pipeline
 
@@ -393,17 +392,17 @@ Errors found during pipeline execution appear in the test results section of the
 * Find the first commit on which they were detected.
 * Stack trace style links to the code sections that caused the error.
 
-Once the pipeline run has finished, you have assured the quality of the application code and the template that will deploy it. You can now approve and complete the PR. The CI will run again, regenerating the templates and manifests, before triggering the CD pipeline.
+Once the pipeline run has finished, you have assured the quality of the application code and the template that deploys it. You can now approve and complete the PR. The CI will run again, regenerating the templates and manifests, before triggering the CD pipeline.
 
 > [!TIP]
-> In a real environment, don't forget to set branch policies to ensure the PR passes your quality checks. For more information, see the [Set branch policies](/azure/devops/repos/git/branch-policies) article.
+> In a real environment, don't forget to set branch policies to ensure the PR passes your quality checks. For more information, see [Set branch policies](/azure/devops/repos/git/branch-policies).
 
 ### CD process approvals
 
 A successful CI pipeline run triggers the CD pipeline to complete the deployment process. This time, the pipeline requires you to approve each deployment environment.
 
 1. Approve the deployment to the `dev` environment.
-1. Once the template and manifest changes to the GitOps repository have been generated, the CD pipeline will create a commit, push it, and create a PR for approval.
+1. Once the template and manifest changes to the GitOps repository have been generated, the CD pipeline creates a commit, pushes it, and creates a PR for approval.
 1. Verify the changes to the GitOps repository. You should see:
    * High-level Helm template changes.
    * Low-level Kubernetes manifests that show the underlying changes to the desired state.
@@ -415,7 +414,10 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
    * View the Azure Vote app in your browser at `http://localhost:8080/` and verify the voting choices have changed to Tabs vs Spaces.
 1. Repeat steps 1-7 for the `stage` environment.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial.
+The deployment is now complete.
+
+For a detailed overview of all the steps and techniques implemented in the CI/CD workflows used in this tutorial, see the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops.md).
+
 
 ## Implement CI/CD with GitHub
 
@@ -444,7 +446,7 @@ The GitOps connection that you create will automatically:
 * Sync the manifests in the manifest directory.
 * Update the cluster state.
 
-The CI/CD workflow will populate the manifest directory with extra manifests to deploy the app.
+The CI/CD workflow populates the manifest directory with extra manifests to deploy the app.
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly forked **arc-cicd-demo-gitops** repository in GitHub.
 
@@ -557,7 +559,7 @@ You're now ready to deploy to the `dev` and `stage` environments.
 
 #### CI/CD Dev workflow
 
-To start the CI/CD Dev workflow change the source code. In the application repository, update values in `.azure-vote/src/azure-vote-front/config_file.cfg` file and push the changes to the repository.
+To start the CI/CD Dev workflow, change the source code. In the application repository, update values in `.azure-vote/src/azure-vote-front/config_file.cfg` file and push the changes to the repository.
 
 The CI/CD Dev workflow:
 
@@ -566,8 +568,8 @@ The CI/CD Dev workflow:
 * Verifies the Docker image has changed and the new image is pushed.
 * Publishes the artifacts (Docker image tags, Manifest templates, Utils) that will be used by the following CD stages.
 * Deploys the application to Dev environment.
-  * Generates manifests to the GitOps repository
-  * Creates a PR to the GitOps repository for approval
+  * Generates manifests to the GitOps repository.
+  * Creates a PR to the GitOps repository for approval.
 
 1. Find the PR created by the pipeline to the GitOps repository.
 1. Verify the changes to the GitOps repository. You should see:
@@ -575,7 +577,7 @@ The CI/CD Dev workflow:
    * Low-level Kubernetes manifests that show the underlying changes to the desired state. Flux deploys these manifests.
 1. If everything looks good, approve and complete the PR.
 1. After a few minutes, Flux picks up the change and starts the deployment.
-1. Monitor the Git Commit status on the Commit history tab. Once it is `succeeded` the `CD Stage` workflow will start
+1. Monitor the Git Commit status on the Commit history tab. Once it is `succeeded`, the `CD Stage` workflow will start.
 1. Forward the port locally using `kubectl` and ensure the app works correctly using:
 
     ```console
@@ -596,9 +598,9 @@ The CD Stage workflow:
   * Generates manifests to the GitOps repository
   * Creates a PR to the GitOps repository for approval
 
-Once the manifests PR to the Stage environment is merged and Flux successfully applied all the changes, it updates Git commit status in the GitOps repository.
+Once the manifests PR to the Stage environment is merged and Flux successfully applies all the changes, the Git commit status is updated in the GitOps repository. The deployment is now complete.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
+For a detailed overview of all the steps and techniques implemented in the CI/CD workflows used in this tutorial, see the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops-githubfluxv2.md).
 
 ## Clean up resources
 
