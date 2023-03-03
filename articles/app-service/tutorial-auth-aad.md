@@ -281,7 +281,7 @@ The frontend app needs to pass the user's authentication with the correct `user_
     ```
 
 
-## <a name="#call-api-securely-from-server-code"></a>Backend returns profile to frontend
+## <a name="call-api-securely-from-server-code"></a>Backend returns profile to frontend
 
 The App service rejects the request with a 401 HTTP error code before the request reaches your application code. When your application code is reached, extract the bearerToken to get the accessToken. 
 
