@@ -46,7 +46,7 @@ In this article, you learn about using Azure Machine Learning to set up an end-t
 
 ## Set up authentication with Azure and DevOps
 
-Before you can set up an MLOps project with AzureML, you need to set up authentication for Azure DevOps.
+Before you can set up an MLOps project with Machine Learning, you need to set up authentication for Azure DevOps.
 
 ### Create service principal
    Create one Prod service principal for this demo. You can add more depending on how many environments, you want to work on (Dev or Prod or Both). Service principals can be created using one of the following methods:
