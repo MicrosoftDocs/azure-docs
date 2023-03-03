@@ -30,7 +30,7 @@ For EU communication resources, when the organizer, initiator, or guests join a 
 
 ## Messaging
 
-All threads created from an EU resource will process and storage personl data in the EU. 
+All threads created from an EU resource will process and storage personal data in the EU. 
 
 
 ## Additional Resources
