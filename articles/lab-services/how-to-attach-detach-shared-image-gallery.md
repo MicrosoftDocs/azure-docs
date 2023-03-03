@@ -26,7 +26,7 @@ Saving images to a compute gallery and replicating those images incurs additiona
 
 ## Prerequisites
 
-- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) Azure Active Directory (Azure AD) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
 - To attach an Azure compute gallery to a lab plan, your Azure account needs the following permissions:
 
@@ -105,7 +105,7 @@ To detach a compute gallery from your lab, select **Detach** on the toolbar. Con
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Screenshot of how to detach the compute gallery from the lab plan.":::
 
-Only one Azure compute gallery can be attached to a lab. To attach another compute gallery, follow the steps to [attach an existing compute gallery](#attach-an-existing-compute-gallery).
+Only one Azure compute gallery can be attached to a lab plan. To attach another compute gallery, follow the steps to [attach an existing compute gallery](#attach-an-existing-compute-gallery).
 
 ## Next steps
 
