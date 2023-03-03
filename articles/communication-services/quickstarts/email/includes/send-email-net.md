@@ -172,8 +172,7 @@ To send an Email message, you need to
     catch (Exception ex)
     {
         Console.WriteLine($"Error in sending email, {ex}");
-    }
- //Console.WriteLine($"MessageId = {emailResult.MessageId}");
+    } 
 ```
 ## Sending Email Async and getting status on email delivery 
 If you are sending lot of emails and want to track the delivery status of email do not wait for SendAsync API to complete. You can track then with EmailSendOperation to async.
