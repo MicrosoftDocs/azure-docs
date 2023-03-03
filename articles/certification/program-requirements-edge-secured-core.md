@@ -517,14 +517,10 @@ The Mediatek MT3620AN must be included in your design. For any component that ca
 
 All operating systems on device must meet Secured Core requirements
 
-Additional considerations for Azure Sphere are provided as an application note here: [https://learn.microsoft.com/en-us/azure-sphere/app-notes/app-notes-overview](Azure Sphere application notes)
+Additional considerations for Azure Sphere are provided as an application note here: [Azure Sphere application notes](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)
 
 
 ## Sphere Hardware/Firmware Requirements
->[!Note]
-> * Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
-> * Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
-
 
 ---
 |Name|SecuredCore.Hardware.Identity|Sphere|
