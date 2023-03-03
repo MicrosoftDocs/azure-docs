@@ -54,6 +54,21 @@ You can select multiple SBCs for a single pattern. In such a case, the routing a
 
 ## Removing a direct routing configuration
 
+Follow the steps below to remove direct routing configuration:
+
+### To delete a voice route:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
+1. Select route or routes you want to delete using a checkbox.
+1. Select Remove.
+
+### To delete an SBC:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN.
+1. On a Session Border Controllers tab, select Configure.
+1. Clear the FQDN and port fields for the SBC that you want to remove, select Next.
+1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
+
+> [!NOTE]
+> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
 
 > [!NOTE]
 > More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).

@@ -27,10 +27,6 @@ For information about whether Azure Communication Services direct routing is the
 
 Follow [these instructions](../../how-tos/telephony/domain-validation.md) to validate a domain ownership of your SBC
 
-### Adding a Session Border Controller and configure 
-
-Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
-
 <!-- ### Configure using Azure portal 
 1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
 
@@ -86,7 +82,9 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 
 ## Configure outbound voice routing 
 
-### Configure using Azure portal
+Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
+
+<!-- ### Configure using Azure portal
 
 :::image type="content" source="../media/direct-routing-provisioning/voice-routing-configuration.png" alt-text="Screenshot of outgoing voice routing configuration.":::
 
@@ -99,14 +97,14 @@ Here are some examples of basic regular expressions:
 
 For more information about regular expressions, see [.NET regular expressions overview](/dotnet/standard/base-types/regular-expressions).
 
-You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row aren't available next row will be selected. This way, you create complex routing scenarios.
+You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row aren't available next row will be selected. This way, you create complex routing scenarios. -->
 
 ## Managing inbound calls
 
 For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listen for and manage inbound calls placed to a phone number or received via ACS direct routing. 
 Omnichannel for Customer Service customers please refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
-## Delete direct routing configuration
+<!-- ## Delete direct routing configuration
 
 ### Delete using Azure portal
 
@@ -122,7 +120,7 @@ Omnichannel for Customer Service customers please refer to [these instructions](
 1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
 
 > [!NOTE]
-> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
+> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted. -->
 
 ## Next steps
 
