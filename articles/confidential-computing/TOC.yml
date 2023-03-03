@@ -42,7 +42,7 @@
       items:
         - name: Create Intel SGX enclaves on AKS with CLI
           href: confidential-enclave-nodes-aks-get-started.md
-    - name: Confidential node pools in AKS
+    - name: Confidential VM node pools in AKS
       items:
         - name: Add a confidential VM node pool to your AKS cluster
           href: confidential-node-pool-aks.md
@@ -111,13 +111,13 @@
       items:
       - name: Confidential containers overview
         href: confidential-containers.md
+      - name: Confidential containers with Azure Container Instances (ACI)
+        href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
-      - name: VM isolated confidential containers on Azure Container Instance 
-        href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
     - name: Confidential node pools on AKS
       items: 
-      - name: Confidential node pools in AKS (preview)
+      - name: Confidential VM node pools in AKS
         href: confidential-node-pool-aks.md
 - name: How To
   expanded: true
