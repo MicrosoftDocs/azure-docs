@@ -3,7 +3,7 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/15/2023
+ms.date: 03/03/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -194,7 +194,7 @@ The following steps include an example to show how a graphical runbook that uses
 
 1. Replace the Run As connection that uses `AzureRunAsConnection` and the connection asset that internally uses the PowerShell `Get-AutomationConnection` cmdlet with the `Connect-AzAccount` cmdlet.
 
-1. Add identity support for use in the runbook by using the `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to the managed identity.
+1. Add identity support for use in the runbook by adding a new code activity as mentioned in the following step, which leverages the `Connect-AzAccount` cmdlet to connect to the Managed Identity.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/add-functionality-inline.png" alt-text="Screenshot of adding functionality to a graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/add-functionality-expanded.png":::
 
@@ -216,6 +216,8 @@ For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you m
 
 For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
 
+> [!NOTE]
+> AzureRM PowerShell modules are retiring on 29 February 2024. To avoid service interruptions, we recommend to update your runbooks that use AzureRM PowerShell modules to Az PowerShell modules. [Learn more](https://learn.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0).
 
 ## Next steps
 
