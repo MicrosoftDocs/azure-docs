@@ -27,9 +27,9 @@ You can [add users from an Azure Active Directory (Azure AD) group](#add-users-t
 
 ## Prerequisites
 
-- To manage users for the lab, your Azure account needs one of the following Azure AD permissions:
+- To manage users for the lab, your Azure account needs one of the following permissions:
 
-    - Lab Creator, Lab Contributor, or Lab Operator role at the lab plan or resource group level. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+    - [Lab Creator](/azure/role-based-access-control/built-in-roles#lab-creator), [Lab Contributor](/azure/role-based-access-control/built-in-roles#lab-contributor), or [Lab Operator](/azure/role-based-access-control/built-in-roles#lab-operator) role at the lab plan or resource group level. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
     - [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) at the lab plan or resource group level.
 
 ## Add users to a lab from an Azure AD group
