@@ -217,7 +217,7 @@ For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you m
 For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
 
 > [!NOTE]
-> AzureRM PowerShell modules are retiring on 29 February 2024. To avoid service interruptions, we recommend to update your runbooks that use AzureRM PowerShell modules to Az PowerShell modules. [Learn more](https://learn.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0).
+> AzureRM PowerShell modules are retiring on 29 February 2024. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](https://learn.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0).
 
 ## Next steps
 
