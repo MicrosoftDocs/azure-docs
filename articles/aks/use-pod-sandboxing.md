@@ -1,9 +1,8 @@
 ---
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 02/23/2023
+ms.date: 03/01/2023
 
 ---
 
@@ -235,7 +234,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
     ```output
     root@untrusted:/# uname -r
-    5.15.48.1-8.cm2
+    5.15.80.mshv2-hvl1.m2
     ```
 
 3. Start a shell session to the container of the *trusted* pod to verify the kernel output:
@@ -253,7 +252,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
    The following example resembles output from the VM that is running the *trusted* pod, which is a different kernel than the *untrusted* pod running within the pod sandbox:
 
     ```output
-    5.15.80.mshv2-hvl1.m2
+    5.15.48.1-8.cm2
 
 ## Cleanup
 

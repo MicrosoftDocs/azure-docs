@@ -1,7 +1,6 @@
 ---
 title: Kubernetes Event-driven Autoscaling (KEDA) (Preview)
 description: Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on.
-services: container-service
 author: tomkerkhove
 ms.topic: article
 ms.date: 05/24/2022

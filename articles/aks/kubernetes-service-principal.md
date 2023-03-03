@@ -1,7 +1,6 @@
 ---
 title: Use a service principal with Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal with a cluster in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 06/08/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

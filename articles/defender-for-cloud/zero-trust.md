@@ -3,9 +3,13 @@ title: Zero trust infrastructure and integrations
 description: Independent software vendors (ISVs) can integrate their solutions with Microsoft Defender for Cloud to help customers adopt a Zero Trust model and keep their organizations secure.
 ms.date: 02/26/2023
 ms.topic: conceptual
+ms.collection:
+  -       zerotrust-services
 ---
 
-# Zero trust infrastructure and integrations
+# Zero Trust infrastructure and integrations
+
+[!INCLUDE [zero-trust-principles](../../includes/security/zero-trust-principles.md)]
 
 Infrastructure comprises the hardware, software, micro-services, networking infrastructure, and facilities required to support IT services for an organization. Zero Trust infrastructure solutions assess, monitor, and prevent security threats to these services.
 
