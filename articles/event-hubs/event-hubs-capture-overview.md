@@ -64,7 +64,7 @@ You can configure Capture at the event hub creation time using the [Azure portal
 
 ## How Event Hubs Capture is charged
 
-Event Hubs Capture is metered similarly to [throughput units](event-hubs-scalability.md#throughput-units) (standard tier) or [processing units](event-hubs-scalability.md#processing-units) (in premium tier): as an hourly charge. The charge is directly proportional to the number of throughput units or processing units purchased for the namespace. As throughput units or processing units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+Event Hubs Capture is metered similarly to [throughput units](event-hubs-scalability.md#throughput-units) (standard tier): as an monthly charge or [processing units](event-hubs-scalability.md#processing-units) (in premium tier) which is already included in the premium. The charge is directly proportional to the number of throughput units or processing units purchased for the namespace. As throughput units or processing units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 Capture doesn't consume egress quota as it is billed separately. 
 
