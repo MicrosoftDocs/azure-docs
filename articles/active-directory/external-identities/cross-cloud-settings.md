@@ -96,6 +96,15 @@ The following scenarios are supported when collaborating with an organization fr
 - Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
+> [!NOTE]
+> Enabling the [SharePoint and OneDrive integration with Azure AD B2B](https://learn.microsoft.com/sharepoint/sharepoint-azureb2b-integration) will provide the best experience for inviting users from another Microsoft cloud within SharePoint and OneDrive.
+
+## Limitations with collaborating across Microsoft clouds
+
+The following limitations apply when collaborating with users from another Microsoft cloud:
+
+- User's from another Microsoft cloud must be invited using their user principal name. [Email as sign in](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not current supported when collaborating with users from antoher Microsoft cloud.
+
 ## Next steps
 
 See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non-Azure AD identities, social identities, and non-IT managed external accounts.
