@@ -981,7 +981,7 @@ Use the following steps to sign in to the device and run device diagnostics to v
 
 For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. 
 
-You can set either an ACS or an NFS configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md&pivots=two-node#configure-virtual-ips).
+You can set either an ACS or an NFS configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
 Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
