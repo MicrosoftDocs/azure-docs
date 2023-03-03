@@ -193,10 +193,14 @@ To enable AES-256 encryption, follow the steps in this section. If you plan to u
 
 Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support. You must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 
+For Computer account run below cmdlet:
 ```powershell
 Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
-
+For service logon account run below cmdlet:
+```powershell
+Set-ADUser -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
 After you've run the above cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
 ```powershell
