@@ -165,6 +165,8 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 * Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
 
 * Azure Virtual Network Manager policies don't support the standard policy compliance evaluation cycle. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+
+* The current preview of connected group has a limitation where traffic from a connected group cannot communicate with a private endpoint in this connected group if it has NSG enabled on it. However, this limitation will be removed once the feature is generally available.
 ## Next steps
 
 Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
