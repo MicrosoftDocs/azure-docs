@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Set up a lab account with Azure Lab Services'
 titleSuffix: Azure Lab Services
-description: Learn how to set up a lab account with Azure Lab Servics in the Azure portal. Then, grant a user access to create labs.
+description: Learn how to set up a lab account with Azure Lab Services in the Azure portal. Then, grant a user access to create labs.
 ms.topic: tutorial
 services: lab-services
 ms.service: lab-services
