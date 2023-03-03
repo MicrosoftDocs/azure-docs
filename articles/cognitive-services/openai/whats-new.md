@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure OpenAI?
+title: What's new in Azure OpenAI Service?
 titleSuffix: Azure Cognitive Services
 description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
@@ -13,13 +13,13 @@ recommendations: false
 keywords:  
 ---
 
-# What's new in Azure OpenAI
+# What's new in Azure OpenAI Service
 
 ## January 2023
 
 ### New Features
 
-* **Service GA**. Azure OpenAI is now generally available.​
+* **Service GA**. Azure OpenAI Service is now generally available.​
 
 * **New models**: Addition of the latest text model, text-davinci-003 (East US, West Europe), text-ada-embeddings-002 (East US, South Central US, West Europe)
 
@@ -40,7 +40,7 @@ keywords:
 
 * **Process for requesting modifications to the abuse & miss-use data logging & human review.** Today, the service logs request/response data for the purposes of abuse and misuse detection to ensure that these powerful models aren't abused. However, many customers have strict data privacy and security requirements that require greater control over their data. To support these use cases, we're releasing a new process for customers to modify the content filtering policies or turn off the abuse logging for low-risk use cases. This process follows the established Limited Access process within Azure Cognitive Services and [existing OpenAI customers can apply here](https://aka.ms/oai/modifiedaccess).​
 
-* **Customer managed key (CMK) encryption.** CMK provides customers greater control over managing their data in the Azure OpenAI Service by providing their own encryption keys used for storing training data and customized models. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. [Learn more from our encryption at rest documentation](encrypt-data-at-rest.md).
+* **Customer managed key (CMK) encryption.** CMK provides customers greater control over managing their data in Azure OpenAI by providing their own encryption keys used for storing training data and customized models. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. [Learn more from our encryption at rest documentation](encrypt-data-at-rest.md).
 
 * **Lockbox support**​
 
@@ -58,13 +58,13 @@ keywords:
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"hyperparams": { ​
-              "batch_size": 4,​
-              "learning_rate_multiplier": 0.1,​
-              "n_epochs": 4,​
-              "prompt_loss_weight": 0.1, ​
-              }​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "hyperparams": { ​
+        "batch_size": 4,​
+        "learning_rate_multiplier": 0.1,​
+        "n_epochs": 4,​
+        "prompt_loss_weight": 0.1,​
+    }​
 }
 ```
 
@@ -72,11 +72,11 @@ keywords:
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"batch_size": 4,​
-“learning_rate_multiplier": 0.1,​
-"n_epochs": 4,​
-"prompt_loss_weight": 0.1, ​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "batch_size": 4,​
+    "learning_rate_multiplier": 0.1,​
+    "n_epochs": 4,​
+    "prompt_loss_weight": 0.1,​
 }
 ```
 

@@ -18,11 +18,11 @@ Azure Database Migration Service is a fully managed service designed to enable s
 With Azure Database Migration Service currently we offer two options:
 
 1. [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
-1. Database Migration Service - via Azure portal, PowerShell and Azure CLI.
+1. Database Migration Service (classic) - via Azure portal, PowerShell and Azure CLI.
 
 **Azure SQL Migration extension for Azure Data Studio** is powered by the latest version of Database Migration Service and provides more features. Currently, it supports SQL Database modernization to Azure. For improved functionality and supportability, consider migrating to Azure SQL Database by using the Azure SQL migration extension for Azure Data Studio.
 
-**Database Migration Service** via Azure portal, PowerShell and Azure CLI is an older version of the Azure Database Migration Service. It offers database modernization to Azure and support scenarios like – SQL Server, PostgreSQL, MySQL, and MongoDB. 
+**Database Migration Service (classic)** via Azure portal, PowerShell and Azure CLI is an older version of the Azure Database Migration Service. It offers database modernization to Azure and support scenarios like – SQL Server, PostgreSQL, MySQL, and MongoDB. 
 
 [!INCLUDE [database-migration-service-ads](../../includes/database-migration-service-ads.md)]
 
@@ -32,7 +32,7 @@ In 2021, a newer version of the Azure Database Migration Service was released as
 
 The following table compares the functionality of the versions of the Database Migration Service: 
 
-|Feature  |DMS |Azure SQL extension for Azure Data Studio  |Notes| 
+|Feature  |DMS (classic) |Azure SQL extension for Azure Data Studio  |Notes| 
 |---------|---------|---------|---------|
 |Assessment | No | Yes | Assess compatibility of the source.         |
 |SKU recommendation | No  | Yes | SKU recommendations for the target based on the assessment of the source.       |
@@ -43,7 +43,7 @@ The following table compares the functionality of the versions of the Database M
 |SQL Server on Azure SQL VM - Offline migration | Yes |Yes  |  Migrate to SQL Server on Azure VMs offline.  |
 |Migrate logins|Yes  | Yes  | Migrate logins from your source to your target.|
 |Migrate schemas| Yes  | No  | Migrate schemas from your source to your target. |
-|Azure portal support |Yes  | Yes  | Control your migration by using the Azure portal. |
+|Azure portal support |Yes  | Yes  | Monitor your migration by using the Azure portal. |
 |Integration with Azure Data Studio | No  | Yes  | Migration support integrated with Azure Data Studio. |
 |Regional availability|Yes  |Yes  | More regions are available with the extension. |
 |Improved user experience| No  | Yes  | The extension is faster, more secure, and easier to troubleshoot. |

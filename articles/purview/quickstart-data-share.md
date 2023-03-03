@@ -7,34 +7,35 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: quickstart
 ms.custom: references_regions
-ms.date: 06/28/2022
+ms.date: 02/16/2023
 ---
 # Quickstart: Share and receive Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This article provides a quick guide on how to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts. 
+This article provides a quick guide on how to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts.
 
 [!INCLUDE [data-share-quickstart-prerequisites](includes/data-share-quickstart-prerequisites.md)]
 
 ## Create a share
 
-1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
+1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share data from using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
 
-   :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="The Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="Screenshot that shows the Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**
+1. Once you have found your data asset, select the **Data Share** button.
 
-   :::image type="content" source="./media/how-to-share-data/select-data-share.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
+
+1. Select **+New Share**.
+
+   :::image type="content" source="./media/how-to-share-data/select-new-share-inline.png" alt-text="Screenshot of the Data Share management window with the New Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-new-share-large.png":::
 
 1. Specify a name and a description of share contents (optional). Then select **Continue**.
 
-   :::image type="content" source="./media/how-to-share-data/create-share-details.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/create-share-details-inline.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true" lightbox="./media/how-to-share-data/create-share-details-large.png":::
 
-1. Search for and add all the assets you'd like to share out at the folder and file level, and then select **Continue**.
-
-   > [!NOTE]
-   > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported.
+1. Search for and add all the assets you'd like to share out at the container, folder, or file level, and then select **Continue**.
 
    :::image type="content" source="./media/how-to-share-data/add-asset.png" alt-text="Screenshot showing the add assets window, with a file and a folder selected to share." border="true":::
 
@@ -42,17 +43,17 @@ This article provides a quick guide on how to share data and receive shares from
 
    :::image type="content" source="./media/how-to-share-data/provide-display-names.png" alt-text="Screenshot showing the second add assets window with the display names unchanged." border="true":::
 
-1. Select **Add Recipient** and select **User** or **App**. 
+1. Select **Add Recipient** and select **User** or **App**.
 
-    To share data to a user, select **User**, then enter the Azure login email address of who you want to share data with. By default, the option to enter email address of user is shown.
+    To share data to a user, select **User**, then enter the Azure sign-in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true":::  
+    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient-inline.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true" lightbox="./media/how-to-share-data/create-share-add-user-recipient-large.png":::  
 
     To to share data with a service principal, select **App**. Enter the object ID and tenant ID of the recipient you want to share data with.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true":::  
+    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient-inline.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true" lightbox="./media/how-to-share-data/create-share-add-app-recipient-large.png":::  
 
-1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by selecting **Add Recipient** multiple times.
 
 You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account.
 
@@ -68,7 +69,7 @@ You've now created your share. The recipients of your share will receive an invi
 
 1. If you don't want to accept the invitation, select **Delete**.
 
-    :::image type="content" source="./media/how-to-receive-share/select-delete-invitation.png" alt-text="Screenshot showing the share attachment page with the delete button highlighted." border="true":::  
+    :::image type="content" source="./media/how-to-receive-share/select-delete-invitation-inline.png" alt-text="Screenshot showing the share attachment page with the delete button highlighted." border="true" lightbox="./media/how-to-receive-share/select-delete-invitation-large.png":::  
 
     >[!NOTE]
     > If you delete an invitation, if you want to accept the share in future it will need to be resent. To deselect the share without deleting select the **Cancel** button instead.
@@ -78,11 +79,11 @@ You've now created your share. The recipients of your share will receive an invi
     >[!IMPORTANT]
     >The target storage account needs to be in the same Azure region as the source storage account.
 
-1. Configure the **Path** (either a new container name, or the name of an existing share container) and **New folder** (a new folder name for the share within in your container).
+1. Configure the **Path** (either a new container name, or the name of an existing share container) and, if needed, **New folder**.
 
 1. Select **Attach to target**.
 
-   :::image type="content" source="./media/how-to-receive-share/attach-shared-data.png" alt-text="Screenshot showing pending share configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
+   :::image type="content" source="./media/how-to-receive-share/attach-shared-data-inline.png" alt-text="Screenshot showing pending share configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true" lightbox="./media/how-to-receive-share/attach-shared-data-large.png":::  
 
 1. On the Manage data shares page, you'll see the new share with the status of **Creating** until it has completed and is attached.
 
@@ -92,7 +93,7 @@ You've now created your share. The recipients of your share will receive an invi
 
 ## Clean up resources
 
-To clean up the resources created for the quick start, follow the steps below: 
+To clean up the resources created for the quick start, follow the steps below:
 
 1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-share).
 1. Also [delete your received share](how-to-receive-share.md#delete-received-share).
@@ -103,6 +104,7 @@ To clean up the resources created for the quick start, follow the steps below:
 To troubleshoot issues with sharing data, refer to the [troubleshooting section of the how to share data article](how-to-share-data.md#troubleshoot). To troubleshoot issues with receiving share, refer to the [troubleshooting section of the how to receive shared data article](how-to-receive-share.md#troubleshoot).
 
 ## Next steps
+
 * [FAQ for data sharing](how-to-data-share-faq.md)
 * [How to share data](how-to-share-data.md)
 * [How to receive share](how-to-receive-share.md)

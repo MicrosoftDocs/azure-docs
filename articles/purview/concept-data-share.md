@@ -6,14 +6,14 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 02/16/2023
 ---
 
 # Azure Storage in-place data sharing with Microsoft Purview (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Traditionally, organizations have shared data with internal teams or external partners by generating data feeds requiring investment in data copy and refresh pipelines. The result is higher cost for data storage and movement, data proliferation (that is, multiple copies of data), and delay in access to time-sensitive data.
+Traditionally, organizations have shared data with internal teams or external partners by generating data feeds, requiring investment in data copy and refresh pipelines. The result is higher cost for data storage and movement, data proliferation (that is, multiple copies of data), and delay in access to time-sensitive data.
 
 With Microsoft Purview Data Sharing, data providers can now share data **in-place** from Azure Data Lake Storage Gen2 and Azure Storage accounts, both within and across organizations. Share data directly with users and partners without data duplication and centrally manage your sharing activities from within Microsoft Purview.
 

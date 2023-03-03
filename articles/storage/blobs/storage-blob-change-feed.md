@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 01/26/2023
+ms.date: 02/13/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -557,6 +557,7 @@ This section describes known issues and conditions in the current release of the
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - [Storage account failover](../common/storage-disaster-recovery-guidance.md) is not supported on accounts with the change feed enabled. Disable the change feed before initiating a failover.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
+- You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
 
 ## Feature support
 

@@ -5,7 +5,7 @@ description: Learn how to migrate Azure App Service to availability zone support
 author: anaharris-ms
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 02/13/2023
 ms.author: anaharris
 ms.reviewer: jordanselig
 ms.custom: references_regions, subject-reliability
@@ -45,6 +45,7 @@ Availability zone support is a property of the App Service plan. The following a
   - Germany West Central
   - Japan East
   - North Europe
+  - Norway East
   - Qatar Central
   - South Africa North
   - South Central US

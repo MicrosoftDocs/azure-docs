@@ -3,10 +3,9 @@ title: Connect to an SFTP server from workflows
 description: Connect to your SFTP file server from workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 02/21/2023
 tags: connectors
 ---
 
@@ -17,6 +16,10 @@ tags: connectors
 This how-to guide shows how to access your [SSH File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server from a workflow in Azure Logic Apps. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream and uses the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol.
 
 In Consumption logic app workflows, you can use the **SFTP-SSH** *managed* connector, while in Standard logic app workflows, you can use the **SFTP** built-in connector or the **SFTP-SSH** managed connector. You can use these connector operations to create automated workflows that run when triggered by events in your SFTP server or in other systems and run actions to manage files on your SFTP server. Both the managed and built-in connectors use the SSH protocol.
+
+> [!NOTE]
+>
+> The [**SFTP** *managed* connector](/connectors/sftp/) has been deprecated, so this connector's operations no longer appear in the workflow designer.
 
 For example, your workflow can start with an SFTP trigger that monitors and responds to events on your SFTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run SFTP actions that get, create, and manage files through your SFTP server account. The following list includes more example tasks:
 

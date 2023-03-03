@@ -50,7 +50,7 @@ Here's how:
 
 1. Search Azure Marketplace for *App Service Environment v3*.
 
-2. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
+2. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name must be no more than 36 characters. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
 
     ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
 
@@ -66,7 +66,7 @@ If you're creating an App Service Environment with an external VIP, you can sele
 
 ![Screenshot that shows App Service Environment networking (ASE External) selections.](./media/creation/creation-networking-external.png)
 
-5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
+5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can more than one hour to create. 
 
 When your App Service Environment has been successfully created, you can select it as a location when you're creating your apps.
 

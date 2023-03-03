@@ -600,6 +600,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: courses.work
+        href: courseswork-tutorial.md
       - name: Coveo Hosted Services
         href: coveo-hosted-services-tutorial.md
       - name: Coverity Static Application Security Testing
@@ -931,6 +933,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Fleet Management System
+        href: fleet-management-system-tutorial.md
       - name: Flexera One
         href: flexera-one-tutorial.md  
       - name: Flipsnack SAML
@@ -1069,6 +1073,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: HawkeyeBSB
+        href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
       - name: Headspace
@@ -1179,6 +1185,8 @@
         href: ihasco-training-tutorial.md
       - name: Illusive Networks
         href: illusive-networks-tutorial.md
+      - name: Illumio SSO
+        href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
       - name: Image Relay
@@ -1341,6 +1349,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Kao Navi
         href: kao-navi-tutorial.md
+      - name: Karlsgate Identity Exchange (KIE)
+        href: karlsgate-identity-exchange-tutorial.md
       - name: Keepabl
         href: keepabl-tutorial.md  
       - name: Keeper Password Manager
@@ -1415,6 +1425,8 @@
         href: leadfamly-tutorial.md  
       - name: Lean
         href: lean-tutorial.md
+      - name: LeanDNA
+        href: leandna-tutorial.md
       - name: Leapsome
         href: leapsome-tutorial.md
       - name: Learning at Work
@@ -1427,6 +1439,8 @@
         href: learnupon-tutorial.md
       - name: Lecorpio
         href: lecorpio-tutorial.md
+      - name: Ledgy
+        href: ledgy-tutorial.md
       - name: Lenses.io
         href: lensesio-tutorial.md
       - name: Lessonly
@@ -1727,6 +1741,10 @@
         href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
+      - name: Oracle IDCS for E-Business Suite
+        href: oracle-idcs-for-ebs-tutorial.md
+      - name: Oracle IDCS for JD Edwards
+        href: oracle-idcs-for-jd-edwards-tutorial.md
       - name: Oracle IDCS for PeopleSoft
         href: oracle-idcs-for-peoplesoft-tutorial.md 
       - name: OrgChart Now
@@ -1771,6 +1789,8 @@
         href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md 
+      - name: Parallels Desktop
+        href: parallels-desktop-tutorial.md
       - name: Parkalot - Car park management
         href: parkalot-car-park-management-tutorial.md       
       - name: Parkable
@@ -2365,6 +2385,8 @@
         href: tangoe-tutorial.md
       - name: Tango Reserve by AgilQuest (EU Instance)
         href: tango-reserve-tutorial.md
+      - name: Tanium Cloud SSO
+        href: tanium-cloud-sso-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2405,6 +2427,8 @@
         href: terratrue-tutorial.md  
       - name: tesma
         href: tesma-tutorial.md
+      - name: Testim
+        href: testim-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
       - name: Textline
@@ -2481,8 +2505,6 @@
         href: travelperk-tutorial.md  
       - name: Trelica
         href: trelica-tutorial.md
-      - name: Trello
-        href: trello-tutorial.md
       - name: Trend Micro Web Security(TMWS)
         href: trend-micro-tutorial.md
       - name: TrendMiner
@@ -2517,6 +2539,8 @@
         href: twilio-sendgrid-tutorial.md  
       - name: Uberflip
         href: uberflip-tutorial.md
+      - name: Udemy Business SAML
+        href: udemy-business-saml-tutorial.md
       - name: UKG Pro
         href: ultipro-tutorial.md
       - name: Ungerboeck Software
@@ -2536,9 +2560,7 @@
       - name: Useall
         href: useall-tutorial.md
       - name: UserEcho
-        href: userecho-tutorial.md
-      - name: UserTesting
-        href: usertesting-tutorial.md  
+        href: userecho-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
       - name: UserZoom
@@ -2651,6 +2673,8 @@
         href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
+      - name: Windchill
+        href: windchill-tutorial.md
       - name: Wingspan eTMF
         href: wingspanetmf-tutorial.md
       - name: WireWheel
@@ -2802,6 +2826,8 @@
         href: adobe-identity-management-provisioning-oidc-tutorial.md
       - name: Airstack
         href: airstack-provisioning-tutorial.md
+      - name: Akamai Enterprise Application Access
+        href: akamai-enterprise-application-access-provisioning-tutorial.md
       - name: AlertMedia
         href: alertmedia-provisioning-tutorial.md
       - name: AlexisHR
@@ -2824,6 +2850,8 @@
         href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Atmos
+        href: atmos-provisioning-tutorial.md
       - name: AuditBoard
         href: auditboard-provisioning-tutorial.md
       - name: Autodesk SSO

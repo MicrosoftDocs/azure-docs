@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -401,7 +401,7 @@ public class Demo{
 [maven]: /azure/developer/java/sdk/get-started-maven
 [Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
 [defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
-[Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 
 <!--  Java SDK Developers Guide  --->
 [java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search

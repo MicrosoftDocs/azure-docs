@@ -219,8 +219,8 @@ az k8s-configuration flux create -g flux-demo-rg \
 --scope cluster \
 -u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
 --branch main  \
---kustomization-name=infra path=./infrastructure prune=true \
---kustomization-name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
+--kustomization name=infra path=./infrastructure prune=true \
+--kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 ```
 
 The `microsoft.flux` extension will be installed on the cluster (if it hasn't already been installed due to a previous GitOps deployment).

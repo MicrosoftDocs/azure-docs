@@ -9,7 +9,7 @@ ms.author: tchladek
 ms.date: 08/05/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: identity
+ms.subservice: teams-interop
 zone_pivot_groups: acs-azcli-js-csharp-java-python
 ms.custom: mode-other
 ---

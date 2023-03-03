@@ -54,8 +54,8 @@ The following are important considerations to evaluate:
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     #!/bin/sh
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
     for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
@@ -373,8 +373,8 @@ Migration from in-tree to CSI is supported by creating a static volume.
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     #!/bin/sh
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
     for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
@@ -509,6 +509,6 @@ For more about storage best practices, see [Best practices for storage and backu
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-cluster
-[azure-resource-locks]: /azure/azure-resource-manager/management/lock-resources
+[azure-resource-locks]: ../azure-resource-manager/management/lock-resources.md
 [csi-driver-overview]: csi-storage-drivers.md
 [aks-storage-backups-best-practices]: operator-best-practices-storage.md

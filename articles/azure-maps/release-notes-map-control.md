@@ -2,8 +2,8 @@
 title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 1/31/2023
 ms.topic: reference
 ms.service: azure-maps
@@ -164,10 +164,10 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
 [2.2.3]: https://www.npmjs.com/package/azure-maps-control/v/2.2.3
 [2.2.2]: https://www.npmjs.com/package/azure-maps-control/v/2.2.2
-[Azure AD]: /azure/active-directory/develop/v2-overview
+[Azure AD]: ../active-directory/develop/v2-overview.md
 [adal-angular]: https://github.com/AzureAD/azure-activedirectory-library-for-js
 [@azure/msal-browser]: https://github.com/AzureAD/microsoft-authentication-library-for-js
-[migration guide]: /azure/active-directory/develop/msal-compare-msal-js-and-adal-js
+[migration guide]: ../active-directory/develop/msal-compare-msal-js-and-adal-js.md
 [CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions?view=azure-maps-typescript-latest
 [Map.setCamera(options)]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setcamera
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
