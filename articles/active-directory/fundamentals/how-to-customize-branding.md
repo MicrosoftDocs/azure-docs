@@ -72,6 +72,8 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
+    ![Screenshot of sample favicons in a web browser.](media/how-to-customize-branding/favicon-example.png)
+
 - **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but may be partially blocked by the sign-in prompt.
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
@@ -82,6 +84,8 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
+    
+    ![Screenshot of the Layout tab.](media/how-to-customize-branding/layout-visual-templates.png)
 
 - **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page.
     - [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
@@ -90,6 +94,8 @@ The sign-in experience process is grouped into sections. At the end of each sect
 ## Header
 
 If you haven't enabled the header, go to the **Layout** section and select **Show header**. Once enabled, select a PNG or JPG to display in the header of the sign-in page.
+
+![Screenshot of the message indicating that the header needs to be enabled.](media/how-to-customize-branding/disabled-header-message.png)
 
 ## Footer
 
