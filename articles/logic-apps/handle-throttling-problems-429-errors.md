@@ -3,9 +3,9 @@ title: Handle throttling problems, or '429 - Too many requests' errors
 description: How to work around throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/02/2023
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
@@ -44,7 +44,7 @@ To find throttling events at this level, follow these steps:
 
 1. In the second metric bar, from the **Metric** list, select **Trigger Throttled Events**. From the **Aggregation** list, select **Count**.
 
-The chart now shows throttled events for both actions and triggers in your logic app workflow.
+The chart now shows throttled events for both actions and triggers in your logic app workflow. For more information, see [View metrics for workflow health and performance in Azure Logic Apps](../logic-apps/view-workflow-metrics.md?tabs=consumption).
 
 ### [Standard](#tab/standard)
 
@@ -53,6 +53,8 @@ The chart now shows throttled events for both actions and triggers in your logic
 1. On the logic app resource menu, under **Monitoring**, select **Metrics**.
 
 1. Under **Chart Title**, from the **Metric** list, select **Http 4xx**. From the **Aggregation** list, select **Count**.
+
+The chart now shows throttled events for both actions and triggers in your logic app workflow. For more information, see [View metrics for workflow health and performance in Azure Logic Apps](../logic-apps/view-workflow-metrics.md?tabs=standard).
 
 ---
 
