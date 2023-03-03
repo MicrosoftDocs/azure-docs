@@ -662,7 +662,7 @@ items:
         - name: Upgrade
           href: app/javascript-sdk-upgrade.md
         - name: Troubleshooting
-          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
       - name: Application Insights API summary
         displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
@@ -852,7 +852,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
+          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
     - name: Advanced configuration
       items:
       - name: Access control
@@ -1654,7 +1654,7 @@ items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
     - name: Legacy Application Insights pricing
-      href: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/legacy-pricing
+      href: /previous-versions/azure/azure-monitor/app/legacy-pricing
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator
