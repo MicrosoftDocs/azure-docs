@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2023
+ms.date: 03/03/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -34,15 +34,19 @@ This article gives you an overview of how you can use Azure AD recommendations. 
 
 The Azure AD recommendations feature is the Azure AD specific implementation of [Azure Advisor](../../advisor/advisor-overview.md), which is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes your resource configuration and usage data to recommend solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
 
-*Azure AD recommendations* use similar data to support you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. Azure AD recommendations provide a holistic view into your tenant's security, health, and usage. 
+*Azure AD recommendations* use similar data to support you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. The Azure AD recommendations feature provides a holistic view into your tenant's security, health, and usage. 
  
 ## How it works
 
 On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first. 
 
-Each recommendation contains a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*. so your step-by-step action plan impacts the entire tenant and not just a specific resource.
+Each recommendation contains a description, a summary of the value of addressing the recommendation, and a step-by-step action plan. If applicable, impacted resources associated with the recommendation are listed, so you can resolve each affected area. If a recommendation doesn't have any associated resources, the impacted resource type is *Tenant level*, so your step-by-step action plan impacts the entire tenant and not just a specific resource.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-preview-option-tenant-overview.png)
+
+>[!TIP]
+>Looking for how to view and manage recommendations using Microsoft Graph? Check out the Microsoft Graph section of the **[How to use Azure AD recommendations](howto-use-recommendations.md#use-microsoft-graph-with-azure-active-directory-recommendations)** article.
+>
 
 ## Recommendation details
 
@@ -113,4 +117,4 @@ The recommendations listed in the following table are currently available to Azu
 ## Next steps
 
 * [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
-* [Learn more about Microsoft Graph](/graph/overview)
+* [Explore the details of the "Turn off per-user MFA" recommendation](recommendation-turn-off-per-user-mfa.md)

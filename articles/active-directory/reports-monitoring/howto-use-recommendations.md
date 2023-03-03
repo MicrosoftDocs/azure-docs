@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2023
+ms.date: 03/03/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
@@ -21,11 +21,11 @@ The Azure Active Directory (Azure AD) recommendations feature provides you with 
 - Improve the state of your Azure AD tenant.
 - Optimize the configurations for your scenarios.
 
-This article covers how to work with Azure AD recommendations. Each Azure AD recommendation contains similar details such as a description, the value of addressing the recommendation, and the steps to address the recommendation. Microsoft Graph API guidance is also provided.
+This article covers how to work with Azure AD recommendations. Each Azure AD recommendation contains similar details such as a description, the value of addressing the recommendation, and the steps to address the recommendation. Microsoft Graph API guidance is also provided in this article.
 
 ## Access and view the details of a recommendation
 
-To update the status of a recommendation or a related resource, sign-in to Azure using a role of least privilege for *update and read-only* access.
+To update the status of a recommendation or a related resource, sign in to Azure using a least privilege role for *update and read-only* access.
 
 - Security Administrator
 - Security Operator
