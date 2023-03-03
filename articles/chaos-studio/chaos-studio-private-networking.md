@@ -78,7 +78,7 @@ VNet injection allows a Chaos resource provider to inject containerized workload
     - `ChaosStudioRelaySubnet`
         - This subnet must have at least /28 in address space
 
-1. Set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` when you create or update the Target resource. The value should be the resource ID of the subnet created in step 3.
+1. Set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` properties when you create or update the Target resource. The value should be the resource ID of the subnet created in step 3.
 
     Replace `$SUBSCRIPTION_ID` with your Azure subscription ID, `$RESOURCE_GROUP` and `$AKS_CLUSTER` with the resource group name and your AKS cluster resource name. Also, replace `$AKS_INFRA_RESOURCE_GROUP` and `$AKS_VNET` with your AKS's infrastructure resource group name and VNet name.
 
