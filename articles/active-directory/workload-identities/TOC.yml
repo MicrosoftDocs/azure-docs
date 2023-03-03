@@ -17,6 +17,8 @@
         href: ../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Securing workload identities
         href: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: Conditional access evaluation for workload identities
+        href: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Connect without secrets
@@ -29,8 +31,8 @@
         href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
-    - name: Enforce access controls with risk-based Conditional Access
-      href: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  - name: Enforce access controls with risk-based Conditional Access
+    href: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: Reference
   items:
     - name: Federated identity credentials considerations and limitations
