@@ -36,7 +36,7 @@ Billing for Azure Data Manager for Energy Preview is enabled. During Preview, th
 
 ### Available on Azure Marketplace
 
-You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview) to create an Azure Data Manager for Energy Preview instance in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
+You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview) to create an Azure Data Manager for Energy Preview instance in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
 
 
 ### Enable Resource sharing (CORS)
