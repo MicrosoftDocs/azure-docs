@@ -40,7 +40,7 @@ Renewing the app credential(s) before its expiration ensures the application con
  
 ## Known limitations
 
-When looking for the application with the credential that needs to be rotated, only the app name is used. The services doesn't have the ability to show the resource ID for the app.
+When looking for the application with the credential that needs to be rotated, only the app name is used. The service doesn't have the ability to show the resource ID for the app.
 
 ## Next steps
 

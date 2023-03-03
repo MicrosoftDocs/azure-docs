@@ -25,8 +25,6 @@ An Azure Active Directory (Azure AD) service principal is the local representati
 
 This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
-![Screenshot of the Renew expiring service principal credential recommendation.](media/recommendation-renew-expriring-service-principal-credential/recommendation-renew-expiring-sp-credentials.png)
-
 ## Value 
 
 Renewing the service principal credential(s) before expiration ensures the application continues to function and reduces the possibility of downtime due to an expired credential.
@@ -36,10 +34,12 @@ Renewing the service principal credential(s) before expiration ensures the appli
 1. Navigate to **Azure AD** > **Enterprise applications**.
     - The status of the service principal appears in the **Certificate Expiry Status** column.
     - Use the search box at the top of the list to find the service principal that was listed in the recommendation.
+    
     ![Screenshot of the Enterprise applications area with the search box highlighted.](media/recommendation-renew-expriring-service-principal-credential/recommendation-enterprise-apps-list.png)
 
 1. Select the service principal with the credential that needs to be rotated, then select **Single sign-on** from the side menu.
 1. Edit the **SAML signing certificate** section and follow the prompts to add a new certificate.
+    
     ![Screenshot of the edit single-sign-on process.](media/recommendation-renew-expriring-service-principal-credential/recommendation-edit-sso.png)
 
 1. After adding the certificate, change its properties to make the certificate active. This will make the other certificate inactive.

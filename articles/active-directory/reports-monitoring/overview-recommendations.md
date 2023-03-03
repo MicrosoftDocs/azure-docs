@@ -74,47 +74,40 @@ The **Action plan** provides step-by-step instructions to implement a recommenda
 
 ## Roles and licenses
 
-The following roles provide *read-only* access to recommendations:
-
-- Reports Reader
-- Security Reader
-- Global Reader
-
-The following roles provide *update and read-only* access to recommendations:
-
-- Security Administrator
-- Security Operator
-- Cloud apps Administrator
-- Apps Administrator
-- Global Administrator
+| Azure AD role | Access type |
+|---- |---- |
+| Reports Reader | Read-only | 
+| Security Reader | Read-only |
+| Global Reader | Read-only |
+| Cloud apps Administrator | Update and read |
+| Apps Administrator | Update and read |
+| Security Operator | Update and read |
+| Security Administrator | Update and read |
 
 The Azure AD recommendations feature is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
 
 Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Currently, all recommendations are available in all tenants, regardless of the license type.
 
-### Recommendations available for all Azure AD tenants
+### Recommendation availability and license requirements
 
-The recommendations listed in the following table are available to all Azure AD tenants, regardless of license type. The table provides the impacted resources and links to available documentation.
+The recommendations listed in the following table are currently available as a public preview or general availability. The license requirements for recommendations in public preview are subject to change. The table provides the impacted resources and links to available documentation.
 
-| Recommendation  | Impacted resources | Availability |
-|---- |---- |---- |
-| [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users | Generally available |
-| [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users | Generally available |
-| [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | Preview |
-| [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users | Generally available |
-
-### Recommendations available specific licenses
-
-The recommendations listed in the following table are currently available to Azure AD tenants with a P2 license (subject to change).
-
-| Recommendation  | Impacted resources | Availability |
-|---- |---- |---- |
-| [Remove unused applications](recommendation-remove-unused-apps.md) | Applications | Preview |
-| [Remove unused credentials from applications](recommendation-remove-unused-credential-from-apps.md) | Applications | Preview |
-| [Renew expiring application credentials](recommendation-renew-expiring-application-credential.md) | Applications | Preview |
-| [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | Preview |
+| Recommendation  | Impacted resources | Required license | Availability |
+|---- |---- |---- |---- |
+| [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users | All licenses | Generally available |
+| [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Applications | All licenses | Generally available |
+| [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | All licenses | Preview |
+| [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users | All licenses | Generally available |
+| [Remove unused applications](recommendation-remove-unused-apps.md) | Applications | P2 | Preview |
+| [Remove unused credentials from applications](recommendation-remove-unused-credential-from-apps.md) | Applications | P2 | Preview |
+| [Renew expiring application credentials](recommendation-renew-expiring-application-credential.md) | Applications | P2 | Preview |
+| [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | P2 | Preview |
 
 ## Next steps
 
 * [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
 * [Explore the details of the "Turn off per-user MFA" recommendation](recommendation-turn-off-per-user-mfa.md)
+
+
+
+The recommendations listed in the following table are currently available to Azure AD tenants with a P2 license (subject to change).
