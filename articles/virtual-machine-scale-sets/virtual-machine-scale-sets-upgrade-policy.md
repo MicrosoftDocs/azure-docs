@@ -39,7 +39,7 @@ In this mode, you choose when to initiate an update to the scale set instances. 
 
 The Upgrade Policy can be set during scale set creation. Include the Upgrade Policy flag and set it to either Automatic, Rolling or Manual. If using Rolling, include the MaxSurge flag and set it to either true or false. 
 
-#### [CLI](#tab/cli)
+#### [CLI](#tab/bash)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
@@ -89,7 +89,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
-#### [CLI](#tab/cli)
+#### [CLI](#tab/bash)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli-interactive
@@ -141,7 +141,7 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While upgrading, the instances may be restarted.
 
-#### [CLI](#tab/cli)
+#### [CLI](#tab/bash)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ```azurecli-interactive
@@ -170,7 +170,7 @@ There's' one type of modification to global scale set properties that doesn't fo
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
 
-#### [CLI](#tab/cli)
+#### [CLI](#tab/bash)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
