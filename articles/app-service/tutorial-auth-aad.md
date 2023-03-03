@@ -330,13 +330,18 @@ Your access token expires after some time. For information on how to refresh you
 
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
+**The app isn't displaying _fake_ profile, how do I debug it?**
 
+The frontend and backend apps both have `/debug` routes to help debug the authentication when this application doesn't return the _fake_ profile. The frontend debug route provides the critical pieces to validate:
 
-## Troubleshooting
+* Environment variables: 
+    * The `BACKEND_URL` is configured correctly as `https://<YOUR-BACKEND_APP_NAME>..azurewebsites.net`. Do not include that trailing forward slash or the route.
+* HTTP headers:
+    * The `x-ms-token-*` headers are injected. 
+* Microsoft Graph profile name for signed in user is displayed.
+* Frontend app's **scope** for the token has `user_impersonation`. If your scope doesn't include this, it could be an issue of timing. Verify your frontend app's login parameters in [Azure resources](https://resources.azure.com). Wait a few minutes for the replication of the authentication.
 
-The frontend and backend app both have `debug` routes to help debug the authentication when this application doesn't return the fake profile.
-
-### Did the application source code deploy correctly to each web app?
+## Did the application source code deploy correctly to each web app?
 
 1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
 1. In the new browser tab, select **Browse Directory -> Site wwwroot**.
@@ -346,7 +351,8 @@ The frontend and backend app both have `debug` routes to help debug the authenti
     * node_modules.tar.gz
     * /src/index.js 
 
-1. Verify the package.json's `name` property is the same as the web name, either `front-end` or `api-b`.
+1. Verify the package.json's `name` property is the same as the web name, either `frontend` or `backend`.
+1. If you changed the source code, and need to redeploy, use [az webapp up](/cli/azure/webapp#az-webapp-up) from the directory that has the package.json file for that app.
 
 ### Did the application start correctly
 
@@ -356,32 +362,14 @@ Both the web apps should return something when the home page is requested. If yo
 1. In the new browser tab, select **Browse Directory -> Deployment Logs**.
 1. Review each log to find any reported issues. 
 
-### Is the front-end web app configured correctly?
+### Is the frontend app able to talk to the backend app?
 
-In the front-end app, verify the **Settings -> Configuration** has app settings it needs
+Because the frontend app calls the backend app from server source code, this isn't something you can see in the browser network traffic. Use the following list to determine the backend profile request success:
 
-* BACKEND_URL: the URL of the API (b) app, such as `https://backend.azurewebsites.net/get-profile`
-* SCM_DO_BUILD_DURING_DEPLOYMENT: true
-
-### Does the front-end web app have a valid and correctly scoped token?
-
-Each web site has a `/debug` route to help with this. 
-
-Use the debug route to verify the front-end web app has a token.
-
-1. Verify that the token isn't expired. The debug route decodes the `exp` property in the token in another property `IsExpired`. This value should be false.
-1. Verify that the token has the correct scope: The debug route displays the `scp` property for the scope. This value should be `user_impersonation`.
-
-The `/debug` route also displays the HTTP headers and the environment variables, if you need them. 
-
-### Does the back-end web app return an empty profile `{}`? 
-
-1. Refresh your front-end app's user token with a route like: `https://frontend.azurewebsites.net/.auth/refresh`.
-1. Retry to get your profile from the API server with a route like: `https://frontend.azurewebsites.net/get-profile`
-
-### Is the front-end web app able to talk to the back-end web app?
-
-Because the client web app calls the API web app from server source code, this isn't something you can see in the browser network traffic. The back-end web app returns any errors to the client web app.
+* The backend web app returns any errors to the frontend app if it was reached. If it wasn't reached, the frontend app reports the status code and message.
+    * 401: The user didn't pass authentication correctly. This can indicate the scope isn't set correctly.
+    * 404: The URL to the server doesn't match a route the server has
+* Use the backend app's streaming logs to watch as you make the frontend request for the user's profile. There is debug information in the source code with `console.log` which helps determine where the failure happened.
 
 ## Clean up resources
 
@@ -395,10 +383,15 @@ In the preceding steps, you created Azure resources in a resource group.
     ```
 
 
-2. Delete app registrations
+1. Delete app registrations for both frontend and backend apps
 
     ```azurecli-interactive
+    # list all authentication apps
+    az ad app list --query [].[displayName,id] --output table
     
+    # delete app - do this for both frontend and backend app
+    # use ID in table from previous command
+    az ad app delete id
     ```
 
 <a name="next"></a>
@@ -418,4 +411,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript)
