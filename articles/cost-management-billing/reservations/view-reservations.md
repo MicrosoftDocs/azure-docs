@@ -132,17 +132,19 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 - Accept wildcard characters: False
 
 ## Tenant-level access
-[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservation Administrator and Reservation Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
-## Add a Reservation Administrator role or Reservation Reader role at the tenant level
+[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservations Administrator and Reservations Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
+
+### Add a Reservations Administrator role or Reservations Reader role at the tenant level
 You can assign these roles from [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. Select a reservation that you have access to.
 1. At the top of the page, select **Role Assignment**.
-1. To make modifications, add a user as a Reservation Administrator or Reservation Reader using Access control.
+1. Select the **Roles** tab.
+1. To make modifications, add a user as a Reservations Administrator or Reservations Reader using Access control.
 
-## Add a Reservation Administrator role at the tenant level using Azure PowerShell script
+### Add a Reservation Administrator role at the tenant level using Azure PowerShell script
 
 Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level with PowerShell.
 
@@ -153,7 +155,7 @@ Connect-AzAccount -Tenant <TenantId>
 New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Administrator"
 ```
 
-### Parameters
+#### Parameters
 
 **-ObjectId** Azure AD ObjectId of the user, group, or service principal.
 - Type:	String
@@ -170,7 +172,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-## Assign a Reservation Reader role at the tenant level using Azure PowerShell script
+### Assign a Reservation Reader role at the tenant level using Azure PowerShell script
 
 Use the following Azure PowerShell script to assign the Reservation Reader role at the tenant level with PowerShell.
 
@@ -184,7 +186,7 @@ Connect-AzAccount -Tenant <TenantId>
 New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Reader"
 ```
 
-### Parameters
+#### Parameters
 
 **-ObjectId** Azure AD ObjectId of the user, group, or service principal.
 - Type:	String
@@ -200,7 +202,6 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 - Default value: None
 - Accept pipeline input: False
 - Accept wildcard characters: False
-
 
 ## Next steps
 
