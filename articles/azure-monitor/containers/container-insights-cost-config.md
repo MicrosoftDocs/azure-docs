@@ -91,7 +91,7 @@ Cost presets and collection settings are available for selection in the Azure po
 | Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Syslog | 1 m | None | Enabled by default |
 
-[![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost/cost-profiles-options.png#lightbox)
+[![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/cost-profiles-options.png#lightbox)
 
 ## Configuring AKS data collection settings using Azure CLI
 
