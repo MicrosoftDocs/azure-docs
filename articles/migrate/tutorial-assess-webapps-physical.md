@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure App Service for Physical m
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 02/16/2023
+ms.date: 03/03/2023
 ms.custom: engagement-fy23
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to assess web apps for migration to Azure App Service
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 02/20/2023
+ms.date: 03/03/2023
 ms.custom: engagement-fy23
 ---
 

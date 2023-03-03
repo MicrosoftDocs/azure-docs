@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/16/2023
+ms.date: 03/03/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
