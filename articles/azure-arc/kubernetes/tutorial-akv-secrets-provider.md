@@ -374,7 +374,7 @@ kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/DemoSecret
 
 ## Additional configuration options
 
-The Azure Key Vault Secrets Provider extension supports the various [Helm chart configurations[(https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md#configuration)].
+The Azure Key Vault Secrets Provider extension supports  [Helm chart configurations[(https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md#configuration)]. You can enable any of these configurable parameters as needed for your deployment.
 
 The following configuration settings are frequently used with the Azure Key Vault Secrets Provider extension:
 
