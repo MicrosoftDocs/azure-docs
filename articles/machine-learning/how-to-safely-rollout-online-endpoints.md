@@ -19,7 +19,7 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
+In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. You'll use a blue-green deployment strategy (also known as a safe rollout strategy) to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
 This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
@@ -28,8 +28,8 @@ The main example in this article uses managed online endpoints for deployment. T
 In this article, you'll learn to:
 
 > [!div class="checklist"]
-> * Define an online endpoint and a deployment called "blue" to serve version 1 of a model
-> * Scale the blue deployment so that it can handle more requests
+> * Define an online endpoint with a deployment called "blue" to serve version 1 of a model
+<!-- > * Scale the blue deployment so that it can handle more requests -->
 > * Deploy version 2 of the model (called the "green" deployment) to the endpoint, but send the deployment no live traffic
 > * Test the green deployment in isolation
 > * Mirror a percentage of live traffic to the green deployment to validate it (preview)
@@ -174,7 +174,7 @@ If you cloned the examples repo, your local machine already has copies of the fi
 
 ## Define the endpoint and deployment
 
-Online endpoints are used for online (real-time) inferencing. Online endpoints contain deployments that are ready to receive data from clients and can send responses back in real time.
+Online endpoints are used for online (real-time) inferencing. Online endpoints contain deployments that are ready to receive data from clients and send responses back in real time.
 
 To define an endpoint, you need to specify:
 
@@ -185,6 +185,18 @@ To define an endpoint, you need to specify:
 # [Azure CLI](#tab/azure-cli)
 
 ### Create online endpoint
+
+You'll use the *endpoints/online/managed/sample/endpoint.yml* file to configure the endpoint. The following snippet shows the contents of the file:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
+
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+
+| Key         | Description                                                                                                                                                                                                                                                 |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
+| `name`      | The name of the endpoint.                                               |
+| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
 
 To create an online endpoint:
 
@@ -198,8 +210,8 @@ To create an online endpoint:
     > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
 1. Create the endpoint in the cloud:
-    
-    Run the following code to use the `endpoint.yml` file to configure the endpoint:
+
+   Run the following code to use the `endpoint.yml` file to configure the endpoint:
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_endpoint":::
 
@@ -266,11 +278,11 @@ A deployment is a set of resources required for hosting the model that does the 
 
 # [Studio](#tab/azure-studio)
 
-Before you can deploy a model in the Azure Machine Learning studio, you must register it in the workspace.
+When you create a managed online endpoint in the Azure Machine Learning studio, you must define an initial deployment for the endpoint. To define a deployment, you must have a registered model in your workspace. Let's begin by registering the model that we'll use for the deployment.
 
 ### Register the model
 
-A model registration is a logical entity in the workspace that may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace. This entity may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model, follow these steps:
 
@@ -510,7 +522,7 @@ You can test mirror traffic by invoking the endpoint several times:
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here
+The studio doesn't support mirrored traffic. See the Azure CLI or Python tabs for steps to mirror traffic to a deployment.
 
 ---
 
@@ -555,7 +567,7 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here
+The studio doesn't support mirrored traffic. See the Azure CLI or Python tabs for steps to mirror traffic to a deployment.
 
 ---
 
