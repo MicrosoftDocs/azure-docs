@@ -14,6 +14,10 @@ ms.subservice: pstn
 
 Configure outbound voice routing rules for Azure Communication Services direct routing
 
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/voice-routing-sdk-portal.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C#](./includes/voice-routing-sdk-csharp.md)]
 ::: zone-end
