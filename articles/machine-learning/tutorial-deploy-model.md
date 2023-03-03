@@ -45,7 +45,6 @@ The steps you'll take are:
 
 1. If you already completed the earlier training tutorial, "Train model responsibly", you can skip to #3 in the prerequisites.
 1. If you haven't completed the earlier tutorial, be sure to do the following: 
-    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory.  <!-- MA: update this location** -->
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
     * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 20 cores) available for the compute instances you'll use in this tutorial.
 
