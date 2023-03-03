@@ -51,7 +51,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
+|Description|The purpose of the requirement is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
 |Target Availability|2022|
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
@@ -64,7 +64,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
+|Description|The purpose of the requirement is to validate that DMA is not enabled on externally accessible ports.|
 |Target Availability|2022|
 |Requirements dependency|Only if DMA capable ports exist|
 |Validation Type|Manual/Tools|
@@ -77,7 +77,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Protection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Target Availability|2022|
 |Requirements dependency|DRTM + UEFI|
 |Validation Type|Manual/Tools|
@@ -90,7 +90,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.SecureBoot|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the boot integrity of the device.|
+|Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Target Availability|2022|
 |Requirements dependency|UEFI|
 |Validation Type|Manual/Tools|
@@ -103,7 +103,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Attestation|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Target Availability|2022|
 |Requirements dependency|Azure Attestation Service|
 |Validation Type|Manual/Tools|
@@ -119,7 +119,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
+|Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure Secure-boot and BitLocker is enabled and bound to PCR7.|
@@ -131,7 +131,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.TLS|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
+|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
 |Target Availability|2022|
 |Requirements dependency|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements may require greater versions for other services. |
 |Validation Type|Manual/Tools|
@@ -157,7 +157,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that services listening for input from the network are not running with elevated privileges.|
+|Description|The purpose of the requirement is to validate that services listening for input from the network are not running with elevated privileges.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that 3rd party services accepting network connections are not running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
@@ -172,7 +172,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Built-in.Security|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Coming Soon June 2022|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
+|Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
@@ -184,7 +184,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.Baselines|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Coming Soon June 2022|
-|Description|The purpose of the test is to validate that the system conforms to a baseline security configuration.|
+|Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration.|
 |Target Availability|2022|
 |Requirements dependency|Azure Defender for IoT|
 |Validation Type|Manual/Tools|
@@ -201,7 +201,7 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that debug functionality on the device is disabled.|
+|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
 |Target Availability|2022|
 |Requirements dependency||
 |Validation Type|Manual/Tools|
@@ -280,7 +280,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 ---
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
+|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.|||
 |Requirements dependency||TPM v2.0 device|TPM v2.0 </br><sup>or *other supported method</sup>|
 |Status|Required|2023|2023|
 |Validation Type|Manual/Tools|||
@@ -293,7 +293,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate ensure that memory integrity helps protect the device from vulnerable peripherals.|
+|Description|The purpose of the requirement is to validate ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Manual/Tools|
 |Validation|memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System memory management Unit).|
 |Resources||
@@ -304,7 +304,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Firmware.Protection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft 3rd party</li></ul> |
 |Resources| https://trustedcomputinggroup.org/ |
@@ -315,7 +315,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Firmware.SecureBoot|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate the boot integrity of the device.|
+|Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
 |Resources||
@@ -326,7 +326,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Firmware.Attestation|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Dependency||TPM 2.0|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and applicable runtime measurements can be collected and remotely attested to the Microsoft Azure Attestation service.|
@@ -338,7 +338,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.SecureEnclave|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|Future|Future|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave can be used for security functions.|
+|Description|The purpose of the requirement to validate the existence of a secure enclave and that the enclave can be used for security functions.|
 |Validation Type|Manual/Tools|
 |Validation||
 |Resources||
@@ -349,7 +349,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
+|Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
 |Resources||
@@ -360,7 +360,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Encryption.TLS|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
+|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
@@ -382,7 +382,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|<sup>*</sup>Required|2023|2023|
-|Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
+|Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
 |Resources||
@@ -393,7 +393,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Built-in.Security|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Microsoft Defender for IoT.|
+|Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Microsoft Defender for IoT.|
 |Validation Type|Manual/Tools|
 |Validation	|<ol><li>Device must generate security logs and alerts.</li><li>Device logs and alerts messages to Azure Security Center.</li><li>Device must have the Azure Defender for IoT microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
@@ -404,7 +404,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Manageability.Configuration|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.|
+|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.|
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
 |Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
@@ -416,7 +416,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Update|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Audit|2023|2023|
-|Description|The purpose of the test is to validate the device can receive and update its firmware and software.|
+|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
 |Validation Type|Manual/Tools|
 |Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
@@ -427,7 +427,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.Baselines|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate the extent to which the device implements the Azure Security Baseline|
+|Description|The purpose of the requirement is to validate the extent to which the device implements the Azure Security Baseline|
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
 |Validation|OSConfig is present on the device and reporting to what extent it implemets the Azure Security Baseline.|
@@ -439,7 +439,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.SignedUpdates|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that updates must be signed.|
+|Description|The purpose of the requirement is to validate that updates must be signed.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
 |Resources||
@@ -451,7 +451,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that debug functionality on the device is disabled.|
+|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
@@ -530,7 +530,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Hardware.Identity|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to validate the device identify is rooted in hardware.||
+|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.||
 |Requirements dependency|||
 |Validation Type|Pre-validated, no additional validation is required|||
 |Validation|Provided by Microsoft|||
@@ -542,7 +542,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Hardware.MemoryProtection|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
+|Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -553,7 +553,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Firmware.Protection|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -564,7 +564,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Firmware.SecureBoot|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to validate the boot integrity of the device.|
+|Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -575,7 +575,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Firmware.Attestation|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Dependency||TPM 2.0|To be announced|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
@@ -609,7 +609,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Encryption.TLS|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
+|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
@@ -631,7 +631,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Protection.NetworkServices|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
+|Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -653,7 +653,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Built-in.Security|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
+|Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
@@ -711,7 +711,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that debug functionality on the device is disabled.|
+|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
