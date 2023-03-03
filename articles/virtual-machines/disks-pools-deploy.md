@@ -34,7 +34,7 @@ To successfully deploy a disk pool, you must have:
     - Outbound ports 53, 443, and 5671 must be open.
     - Ensure that your network setting don't block any of your disk pool's required outbound dependencies. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint) or [Azure CLI](/cli/azure/disk-pool#az-disk-pool-list-outbound-network-dependency-endpoint) to get the complete list of all outbound dependencies.
 
-If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
+If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/).
 
 If you're going to use the Azure CLI, install [the latest version](/cli/azure/disk-pool).
 
