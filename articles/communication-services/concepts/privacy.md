@@ -101,7 +101,7 @@ Audio and video communication is ephemerally processed by the service and no cal
 Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
 ### Email
-Email message content is ephemerally stored and processed in the resource's ```Data Location``` and email message deleivery logs are available in Azure Monitor Logs. Domain sender usernames (or MailFrom) values are stored in in the resource's ```Data Location``` until explicitly deleted.  Email addresses that result in bounced messages will be retained and used to in spam and abuse prevention detection. 
+Email message content is ephemerally stored for processing in the resource's ```Data Location``` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you will be in control to define the workspace to store logs. Domain sender usernames (or MailFrom) values are stored in the resource's ```Data Location``` until explicitly deleted. Recipient's email addresses that result in hard bounced messages will be temporarily retained for spam and abuse prevention and detection.
 
 ## Azure Monitor and Log Analytics
 
