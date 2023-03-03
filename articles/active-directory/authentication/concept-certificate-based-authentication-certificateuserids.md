@@ -145,7 +145,7 @@ Authorized callers can run Microsoft Graph queries to find all the users with a 
           
 To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
 
-```http
+```msgraph-interactive
 GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
 ConsistencyLevel: eventual
 ```
