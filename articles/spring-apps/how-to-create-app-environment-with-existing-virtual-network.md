@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 03/2/2023
 ---
 
-# Create an Azure Container Apps Environment with existing Virtual Network
+# Create an Azure Container Apps Environment with a virtual network in Azure Spring Apps
 
-**This article applies to:** ✔️ Standard Consumption plan ❌ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Standard consumption plan ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to create an Azure Container Apps Environment in an existing virtual network in an Azure Apps instance.
 
@@ -50,7 +50,9 @@ The following procedure creates an Azure Container Apps Environment with a virtu
 
     :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Basics tab selected.":::
 
-1. Select **Networking**. Select **Yes** for **Use your own virtual network**. For **virtual network** and **Infrastructure subnet**, select their names from the dropdown menus or create new ones if needed.
+1. Select **Networking**.
+
+1. Select **Yes** for **Use your own virtual network**. Set the names for **Virtual network** and for **Infrastructure subnet**, select their names from the dropdown menus or create new ones if needed.
 
    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Networking tab selected.":::
 
@@ -59,7 +61,7 @@ The following procedure creates an Azure Container Apps Environment with a virtu
 
 1. Select **Create**.
 
-1. Back on the Azure Spring Apps **Create** page, select **Review and Create** to finish creating the Azure Spring Apps instance.
+1. On the Azure Spring Apps **Create** page, select **Review and Create** to finish creating the Azure Spring Apps instance.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -117,10 +119,10 @@ Use the Azure CLI to create an Azure Container Apps Environment with a virtual n
 
 An Azure Container Apps Environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-1. Create an Azure virtual network to associate with the Azure Container Apps Environment. The virtual network must have a subnet available for the environment deployment.
+> [!NOTE]
+> You can use an existing virtual network that has a dedicated subnet with a CIDR range of `/23` or larger.
 
-   > [!NOTE]
-   > You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required.
+1. Create an Azure virtual network to associate with the Azure Container Apps Environment. The virtual network must have a subnet available for the environment deployment.
 
    ```azurecli
     az network vnet create \
@@ -155,9 +157,9 @@ An Azure Container Apps Environment creates a secure boundary around a group of 
    ```
 
 > [!NOTE]
-> You can create an internal Azure Container Apps Environment that doesn't use a public static IP, but rather only internal IP addresses available in the custom virtual network. For more information see [Create an Internal App Environment](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment).
+> You can create an internal Azure Container Apps Environment that doesn't use a public static IP, but instead uses only internal IP addresses available in the custom virtual network. See [Create an Internal App Environment](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment).
 
-The following table describes the parameters used in `containerapp env create`.
+The following table describes the parameters used in the `containerapp env create` command.
 
 | Parameter                           | Description                                                                                                                                                          |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
