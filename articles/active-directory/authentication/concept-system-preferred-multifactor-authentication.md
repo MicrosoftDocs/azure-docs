@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/02/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 ## Known issues
 
-- [FIDO2 security key isn't supported on iOS mobile devices](../develop/support-fido2-authentication.md#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
+- [FIDO2 security key isn't supported on mobile devices](../develop/support-fido2-authentication.md#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices. 
 
 ## Common questions
 
@@ -114,12 +114,6 @@ When a user signs in, the authentication process checks which authentication met
 ### How does system-preferred MFA affect AD FS or NPS extension?
 
 System-preferred MFA doesn't affect users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
-
-### What if the most secure MFA method isn't available? 
-
-If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they're redirected to their Security info page to remove the registration of the authentication method that isn't available. 
-
-For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page appears and they need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
