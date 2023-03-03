@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 03/03/2023
 ms.author: greglin
 ---
 
@@ -53,6 +53,9 @@ Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 availabl
 
 > [!TIP]
 > It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
+
+### DNS Servers for name resolution
+The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, allowing you to choose between Azure-provided default or Custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. Thus, after you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
 
 ### Virtual network permission 
 Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users or service principals that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet.
