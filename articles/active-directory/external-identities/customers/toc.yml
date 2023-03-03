@@ -5,5 +5,4 @@ items:
   expanded: true  
   items:   
     - name: What is Azure AD for customers?  
-      href: overview-consumer-ciam.md 
-      
+      href: overview-customers-ciam.md 
