@@ -158,7 +158,7 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 
 ## Next steps
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../autoscale/autoscale-overview.md).
+To learn more about autoscale settings, see [Autoscale overview](../autoscale/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](../essentials/platform-logs-overview.md)
