@@ -1,55 +1,74 @@
 ---
 title: Increase the resilience of authentication and authorization in daemon applications you develop
-description: Guidance for increasing resiliency of authentication and authorization in daemon application using the Microsoft identity platform 
+description: Learn to increase authentication and authorization resiliency in daemon application using the Microsoft identity platform 
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: janicericketts
+author: jricketts
 ms.author: jricketts
 manager: martinco
-ms.date: 11/23/2020
+ms.date: 03/03/2023
 ---
 
 # Increase the resilience of authentication and authorization in daemon applications you develop
 
-This article provides guidance on how developers can use the Microsoft identity platform and Azure Active Directory to increase the resilience of daemon applications. This includes background processes, services, server to server apps, and applications without users.
+Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
 
-![A daemon application making a call to Microsoft identity](media/resilience-daemon-app/calling-microsoft-identity.png)
+See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 
-## Use Managed Identities for Azure Resources
+The following diagram illustrates a daemon application making a call to Microsoft identity platform.
 
-Developers building daemon apps on Microsoft Azure can use [Managed Identities for Azure Resources](../managed-identities-azure-resources/overview.md). Managed Identities eliminate the need for developers to manage secrets and credentials. The feature improves resilience by avoiding mistakes around certificate expiry, rotation errors, or trust. It also has several built-in features meant specifically to increase resilience.
+   ![A daemon application making a call to Microsoft identity platform.](media/resilience-daemon-app/calling-microsoft-identity.png)
 
-Managed Identities use long lived access tokens and information from Microsoft Identity to proactively acquire new tokens within a large window of time before the existing token expires. Your app can continue to run while attempting to acquire a new token.
+## Managed identities for Azure resources
 
-Managed Identities also use regional endpoints to improve performance and resilience against out-of-region failures. Using a regional endpoint helps to keep all traffic inside a geographical area. For example, if your Azure Resource is in WestUS2, all the traffic, including Microsoft Identity generated traffic, should stay in WestUS2. This eliminates possible points of failure by consolidating the dependencies of your service.
+If you're building daemon apps on Microsoft Azure, use managed identities for Azure resources, which handle secrets and credentials. The feature improves resilience by handling certificate expiry, rotation, or trust. 
 
-## Use the Microsoft Authentication Library
+See, [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
-Developers of daemon apps who do not use Managed Identities can use the [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md), which makes implementing authentication and authorization simple, and automatically uses best practices for resilience. MSAL will make the process of providing the required Client Credentials easier. For example, your application does not need to implement creating and signing JSON Web Token assertions when using certificate-based credentials.
+Managed identities use long-lived access tokens and information from Microsoft identity platform to acquire new tokens before tokens expire. Your app runs while acquiring new tokens.
 
-### Use Microsoft.Identity.Web for .NET Developers
+Managed identities use regional endpoints, which help prevent out-of-region failures by consolidating service dependencies. Regional endpoints help keep traffic in a geographical area. For example, if your Azure resource is in WestUS2, all traffic stays in WestUS2. 
 
-Developers building daemon apps on ASP.NET Core can use the [Microsoft.Identity.Web](../develop/microsoft-identity-web.md) library. This library is built on top of MSAL to make implementing authorization even easier for ASP.NET Core apps. It includes several [distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) strategies for distributed apps that can run in multiple regions.
+## Microsoft Authentication Library
+
+If you develop daemon apps and don't use managed identities, use the Microsoft Authentication Library (MSAL) for authentication and authorization. MSAL eases the process of providing client credentials. For example, your application doesn't need to create and sign JSON web token assertions with certificate-based credentials.
+
+See, [Overview of the Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
+
+### Microsoft.Identity.Web for .NET developers
+
+If you develop daemon apps on ASP.NET Core, use the Microsoft.Identity.Web library to ease authorization. It includes distributed token cache strategies for distributed apps that run in multiple regions.
+
+Learn more:
+
+* [Microsoft Identity Web authentication library](../develop/microsoft-identity-web.md)
+* [Distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache)
 
 ## Cache and store tokens
 
-If you are not using MSAL to implement authentication and authorization, you can implement some best practices for caching and storing tokens. MSAL implements and follows these best practices automatically.
+If you don't use MSAL for authentication and authorization, there are best practices for caching and storing tokens. MSAL implements and follows these best practices.
 
-An application acquires tokens from an Identity provider to authorize the application to call protected APIs. When your app receives tokens, the response that contains the tokens also contains an "expires\_in" property that tells the application how long to cache, and reuse, the token. It is important that applications use the "expires\_in" property to determine the lifespan of the token. Application must never attempt to decode an API access token. Using the cached token prevents unnecessary traffic between your app and Microsoft Identity. Your user can stay signed-in to your application for the length of that token's lifetime.
+An application acquires tokens from an identity provider (IdP) to authorize the application to call protected APIs. When your app receives tokens, the response with the tokens contains an `expires\_in` property that tells the application how long to cache, and reuse, the token. Ensure applications use the `expires\_in` property to determine token lifespan. Confirm application don't attempt to decode an API access token. Using the cached token prevents unnecessary traffic between an app and Microsoft identity platform. Users are signed in to your application for the token's lifetime.
 
-## Properly handle service responses
+## HTTP 429 and 5xx error codes
 
-Finally, while applications should handle all error responses, there are some responses that can impact resilience. If your application receives an HTTP 429 response code, Too Many Requests, Microsoft Identity is throttling your requests. If your app continues to make too many requests, it will continue to be throttled preventing your app from receiving tokens. Your application should not attempt to acquire a token again until after the time, in seconds, in the "Retry-After" response field has passed. Receiving a 429 response is often an indication that the application is not caching and reusing tokens correctly. Developers should review how tokens are cached and reused in the application.
+Use the following sections to learn about HTTP 429 and 5xx error codes
 
-When an application receives an HTTP 5xx response code the app must not enter a fast retry loop. When present, the application should honor the same "Retry-After" handling as it does for a 429 response. If no "Retry-After" header is provided by the response, we recommend implementing an exponential back-off retry with the first retry at least 5 seconds after the response.
+### HTTP 429
 
-When a request times out applications should not retry immediately. Implement an exponential back-off retry with the first retry at least 5 seconds after the response.
+There are HTTP errors that affect resilience. If your application receives an HTTP 429 error code, Too Many Requests, Microsoft identity platform is throttling your requests, which prevents your app from receiving tokens. Ensure your apps don't attempt to acquire a token until the time in the **Retry-After** response field expires. The 429 error often indicates the application doesn't cache and reuse tokens correctly.
+
+### HTTP 5xx
+
+If an application receives an HTTP 5x error code, the app must not enter a fast retry loop. Ensure applications wait until the **Retry-After** field expires. If the response provides no Retry-After header, use an exponential back-off retry with the first retry, at least 5 seconds after the response.
+
+When a request times out, confirm that applications don't retry immediately. Use the previously cited exponential back-off retry.
 
 ## Next steps
 
-- [Build resilience into applications that sign-in users](resilience-client-app.md)
-- [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
-- [Build resilience in your CIAM systems](resilience-b2c.md)
+* [Increase the resilience of authentication and authorization in client applications you develop](resilience-client-app.md)
+* [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
+* [Build resilience in your customer identity and access management with Azure AD B2C](resilience-b2c.md)
