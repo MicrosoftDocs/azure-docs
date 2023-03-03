@@ -15,14 +15,14 @@ This article describes how to create a Network fabric by using the Azure Command
 
 ## Prerequisites
 
-* A Network fabric Controller has been created--add link in your Azure account.
-  * A Network fabric Controller instance in Azure can be used for multiple Network-fabrics.
+* A Network fabric Controller exists -- add link in your Azure account.
+  * A Network fabric Controller instance in Azure manages multiple Network-fabrics.
   * You can reuse a pre-existing Network fabric Controller.
 * Install the latest version of the [CLI commands](#install-cli-extensions)
-* Physical infrastructure has been installed and cabled as per BoM.
-* ExpressRoute connectivity has been established between the Azure region and your WAN (your networking).
-* The needed VLANs, Route-Targets and IP addresses have been configured in your network.
-* Terminal server has been [installed and configured](./quickstarts-platform-prerequisites.md#set-up-terminal-server)
+* Physical infrastructure installed and cabled as per BoM.
+* ExpressRoute connectivity established between the Azure region and your WAN (your networking).
+* The needed VLANs, Route-Targets and IP addresses configured in your network.
+* Terminal server [installed and configured](./quickstarts-platform-prerequisites.md#set-up-terminal-server)
 
 ### Install CLI extensions
 
@@ -35,19 +35,19 @@ Install latest version of the [necessary CLI extensions](./howto-install-cli-ext
 | resource-group | Name of the resource group |  "NFResourceGroup" |True | String |
 | location | Location of Azure region | "eastus" |True | String |
 | resource-name | Name of the FabricResource | Austin-Fabric |True | String |
-| nf-sku  |Fabric SKU ID, should be based on the SKU of the BoM that was ordered. Contact AFO team for specific SKU value for the BoM | att |True | String|
+| nf-sku  |Fabric SKU ID, based on the ordered SKU of the BoM. Contact AFO team for specific SKU value for the BoM | att |True | String|
 | nfc-id |Network fabric Controller ARM resource ID| |True | String |
 ||
 |**managed-network-config**| Details of management network ||True ||
-|ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network-fabrics in a Network fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True | String |
+|ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network-fabrics in a Network fabric Controller. Prefix length should be at least 19 (/20 not allowed, /18 and lower allowed) | 10.246.0.0/19|True | String |
 ||
 |**managementVpnConfiguration**| Details of management VPN connection between Network fabric and infrastructure services in Network fabric Controller||True ||
-|*optionBProperties*| Details of MPLS option 10B that is used for connectivity between Network fabric and Network fabric Controller||True ||
+|*optionBProperties*| Details of MPLS option 10B used for connectivity between Network fabric and Network fabric Controller||True ||
 |importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B| 65048:10039|True(If OptionB enabled)|Integer |
 |exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B| 65048:10039|True(If OptionB enabled)|Integer |
 ||
 |**workloadVpnConfiguration**| Details of workload VPN connection between Network fabric and workload services in Network fabric Controller||||
-|*optionBProperties*| Details of MPLS option 10B that is used for connectivity between Network fabric and Network fabric Controller||||
+|*optionBProperties*| Details of MPLS option 10B used for connectivity between Network fabric and Network fabric Controller||||
 |importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|for example, 65048:10050|True(If OptionB enabled)|Integer |
 |exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|for example, 65048:10050|True(If OptionB enabled)|Integer |
 ||
@@ -370,7 +370,7 @@ az nf rack create  \
 
 Once all the racks are added, NFA creates the corresponding networkDevice resources.
 
-## Next Steps
+## Next steps
 
 * Update the serial number in the networkDevice resource with the actual serial number on the device. The device sends the serial number as part of DHCP request.
 * Configure the terminal server with the serial numbers of all the devices (which also hosts DHCP server)
