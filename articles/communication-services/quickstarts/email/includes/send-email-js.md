@@ -161,7 +161,7 @@ To get the delivery status of email call GetMessageStatus API with MessageId
 
 ```
 
-[!INCLUDE [Email Message Status](./email-message-status.md)]
+[!INCLUDE [Email Message Status](./email-operation-status.md)]
 
 ## Run the code
 

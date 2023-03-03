@@ -1,14 +1,14 @@
 ---
 title: include file
 description: include file
-author: yogeshmo
+author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
-ms.author: ymohanraj
-ms.date: 09/08/2022
+ms.author: natekimball
+ms.date: 03/02/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
+ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
@@ -67,15 +67,15 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name | Description |
 | ---- |-------------|
-| EmailAddress | This interface contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
+| EmailAddress | An object containing an email address and an option for a display name. |
+| EmailAttachment | An object that creates an email attachment by accepting an attachment name, MIME type of the content, and a Base64 encoded string of content bytes. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailClientOptions | This interface can be added to the EmailClient instantiation to target a specific API version. |
-| EmailContent | This interface contains the subject, plaintext, and html of the email message. |
-| EmailCustomHeader | This interface allows for the addition of a name and value pair for a custom header. |
-| EmailMessage | This interface combines the sender, content, and recipients. Custom headers, importance, attachments, and reply-to email addresses can optionally be added as well. |
-| EmailRecipients | This interface holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
-| SendStatusResult | This interface holds the messageId and status of the email message delivery. |
+| EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
+| EmailContent | This object contains the subject, plaintext, and html of the email message. |
+| EmailCustomHeader | This class allows for the addition of a name and value pair for a custom header. |
+| EmailMessage | This object combines the sender email address, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added as well. |
+| EmailRecipients | This object holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
+| EmailSendOperation | This object contains the current status of the operation. |
 
 ## Authenticate the client
 
@@ -91,28 +91,33 @@ For simplicity, this quickstart uses connection strings, but in production envir
 ## Send an email message
 
 To send an email message, you need to
-- Construct the EmailContent
-- Create an EmailAddress for the recipient
-- Construct the EmailRecipients
-- Construct the EmailMessage with the EmailContent, EmailAddress, and the sender information from the MailFrom address of your verified domain
-- Call the send method
+- Construct the EmailMessage with the following:
+   - `senderAddress`: A valid sender email address, found in the MailFrom field in the overview pane of the domain linked to your Email Communication Services Resource.
+   - `recipients`: An object with a list of email recipients, and optionally, lists of CC & BCC email recipients. 
+   - `content`: An object containing the subject, and optionally the plaintext or HTML content, of an email message.
+- Call the begin_send method, which will return the result of the operation. 
 
 ```python
-content = EmailContent(
-    subject="Welcome to Azure Communication Services Email",
-    plain_text="This email message is sent from Azure Communication Services Email using the Python SDK.",
-)
+message = {
+    "content": {
+        "subject": "This is the subject",
+        "plainText": "This is the body",
+        "html": "html><h1>This is the body</h1></html>"
+    },
+    "recipients": {
+        "to": [
+            {
+                "address": "<emailalias@emaildomain.com>",
+                "displayName": "Customer Name"
+            }
+        ]
+    },
+    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
+}
 
-address = EmailAddress(email="<emailalias@emaildomain.com>")
-recipient = EmailRecipients(to=[address])
+poller = email_client.begin_send(message)
+print("Result: " + poller.result())
 
-message = EmailMessage(
-            sender="<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-            content=content,
-            recipients=recipients
-        )
-
-response = email_client.send(message)
 ```
 
 Make these replacements in the code:
@@ -120,39 +125,39 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-## Retrieve the Message ID of the email delivery
-
-To track the status of the email delivery, you will need the `message_id` from the response.
-
-```python
-message_id = response.message_id
-```
 
 ## Get the status of the email delivery
 
-We can keep checking the email delivery status until the status is `OutForDelivery`.
+We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient's `begin_send` method:
 
 ```python
-counter = 0
-while True:
-    counter+=1
-    send_status = client.get_send_status(message_id)
+POLLER_WAIT_TIME = 10
 
-    if (send_status):
-        print(f"Email status for message_id {message_id} is {send_status.status}.")
-    if (send_status.status.lower() == "queued" and counter < 12):
-        time.sleep(10)  # wait for 10 seconds before checking next time.
-        counter +=1
+try:
+    email_client = EmailClient.from_connection_string(connection_string)
+
+    poller = client.begin_send(message);
+
+    time_elapsed = 0
+    while not poller.done():
+        print("Email send poller status: " + poller.status())
+
+        poller.wait(POLLER_WAIT_TIME)
+        time_elapsed += POLLER_WAIT_TIME
+
+        if time_elapsed > 18 * POLLER_WAIT_TIME:
+            raise RuntimeError("Polling timed out.")
+
+    if poller.status() == "Succeeded":
+        print(f"Successfully sent the email (operation id: {poller.result()['id']})")
     else:
-        if(send_status.status.lower() == "outfordelivery"):
-            print(f"Email delivered for message_id {message_id}.")
-            break
-        else:
-            print("Looks like we timed out for checking email send status.")
-            break
+        raise RuntimeError(str(poller.result()["error"]))
+
+except Exception as ex:
+    print(ex)
 ```
 
-[!INCLUDE [Email Message Status](./email-message-status.md)]
+[!INCLUDE [Email Message Status](./email-operation-status.md)]
 
 ## Run the code
 
@@ -170,15 +175,31 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ### Send an email message to multiple recipients
 
-We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `to`, `cc`, or `bcc` recipients lists accordingly.
 
 ```python
-to_address_1 = EmailAddress(email="<emailalias1@emaildomain.com>")
-to_address_2 = EmailAddress(email="<emailalias2@emaildomain.com>")
-cc_address = EmailAddress(email="<ccemailalias@emaildomain.com>")
-bcc_address = EmailAddress(email="<bccemailalias@emaildomain.com>")
-
-recipient = EmailRecipients(to=[to_address_1, to_address_2], cc=[cc_address], bcc=[bcc_address])
+message = {
+    "content": {
+        "subject": "This is the subject",
+        "plainText": "This is the body",
+        "html": "html><h1>This is the body</h1></html>"
+    },
+    "recipients": {
+        "to": [
+            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
+            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
+        ],
+        "cc": [
+            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
+            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
+        ],
+        "bcc": [
+            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
+            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
+        ]
+    },
+    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
+}
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
@@ -196,18 +217,29 @@ with open("<your-attachment-path>", "rb") as file:
 
 file_bytes_b64 = base64.b64encode(file_bytes)
 
-attachment = EmailAttachment(
-    name="<your-attachment-name>",
-    attachment_type="<your-attachment-file-type>",
-    content_bytes_base64=file_bytes_b64.decode()
-)
-
-message = EmailMessage(
-    sender="<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-    content=content,
-    recipients=recipients,
-    attachments=[attachment]
-)
+message = {
+    "content": {
+        "subject": "This is the subject",
+        "plainText": "This is the body",
+        "html": "html><h1>This is the body</h1></html>"
+    },
+    "recipients": {
+        "to": [
+            {
+                "address": "<recipient1@emaildomain.com>",
+                "displayName": "Customer Name"
+            }
+        ]
+    },
+    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+    "attachments": [
+        {
+            "name": "<your-attachment-name>",
+            "contentType": "<your-attachment-mime-type>",
+            "contentInBase64": file_bytes_b64.decode()
+        }
+    ]
+}
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
