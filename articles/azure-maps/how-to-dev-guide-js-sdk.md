@@ -60,7 +60,7 @@ mapsDemo
 
 ### Azure Maps services
 
-| Service Name  | npm packages            |  Samples     |
+| Service name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [@azure-rest/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |

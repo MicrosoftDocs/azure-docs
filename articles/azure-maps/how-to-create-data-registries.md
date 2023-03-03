@@ -12,7 +12,7 @@ services: azure-maps
 
 # How to create data registry (preview)
 
-The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
+The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > - In the URL examples in this article you will need to replace:
 >   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key].
 >   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID](#the-user-data-id).

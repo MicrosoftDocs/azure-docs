@@ -20,7 +20,7 @@ This article lists the libraries currently available for each SDK with links to 
 
 Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard 2.0][.NET Standard versions].
 
-| Service Name  | NuGet package           |  Samples     |
+| Service name  | NuGet package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][C# search readme] | [Azure.Maps.Search][C# search package] | [search samples][C# search sample] |
 | [Routing][C# routing readme] | [Azure.Maps.Routing][C# routing package] | [routing samples][C# routing sample] |
@@ -32,7 +32,7 @@ For more information, see the [C# SDK Developers Guide](how-to-dev-guide-csharp-
 ## Python  SDK
 Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure SDK for Python policy planning][Python-version-support-policy] for more details on future Python versions.
 
-| Service Name  | PyPi package            |  Samples     |
+| Service name  | PyPi package            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
 | [Route][py route readme] | [azure-maps-route][py route package] |  [route samples][py route sample] |
@@ -45,7 +45,7 @@ For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-
 
 Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js] including versions in Active status and Maintenance status.
 
-| Service Name  | npm packages            |  Samples     |
+| Service name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][js search readme] | [@azure-rest/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
@@ -58,7 +58,7 @@ For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-t
 
 Azure Maps Java SDK supports [Java 8][Java 8] or above.
 
-| Service Name  | Maven package           |  Samples     |
+| Service name  | Maven package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][java search readme] | [azure-maps-search][java search package] | [search samples][java search sample] |
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |

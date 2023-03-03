@@ -51,7 +51,7 @@ pip install azure-maps-search --pre
 
 Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy][support policy].
 
-| Service Name               | PyPi package            |  Samples     |
+| Service name               | PyPi package            |  Samples     |
 |----------------------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
 | [Route][py route readme]   | [azure-maps-route][py route package] |  [route samples][py route sample] |

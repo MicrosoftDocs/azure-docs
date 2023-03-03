@@ -28,7 +28,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package

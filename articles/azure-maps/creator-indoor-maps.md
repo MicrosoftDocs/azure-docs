@@ -257,9 +257,9 @@ The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-til
 
 Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
-### Web Feature Service API
+### Web Feature service API
 
-You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](https://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+You can use the [Web Feature service](/rest/api/maps/v2/wfs) (WFS) to query datasets. WFS follows the [Open Geospatial Consortium API Features](https://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 ### Alias API
 

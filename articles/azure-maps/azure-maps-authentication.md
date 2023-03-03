@@ -51,7 +51,7 @@ For general information about authenticating with Azure AD, see [Authentication 
 
 ## Managed identities for Azure resources and Azure Maps
 
-[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). For more information on managed identities, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
+[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). For more information on managed identities, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ### Configure application Azure AD authentication
 
@@ -120,11 +120,11 @@ The following role definition types exist to support application scenarios.
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services, which provide write or delete actions. The following table describes what services Azure Maps Data Contributor is applicable when using write or delete actions. When only read actions are required, the Azure Maps Data Reader role can be used in place of the Azure Maps Data Contributor role.
 
-| Azure Maps Service     | Azure Maps Role Definition  |
+| Azure Maps service     | Azure Maps Role Definition  |
 | :--------------------- | :-------------------------- |
-| [Data](/rest/api/maps/data)             | Azure Maps Data Contributor |
-| [Creator](/rest/api/maps-creator/)                | Azure Maps Data Contributor |
-| [Spatial](/rest/api/maps/spatial)                | Azure Maps Data Contributor |
+| [Data](/rest/api/maps/data)        | Azure Maps Data Contributor |
+| [Creator](/rest/api/maps-creator/) | Azure Maps Data Contributor |
+| [Spatial](/rest/api/maps/spatial)  | Azure Maps Data Contributor |
 | Batch [Search](/rest/api/maps/search) and [Route](/rest/api/maps/route) | Azure Maps Data Contributor |
 
 For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps](./how-to-manage-authentication.md).
@@ -154,7 +154,7 @@ Assigning a role assignment to a resource group can enable access to multiple Az
 
 ## Disable local authentication
 
-Azure Maps accounts support the standard Azure property in the [Azure Maps Management REST API](/rest/api/maps-management/) for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Azure AD authentication](./azure-maps-authentication.md#azure-ad-authentication). This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
+Azure Maps accounts support the standard Azure property in the [Management API](/rest/api/maps-management/) for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Azure AD authentication](./azure-maps-authentication.md#azure-ad-authentication). This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
 
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests. To re-enable local authentication, set the property to `false` and after a few minutes local authentication will resume.
 
