@@ -10,7 +10,9 @@
 - name: Concepts
   items:
       - name: Workload identity federation
-        href: workload-identity-federation.md        
+        href: workload-identity-federation.md   
+      - name: Applications and service principals
+        href: /azure/active-directory/develop/app-objects-and-service-principals     
 - name: How-to guides
   items:
   - name: Connect without secrets
