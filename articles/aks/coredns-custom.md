@@ -25,7 +25,7 @@ This article shows you how to use ConfigMaps for basic CoreDNS customization opt
 
 * This article assumes that you have an existing AKS cluster. If you need an AKS cluster, you can create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * Verify the version of CoreDNS you're running. The configuration values may change between versions.
-* When creating a configuration like the examples below, your names in the *data* section must end in either *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
+* When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
 ## Plugin support
 
@@ -112,7 +112,7 @@ If you need to specify a forward server for your network traffic, you can create
 
 You may want to configure custom domains that can only be resolved internally. For example, you may want to resolve the custom domain *puglife.local*, which isn't a valid top-level domain. Without a custom domain ConfigMap, the AKS cluster can't resolve the address.
 
-1. Create a new file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address to direct traffic to with the values for your own environment.
+1. Create a new file named `corednsms.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address with the values for your own environment.
 
   ```yaml
   apiVersion: v1
