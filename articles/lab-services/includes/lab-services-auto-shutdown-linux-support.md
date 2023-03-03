@@ -6,7 +6,7 @@ ms.author: nicktrog
 ms.date: 03/01/2023
 ---
 
-Azure Lab Services supports automatic shutdown for many Linux distristributions and versions. The following list provides the supported Linux distribution Azure Marketplace images:
+The following list provides the supported Linux distribution Azure Marketplace images for lab plan-based labs:
 
 - CentOS-based 7.8 (Gen2)
 - CentOS-based 7.9
@@ -22,5 +22,4 @@ Azure Lab Services supports automatic shutdown for many Linux distristributions 
 - Ubuntu Server 20.04 LTS (Gen2)
 - Ubuntu-HPC 20.04 (Gen2)
 
-> [!IMPORTANT]
-> Prior to the [August 2022 Update](../lab-services-whats-new.md), Linux-based labs only support automatic shut down when users disconnect and when VMs are started but users don't connect. Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
+Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.

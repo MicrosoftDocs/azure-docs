@@ -30,7 +30,19 @@ You can configure the auto-shutdown settings when you create a lab or after it's
 
 ## Supported Linux distributions for automatic shutdown
 
+Azure Lab Services supports automatic shutdown for many Linux distributions and versions. Support varies depending on whether you're using a lab plan or lab account.
+
+### Lab plan-based labs
+
 [!INCLUDE [supported linux distributions for automatic shutdown](./includes/lab-services-auto-shutdown-linux-support.md)]
+
+### Lab account-based labs
+
+If you're using lab account-based labs, Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.
+
+Support varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions). 
+
+Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
 
 ## Next steps
 
