@@ -1,5 +1,5 @@
 ---
-title: "Model development on a cloud workstation"
+title: "Tutorial: Model development on a cloud workstation"
 titleSuffix: Azure Machine Learning
 description: Learn how to get started prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. 
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 02/22/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
-# Model development on a cloud workstation
+# Tutorial: Model development on a cloud workstation
  
 Learn how prototype in a notebook to develop a training script on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
 
