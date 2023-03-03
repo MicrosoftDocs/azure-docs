@@ -1656,9 +1656,9 @@ Users in this role can manage Microsoft 365 apps' cloud settings. This includes 
 
 Assign the Organizational Messages Writer role to users who need to do the following tasks:
 
-- Write, publish, and delete organizational messages using Microsoft 365 admin center or Microsoft Endpoint Manager
-- Manage organizational message delivery options using Microsoft 365 admin center or Microsoft Endpoint Manager
-- Read organizational message delivery results using Microsoft 365 admin center or Microsoft Endpoint Manager
+- Write, publish, and delete organizational messages using Microsoft 365 admin center or Microsoft Intune
+- Manage organizational message delivery options using Microsoft 365 admin center or Microsoft Intune
+- Read organizational message delivery results using Microsoft 365 admin center or Microsoft Intune
 - View usage reports and most settings in the Microsoft 365 admin center, but can't make changes
 
 > [!div class="mx-tableFixed"]
@@ -2440,7 +2440,7 @@ This role can create and manage security groups, but does not have administrator
 
 Assign the Windows 365 Administrator role to users who need to do the following tasks:
 
-- Manage Windows 365 Cloud PCs in Microsoft Endpoint Manager
+- Manage Windows 365 Cloud PCs in Microsoft Intune
 - Enroll and manage devices in Azure AD, including assigning users and policies
 - Create and manage security groups, but not role-assignable groups
 - View basic properties in the Microsoft 365 admin center
