@@ -142,21 +142,35 @@ Next, create the configuration file that your static web app uses to interface w
 
     To install, use `npm install`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm install -g @azure/static-web-apps-cli
     ```
+
+    # [PowerShell](#tab/powershell)
+
     ```powershell
     npm install -g @azure/static-web-apps-cli
     ```
+
+    ---
 
     To update, use `npm update`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm update
     ```
+
+    # [PowerShell](#tab/powershell)
+
     ```powershell
     npm update
     ```
+
+    ---
 
 1. Use the `swa db init` command to generate a database configuration file.
 

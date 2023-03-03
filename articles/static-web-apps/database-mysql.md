@@ -141,21 +141,35 @@ Next, create the configuration file that your static web app uses to interface w
 
     To install, use `npm install`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm install -g @azure/static-web-apps-cli
     ```
+
+    # [PowerShell](#tab/powershell)
+
     ```powershell
     npm install -g @azure/static-web-apps-cli
     ```
+
+    ---
 
     To update, use `npm update`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm update
     ```
+
+    # [PowerShell](#tab/powershell)
+
     ```powershell
     npm update
     ```
+
+    ---
 
 1. Use the `swa db init` command to generate a database configuration file.
 
@@ -270,9 +284,10 @@ Once you've connected your database to your static web app and the site is finis
 1. In the *Essentials* section, select the **URL** of your Static Web Apps resource to navigate to your static web app.
 
 1. Select the **List** button to list all items.
-	
-	    The output should resemble what's shown in this screenshot.
-	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+
+	  The output should resemble what's shown in this screenshot.
+
+	  :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
 	    
 ## Clean up resources
 
