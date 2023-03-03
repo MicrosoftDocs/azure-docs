@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-afs.md",
             "redirect_url": "/azure/backup/backup-azure-files",
             "redirect_document_id": false

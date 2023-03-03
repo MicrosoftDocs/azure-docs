@@ -829,6 +829,7 @@ Use the following steps to fetch the current setting and then enable or disable 
     ```azurepowershell
     Get-DeviceLogConsent
     ```
+
 ## Run device diagnostics
 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
