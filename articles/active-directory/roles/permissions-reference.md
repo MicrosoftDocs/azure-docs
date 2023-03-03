@@ -114,6 +114,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
+> | [Viva Goals Administrator](#viva-goals-administrator) | Manage and configure all aspects of Microsoft Viva Goals. | 92b086b3-e367-4ef2-b869-1de128fb986e |
 > | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 > | [Yammer Administrator](#yammer-administrator) | Manage all aspects of the Yammer service. | 810a2642-a034-447f-a5e8-41beaa378541 |
@@ -2411,6 +2412,24 @@ Virtual Visits are a simple way to schedule and manage online and video appointm
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.virtualVisits/allEntities/allProperties/allTasks | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Viva Goals Administrator
+
+Assign the Viva Goals Administrator role to users who need to do the following tasks:
+
+- Manage and configure all aspects of the Microsoft Viva Goals application
+- Configure Microsoft Viva Goals admin settings
+- Read Azure AD tenant information
+- Monitor Microsoft 365 service health  
+- Create and manage Microsoft 365 service requests
+
+For more information, see [Roles and permissions in Viva Goals](/viva/goals/roles-permissions-in-viva-goals) and [Introduction to Microsoft Viva Goals](/viva/goals/intro-to-ms-viva-goals).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Windows 365 Administrator

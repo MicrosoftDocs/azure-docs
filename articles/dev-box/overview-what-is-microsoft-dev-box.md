@@ -53,7 +53,7 @@ Dev Box helps dev infra teams provide the appropriate dev boxes for each user's 
 Dev Box has the following benefits for IT admins:
 
 - You can manage dev boxes like any other device:
-  - Dev boxes automatically enroll in Intune. Use the Microsoft Endpoint Manager portal to manage dev boxes just like any other device on your network.
+  - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes just like any other device on your network.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
   - If a dev box is compromised, isolate it while helping users get back up and running on a new dev box.
 - Dev Box provides secure access in a secure environment. Access controls in Azure Active Directory (Azure AD) organize access by project or user type:
@@ -68,11 +68,11 @@ This diagram shows the components of the Dev Box Preview service and the relatio
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-architecture.png" alt-text="Diagram that shows the Dev Box architecture.":::
 
-Dev Box service configuration begins with the creation of a dev center, which aims to represent the units of organization for an enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit on the number of dev centers that you can create, but most organizations need only one.
+Dev Box service configuration begins with the creation of a dev center, which represents the units of organization in the enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
 Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box will join Azure AD. Use an Azure AD join to connect exclusively to cloud-based resources, or use a hybrid Azure AD join to connect to on-premises resources and cloud-based resources.
 
-Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the *Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2* image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
+Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
 
 Dev Box projects are the point of access for development teams. You assign the Dev Box User role to a project to give a developer access to the dev box pools that are associated with the project.
 
