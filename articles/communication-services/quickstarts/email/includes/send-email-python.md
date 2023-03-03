@@ -108,7 +108,7 @@ message = {
             "name": "str"  # Name of the attachment. Required.
         }
     ],
-    "disableUserEngagementTracking": bool,  # Optional. Indicates whether user engagement tracking should be disabled for this request if the resource-level user engagement tracking setting was already enabled in the control plane.
+    "userEngagementTrackingDisabled": bool,  # Optional. Indicates whether user engagement tracking should be disabled for this request if the resource-level user engagement tracking setting was already enabled in the control plane.
     "headers": {
         "str": "str"  # Optional. Custom email headers to be passed.
     },
