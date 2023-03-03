@@ -65,12 +65,13 @@ The following are additional factors to consider when planning pods IP address s
 
 ## Network security groups
 
-Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet NSG rules are applied. If the subnet NSG contains deny rules that would impact this traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
+Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet [network security group][nsgs] rules are applied. If the subnet NSG contains deny rules that would impact the pod CIDR traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
 
 * Traffic from the node CIDR to the node CIDR on all ports and protocols
-* Traffic from the node CIDR to the pod CIDR on all ports and protocols
-* Traffic from the pod CIDR to the node CIDR on all ports and protocols
-* Traffic from the pod CIDR to the pod CIDR on all ports and protocols
+* Traffic from the node CIDR to the pod CIDR on all ports and protocols (required for service traffic routing)
+* Traffic from the pod CIDR to the pod CIDR on all ports and protocols (required for pod to pod and pod to service traffic, including DNS)
+
+Traffic from a pod to any destination outside of the pod CIDR block will utilize SNAT to set the source IP to the IP of the node where the pod is running.
 
 If you wish to restrict traffic between workloads in the cluster, [network policies][aks-network-policies] are the recommended solution.
 
@@ -161,3 +162,4 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [aks-egress]: limit-egress-traffic.md
 [aks-network-policies]: use-network-policies.md
+[nsg]: /azure/virtual-network/network-security-groups-overview
