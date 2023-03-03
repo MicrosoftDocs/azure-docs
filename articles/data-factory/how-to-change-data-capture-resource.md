@@ -111,7 +111,7 @@ In this tutorial, you follow these steps:
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-78.png" alt-text="Screenshot of the column mapping page to allow users to editing column mappings." lightbox="media/adf-cdc/change-data-capture-resource-78.png":::
 
-  You can add additional column mappings using the **New mapping** button. Use the drop-down lists to select the **Mapping method**, **Source column**, and **Target** column. Also, if you want to track the delete operation for supported sink types, you can select the **Keys** column. You can click **Data Preview - Refresh** button to visualize how the data will look at the target.
+   You can add additional column mappings using the **New mapping** button. Use the drop-down lists to select the **Mapping method**, **Source column**, and **Target** column. Also, if you want to track the delete operation for supported sink types, you can select the **Keys** column. You can click **Data Preview - Refresh** button to visualize how the data will look at the target.
   
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-79.png" alt-text="Screenshot of the Add new mapping icon to add new column mappings, drop down with mapping methods, select Keys column and Data preview refresh button for allowing users to visualize data at target." lightbox="media/adf-cdc/change-data-capture-resource-79.png":::
 
@@ -129,7 +129,7 @@ In this tutorial, you follow these steps:
    
 21.	Select the latency of your CDC and click **Apply** to make the changes. By default, it will be set to **15 minutes**. For this tutorial, we will select the **Real-time** latency. Real-time latency will continuously keep picking up changes in your source data in a less than 1 minute interval.
 
-For other latencies, say if you select 15 minutes, every 15 minutes, your change data capture will process your source data and pick up any changed data since the last processed time.
+    For other latencies, say if you select 15 minutes, every 15 minutes, your change data capture will process your source data and pick up any changed data since the last processed time.
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-83.png" alt-text="Screenshot of the set frequency selection menu.":::
 
