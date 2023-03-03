@@ -23,18 +23,51 @@ The Azure Active Directory (Azure AD) recommendations feature provides you with 
 
 This article covers how to work with Azure AD recommendations. Each Azure AD recommendation contains similar details such as a description, the value of addressing the recommendation, and the steps to address the recommendation. Microsoft Graph API guidance is also provided in this article.
 
-## Access and view the details of a recommendation
+## Role requirements
 
-To update the status of a recommendation or a related resource, sign in to Azure using a least privilege role for *update and read-only* access.
+There are different role requirements for viewing or updating a recommendation. Use the least-privileged role for the type of access needed.
 
-- Security Administrator
-- Security Operator
-- Cloud apps Administrator
-- Apps Administrator
+| Azure AD role | Access type |
+|---- |---- |
+| Reports Reader | Read-only | 
+| Security Reader | Read-only |
+| Global Reader | Read-only |
+| Cloud apps Administrator | Update and read |
+| Apps Administrator | Update and read |
+| Security Operator | Update and read |
+| Security Administrator | Update and read |
+
+Some recommendations may require a P2 or other license. Refer to the [Recommendation availability and license requirements](overview-recommendations.md#recommendation-availability-and-license-requirements).
+
+## How to read a recommendation
+
+Each recommendation provides the same set of details that explain what the recommendation is, why it's important, and how to fix it.
+
+The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
+
+The **Priority** of a recommendation could be low, medium, or high. These values are determined by several factors, such as security implications, health concerns, or potential breaking changes.
+
+- **High**: Must do. Not acting will result in severe security implications or potential downtime.
+- **Medium**: Should do. No severe risk if action isn't taken.
+- **Low**: Might do. No security risks or health concerns if action isn't taken.
+
+The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
+
+![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/overview-recommendations/recommendation-status-risk.png)
+
+The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
+
+The recommendation's **Value** is an explanation of why completing the recommendation will benefit you, and the value of the associated feature. 
+
+The **Action plan** provides step-by-step instructions to implement a recommendation. May include links to relevant documentation or direct you to other pages in the Azure AD portal.
+
+## How to update a recommendation
+
+To update the status of a recommendation or a related resource, sign in to Azure using a least-privileged role for updating a recommendation.
 
 1. Go to **Azure AD** > **Recommendations**.
 
-1. Select a recommendation from the list to view the details, status, and action plan. 
+1. Select a recommendation from the list to view the details, status, and action plan.
 
     ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
