@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Enterprise tier
 
-This article shows you how to deploy large cpu & memory applications in Azure Spring Apps. Currently, support for large app is only available in Enterprise tier, and the following cpu & memory combinations are supported.
+This article shows you how to deploy large cpu & memory applications in Azure Spring Apps to support your cpu intensive or memory intensive workloads. Currently, support for large app is only available in Enterprise tier, and the following cpu & memory combinations are supported.
 
 | cpu (cores) | memory (Gi) |
 | ----------- | ----------- |
