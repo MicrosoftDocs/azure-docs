@@ -12,7 +12,7 @@ ms.reviewer: akkumari
 This article shows you how to set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.
 
 ## Webhooks
-Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications. Examples include routing the alert to services that can handle an incoming web request to send an SMS, log bugs, or notify a team by using chat or messaging services. The webhook URI must be a valid HTTP or HTTPS endpoint.
+Webhooks allow you to route Azure alert notifications to other systems for post-processing or custom notifications. Examples include routing the alert to services that can handle an incoming web request to send an SMS, log bugs, or notify a team by using chat or messaging services. The webhook URI must be a valid HTTP or HTTPS endpoint.
 
 ## Email
 You can send email to any valid email address. Administrators and co-administrators of the subscription where the rule is running are also notified.

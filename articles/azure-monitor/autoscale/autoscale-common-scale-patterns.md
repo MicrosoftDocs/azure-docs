@@ -1,6 +1,6 @@
 ---
 title: Overview of common autoscale patterns
-description: Learn some of the common patterns to use autoscale for your resource in Azure.
+description: Learn some of the common patterns to use with autoscale for your resource in Azure.
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/17/2022
@@ -10,7 +10,7 @@ ms.reviewer: akkumari
 ---
 # Overview of common autoscale patterns
 
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or be triggered based on a scheduled date and time.
+Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered based at a scheduled date and time.
 
 Azure autoscale supports many resource types. For more information about supported resources, see [Autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
