@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -81,11 +81,11 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 [:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
 
-The general document model is ideal for extracting common key-value pairs from forms and documents. It’s a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
+The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Form Recognizer Studio.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
@@ -93,13 +93,15 @@ The general document model is ideal for extracting common key-value pairs from f
 
 ### Health insurance card 
 
-[:::image type="icon" source="media/studio/health-insurance-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
+:::image type="content" source="media/studio/analyze-" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
+
+<!-- [:::image type="content" source="media/studio/health-insurance-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us) -->
 
 The Health Insurance Card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and more information from US health insurance cards.
 
 ***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
 
-:::image type="content" source="./media/studio/ihealth-nsurance-card.png" alt-text="Screenshot of a sample US health insurance card.":::
+:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: Health insurance card model](concept-insurance-card.md)

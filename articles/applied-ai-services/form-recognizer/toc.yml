@@ -145,6 +145,9 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
+  - name: 🆕 Health insurance card model (preview)
+    displayName: health, proof, hospital
+    href: concept-insurance-card.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
