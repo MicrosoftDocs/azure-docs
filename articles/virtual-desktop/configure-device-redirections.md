@@ -174,12 +174,21 @@ Set the following RDP property to configure WebAuthn redirection:
 
 When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication-preview).
 
-## Disable device redirection
+## Disable drive redirection
 
-If you're making RDP connections from personal resources to corporate ones on the web or WIndows Desktop client, you'll need to disable device redirection for security purposes. To do this, go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client** and configure the following RDP property:
+If you're making RDP connections from personal resources to corporate ones on the web or Windows Desktop client, you'll need to disable drive redirection for security purposes. To disable drive redirection:
 
-- `DisableDriveRedirection:0` enables device redirection.
-- `DisableDriveRedirection:1` disables device redirection.
+1. Open the registry editor (regedit).
+
+1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+
+1. Create the following registry key:
+
+   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
+   - **Type**: REG_DWORD
+   - **Name**: DisableDriveRedirection
+
+1. Set the value of the registry key to **0**.
 
 ## Next steps
 
