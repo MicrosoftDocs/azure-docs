@@ -331,7 +331,7 @@ Content-type: application/json
 {
     "version": "1.0.0",
     "action": "ShowBlockPage",
-    "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
+    "userMessage": "There was a problem with your request. You are not able to sign up at this time. Please contact your system administrator",
 }
 
 ```

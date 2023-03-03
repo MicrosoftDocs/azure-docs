@@ -145,7 +145,7 @@ For Azure services, use the recommended zone names as described in the following
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.us | azurehdinsight.us |
-| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net<br/>instances.azureml.us<br/>aznbcontent.net<br/>inference.ml.azure.us |
+| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net<br/>instances.azureml.us<br/>aznbcontent.net<br/>inference.ml.azure.us |
 
 >[!Note]
 >In the above text, `{region}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
