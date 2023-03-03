@@ -66,7 +66,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Requirements dependency|Only if DMA capable ports exist|
 |Validation Type|Manual/Tools|
 |Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
-|Resources||
+
 
 ---
 </br>
@@ -90,7 +90,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Requirements dependency|UEFI|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li></ul>|
-|Resources||
+
 
 ---
 </br>
@@ -116,7 +116,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure Secure-boot and BitLocker is enabled and bound to PCR7.|
-|Resources||
+
 
 ---
 </br>
@@ -151,7 +151,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate that services listening for input from the network are not running with elevated privileges.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that 3rd party services accepting network connections are not running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
-|Resources||
+
 
 ---
 
@@ -195,7 +195,7 @@ Some requirements of this program are based on a business agreement between your
 |Requirements dependency||
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-|Resources||
+
 
 ---
 </br>
@@ -207,7 +207,7 @@ Some requirements of this program are based on a business agreement between your
 |Requirements dependency||
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-|Resources||
+
 
 ---
 </br>
@@ -218,7 +218,7 @@ Some requirements of this program are based on a business agreement between your
 |Description|The purpose of this policy is to ensure that the device remains secure.|
 |Validation Type|Manual|
 |Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-|Resources||
+
 
 ---
 </br>
@@ -229,7 +229,7 @@ Some requirements of this program are based on a business agreement between your
 |Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 ---
 </br>
@@ -240,7 +240,7 @@ Some requirements of this program are based on a business agreement between your
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 ---
 </br>
@@ -281,7 +281,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Description|The purpose of the requirement is to validate ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Manual/Tools|
 |Validation|memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System memory management Unit).|
-|Resources||
+
 
 </br>
 
@@ -303,7 +303,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
-|Resources||
+
 
 ---
 </br>
@@ -326,7 +326,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Description|The purpose of the requirement to validate the existence of a secure enclave and that the enclave can be used for security functions.|
 |Validation Type|Manual/Tools|
 |Validation||
-|Resources||
+
 
 ## Linux Configuration Requirements
 
@@ -337,7 +337,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
-|Resources||
+
 
 ---
 </br>
@@ -359,7 +359,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
-|Resources||
+
 
 ---
 </br>
@@ -370,7 +370,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
-|Resources||
+
 
 
 ## Linux Software/Service Requirements
@@ -393,7 +393,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
 |Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
-|Resources||
+
 
 ---
 </br>
@@ -427,7 +427,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate that updates must be signed.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
-|Resources||
+
 
 
 
@@ -439,7 +439,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-|Resources||
+
 
 ---
 </br>
@@ -450,7 +450,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-|Resources||
+
 
 ---
 </br>
@@ -461,7 +461,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of this policy is to ensure that the device remains secure.|
 |Validation Type|Manual|
 |Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-|Resources||
+
 
 ---
 </br>
@@ -472,7 +472,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 ---
 </br>
@@ -483,7 +483,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 </br>
 ::: zone-end
@@ -520,7 +520,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
+
 
 </br>
 
@@ -531,7 +531,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
+
 
 ---
 </br>
@@ -542,7 +542,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to validate the boot integrity of the device.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
+
 
 ---
 </br>
@@ -553,7 +553,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
+
 
 ---
 </br>
@@ -564,7 +564,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this reqiurement is to validate hardware security that is accessible from a secure operating system.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ## Sphere OS Configuration Requirements
 
@@ -679,7 +678,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the policy requires that debug functionality on the device is disabled.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-|Resources||
+
 
 ---
 </br>
@@ -690,7 +689,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-|Resources||
+
 
 ---
 </br>
@@ -701,7 +700,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this policy is to ensure that the device remains secure.|
 |Validation Type|Manual|
 |Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-|Resources||
+
 
 ---
 </br>
@@ -712,7 +711,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 ---
 </br>
@@ -723,7 +722,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+
 
 </br>
 ::: zone-end
