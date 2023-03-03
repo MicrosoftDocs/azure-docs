@@ -22,7 +22,7 @@ ms.custom: mode-ui, ignite-2022
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. This approach benefits from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [API for NoSQL](../introduction.md) account. In that account, you create a document database, and container, and add data to the container. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [API for NoSQL](../introduction.md) account. In that account, you create a document database, and container, and add data to the container. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ You can use the Data Explorer in the Azure portal to create a database and conta
 
     |Setting|Suggested value|Description|
     |---|---|---|
-    |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they can't contain `/`, `\`, `#`, `?`, or a trailing space. Check the **Share throughput across containers** option. It allows you to share the throughput provisioned on the database across all the containers within the database. This option also helps with cost savings. |
+    |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain 1-255 characters, and they can't contain `/`, `\`, `#`, `?`, or a trailing space. Check the **Share throughput across containers** option. It allows you to share the throughput provisioned on the database across all the containers within the database. This option also helps with cost savings. |
     | **Database throughput**|**Autoscale** or **Manual**|Manual throughput allows you to scale request units per second (RU/s) yourself whereas  autoscale throughput allows the system to scale RU/s based on usage. Select **Manual** for this example.|
     |**Database Max RU/s**| 400 RU/s|If you want to reduce latency, you can scale up the throughput later by estimating the required RU/s with the [capacity calculator](estimate-ru-with-capacity-planner.md). **Note**: This setting isn't available when creating a new container in a serverless account. |
     |**Container id**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
@@ -102,7 +102,7 @@ If you wish to delete just the database and use the Azure Cosmos DB account in f
 
 1. Go to your Azure Cosmos DB account.
 1. Open **Data Explorer**, select the **More** (**...**) for the database that you want to delete and select **Delete Database**.
-1. Enter the Database ID/database name to confirm the delete operation.
+1. Enter the database ID or database name to confirm the delete operation.
 
 ## Next steps
 
