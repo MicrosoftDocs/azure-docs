@@ -96,7 +96,7 @@ public class App
 ## Authenticate the client
 
 The SipRoutingClientBuilder is enabled to use Azure Active Directory Authentication
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
+
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
@@ -108,7 +108,7 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
 ```
 
 Alternatively, using the endpoint and access key from the communication resource to authenticate is also possible.
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
+
 ```java
 // You can find your connection string from your resource in the Azure portal
 String connectionString = "endpoint=https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";

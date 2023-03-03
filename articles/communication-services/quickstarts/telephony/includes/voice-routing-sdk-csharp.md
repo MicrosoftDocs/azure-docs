@@ -12,9 +12,8 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-## Sample code
-
-You can download the sample app from [GitHub](https://github.com/link.
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/link)
 
 ## Prerequisites
 
