@@ -20,7 +20,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
@@ -44,7 +44,7 @@ The authentication in this procedure is provided at the hosting platform layer b
 
 The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. In the next article in this series, the fake profile is replaced with a profile from Microsoft Graph.
 
-Before your source code is executed on the frontend, the App Service injects the authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header. The frontend source code then accesses and sends the accessToken to the backend server as the `bearerToken` to securely access the backend API. The backend server validates the bearerToken before it is passed into your backend source code.  
+Before your source code is executed on the frontend, the App Service injects the authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header. The frontend source code then accesses and sends the accessToken to the backend server as the `bearerToken` to securely access the backend API. The backend server validates the bearerToken before it's passed into your backend source code.  
 
 ## Prerequisites
 
@@ -337,11 +337,11 @@ The authentication in this procedure is provided at the hosting platform layer b
 The frontend and backend apps both have `/debug` routes to help debug the authentication when this application doesn't return the _fake_ profile. The frontend debug route provides the critical pieces to validate:
 
 * Environment variables: 
-    * The `BACKEND_URL` is configured correctly as `https://<YOUR-BACKEND_APP_NAME>..azurewebsites.net`. Do not include that trailing forward slash or the route.
+    * The `BACKEND_URL` is configured correctly as `https://<YOUR-BACKEND_APP_NAME>..azurewebsites.net`. Don't include that trailing forward slash or the route.
 * HTTP headers:
     * The `x-ms-token-*` headers are injected. 
 * Microsoft Graph profile name for signed in user is displayed.
-* Frontend app's **scope** for the token has `user_impersonation`. If your scope doesn't include this, it could be an issue of timing. Verify your frontend app's login parameters in [Azure resources](https://resources.azure.com). Wait a few minutes for the replication of the authentication.
+* Frontend app's **scope** for the token has `user_impersonation`. If your scope doesn't include this, it could be an issue of timing. Verify your frontend app's `login` parameters in [Azure resources](https://resources.azure.com). Wait a few minutes for the replication of the authentication.
 
 ### Did the application source code deploy correctly to each web app?
 
@@ -371,7 +371,7 @@ Because the frontend app calls the backend app from server source code, this isn
 * The backend web app returns any errors to the frontend app if it was reached. If it wasn't reached, the frontend app reports the status code and message.
     * 401: The user didn't pass authentication correctly. This can indicate the scope isn't set correctly.
     * 404: The URL to the server doesn't match a route the server has
-* Use the backend app's streaming logs to watch as you make the frontend request for the user's profile. There is debug information in the source code with `console.log` which helps determine where the failure happened.
+* Use the backend app's streaming logs to watch as you make the frontend request for the user's profile. There's debug information in the source code with `console.log` which helps determine where the failure happened.
 
 ## Clean up resources
 
@@ -410,7 +410,7 @@ What you learned:
 > * Use access tokens from server code
 > * Use access tokens from client (browser) code
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Advance to the next tutorial to learn how to use this user's identity to access an Azure service.
 
 > [!div class="nextstepaction"]
 > [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md)
