@@ -90,9 +90,7 @@ You need to provide the URL of the image you want as the background to this effe
 > [!NOTE]
 > Current supported image formats are: png, jpg, jpeg, tiff, bmp.
 >
-> [!NOTE]
 > Current supported aspect ratio is 16:9.
->
 ```js
 const backgroundImage = 'https://linkToImageFile'; 
 
