@@ -6,7 +6,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.reviewer: yuank
-ms.date: 09/13/2022
+ms.date: 03/03/2023
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -29,13 +29,13 @@ There are two types of delegated administration relationships that are visible i
 
 ## Granular delegated admin permission
 
-When a Microsoft CSP creates a GDAP relationship request for your tenant, a GDAP relationship is created in the tenant when a global administrator approves the request. The GDAP relationship request specifies:
+When a Microsoft CSP creates a GDAP relationship request for your tenant a global administrator needs to approve the request. The GDAP relationship request specifies:
 
 * The CSP partner tenant
 * The roles that the partner needs to delegate to their technicians
 * The expiration date
 
-If you have any GDAP relationships in your tenant, you will see a notification banner on the **Delegated Administration** page in the Azure AD admin portal. Select the notification banner to see and manage GDAP relationships in the **Partners** page in Microsoft Admin Center.
+If you have GDAP relationships in your tenant, you will see a notification banner on the **Delegated Administration** page in the Azure AD admin portal. Select the notification banner to see and manage GDAP relationships in the **Partners** page in Microsoft Admin Center.
 
 ## Delegated admin permission
 
@@ -46,3 +46,6 @@ If you have any DAP relationships in your tenant, you will see them in the list 
 ## Next steps
 
 If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](../fundamentals/index.yml).
+
+- [Delegated administration privileges (DAP) FAQ](/partner-center/dap-faq)
+- [Granular delegated admin privileges (GDAP) introduction](/partner-center/gdap-introduction)
