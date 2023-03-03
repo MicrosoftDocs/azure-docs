@@ -260,44 +260,44 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 
 ### Online Endpoint  
       
-1. Select the **deploy-online-endpoint-pipeline** from the workflows listed on the left and click **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your Azure Machine Learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
+1. Select the **deploy-online-endpoint-pipeline** from the workflows listed on the left and click **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your Machine Learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
 
    ![GitHub online endpoint](./media/how-to-setup-mlops-azureml/gh-online-endpoint.png)
    
     Once completed, you will find the online endpoint deployed in the Azure ML workspace and available for testing.
 
-   ![AzureML taxi Online endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-oep.png)
+   ![Machine Learning taxi online endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-oep.png)
 
-1. To test this deployment, go to the **Endpoints** tab in your AzureML workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
+1. To test this deployment, go to the **Endpoints** tab in your Machine Learning workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
    
     ![AzureML taxi Online endpoint test](./media/how-to-setup-mlops-azureml/azureml-online-endpoint-test.png)
 
 ### Batch Endpoint
       
-1. Select the **deploy-batch-endpoint-pipeline** from the workflows and click **Run workflow** to execute the batch endpoint deployment pipeline workflow. The steps in this pipeline will create a new AmlCompute cluster on which to execute batch scoring, create the batch endpoint in your Azure Machine Learning workspace, then create a deployment of your model to this endpoint.
+1. Select the **deploy-batch-endpoint-pipeline** from the workflows and click **Run workflow** to execute the batch endpoint deployment pipeline workflow. The steps in this pipeline will create a new AmlCompute cluster on which to execute batch scoring, create the batch endpoint in your Machine Learning workspace, then create a deployment of your model to this endpoint.
 
 ![GitHub batch endpoint](./media/how-to-setup-mlops-azureml/gh-batch-endpoint.png)
 
 2. Once completed, you will find the batch endpoint deployed in the Azure ML workspace and available for testing.
 
-![AzureML taxi batch endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-bep.png)
+![Machine Learning taxi batch endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-bep.png)
    
-## Moving to Production
+## Moving to production
 
 Example scenarios can be trained and deployed both for Dev and Prod branches and environments. When you are satisfied with the performance of the model training pipeline, model, and deployment in Testing, Dev pipelines and models can be replicated and deployed in the Production environment.
 
-The sample training and deployment Azure ML pipelines and GitHub workflows can be used as a starting point to adapt your own modeling code and data.
+The sample training and deployment Machine Learning pipelines and GitHub workflows can be used as a starting point to adapt your own modeling code and data.
 
 ## Clean up resources
 
 1. If you're not going to continue to use your pipeline, delete your Azure DevOps project. 
-1. In Azure portal, delete your resource group and Azure Machine Learning instance.
+1. In Azure portal, delete your resource group and Machine Learning instance.
 
 ## Next steps
 
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [Install and set up Python CLI v2](how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
-* Learn more about [Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md)
-* Learn more about [GitHub Actions with Azure Machine Learning](how-to-github-actions-machine-learning.md)
+* Learn more about [Azure Pipelines with Machine Learning](how-to-devops-machine-learning.md)
+* Learn more about [GitHub Actions with Machine Learning](how-to-github-actions-machine-learning.md)
 * Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)
