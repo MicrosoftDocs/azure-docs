@@ -141,7 +141,7 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfigurationStatus | To-json
    ```
-   Here's an example output:
+   Here's sample output:
 
    ```output
    PS C:\> Get-DeviceConfigurationStatus | To-json
@@ -210,7 +210,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing `nodeName` for the device:
+   Here's sample output showing `nodeName` for the device:
 
    ```output
 
@@ -229,6 +229,8 @@ Run the following cmdlets in PowerShell:
                                                     }
                                                 ]
                                   },
+        }
+      }
    ```
 
 1. Create a package that uses a local JSON file for device configuration settings.
@@ -279,7 +281,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing `nodeName` for the device:
+   Here's sample output showing `nodeName` for the device:
 
    ```output
 
@@ -298,6 +300,8 @@ Run the following cmdlets in PowerShell:
                                                     }
                                                 ]
                                   },
+        }
+      }
    ```
 
 1. Create a package that uses a local JSON file for device configuration settings.
@@ -324,7 +328,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | To-json
    ```
 
-   Here is sample output:
+   Here's sample output:
 
    ```output
 			{
@@ -728,7 +732,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's an example of output showing device activation status:
+   Here's sample output showing device activation status:
 
    ```output
    PS C:\> Get-DeviceConfiguration | To-json
@@ -797,7 +801,7 @@ Use the following steps to sign in to the device, fetch the status of the `WebPr
    $p.device.webproxy
    ```
    
-   Here's a sample output:
+   Here's sample output:
 
    ```output
    PS C:\> $p.device.webproxy
@@ -1069,7 +1073,7 @@ The example below shows a static ACS configuration, followed by an example that 
     Set-DeviceVip -vip $acsVip
     ```
 
-    Here is sample output:
+    Here's sample output:
 
     ```output
     acsVIP                       nfsVIP
@@ -1084,7 +1088,7 @@ The example below shows a static ACS configuration, followed by an example that 
     Get-DeviceVip | to-json
     ```
 
-    Here is sample output:
+    Here's sample output:
 
    ```output
     {
@@ -1220,7 +1224,7 @@ The example below shows a DHCP configuration.
     Get-DeviceVip | to-json
     ```
 
-    Here's sample output:
+    Here's sample output showing **nfsVIP setting "isDhcpEnabled":  true** on the device::
 
     ```output
     {
