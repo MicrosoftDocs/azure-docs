@@ -35,7 +35,7 @@ Run an assessment as follows:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate":::
+    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
 
