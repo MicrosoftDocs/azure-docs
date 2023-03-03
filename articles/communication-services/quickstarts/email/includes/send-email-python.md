@@ -32,13 +32,20 @@ To set up an environment for sending emails, take the steps in the following sec
 
 ### Create a new Python application
 
-1. Open your terminal or command window. Then use the following command to create a new directory for your app and navigate to it.
+1. Open your terminal or command window. Then use the following command to create a virtual environment and activate it. This command creates a new directory for your app.
 
-   ```console
-   mkdir email-quickstart && cd email-quickstart
-   ```
+    ```console
+    python -m venv email-quickstart
+    ```
 
-2. Use a text editor to create a file called **send-email.py** in the project root directory and add the structure for the program, including basic exception handling.
+1. Navigate to the root directory of the virtual environment and activate it using the following commands.
+
+    ```console
+    cd email-quickstart
+    .\Scripts\activate
+    ```
+
+1. Use a text editor to create a file called **send-email.py** in the project root directory and add the structure for the program, including basic exception handling.
 
    ```python
    import os
@@ -51,7 +58,7 @@ To set up an environment for sending emails, take the steps in the following sec
        print(ex)
    ```
 
-In the following sections, you'll add all the source code for this quickstart to the **send-email.py** file that you just created.
+In the following sections, you'll add all the source code for this quickstart to the **send-email.py** file that you created.
 
 ### Install the package
 
@@ -63,19 +70,76 @@ pip install azure-communication-email
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
+The following JSON message template & response object demonstrate some of the major features of the Azure Communication Services Email SDK for Python.
 
-| Name | Description |
-| ---- |-------------|
-| EmailAddress | An object containing an email address and an option for a display name. |
-| EmailAttachment | An object that creates an email attachment by accepting an attachment name, MIME type of the content, and a Base64 encoded string of content bytes. |
-| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
-| EmailContent | This object contains the subject, plaintext, and html of the email message. |
-| EmailCustomHeader | This class allows for the addition of a name and value pair for a custom header. |
-| EmailMessage | This object combines the sender email address, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added as well. |
-| EmailRecipients | This object holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
-| EmailSendOperation | This object contains the current status of the operation. |
+```python
+message = {
+    "content": {
+        "subject": "str",  # Subject of the email message. Required.
+        "html": "str",  # Optional. Html version of the email message.
+        "plainText": "str"  # Optional. Plain text version of the email
+            message.
+    },
+    "recipients": {
+        "to": [
+            {
+                "address": "str",  # Email address. Required.
+                "displayName": "str"  # Optional. Email display name.
+            }
+        ],
+        "bcc": [
+            {
+                "address": "str",  # Email address. Required.
+                "displayName": "str"  # Optional. Email display name.
+            }
+        ],
+        "cc": [
+            {
+                "address": "str",  # Email address. Required.
+                "displayName": "str"  # Optional. Email display name.
+            }
+        ]
+    },
+    "senderAddress": "str",  # Sender email address from a verified domain. Required.
+    "attachments": [
+        {
+            "contentInBase64": "str",  # Base64 encoded contents of the attachment. Required.
+            "contentType": "str",  # MIME type of the content being attached. Required.
+            "name": "str"  # Name of the attachment. Required.
+        }
+    ],
+    "disableUserEngagementTracking": bool,  # Optional. Indicates whether user engagement tracking should be disabled for this request if the resource-level user engagement tracking setting was already enabled in the control plane.
+    "headers": {
+        "str": "str"  # Optional. Custom email headers to be passed.
+    },
+    "replyTo": [
+        {
+            "address": "str",  # Email address. Required.
+            "displayName": "str"  # Optional. Email display name.
+        }
+    ]
+}
+
+response = {
+    "id": "str",  # The unique id of the operation. Uses a UUID. Required.
+    "status": "str",  # Status of operation. Required. Known values are:
+        "NotStarted", "Running", "Succeeded", "Failed", and "Canceled".
+    "error": {
+        "additionalInfo": [
+            {
+                "info": {},  # Optional. The additional info.
+                "type": "str"  # Optional. The additional info type.
+            }
+        ],
+        "code": "str",  # Optional. The error code.
+        "details": [
+            ...
+        ],
+        "message": "str",  # Optional. The error message.
+        "target": "str"  # Optional. The error target.
+    }
+}
+```
 
 ## Authenticate the client
 
@@ -91,11 +155,11 @@ For simplicity, this quickstart uses connection strings, but in production envir
 ## Send an email message
 
 To send an email message, you need to
-- Construct the EmailMessage with the following:
+- Construct the message with the following values:
    - `senderAddress`: A valid sender email address, found in the MailFrom field in the overview pane of the domain linked to your Email Communication Services Resource.
    - `recipients`: An object with a list of email recipients, and optionally, lists of CC & BCC email recipients. 
    - `content`: An object containing the subject, and optionally the plaintext or HTML content, of an email message.
-- Call the begin_send method, which will return the result of the operation. 
+- Call the begin_send method, which returns the result of the operation. 
 
 ```python
 message = {
@@ -175,7 +239,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ### Send an email message to multiple recipients
 
-We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `to`, `cc`, or `bcc` recipients lists accordingly.
+We can define multiple recipients by adding more EmailAddresses to the EmailRecipients object. These addresses can be added as `to`, `cc`, or `bcc` recipient lists accordingly.
 
 ```python
 message = {
@@ -202,7 +266,7 @@ message = {
 }
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
 
 ### Send an email message with attachments
@@ -242,4 +306,4 @@ message = {
 }
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
