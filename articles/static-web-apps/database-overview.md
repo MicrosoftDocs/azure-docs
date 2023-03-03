@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -87,7 +87,7 @@ This command starts the SWA CLI in the *src* directory. The `--data-api-location
 
 When you define an entity in the *staticwebapp.database.config.json* file, you can specify a list of roles required to access an entity endpoint.
 
-The following the following [configuration](database-configuration.md) fragment requires the *admin* role to access all actions (`create`, `read`, `update`, `delete`) on the *orders* entity.
+The following [configuration](database-configuration.md) fragment requires the *admin* role to access all actions (`create`, `read`, `update`, `delete`) on the *orders* entity.
 
 ```json
 {

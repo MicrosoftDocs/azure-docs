@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -263,7 +263,7 @@ Use the following steps to create a connection between the Static Web Apps insta
 
 ## Verify that your database is connected to your Static Web Apps resource
 
-Once you have connected your database to your Static Web Apps resource and that your new static web app content has been built and deployed, use the following steps to verify that your database has been properly connected to your Static Web Apps resource.
+Once you've connected your database to your static web app and the site is finished building, use the following steps to verify the database connection.
 
 1. Open your static web app in the Azure portal.
 

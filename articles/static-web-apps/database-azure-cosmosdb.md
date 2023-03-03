@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/01/2023
+ms.date: 03/03/2023
 ---
 
 # Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps (preview)
@@ -130,21 +130,34 @@ Next, create the configuration file that your static web app uses to interface w
 
     To install, use `npm install`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm install -g @azure/static-web-apps-cli
     ```
+
+    # [PowerShell](#tab/powershell)
+    
     ```powershell
     npm install -g @azure/static-web-apps-cli
     ```
+    ---
 
     To update, use `npm update`.
 
+    # [Bash](#tab/bash)
+
     ```bash
     npm update
     ```
+
+    # [PowerShell](#tab/powershell)
+
     ```powershell
     npm update
     ```
+
+    ---
     
 1. Use the `swa db init` command to generate a database configuration file.
 
@@ -625,17 +638,18 @@ Use the following steps to create a connection between the Static Web Apps insta
 
 ## Verify that your database is connected to your Static Web Apps resource
 
-Once you have connected your database to your Static Web Apps resource and that your new static web app content has been built and deployed, use the following steps to verify that your database has been properly connected to your Static Web Apps resource.
+Once you've connected your database to your static web app and the site is finished building, use the following steps to verify the database connection.
 
 1. Open your static web app in the Azure portal.
 
 1. In the *Essentials* section, select the **URL** of your Static Web Apps resource to navigate to your static web app.
 
 1. Select the **List** button to list all items.
-	
+
 	    The output should resemble what's shown in this screenshot.
+
 	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
-	    
+
 ## Clean up resources
 
 If you want to remove the resources created during this tutorial, you need to unlink the database and remove the sample data.

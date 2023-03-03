@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -258,13 +258,13 @@ Use the following steps to create a connection between the Static Web Apps insta
     | Subscription | Select your Azure subscription from the dropdown list. |
     | Resource Name | Select the database server name that has your desired database. |
     | Database Name | Select the name of the database you want to link to your static web app. |
-    | Authentication Type | Select **Connection string**, and enter the PostgreSQL user name and password. For PostgreSQL Single Server, do not include the `@servername` suffix. |
+    | Authentication Type | Select **Connection string**, and enter the PostgreSQL user name and password. For PostgreSQL Single Server, don't include the `@servername` suffix. |
 
 1. Select **OK**.
 
 ## Verify that your database is connected to your Static Web Apps resource
 
-Once you have connected your database to your Static Web Apps resource and that your new static web app content has been built and deployed, use the following steps to verify that your database has been properly connected to your Static Web Apps resource.
+Once you've connected your database to your static web app and the site is finished building, use the following steps to verify the database connection.
 
 1. Open your static web app in the Azure portal.
 
