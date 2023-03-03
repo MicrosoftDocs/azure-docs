@@ -102,7 +102,7 @@ When using an IaC template, specify the following arguments in the `properties.c
 
 ---
 
-The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple-revision mode, changes to these settings won't create a new revision. Instead, all existing revisions is restarted to ensure they're configured with the most up-to-date values.
+The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple-revision mode, changes to these settings won't create a new revision. Instead, all existing revisions are restarted to ensure they're configured with the most up-to-date values.
 
 ## Dapr components
 
