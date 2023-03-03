@@ -32,7 +32,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
 1. Provide the Connection String. This can be found in the [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
-    :::image type="content" source="../../media/logic-app/azure-portal-connection-string.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource." lightbox="./media/logic-app/azure-portal-connection-string.png":::
+    :::image type="content" source="../../media/logic-app/azure-communication-services-portal-connection-string.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource." lightbox="./media/logic-app/azure-portal-connection-string.png":::
 
 1. Provide a Connection Name
 
