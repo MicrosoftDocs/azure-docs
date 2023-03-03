@@ -1,5 +1,5 @@
 ---
-title: How to set up a sensor.
+title: How to set up a sensor in Azure Data Manager for Agriculture
 description: Provides step by step guidance to integrate Sensor as a customer
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour

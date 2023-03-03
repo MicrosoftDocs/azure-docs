@@ -1,5 +1,5 @@
 ---
-title: Our hierarchy model. 
+title: Hierarchy model in Azure Data Manager for Agriculture 
 description: Provides information on the data model to organize your agriculture data. 
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
@@ -9,7 +9,7 @@ ms.date: 02/14/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Hierarchy model
+# Hierarchy model to organize agriculture related data
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -17,8 +17,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
-![Screenshot showing farm hierarchy model.](./media/data-model.png)
-
+>:::image type="content" source="./media/data-model.png" alt-text="Screenshot showing farm hierarchy model.":::
 
 ## Understanding farm hierarchy
 
@@ -61,4 +60,4 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ## Next steps
 
-* Test our APIs [here](https://review.learn.microsoft.com/rest/api/data-manager-for-agri)
+* Test our APIs [here](/rest/api/data-manager-for-agri)
