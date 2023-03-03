@@ -11,10 +11,12 @@
   items:
       - name: Workload identity federation
         href: workload-identity-federation.md
-      - name: Applications and service principalsNoBC
-        href: ../develop/app-objects-and-service-principals.md     
       - name: Applications and service principals
         href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json     
+      - name: Managed identities
+        href: ../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: How and why applications are added to Azure AD
+        href: ../develop/active-directory-how-applications-are-added.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Connect without secrets
