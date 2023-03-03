@@ -1,7 +1,7 @@
 ---
 title: Set up MLOps with GitHub
 titleSuffix: Azure Machine Learning
-description: Learn how to set up a sample MLOps environment in AzureML with GitHub Actions
+description: Learn how to set up a sample MLOps environment in Azure Machine Learning with GitHub Actions
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.subservice: mlops
 ms.date: 11/29/2022
 ms.topic: conceptual
-ms.custom: cli-v2, sdk-v2
+ms.custom: cli-v2, sdk-v2, github-actions-azure
 ---
 
 # Set up MLOps with GitHub
@@ -19,13 +19,13 @@ ms.custom: cli-v2, sdk-v2
 
 Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
-* Deployment of AzureML infrastructure
+* Deployment of Azure Machine Learning infrastructure
 * Data preparation (extract, transform, load operations)
 * Training machine learning models with on-demand scale-out and scale-up
 * Deployment of machine learning models as public or private web services
 * Monitoring deployed machine learning models (such as for performance analysis)
 
-In this article, you learn about using Azure Machine Learning to set up an end-to-end MLOps pipeline that runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. you're going to be using the [recommended Azure architecture for MLOps](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly setup an MLOps project in AzureML.
+In this article, you learn about using Azure Machine Learning to set up an end-to-end MLOps pipeline that runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. you're going to be using the [recommended Azure architecture for MLOps](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly setup an MLOps project in Azure Machine Learning.
 
 > [!TIP]
 > We recommend you understand some of the [recommended Azure architectures](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) for MLOps before implementing any solution. You'll need to pick the best architecture for your given Machine learning project.
