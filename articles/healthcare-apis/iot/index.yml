@@ -53,9 +53,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Device mappings
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: Device mapping
             url: how-to-configure-device-mappings.md
-          - text: FHIR destination mappings
+          - text: FHIR destination mapping
             url: how-to-configure-fhir-mappings.md 
  
   - title: Monitor the MedTech service
