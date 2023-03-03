@@ -29,8 +29,8 @@
         href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
-    - name: Securing workload identities with Identity Protection
-      href: 
+    - name: Enforce access controls with risk-based Conditional Access
+      href: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: Reference
   items:
     - name: Federated identity credentials considerations and limitations
