@@ -54,9 +54,7 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
     service-provider side. For an ExpressRoute circuit to be operational,
     Circuit status must be Enabled, and Provider status must be
     Provisioned
-<<<<<<< HEAD
 - Set up Azure Key Vault to store encryption and security tokens, service principals,
-=======
   passwords, certificates, and API keys
 - Set up Log Analytics WorkSpace (LAW) to store logs and analytics data for
   Operator Nexus subcomponents (Network Fabric, Cluster, etc.)
