@@ -69,10 +69,15 @@ az group create --name myResourceGroup --location eastus
 az acr create --resource-group myResourceGroup --name acrName --sku Basic
 az acr login --name acrName
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Expected output:
+
+```sh
 acrName.azurecr.io
 ```
 
-Tag the [Docker image](#prepare-the-docker-image) you prepared earlier to your new ACR.
+Tag the [Docker image](#prepare-the-docker-image) you prepared earlier to your new ACR using the result from the ACR query:
 
 ```sh
 docker tag ghcr.io/<your-repo>/dwf-sample:0.1.0 acrName.azurecr.io/dwf-sample:0.1.0
