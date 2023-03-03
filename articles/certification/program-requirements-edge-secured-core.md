@@ -281,7 +281,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.Identity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Description|The purpose of the test is to validate the device identify is rooted in hardware.|||
-|Requirements dependency||TPM v2.0 device|TPM v2.0 or <sup>*<sup>other supported method|
+|Requirements dependency||TPM v2.0 device|TPM v2.0 <sup>or *other supported method</sup>|
 |Status|Required|2023|2023|
 |Validation Type|Manual/Tools|||
 |Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
@@ -293,9 +293,9 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
+|Description|The purpose of the test is to validate ensure that memory integrity helps protect the device from vulnerable peripherals.|
 |Validation Type|Manual/Tools|
-|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
+|Validation|memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System memory management Unit).|
 |Resources||
 
 </br>
@@ -327,21 +327,21 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
 |Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Dependency||TPM 2.0|To be announced|
+|Dependency||TPM 2.0|TPM 2.0 <sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+|Validation|Device to be validated through toolset to ensure that platform boot logs and applicable runtime measurements can be collected and remotely attested to the Microsoft Azure Attestation service.|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml) </br> Certification portal test includes an attestation client that when combined with the TPM 2.0 can validate the Microsoft Azure Attestation service.|
 
 ---
 </br>
 
 |Name|SecuredCore.Hardware.SecureEnclave|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Optional|Comming soon|Comming soon|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
+|Status|Required|Future|Future|
+|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave can be used for security functions.|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
-|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
+|Validation||
+|Resources||
 
 ## Linux Configuration Requirements
 
@@ -381,7 +381,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
-|Status|Required|2023|2023|
+|Status|<sup>*</sup>Required|2023|2023|
 |Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
@@ -393,9 +393,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Built-in.Security|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
+|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Microsoft Defender for IoT.|
 |Validation Type|Manual/Tools|
-|Validation	|<ol><li>Device must generate security logs and alerts.</li><li>Device logs and alerts messages to Azure Security Center.</li><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
+|Validation	|<ol><li>Device must generate security logs and alerts.</li><li>Device logs and alerts messages to Azure Security Center.</li><li>Device must have the Azure Defender for IoT microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
@@ -404,10 +404,10 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Manageability.Configuration|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the test is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
+|Description|The purpose of the test is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.|
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
-|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol>|
+|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
 |Resources||
 
 ---
