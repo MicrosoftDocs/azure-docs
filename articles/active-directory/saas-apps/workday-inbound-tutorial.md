@@ -20,6 +20,11 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
 >* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
 
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube.com/watch?v=TfndXBlhlII] 
+
+
 ## Overview
 
 The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
