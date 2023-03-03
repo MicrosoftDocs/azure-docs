@@ -19,7 +19,7 @@ ms.custom: mlops #add more custom tags
 <!-- > [!TIP]
 > Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb)**. -->
 
-# Deploy a model as an online endpoint
+# Tutorial: Deploy a model as an online endpoint
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 

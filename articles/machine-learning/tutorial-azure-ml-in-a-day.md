@@ -14,7 +14,7 @@ ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Quickstart: Azure Machine Learning in a day
+# Quickstart: First look at Azure Machine Learning
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -48,7 +48,7 @@ The *training script* handles the data preparation, then trains and registers a 
 >
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/quickstart-azureml/quickstart-azure-ml.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/quickstart/quickstart.ipynb -->
 
 
 ## Connect to the workspace

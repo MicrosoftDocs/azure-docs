@@ -14,7 +14,7 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
-# Tutorial: Create production Machine Learning pipelines with Python SDK v2 in a Jupyter notebook
+# Tutorial: Create production Machine Learning pipelines
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -82,7 +82,7 @@ Before creating the pipeline, you need the following resources:
 
 Before we dive in the code, you need to connect to your Azure Machine Learning  workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=import-mlclient)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=import-mlclient)]
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 
@@ -92,7 +92,7 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=ml_client)]
 
 The result is a handler to the workspace that you use to manage other resources and jobs.
 
@@ -105,13 +105,13 @@ If you have been following along with the other tutorials in this series and alr
  
 Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=credit_data)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=credit_data)]
 
 This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the data to your workspace so it becomes reusable across pipelines.
 
 Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you then see the dataset registration completion message.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-credit_data)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=update-credit_data)]
 
 In the future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`.
 
@@ -126,7 +126,7 @@ For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model 
 > [!TIP]
 > If you already have a compute cluster, replace "cpu-cluster" in the next code block with the name of your cluster.  This will keep you from creating another one.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=cpu_cluster)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=cpu_cluster)]
 
 ### Create a job environment for pipeline steps
 
@@ -135,11 +135,11 @@ So far, you've created a development environment on the compute instance, your d
 In this example, you create a conda environment for your jobs, using a conda yaml file.
 First, create a directory to store the file in.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=dependencies_dir)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=dependencies_dir)]
 
 Now, create the file in the dependencies directory.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=conda.yml)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=conda.yml)]
 
 The specification contains some usual packages, that you use in your pipeline (numpy, pip), together with some Azure Machine Learning specific packages (azureml-defaults, azureml-mlflow).
 
@@ -147,7 +147,7 @@ The Azure Machine Learning packages aren't mandatory to run Azure Machine Learni
 
 Use the *yaml* file to create and register this custom environment in your workspace:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=custom_env_name)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=custom_env_name)]
 
 ## Build the training pipeline
 
@@ -169,19 +169,19 @@ Let's start by creating the first component. This component handles the preproce
 
 First create a source folder for the data_prep component:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_src_dir)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=data_prep_src_dir)]
 
 This script performs the simple task of splitting the data into train and test datasets. Azure Machine Learning mounts datasets as folders to the computes, therefore, we created an auxiliary `select_first_file` function to access the data file inside the mounted input folder.
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our pipeline run.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=def-main)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=def-main)]
 
 Now that you have a script that can perform the desired task, create an Azure Machine Learning Component from it.
 
 Use the general purpose **CommandComponent** that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_component)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=data_prep_component)]
 
 Optionally, register the component in the workspace for future reuse.
 
@@ -193,11 +193,11 @@ You used the `CommandComponent` class to create your first component. This time 
 
 Create the directory for this component:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_src_dir)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train_src_dir)]
 
 Create the training script in the directory:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.py)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train.py)]
 
 As you can see in this training script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
@@ -205,13 +205,13 @@ For the environment of this step, you use one of the built-in (curated) Azure Ma
 
 First, create the *yaml* file describing the component:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.yml)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train.yml)]
 
 Now create and register the component:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_component)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train_component)]
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-train_component)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=update-train_component)]
 
 ### Create the pipeline from components
 
@@ -225,11 +225,11 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=pipeline)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=pipeline)]
 
 Now use your pipeline definition to instantiate a pipeline with your dataset, split rate of choice and the name you picked for your model.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=registered_model_name)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=registered_model_name)]
 
 ## Submit the job
 
@@ -239,7 +239,7 @@ Here you also pass an experiment name. An experiment is a container for all the 
 
 Once completed, the pipeline registers a model in your workspace as a result of training.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=returned_job)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=returned_job)]
 
 An output of "False" is expected from the previous cell. You can track the progress of your pipeline, by using the link generated in the previous cell.
 
@@ -268,7 +268,7 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 > [!NOTE]
 > Expect this step to take approximately 6 to 8 minutes.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.begin_delete)]
+[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=ml_client.online_endpoints.begin_delete)]
 
 ## Next steps
 

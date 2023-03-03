@@ -14,7 +14,7 @@ ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
-# Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
+# Tutorial: Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 

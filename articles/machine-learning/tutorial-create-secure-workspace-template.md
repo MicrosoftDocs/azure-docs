@@ -1,5 +1,5 @@
 ---
-title: Use a template to create a secure workspace
+title: "Use a template to create a secure workspace"
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
@@ -12,7 +12,7 @@ author: jhirono
 ms.date: 12/02/2021
 ms.topic: tutorial
 ---
-# How to create a secure workspace by using template
+# Tutorial: How to create a secure workspace by using template
 
 Templates provide a convenient way to create reproducible service deployments. The template defines what will be created, with some information provided by you when you use the template. For example, specifying a unique name for the Azure Machine Learning workspace.
 

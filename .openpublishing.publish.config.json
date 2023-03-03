@@ -393,6 +393,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-tutorials",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "new-tutorial-series",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
