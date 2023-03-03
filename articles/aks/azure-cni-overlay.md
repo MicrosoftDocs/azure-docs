@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/24/2023
+ms.date: 02/27/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -45,7 +45,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows Server 2022                                            | Linux only                                                                    |
+| OS platforms supported       | Linux and Windows Server 2022                                    | Linux only                                                                    |
 
 ## IP address planning
 
@@ -151,6 +151,22 @@ location="westcentralus"
 
 az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
 ```
+
+## Upgrade existing clusters
+
+To update an existing cluster to use Azure CNI overlay, there are a couple prerequisites:
+
+1. The cluster must use Azure CNI without the pod subnet feature.
+1. The cluster is _not_ using network policies.
+1. The Overlay Pod CIDR needs to be an address range that _does not_ overlap with the existing cluster's VNet.
+
+To update a cluster, run the following Azure CLI command. 
+
+```azurecli
+az aks update --name $clusterName --resource-group $resourceGroup --network-plugin azure --network-plugin-mode overlay --pod-cidr $overlayPodCidr
+```
+
+This will perform a rolling upgrade of nodes in **all** nodepools simultaneously to Azure CNI overlay and should be treated like a node image upgrade. During the upgrade, traffic from an Overlay pod to a CNI v1 pod will be SNATed(Source Network Address Translation)
 
 ## Next steps
 
