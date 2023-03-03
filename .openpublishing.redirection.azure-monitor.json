@@ -36,6 +36,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-web-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-function-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-function-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/web-app-extension-release-notes.md",
             "redirect_url": "/azure/azure-monitor/app/azure-web-apps",
             "redirect_document_id": false
