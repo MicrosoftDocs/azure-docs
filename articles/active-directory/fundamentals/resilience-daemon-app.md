@@ -53,15 +53,15 @@ If you don't use MSAL for authentication and authorization, there are best pract
 
 An application acquires tokens from an identity provider (IdP) to authorize the application to call protected APIs. When your app receives tokens, the response with the tokens contains an `expires\_in` property that tells the application how long to cache, and reuse, the token. Ensure applications use the `expires\_in` property to determine token lifespan. Confirm application don't attempt to decode an API access token. Using the cached token prevents unnecessary traffic between an app and Microsoft identity platform. Users are signed in to your application for the token's lifetime.
 
-## HTTP 429 and 5x error codes
+## HTTP 429 and 5xx error codes
 
-Use the following sections to learn about HTTP 429 and 5x error codes
+Use the following sections to learn about HTTP 429 and 5xx error codes
 
 ### HTTP 429
 
-There are some error responses that affect resilience. If your application receives an HTTP 429 error code, Too Many Requests, Microsoft identity platform is throttling your requests, which prevents your app from receiving tokens. Ensure your apps don't attempt to acquire a token until the time in the **Retry-After** response field expires. The 429 error often indicates the application doesn't cache and reuse tokens correctly.
+There are HTTP errors that affect resilience. If your application receives an HTTP 429 error code, Too Many Requests, Microsoft identity platform is throttling your requests, which prevents your app from receiving tokens. Ensure your apps don't attempt to acquire a token until the time in the **Retry-After** response field expires. The 429 error often indicates the application doesn't cache and reuse tokens correctly.
 
-### HTTP 5x
+### HTTP 5xx
 
 If an application receives an HTTP 5x error code, the app must not enter a fast retry loop. Ensure applications wait until the **Retry-After** field expires. If the response provides no Retry-After header, use an exponential back-off retry with the first retry, at least 5 seconds after the response.
 
