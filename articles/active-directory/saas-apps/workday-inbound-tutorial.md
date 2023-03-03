@@ -83,7 +83,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 Configuring Workday to Active Directory user provisioning requires considerable planning covering different aspects such as:
 * Setup of the Azure AD Connect provisioning agent 
 * Number of Workday to AD user provisioning apps to deploy
-* Selecting the the right matching identifier, attribute mapping, transformation and scoping filters
+* Selecting the right matching identifier, attribute mapping, transformation and scoping filters
 
 Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines and recommended best practices. 
 
