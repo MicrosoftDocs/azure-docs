@@ -19,10 +19,6 @@ items:
         href: quickstarts/identity/access-tokens.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Quick-create identities for testing
-        href: quickstarts/identity/quick-create-identity.md
-      - name: Create identities and tokens in Azure Logic Apps
-        href: quickstarts/identity/logic-app.md
   - name: Chat
     items:
       - name: Add chat to your app
