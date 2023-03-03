@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/03/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
