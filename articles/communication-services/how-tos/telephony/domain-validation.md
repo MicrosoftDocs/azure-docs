@@ -1,3 +1,17 @@
+---
+title: Azure Communication Services direct routing domain validation
+description: A how-to page about domain validation for direct routing.
+services: azure-communication-services
+author: boris-bazilevskiy
+
+ms.service: azure-communication-services
+ms.subservice: pstn
+ms.date: 03/03/2023
+ms.topic: how-to
+ms.custom: include file
+ms.author: nikuklic
+---
+
 # Domain validation
 
 ACS direct routing configuration consist of the following steps:

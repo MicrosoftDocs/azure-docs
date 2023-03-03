@@ -81,10 +81,6 @@ const sipRoutingClient = new SipRoutingClient(connectionString);
 
 ## Setup direct routing configuration
 
-### Verify Domain Ownership
-
-[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
-
 ### Create Trunks
 
 Register your SBCs by providing their fully qualified domain names and port numbers.
@@ -133,10 +129,8 @@ Use the node command to run the code you added to the `direct-routing-quickstart
 	node direct-routing-quickstart.js
 ```
 
+More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
+
 ## Updating existing configuration
 
 ## Removing a direct routing configuration
-
-
-> [!NOTE]
-> More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-phone-numbers/README.md#siproutingclient).

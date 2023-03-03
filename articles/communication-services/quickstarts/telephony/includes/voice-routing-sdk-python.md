@@ -1,6 +1,6 @@
 ---
 title: include file
-description: A quickstart on how to use Number Management JavaScript SDK to configure direct routing.
+description: A quickstart on how to use Number Management Python SDK to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
 
