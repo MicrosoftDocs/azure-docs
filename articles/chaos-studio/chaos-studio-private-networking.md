@@ -9,10 +9,12 @@ ms.author: prashabora
 ms.service: chaos-studio
 ---
 # VNet Injection in Chaos Studio
+
 VNet is the fundamental building block for your private network in Azure. VNet enables many Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network you would operate in your own data center. However, VNet also has the benefits of Azure infrastructure, scale, availability, and isolation.
 
 ## How VNet Injection works in Chaos Studio
-VNet injection allows Chaos resource provider to inject containerized workloads into your VNet. This means that resources without public endpoints can be accessed via a private IP address on the VNet. Below are the steps you can follow for vnet injection:
+
+VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet. To configure VNet injection:
 
 1. Register the `Microsoft.ContainerInstance` resource provider with your subscription (if applicable).
 
@@ -26,13 +28,31 @@ VNet injection allows Chaos resource provider to inject containerized workloads 
     az provider show --namespace 'Microsoft.ContainerInstance' | grep registrationState
     ```
 
-    You should see output similar to the following:
+    In the output, you should see something similar to:
 
     ```bash
     "registrationState": "Registered",
     ```
 
-2. Re-register the `Microsoft.Chaos` resource provider with your subscription.
+1. Register the `Microsoft.Relay` resource provider with your subscription.
+
+    ```bash
+    az provider register --namespace 'Microsoft.Relay' --wait
+    ```
+
+    Verify the registration by running the following command:
+
+    ```bash
+    az provider show --namespace 'Microsoft.Relay' | grep registrationState
+    ```
+
+    In the output, you should see something similar to:
+
+    ```bash
+    "registrationState": "Registered",
+    ```
+
+1. Re-register the `Microsoft.Chaos` resource provider with your subscription.
 
     ```bash
     az provider register --namespace 'Microsoft.Chaos' --wait
@@ -44,34 +64,52 @@ VNet injection allows Chaos resource provider to inject containerized workloads 
     az provider show --namespace 'Microsoft.Chaos' | grep registrationState
     ```
 
-    You should see output similar to the following:
+    In the output, you should see something similar to:
 
     ```bash
     "registrationState": "Registered",
     ```
 
-3. Create a subnet named `ChaosStudioSubnet` in the VNet you want to inject into. And delegate the subnet to `Microsoft.ContainerInstance/containerGroups` service.
+1. Create two subnets in the VNet you want to inject into:
 
-4. Set the `properties.subnetId` property when you create or update the Target resource. The value should be the resource ID of the subnet created in step 3.
+    - `ChaosStudioContainerSubnet`
+        - Delegate the subnet to `Microsoft.ContainerInstance/containerGroups` service.
+        - This subnet must have at least /28 in address space
+    - `ChaosStudioRelaySubnet`
+        - This subnet must have at least /28 in address space
+
+1. Set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` properties when you create or update the Target resource. The value should be the resource ID of the subnet created in step 3.
 
     Replace `$SUBSCRIPTION_ID` with your Azure subscription ID, `$RESOURCE_GROUP` and `$AKS_CLUSTER` with the resource group name and your AKS cluster resource name. Also, replace `$AKS_INFRA_RESOURCE_GROUP` and `$AKS_VNET` with your AKS's infrastructure resource group name and VNet name.
 
     ```bash
-    URL=https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER/providers/Microsoft.Chaos/targets/microsoft-azurekubernetesservicechaosmesh?api-version=2022-10-01-preview
-    SUBNET_ID=/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$AKS_INFRA_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$AKS_VNET/subnets/ChaosStudioSubnet
-    BODY="{ \"properties\": { \"subnetId\": \"$SUBNET_ID\" } }"
+    CONTAINER_SUBNET_ID=/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$AKS_INFRA_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$AKS_VNET/subnets/ChaosStudioContainerSubnet
+    RELAY_SUBNET_ID=/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$AKS_INFRA_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$AKS_VNET/subnets/ChaosStudioRelaySubnet
+    BODY="{ \"properties\": { \"subnets\": { \"containerSubnetId\": \"$CONTAINER_SUBNET_ID\", \"relaySubnetId\": \"$RELAY_SUBNET_ID\" } } }"
     az rest --method put --url $URL --body "$BODY"
     ```
 
-5. Start the experiment.
+1. Start the experiment.
 
 ## Limitations
-* At present the VNet injection will only be possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. They are deployed to target regions.
-* When you create a Target resource that you would like to enable with VNet injection, you will need Microsoft.Network/virtualNetworks/subnets/write access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You will have to specify a subnet (in VNet_A) that the container will be deployed to.
+* VNet injection is currently only possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. They're deployed to target regions.
+* When you create a Target resource that you'll enable with VNet injection, you need Microsoft.Network/virtualNetworks/subnets/write access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You have to specify a subnet (in VNet_A) that the container will be deployed to.
 
 Request Body when created Target resource with VNet injection enabled:
 
+```json
+{
+  "properties": {
+    "subnets": {
+      "containerSubnetId": "/subscriptions/.../subnets/ChaosStudioContainerSubnet",
+      "relaySubnetId": "/subscriptions/.../subnets/ChaosStudioRelaySubnet"
+    }
+  }
+}
+```
+<!--
 ![Target resource with VNet Injection](images/chaos-studio-rp-vnet-injection.png)
+-->
 
 ## Next steps
 Now that you understand how VNet Injection can be achieved for Chaos Studio, you're ready to:
