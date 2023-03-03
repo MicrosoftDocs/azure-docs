@@ -112,6 +112,7 @@ az arcdata dc create --name arc-dc1 --resource-group $ENV:resourceGroup --custom
 
 ---
 
+<!---
 ## Deploy - individual experience
  
 ### Step 1: Create an Azure Arc-enabled data services extension
@@ -310,6 +311,8 @@ az arcdata dc create --name <name> --resource-group <resourcegroup> --location <
 # Example
 az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom --auto-upload-metrics true --custom-location mycustomlocation
 ```
+
+--->
 
 ## Monitor the status of Azure Arc data controller deployment
 
