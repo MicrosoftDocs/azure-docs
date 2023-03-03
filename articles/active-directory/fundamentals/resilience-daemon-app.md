@@ -18,6 +18,8 @@ Learn to use the Microsoft identity platform and Azure Active Directory (Azure A
 
 See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 
+The following diagram illustrates a daemon application making a call to Microsoft identity platform.
+
    ![A daemon application making a call to Microsoft identity platform.](media/resilience-daemon-app/calling-microsoft-identity.png)
 
 ## Managed identities for Azure resources
