@@ -45,7 +45,7 @@ If you share gallery resources to someone outside of your Azure tenant, they wil
 > [!IMPORTANT]
 > RBAC sharing can be used to share resources with users within the organization (or) users outside the organization (cross-tenant). When the resource is shared with RBAC, please see instructions here to consume the image:
 > 
-> [RBAC - Shared within your organization](https://learn.microsoft.com/en-us/azure/virtual-machines/vm-generalized-image-version?tabs=cli#rbac---shared-within-your-organization)
+> [RBAC - Shared within your organization](https://learn.microsoft.com/azure/virtual-machines/vm-generalized-image-version?tabs=cli#rbac---shared-within-your-organization)
 > 
 > [RBAC - Shared from another tenant](https://learn.microsoft.com/azure/virtual-machines/vm-generalized-image-version?tabs=cli#rbac---shared-from-another-tenant)
 > 
