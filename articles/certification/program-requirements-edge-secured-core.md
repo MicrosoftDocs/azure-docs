@@ -136,7 +136,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.CodeIntegrity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of this test is to validate that code integrity is available on this device.|
+|Description|The purpose of this requirement is to validate that code integrity is available on this device.|
 |Requirements dependency|HVCI is enabled on the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that HVCI is enabled on the device.|
@@ -203,7 +203,7 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
+|Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
 |Requirements dependency||
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
@@ -356,7 +356,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.CodeIntegrity|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of this test is to validate that authorized code runs with least privilege.|
+|Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
 |Resources||
@@ -447,7 +447,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
+|Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
 |Resources||
@@ -507,7 +507,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the device identify is rooted in hardware.||
-|Requirements dependency|||
 |Validation Type|Pre-validated, no additional validation is required||
 |Validation|Provided by Microsoft||
 |Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)||
@@ -552,7 +551,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Dependency|||
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
 |Resources||
@@ -568,7 +566,7 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Validation|Provided by Microsoft|
 |Resources||
 
-## Linux Configuration Requirements
+## Sphere OS Configuration Requirements
 
 ---
 |Name|SecuredCore.Encryption.Storage|Sphere|
@@ -596,10 +594,9 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Protection.CodeIntegrity|Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this test is to validate that authorized code runs with least privilege.|
+|Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ---
 </br>
@@ -610,7 +607,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ---
 </br>
@@ -621,7 +617,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of this requirement is to validate that applications cannot connect to endpoints that have not been authorized.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 
 ## Sphere Software/Service Requirements
@@ -641,10 +636,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate the device supports remote adiministration via service-based configuration control.|
-|Dependency||
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ---
 </br>
@@ -655,7 +648,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ---
 </br>
@@ -664,10 +656,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration|
-|Dependency|azure-osconfig|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 ---
 </br>
@@ -678,7 +668,6 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Description|The purpose of the requirement is to validate that updates must be signed.|
 |Validation Type|Automated|
 |Validation|Provided by Microsoft|
-|Resources||
 
 
 
