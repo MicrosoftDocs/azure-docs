@@ -48,7 +48,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 - Mateo doesn't have to create local logins in each SQL server.
 - The policies from Microsoft Purview improve security by limiting local privileged access. They support the Principle of Least Privilege (PoLP). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring system health and performance.
 - When new SQL servers are added to the resource group, Mateo doesn't need to update the policy in Microsoft Purview for it to be enforced on the new SQL servers.
-- If Alice or Bob leave their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
+- If Alice or Bob leaves their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
 - At any point in time, Mateo or the company’s auditor can see all the permissions that were granted directly in Microsoft Purview Studio.
 
 | **Principle** | **Benefit** |
