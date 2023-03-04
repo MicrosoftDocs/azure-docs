@@ -14,7 +14,7 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 
 Microsoft's supported solution for tracking and exporting data for your Python applications is through the [OpenCensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
 
-Any other telemetry SDKs for Python *are unsupported and are not recommended* by Microsoft to use as a telemetry solution.
+Microsoft doesn't recommend using any other telemetry SDKs for Python as a telemetry solution because they're unsupported.
 
 OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). We continue to recommend OpenCensus while OpenTelemetry gradually matures.
 
@@ -80,7 +80,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
     Log Entry - 4
     ```
 
-1. We want to see this log data to Azure Monitor. You can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. You may also pass the connection_string directly into the `AzureLogHandler`, but connection strings should not be added to version control.
+1. We want to see this log data to Azure Monitor. You can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. You may also pass the connection_string directly into the `AzureLogHandler`, but connection strings shouldn't be added to version control.
 
 ```shell
 APPLICATIONINSIGHTS_CONNECTION_STRING=<appinsights-connection-string>
@@ -105,7 +105,7 @@ for num in range(5):
 
 1. The exporter sends log data to Azure Monitor. You can find the data under `traces`.
 
-    In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](./distributed-tracing.md).
+    In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](./distributed-tracing.md).
 
     > [!NOTE]
     > The root logger is configured with the level of `warning`. That means any logs that you send that have less severity are ignored, and in turn, won't be sent to Azure Monitor. For more information, see [Logging documentation](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
@@ -233,11 +233,11 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
 - **Count**: The count of the number of measurement points. The value is cumulative, can only increase, and resets to 0 on restart.
 - **Sum**: A sum up of the measurement points. The value is cumulative, can only increase, and resets to 0 on restart.
 - **LastValue**: Keeps the last recorded value and drops everything else.
-- **Distribution**: Histogram distribution of the measurement points. *This method is not supported by the Azure exporter*.
+- **Distribution**: The Azure exporter doesn't support the histogram distribution of the measurement points.
 
 ### Count aggregation example
 
-1. First, let's generate some local metric data. We'll create a metric to track the number of times the user selects the **Enter** key.
+1. First, let's generate some local metric data. We create a metric to track the number of times the user selects the **Enter** key.
 
     ```python
 
@@ -275,7 +275,7 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
         main()
     ```
 
-1. Metrics are created to track a number of times. With each entry, the value is incremented and the metric information appears in the console. The information includes the current value and the current time stamp when the metric was updated.
+1. Metrics are created to track many times. With each entry, the value is incremented and the metric information appears in the console. The information includes the current value and the current time stamp when the metric was updated.
 
     ```output
     Point(value=ValueLong(5), timestamp=2019-10-09 20:58:04.930426)
@@ -329,7 +329,7 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. You must set this value to 60s as Application Insights backend assumes aggregation of metrics points on a 60s time interval. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The data is cumulative, can only increase, and resets to 0 on restart.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. You must set this value to 60 seconds as Application Insights backend assumes aggregation of metrics points on a 60-second time interval. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The data is cumulative, can only increase, and resets to 0 on restart.
 
    You can find the data under `customMetrics`, but the `customMetrics` properties `valueCount`, `valueSum`, `valueMin`, `valueMax`, and `valueStdDev` aren't effectively used.
 
@@ -368,7 +368,7 @@ The OpenCensus Python SDK allows you to add custom dimensions to your metrics te
     ...
     ```
 
-1. Under the `customMetrics` table, all metrics records emitted by using `prompt_view` will have custom dimensions `{"url":"http://example.com"}`.
+1. Under the `customMetrics` table, all metric records emitted by using `prompt_view` have custom dimensions `{"url":"http://example.com"}`.
 
 1. To produce tags with different values by using the same keys, create new tag maps for them.
 
@@ -495,7 +495,7 @@ Each exporter accepts the same arguments for configuration, passed through the c
 `connection_string`| The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.|
 `credential`| Credential class used by Azure Active Directory authentication. See the "Authentication" section that follows.|
 `enable_standard_metrics`| Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.|
-`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`. For metrics you MUST set this to 60s or else your metric aggregations will not make sense in the metrics explorer.|
+`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`. For metrics, you MUST set it to 60 seconds or else your metric aggregations don't make sense in the metrics explorer.|
 `grace_period`| Used to specify the timeout for shutdown of exporters in seconds. Defaults to `5s`.|
 `instrumentation_key`| The instrumentation key used to connect to your Azure Monitor resource.|
 `logging_sampling_rate`| Used for `AzureLogHandler` and `AzureEventHandler`. Provides a sampling rate [0,1.0] for exporting logs/events. Defaults to `1.0`.|
