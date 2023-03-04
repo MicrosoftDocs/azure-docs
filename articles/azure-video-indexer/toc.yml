@@ -17,9 +17,7 @@
     href: limited-access-features.md
     displayName: Other Azure Video Indexer features, The Azure Video Indexer service, Azure Video Indexer description, Azure facial recognition service, Microsoft facial recognition services, The Face Identify, Celebrity Recognition operations, Limited Access features, Microsoft Azure Services, responsible AI practices, ms.topic, positive ways, police department, United States, Application process, intake form, sole discretion, eligibility criteria, vetting process, MicrosoftAzure/MCA#ServiceSpecificTerms, important conditions, Next steps, use cases, legal terms, Gate notice, title, article, juliako, cognitive-services, computer, vision, developers, organizations, society, rights, safety, individuals, order, misuse, accordance, issues, microsofts-facial-recognition-work, principles, registration, announcement, June, customers, time, partners, facerecognition, information, subscription, productoffering, obligations, access-account-types, Help, support, FAQ, options, abuse
   - name: Transparency note
-    items:
-    - name: Transparency note
-      href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+    href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
 - name: Quickstarts
   expanded: true
   items:
