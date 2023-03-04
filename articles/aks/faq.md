@@ -307,7 +307,24 @@ AKS nodes run the "chrony" service, which pulls time from the localhost.  Contai
 
 ## How are AKS addons updated?
 
-Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
+Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases).
+
+## What is the purpose of the AKS Linux Extension I see installed on my Linux VMSS instances?
+
+The AKS Linux Extension is an Azure VM extension whose purpose is to install and configure monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
+
+- [Node-exporter](https://github.com/prometheus/node_exporter): collects hardware telemetry from the virtual machine and makes it available via a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): aims to make various node problems visible to upstream layers in the cluster management stack. It is a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server via Events and NodeConditions.
+- [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): uses in-kernel eBPF helper programs to monitor events mainly related to syscalls from userspace programs in a pod.
+
+These tools assist in providing observability around many node health related problems such as: 
+
+- Infrastructure daemon issues: NTP service down
+- Hardware issues: Bad CPU, memory or disk
+- Kernel issues: Kernel deadlock, corrupted file system
+- Container runtime issues: Unresponsive runtime daemon 
+
+The extension **does not** require any additional outbound access to any URLs, IP Address or Port beyond the AKS egress requirements that are documented [here](./limit-egress-traffic.md) nor does the extension require any special permissions at the Azure level. It uses kubeconfig to connect to the API server to send the information/telemetry.
 
 <!-- LINKS - internal -->
 
