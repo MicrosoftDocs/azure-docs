@@ -145,10 +145,10 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: Add-on capabilities
+  - name: 🆕 Add-on capabilities (preview)
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
     href: concept-add-on-capabilities.md
-  - name: Add-on meters
+  - name: 🆕 Add-on meters (preview)
     displayName: extract, formula, font, styles, fontStyle, ocr.formula, background color, inline, display
     href: concept-add-on-meters.md
   - name: W-2 form model
