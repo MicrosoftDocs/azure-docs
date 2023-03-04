@@ -40,10 +40,8 @@
       href: quickstart-arc.md
 - name: Tutorials
   items:
-    - name: Map custom domain
-      href: app-service-web-tutorial-custom-domain.md
-    - name: Secure domain with TLS/SSL
-      href: configure-ssl-bindings.md
+    - name: Add domain and certificate
+      href: tutorial-secure-domain-certificate.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
@@ -68,6 +66,10 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
+    - name: Multi-region app
+      href: tutorial-multi-region-app.md
+    - name: N-tier app
+      href: tutorial-secure-ntier-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
     - name: Connect to Azure resource as app
@@ -227,7 +229,7 @@
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
         - name: Subdomain takeover
-          href: reference-dangling-subdomain-prevention.md                
+          href: reference-dangling-subdomain-prevention.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -249,6 +251,8 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
+        - name: Name resoulution (DNS)
+          href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics
@@ -313,7 +317,9 @@
           href: deploy-resource-manager-template.md
     - name: Map custom domain
       items:
-        - name: Buy domain
+        - name: Map your own custom domain
+          href: app-service-web-tutorial-custom-domain.md
+        - name: Buy App Service domain
           href: manage-custom-dns-buy-domain.md
         - name: Map domains with Traffic Manager
           href: configure-domain-traffic-manager.md
@@ -349,6 +355,8 @@
           href: configure-authentication-file-based.md
     - name: Secure app
       items:
+        - name: Secure custom domain with TLS/SSL
+          href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert
           href: configure-ssl-certificate.md
         - name: Restrict access
@@ -468,6 +476,10 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Routine maintenance
+      href: routine-maintenance.md
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Kudu service
       href: resources-kudu.md
     - name: Best practices
@@ -498,6 +510,8 @@
           href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+        - name: Migrate WordPress
+          href: migrate-wordpress.md
     - name: Cookbooks
       items:
         - name: Reference Architectures

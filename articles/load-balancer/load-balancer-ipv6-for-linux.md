@@ -3,16 +3,14 @@ title: Configure DHCPv6 for Linux VMs
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.topic: article
-ms.custom: FY23 content-maintenance
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/02/2022
 ms.author: mbender
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Configure DHCPv6 for Linux VMs

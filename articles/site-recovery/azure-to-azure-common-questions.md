@@ -6,6 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.date: 04/28/2022
 ms.topic: conceptual
+ms.service: site-recovery
 
 ---
 # Common questions: Azure-to-Azure disaster recovery

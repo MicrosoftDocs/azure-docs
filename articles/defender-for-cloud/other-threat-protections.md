@@ -2,8 +2,9 @@
 title: Other threat protections from Microsoft Defender for Cloud
 description: Learn about the threat protections available from Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 01/08/2023
+ms.date: 01/24/2023
 ---
+
 # Other threat protections in Microsoft Defender for Cloud
 
 In addition to its built-in [advanced protection plans](defender-for-cloud-introduction.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.

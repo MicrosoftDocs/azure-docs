@@ -56,8 +56,12 @@
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
-  - name: Security recommendations
-    href: concepts-security-recommendations.md
+  - name: Security
+    items:
+    - name: Security recommendations
+      href: concepts-security-recommendations.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -212,7 +216,7 @@
       href: deploy-vm-content-library.md
     - name: Enable HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
+    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
@@ -263,7 +267,7 @@
   - name: Pricing
     items:
       - name: Azure VMware Solution pricing        
-        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
+        href: https://azure.microsoft.com/pricing/details/azure-vmware/
       - name: Azure pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA

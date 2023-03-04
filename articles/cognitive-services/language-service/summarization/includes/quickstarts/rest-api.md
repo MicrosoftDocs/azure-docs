@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/19/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
@@ -289,6 +289,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 }
 '
 ```
+Only the `resolution` aspect supports sentenceCount. If you do not specify the `sentenceCount` parameter, the model will determine the summary's length. Note that `sentenceCount` is just the approximation of sentence count of output summary, range 1 to 7.
+
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
 - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
@@ -381,14 +383,3 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversat
 ```
 
 ---
-
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>

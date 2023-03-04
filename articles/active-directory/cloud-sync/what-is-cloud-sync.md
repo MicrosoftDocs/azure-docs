@@ -51,7 +51,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow basic customization for attribute flows |● |● |
 | Synchronize Exchange online attributes |● |● |
 | Synchronize extension attributes 1-15 |● |● |
-| Synchronize customer defined AD attributes (directory extensions) |● | |
+| Synchronize customer defined AD attributes (directory extensions) |●|●|
 | Support for Password Hash Sync |●|●|
 | Support for Pass-Through Authentication |●||
 | Support for federation |●|●|
@@ -64,7 +64,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
 | Support for password writeback |● |● |
-| Support for device writeback|● | |
+| Support for device writeback|● |Customers should use [Cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust?tabs=intune) for this moving forward|
 | Support for group writeback|● | |
 | Support for merging user attributes from multiple domains|● | |
 | Azure AD Domain Services support|● | |
@@ -74,7 +74,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Groups with up to 50,000 members |● |● |
 | Large groups with up to 250,000 members |● |  |
 | Cross domain references|● |● |
-| On-demand provisioning|● |● |
+| On-demand provisioning| |● |
 | Support for US Government|● |● |
 
 ## Next steps 

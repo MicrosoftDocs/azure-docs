@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django or Flask web app with PostgreSQL'
 description: Create a Python Django or Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django or Flask framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/07/2022
+ms.date: 02/28/2023
 ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
 ---
 
@@ -15,19 +15,19 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 **To complete this tutorial, you'll need:**
 
-* An Azure account with an active subscription exists. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
 
 ## Sample application
 
 Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
 
-To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) install locally. Then, download or clone the app:
+To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app:
 
 ### [Flask](#tab/flask)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
 ```
 
 ### [Django](#tab/django)
@@ -40,10 +40,19 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 Go to the application folder:
 
+### [Flask](#tab/flask)
+
 ```bash
 cd msdocs-python-flask-webapp-quickstart
 ```
 
+### [Django](#tab/django)
+
+```bash
+cd msdocs-django-postgresql-sample-app
+```
+
+-----
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
@@ -115,9 +124,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **Python 3.9**.
+        1. *Runtime stack* &rarr; **Python 3.10**.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name is also set by default to appropriate values.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **PostgreSQL - Flexible Server** is selected by default as the database engine. 
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -140,8 +149,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column-end:::
 :::row-end:::
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 ## 2. Verify connection settings
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings).
@@ -156,15 +163,18 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` are present. They'll be injected into the runtime environment as environment variables.
-        App settings are a good way to keep connection secrets out of your code repository.
+        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. That will be injected into the runtime environment as an environment variable.
+        App settings are one way to keep connection secrets out of your code repository. 
+        When you're ready to move your secrets to a more secure location,
+        here's an [article on storing in Azure Key Vault](/azure/key-vault/certificates/quick-create-python).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
     :::column-end:::
 :::row-end:::
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
+
 
 ## 3. Deploy sample code
 
@@ -217,6 +227,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-flask-postgresql-sample-app**.
         1. In **Branch**, select **main**.
+        1. Keep the default option selected to **Add a workflow**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
     :::column-end:::
     :::column:::
@@ -316,17 +327,19 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 -----
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
+
 
 ## 4. Generate database schema
 
 ### [Flask](#tab/flask)
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run Run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
 
 :::row:::
     :::column span="2":::
         **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
@@ -349,6 +362,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row:::
     :::column span="2":::
         **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
@@ -369,8 +383,6 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 -----
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 ## 5. Browse to the app
 
 :::row:::
@@ -385,15 +397,13 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Add a few tasks to the list.
-        Congratulations, you're running a secure data-driven Flask app in Azure App Service, with connectivity to Azure Database for PostgreSQL.
+        **Step 2.** Add a few restaurants to the list.
+        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
     :::column-end:::
 :::row-end:::
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## 6. Stream diagnostic logs
 
@@ -401,11 +411,11 @@ Azure App Service captures all messages output to the console to help you diagno
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="39-43" highlight="3":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
 -----
 
@@ -414,6 +424,7 @@ Azure App Service captures all messages output to the console to help you diagno
         **Step 1.** In the App Service page:
         1. From the left menu, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
+        1. In the top menu, select **Save**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-1.png":::
@@ -428,7 +439,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
+Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python]).
 
 ## 7. Clean up resources
 
@@ -463,8 +474,6 @@ When you're finished, you can delete all of the resources from your Azure subscr
     :::column-end:::
 :::row-end:::
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
@@ -476,10 +485,10 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 #### How much does this setup cost?
 
-Pricing for the create resources is as follows:
+Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The PostgreSQL flexible server is create in the lowest burstable tier **Standard_B1ms**, with the minimum storage size, which can be scaled up or down. See [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+- The PostgreSQL flexible server is created in the lowest burstable tier **Standard_B1ms**, with the minimum storage size, which can be scaled up or down. See [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
@@ -491,7 +500,7 @@ Pricing for the create resources is as follows:
 
 #### How does local app development work with GitHub Actions?
 
-Take the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates push it to GitHub. For example:
+Using the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates and push to GitHub. For example:
 
 ```terminal
 git add .
@@ -508,32 +517,32 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 - Django validates the HTTP_HOST header in incoming requests. The sample code uses the [`WEBSITE_HOSTNAME` environment variable in App Service](reference-app-settings.md#app-environment) to add the app's domain name to Django's [ALLOWED_HOSTS](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6-8" highlight="3":::
 
 - Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="14":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-16" highlight="14":::
 
     Then the static file settings are configured according to the Django documentation.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 
 #### I can't connect to the SSH session
 
-If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'DBNAME'`, it may mean that the environment variable is missing (you may have removed the app setting).
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it may mean that the environment variable is missing (you may have removed the app setting).
 
 #### I get an error when running database migrations
 
-If you encounter any errors related to connecting to the database, check if the app settings (`DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`) have been changed. Without those settings, the migrate command can't communicate with the database. 
+If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
 
 ## Next steps
 
-Learn how to map a custom DNS name to your app:
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Learn how App Service runs a Python app:
 

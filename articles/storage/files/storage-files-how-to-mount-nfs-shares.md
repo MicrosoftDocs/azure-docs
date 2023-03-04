@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 02/06/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB Azure file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
-## Limitations
+## Support
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
@@ -28,9 +28,10 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 - Open port 2049 on the client you want to mount your NFS share to.
 
     > [!IMPORTANT]
-    > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
-- Use one of the following networking solutions:
-    - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+    > NFS shares can only be accessed from trusted networks.
+
+- Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+- To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
@@ -71,4 +72,4 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
-- If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
+- If you experience any issues, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).

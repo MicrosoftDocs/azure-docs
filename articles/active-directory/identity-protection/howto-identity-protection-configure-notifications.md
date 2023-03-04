@@ -24,7 +24,8 @@ Azure AD Identity Protection sends two types of automated notification emails to
 
 This article provides you with an overview of both notification emails.
 
-We don't support sending emails to users in group-assigned roles.
+   > [!Note]
+   > **We don't support sending emails to users in group-assigned roles.**
 
 ## Users at risk detected email
 

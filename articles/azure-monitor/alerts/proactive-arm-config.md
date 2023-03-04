@@ -192,4 +192,4 @@ Learn more about automatically detecting:
 
 - [Failure anomalies](./proactive-failure-diagnostics.md)
 - [Memory Leaks](./proactive-potential-memory-leak.md)
-- [Performance anomalies](./proactive-performance-diagnostics.md)
+- [Performance anomalies](./smart-detection-performance.md)

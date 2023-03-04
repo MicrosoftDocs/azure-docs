@@ -120,7 +120,7 @@ Follow these steps to create an Azure Front Door:
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
     |Endpoint name| Enter a globally unique name for your endpoint, such as `b2cazurefrontdoor`. The **Endpoint hostname** is generated automatically. |
     |Origin type| Select `Custom`.|
-    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant](tenant-management.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
+    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant]( tenant-management-read-tenant-name.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
     
     Leave the **Caching** and **WAF policy** empty.
 

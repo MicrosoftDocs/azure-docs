@@ -1,14 +1,14 @@
 ---
-title: Permissions in Microsoft Defender for Cloud
+title: User roles and permissions in Microsoft Defender for Cloud
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
-ms.topic: overview
+ms.topic: limits-and-quotas
 ms.custom: ignite-2022
-ms.date: 11/28/2022
+ms.date: 01/24/2023
 ---
 
-# Permissions in Microsoft Defender for Cloud
+# User roles and permissions
 
-Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to provide [built-in roles](../role-based-access-control/built-in-roles.md). You can assign these roles to users, groups, and services in Azure to give users access to resources according the access defined in the role.
+Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to provide [built-in roles](../role-based-access-control/built-in-roles.md). You can assign these roles to users, groups, and services in Azure to give users access to resources according the access defined in the role.
 
 Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you're assigned one of these roles for the subscription or for the resource group the resource is in: Owner, Contributor, or Reader
 
@@ -37,12 +37,12 @@ The specific role required to deploy monitoring components depends on the extens
 
 ## Roles used to automatically provision agents and extensions
 
-To allow the Security Admin role to automatically provision agents and extensions used in Defender for Cloud plans, Defender for Cloud uses policy remediation in a similar way to [Azure Policy](../governance/policy/how-to/remediate-resources.md). To use remediation, Defender for Cloud needs to create service principals, also called managed identities, that assign roles at the subscription level. For example, the service principals for the Defender for Containers plan are:
+To allow the Security Admin role to automatically provision agents and extensions used in Defender for Cloud plans, Defender for Cloud uses policy remediation in a similar way to [Azure Policy](../governance/policy/how-to/remediate-resources.md). To use remediation, Defender for Cloud needs to create service principals, also called managed identities, that assigns roles at the subscription level. For example, the service principals for the Defender for Containers plan are:
  
 | Service Principal | Roles |
 |:-|:-|
 | Defender for Containers provisioning AKS Security Profile | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor<br>• Log Analytics Contributor |
-| Defender for Containers provisioning ARC k8s Enabled | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
+| Defender for Containers provisioning ARC K8s Enabled | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
 | Defender for Containers provisioning Azure Policy Addon for Kubernetes | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor |
 | Defender for Containers provisioning Policy extension for Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor |
 

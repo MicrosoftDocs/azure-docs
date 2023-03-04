@@ -34,6 +34,10 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Investigate an OT network alert
+    href: respond-ot-alert.md
+  - name: Monitor with Zero Trust
+    href: monitor-zero-trust.md
 - name: Concepts
   items:
     - name: Subscription billing
@@ -62,6 +66,8 @@
         href: best-practices/plan-network-monitoring.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
+      - name: Zero Trust and your OT/IoT networks
+        href: concept-zero-trust.md
     - name: OT monitoring appliance catalog
       items:
       - name: Which appliances do I need?
@@ -70,7 +76,7 @@
         href: ot-pre-configured-appliances.md
       - name: OT monitoring with virtual appliances
         href: ot-virtual-appliances.md
-    - name: Supported OT protocols
+    - name: Supported protocols
       href: concept-supported-protocols.md
     - name: Defender for IoT alerts
       href: alerts.md
@@ -89,13 +95,13 @@
       items:
       - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
       - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices per zone
@@ -112,7 +118,7 @@
       displayName: alert, alerts
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
-      displayName: alerts
+      displayName: alerts, supression, exclusion
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       href: how-to-forward-alert-information-to-partners.md
@@ -217,12 +223,11 @@
       items:
       - name: Connect OT sensors to Defender for IoT
         href: connect-sensors.md
-        displayName: proxy
-      - name: Connect OT sensors with a proxy (legacy)
-        href: how-to-connect-sensor-by-proxy.md
     - name: Activate and set up your on-premises management console
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
       displayName: sites, zones
+    - name: Configure on-premises sites and zones
+      href: ot-deploy/sites-and-zones-on-premises.md
     - name: Add support for proprietary protocols
       href: resources-manage-proprietary-protocols.md
   - name: Set up Enterprise IoT network monitoring
@@ -238,6 +243,8 @@
       displayName: Enterprise IoT sensor
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Configure OT sensor settings from the Azure portal
+    href: configure-sensor-settings-portal.md
   - name: Create and manage users
     items:
     - name: Azure portal
@@ -284,8 +291,9 @@
         href: how-to-enhance-port-and-vlan-name-resolution.md
       - name: Import device information
         href: how-to-import-device-information.md
-    - name: Track sensor activity
+    - name: Track OT network and sensor activity
       href: how-to-track-sensor-activity.md
+      displayName: event timeline
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
     - name: Manage proprietary protocols (Horizon)
@@ -300,6 +308,8 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Data retention
+    href: references-data-retention.md
   - name: OT monitoring appliances
     items:
     - name: Overview

@@ -1,18 +1,19 @@
 ---
 title: U-SQL UDT and UDAGG programmability guide for Azure Data Lake
-description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data Lake Analytics to enable you create good USQL script.
+description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data Lake Analytics to enable you to create good USQL scripts.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # U-SQL programmability guide - UDT and UDAGG
 
 ## Use user-defined types: UDT
+
 User-defined types, or UDT, is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
+U-SQL can't implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
 
 > [!NOTE]
 > U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array. Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
@@ -49,7 +50,7 @@ USQL-Programmability\Types.usql	52	1	USQL-Programmability
 
 To work with UDT in outputter, we either have to serialize it to string with the ToString() method or create a custom outputter.
 
-UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
+UDTs currently can't be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
 ```output
 Error	1	E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -66,7 +67,7 @@ C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQ
 62	5	USQL-Programmability
 ```
 
-To define a UDT, we have to:
+To define a UDT, we must:
 
 1. Add the following namespaces:
 
@@ -79,7 +80,7 @@ using System.IO;
 
 3. Define a used-defined type with SqlUserDefinedType attribute.
 
-**SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class cannot be inherited.
+**SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class can't be inherited.
 
 SqlUserDefinedType is a required attribute for UDT definition.
 
@@ -120,11 +121,11 @@ The `IFormatter` interface serializes and de-serializes an object graph with the
 `IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.  
 `ISerializationContext` context: Enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
 
-* **Intermediate**: Specifies that the source or destination context is not a persisted store.
+* **Intermediate**: Specifies that the source or destination context isn't a persisted store.
 
 * **Persistence**: Specifies that the source or destination context is a persisted store.
 
-As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
+As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we're going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
 Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format `Qn:Pn (Q1:P10)`. The following example shows how to define a custom type for fiscal period values.
 
@@ -231,7 +232,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 
 The defined type includes two numbers: quarter and month. Operators `==/!=/>/<` and static method `ToString()` are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but can't be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
@@ -475,7 +476,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## Use user-defined aggregates: UDAGG
-User-defined aggregates are any aggregation-related functions that are not shipped out-of-the-box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
+User-defined aggregates are any aggregation-related functions that aren't shipped out-of-the-box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
 
 The user-defined aggregate base class definition is as follows:
 
@@ -491,7 +492,7 @@ The user-defined aggregate base class definition is as follows:
     }
 ```
 
-**SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate. This class cannot be inherited.
+**SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate. This class can't be inherited.
 
 SqlUserDefinedType attribute is **optional** for UDAGG definition.
 
@@ -549,7 +550,7 @@ Then use the following syntax:
 AGG<UDAGG_functionname>(param1,param2)
 ```
 
-Here is an example of UDAGG:
+Here's an example of UDAGG:
 
 ```csharp
 public class GuidAggregate : IAggregate<string, string, string>

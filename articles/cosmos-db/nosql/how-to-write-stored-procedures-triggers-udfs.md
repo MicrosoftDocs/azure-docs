@@ -21,13 +21,19 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
-> [!Tip]
+
+> [!NOTE]
+> Server-side JavaScript features including stored procedures, triggers, and user-defined functions do not support importing modules.
+
+> [!TIP]
 > Azure Cosmos DB supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](./manage-with-templates.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
 Stored procedures are written using JavaScript, they can create, update, read, query, and delete items inside an Azure Cosmos DB container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.
-
+> [Note]
+> When it comes to stored procedure, Cosmos DB has different charging policy. Since, stored can essentially execute code and consume any number of RUs, we do upfront charging for each stored procedure execution. This is a defense mechanism in backend to ensure  stored procedure scripts do not impact out backend services. The amount which is charged upfront is the average charge consumed by the script in previous invocations. If the stored procedure has varied RUs per invocation i.e., lot of variance around the mean then the client may not be able to fully utilize the budget as we always reserve the average RU per operations before we start the execution. As an alternative we would suggest the client to use batch or bulk requests instead of stored procedures to avoid the variance around the RU charging.  
+> 
 Here is a simple stored procedure that returns a "Hello World" response.
 
 ```javascript

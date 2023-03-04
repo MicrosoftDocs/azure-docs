@@ -37,7 +37,7 @@ You can usually leave an organization on your own without having to contact an a
    For example:
     https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com
     or 
-    https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789.
+    https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789. You might need to open this URL in a private browser session.
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
