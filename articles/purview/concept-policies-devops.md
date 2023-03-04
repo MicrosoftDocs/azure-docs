@@ -54,7 +54,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 ## Mapping of popular DMVs/DMFs
 SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL, along with their description.
 
-| **Accessible by DevOps role** | **DMV/DMF example** | **Description**|
+| **Accessible by DevOps role** | **Popular DMV / DMF** | **Description**|
 |-|-|-|
 ||||
 | *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Monitors the current activity and performance of the server|
