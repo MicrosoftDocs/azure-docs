@@ -71,12 +71,11 @@ function MaintenanceIterator {
     $vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
     foreach ($vm in $vmList) {
       $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
-      if ($vmDetails.MaintenanceRedeployStatus) {
-        Write-Output -InputObject @{
-          VMName                                = $vmDetails.Name
-          IsCustomerInitiatedMaintenanceAllowed = $vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed
-          LastOperationMessage                  = $vmDetails.MaintenanceRedeployStatus.LastOperationMessage
-        } 
+      [pscustomobject]@{
+        Name                                  = $vmDetails.Name
+        ResourceGroupName                     = $rg.ResourceGroupName
+        IsCustomerInitiatedMaintenanceAllowed = [bool]$vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed
+        LastOperationMessage                  = $vmDetails.MaintenanceRedeployStatus.LastOperationMessage
       }
     }
   }
@@ -89,7 +88,11 @@ function MaintenanceIterator {
 Using information from the function in the previous section, the following starts maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
 
 ```powershell
-Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
+
+MaintenanceIterator -SubscriptionId <Subscription ID> |
+    Where-Object -FilterScript {$_.IsCustomerMaintenanceAllowed} |
+        Restart-AzVM -PerformMaintenance
+
 ```
 
 ## Classic deployments
