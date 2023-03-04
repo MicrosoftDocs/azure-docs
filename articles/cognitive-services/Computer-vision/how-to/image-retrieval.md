@@ -31,7 +31,7 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 You can try out the Image Retrieval feature quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](tbd)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Call the Vectorize Image API
 
