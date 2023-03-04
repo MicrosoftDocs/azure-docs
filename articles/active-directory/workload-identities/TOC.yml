@@ -9,12 +9,12 @@
     href: workload-identities-faqs.md
 - name: Concepts
   items:
-      - name: Workload identity federation
-        href: workload-identity-federation.md
       - name: Applications and service principals
         href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json     
       - name: Managed identities
         href: ../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: Workload identity federation
+        href: workload-identity-federation.md
       - name: Securing workload identities
         href: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Conditional Access for workload identities
@@ -33,6 +33,8 @@
         href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
+  - name: Create an access review
+     href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Federated identity credentials considerations and limitations
