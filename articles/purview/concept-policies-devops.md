@@ -52,25 +52,25 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 - At any point in time, Mateo or the company’s auditor can see what access has been granted directly in Microsoft Purview Studio.
 
 ## Examples of popular DMVs/DMFs
-Dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL with their description.
+SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL with their description.
 
-| **DevOps role definition** | **DMV/DMF examples**     |
-|-------------------------------------|--------------------------------------|
-|                                     |                                      |
-| *SQL Performance Monitor* | dm_exec_requests |
-|| [sys.dm_os_wait_stats](https://learn.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?view=sql-server-ver16)|
-|| dm_exec_query_stats|
-|| dm_exec_sessions|
-|| dm_os_waiting_tasks|
-|| dm_exec_procedure_stats|
-|||               
-| *SQL Security Auditor* ||
-|||
-|||
-|||
-|||
-|||
-|||
+| **Purview DevOps role definition** | **DMV/DMF example** | **Description**|
+|-|-|-|
+||||
+| *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Returns information about each request that is executing within the SQL Server|
+||[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)|
+|| [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)|Identifies queries that are consuming a lot of resources or taking a long time to execute|
+|| dm_exec_sessions||
+|| dm_os_waiting_tasks||
+|| dm_exec_procedure_stats||
+||||
+| *SQL Security Auditor* |||
+||||
+||||
+||||
+||||
+||||
+||||
 
 
 ## More info
