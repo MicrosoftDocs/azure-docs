@@ -176,7 +176,7 @@ When enabled, WebAuthn requests from the session are sent to the local PC to be 
 
 ## Disable drive redirection
 
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you'll need to disable drive redirection for security purposes. To disable drive redirection:
+If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable drive redirection for security purposes. To disable drive redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
@@ -192,7 +192,7 @@ If you're making RDP connections from personal resources to corporate ones on th
 
 ## Disable printer redirection
 
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you'll need to disable printer redirection for security purposes. To disable printer redirection:
+If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable printer redirection for security purposes. To disable printer redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
@@ -208,7 +208,7 @@ If you're making RDP connections from personal resources to corporate ones on th
 
 ## Disable clipboard redirection
 
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you'll need to disable clipboard redirection for security purposes. To disable clipboard redirection:
+If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable clipboard redirection for security purposes. To disable clipboard redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
