@@ -54,7 +54,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 ## Mapping of popular DMVs/DMFs
 SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL, along with their description.
 
-| **Purview DevOps role definition** | **DMV/DMF example** | **Description**|
+| **Accessible by DevOps role** | **DMV/DMF example** | **Description**|
 |-|-|-|
 ||||
 | *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Monitors the current activity and performance of the server|
@@ -64,10 +64,11 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 || [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)|Helps identify and troubleshoot blocking issues within SQL Server|
 || [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql)|Returns how many times a procedure was executed, the total duration, reads, writes and more|
 ||||
-| *SQL Security Auditor* |||
-||TBD|TBD|
+| *SQL Security Auditor* |[sys.dm_server_audit_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-server-audit-status-transact-sql)|Returns audit details such as the location of the target, size and status of the audit itself|
 ||||
-
+| Both *SQL Performance Monitor* and *SQL Security Auditor*|[sys.dm_audit_actions](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-actions-transact-sql)|Returns a row for every audit action that can be reported in the audit log and every audit action group that can be configured as part of SQL Server Audit|
+||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql)|When events are fired, they record the object type, not the securable class. This DMV maps the class_type field in the audit log to the class_desc field in sys.dm_audit_actions|
+||||
 
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
