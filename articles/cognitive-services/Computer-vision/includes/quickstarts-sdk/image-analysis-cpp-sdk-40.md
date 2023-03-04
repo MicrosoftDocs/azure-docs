@@ -53,7 +53,7 @@ Once you've created a new project, install the client library by right-clicking 
 
 From the project directory, open the _ImageAnalysisQuickstart.cpp_ file in your preferred editor or IDE. Clear its contents and paste in the following code:
 
-[!code-cpp[](~/cognitive-services-quickstart-code/cpp/ComputerVision/ImageAnalysisQuickstart-single-4-0.cpp?name=snippet_single)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet-single)]
 
 Then, run the application by clicking the **Debug** button at the top of the IDE window.
 

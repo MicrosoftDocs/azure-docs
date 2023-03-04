@@ -53,7 +53,7 @@ Next create a new Python file &mdash; *quickstart-file.py*, for example.
 
 Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-4-0.py?name=snippet_single)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]
 
 Then run the application with the `python` command on your quickstart file.
 
