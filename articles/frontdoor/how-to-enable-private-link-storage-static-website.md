@@ -32,7 +32,7 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Select **+ Add an origin** to add a new static storage website origin or select a previously created static storage website origin from the list.
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-primary.png" alt-text="Screenshot of enabling private link to a static storage website primary.":::
+    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-primary.png" alt-text="Screenshot of enabling private link to a static storage website primary.":::
 
 1. The following table has the information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the static storage website you want Azure Front Door Premium to connect with privately.
 
@@ -60,20 +60,20 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Select the pending private endpoint request from Azure Front Door Premium then select **Approve**.
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-static-website/approve-private-endpoint-connection.png" alt-text="Screenshot of approving private endpoint connection from storage account.":::
+    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/approve-private-endpoint-connection.png" alt-text="Screenshot of approving private endpoint connection from storage account.":::
 
 1. Once approved, you can see the private endpoint connection status is **Approved**.
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-static-website/approved-private-endpoint-connection.png" alt-text="Screenshot of approved private endpoint connection from storage account.":::
+    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/approved-private-endpoint-connection.png" alt-text="Screenshot of approved private endpoint connection from storage account.":::
 
 ## Create private endpoint connection to web_secondary
 
 When creating a private endpoint connection to the storage static website's secondary sub resource, you need to add a **-secondary** suffix to the origin host header. For example, if your origin host header is *contoso.z13.web.core.windows.net*, you need to change it to *contoso-secondary.z13.web.core.windows.net*.
 
-:::image type="content" source="../media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a static storage website secondary.":::
+:::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a static storage website secondary.":::
 
 Once the origin has been added and the private endpoint connection has been approved, you can test your private link connection to your static storage website.
 
 ## Next steps
 
-Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).
+Learn about [Private Link service with storage account](../storage/common/storage-private-endpoints.md).
