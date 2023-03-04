@@ -23,7 +23,7 @@ In your storage account overview, find the **Settings** section in the left hand
 
 **THIS MUST BE UPDATED PRIOR TO PRODUCTION**
 
-Create a CORS rule by setting the **Allowed Origins** field to https://uvs-portal-preview-prod-staging.azurewebsites.net.
+Create a CORS rule by setting the **Allowed Origins** field to `https://uvs-portal-preview-prod-staging.azurewebsites.net`.
 
 In the Allowed Methods field, select the `GET` checkbox to allow an authenticated request from a different domain.  In the **Max age** field, enter the value `9999`, and click `Save`. 
 
