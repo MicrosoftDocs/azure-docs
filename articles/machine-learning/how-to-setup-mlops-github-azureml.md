@@ -141,16 +141,15 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
       ![GitHub Secrets](./media/how-to-setup-mlops-azureml/gh-secrets.png)
 
 1. Select **New repository secret**. Name this secret **AZURE_CREDENTIALS** and paste the service principal output as the content of the secret.  Select **Add secret**.
+      ![GitHub Secrets String 1](./media/how-to-setup-mlops-azureml/gh-secrets-string.png)
 
-      > [!TIP] 
-      > If deploying the infrastructure using terraform, add the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
-      > 
+1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
       > **ARM_CLIENT_ID**  
       > **ARM_CLIENT_SECRET**  
       > **ARM_SUBSCRIPTION_ID**  
       > **ARM_TENANT_ID**  
 
-      The GitHub configuration is complete.
+      ![GitHub Secrets String 2](./media/how-to-setup-mlops-azureml/gh-secrets-string2.png)
 
 > [!NOTE]
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
@@ -163,7 +162,7 @@ This step deploys the training pipeline to the Machine Learning workspace create
 > Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
 ### Configure Machine Learning environment parameters
- 1. Go to your repository and select the `config-infra-prod.yml` file in the root.
+ 1. Go to your repository and select the `config-infra-prod.yml` file in the root. Change the following parameters to your liking, and then **commit** the changes.
 
     This config file uses the namespace and postfix values the names of the artifacts to ensure uniqueness. Update the following section in the config to your liking. Default values and settings in the files are show below:
   
