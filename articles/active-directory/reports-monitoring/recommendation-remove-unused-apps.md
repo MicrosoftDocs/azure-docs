@@ -28,6 +28,8 @@ Removing unused applications improves the security posture and promotes good app
 
 ## Action plan
 
+Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
+
 1. Navigate to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
 1. We suggest you take appropriate steps to ensure the application is not used in longer intervals of more than 30 days. If so, we recommend updating the frequency of access such that the application’s last used time is within 30 days from its last access date.
 

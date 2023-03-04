@@ -97,7 +97,7 @@ To update the status of a recommendation or a related resource, sign in to Azure
 
 Continue to monitor the recommendations in your tenant for changes.
 
-### Use Microsoft Graph with Azure Active Directory recommendations
+### How to use Microsoft Graph with Azure Active Directory recommendations
 
 Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
 

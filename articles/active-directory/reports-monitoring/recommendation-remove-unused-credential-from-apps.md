@@ -39,8 +39,6 @@ Removing credentials not actively used by applications improves security posture
 1. Locate the unused credential and remove it.
 1. To remove a credential from a service principal resource, use the MS Graph Service Principal API service action `removePassword`.
  
-## Known limitations
-
 ## Next steps
 
 - [Review the Azure AD recommendations overview](overview-recommendations.md)
