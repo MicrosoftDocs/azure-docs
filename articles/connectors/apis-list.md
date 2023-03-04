@@ -14,32 +14,18 @@ ms.custom: engagement-fy23
 
 When you build a workflow using Azure Logic Apps, you can use a *connector* to work with data, events, and resources in other apps, services, systems, and platforms - without writing code. A connector provides one or more prebuilt operations, which you use as steps in your workflow.
 
-This overview provides a high-level introduction to connectors and the way they generally work. For other connector information, see the following documentation:
+In a connector, each operation is either a [*trigger*](#triggers) condition that starts a workflow or a subsequent [*action*](#actions) that performs a specific task, along with properties that you can configure. While many connectors have both triggers and actions, some connectors offer only triggers, while others provide only actions.
+
+In Azure Logic Apps, connectors are available in either a [built-in version, managed version, or both](#built-in-vs-managed). Many connectors usually require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, usually so that you can authenticate access to a user account. If no connector is available for the service or system that you want to access, you can send a request using the [generic HTTP operation](connectors-native-http.md), or you can [create a custom connector](#custom-connectors-and-apis).
+
+This overview provides a high-level introduction to connectors and how they generally work. For more connector information, see the following documentation:
 
 * [Connectors overview for services such as Power Automate and Power Apps](/connectors/connectors)
 * [Built-in connectors overview for Azure Logic Apps](built-in.md)
 * [Managed connectors overview for Azure Logic Apps](managed.md)
 * [Managed connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
-In a connector, each operation is either a [*trigger*](#triggers) condition that starts a workflow or a subsequent [*action*](#actions) that performs a specific task, along with properties that you can configure. While many connectors have both triggers and actions, some connectors offer only triggers, while others provide only actions. Usually, connectors require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, usually so that you can authenticate access to a user account.
-
-If no connector is available for the service or system that you want to access, you can send a request using the [generic HTTP operation](connectors-native-http.md), or you can [create a custom connector](#custom-connectors-and-apis).
-
-## Triggers
-
-A trigger specifies the condition to meet before the workflow can start and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows either a *polling* pattern or a *push* pattern. Sometimes, both trigger versions are available.
-
-- *Polling* triggers regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
-
-- *Push* or *webhook* triggers listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
-
-For example, suppose you want to build a workflow that runs when a file is uploaded to your FTP server. As the first step in your workflow, you can add the [FTP trigger](/connectors/ftp/#triggers) named **When a file is added or modified**, which follows a polling pattern. You then specify the schedule to regularly check for upload events.
-
-When the trigger fires, the trigger usually passes along event outputs for subsequent actions to reference and use. For the FTP example, the trigger automatically outputs information such as the file name and path. You can also set up the trigger to include the file content. So, to process this data, you must add actions to your workflow.
-
-## Actions
-
-An action specifies a task to perform and always appears as a subsequent step in the workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a [SQL Server trigger](/connectors/sql/#triggers) that checks for new customer data in an SQL database. Following the trigger, your workflow can have a [SQL Server action](/connectors/sql/#actions) that gets the customer data. Following this SQL Server action, your workflow can use a different action that processes the data, for example, a [Data Operations action](../logic-apps/logic-apps-perform-data-operations.md) that creates a CSV table.
+<a name="built-in-vs-managed"></a>
 
 ## Built-in connectors versus managed connectors
 
@@ -58,13 +44,31 @@ For more information, see the following documentation:
 * [Pricing and billing models in Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
 * [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/)
 
+## Triggers
+
+A trigger specifies the condition to meet before the workflow can start and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows either a *polling* pattern or a *push* pattern. Sometimes, both trigger versions are available.
+
+- *Polling* triggers regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
+
+- *Push* or *webhook* triggers listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
+
+For example, suppose you want to build a workflow that runs when a file is uploaded to your FTP server. As the first step in your workflow, you can add the [FTP trigger](/connectors/ftp/#triggers) named **When a file is added or modified**, which follows a polling pattern. You then specify the schedule to regularly check for upload events.
+
+When the trigger fires, the trigger usually passes along event outputs for subsequent actions to reference and use. For the FTP example, the trigger automatically outputs information such as the file name and path. You can also set up the trigger to include the file content. So, to process this data, you must add actions to your workflow.
+
+## Actions
+
+An action specifies a task to perform and always appears as a subsequent step in the workflow. You can use multiple actions in your workflow. For example, you might start the workflow with a [SQL Server trigger](/connectors/sql/#triggers) that checks for new customer data in an SQL database. Following the trigger, your workflow can have a [SQL Server action](/connectors/sql/#actions) that gets the customer data. Following this SQL Server action, your workflow can use a different action that processes the data, for example, a [Data Operations action](../logic-apps/logic-apps-perform-data-operations.md) that creates a CSV table.
+
 <a name="connection-configuration"></a>
 
-## Connection configuration and authentication
+## Connection permissions
 
 In a Consumption logic app workflow, before you can create or manage logic app resources, workflows, and their connections, you need specific permissions. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-operations).
 
-Before you can use a managed connector's operations in your workflow, many connectors require that you first create a *connection* to the target service or system. To create a connection from inside the workflow designer, you have to authenticate your identity with account credentials and sometimes other connection information.
+## Connection creation, configuration, and authentication
+
+Before you can use a connector's operations in your workflow, many connectors require that you first create a *connection* to the target service or system. To create a connection from inside the workflow designer, you have to authenticate your identity with account credentials and sometimes other connection information.
 
 For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For some built-in connectors and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
 
