@@ -1,6 +1,6 @@
 ---
 title: What are connectors
-description: Learn how connectors help you access data, events, and resources in other apps, services, and systems from workflows in Azure Logic Apps.
+description: Learn how connectors in Azure Logic Apps help you access data, events, and resources in other apps, services, and systems from workflows.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -43,13 +43,13 @@ An action specifies a task to perform and always appears as a subsequent step in
 
 ## Built-in connectors versus managed connectors
 
-In Azure Logic Apps, connectors are either *built-in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multi-tenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+In Azure Logic Apps, connectors are either *built in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multi-tenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 * [Built-in connectors](built-in.md) are designed to run directly and natively inside Azure Logic Apps.
 
 * [Managed connectors](managed.md) are deployed, hosted, and managed in Azure by Microsoft. Managed connectors mostly provide a proxy or a wrapper around an API that the underlying service or system uses to communicate with Azure Logic Apps.
 
-  * In a Consumption workflow, managed connectors appear in the designer under the **Standard** or **Enterprise** labels, based their on pricing level.
+  * In a Consumption workflow, managed connectors appear in the designer under the **Standard** or **Enterprise** labels, based on their pricing level.
 
   * In a Standard workflow, all managed connectors appear in the designer under the **Azure** label.
 
