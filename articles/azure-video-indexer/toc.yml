@@ -20,24 +20,6 @@
     items:
     - name: Transparency note
       href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Audio effects detection
-      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Faces detection
-      href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: OCR
-      href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Keywords extraction
-      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Transcription, translation, language
-      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Labels identification
-      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Named entities
-      href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Observed people tracking & matched faces
-      href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Topics inference
-      href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: Quickstarts
   expanded: true
   items:
