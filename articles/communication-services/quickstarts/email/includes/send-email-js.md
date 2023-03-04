@@ -1,14 +1,14 @@
 ---
 title: include file
 description: Send email.js sdk include file
-author: bashan-git
-manager: sphenry
+author: natekimball-msft
+manager: koagbakp
 services: azure-communication-services
-ms.author: bashan
+ms.author: natekimball
 ms.date: 04/15/2022
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
+ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
@@ -17,10 +17,12 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions.
-- An Azure Email Communication Services resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
-- An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
+- [Node.js (~14)](https://nodejs.org/download/release/v14.19.1/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
+- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+
+> Note: We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains).
 
 ### Prerequisite check
 
@@ -42,7 +44,7 @@ Run `npm init -y` to create a **package.json** file with default settings.
 npm init -y
 ```
 
-Use a text editor to create a file called **send-email.js** in the project root directory. Change the "main" property in **package.json** to "send-email.js". You'll add all the source code for this quickstart to this file in the following sections.
+Use a text editor to create a file called **send-email.js** in the project root directory. Change the "main" property in **package.json** to "send-email.js". The following section demonstrates how to add the source code for this quickstart to the newly created file.
 
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Email client library for JavaScript.
@@ -57,23 +59,24 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for JavaScript.
 
-| Name                | Description                                                                                                                                          |
-| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| EmailAddress        | This interface contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes.                               |
-| EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
-| EmailClientOptions  | This interface can be added to the EmailClient instantiation to target a specific API version.                                                           |
-| EmailContent        | This interface contains the subject, plaintext, and html of the email message. |
-| EmailCustomHeader   | This interface allows for the addition of a name and value pair for a custom header.                                                                     |
-| EmailMessage        | This interface combines the sender, content, and recipients. Custom headers, importance, attachments, and reply-to email addresses can optionally be added, as well. |
-| EmailRecipients     | This interface holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| SendStatusResult | This interface holds the messageId and status of the email message delivery.
+| Name | Description |
+| ---- |-------------|
+| EmailAddress | This class contains an email address and an option for a display name. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
+| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
+| EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
+| EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
+| EmailCustomHeader | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'. |
+| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
+| EmailRecipients | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
+| EmailSendStatus | This class represents the set of statuses of an email send operation. |
 
 ## Authenticate the client
 
 Import the **EmailClient** from the client library and instantiate it with your connection string.
 
-The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. Use the `npm install` command to install the dotenv package. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. Use the `npm install` command to install the dotenv package. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```console
 npm install dotenv
@@ -88,80 +91,51 @@ require("dotenv").config();
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
+const emailClient = new EmailClient(connectionString);
 ```
+
+For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
+
 ## Send an email message
 
-To send an Email message, you need to
-- Construct the email content and body using EmailContent 
-- Add Recipients 
-- Construct your email message with your Sender information you get your MailFrom address from your verified domain.
-- Include your Email Content and Recipients and include attachments if any 
-- Calling the send method:
-
-Replace with your domain details and modify the content, recipient details as required
+To send an email message, call the `beginSend` function from the EmailClient. This method returns a poller that checks on the status of the operation and retrieves the result once it's finished.
 
 ```javascript
 
 async function main() {
   try {
-    var client = new EmailClient(connectionString);
-    //send mail
-    const emailMessage = {
-      sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+    const message = {
+      senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
       content: {
-        subject: "Welcome to Azure Communication Service Email.",
-        plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
+        subject: "Welcome to Azure Communication Services Email",
+        plainText: "This email message is sent from Azure Communication Services Email using the JavaScript SDK.",
       },
       recipients: {
         to: [
           {
-            email: "<emailalias@emaildomain.com>",
+            address: "<emailalias@emaildomain.com>",
+            displayName: "Customer Name",
           },
         ],
       },
     };
-    var response = await client.send(emailMessage);
+
+    const poller = await emailClient.beginSend(message);
+    const response = await poller.pollUntilDone();
   } catch (e) {
     console.log(e);
   }
 }
+
 main();
 ```
-## Getting MessageId to track email delivery
 
-To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId, retry the request.
+Make these replacements in the code:
 
-```javascript
-  const messageId = response.messageId;
-  if (messageId === null) {
-    console.log("Message Id not found.");
-    return;
-  }
-   
-```
-## Getting status on email delivery
-To get the delivery status of email call GetMessageStatus API with MessageId
-```javascript
-  // check mail status, wait for 5 seconds, check for 60 seconds.
-  let counter = 0;
-  const statusInterval = setInterval(async function () {
-    counter++;
-    try {
-      const response = await client.getSendStatus(messageId);
-      if (response) {
-        console.log(`Email status for ${messageId}: ${response.status}`);
-        if (response.status.toLowerCase() !== "queued" || counter > 12) {
-          clearInterval(statusInterval);
-        }
-      }
-    } catch (e) {
-        console.log(e);
-    }
-  }, 5000);
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-```
-
-[!INCLUDE [Email Message Status](./email-operation-status.md)]
+ [!INCLUDE [Email Message Status](./email-operation-status.md)]
 
 ## Run the code
 
@@ -178,54 +152,11 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ### Send an email message to multiple recipients
 
-We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+To send an email message to multiple recipients, add an object for each recipient type and an object for each recipient. These addresses can be added as `To`, `CC`, or `BCC` recipients.
 
 ```javascript
-const emailMessage = {
-  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-  content: {
-    subject: "Welcome to Azure Communication Service Email.",
-    plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
-  },
-  recipients: {
-    to: [
-      { email: "<emailalias@emaildomain.com>" },
-      { email: "<emailalias2@emaildomain.com>" }
-    ],
-    cc: [
-      { 
-        email: "<ccemailalias@emaildomain.com>" 
-      }
-    ],
-    bcc: [
-      { 
-        email: "<bccemailalias@emaildomain.com>" }
-      }
-    ],
-  },
-};
-```
-
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
-
-
-### Send an email message with attachments
-
-We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
-
-```javascript
-const fs = require("fs");
-
-const attachmentContent = fs.readFileSync(<your-attachment-path>).toString("base64");
-
-const attachment = {
-  name: "<your-attachment-name>",
-  attachmentType: "<your-attachment-type>",
-  contentBytesBase64: attachmentContent,
-}
-
-const emailMessage = {
-  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+const message = {
+  senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
   content: {
     subject: "Welcome to Azure Communication Service Email.",
     plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
@@ -233,12 +164,73 @@ const emailMessage = {
   recipients: {
     to: [
       {
-        email: "<emailalias@emaildomain.com>",
+        address: "customer1@domain.com",
+        displayName: "Customer Name 1",
       },
+      {
+        address: "customer2@domain.com",
+        displayName: "Customer Name 2",
+      }
     ],
-  },
-  attachments: [attachment]
+    cc: [
+      {
+        address: "ccCustomer1@domain.com",
+        displayName: " CC Customer 1",
+      },
+      {
+        address: "ccCustomer2@domain.com",
+        displayName: "CC Customer 2",
+      }
+    ],
+    bcc: [
+      {
+        address: "bccCustomer1@domain.com",
+        displayName: " BCC Customer 1",
+      },
+      {
+        address: "bccCustomer2@domain.com",
+        displayName: "BCC Customer 2",
+      }
+    ]
+  }
 };
+
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an attachment object and adding it to our message. Read the attachment file and encode it using Base64.
+
+```javascript
+const filePath = "<path-to-your-file>";
+
+const message = {
+  sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+  content: {
+    subject: "Welcome to Azure Communication Service Email.",
+    plainText: "<This email message is sent from Azure Communication Service Email using JavaScript SDK.>"
+  },
+  recipients: {
+    to: [
+      {
+        address: "<emailalias@emaildomain.com>",
+        displayName: "Customer Name",
+      }
+    ]
+  },
+  attachments: [
+    {
+      name: path.basename(filePath),
+      contentType: "text/plain",
+      contentInBase64: readFileSync(filePath, "base64"),
+    }
+  ]
+};
+
+const response = await emailClient.send(message);
+```
+
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
