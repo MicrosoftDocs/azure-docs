@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2023
+ms.date: 03/03/2023
 ms.author: jammart
 ---
 
@@ -85,36 +85,36 @@ The following diagram shows the permission flow for three common operations: lis
 
 The following table shows you how to combine Azure roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
-|    Operation           | Assigned Azure role    | ABAC <br>Condition |    /    | Oregon/ | Portland/ | Data.txt |
-|------------------------|---------------------------------|-----------|---------|---------|-----------|----------|
-| Read Data.txt          |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   None                          | N/A       | `--X`   | `--X`   | `--X`     | `R--`    |
-| Append to Data.txt     |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | `--X`   | `--X`   | `--X`     | `-W-`    |
-|                        |   None                          | N/A       | `--X`   | `--X`   | `--X`     | `RW-`    |
-| Delete Data.txt        |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | `--X`   | `--X`   | `-WX`     | N/A      |
-|                        |   None                          | N/A       | `--X`   | `--X`   | `-WX`     | N/A      |
-| Create Data.txt        |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | `--X`   | `--X    | `-WX`     | N/A      |
-|                        |   None                          | N/A       | `--X`   | `--X`   | `-WX`     | N/A      |
-| List /                 |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   None                          | N/A       | `R-X`   | N/A     | N/A       | N/A      |
-| List /Oregon/          |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   None                          | N/A       | `--X`   | `R-X`   | N/A       | N/A      |
-| List /Oregon/Portland/ |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   Storage Blob Data Reader      | N/A       | N/A     | N/A     | N/A       | N/A      |
-|                        |   None                          | N/A       | `--X`   | `--X`   | `R-X`     | N/A      |
+|    Operation             | Assigned Azure role               |    /        | Oregon/     | Portland/ | Data.txt |
+|--------------------------|----------------------------------|-------------|-------------|-----------|----------|
+| Read Data.txt            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
+|                          |   None                           | `--X`    | `--X`    | `--X`     | `R--`  |
+| Append to Data.txt       |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `--X`     | `-W-`  |
+|                          |   None                           | `--X`    | `--X`    | `--X`     | `RW-`  |
+| Delete Data.txt          |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `-WX`     | N/A    |
+|                          |   None                           | `--X`    | `--X`    | `-WX`     | N/A    |
+| Create Data.txt          |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `-WX`     | N/A    |
+|                          |   None                           | `--X`    | `--X`    | `-WX`     | N/A    |
+| List /                   |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
+|                          |   None                           | `R-X`    | N/A      | N/A       | N/A    |
+| List /Oregon/            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
+|                          |   None                           | `--X`    | `R-X`    | N/A       | N/A    |
+| List /Oregon/Portland/   |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
+|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
+|                          |   None                           | `--X`    | `--X`    | `R-X`     | N/A    |
 
 > [!NOTE]
 > To view the contents of a container in Azure Storage Explorer, security principals must [sign in to Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.
