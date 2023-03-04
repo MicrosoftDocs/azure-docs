@@ -144,9 +144,8 @@ var recipient = "emailalias@contoso.com";
 ## Send and track email delivery
 
 To send an email message, you need to :
-- Call the SendAsync method. 
-- To track the status of email delivery, you need to get the operationId back from SendAsync callback method and track the status. 
-- EmailSendOperation returns "Succeeded" EmailSendStatus that email is out of delivery. Add this code to the end of `Main` method in **Program.cs**:
+- Call SendSync method which sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service; Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
+- SendAsync method returns EmailSendOperation which returns "Succeeded" EmailSendStatus if email is out of delivery. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
 try
@@ -158,15 +157,17 @@ try
       string operationId = emailSendOperation.Id;
       var emailSendStatus = statusMonitor.Status;
 
-      if (emailSendStatus == EmailSendStatus.Succeeded)
-      {
-          Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
-      }
-      else
-      {
-          Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
-          return;
-      }
+        if (emailSendStatus == EmailSendStatus.Succeeded)
+        {
+            Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
+        }
+        else
+        {
+            var error = statusMonitor.Error;
+            Console.WriteLine($"Failed to send email.\n OperationId = {operationId}.\n Status = {emailSendStatus}.");
+            Console.WriteLine($"Error Code = {error.Code}, Message = {error.Message}");
+            return;
+        }
   }
   catch (Exception ex)
   {
@@ -175,7 +176,11 @@ try
 ```
 ## Sending Email Async and getting status on email delivery 
 
-If you are sending a lot of emails and want to track the delivery status of each email, do not wait for the SendAsync API to complete. You can track them by using the EmailSendOperation.
+When you call SendAsync with Azure.WaitUntil.Started , your method returns after starting the operation. The method returns EmailSendOperation object. You can call UpdateStatusAsync method to refresh the email operation status. 
+
+EmailSendOperation consists of : 
+- EmailSendStatus object which provides details operation status.
+- Error object which return failure details.
 
 ```csharp
 try
@@ -209,7 +214,9 @@ try
         }
         else
         {
-            Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
+            var error = statusMonitor.Error;
+            Console.WriteLine($"Failed to send email.\n OperationId = {operationId}.\n Status = {emailSendStatus}.");
+            Console.WriteLine($"Error Code = {error.Code}, Message = {error.Message}");
             return;
         }
     }
@@ -233,6 +240,11 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+EmailSendOperation only returns email operation status. To get the actual email delivery status you can subscribe to "EmailDeliveryReportReceived" event which is generated when the email delivery is completed the event returns the following delivery state :
+- Delivered
+- Failed
+- Quarantined.
+See [Handle Email Events](../email/handle-email-events.md) for details.
 ## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
@@ -348,3 +360,5 @@ emailMessage.Attachments.Add(emailAttachment);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)
+
+
