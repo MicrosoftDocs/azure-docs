@@ -17,7 +17,7 @@ ms.author: pafarley
 Use the Image Analysis client library for C# to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeAsync`, which uses the client object to analyze a remote image and print the results. 
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis
-) | [Library source code](tbd) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core/0.8.1-beta.1) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis/0.8.1-beta.1) | [Samples](tbd)
+) | [Library source code](tbd) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core/0.8.1-beta.1) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis/0.8.1-beta.1) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > You can also analyze a local image. See the [reference documetation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) for scenarios involving local images.
