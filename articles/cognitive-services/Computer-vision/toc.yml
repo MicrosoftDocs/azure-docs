@@ -134,6 +134,8 @@ items:
         href: how-to/migrate-from-custom-vision.md
       - name: Call the Image Retrieval APIs
         href: how-to/image-retrieval.md
+      - name: Call the Background removal API
+        href: how-to/background-removal.md
     - name: Version 3.2
       items:
       - name: Call the Analyze API

@@ -50,8 +50,9 @@ It's important to note the limitations of background removal:
 
 ## Use the API
 
-The background removal feature is available through the [Image Analysis - Segment](https://aka.ms/vision-4-0-ref) API (`imageanalysis:segment`). You can call this API through REST calls.
+The background removal feature is available through the [Image Analysis - Segment](https://aka.ms/vision-4-0-ref) API (`imageanalysis:segment`). You can call this API through REST calls. See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
 
 ## Next steps
 
+* [Call the background removal API](./how-to/background-removal.md)
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
