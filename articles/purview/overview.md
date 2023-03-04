@@ -59,18 +59,18 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 ## Data Policy app
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 - Manage access to data sources from a single-pane of glass, cloud-based experience
-- At-scale access provisioning
+- Enables at-scale access provisioning
 - Introduces a new data-plane permission model that is external to data sources
-- Seamless integration with Microsoft Purview Data Map and Catalog:
+- It is seamlessly integrated with Microsoft Purview Data Map and Catalog:
     - Search for data assets and grant access only to what is required via fine-grained policies.
-    - Path to support SaaS, on-premises, and multicloud data sources
-    - Path to leverage all associated metadata for policies
+    - Path to support SaaS, on-premises, and multicloud data sources.
+    - Path to create policies that leverage any metadata associated to the data objects.
 - Based on role definitions that are simple and abstracted (for example: Read, Modify)
 
 For more information, see our introductory guides:
 * [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
 * [Self-service access policies](concept-self-service-data-access-policy.md) (preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md): Provision access for IT operations and other DevOps users from Microsoft Purview Studio, enabling them to monitor SQL database system health and security, while limiting insider threat.
+* [DevOps policies](concept-policies-devops.md): Provision IT operations personnel access to SQL system metadata, so that they can monitor performance, health and audit security, while limiting the insider threat.
 
 ## Traditional challenges that Microsoft Purview seeks to address
 
