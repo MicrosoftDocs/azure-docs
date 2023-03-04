@@ -48,7 +48,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 The following JSON response illustrates what the Analysis 4.0 API returns when generating dense captions for the example image.
 
-![Photo of a woman sitting at a desk](./Images/dense-captions.png)
+![Photo of a tractor on a farm](./Images/farm.png)
 
 ```json
 {
