@@ -16,9 +16,7 @@ ms.custom: seodec18, ignite-2022
 
 # Image tagging (version 4.0 preview)
 
-Image Analysis can return content tags for thousands of recognizable objects, living beings, scenery, and actions that appear in images. Tags are not organized as a taxonomy and do not have inheritance hierarchies. A collection of content tags forms the foundation for an image [description](./concept-describing-images-40.md) displayed as human readable language formatted in complete sentences. When tags are ambiguous or not common knowledge, the API response provides hints to clarify the meaning of the tag in context of a known setting.
-
-After you upload an image or specify an image URL, the Analysis 4.0 API can output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on.
+Image Analysis can return content tags for thousands of recognizable objects, living beings, scenery, and actions that appear in images. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. Tags are not organized as a taxonomy and do not have inheritance hierarchies. When tags are ambiguous or not common knowledge, the API response provides hints to clarify the meaning of the tag in context of a known setting.
 
 Try out the image tagging features quickly and easily in your browser using Vision Studio.
 

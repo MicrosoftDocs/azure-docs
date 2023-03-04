@@ -31,7 +31,7 @@ var imageSource = VisionSource.FromUrl(new Uri("https://docs.microsoft.com/azure
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk) for scenarios involving local images.
 
 
 #### [Python](#tab/python)
@@ -44,7 +44,7 @@ vision_source = visionsdk.VisionSource(url=image_url)
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk) for scenarios involving local images.
 
 #### [C++](#tab/cpp)
 
@@ -55,7 +55,7 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [reference documentation](/cpp/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation](/cpp/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk) for scenarios involving local images.
 
 #### [REST](#tab/rest)
 
@@ -150,7 +150,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people`
 
 
 ---
@@ -158,7 +158,7 @@ A populated URL might look like this:
 
 ### Specify languages
 
-You can also specify the language of the returned data. 
+You can also specify the language of the returned data. This is optional, and the default language is English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
 
 
 #### [C#](#tab/csharp)
@@ -168,17 +168,6 @@ Use the *language* property of your **ImageAnalysisOptions** object to specify a
 ```csharp
 var analysisOptions = new ImageAnalysisOptions()
 {
-    // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
-    // Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
-    // North Europe, Southeast Asia, West Europe, West US)
-
-    Features =
-        ImageAnalysisFeature.CropSuggestions
-        | ImageAnalysisFeature.Captions
-        | ImageAnalysisFeature.Objects
-        | ImageAnalysisFeature.People
-        | ImageAnalysisFeature.Text
-        | ImageAnalysisFeature.Tags,
 
     // Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
     // language codes and which visual features are supported for each language.
@@ -221,7 +210,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people&language=en`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people&language=en`
 
 
 ---

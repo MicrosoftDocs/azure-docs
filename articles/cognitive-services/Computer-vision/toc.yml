@@ -210,10 +210,6 @@ items:
       items:
       - name: Image Analysis REST API v3.2
         href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
-      - name: Image Analysis REST API v3.1
-        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-      - name: Image Analysis REST API v2.1
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
       - name: .NET
         href: /dotnet/api/overview/azure/computer-vision
       - name: Node.js
@@ -224,6 +220,12 @@ items:
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
       - name: Java
         href: /java/api/overview/azure/cognitiveservices/client/computervision
+    - name: Older versions
+      items: 
+      - name: Image Analysis REST API v3.1
+        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+      - name: Image Analysis REST API v2.1
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: Azure CLI
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
