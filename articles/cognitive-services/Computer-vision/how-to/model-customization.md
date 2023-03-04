@@ -70,9 +70,9 @@ To start labeling, follow the **Please add label classes** prompt to add label c
 
 ![Label classes]( ../media/customization/aml-home-page.png)
 
-Once you've added all the class labels, save them, select **start** on the project, and then select **Label data** at the top.
+![Add class labels]( ../media/customization/aml-label-categories.png)
 
-![Start labeling]( ../media/customization/aml-label-categories.png)
+Once you've added all the class labels, save them, select **start** on the project, and then select **Label data** at the top.
 
 ![Start labeling]( ../media/customization/aml-start.png)
 

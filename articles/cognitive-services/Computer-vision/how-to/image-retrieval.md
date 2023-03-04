@@ -105,4 +105,4 @@ public static float GetCosineSimilarity(float[] vector1, float[] vector2)
 
 ## Next steps
 
-[Image Analysis overview](overview-image-analysis.md)
+[Image Analysis overview](../overview-image-analysis.md)
