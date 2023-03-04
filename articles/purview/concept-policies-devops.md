@@ -40,16 +40,29 @@ The role maps to a set of actions that the policy permits on the data resource. 
 A DevOps policy on a data resource is enforced on the data resource itself and all children contained by it. For example, a DevOps policy on an Azure subscription applies to all resource groups, to all policy-enabled data sources within each resource group, and to all databases contained within each data source.
 
 ## A sample scenario to demonstrate the concept and the benefits
-Bob and Alice are involved with the DevOps process at their company. Given their role, they need to log in to dozens of Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, creates an Azure AD group and includes Alice and Bob. He then uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access to Resource Group 1, which hosts the Azure SQL servers.
+Bob and Alice are involved with the DevOps process at their company. Given their role, they need to log in to dozens of SQL servers on-premise and Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, puts all these SQL data sources into Resource Group 1. He then creates an Azure AD group and includes Alice and Bob. Next, he uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access to Resource Group 1, which hosts the Azure SQL servers.
 
 ![Diagram shows an example of DevOps policy on resource group.](./media/concept-policies-devops/devops-policy-on-resource-group.png).
 
 #### These are the benefits:
-- Mateo doesn't have to create local logins in each logical server
-- The policies from Microsoft Purview improve security by helping limit local privileged access. This is what we call PoLP (Principle of Least Privilege). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring system health and performance.
-- When new Azure SQL servers are added to the resource group, Mateo doesn't need to update the policy in Microsoft Purview for it to be enforced on the new logical servers.
+- Mateo doesn't have to create local logins in each SQL server.
+- The policies from Microsoft Purview improve security by limiting local privileged access. They support the Principle of Least Privilege (PoLP). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring system health and performance.
+- When new SQL servers are added to the resource group, Mateo doesn't need to update the policy in Microsoft Purview for it to be enforced on the new SQL servers.
 - If Alice or Bob leave their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
-- At any point in time, Mateo or the company’s auditor can see what access has been granted directly in Microsoft Purview Studio.
+- At any point in time, Mateo or the company’s auditor can see all the permissions that were granted directly in Microsoft Purview Studio.
+
+| **Principle** | **Benefit** |
+|-|-|
+|*Simplify*        |The role definitions SQL Performance Monitor and SQL Security AuditorData capture the permissions that typical IT/DevOps personas need to execute their job.|
+|                  |Reduce the need of permission expertise for each data source type.|
+|||
+|*Reduce effort*   |Graphical interface lets you navigate the data object hierarchy quickly.|
+|                  |Supports policies on entire Azure resource groups and subscriptions.|
+|||
+|*Enhance security*|Access is granted centrally and can be easily reviewed and revoked.|
+|                  |Reduces the need for privileged accounts to configure access directly at the data source.|
+|                  |Supports the Principle of Least Privilege via data resource scopes and the role definitions.|
+|||
 
 ## Mapping of popular DMVs/DMFs
 SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL, along with their description.

@@ -115,14 +115,19 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
-Lastly, Microsoft Purview Data Policy app applies the metadata in the Data Map, providing a superior solution to keep your data secure.
-* Structure and simplify the process of granting/revoking access.
-* Reduce the effort of access provisioning.
-* Access decision in Microsoft data systems has negligible latency penalty.
-* Enhanced security:
-   - Easier to review access/revoke it in a central vs. distributed access provisioning model.
-   - Reduced need for privileged accounts to configure access.
-   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
+Lastly, Microsoft Purview Data Policy app provides a superior solution to keep your data secure. Here are the benefits of the Data Policy app:
+| **Principle** | **Benefit** |
+|-|-|
+|*Simplify*        |Permissions are bundled into role definitions that are abstracted and consistent across data source types, like Read and Modify.|
+|                  |Reduce the need of permission expertise for each data source type.|
+|||
+|*Reduce effort*   |Graphical interface lets you navigate the data object hierarchy quickly.|
+|                  |Supports policies on entire Azure resource groups and subscriptions.|
+|||
+|*Enhance security*|Access is granted centrally and can be easily reviewed and revoked.|
+|                  |Reduces the need for privileged accounts to configure access directly at the data source.|
+|                  |Supports the Principle of Least Privilege via data resource scopes and common role definitions.|
+|||
 
 ## In-region data residency
 
