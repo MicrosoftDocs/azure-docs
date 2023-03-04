@@ -86,7 +86,6 @@ var analysisOptions = new ImageAnalysisOptions()
     Features =
             ImageAnalysisFeature.CropSuggestions
         | ImageAnalysisFeature.Captions
-        | ImageAnalysisFeature.DenseCaptions
         | ImageAnalysisFeature.Objects
         | ImageAnalysisFeature.People
         | ImageAnalysisFeature.Text
@@ -108,7 +107,6 @@ image_analysis_options = visionsdk.ImageAnalysisOptions()
 image_analysis_options.features = (
     visionsdk.ImageAnalysisFeature.CROP_SUGGESTIONS |
     visionsdk.ImageAnalysisFeature.CAPTIONS |
-    visionsdk.ImageAnalysisFeature.DENSECAPTIONS |
     visionsdk.ImageAnalysisFeature.OBJECTS |
     visionsdk.ImageAnalysisFeature.PEOPLE |
     visionsdk.ImageAnalysisFeature.TEXT |
@@ -130,7 +128,6 @@ analysisOptions->SetFeatures(
 {
     ImageAnalysisFeature::CropSuggestions,
     ImageAnalysisFeature::Captions,
-    ImageAnalysisFeature::DenseCaptions,
     ImageAnalysisFeature::Objects,
     ImageAnalysisFeature::People,
     ImageAnalysisFeature::Text,
@@ -146,6 +143,7 @@ You can specify which features you want to use by setting the URL query paramete
 |---|---|--|
 |`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
+|`features`|`DenseCaption` | generates detailed captions for individual regions in the image. |
 |`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
@@ -177,7 +175,6 @@ var analysisOptions = new ImageAnalysisOptions()
     Features =
         ImageAnalysisFeature.CropSuggestions
         | ImageAnalysisFeature.Captions
-        | ImageAnalysisFeature.DenseCaptions
         | ImageAnalysisFeature.Objects
         | ImageAnalysisFeature.People
         | ImageAnalysisFeature.Text
