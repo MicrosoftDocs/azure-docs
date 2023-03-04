@@ -194,6 +194,7 @@ Configure both the **Notify users on password resets** and the **Notify all admi
 > - Public: msonlineservicesteam@microsoft.com
 > - China: msonlineservicesteam@oe.21vianet.com 
 > - Government: msonlineservicesteam@azureadnotifications.us
+> 
 > If you observe issues in receiving notifications, please check your spam settings. 
 
 ### Customization settings
