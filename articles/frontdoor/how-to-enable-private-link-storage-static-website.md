@@ -18,7 +18,7 @@ This article guides you through how to configure Azure Front Door Premium tier t
 
 * An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Create a [Private Link](../private-link/create-private-link-service-portal.md) service for your origin web server.
-* Storage Static Website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal).
+* Storage Static Website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal).
 
 ## Enable Private Link to a static storage website
 
