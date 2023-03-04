@@ -27,8 +27,8 @@ If you're new to ARM templates, learn about [template deployments](../../azure-r
 The Azure Diagnostics extension uses a feature called *data sinks* to route metrics and logs to different locations. The following steps show how to use an ARM template and PowerShell to deploy a VM by using the new Azure Monitor data sink.
 
 ## ARM template
-For this example, you can use a publicly available sample template. The starting templates are at
-https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows.
+For this example, you can use a publicly available sample template. The starting templates are on
+[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows).
 
 - **Azuredeploy.json**: A preconfigured ARM template for the deployment of a VM.
 - **Azuredeploy.parameters.json**: A parameters file that stores information like what user name and password you want to set for your VM. During deployment, the ARM template uses the parameters that are set in this file.
