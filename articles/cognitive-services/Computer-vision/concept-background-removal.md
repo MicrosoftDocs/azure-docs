@@ -17,6 +17,9 @@ ms.author: pafarley
 
 The Image Analysis service can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
 
+> [!div class="nextstepaction"]
+> [Call the Background removal API](./how-to/background-removal.md)
+
 This feature provides two possible outputs based on the customer's needs:
 
 - The foreground object of the image without the background. This edited image shows the foreground object and makes the background transparent, allowing the foreground to be placed on a new background. 

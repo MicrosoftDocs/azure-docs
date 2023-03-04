@@ -25,6 +25,9 @@ This guide shows you how to create and train a custom image classification model
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
+> [!NOTE]
+> We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results. Microsoft is working on making latency improvements in the near future.
+
 #### [Vision Studio](#tab/studio)
 
 ## Create a new custom model
