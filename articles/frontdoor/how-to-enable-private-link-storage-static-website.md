@@ -1,7 +1,7 @@
 ---
-title: 'Connect Azure Front Door Premium to a static storage website origin with Private Link'
+title: 'Connect Azure Front Door Premium to a storage static website origin with Private Link'
 titleSuffix: Azure Private Link
-description: Learn how to connect your Azure Front Door Premium to a static storage website privately.
+description: Learn how to connect your Azure Front Door Premium to a storage static website privately.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
@@ -10,17 +10,17 @@ ms.date: 03/03/2023
 ms.author: duau
 ---
 
-# Connect Azure Front Door Premium to a static storage website with Private Link
+# Connect Azure Front Door Premium to a storage static website with Private Link
 
-This article guides you through how to configure Azure Front Door Premium tier to connect to your static storage website privately using the Azure Private Link service.
+This article guides you through how to configure Azure Front Door Premium tier to connect to your storage static website privately using the Azure Private Link service.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Create a [Private Link](../private-link/create-private-link-service-portal.md) service for your origin web server.
-* Storage Static Website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal).
+* Storage static website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal).
 
-## Enable Private Link to a static storage website
+## Enable Private Link to a storage static website
 
 In this section, you map the Private Link service to a private endpoint created in Azure Front Door's private network.
 
@@ -28,17 +28,17 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Within your Azure Front Door Premium profile, under *Settings*, select **Origin groups**.
 
-1. Select the origin group that contains the static storage website origin you want to enable Private Link for.
+1. Select the origin group that contains the storage static website origin you want to enable Private Link for.
 
-1. Select **+ Add an origin** to add a new static storage website origin or select a previously created static storage website origin from the list.
+1. Select **+ Add an origin** to add a new storage static website origin or select a previously created storage static website origin from the list.
 
-    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-primary.png" alt-text="Screenshot of enabling private link to a static storage website primary.":::
+    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-primary.png" alt-text="Screenshot of enabling private link to a storage static website primary.":::
 
-1. The following table has the information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the static storage website you want Azure Front Door Premium to connect with privately.
+1. The following table has the information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage static website you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter a name to identify this static storage website origin. |
+    | Name | Enter a name to identify this storage static website origin. |
     | Origin Type | Storage (Static website) |
     | Host name | Select the host from the dropdown that you want as an origin. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
@@ -70,9 +70,9 @@ In this section, you map the Private Link service to a private endpoint created 
 
 When creating a private endpoint connection to the storage static website's secondary sub resource, you need to add a **-secondary** suffix to the origin host header. For example, if your origin host header is *contoso.z13.web.core.windows.net*, you need to change it to *contoso-secondary.z13.web.core.windows.net*.
 
-:::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a static storage website secondary.":::
+:::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a storage static website secondary.":::
 
-Once the origin has been added and the private endpoint connection has been approved, you can test your private link connection to your static storage website.
+Once the origin has been added and the private endpoint connection has been approved, you can test your private link connection to your storage static website.
 
 ## Next steps
 
