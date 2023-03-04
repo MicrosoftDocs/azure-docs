@@ -246,8 +246,8 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 
 The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
 
-* [On-premises user authentication from the Azure AD DS forest](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
-* [Access resources in the Azure AD DS forest as an on-premises user](#access-resources-in-the-azure-ad-ds-forest-as-an-on-premises-user)
+* [On-premises user authentication from the Azure AD DS forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
+* [Access resources in the Azure AD DS forest as an on-premises user](#access-resources-in-azure-ad-ds-as-an-on-premises-user)
     * [Enable file and printer sharing](#enable-file-and-printer-sharing)
     * [Create a security group and add members](#create-a-security-group-and-add-members)
     * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
