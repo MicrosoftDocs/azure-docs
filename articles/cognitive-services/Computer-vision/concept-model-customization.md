@@ -17,9 +17,12 @@ ms.author: pafarley
 
 Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
 
+> [!div class="nextstepaction"]
+> [Create a custom model](./how-to/model-customization.md)
+
 ## Scenario components
 
-The main components of a model customization system are the training images, association file, dataset object, and model object.
+The main components of a model customization system are the training images, COCO file, dataset object, and model object.
 
 ### Training images
 
@@ -41,13 +44,12 @@ Additionally, make sure all of your training images meet the following criteria:
 - The file size of the image must be less than 20 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
-### Association file
+### COCO file
 
-The association file references all of the training images and provides their labeling information. In the case of object detection, it specified the bounding box coordinates of each tag on each image. This file must be in the COCO format, which is a specific type of JSON file. The association file should be stored in the same Azure Storage container as the training images.
+The COCO file references all of the training images and associates them with their labeling information. In the case of object detection, it specified the bounding box coordinates of each tag on each image. This file must be in the COCO format, which is a specific type of JSON file. The COCO file should be stored in the same Azure Storage container as the training images.
 
 > [!TIP]
 > [!INCLUDE [coco-files](includes/coco-files.md)]
-
 
 ### Dataset object
 
@@ -101,32 +103,15 @@ The following are some common reasons for training failure:
 - `datasetNotFound`: dataset cannot be found
 - `unknown`: This could be a backend issue. Reach out to support for investigation.
 
-### Why does the evaluation fail for my object detection model?
+### What metrics are used for evaluating the models?
 
-Below are the possible reasons:
-- `internalServerError`: An unknown error occurred. Please try again later.
-- `modelNotFound`: The specified model was not found.
-- `datasetNotFound`: The specified dataset was not found.
-- `datasetAnnotationsInvalid`: An error occurred while trying to download or parse the ground truth annotations associated with the test dataset.
-- `datasetEmpty`: The test dataset did not contain any "ground truth" annotations.
+See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
 
 ### Why does my dataset registration fail?
 
 The API responses should be informative enough. They are:
 - `DatasetAlreadyExists`: A dataset with the same name exists
 - `DatasetInvalidAnnotationUri`: "An invalid URI was provided among the annotation URIs at dataset registration time.
-
-### Can I control the hyper-parameters or use my own models in training?
-
-No, Image Analysis model customization service uses a low-code AutoML training system that handles hyper-param search and base model selection in the backend.
-
-### Can I export my model after training?
-
-Currently, the prediction API is only supported through the cloud service.
-
-### What metrics are used for evaluating the models?
-
-See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
 
 ### How many images are required for reasonable/good/best model quality?
 
@@ -145,11 +130,33 @@ If your data labeling budget is constrained, our recommended workflow is to repe
       - this problem is not well defined or is too hard. Reach out to us for case-by-case analysis.
       - the training data might be of low quality: check if there are wrong annotations or very low-pixel images.
 
+
 ### How much training budget should I specify?
 
 You should specify the upper limit of budget that you're willing to consume. Image Analysis uses an AutoML system in its backend to try out different models and training recipes to find the best model for your use case. The more budget that's given, the higher the chance of finding a better model.
 
 The AutoML system also stops automatically if it concludes there's no need to try more, even if there is still remaining budget. So, it doesn't always exhaust your specified budget. You're guaranteed not to be billed over your specified budget.
+
+### Can I control the hyper-parameters or use my own models in training?
+
+No, Image Analysis model customization service uses a low-code AutoML training system that handles hyper-param search and base model selection in the backend.
+
+### Can I export my model after training?
+
+Currently, the prediction API is only supported through the cloud service.
+
+### Why does the evaluation fail for my object detection model?
+
+Below are the possible reasons:
+- `internalServerError`: An unknown error occurred. Please try again later.
+- `modelNotFound`: The specified model was not found.
+- `datasetNotFound`: The specified dataset was not found.
+- `datasetAnnotationsInvalid`: An error occurred while trying to download or parse the ground truth annotations associated with the test dataset.
+- `datasetEmpty`: The test dataset did not contain any "ground truth" annotations.
+
+### What is the expected latency for predictions with custom models?
+
+We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results. Microsoft is working on making latency improvements in the near future.
 
 ## Next steps
 
