@@ -49,7 +49,21 @@ When the flexible server is configured with **high availability**, the flexible 
 ##  Unplanned downtime mitigation
 
 Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime cannot be avoided, flexible server helps mitigating the downtime by automatically performing recovery operations without requiring human intervention. 
-   
+
+Though we continuously strive to provide high availability, there are times when Azure Database for PostgreSQL - Flexible Server service does incur outage causing unavailability of the databases and thus impacting your application. When our service monitoring detects issues that cause widespread connectivity errors, failures or performance issues, the service automatically declares an outage to keep you informed.
+### Service Outage
+
+In the event of the Azure Database for PostgreSQL - Flexible Server service outage, you will be able to see additional details related to the outage in the following places.
+
+ * **Azure Portal Banner**
+If your subscription is identified to be impacted, there will be an outage alert of a Service Issue in your Azure portal **Notifications**.
+ :::image type="content" source="./media/business-continuity/notification-service-issue-example.png" alt-text=" Screenshot showing notifications in Azure Portal":::
+* **Help + support** or **Support + troubleshooting**
+When you create support ticket from **Help + support** or **Support + troubleshooting**, there will be information about any issues impacting your resources. Select View outage details for more information and a summary of impact. There will also be an alert in the New support request page.
+:::image type="content" source="./media/business-continuity/help-support-service-health-notification.png" alt-text=" Screenshot showing Help Support notifications in Azure Portal":::
+*  **Service Help**
+The **Service Health** page in the Azure portal contains information about Azure data center status globally. Search for "service health" in the search bar in the Azure portal, then view Service issues in the Active events category. You can also view the health of individual resources in the **Resource health** page of any resource under the Help menu. A sample screenshot of the Service Health page follows, with information about an active service issue in Southeast Asia.
+:::image type="content" source="./media/business-continuity/service-health-service-issues-example-map.png" alt-text=" Screenshot showing service outage in Service Health portal":::
 ### Unplanned downtime: failure scenarios and service recovery
 
 Below are some unplanned failure scenarios and the recovery process. 
