@@ -26,7 +26,41 @@ landingContent:
             url: workload-identities-overview.md
           - text: Frequently asked questions about license plans
             url: workload-identities-faqs.md
-  
+  # Card
+  - title: Detect risks, identity risky workload identities, and enforce access controls
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Secure workload identities
+            url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
+  - title: Apply Conditional Access policies to service principals
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Conditional Access for workload identities
+            url: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
+  - title: Enable real-time enforcement of Conditional Access location and risk policies
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Continuous access evaluation for workload identities
+            url: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
+  - title: Contain threats and reduce risk to workload identities
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Identity Protection
+            url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
+  - title: Review service principals and applications privileged directory roles
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Access reviews for service principals
+            url: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
   # Card
   - title: Connect without needing to manage secrets
     linkLists:
