@@ -64,11 +64,11 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-1. In the **Package Manage Console** run the .NET cli add package command shown on this page to add the NuGet package: [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/2.0.0-beta.x).
+1. In the **Package Manage Console** run the .NET cli add package command shown on this page to add the NuGet package: [Microsoft.Azure.Analytics.Purview.Sharing NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Sharing).
 1. In the **Package Manager Console** pane, run the following commands to install packages.
 
     ```powershell
-    Install-Package Azure.Analytics.Purview.Share -IncludePrerelease
+    Install-Package Azure.Analytics.Purview.Sharing -IncludePrerelease
     Install-Package Azure.Identity
     ```
 
@@ -96,7 +96,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
@@ -104,7 +104,7 @@ using System.ComponentModel;
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
-    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
+    private static string SenderTenantId = "<Sender Identity's Tenant ID>";
     private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
 
     private static string ShareName = "<Share Display Name>";
@@ -193,7 +193,7 @@ public static class PurviewDataSharingQuickStart
             },
         };
 
-        Operation<BinaryData> sentShare = await sentSharesClient.CreateSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
+        Operation<BinaryData> sentShare = await sentSharesClient.CreateOrReplaceSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(sentShare.Value);
         Console.ForegroundColor = Console.ForegroundColor;
@@ -219,7 +219,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
@@ -350,7 +350,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
@@ -474,7 +474,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 
@@ -546,7 +546,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.Text.Json;
@@ -635,7 +635,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.Text.Json;
@@ -737,7 +737,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.Text.Json;
@@ -832,7 +832,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
@@ -941,7 +941,7 @@ public static class PurviewDataSharingQuickStart
             }
         };
 
-        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        var receivedShare = await receivedSharesClient.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(receivedShare.Value);
@@ -978,7 +978,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 
@@ -1054,7 +1054,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
@@ -1155,7 +1155,7 @@ public static class PurviewDataSharingQuickStart
 
         var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString();
 
-        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
+        var receivedShare = await receivedSharesClient.CreateOrReplaceReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(receivedShare.Value);
@@ -1193,7 +1193,7 @@ To use it, be sure to fill out these variables:
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
-using Azure.Analytics.Purview.Share;
+using Azure.Analytics.Purview.Sharing;
 using Azure.Core;
 using Azure.Identity;
 using System.Text.Json;
