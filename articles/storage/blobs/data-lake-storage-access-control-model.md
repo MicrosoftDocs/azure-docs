@@ -85,7 +85,7 @@ The following diagram shows the permission flow for three common operations: lis
 
 The following table shows you how to combine Azure roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
-|    Operation           | Assigned Azure role    | ABAC <br>Condition |    /    | Oregon/ | Portland/ | Data.txt |
+|    Operation           | Assigned Azure role             | ABAC Condition | /  | Oregon/ | Portland/ | Data.txt |
 |------------------------|---------------------------------|-----------|---------|---------|-----------|----------|
 | Read Data.txt          |   Storage Blob Data Owner       | N/A       | N/A     | N/A     | N/A       | N/A      |
 |                        |   Storage Blob Data Contributor | N/A       | N/A     | N/A     | N/A       | N/A      |
