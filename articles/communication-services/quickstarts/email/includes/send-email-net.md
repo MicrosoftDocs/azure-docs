@@ -62,7 +62,6 @@ using System.Threading.Tasks;
 
 using Azure;
 using Azure.Communication.Email;
-using Azure.Communication.Email.Models;
 
 namespace SendEmail
 {
@@ -88,12 +87,11 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. You have to specify atleast one of PlainText or Html content   |
-| EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
+| EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'                                                                  |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| EmailSendOperation | This class holds the email opertion status of the email api.                                             |
-| SendStatusResult | This class holds lists of status of the email message delivery.                                             |
-| EmailSendResult | This class holds lists of result of the email message delivery.                                             |
+| EmailSendOperation | This class represents the asynchronous email send operation and is returned from email send api call.                                             |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable).                                            |
 
 ## Authenticate the client
 
@@ -127,9 +125,9 @@ EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new Default
 
 ## Construct your email message
 
-To send an Email message, you need to
-- Define the email subject and body  
-- Define your Sender and Recipient Address
+To send an email message, you need to :
+- Define the email subject and body.
+- Define your Sender and Recipient Address.
 - Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
@@ -144,38 +142,41 @@ var recipient = "emailalias@contoso.com";
 
 ```
 ## Send and track email delivery
-To send an Email message, you need to
+
+To send an email message, you need to :
 - Call the SendAsync method. 
-- To track the status of email delivery, you need to get the operationId back from SendAsync Callback method and track the status. 
-- EmailSendOperation returns  "Succeeded" EmailSendStatus that email is out of delivery Add this code to the end of `Main` method in **Program.cs**:
+- To track the status of email delivery, you need to get the operationId back from SendAsync callback method and track the status. 
+- EmailSendOperation returns "Succeeded" EmailSendStatus that email is out of delivery. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
-  try
-    {
-        Console.WriteLine("Sending email...");
-        EmailSendOperation emailSendOperation = await emailClient.SendAsync(Azure.WaitUntil.Completed, sender, recipient, subject, htmlContent);
-        EmailSendResult statusMonitor = emailSendOperation.Value;
+try
+{
+      Console.WriteLine("Sending email...");
+      EmailSendOperation emailSendOperation = await emailClient.SendAsync(Azure.WaitUntil.Completed, sender, recipient, subject, htmlContent);
+      EmailSendResult statusMonitor = emailSendOperation.Value;
 
-        string operationId = emailSendOperation.Id;
-        var emailSendStatus = statusMonitor.Status;
+      string operationId = emailSendOperation.Id;
+      var emailSendStatus = statusMonitor.Status;
 
-        if (emailSendStatus == EmailSendStatus.Succeeded)
-        {
-            Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
-        }
-        else
-        {
-            Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
-            return;
-        }
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error in sending email, {ex}");
-    } 
+      if (emailSendStatus == EmailSendStatus.Succeeded)
+      {
+          Console.WriteLine($"Email send operation succeeded with OperationId = {operationId}.\nEmail is out for delivery.");
+      }
+      else
+      {
+          Console.WriteLine($"Failed to send email. \n OperationId = {operationId}. \n Status = {emailSendStatus}");
+          return;
+      }
+  }
+  catch (Exception ex)
+  {
+      Console.WriteLine($"Error in sending email, {ex}");
+  } 
 ```
 ## Sending Email Async and getting status on email delivery 
-If you are sending lot of emails and want to track the delivery status of email do not wait for SendAsync API to complete. You can track then with EmailSendOperation to async.
+
+If you are sending a lot of emails and want to track the delivery status of each email, do not wait for the SendAsync API to complete. You can track them by using the EmailSendOperation.
+
 ```csharp
 try
 {
@@ -237,11 +238,13 @@ dotnet run
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
 
 ## Advanced
-To send an Email message using object model to consturct the email payload
-- Construct the email content and body using EmailContent 
-- Add Recipients 
-- Construct your email message with your Sender information you get your MailFrom address from your verified domain.
-- Include your Email Content and Recipients and include attachments if any 
+
+To send an email message using the object model to construct the email payload :
+- Construct the email content and body using EmailContent. 
+- Add Recipients. 
+- Construct your email message using your sender email address, defined in the MailFrom list of the domain linked in your Communication Services Resource.
+- Include your EmailContent and EmailRecipients, optionally adding attachments.
+
 ```csharp
 
 EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
@@ -298,7 +301,6 @@ catch (Exception ex)
 }
 
 ```
-
 
 ### Send an email message to multiple recipients
 
