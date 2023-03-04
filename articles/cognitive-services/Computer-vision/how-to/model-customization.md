@@ -14,7 +14,7 @@ ms.custom:
 
 # Create a custom Image Analysis model (preview)
 
-Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection). Image Analysis 4.0 models are especially effective at few-shot learning, so you don't need a lot of training images to get accurate models.
+Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection). Image Analysis 4.0 models are especially effective at few-shot learning, so you can get accurate models with less training data.
 
 This guide shows you how to create and train a custom image classification model. The few differences between this and object detection models are noted.
 
@@ -32,7 +32,7 @@ This guide shows you how to create and train a custom image classification model
 
 ## Create a new custom model
 
-Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile or the **Detect common objects in images** tile, depending on whether you want to train an image classification model or object detection model. This guide will demonstrate a custom image classification model. 
+Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile for image classification or the **Extract common objects in images** tile for object detection. This guide will demonstrate a custom image classification model. 
 
 On the next screen, the **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
 
@@ -110,13 +110,16 @@ It may take some time for the training to complete. Image Analysis 4.0 models ca
 
 ## Evaluate the trained model
 
-After training has completed, you can view the model's performance evaluation. See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
+After training has completed, you can view the model's performance evaluation. The following metrics are used:
 
-By default, performance is estimated based on data in the training dataset. You can optionally create evaluation datasets (using the same process as above) to use at this step for further model evaluation.
+- Image classification: Average Precision, Accuracy Top 1, Accuracy Top 5
+- Object detection: Mean Average Precision @ 30, Mean Average Precision @ 50, Mean Average Precision @ 75
+
+If an evaluation set is not provided when training the model, the reported performance is estimated based on part of the training set. We strongly recommend you use an evaluation dataset (using the same process as above) to have a reliable estimation of your model performance.
 
 ![Screenshot of evaluation]( ../media/customization/training-result.png)
 
-## Use custom model to generate predictions
+## Test custom model in Vision Studio
 
 Once you've built a custom model, you can go back to the **Extract common tags from images** tile in Vision Studio and test it by selecting it in the drop-down menu and then uploading new images.
 
@@ -145,13 +148,13 @@ The `datasets/<dataset-name>` API lets you create a new dataset object that refe
 1. Replace `<endpoint>` with your Computer Vision endpoint.
 1. Replace `<dataset-name>` with a name for your dataset.
 1. Replace `<subscription-key>` with your Computer Vision key.
-1. In the request body, set `"annotationKind"` to either `"ImageClassification"` or `"ObjectDetection"`, depending on your project.
-1. In the request body, set the `"annotationFileUris"` array to a single string that is the URI location of your COCO file in blob storage.
+1. In the request body, set `"annotationKind"` to either `"MultiClassClassification"` or `"ObjectDetection"`, depending on your project.
+1. In the request body, set the `"annotationFileUris"` array to an array of string(s) that show the URI location(s) of your COCO file(s) in blob storage.
 
 ```bash
 curl.exe -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-'annotationKind':'ImageClassification',
+'annotationKind':'MultiClassClassification',
 'annotationFileUris':['<URI>']
 }"
 ```
@@ -171,14 +174,13 @@ curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-ve
 {
 'trainingParameters': {
     'trainingDatasetName':'<dataset-name>',
-    'timeBudgetInMinutes':60,
+    'timeBudgetInHours':1,
     'modelKind':'Generic-Classifier',
-    'modelProfile':'balanced'
     }
 }"
 ```
 
-## Evaluate the model's performance
+## Evaluate the model's performance on a dataset
 
 The `models/<model-name>/evaluations/<eval-name>` API evaluates the performance of an existing model. Make the following changes to the cURL command below:
 
@@ -194,13 +196,15 @@ curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evalua
 'evaluationParameters':{
     'testDatasetName':'<dataset-name>'
     },
-'modelPerformance':{}
 }"
 ```
 
-The API call returns a **ModelPerformance** JSON object, which lists the model's scores in several categories. See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for descriptions of the different performance metrics.
+The API call returns a **ModelPerformance** JSON object, which lists the model's scores in several categories. The following metrics are used:
 
-## Test the custom model
+- Image classification: Average Precision, Accuracy Top 1, Accuracy Top 5
+- Object detection: Mean Average Precision @ 30, Mean Average Precision @ 50, Mean Average Precision @ 75
+
+## Test the custom model on an image
 
 The `imageanalysis:analyze` API does ordinary Image Analysis operations. By specifying some parameters, you can use this API to query your own custom model instead of the prebuilt Image Analysis models. Make the following changes to the cURL command below:
 
@@ -215,7 +219,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?mod
 }"
 ```
 
-The API call returns an **ImageAnalysisResult** JSON object, which contains all the detected tags or objects in the image, with their confidence scores.
+The API call returns an **ImageAnalysisResult** JSON object, which contains all the detected tags for an image classifier, or objects for an object detector, with their confidence scores.
 
 ```json
 {
@@ -248,7 +252,7 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 
 ## Next steps
 
-In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analysis 4.0 API, so you can query your custom model from an application.
+In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze Image 4.0 API, so you can call your custom model from an application using REST or library SDKs.
 
 * [Call the Analyze Image API](./call-analyze-image-40.md)
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.

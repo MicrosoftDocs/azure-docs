@@ -105,7 +105,10 @@ The following are some common reasons for training failure:
 
 ### What metrics are used for evaluating the models?
 
-See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
+The following metrics are used:
+
+- Image classification: Average Precision, Accuracy Top 1, Accuracy Top 5
+- Object detection: Mean Average Precision @ 30, Mean Average Precision @ 50, Mean Average Precision @ 75
 
 ### Why does my dataset registration fail?
 

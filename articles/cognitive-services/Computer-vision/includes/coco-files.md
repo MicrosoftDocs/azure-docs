@@ -93,11 +93,11 @@ If you're generating your own COCO file from scratch, make sure all the required
 
 | Key | Type | Description | Required? |
 |-|-|-|-|
-| `id` | integer | Uploaded image ID | Yes |
+| `id` | integer | Unique image ID, starting from 1 | Yes |
 | `width` | integer | Width of the image in pixels  | Yes |
 | `height` | integer | Height of the image in pixels | Yes |
 | `file_name`| string | A unique name for the image  | Yes |
-| `absolute_url` | string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
+| `absolute_url` or `coco_url`| string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
 
 The value for `absolute_url` can be found in your blob container's properties: 
 
@@ -111,7 +111,7 @@ The value for `absolute_url` can be found in your blob container's properties:
 | `category_id` | integer | ID of the category defined in the `categories` section | Yes |
 | `image_id`  | integer | ID of the image | Yes |
 | `area` | integer | Value of 'Width' x 'Height' (third and fourth values of `bbox`) | No |
-| `bbox` | float | Relative coordinates of the bounding box (0 to 1), in the order of 'Left', 'Top', 'Width', 'Height'  | Yes |
+| `bbox` | list[float] | Relative coordinates of the bounding box (0 to 1), in the order of 'Left', 'Top', 'Width', 'Height'  | Yes |
 
 **"categories"**
 

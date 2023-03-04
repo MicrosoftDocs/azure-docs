@@ -29,12 +29,12 @@ This guide uses a Python script to take all of the training data from an existin
 This script requires certain Python libraries. Install them in your project directory with the following command.
 
 ```bash
-pip install azure-storage-blob azure-cognitiveservices-vision-customvision
+pip install azure-storage-blob azure-cognitiveservices-vision-customvision cffi
 ```
 
 ## Prepare the migration script
 
-Create a new Python file&mdash;_migration.py_, for example. Then open it in a text editor and paste in the following contents.
+Create a new Python file&mdash;_export-cvs-data-to-coco.py_, for example. Then open it in a text editor and paste in the following contents.
 
 ```python
 from typing import List, Union
@@ -241,10 +241,10 @@ if __name__ == '__main__':
 Run the script using the `python` command.
 
 ```console
-python migration.py
+python export-cvs-data-to-coco.py -p <project ID> -k <training key> -e <endpoint url> -a <storage account> -t <storage key> -c <container name>
 ```
 
-A series of prompt will appear in the console window, and you need to paste in the correct values. You need the following information:
+You need to fill in the correct parameter values. You need the following information:
 
 - The project ID of your Custom Vision project
 - Your Custom Vision training key
