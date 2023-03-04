@@ -26,18 +26,7 @@ OCR traditionally started as a machine-learning based technique for extracting t
 
 The new Computer Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
-## Use the V4.0 REST API preview
-
-The text extraction feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
-
-For an example, copy the following command into a text editor and replace the `<key>` with your API key and optionally, your API endpoint URL. Then open a command prompt window and run the command.
-
-```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/en-us/azure/cognitive-services/computer-vision/Images/handwritten-note.jpg'}"
-    
-```
-
-## Text extraction output
+## Text extraction example
 
 The following JSON response illustrates what the Image Analysis 4.0 API returns when extracting text from the given image.
 
@@ -279,6 +268,11 @@ The following JSON response illustrates what the Image Analysis 4.0 API returns 
     }
 }
 ```
+
+## Use the API
+
+The text extraction feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+
 
 ## Next steps
 
