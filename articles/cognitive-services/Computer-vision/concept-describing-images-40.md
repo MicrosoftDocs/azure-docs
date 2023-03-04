@@ -15,12 +15,20 @@ ms.custom: seodec18, ignite-2022
 ---
 
 # Image captions (version 4.0 preview)
+Image captions in Image Analysis 4.0 (preview) are available through the Caption and Dense Captions features. 
 
-Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The new Florence captioning model available in version 4.0 is greatly improved from the previous 3.2 model.
+Caption generates a one sentence description for all image contents. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image.Dense Captions also returns bounding box coordinates of the described image regions. Both these features use the latest groundbreaking Florence based AI models. 
 
-Dense captioning, a similar feature, lets you generate detailed captions for individual objects that are found in an image. It's similar to [object detection](concept-object-detection-40.md) but uses the latest Florence AI models to generate rich captions, instead of simply naming the objects. The API returns the bounding box coordinates (in pixels) for each major object (up to 10 per image), plus a caption.
+At this time, image captioning is available in English language only.
 
-At this time, English is the only supported language for captioning.
+### Gender-neutral captions
+All captions contain gender terms: "man", "woman", "boy" and "girl" by default. You have the option to replace these terms with "person" in your results and receive gender-neutral captions. You can do so by setting the optional API request parameter, **gender-neutral-caption** to `true` in the request URL.
+
+> [!IMPORTANT]
+> Image captioning in Image Analysis 4.0 is only available in the following Azure data center regions at this time: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. You must use a Computer Vision resource located in one of these regions to get results from Caption and Dense Captions features.
+>
+> If you have to use a Computer Vision resource outside these regions to generate image captions, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Computer Vision regions.  
+
 
 Try out the image captioning features quickly and easily in your browser using Vision Studio.
 
@@ -29,7 +37,7 @@ Try out the image captioning features quickly and easily in your browser using V
 
 ## Caption example
 
-#### [Image captions](#tab/image)
+#### [Caption](#tab/image)
 
 The following JSON response illustrates what the Analysis 4.0 API returns when describing the example image based on its visual features.
 
@@ -44,7 +52,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 ]
 ```
 
-#### [Dense captions](#tab/dense)
+#### [Dense Captions](#tab/dense)
 
 The following JSON response illustrates what the Analysis 4.0 API returns when generating dense captions for the example image.
 
@@ -52,116 +60,75 @@ The following JSON response illustrates what the Analysis 4.0 API returns when g
 
 ```json
 {
-  "descriptionDense": {
-    "captions": [
+  "denseCaptionsResult": {
+    "values": [
       {
-        "text": "a woman sitting at a table with a laptop",
-        "confidence": 0.5821409225463867,
+        "text": "a man driving a tractor in a farm",
+        "confidence": 0.535620927810669,
         "boundingBox": {
           "x": 0,
           "y": 0,
-          "w": 1038,
-          "h": 672
+          "w": 850,
+          "h": 567
         }
       },
       {
-        "text": "a laptop on a table",
-        "confidence": 0.5349870324134827,
+        "text": "a man driving a tractor in a field",
+        "confidence": 0.5428450107574463,
         "boundingBox": {
-          "x": 436,
-          "y": 344,
-          "w": 381,
-          "h": 239
+          "x": 132,
+          "y": 266,
+          "w": 209,
+          "h": 219
         }
       },
       {
-        "text": "a plant in a pot",
-        "confidence": 0.5180337429046631,
+        "text": "a blurry image of a tree",
+        "confidence": 0.5139822363853455,
         "boundingBox": {
-          "x": 638,
-          "y": 22,
-          "w": 388,
-          "h": 633
+          "x": 147,
+          "y": 126,
+          "w": 76,
+          "h": 131
         }
       },
       {
-        "text": "a woman smiling with her hands together",
-        "confidence": 0.46921396255493164,
+        "text": "a man riding a tractor",
+        "confidence": 0.4799223840236664,
         "boundingBox": {
-          "x": 0,
-          "y": 93,
-          "w": 449,
-          "h": 565
+          "x": 206,
+          "y": 264,
+          "w": 64,
+          "h": 97
         }
       },
       {
-        "text": "a potted plant on a table",
-        "confidence": 0.5263017416000366,
-        "boundingBox": {
-          "x": 791,
-          "y": 437,
-          "w": 238,
-          "h": 229
-        }
-      },
-      {
-        "text": "a close up of a keyboard",
-        "confidence": 0.5036352872848511,
-        "boundingBox": {
-          "x": 363,
-          "y": 572,
-          "w": 225,
-          "h": 65
-        }
-      },
-      {
-        "text": "a woman smiling with her hands together",
-        "confidence": 0.5039903521537781,
+        "text": "a blue sky above a hill",
+        "confidence": 0.35495415329933167,
         "boundingBox": {
           "x": 0,
           "y": 0,
-          "w": 705,
-          "h": 419
+          "w": 837,
+          "h": 166
         }
       },
       {
-        "text": "a close up of a keyboard",
-        "confidence": 0.5640218257904053,
-        "boundingBox": {
-          "x": 529,
-          "y": 492,
-          "w": 144,
-          "h": 80
-        }
-      },
-      {
-        "text": "a woman sitting at a desk with her hands together",
-        "confidence": 0.5284122824668884,
+        "text": "a tractor in a field",
+        "confidence": 0.47338250279426575,
         "boundingBox": {
           "x": 0,
-          "y": 56,
-          "w": 894,
-          "h": 593
-        }
-      },
-      {
-        "text": "a woman smiling with earrings",
-        "confidence": 0.31606525182724,
-        "boundingBox": {
-          "x": 171,
-          "y": 97,
-          "w": 214,
-          "h": 224
+          "y": 243,
+          "w": 838,
+          "h": 311
         }
       }
     ]
   },
+  "modelVersion": "2023-02-01-preview",
   "metadata": {
-    "height": 672,
-    "width": 1038,
-    "format": "Png"
-  },
-  "modelVersion": "2021-05-01"
+    "width": 850,
+    "height": 567
+  }
 }
 ```
 
@@ -170,11 +137,6 @@ The following JSON response illustrates what the Analysis 4.0 API returns when g
 ## Use the API
 
 #### [Image captions](#tab/image)
-
-> [!IMPORTANT]
-> Image captioning in Image Analysis 4.0 is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. You need to create a resource in one of these regions in order to use the feature.
->
-> If you need to use a Computer Vision resource outside these regions and want to perform image captioning, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Computer Vision regions.  
 
 The image captioning feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. Include `Caption` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"captionResult"` section.
 
