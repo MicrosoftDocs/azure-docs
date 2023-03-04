@@ -6,3 +6,33 @@ items:
   items:   
     - name: What is Azure AD for customers?  
       href: overview-customers-ciam.md 
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Customer tenant and sign-in (portal)
+      href: quickstart-customer-tenant-portal.md
+    - name: Add sign-in to your app (developers)
+      href: quickstart-add-sign-in.md
+    - name: Quickstarts by app type and platform
+      href: quickstart-app-samples-all.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Register an app
+      href: how-to-register-apps-customers.md
+    - name: Configure authentication methods and IdPs
+      items:
+        - name: Google federation
+          href: how-to-google-federation-customers.md
+        - name: Facebook federation
+          href: how-to-facebook-federation-customers.md
+    - name: Create user flows
+      items:
+        - name: Add a sign-up and sign-in flow
+          href: how-to-user-flow-sign-up-sign-in-customers.md
+        - name: Enable password reset
+          href: how-to-user-flow-password-reset-customers.md
+    - name: Customize branding
+      items:
+        - name: Default branding
+          href: how-to-customize-branding-customers.md
