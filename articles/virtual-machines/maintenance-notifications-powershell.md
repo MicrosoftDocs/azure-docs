@@ -55,7 +55,7 @@ You can also get the maintenance status for all VMs in a resource group by using
 Get-AzVM -ResourceGroupName myResourceGroup -Status
 ```
 
-The following PowerShell example takes your subscription ID and returns a list of VMs that are scheduled for maintenance.
+The following PowerShell example takes your subscription ID and returns a list of VMs and indicates whether they are scheduled for maintenance.
 
 ```powershell
 
