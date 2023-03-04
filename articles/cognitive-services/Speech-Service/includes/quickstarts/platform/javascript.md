@@ -36,7 +36,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
     npm install microsoft-cognitiveservices-speech-sdk
     ```
 
-For more information, see the [Node.js samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/javascript/node).
+For more information, see the [Node.js samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node).
 
 #### [Browser-based](#tab/browser)
 
@@ -73,7 +73,7 @@ Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>`
 </script>
 ```
 
-For more information, see the [browser-based samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/javascript/browser).
+For more information, see the [browser-based samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser).
 
 ---
 

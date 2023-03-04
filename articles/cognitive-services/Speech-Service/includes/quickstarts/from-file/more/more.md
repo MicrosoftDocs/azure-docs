@@ -23,42 +23,42 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [1-mic]: ../../../../get-started-speech-to-text.md?pivots=programming-language-csharp
 [1-blob]: ../../../../batch-transcription.md?pivots=programming-language-csharp
 
-[dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/csharp/dotnet
-[netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/csharp/dotnetcore
-[uwp]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/csharp/uwp
-[unity]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/csharp/unity
-[xamarin]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/csharp/xamarin
+[dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
+[netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore
+[uwp]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp
+[unity]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity
+[xamarin]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin
 
 [2-mic]: ../../../../get-started-speech-to-text.md?pivots=programming-language-cpp
 [2-blob]: ../../../../batch-transcription.md?pivots=programming-language-cpp
 
-[cpp-windows]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/cpp/windows
-[cpp-linux]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/cpp/linux
-[cpp-mac]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/cpp/macos
+[cpp-windows]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows
+[cpp-linux]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux
+[cpp-mac]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos
 
 [3-mic]: ../../../../get-started-speech-to-text.md?pivots=programming-language-java
 [3-blob]: ../../../../batch-transcription.md?pivots=programming-language-java
 
-[java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/java/android
-[java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/java/jre
+[java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android
+[java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre
 
-[js-browser]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/javascript/browser
-[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/javascript/node/from-file
-[js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/javascript
+[js-browser]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser
+[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/from-file
+[js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript
 
-[obj-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/objectivec/ios/from-microphone
-[obj-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/objectivec/macos/from-microphone
+[obj-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone
+[obj-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone
 
-[obj-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/objectivec/ios
-[obj-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/objectivec/macos
+[obj-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios
+[obj-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos
 
 [4-mic]: ../../../../get-started-speech-to-text.md?pivots=programming-language-python
 [4-blob]: ../../../../batch-transcription.md?pivots=programming-language-python
 
-[python]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/python
+[python]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python
 
-[swift-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/swift/macos/from-microphone
-[swift-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/swift/macos/from-microphone
+[swift-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone
+[swift-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone
 
-[swift-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/swift/ios
-[swift-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart/swift/macos
+[swift-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios
+[swift-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos

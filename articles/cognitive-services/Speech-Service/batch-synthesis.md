@@ -26,7 +26,7 @@ This diagram provides a high-level overview of the workflow.
 ![Diagram of the Batch Synthesis API workflow.](media/long-audio-api/long-audio-api-workflow.png)
 
 > [!TIP]
-> You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. For a C# example, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/speech/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs).
+> You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. For a C# example, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs).
 
 You can use the following REST API operations for batch synthesis:
 
@@ -37,7 +37,7 @@ You can use the following REST API operations for batch synthesis:
 | List batch synthesis   | `GET`    | texttospeech/3.1-preview1/batchsynthesis      |
 | Delete batch synthesis | `DELETE` | texttospeech/3.1-preview1/batchsynthesis/{id} |
 
-For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/samples/batch-synthesis).
+For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-synthesis).
 
 ## Create batch synthesis
 

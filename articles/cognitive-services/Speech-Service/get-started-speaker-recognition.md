@@ -61,4 +61,4 @@ keywords: speaker recognition, voice biometry
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/speech/quickstart)
+> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)
