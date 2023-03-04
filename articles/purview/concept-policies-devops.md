@@ -25,16 +25,16 @@ Microsoft Purview access policies enable customers to manage access to different
 DevOps policies are a special type of Microsoft Purview access policies. They grant access to database system metadata instead of user data. They simplify access provisioning for IT operations and security auditing personnel. DevOps policies only grant access, that is, they don't deny access.
 
 ## Elements of a DevOps policy
-A DevOps policy is defined by three elements: The *data resource path*, the *role* and the *subject*. In essence, the DevOps policy assigns the *subject* to the *role* for the scope of the *data resource path*.
+A DevOps policy is defined by three elements: The *subject*, the *data resource* and the *role*. In essence, the DevOps policy assigns the *role*'s related permissions to the *subject* and gets enforced in the scope of the *data resource*'s path.
     
 #### The subject
-This is a list of Azure AD users, groups or service principals.
+This is a list of Azure AD users, groups or service principals that are granted access.
+
+#### The data resource
+This is the scope where the policy gets enforced. The data resource path is the composition of subscription > resource group > data source. Microsoft Purview DevOps policies currently support SQL-type data sources and can be configured on individual data sources, but also entire resource groups and subscriptions. DevOps policies can only be created after the data resource is registered in Microsoft Purview with the option *Data use management* enabled.
 
 #### The role
 The role maps to a set of actions that the policy permits on the data resource. DevOps policies support a couple of roles: *SQL Performance Monitor* and *SQL Security Auditor*. Both these roles provide access to SQL's system metadata, and more specifically to Dynamic Management Views (DMFs) and Dynamic Management Functions (DMFs). But the set of DMVs/DMFs granted by these roles is different. We provide some popular examples at the end of this document. Also, the DevOps policies how-to docs detail the role definition for each data source type, that is, the mapping between the role in Microsoft Purview and the actions that get permitted in that type of data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes Connect actions at server and database level on the data source side.
-
-#### The data resource
-Microsoft Purview DevOps policies currently support SQL-type data sources and can be configured on individual data sources, resource groups and subscriptions. The data resource path is the composition of subscription > resource group > data source. DevOps policies can only be created after the data resource is registered in Microsoft Purview with the option *Data use management* enabled. 
 
 ## Hierarchical enforcement of policies
 A DevOps policy on a data resource is enforced on the data resource itself and all children contained by it. For example, a DevOps policy on an Azure subscription applies to all resource groups, to all policy-enabled data sources within each resource group, and to all databases contained within each data source.
