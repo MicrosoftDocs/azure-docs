@@ -35,6 +35,8 @@
         href: workload-identity-federation-block-using-azure-policy.md
   - name: Create an access review
     href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  - name: Managed custom security attributes for an app
+    href: ../manage-apps/custom-security-attributes-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Federated identity credentials considerations and limitations

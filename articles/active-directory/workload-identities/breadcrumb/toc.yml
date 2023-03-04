@@ -20,3 +20,6 @@
   - name: Active Directory
     tocHref: /azure/active-directory/privileged-identity-management/
     topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/manage-apps/
+    topicHref: /azure/active-directory/index
