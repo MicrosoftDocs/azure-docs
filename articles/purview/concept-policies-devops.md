@@ -57,19 +57,15 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 | **Purview DevOps role definition** | **DMV/DMF example** | **Description**|
 |-|-|-|
 ||||
-| *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Returns information about each request that is executing within the SQL Server|
-||[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)|
+| *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Monitors the current activity and performance of the server|
+||[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)|Identifies performance bottlenecks to enable system tuning|
 || [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)|Identifies queries that are consuming a lot of resources or taking a long time to execute|
-|| dm_exec_sessions||
-|| dm_os_waiting_tasks||
-|| dm_exec_procedure_stats||
+|| [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql)|Shows information about all active user connections and internal tasks|
+|| [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)|Helps identify and troubleshoot blocking issues within SQL Server|
+|| [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql)|Returns how many times a procedure was executed, the total duration, reads, writes and more|
 ||||
 | *SQL Security Auditor* |||
-||||
-||||
-||||
-||||
-||||
+||TBD|TBD|
 ||||
 
 
