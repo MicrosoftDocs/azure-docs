@@ -75,6 +75,9 @@ conceptualContent:
         - itemType: concept
           text: Model customization
           url: concept-model-customization.md
+        - itemType: concept
+          text: Background removal
+          url: concept-background-removal.md
         - itemType: tutorial
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
