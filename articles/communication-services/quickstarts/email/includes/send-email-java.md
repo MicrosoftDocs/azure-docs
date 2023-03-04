@@ -1,14 +1,14 @@
 ---
 title: include file
 description: include file
-author: yogeshmo
+author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
-ms.author: ymohanraj
-ms.date: 09/09/2022
+ms.author: natekimball
+ms.date: 03/03/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
+ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
@@ -18,9 +18,13 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+- A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- Create an [Azure Email Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource) to start sending emails.
+- A setup managed identity for a development environment, [see Authorize access with managed identity](https://docs.microsoft.com/azure/communication-services/quickstarts/managed-identity-from-cli).
+
+> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains).
 
 ### Prerequisite check
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
@@ -34,7 +38,7 @@ To set up an environment for sending emails, take the steps in the following sec
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
-mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+mvn archetype:generate -DarchetypeArtifactId="maven-archetype-quickstart" -DarchetypeGroupId="org.apache.maven.archetypes" -DarchetypeVersion="1.4" -DgroupId="com.communication.quickstart" -DartifactId="communication-quickstart"
 ```
 
 The `generate` goal creates a directory with the same name as the `artifactId` value. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model (POM).
@@ -47,7 +51,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-email</artifactId>
-    <version>1.0.0-beta.1</version>
+    <version>1.0.0-beta.2</version>
 </dependency>
 ```
 
@@ -77,15 +81,12 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name | Description |
 | ---- |-------------|
-| EmailAddress | This interface contains an email address and an option for a display name. |
+| EmailAddress | This class contains an email address and an option for a display name. |
 | EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailClientOptions | This interface can be added to the EmailClient instantiation to target a specific API version. |
-| EmailContent | This interface contains the subject, plaintext, and html of the email message. |
-| EmailCustomHeader | This interface allows for the addition of a name and value pair for a custom header. |
-| EmailMessage | This interface combines the sender, content, and recipients. Custom headers, importance, attachments, and reply-to email addresses can optionally be added as well. |
-| EmailRecipients | This interface holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
-| SendStatusResult | This interface holds the messageId and status of the email message delivery. |
+| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
+| EmailSendStatus | This class represents the set of statuses of an email send operation. |
 
 ## Authenticate the client
 
@@ -98,79 +99,33 @@ To instantiate a client, add the following code to the `main` method:
 String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
 EmailClient emailClient = new EmailClientBuilder()
-            .connectionString(connectionString)
-            .buildClient();
+    .connectionString(connectionString)
+    .buildClient();
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Send an email message
 
-To send an email message, you need to
-- Construct the EmailContent
-- Create an EmailAddress for the recipient
-- Construct the EmailRecipients
-- Construct the EmailMessage with the EmailContent, EmailAddress, and the sender information from the MailFrom address of your verified domain
-- Call the send method
+To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
 
 ```java
-EmailContent content = new EmailContent("Welcome to Azure Communication Services Email")
-    .setPlainText("This email message is sent from Azure Communication Services Email using the Python SDK.");
+EmailMessage message = new EmailMessage()
+    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
+    .setToRecipients("<emailalias@emaildomain.com>")
+    .setSubject("Welcome to Azure Communication Services Email")
+    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
 
-EmailAddress emailAddress = new EmailAddress("<emailalias@emaildomain.com>");
-ArrayList<EmailAddress> addressList = new ArrayList<>();
-addressList.add(emailAddress);
+SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
+PollResponse<EmailSendResult> response = poller.waitForCompletion();
 
-EmailRecipients emailRecipients = new EmailRecipients(addressList);
-
-EmailMessage emailMessage = new EmailMessage(
-    "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-    content,
-    emailRecipients
-);
-
-SendEmailResult response = emailClient.send(emailMessage);
+System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
 Make these replacements in the code:
 
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-
-## Retrieve the Message ID of the email delivery
-
-To track the status of the email delivery, you will need the `messageId` from the response.
-
-```java
-String message_id = response.getMessageId();
-```
-
-## Get the status of the email delivery
-
-We can keep checking the email delivery status until the status is `OutForDelivery`.
-
-```java
-long waitTime = 120*1000;
-boolean timeout = true;
-while (waitTime > 0)
-{
-    SendStatusResult sendStatus = emailClient.getSendStatus(messageId);
-    System.out.printf("Send mail status for MessageId : <{%s}>, Status: [{%s}]", messageId, sendStatus.getStatus());
-
-    if (!sendStatus.getStatus().toString().toLowerCase().equals(SendStatus.QUEUED.toString()))
-    {
-        timeout = false;
-        break;
-    }
-    Thread.sleep(10000);
-    waitTime = waitTime-10000;
-}
-
-if(timeout)
-{
-    System.out.println("Looks like we timed out for email");
-}
-```
 
 [!INCLUDE [Email Message Status](./email-operation-status.md)]
 
@@ -191,7 +146,7 @@ if(timeout)
 1. Run the following `mvn` command to execute the app.
 
    ```console
-   mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+   mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
 ## Sample code
@@ -202,57 +157,69 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ### Send an email message to multiple recipients
 
-We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+To send an email message to multiple recipients, add the new addresses in the appropriate `EmailMessage` setter. These addresses can be added as `To`, `CC`, or `BCC` recipients.
 
 ```java
-EmailAddress toEmailAddress1 = new EmailAddress("<emailalias1@emaildomain.com>");
-EmailAddress toEmailAddress2 = new EmailAddress("<emailalias2@emaildomain.com>");
+EmailMessage message = new EmailMessage()
+    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
+    .setSubject("Welcome to Azure Communication Services Email")
+    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
+    .setToRecipients("<recipient1@emaildomain.com>", "<recipient2@emaildomain.com>")
+    .setCcRecipients("<recipient3@emaildomain.com>")
+    .setBccRecipients("<recipient4@emaildomain.com>");
 
-EmailAddress ccEmailAddress = new EmailAddress("<ccemailalias@emaildomain.com>");
-EmailAddress bccEmailAddress = new EmailAddress("<bccemailalias@emaildomain.com>");
+SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
+PollResponse<EmailSendResult> response = poller.waitForCompletion();
 
-ArrayList<EmailAddress> toAddressList = new ArrayList<>();
-toAddressList.add(toEmailAddress1);
-toAddressList.add(toEmailAddress2);
-
-ArrayList<EmailAddress> ccAddressList = new ArrayList<>();
-ccAddressList.add(ccEmailAddress);
-
-ArrayList<EmailAddress> bccAddressList = new ArrayList<>();
-bccAddressList.add(bccEmailAddress);
-
-EmailRecipients emailRecipients = new EmailRecipients(toAddressList)
-    .setCc(ccAddressList)
-    .setBcc(bccAddressList);
+System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+To customize the email message recipients further, you can instantiate the `EmailAddress` objects and pass that them to the appropriate `EmailMessage` setters.
 
+```java
+EmailAddress toAddress1 = new EmailAddress("<recipient1@emaildomain.com>")
+    .setDisplayName("Recipient");
+
+EmailAddress toAddress2 = new EmailAddress("<recipient2@emaildomain.com>")
+    .setDisplayName("Recipient 2");
+
+EmailMessage message = new EmailMessage()
+    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
+    .setSubject("Welcome to Azure Communication Services Email")
+    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
+    .setToRecipients(toAddress1, toAddress2);
+
+SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
+PollResponse<EmailSendResult> response = poller.waitForCompletion();
+
+System.out.println("Operation Id: " + response.getValue().getId());
+```
+
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
 ### Send an email message with attachments
 
 We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
 
 ```java
-File file = new File("<your-attachment-path>");
+BinaryData attachmentContent = BinaryData.fromFile(new File("C:/attachment.txt").toPath());
+EmailAttachment attachment = new EmailAttachment(
+    "attachment.txt",
+    "text/plain",
+    attachmentContent
+);
 
-byte[] fileContent = null;
-try {
-    fileContent = Files.readAllBytes(file.toPath());
-} catch (Exception e) {
-    System.out.println(e);
-}
+EmailMessage message = new EmailMessage()
+    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
+    .setToRecipients("<emailalias@emaildomain.com>")
+    .setSubject("Welcome to Azure Communication Services Email")
+    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
+    .setAttachments(attachment);
 
-String b64file = Base64.getEncoder().encodeToString(fileContent);
+SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
+PollResponse<EmailSendResult> response = poller.waitForCompletion();
 
-EmailAttachment attachment = new EmailAttachment("<your-attachment-name>", "<your-attachment-file-type>", b64file);
-
-ArrayList<EmailAttachment> attachmentList = new ArrayList<>();
-attachmentList.add(attachment);
-
-EmailMessage emailMessage = new EmailMessage("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>", content)
-    .setRecipients(emailRecipients)
-    .setAttachments(attachmentList);
+System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
