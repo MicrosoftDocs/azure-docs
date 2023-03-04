@@ -59,26 +59,27 @@ The following PowerShell example takes your subscription ID and returns a list o
 
 ```powershell
 
-function MaintenanceIterator
-{
-    Select-AzSubscription -SubscriptionId $args[0]
+function MaintenanceIterator {
+  param (
+    $SubscriptionId
+  )
+  
+  Select-AzSubscription -SubscriptionId $SubscriptionId | Out-Null
 
-    $rgList= Get-AzResourceGroup 
-
-    for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
-    {
-        $rg = $rgList[$rgIdx]        
-	$vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
-        for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
-        {
-            $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
-              if ($vmDetails.MaintenanceRedeployStatus )
-            {
-                Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
-            }
-          }
+  $rgList = Get-AzResourceGroup
+  foreach ($rg in $rgList) {
+    $vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
+    foreach ($vm in $vmList) {
+      $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
+      if ($vmDetails.MaintenanceRedeployStatus) {
+        Write-Output -InputObject @{
+          VMName                                = $vmDetails.Name
+          IsCustomerInitiatedMaintenanceAllowed = $vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed
+          LastOperationMessage                  = $vmDetails.MaintenanceRedeployStatus.LastOperationMessage
+        } 
+      }
     }
+  }
 }
 
 ```
