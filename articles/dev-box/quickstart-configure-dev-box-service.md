@@ -300,16 +300,18 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 1. Select **Access Control (IAM)** from the left menu.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/project-permissions.png" alt-text="Screenshot showing the Project Access control page with the Access Control link highlighted.":::
-
+ 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). 
- 
-   |Setting  |Value  |
-   |---------|---------|
-   |Role     |    DevCenter Dev Box User    |
-   |Assign access to     |    User     |
-   |Members     |    Your account     |
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **DevCenter Dev Box User**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
+
+    :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the Add role assignment pane.":::
  
    The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
@@ -330,5 +332,3 @@ To learn about how to create and connect to a dev box, advance to the next quick
 
 > [!div class="nextstepaction"]
 > [Create a dev box](./quickstart-create-dev-box.md)
-
-

@@ -187,7 +187,7 @@ The Azure Private 5G Core deployment uses the *core* namespace. If you need to c
     ```powershell
     Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
     ```
-For more information, see [Configure cluster access via Kubernetes RBAC](/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster#configure-cluster-access-via-kubernetes-rbac).
+For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
 
 ## Set up portal access
 
@@ -244,7 +244,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Set the following environment variables using the required values for your deployment:
 
-    ```azurecli-interactive
+    ```azurecli
     export SUBSCRIPTION_ID=<subscription ID>
     export RESOURCE_GROUP_NAME=<resource group name>
     export LOCATION=<deployment region, for example eastus>
@@ -255,13 +255,13 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Prepare your shell environment:
 
-    ```azurecli-interactive
+    ```azurecli
     az account set --subscription "$SUBSCRIPTION_ID"
     ```
 
 1. Create the Network Function Operator Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
@@ -290,7 +290,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     az k8s-extension create \
     --name packet-core-monitor \
     --cluster-name "$RESOURCE_NAME" \
@@ -303,7 +303,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the custom location:
 
-    ```azurecli-interactive
+    ```azurecli
     az customlocation create \
     -n "$CUSTOM_LOCATION" \
     -g "$RESOURCE_GROUP_NAME" \
@@ -323,4 +323,4 @@ If you have made an error in the Azure Stack Edge configuration, you can use the
 
 Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
 
-- [Collect the required information to deploy a private mobile network](/azure/private-5g-core/collect-required-information-for-private-mobile-network)
+- [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

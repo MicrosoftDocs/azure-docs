@@ -1,8 +1,8 @@
 ---
 title: Azure Maps QPS rate limits
 description: Azure Maps limitation on the number of Queries Per Second.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/15/2021
 ms.topic: quickstart
 ms.service: azure-maps

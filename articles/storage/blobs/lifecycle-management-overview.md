@@ -152,14 +152,18 @@ Lifecycle management supports tiering and deletion of current versions, previous
 > [!NOTE]
 > Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
-| Action                      | Current Version                            | Snapshot      | Previous Versions
-|-----------------------------|--------------------------------------------|---------------|---------------|
-| tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
-| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
-| tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| Action                                  | Current Version                            | Snapshot      | Previous Versions |
+|-----------------------------------------|--------------------------------------------|---------------|-------------------|
+| tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
+| tierToArchive                           | Supported for `blockBlob`                  | Supported     | Supported         |
+| delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
 
-<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+<sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
+
+<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+
+<sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
@@ -446,7 +450,11 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 ### The run completes but doesn't move or delete some blobs
 
-Depending on the size and number of objects in a storage account, more than one run might be required to process all of the objects. 
+Depending on the size and the number of objects that are in a storage account, more than one run might be required to process all of the objects. You can also check the storage resource logs to see if the operations are being performed by the lifecycle management policy. 
+
+### I don't see capacity changes even though the policy is executing and deleting the blobs
+
+Check to see if data protection features such as soft delete or versioning are enabled on the storage account. Even if the policy is deleting the blobs, those blobs might still exist in a soft deleted state or as an older version depending on how these features are configured. 
 
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 

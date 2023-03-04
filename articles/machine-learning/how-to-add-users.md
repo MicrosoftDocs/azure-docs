@@ -4,11 +4,11 @@ title.suffix: Azure Machine Learning
 description: Add users to your data labeling project so that they can label data, but not see the rest of your workspace.
 author: kvijaykannan 
 ms.author: vkann 
-ms.reviewer: franksolomon
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 02/08/2023
 ---
 
 # Add users to your data labeling project

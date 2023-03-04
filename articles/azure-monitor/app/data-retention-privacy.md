@@ -49,8 +49,8 @@ There are three sources of data:
   
   * Each SDK has many [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./java-in-process-agent.md) can have such agents.
-* [Availability tests](./monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./opentelemetry-enable.md?tabs=java) can have such agents.
+* [Availability overview](availability-overview.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
 
 ### What kind of data is collected?
 
@@ -62,7 +62,7 @@ The main categories are:
 * Client and server context: OS, locale, device type, browser, and screen resolution.
 * [Exceptions](./asp-net-exceptions.md) and crashes: Stack dumps, `build id`, and CPU type.
 * [Dependencies](./asp-net-dependencies.md): Calls to external services such as REST, SQL, and AJAX. URI or connection string, duration, success, and command.
-* [Availability tests](./monitor-web-app-availability.md): Duration of test and steps, and responses.
+* [Availability tests](availability-overview.md): Duration of test and steps, and responses.
 * [Trace logs](./asp-net-trace-logs.md) and [custom telemetry](./api-custom-events-metrics.md): Anything you code into your logs or telemetry.
 
 For more information, see the section [Data sent by Application Insights](#data-sent-by-application-insights).
@@ -321,10 +321,6 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
-## Credits
-
-This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com).
-
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
@@ -332,7 +328,7 @@ This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com
 [client]: ./javascript.md
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
-[java]: ./java-in-process-agent.md
+[java]: ./opentelemetry-enable.md?tabs=java
 [platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md

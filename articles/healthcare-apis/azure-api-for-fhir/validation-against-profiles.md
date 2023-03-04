@@ -28,7 +28,7 @@ There are different ways provided for you to validate resource:
 Azure API for FHIR will always return an `OperationOutcome` as the validation results for $validate operation. Azure API for FHIR service does two step validation, once a resource is passed into $validate endpoint - the first step is a basic validation to ensure resource can be parsed. During resource parsing, individual errors need to be fixed before proceeding further to next step. Once resource is successfully parsed, full validation is conducted as second step.
 
 > [!NOTE]
-> Any valuesets that are to be used for validation must be uploaded to the FHIR server.  This includes any Valuesets which are part of the FHIR specification, > as well as any ValueSets defined in Implementation Guides.  Only fully expanded Valuesets which contain a full list of all codes are supported.  Any          > ValueSet definitions which reference external sources are not supported
+> Any valuesets that are to be used for validation must be uploaded to the FHIR server.  This includes any Valuesets which are part of the FHIR specification,  as well as any ValueSets defined in Implementation Guides.  Only fully expanded Valuesets which contain a full list of all codes are supported.  Any        ValueSet definitions which reference external sources are not supported.
 
 ## Validating an existing resource
 

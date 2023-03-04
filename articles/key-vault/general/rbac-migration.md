@@ -131,8 +131,15 @@ Once the built-in policy is assigned, it can take up to 24 hours to complete the
 :::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
 
 For more information, see
-- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage.md#implement-a-new-custom-policy)
 - [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
+
+## Access Policy to Azure RBAC Comparison Tool
+
+> [!IMPORTANT]
+> This tool is build and maintained by Microsoft Community members and without formal Customer Support Services support.
+> The tool is provided AS IS without warranty of any kind.
+
+[PowerShell tool](https://github.com/Azure/KeyVault-AccessPolicyToRBAC-CompareTool) to compare Key Vault access policies to assigned RBAC roles to help with Access Policy to RBAC Permission Model migration. The tool intent is to provide sanity check when migrating existing Key Vault to RBAC permission model to ensure that assigned roles with underlying data actions cover existing Access Policies.
 
 ## Troubleshooting
 -  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.

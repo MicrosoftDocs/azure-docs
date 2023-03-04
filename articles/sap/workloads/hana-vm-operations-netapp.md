@@ -6,6 +6,7 @@ manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 12/28/2022

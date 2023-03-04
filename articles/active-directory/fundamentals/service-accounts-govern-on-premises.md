@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/07/2023
+ms.date: 02/10/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -45,17 +45,17 @@ When you create service accounts, consider the information in the following tabl
 | Ownership| Ensure there's an account owner who requests and assumes responsibility |
 | Scope| Define the scope, and anticipate usage duration|
 | Purpose| Create service accounts for one purpose |
-| Permissions | Apply the principle of least permission:<li>Don't assign permissions to built-in groups, such as administrators<li>Remove local machine permissions, where feasible<li>Tailor access, and use AD delegation for directory access<li>Use granular access permissions<li>Set account expiration and location restrictions on user-based service accounts |
-| Monitor and audit use| <li>Monitor sign-in data, and ensure it matches the intended usage <li>Set alerts for anomalous usage |
+| Permissions | Apply the principle of least permission:</br> - Don't assign permissions to built-in groups, such as administrators</br> - Remove local machine permissions, where feasible</br> - Tailor access, and use AD delegation for directory access</br> - Use granular access permissions</br> - Set account expiration and location restrictions on user-based service accounts |
+| Monitor and audit use| - Monitor sign-in data, and ensure it matches the intended usage</br> - Set alerts for anomalous usage |
 
 ### User account restrictions
 
 For user accounts used as service accounts, apply the following settings:
 
-* Account expiration - set the service account to automatically expire, after its review period, unless the account can continue
-* LogonWorkstations - restrict service account sign-in permissions
+* **Account expiration** - set the service account to automatically expire, after its review period, unless the account can continue
+* **LogonWorkstations** - restrict service account sign-in permissions
   * If it runs locally and accesses resources on the machine, restrict it from signing in elsewhere
-* Can't change password - set the parameter to **true** to prevent the service account from changing its own password
+* **Can't change password** - set the parameter to **true** to prevent the service account from changing its own password
  
 ## Lifecycle management process
 
@@ -135,10 +135,14 @@ Consider the following restrictions, although some might not be relevant to your
 * For user accounts used as service accounts, define a realistic end date 
   * Use the **Account Expires** flag to set the date
   * Learn more: [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration)
-* Sign in to the [LogonWorkstation](/powershell/module/activedirectory/set-aduser)
-* [Password policy](../../active-directory-domain-services/password-policy.md) requirements
-* Create accounts in an [organizational unit location](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures only some users will manage it
-* Set up and collect auditing that detects [service account changes](/windows/security/threat-protection/auditing/audit-directory-service-changes), and [service account usage](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)
+* See, [Set-ADUser (Active Directory)](/powershell/module/activedirectory/set-aduser)
+* Password policy requirements
+  * See, [Password and account lockout policies on Azure AD Domain Services managed domains](../../active-directory-domain-services/password-policy.md)
+* Create accounts in an organizational unit location that ensures only some users will manage it
+  *  See, [Delegating Administration of Account OUs and Resource OUs](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous)  
+* Set up and collect auditing that detects service account changes:
+  * See, [Audit Directory Service Changes](/windows/security/threat-protection/auditing/audit-directory-service-changes), and
+  * Go to manageengine.com for [How to audit Kerberos authentication events in AD](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)
 * Grant account access more securely before it goes into production
 
 ### Service account reviews
@@ -167,8 +171,9 @@ To deprovision:
 5. Create a business policy that determines the amount of time that accounts are disabled.
 6. Delete the service account.
 
-  * MSAs - see, [Uninstall the account](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true). Use PowerShell, or delete it manually from the managed service account container.
-  * Computer or user accounts - manually delete the account from Active Directory
+  * **MSAs** - see, [Uninstall-ADServiceAccount](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true)
+    * Use PowerShell, or delete it manually from the managed service account container
+  * **Computer or user accounts** - manually delete the account from Active Directory
 
 ## Next steps
 

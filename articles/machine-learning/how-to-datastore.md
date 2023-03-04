@@ -12,8 +12,7 @@ ms.reviewer: franksolomon
 ms.date: 02/08/2023
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
-
-# Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute, to train my machine learning models.
+# Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
 # Create datastores
@@ -35,7 +34,7 @@ In this article, learn how to connect to Azure data storage services with Azure 
 - An Azure Machine Learning workspace.
 
 > [!NOTE]
-> Azure Machine Learning datastores do **not** create the underlying storage accounts. Instead, they link an **existing** storage account for Azure Machine Learning use. Azure Machine Learning datastores are not required for this. If you have access to the underlying data, you can use storage URIs directly.
+> Azure Machine Learning datastores do **not** create the underlying storage account resources. Instead, they link an **existing** storage account for Azure Machine Learning use. Azure Machine Learning datastores are not required for this. If you have access to the underlying data, you can use storage URIs directly.
 
 
 ## Create an Azure Blob datastore

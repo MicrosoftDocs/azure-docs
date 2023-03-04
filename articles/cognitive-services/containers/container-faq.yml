@@ -126,7 +126,7 @@ sections:
 
       - question: What is the current support warranty for containers?
         answer: | 
-          There is no warranty for previews. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
+          Microsoft's standard warranty for enterprise software applies for all containers formally announced as generally available (GA). There is no warranty for previews.
       
       - question: What happens to Cognitive Services containers when internet connectivity is lost?
         answer: | 

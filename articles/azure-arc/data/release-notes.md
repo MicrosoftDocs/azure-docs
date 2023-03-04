@@ -17,6 +17,38 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## February 14, 2023
+
+### Image tag
+
+`v1.16.0_2023-02-14`
+
+For complete release version information, see [Version log](version-log.md#february-14-2023).
+
+New for this release:
+
+- Arc data services:
+   - Initial Extended Events Functionality | (preview)
+
+- Arc-SQL MI
+   - [Enabled service managed Transparent Data Encryption (TDE) (preview)](configure-transparent-data-encryption-sql-managed-instance.md).
+   - Backups | Produce automated backups from readable secondary
+    - The built-in automatic backups are performed on secondary replicas when available.
+
+- Arc PostgreSQL 
+   - Automated Backups
+   - Settings via configuration framework
+   - Point-in-Time Restore
+   - Turn backups on/off
+   - Require client connections to use SSL
+   - Active Directory |  Customer-managed bring your own keytab
+   - Active Directory | Configure in Azure command line client
+   - Enable Extensions via Kubernetes Custom Resource Definition
+
+- Azure CLI Extension 
+   - Optional `imageTag` for controller creation by defaulting to the image tag of the bootstrapper
+
+
 ## January 13, 2023
 
 ### Image tag
@@ -1018,9 +1050,9 @@ This release introduces the following breaking changes:
 
 ### Additional changes
 
-* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgresSQL instances so that the backup of one PostgresSQL instance can be restored in another instance.
+* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgreSQL instances so that the backup of one PostgreSQL instance can be restored in another instance.
 
-* New short names for PostgresSQL custom resource definitions:
+* New short names for PostgreSQL custom resource definitions:
   * `pg11`
   * `pg12`
 * Telemetry upload provides user with either:

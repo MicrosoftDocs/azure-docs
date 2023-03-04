@@ -1,9 +1,9 @@
 ---
 title: Facility Ontology in Microsoft Azure Maps Creator
 description: Facility Ontology that describes the feature class definitions for Azure Maps Creator
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 11/08/2022
+author: eriklindeman
+ms.author: eriklind
+ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -544,6 +544,13 @@ The `category` class feature defines category names. For example: "room.conferen
 |`name` | string | true | Name of the category. Suggested to use "." to represent hierarchy of categories. For example: "room.conference", "room.privateoffice". Maximum length allowed is 1,000 characters. |
 
 :::zone-end
+
+## Next steps
+
+Learn more about Creator for indoor maps by reading:
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps](creator-indoor-maps.md)
 
 [conversion]: /rest/api/maps/v2/conversion
 [geojsonpoint]: /rest/api/maps/v2/wfs/get-features#geojsonpoint

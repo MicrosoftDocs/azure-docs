@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/03/2022
+ms.date: 02/28/2022
 ms.author: mbender
 
 ---
@@ -124,15 +124,11 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 This section describes networking services in Azure that help deliver applications - Content Delivery Network, Azure Front Door Service, Traffic Manager, Load Balancer, and Application Gateway.
 
-### <a name="cdn"></a>Content Delivery Network
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../../cdn/cdn-overview.md).
+### <a name="frontdoor"></a>Azure Front Door
 
-:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
+Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../../frontdoor/front-door-overview.md).
 
-### <a name="frontdoor"></a>Azure Front Door Service
-Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../../frontdoor/front-door-overview.md).
-
-:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Front Door Service overview":::
+:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door service with Web Application Firewall.":::
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
@@ -159,6 +155,12 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 The following diagram shows url path-based routing with Application Gateway.
 
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
+
+### <a name="cdn"></a>Content Delivery Network
+
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../../cdn/cdn-overview.md).
+
+:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
 
 ## <a name="monitor"></a>Network monitoring services
 This section describes networking services in Azure that help monitor your network resources - Network Watcher, Azure Monitor Network Insights, Azure Monitor, ExpressRoute Monitor, and Virtual Network TAP.

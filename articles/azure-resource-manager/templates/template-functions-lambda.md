@@ -4,12 +4,17 @@ description: Describes the lambda functions to use in an Azure Resource Manager 
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 02/06/2023
+ms.date: 02/09/2023
 ---
 
 # Lambda functions for ARM templates
 
-This article describes the lambda functions to use in ARM templates. [Lambda expressions (or lambda functions)](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. 
+This article describes the lambda functions to use in ARM templates. [Lambda functions](/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are restricted to a single line of code. In Bicep, lambda expression is in this format:
+
+```bicep
+lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
+```
+
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
@@ -18,14 +23,14 @@ This article describes the lambda functions to use in ARM templates. [Lambda exp
 
 ARM template lambda function has these limitations:
 
-- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), and [`sort()`](#sort).
-- Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
+- Lambda function can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
+- Using lambda variables (the temporary variables used in the lambda functions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./template-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./template-functions-resource.md#reference) function isn't currently supported.
 
 ## filter
 
-`filter(inputArray, lambda expression)`
+`filter(inputArray, lambda function)`
 
 Filters an array with a custom filtering function.
 
@@ -36,7 +41,7 @@ In Bicep, use the [filter](../bicep/bicep-functions-lambda.md#filter) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item will be filtered out of the output array.|
 
 ### Return value
 
@@ -44,7 +49,7 @@ An array.
 
 ### Examples
 
-The following examples show how to use the filter function.
+The following examples show how to use the `filter` function.
 
 ```json
 {
@@ -137,7 +142,7 @@ The output from the preceding example:
 
 ## map
 
-`map(inputArray, lambda expression)`
+`map(inputArray, lambda function)`
 
 Applies a custom mapping function to each element of an array.
 
@@ -148,7 +153,7 @@ In Bicep, use the [map](../bicep/bicep-functions-lambda.md#map) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to map.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element, in order to generate the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element, in order to generate the output array.|
 
 ### Return value
 
@@ -156,7 +161,7 @@ An array.
 
 ### Example
 
-The following example shows how to use the map function.
+The following example shows how to use the `map` function.
 
 ```json
 {
@@ -225,7 +230,7 @@ The output from the preceding example is:
 
 ## reduce
 
-`reduce(inputArray, initialValue, lambda expression)`
+`reduce(inputArray, initialValue, lambda function)`
 
 Reduces an array with a custom reduce function.
 
@@ -237,7 +242,7 @@ In Bicep, use the [reduce](../bicep/bicep-functions-lambda.md#reduce) function.
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
 | initialValue |No |any |Initial value.|
-| lambda expression |Yes |expression |The lambda expression used to aggregate the current value and the next value.|
+| lambda function |Yes |expression |The lambda function used to aggregate the current value and the next value.|
 
 ### Return value
 
@@ -245,7 +250,7 @@ Any.
 
 ### Example
 
-The following examples show how to use the reduce function.
+The following examples show how to use the `reduce` function.
 
 ```json
 {
@@ -332,7 +337,7 @@ The [union](./template-functions-object.md#union) function returns a single obje
 
 ## sort
 
-`sort(inputArray, lambda expression)`
+`sort(inputArray, lambda function)`
 
 Sorts an array with a custom sort function.
 
@@ -343,7 +348,7 @@ In Bicep, use the [sort](../bicep/bicep-functions-lambda.md#sort) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to sort.|
-| lambda expression |Yes |expression |The lambda expression used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
+| lambda function |Yes |expression |The lambda function used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
 
 ### Return value
 
@@ -351,7 +356,7 @@ An array.
 
 ### Example
 
-The following example shows how to use the sort function.
+The following example shows how to use the `sort` function.
 
 ```json
 {
@@ -405,6 +410,157 @@ The output from the preceding example sorts the dog objects from the youngest to
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | dogsByAge | Array | [{"name":"Indy","age":2,"interests":["Butter"]},{"name":"Casper","age":3,"interests":["Other dogs"]},{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+
+## toObject
+
+`toObject(inputArray, lambda function, [lambda function])`
+
+Converts an array to an object with a custom key function and optional custom value function.
+
+In Bicep, use the [toObject](../templates/template-functions-lambda.md#toobject) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array used for creating an object.|
+| lambda function |Yes |expression |The lambda function used to provide the key predicate.|
+| lambda function |No |expression |The lambda function used to provide the value predicate.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `toObject` function with the two required parameters:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "age": 5,
+        "interests": [
+          "Ball",
+          "Frisbee"
+        ]
+      },
+      {
+        "name": "Casper",
+        "age": 3,
+        "interests": [
+          "Other dogs"
+        ]
+      },
+      {
+        "name": "Indy",
+        "age": 2,
+        "interests": [
+          "Butter"
+        ]
+      },
+      {
+        "name": "Kira",
+        "age": 8,
+        "interests": [
+          "Rubs"
+        ]
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "dogsObject": {
+      "type": "object",
+      "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name))]"
+    }
+  }
+}
+```
+
+The preceding example generates an object based on an array.
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| dogsObject | Object | {"Evie":{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},"Casper":{"name":"Casper","age":3,"interests":["Other dogs"]},"Indy":{"name":"Indy","age":2,"interests":["Butter"]},"Kira":{"name":"Kira","age":8,"interests":["Rubs"]}} |
+
+The following `toObject` function with the third parameter provides the same output.
+
+```json
+"outputs": {
+  "dogsObject": {
+    "type": "object",
+    "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name), lambda('entry', lambdaVariables('entry')))]"
+  }
+}
+```
+
+The following example shows how to use the `toObject` function with three parameters.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "dogs": [
+      {
+        "name": "Evie",
+        "properties": {
+          "age": 5,
+          "interests": [
+            "Ball",
+            "Frisbee"
+          ]
+        }
+      },
+      {
+        "name": "Casper",
+        "properties": {
+          "age": 3,
+          "interests": [
+            "Other dogs"
+          ]
+        }
+      },
+      {
+        "name": "Indy",
+        "properties": {
+          "age": 2,
+          "interests": [
+            "Butter"
+          ]
+        }
+      },
+      {
+        "name": "Kira",
+        "properties": {
+          "age": 8,
+          "interests": [
+            "Rubs"
+          ]
+        }
+      }
+    ]
+  },
+  "resources": {},
+  "outputs": {
+    "dogsObject": {
+      "type": "object",
+      "value": "[toObject(variables('dogs'), lambda('entry', lambdaVariables('entry').name), lambda('entry', lambdaVariables('entry').properties))]"
+    }
+  }
+}
+```
+
+The preceding example generates an object based on an array.
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| dogsObject | Object | {"Evie":{"age":5,"interests":["Ball","Frisbee"]},"Casper":{"age":3,"interests":["Other dogs"]},"Indy":{"age":2,"interests":["Butter"]},"Kira":{"age":8,"interests":["Rubs"]}} |
 
 ## Next steps
 

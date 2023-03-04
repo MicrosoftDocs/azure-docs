@@ -1,6 +1,6 @@
 ---
 title: Prerequisites to set up peering with Microsoft
-description: Prerequisites to set up peering with Microsoft
+description: Learn about the prerequisites to set up peering with Microsoft.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
