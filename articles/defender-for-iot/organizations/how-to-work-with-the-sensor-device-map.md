@@ -124,6 +124,8 @@ Use one of the following options to import and export device data:
 
     |Name  |Description  |
     |---------|---------|
+    |**Edit properties**     |   Opens the edit pane where you can edit device properties, such as authorization, name, description, OS platform, device type, Purdue level and if it is a scanner or programming device.     |
+    |**View properties**     |    Opens the device's details page.      |
     |**Authorize/Unauthorize**     |    Changes the device's [authorization status](device-inventory.md#unauthorized-devices).     |
     |**Mark as Important / Non-Important**     |    Changes the device's [importance](device-inventory.md#important-ot-devices) status, highlighting business critical servers on the map with a star and elsewhere, including OT sensor reports and the Azure device inventory.     |
     |**Show Alerts** / **Show Events**     |  Opens the **Alerts** or **Event Timeline** tab on the device's details page.   |
@@ -146,14 +148,9 @@ You can only merge [authorized devices](device-inventory.md#unauthorized-devices
 
 1. Sign into your OT sensor and select **Device map**.
 
-1. Select one or more authorized devices and then right-click and select **Merge**. 
+1. Select the authorized devices you want to merge by using the SHIFT key to select more than one device, and then right-click and select **Merge**. 
 
-1. In the **Set merge device attributes** dialog, select the device name you want to use for the merged device.
-
-1. Select **Save** to save your changes.
-
-It can take up to two minutes complete the merge. Merge events are listed in the OT sensor's event timeline.
-
+The devices are merged, and a confirmation message appears at the top right. Merge events are listed in the OT sensor's event timeline.
 
 ## Manage device notifications
 
