@@ -45,7 +45,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
     | Location                | Select **(US) East US 2**.     |
     | Availability Zone       | Select **No Zone**. |
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal":::
+    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal.":::
 
 1. Select **Create**.
 
