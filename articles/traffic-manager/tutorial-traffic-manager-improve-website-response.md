@@ -61,9 +61,9 @@ In this section, you create two VMs **myIISVMEastUS** and **myIISVMWestEurope** 
     | Resource Group | Select **Create new** and enter *myResourceGroupTM1* in the text box. |
     | Virtual machine name | Enter a name for your virtual machine. This example uses **myIISVMEastUS**. |
     | Region | Select **East US**. |
-    | Availability options | Azure offers a range of options for managing availability and resiliency for your applications. For this example select **No infrastructure redundancy required**. |
-    | Security type | Security type refers to the different security features available for a virtual machine. For this example select **Standard**. |
-    | Image | Choose the base operating system or application for the VM. For this example select **Windows Server 2019 Datacenter**. |
+    | Availability options | Azure offers a range of options for managing availability and resiliency for your applications. For this example, select **No infrastructure redundancy required**. |
+    | Security type | Security type refers to the different security features available for a virtual machine. For this example, select **Standard**. |
+    | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
     | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
@@ -148,9 +148,9 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
     | Resource Group | Select **myResourceGroupTM1** in the text box. |
     | Virtual machine name | Enter a name for your virtual machine. This example uses **myVMEastUS**. |
     | Region | Select **East US**. |
-    | Availability options | Azure offers a range of options for managing availability and resiliency for your applications. For this example select **No infrastructure redundancy required**. |
-    | Security type | Security type refers to the different security features available for a virtual machine. For this example select **Standard**. |
-    | Image | Choose the base operating system or application for the VM. For this example select **Windows Server 2019 Datacenter**. |
+    | Availability options | Azure offers a range of options for managing availability and resiliency for your applications. For this example, select **No infrastructure redundancy required**. |
+    | Security type | Security type refers to the different security features available for a virtual machine. For this example, select **Standard**. |
+    | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
     | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
@@ -190,7 +190,7 @@ Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWestEurope* 
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/traffic-manager-add-endpoint.png" alt-text="Screenshot of adding a Traffic Manager endpoint.":::
 
-1. In the Add Enpoint page, enter the following information, accept the defaults for the remaining settings, and then select **OK**:
+1. In the *Add Endpoint* page, enter the following information, accept the defaults for the remaining settings, and then select **OK**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -238,11 +238,11 @@ In this section, you can see the Traffic Manager is action.
 1. Type your authentication credentials. Then, select **Connect**.
 1. In a web browser on the VM *myVMEastUS*, type the DNS name of your Traffic Manager profile to view your website. Since the VM located in **East US**, you're routed to the nearest website hosted on the nearest IIS server *myIISVMEastUS* that is located in **East US**.
 
-    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser.":::
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser for East US.":::
 
 1. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM located in **West Europe**, you're now routed to the website hosted on nearest the IIS server *myIISVMWestEurope* that is located in **West Europe**.
 
-    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser.":::
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser for West Europe.":::
 
 
 ## Clean up resources
@@ -251,7 +251,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 1. Enter the name of your resource group in the **Search** box at the top of the portal and select it from the search results.
 1. At the top of the page for the resource group, select **Delete resource group**. 
-1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+1. A page will open warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ## Next steps
 
