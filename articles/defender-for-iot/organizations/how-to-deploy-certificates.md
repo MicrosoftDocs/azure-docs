@@ -14,9 +14,9 @@ This article describes how to create and deploy SSL/TLS certificates on OT netwo
 - Between an on-premises management console and a high availability (HA) server, if configured
 - Between OT sensors or on-premises management consoles and partners servers defined in [alert forwarding rules](how-to-forward-alert-information-to-partners.md)
 
-SSL/TLS certificates can be deployed during initial configuration as well later on.
+You can deploy SSL/TLS certificates during initial configuration as well as later on.
 
-Certificates are validated against a passphrase, if available, and the certificate expiration date. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
+Certificates are validated against the certificate expiration date and against a passphrase, if available. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
 
 Each certificate authority (CA)-signed certificate must have both a `.key` file and a `.crt` file, which are uploaded to OT network sensors and on-premises management consoles after the first sign-in. While some organizations may also require a `.pem` file, a `.pem` file isn't required for Defender for IoT.
 
