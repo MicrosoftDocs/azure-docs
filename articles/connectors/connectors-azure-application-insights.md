@@ -119,7 +119,7 @@ When you create your own queries, verify that they're working properly in Log An
 
 1. On the designer toolbar, select **Save** to save your changes.
 
-    You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
+   You can wait for the trigger to run the workflow, or you can immediately run the workflow by selecting **Run Trigger** > **Run**.
 
     ![Screenshot that shows the Save button on the Logic Apps Designer screen.](./media/connectors-azure-application-insights/13save.png)
 
