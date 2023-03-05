@@ -175,7 +175,7 @@ Here are what each of the recipient statuses mean:
 
 | Status | Meaning |
 |---|---|
-|Active | The share has been accepted and the recipient has access to the shared data. |
+|Attached | The share has been accepted and the recipient has access to the shared data. |
 |Detached | The recipient hasn't accepted the invitation or is no longer active. They aren't receiving the share. |
 
 You can **remove or delete recipients** by either selecting the delete button on the recipient's row, or selecting multiple recipients and then selecting the **Delete recipients** button at the top of the page.
