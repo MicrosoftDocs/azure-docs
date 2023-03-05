@@ -118,21 +118,17 @@ image_analysis_options.features = (
 Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis.
 
 ```cpp
-// Creates the options object that will control the ImageAnalyzer
-std::shared_ptr<ImageAnalysisOptions> analysisOptions = ImageAnalysisOptions::Create();
+auto analysisOptions = ImageAnalysisOptions::Create();
 
-// Mandatory. You must set one or more features to analyze. Here we use the full set of features.
-// Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
-// North Europe, Southeast Asia, West Europe, West US)
 analysisOptions->SetFeatures(
-{
-    ImageAnalysisFeature::CropSuggestions,
-    ImageAnalysisFeature::Captions,
-    ImageAnalysisFeature::Objects,
-    ImageAnalysisFeature::People,
-    ImageAnalysisFeature::Text,
-    ImageAnalysisFeature::Tags
-});
+    {
+        ImageAnalysisFeature::CropSuggestions,
+        ImageAnalysisFeature::Caption,
+        ImageAnalysisFeature::Objects,
+        ImageAnalysisFeature::People,
+        ImageAnalysisFeature::Text,
+        ImageAnalysisFeature::Tags
+    });
 ```
 
 #### [REST](#tab/rest)
@@ -155,6 +151,50 @@ A populated URL might look like this:
 
 ---
 
+### Use a custom model
+
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](./model-customization.md). Once your model is trained, all you need is the model's name value.
+
+#### [C#](#tab/csharp)
+
+To use a custom model, create the ImageAnalysisOptions with no features, and set the name of your model.
+
+```csharp
+var analysisOptions = new ImageAnalysisOptions()
+{
+    ModelName = "MyCustomModelName"
+};
+```
+
+#### [Python](#tab/python)
+
+To use a custom model, create an **ImageAnalysisOptions** object with no features set, and set the name of your model.
+
+
+```python
+analysis_options = sdk.ImageAnalysisOptions()
+
+analysis_options.model_name = "MyCustomModelName"
+```
+
+#### [C++](#tab/cpp)
+
+To use a custom model, create an **ImageAnalysisOptions** object with no features set, and set the name of your model.
+
+```cpp
+auto analysisOptions = ImageAnalysisOptions::Create();
+
+analysisOptions->SetModelName("MyCustomModelName");
+```
+
+
+#### [REST](#tab/rest)
+
+To use a custom model, do not use the features query parameter. Set the model-name parameter to the name of your model.
+
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
+
+---
 
 ### Specify languages
 
@@ -228,7 +268,8 @@ This section shows you how to parse the results of the API call. It includes the
 The following code calls the Image Analysis API and prints the results to the console.
 
 ```csharp
-var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
+using var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
+
 var result = analyzer.Analyze();
 
 if (result.Reason == ImageAnalysisResultReason.Analyzed)
@@ -237,13 +278,10 @@ if (result.Reason == ImageAnalysisResultReason.Analyzed)
     Console.WriteLine($" Image width = {result.ImageWidth}");
     Console.WriteLine($" Model version = {result.ModelVersion}");
 
-    if (result.Captions != null)
+    if (result.Caption != null)
     {
-        Console.WriteLine(" Captions:");
-        foreach (var caption in result.Captions)
-        {
-            Console.WriteLine($"   \"{caption.Content}\", Confidence {caption.Confidence:0.0000}");
-        };
+        Console.WriteLine(" Caption:");
+        Console.WriteLine($"   \"{result.Caption.Content}\", Confidence {result.Caption.Confidence:0.0000}");
     }
 
     if (result.Objects != null)
@@ -299,11 +337,12 @@ if (result.Reason == ImageAnalysisResultReason.Analyzed)
         }
     }
 
-    var detailedResult = ImageAnalysisResultDetails.FromResult(result);
-    Console.WriteLine($" Detailed result:");
-    Console.WriteLine($"   Image ID = {detailedResult.ImageId}");
-    Console.WriteLine($"   Result ID = {detailedResult.ResultId}");
-    Console.WriteLine($"   JSON = {detailedResult.JsonResult}");
+    var resultDetails = ImageAnalysisResultDetails.FromResult(result);
+    Console.WriteLine($" Result details:");
+    Console.WriteLine($"   Image ID = {resultDetails.ImageId}");
+    Console.WriteLine($"   Result ID = {resultDetails.ResultId}");
+    Console.WriteLine($"   Connection URL = {resultDetails.ConnectionUrl}");
+    Console.WriteLine($"   JSON result = {resultDetails.JsonResult}");
 }
 else if (result.Reason == ImageAnalysisResultReason.Error)
 {
@@ -321,64 +360,65 @@ else if (result.Reason == ImageAnalysisResultReason.Error)
 The following code calls the Image Analysis API and prints the results to the console.
 
 ```python
-image_analyzer = visionsdk.ImageAnalyzer(service_options=service_options,
-    vision_source=vision_source,
-    image_analysis_options=image_analysis_options)
+image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
 
-    result = image_analyzer.analyze()
+result = image_analyzer.analyze()
 
-    # Checks result.
-    if result.reason == visionsdk.ImageAnalysisResultReason.ANALYZED:
+if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
 
-        if result.captions is not None:
-            print(' Captions:')
-            for caption in result.captions:
-                print('   \'{}\', Confidence {:.4f}'.format(caption.content, caption.confidence))
+    print(" Image height: {}".format(result.image_height))
+    print(" Image width: {}".format(result.image_width))
+    print(" Model version: {}".format(result.model_version))
 
-        if result.objects is not None:
-            print(' Objects:')
-            for object in result.objects:
-                print('   \'{}\', {} Confidence: {:.4f}'.format(object.name, object.bounding_box, object.confidence))
+    if result.caption is not None:
+        print(" Caption:")
+        print("   '{}', Confidence {:.4f}".format(result.caption.content, result.caption.confidence))
 
-        if result.tags is not None:
-            print(' Tags:')
-            for tag in result.tags:
-                print('   \'{}\', Confidence {:.4f}'.format(tag.name, tag.confidence))
+    if result.objects is not None:
+        print(" Objects:")
+        for object in result.objects:
+            print("   '{}', {} Confidence: {:.4f}".format(object.name, object.bounding_box, object.confidence))
 
-        if result.people is not None:
-            print(' People:')
-            for person in result.people:
-                print('   {}, Confidence {:.4f}'.format(person.bounding_box, person.confidence))
+    if result.tags is not None:
+        print(" Tags:")
+        for tag in result.tags:
+            print("   '{}', Confidence {:.4f}".format(tag.name, tag.confidence))
 
-        if result.crop_suggestions is not None:
-            print(' Crop Suggestions:')
-            for crop_suggestion in result.crop_suggestions:
-                print('   Aspect ratio {}: Crop suggestion {}'.format(crop_suggestion.aspect_ratio, crop_suggestion.bounding_box))
+    if result.people is not None:
+        print(" People:")
+        for person in result.people:
+            print("   {}, Confidence {:.4f}".format(person.bounding_box, person.confidence))
 
-        if result.text is not None:
-            print(' Text:')
-            for line in result.text.lines:
-                points_string = '{' + ', '.join([str(int(point)) for point in line.bounding_polygon]) + '}'
-                print('   Line: \'{}\', Bounding polygon {}'.format(line.content, points_string))
-                for word in line.words:
-                    points_string = '{' + ', '.join([str(int(point)) for point in word.bounding_polygon]) + '}'
-                    print('     Word: \'{}\', Bounding polygon {}, Confidence {:.4f}'.format(word.content, points_string, word.confidence))
+    if result.crop_suggestions is not None:
+        print(" Crop Suggestions:")
+        for crop_suggestion in result.crop_suggestions:
+            print("   Aspect ratio {}: Crop suggestion {}"
+                    .format(crop_suggestion.aspect_ratio, crop_suggestion.bounding_box))
 
-        print(' Image Height: {}'.format(result.image_height))
-        print(' Image Width: {}'.format(result.image_width))
-        print(' Image ID: {}'.format(result.image_id))
-        print(' Result ID: {}'.format(result.result_id))
-        print(' Model Version: {}'.format(result.model_version))
-        print(' JSON Result: {}'.format(result.json_result))
+    if result.text is not None:
+        print(" Text:")
+        for line in result.text.lines:
+            points_string = "{" + ", ".join([str(int(point)) for point in line.bounding_polygon]) + "}"
+            print("   Line: '{}', Bounding polygon {}".format(line.content, points_string))
+            for word in line.words:
+                points_string = "{" + ", ".join([str(int(point)) for point in word.bounding_polygon]) + "}"
+                print("     Word: '{}', Bounding polygon {}, Confidence {:.4f}"
+                        .format(word.content, points_string, word.confidence))
 
-    elif result.reason == visionsdk.ImageAnalysisResultReason.ERROR:
+    result_details = sdk.ImageAnalysisResultDetails.from_result(result)
+    print(" Result details:")
+    print("   Image ID: {}".format(result_details.image_id))
+    print("   Result ID: {}".format(result_details.result_id))
+    print("   Connection URL: {}".format(result_details.connection_url))
+    print("   JSON result: {}".format(result_details.json_result))
 
-        error_details = visionsdk.ImageAnalysisErrorDetails.from_result(result)
-        print(" Analysis failed.")
-        print("   Error reason: {}".format(error_details.reason))
-        print("   Error code: {}".format(error_details.error_code))
-        print("   Error message: {}".format(error_details.message))
-        print(" Did you set the computer vision endpoint and key?")
+elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
+
+    error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
+    print(" Analysis failed.")
+    print("   Error reason: {}".format(error_details.reason))
+    print("   Error code: {}".format(error_details.error_code))
+    print("   Error message: {}".format(error_details.message))
 ```
 
 #### [C++](#tab/cpp)
@@ -386,12 +426,9 @@ image_analyzer = visionsdk.ImageAnalyzer(service_options=service_options,
 The following code calls the Image Analysis API and prints the results to the console.
 
 ```cpp
-std::shared_ptr<ImageAnalyzer> analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
+auto analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
 
-// This call creates the network connection and blocks until Image Analysis results
-// return (or an error occurred). Note that there is also an asynchronous (non-blocking)
-// version of this method: analyzer->AnalyzeAsync().
-std::shared_ptr<ImageAnalysisResult> result = analyzer->Analyze();
+auto result = analyzer->Analyze();
 
 if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
 {
@@ -399,22 +436,18 @@ if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
     std::cout << " Image width = " << result->GetImageWidth().Value() << std::endl;
     std::cout << " Model version = " << result->GetModelVersion().Value() << std::endl;
 
-    const Nullable<ContentCaptions>& captions = result->GetCaptions();
-    if (captions.HasValue())
+    const auto caption = result->GetCaption();
+    if (caption.HasValue())
     {
-        std::cout << " Captions:" << std::endl;
-        for (const ContentCaption& caption : captions.Value())
-        {
-            std::cout << "   \"" << caption.Content;
-            std::cout << "\", Confidence " << caption.Confidence << std::endl;
-        }
+        std::cout << " Caption:" << std::endl;
+        std::cout << "   \"" << caption.Value().Content << "\", Confidence " << caption.Value().Confidence << std::endl;
     }
 
-    const Nullable<DetectedObjects>& objects = result->GetObjects();
+    const auto objects = result->GetObjects();
     if (objects.HasValue())
     {
         std::cout << " Objects:" << std::endl;
-        for (const DetectedObject& object : objects.Value())
+        for (const auto object : objects.Value())
         {
             std::cout << "   \"" << object.Name << "\", ";
             std::cout << "Bounding box " << object.BoundingBox.ToString();
@@ -422,49 +455,49 @@ if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
         }
     }
 
-    const Nullable<ContentTags>& tags = result->GetTags();
+    const auto tags = result->GetTags();
     if (tags.HasValue())
     {
         std::cout << " Tags:" << std::endl;
-        for (const ContentTag& tag : tags.Value())
+        for (const auto tag : tags.Value())
         {
             std::cout << "   \"" << tag.Name << "\"";
             std::cout << ", Confidence " << tag.Confidence << std::endl;
         }
     }
 
-    const Nullable<DetectedPeople>& people = result->GetPeople();
+    const auto people = result->GetPeople();
     if (people.HasValue())
     {
         std::cout << " People:" << std::endl;
-        for (const DetectedPerson& person : people.Value())
+        for (const auto person : people.Value())
         {
             std::cout << "   Bounding box " << person.BoundingBox.ToString();
             std::cout << ", Confidence " << person.Confidence << std::endl;
         }
     }
 
-    const Nullable<CropSuggestions>& cropSuggestions = result->GetCropSuggestions();
+    const auto cropSuggestions = result->GetCropSuggestions();
     if (cropSuggestions.HasValue())
     {
         std::cout << " Crop Suggestions:" << std::endl;
-        for (const CropSuggestion& cropSuggestion : cropSuggestions.Value())
+        for (const auto cropSuggestion : cropSuggestions.Value())
         {
-            std::cout << "   Aspect ratio " << cropSuggestion.AspectRatio; 
+            std::cout << "   Aspect ratio " << cropSuggestion.AspectRatio;
             std::cout << ": Crop suggestion " << cropSuggestion.BoundingBox.ToString() << std::endl;
         }
     }
 
-    const Nullable<DetectedText>& detectedText = result->GetText();
+    const auto detectedText = result->GetText();
     if (detectedText.HasValue())
     {
         std::cout << " Text:\n";
-        for (const DetectedTextLine& line : detectedText.Value().Lines)
+        for (const auto line : detectedText.Value().Lines)
         {
             std::cout << "   Line: \"" << line.Content << "\"";
-            std::cout << ", Bounding polygon " << PolygonToString(line.BoundingPolygon) << "}\n";
+            std::cout << ", Bounding polygon " << PolygonToString(line.BoundingPolygon) << std::endl;
 
-            for (const DetectedTextWord& word: line.Words)
+            for (const auto word : line.Words)
             {
                 std::cout << "     Word: \"" << word.Content << "\"";
                 std::cout << ", Bounding polygon " << PolygonToString(word.BoundingPolygon);
@@ -473,19 +506,37 @@ if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
         }
     }
 
-    std::cout << " Detailed result:\n";;
-    std::cout << "   Image ID = " << result->GetImageId() << std::endl;
-    std::cout << "   Result ID = " << result->GetResultId() << std::endl;
-    std::cout << "   JSON = " << result->GetJsonResult() << std::endl;
+    auto resultDetails = ImageAnalysisResultDetails::FromResult(result);
+    std::cout << " Result details:\n";;
+    std::cout << "   Image ID = " << resultDetails->GetImageId() << std::endl;
+    std::cout << "   Result ID = " << resultDetails->GetResultId() << std::endl;
+    std::cout << "   Connection URL = " << resultDetails->GetConnectionUrl() << std::endl;
+    std::cout << "   JSON result = " << resultDetails->GetJsonResult() << std::endl;
 }
 else if (result->GetReason() == ImageAnalysisResultReason::Error)
 {
-    std::shared_ptr<ImageAnalysisErrorDetails> errorDetails = ImageAnalysisErrorDetails::FromResult(result);
+    auto errorDetails = ImageAnalysisErrorDetails::FromResult(result);
     std::cout << " Analysis failed." << std::endl;
     std::cout << "   Error reason = " << (int)errorDetails->GetReason() << std::endl;
     std::cout << "   Error code = " << errorDetails->GetErrorCode() << std::endl;
     std::cout << "   Error message = " << errorDetails->GetMessage() << std::endl;
-    std::cout << " Did you set the computer vision endpoint and key?" << std::endl;
+}
+```
+
+Use the following helper method to parse rectangle coordinates:
+
+```cpp
+std::string PolygonToString(std::vector<int32_t> boundingPolygon)
+{
+    std::string out = "{";
+    for (int i = 0; i < boundingPolygon.size(); i += 2)
+    {
+        out += ((i == 0) ? "{" : ",{") +
+            std::to_string(boundingPolygon[i]) + "," +
+            std::to_string(boundingPolygon[i + 1]) + "}";
+    }
+    out += "}";
+    return out;
 }
 ```
 
