@@ -4630,6 +4630,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-monitor.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-monitor",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/sa-copy-generalized.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
             "redirect_document_id": false
@@ -4907,6 +4912,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
+            "redirect_url": "/azure/virtual-machines/linux/azure-hybrid-benefit-linux/",
             "redirect_document_id": false
         }
     ]

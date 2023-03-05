@@ -21,6 +21,8 @@ Azure Machine Learning integration with Azure Synapse Analytics (preview) provid
 - Managed (Automatic) Spark compute
 - Attached Synapse Spark pool
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Managed (Automatic) Spark compute
 
 With the Apache Spark framework, Azure Machine Learning Managed (Automatic) Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment. Azure Machine Learning offers a fully managed, serverless, on-demand Apache Spark compute cluster. Its users can avoid the need to create an Azure Synapse workspace and a Synapse Spark pool.
