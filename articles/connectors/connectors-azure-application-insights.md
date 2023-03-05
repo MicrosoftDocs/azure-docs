@@ -134,5 +134,5 @@ When you create your own queries, verify that they're working properly in Log An
 
 Learn more about:
 - [Log Analytics queries](../azure-monitor/logs/get-started-queries.md)
-- [Logic Apps](../logic-apps/logic-apps-overview.md).
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 - [Application Insights connector](/connectors/applicationinsights/)
