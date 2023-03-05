@@ -14,7 +14,8 @@ tags: connectors
 Do you find yourself repeatedly running the same queries on your telemetry data to check whether your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The [Application Insights connector](/connectors/applicationinsights/) for Azure Logic Apps is the right tool for this purpose.
 
 > [!NOTE]
-> The Application Insights connector has been replaced by the [Azure Monitor connector](../connectors/connectors-azure-monitor-logs.md). It's integrated with Azure Active Directory instead of requiring an API key. You can also use it to retrieve data from a Log Analytics workspace.
+> The Application Insights connector is replaced by the [Azure Monitor connector](../connectors/connectors-azure-monitor-logs.md), which you can also use to retrieve data from a Log Analytics workspace. 
+> Rather than require an API key, the Azure Monitor connector is integrated with Azure Active Directory. 
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process.
 
