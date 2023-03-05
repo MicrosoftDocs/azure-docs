@@ -49,7 +49,7 @@ If you're working with a cloud-connected sensor, any edits you make in the senso
 
 **To edit device details**:
 
-1. Select a device in the grid, and then select **Edit** from the toolbar at the top of the page.
+1. Select a device in the grid, and then select **Edit** in the toolbar at the top of the page.
 
 1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
 
@@ -98,7 +98,7 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 **To merge devices from the device inventory:**
 
-In the device inventory grid, select the devices you want to merge, and then select **Merge** from the toolbar at the top of the page.
+In the device inventory grid, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
 
 The devices are merged, and a confirmation message appears at the top right.
 
