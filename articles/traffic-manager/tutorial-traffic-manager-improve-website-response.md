@@ -238,11 +238,11 @@ In this section, you can see the Traffic Manager is action.
 1. Type your authentication credentials. Then, select **Connect**.
 1. In a web browser on the VM *myVMEastUS*, type the DNS name of your Traffic Manager profile to view your website. Since the VM located in **East US**, you're routed to the nearest website hosted on the nearest IIS server *myIISVMEastUS* that is located in **East US**.
 
-    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser for East US.":::
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png" alt-text="Screenshot that shows the Traffic Manager profile in a web browser for East US.":::
 
 1. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM located in **West Europe**, you're now routed to the website hosted on nearest the IIS server *myIISVMWestEurope* that is located in **West Europe**.
 
-    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png" alt-text="Screenshot that shows the "Traffic Manager" profile in a web browser for West Europe.":::
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png" alt-text="Screenshot that shows the Traffic Manager profile in a web browser for West Europe.":::
 
 
 ## Clean up resources
