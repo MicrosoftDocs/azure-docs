@@ -83,4 +83,4 @@ The people detection feature is part of the [Image Analysis 4.0 API](https://aka
 
 ## Next steps
 
-Learn the related concept of [Face detection](concept-face-detection.md).
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)

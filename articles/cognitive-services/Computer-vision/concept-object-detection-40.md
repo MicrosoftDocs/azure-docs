@@ -81,5 +81,7 @@ It's important to note the limitations of object detection so you can avoid or m
 
 The object detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Objects` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
 
+## Next steps
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)
+

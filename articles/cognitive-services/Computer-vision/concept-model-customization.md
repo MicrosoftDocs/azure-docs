@@ -163,4 +163,4 @@ We do not recommend you use custom models for business critical environments due
 
 ## Next steps
 
-* [Get started creating and training a custom model](./how-to/model-customization.md)
+* [Create and train a custom model](./how-to/model-customization.md)

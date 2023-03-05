@@ -147,4 +147,6 @@ The tagging feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref
 
 ## Next steps
 
-Learn the related concept of [describing images](concept-describing-images-40.md).
+* Learn the related concept of [describing images](concept-describing-images-40.md).
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)
+

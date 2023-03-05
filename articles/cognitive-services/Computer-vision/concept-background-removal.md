@@ -55,4 +55,3 @@ The background removal feature is available through the [Image Analysis - Segmen
 ## Next steps
 
 * [Call the background removal API](./how-to/background-removal.md)
-* [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)

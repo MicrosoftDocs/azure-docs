@@ -271,7 +271,7 @@ The following JSON response illustrates what the Image Analysis 4.0 API returns 
 
 ## Use the API
 
-The text extraction feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+The text extraction feature is part of the [Analyze Image API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
 
 
 ## Next steps

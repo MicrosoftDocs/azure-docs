@@ -70,6 +70,6 @@ See the following list of possible errors and their causes:
 
 ## Next steps
 
-[Image Analysis overview](../overview-image-analysis.md)
+[Background removal concepts](../concept-background-removal.md)
 
 
