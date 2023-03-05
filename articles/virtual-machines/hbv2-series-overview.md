@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 12/15/2020 
+ms.date: 03/04/2023 
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -20,7 +20,7 @@ author: mamccrea
 
 Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term **pNUMA** to refer to a physical NUMA domain, and **vNUMA** to refer to a virtualized NUMA domain. 
 
-Physically, an [HBv2-series](../../hbv2-series.md) server is 2 * 64-core EPYC 7742 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. Four adjacent CCXs share access to 2 channels of physical DRAM. 
+Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7742 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. Four adjacent CCXs share access to 2 channels of physical DRAM. 
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domains 0 and 16 (i.e. the first CCX of each CPU socket). All remaining 30 pNUMA domains are assigned to the VM at which point they become vNUMA. Thus, the VM will see:
 
