@@ -1,6 +1,6 @@
 ---
 title: Create a site - Azure portal
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Create a site using the Azure portal
 
-Azure Private 5G Core Preview private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using the Azure portal.
+Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using the Azure portal.
 
 ## Prerequisites
 
@@ -20,6 +20,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 - Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- If the new site will support 4G user equipment (UEs), you must have [created a network slice](create-manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
 ## Create the mobile network site resource
 
@@ -59,18 +60,29 @@ In this step, you'll create the mobile network site resource representing the ph
 1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
+    - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
     :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
 
     Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
+1. If you decided you want to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
+If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
+    1. Select **+ Add** to configure a user assigned managed identity.
+    1. In the **Select Managed Identity** side panel:
+        - Select the **Subscription** from the dropdown.
+        - Select the **Managed identity** from the dropdown.
 1. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
-    
+
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
     1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
+1. In the **Local access** section, set the fields as follows:
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
+  
+    - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
+    - under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -95,6 +107,6 @@ In this step, you'll create the mobile network site resource representing the ph
 
 ## Next steps
 
-If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+If you decided to set up Azure AD for local monitoring access, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
-- [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

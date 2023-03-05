@@ -161,7 +161,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-2018-06"
+        "moniker_range": ">=iotedge-1.4"
       },
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
@@ -263,6 +263,9 @@
         "articles/azure-monitor/*": true,
         "articles/key-vault/*": true
       },
+      "archive_url": {
+        "articles/iot-edge/*": "/previous-versions/azure/iot-edge/"
+      },
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "MGoedtel",
@@ -308,11 +311,12 @@
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jyothisuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
+        "articles/sap/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/**/*.md": "PatrickFarley",
@@ -526,7 +530,7 @@
         "articles/key-vault/**/*.md": "https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0",
         "articles/lighthouse/**/*.md": "https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789",
-        "articles/load-testing/**/*.md": "https://github.com/microsoft/azure-load-testing/issues",
+        "articles/load-testing/**/*.md": "https://developercommunity.microsoft.com/loadtesting",
         "articles/dev-box/**/*.md": "https://feedback.azure.com/d365community/forum/dbaa0c2b-4e1d-ed11-b83d-000d3a4d97ea",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
@@ -587,9 +591,9 @@
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
       "feedback_system": {
-        "articles/active-directory/**/*.md": "Standard",
+        "articles/active-directory/**/*.md": "GitHub",
         "articles/active-directory/user-help/*.md": "None",
-        "articles/active-directory-b2c/*.md": "Standard",
+        "articles/active-directory-b2c/*.md": "GitHub",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
         "articles/cognitive-services/custom-decision-service/**/*.md": "None",
         "articles/cognitive-services/Emotion/**/*.md": "None",
@@ -688,8 +692,8 @@
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jsuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "prkannap",
         "articles/blockchain/**/*.md": "patricka",
@@ -820,7 +824,7 @@
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",
-        "articles/aks/**/*.md": "container-service",
+        "articles/aks/**/*.md": "azure-kubernetes-service",
         "articles/ansible/**/*.md": "ansible",
         "articles/app-service/**/*.md": "app-service",
         "articles/app-service-mobile/**/*.md": "app-service-mobile",
@@ -919,8 +923,8 @@
         "articles/partner-solutions/logzio/**/*.md": "logzio",
         "articles/partner-solutions/dynatrace/**/*.md": "dynatrace",
         "articles/partner-solutions/nginx/**/*.md": "nginx",
-        "articles/partner-solutions/qumulo/**/*.md": "qumolo",
-        "articles/partner-solutions/qumulo/**/*.md": "new-relic",
+        "articles/partner-solutions/qumulo/**/*.md": "qumulo",
+        "articles/partner-solutions/new-relic/**/*.md": "new-relic",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",
@@ -959,10 +963,11 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
+        "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
         "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
@@ -1201,6 +1206,9 @@
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
+      },
+      "ms.custom": {
+        "articles/machine-learning/v1/*.md": "UpdateFrequency5"
       }
     },
     "template": [
@@ -1240,6 +1248,8 @@
           "articles/azure-netapp-files/faq-application-resilience.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
+          "articles/sap/large-instances/**/**.md",
+          "articles/sap/workloads/**/**.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
           "articles/databox-online/azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md",
           "articles/defender-for-iot/organizations/alert-engine-messages.md",
@@ -1271,6 +1281,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/sap/large-instances/**/**.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/kafka/kafka-mirrormaker-2-0-guide.md",

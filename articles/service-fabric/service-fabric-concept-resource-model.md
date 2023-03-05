@@ -181,6 +181,11 @@ To delete an application that was deployed by using the application resource mod
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
+## Common questions and answers
+
+Error:  "Application name must be a prefix of service name"
+    Answer:  Make sure the service name is formatted as follows: ProfileVetSF~CallTicketDataWebApi.
+
 ## Next steps
 
 Get information about the application resource model:

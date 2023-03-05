@@ -112,7 +112,7 @@ Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
-Customers with Global Admin role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
+Customers with Global Administrator role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
 
 ## How long does it take to deploy Permissions Management?
 
@@ -136,7 +136,7 @@ If a customer initiates a free Permissions Management 45-day trial, but does not
 
 If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
 
-We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
 
 ## Do I require a license to use Entra Permissions Management? 
 

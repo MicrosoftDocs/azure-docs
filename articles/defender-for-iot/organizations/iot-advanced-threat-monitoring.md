@@ -77,7 +77,7 @@ The **Microsoft Defender for IoT** solution includes a more detailed set of out-
 
 ## Investigate Defender for IoT incidents
 
-After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel as you would other incidents.
+After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel [as you would other incidents](../../sentinel/investigate-cases.md).
 
 **To investigate Microsoft Defender for IoT incidents**:
 
@@ -96,12 +96,15 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 1. Select the incident to open the incident details page, where you can find additional details. For example:
 
     - Understand the incident's business impact and physical location using details like the an IoT device's site, zone, sensor name, and device importance.
+
     - Learn about recommended remediation steps by selecting an alert in the incident timeline and viewing the **Remediation steps** area.
 
-For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](../../sentinel/investigate-cases.md).
+    - Select an IoT device entity from the **Entities** list to open its [device entity page](/azure/sentinel/entity-pages). Identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
 
 > [!TIP]
 > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
+
+For more information, see [Investigate incidents with Microsoft Sentinel](../../sentinel/investigate-cases.md).
 
 ### Investigate further with IoT device entities
 
@@ -116,6 +119,14 @@ You can also hunt for vulnerable devices on the Microsoft Sentinel **Entity beha
 :::image type="content" source="media/iot-solution/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of IoT devices by number of alerts on entity behavior page.":::
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](../../sentinel/investigate-cases.md).
+
+### Investigate the alert in Defender for IoT
+
+To open an alert in Defender for IoT for further investigation, go to your incident details page and select  **Investigate in Microsoft Defender for IoT**. For example:
+
+:::image type="content" source="media/iot-solution/investigate-in-iot.png" alt-text="Screenshot of the Investigate in Microsoft Defender for IoT option.":::
+
+The Defender for IoT alert details page opens for the related alert. For more information, see [Investigate and respond to an OT network alert](respond-ot-alert.md).
 
 ## Visualize and monitor Defender for IoT data
 
@@ -138,7 +149,7 @@ The following table describes the workbooks included in the **Microsoft Defender
 
 ## Automate response to Defender for IoT alerts
 
-Playbooks are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+[Playbooks](../../sentinel/tutorial-respond-threats-playbook.md) are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 The [Microsoft Defender for IoT](#install-the-defender-for-iot-solution) solution includes out-of-the-box playbooks that provide the following functionality:
 

@@ -74,7 +74,7 @@ timertask linux       Enabled                           BASE_IMAGE, TIMER
 
 Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
 
-Follow the [Prerequisites](/azure/container-registry/container-registry-tutorial-quick-task#prerequisites) to build the source code context and then create a scheduled task with context.
+Follow the [Prerequisites](./container-registry-tutorial-quick-task.md#prerequisites) to build the source code context and then create a scheduled task with context.
  
 ```azurecli
 az acr task create \

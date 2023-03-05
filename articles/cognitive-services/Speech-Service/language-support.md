@@ -23,6 +23,9 @@ You can also get a list of locales and voices supported for each specific region
 
 Language support varies by Speech service functionality. 
 
+> [!NOTE]
+> See [Speech Containers](speech-container-howto.md#available-speech-containers) and [Embedded Speech](embedded-speech.md#models-and-voices) separately for their supported languages.
+
 **Choose a Speech feature**
 
 # [Speech-to-text](#tab/stt)
@@ -30,6 +33,9 @@ Language support varies by Speech service functionality.
 The table in this section summarizes the locales and voices supported for Speech-to-text. Please see the table footnotes for more details. 
 
 Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
+
+> [!TIP]
+> Try out the [Real-time Speech-to-text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 

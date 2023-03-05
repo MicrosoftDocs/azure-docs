@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 01/25/2023
 ms.author: aahi
 ---
 

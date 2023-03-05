@@ -19,8 +19,6 @@ ms.custom: devx-track-js, devguide-js
 
 When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
-
 ## Understand container listing options
 
 To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
@@ -158,8 +156,22 @@ async function listContainers(blobServiceClient, containerNamePrefix) {
 }
 ```
 
+## Resources
+
+To learn more about listing containers using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for listing containers use the following REST API operation:
+
+- [List Containers](/rest/api/storageservices/list-containers2) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-containers.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
 ## See also
 
-- [Get started with Azure Blob Storage and JavaScript](storage-blob-dotnet-get-started.md)
-- [List Containers](/rest/api/storageservices/list-containers2)
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

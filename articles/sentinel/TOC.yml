@@ -69,7 +69,7 @@
         href: partner-integrations.md
       - name: Basic Logs
         href: basic-logs-use-cases.md
-      - name: Health monitoring 
+      - name: Auditing and health monitoring 
         href: health-audit.md    
     - name: Architecture
       items:
@@ -89,6 +89,8 @@
       href: sentinel-solutions-catalog.md
     - name: Manage custom content with repositories
       href: ci-cd-custom-content.md
+    - name: OOTB content centralization changes
+      href: sentinel-content-centralize.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -248,6 +250,9 @@
       items:
       - name: Amazon Web Services logs
         href: connect-aws.md
+        items:
+        - name: Send CloudWatch events via Lambda function
+          href: cloudwatch-lambda-function.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
@@ -450,12 +455,14 @@
       href: manage-soc-with-incident-metrics.md
     - name: Monitor Microsoft Sentinel health
       items:
-      - name: Enable health monitoring
+      - name: Enable auditing and health monitoring
         href: enable-monitoring.md
       - name: Monitor data connector health
         href: monitor-data-connector-health.md
       - name: Monitor automation rules and playbooks health
         href: monitor-automation-health.md
+      - name: Audit and monitor the health of analytics rules
+        href: monitor-analytics-rule-integrity.md
       - name: Monitor SAP system health and role
         href: monitor-sap-system-health.md 
     - name: Auditing Microsoft Sentinel with Azure Activity Logs
@@ -537,6 +544,8 @@
       href: /powershell/module/az.securityinsights/
     - name: SentinelHealth table reference 
       href: health-table-reference.md
+    - name: SentinelAudit table reference 
+      href: audit-table-reference.md
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
@@ -560,21 +569,21 @@
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema
-          href: authentication-normalization-schema.md
+          href: normalization-schema-authentication.md
         - name: ASIM DNS schema
           href: normalization-schema-dns.md
         - name: ASIM DHCP schema
-          href: dhcp-normalization-schema.md
+          href: normalization-schema-dhcp.md
         - name: ASIM file event schema
           href: normalization-schema-file-event.md
         - name: ASIM network session schema
-          href: network-normalization-schema.md
+          href: normalization-schema-network.md
         - name: ASIM process event schema
-          href: process-events-normalization-schema.md
+          href: normalization-schema-process-event.md
         - name: ASIM registry event schema
-          href: registry-event-normalization-schema.md
+          href: normalization-schema-registry-event.md
         - name: ASIM user management schema
-          href: user-management-normalization-schema.md
+          href: normalization-schema-user-management.md
         - name: ASIM web session schema
           href: normalization-schema-web.md
         - name: Legacy network normalization schema

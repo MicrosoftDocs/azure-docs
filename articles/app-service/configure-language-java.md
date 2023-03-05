@@ -470,7 +470,7 @@ You can interact or debug the Java Key Tool by [opening an SSH connection](confi
 
 ## Configure APM platforms
 
-This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor application insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
+This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor Application Insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
 
 ### Configure Application Insights
 

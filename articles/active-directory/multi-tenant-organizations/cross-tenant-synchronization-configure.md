@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 02/06/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -35,10 +35,17 @@ By the end of this article, you'll be able to:
 
 ## Prerequisites
 
-- A source [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- A target [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- An account in the source tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant provisioning
-- An account in the target tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure the cross-tenant synchronization policy
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+- Azure AD Premium P1 or P2 license
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization
+- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
+
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
+
+- Azure AD Premium P1 or P2 license
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
 
 ## Step 1: Plan your provisioning deployment
 
@@ -82,7 +89,7 @@ By the end of this article, you'll be able to:
 
 In this step, you automatically redeem invitations so users from the source tenant don't have to accept the consent prompt. This setting must be checked in both the source tenant (outbound) and target tenant (inbound). For more information, see [Automatic redemption setting](cross-tenant-synchronization-overview.md#automatic-redemption-setting).
 
-1. Select  the **Trust settings** tab.
+1. In the target tenant, on the same **Inbound access settings** page, select the **Trust settings** tab.
 
 1. Check the **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant** check box.
 
@@ -96,7 +103,7 @@ In this step, you automatically redeem invitations so users from the source tena
 
 In this step, you automatically redeem invitations in the source tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the target tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the source tenant.
 
 1. Select **Azure Active Directory** > **External Identities**.
 
@@ -118,11 +125,11 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Select **Save**. 
 
-## Step 5: Create a configuration application in the source tenant
+## Step 5: Create a configuration in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/azure-ad-overview.png" alt-text="Screenshot that shows the Azure Active Directory Overview page." lightbox="./media/cross-tenant-synchronization-configure/azure-ad-overview.png":::
 
@@ -140,7 +147,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the configuration list, select your configuration. 
+1. In the source tenant, in the configuration list, select your configuration. 
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/configuration-select.png" alt-text="Screenshot that shows the Cross-tenant synchronization Configurations page and a new configuration." lightbox="./media/cross-tenant-synchronization-configure/configuration-select.png":::
 
@@ -177,7 +184,7 @@ The Azure AD provisioning service allows you to define who will be provisioned i
 
 Start small. Test with a small set of users before rolling out to everyone. When the scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users to the configuration. You can further refine who is in scope for provisioning by creating attribute-based scoping filters, described in the [next step](#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
 
-1. Select **Provisioning** and expand the **Settings** section.
+1. In the source tenant, select **Provisioning** and expand the **Settings** section.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-settings-edit.png" alt-text="Screenshot of the Provisioning page that shows the Settings section with the Scope and Provisioning Status options." lightbox="./media/cross-tenant-synchronization-configure/provisioning-settings-edit.png":::
 
@@ -214,7 +221,7 @@ Start small. Test with a small set of users before rolling out to everyone. When
 
 Regardless of the value you selected for **Scope** in the previous step, you can further limit which users are synchronized by creating attribute-based scoping filters.
 
-1. Select **Provisioning** and expand the **Mappings** section.
+1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
 1. Select **Provision Azure Active Directory Users**.
 
@@ -244,7 +251,7 @@ Regardless of the value you selected for **Scope** in the previous step, you can
 
 Attribute mappings allow you to define how data should flow between the source tenant and target tenant. For information on how to customize the default attribute mappings, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
-1. Select **Provisioning** and expand the **Mappings** section.
+1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
 1. Select **Provision Azure Active Directory Users**.
 
@@ -296,7 +303,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Select **Provisioning** and expand the **Settings** section.
+1. In the source tenant, select **Provisioning** and expand the **Settings** section.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-settings-edit.png" alt-text="Screenshot of the Provisioning page that shows the Settings section with the Scope and Provisioning Status options." lightbox="./media/cross-tenant-synchronization-configure/provisioning-settings-edit.png":::
 
@@ -453,6 +460,26 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 **Solution**
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
+
+#### Symptom - Unable to delete a configuration
+
+On the **Configurations** page, there isn't a way to delete a configuration.
+
+**Cause**
+
+Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
+
+**Solution**
+
+1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
+
+1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
+
+1. Select the configuration and then select **Properties**.
+
+1. Select **Delete** and then **Yes** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
 
 ## Next steps
 

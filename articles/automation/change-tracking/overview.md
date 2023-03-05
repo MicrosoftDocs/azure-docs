@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/18/2021
+ms.date: 02/27/2023
 ms.topic: conceptual
 ---
 
@@ -105,7 +105,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 ## Tracking file changes
 
-For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses MD5 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
+For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses MD5 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory. To track the Linux files, ensure that you have READ access for the OMS agent user.
 
 ## Tracking file content changes
 
@@ -183,6 +183,8 @@ The default collection frequency for Windows services is 30 minutes. You can con
 ![Windows services slider](./media/overview/windowservices.png)
 
 To optimize performance, the Log Analytics agent only tracks changes. Setting a high threshold might miss changes if the service returns to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
+
+For critical services, we recommend marking the **Startup** state as **Automatic** (Delayed Start) so that, once the VM reboots, the services data collection will start after the MMA agent starts instead of starting quickly as soon as the VM is up.
 
 > [!NOTE]
 > While the agent can track changes down to a 10-second interval, the data still takes a few minutes to display in the Azure portal. Changes that occur during the time to display in the portal are still tracked and logged.

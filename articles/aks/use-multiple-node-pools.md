@@ -1,7 +1,6 @@
 ---
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 05/16/2022
@@ -150,6 +149,7 @@ You can add a Mariner node pool into your existing cluster using the `az aks nod
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
+    --name marinerpool \
     --os-sku CBLMariner
 ```
 

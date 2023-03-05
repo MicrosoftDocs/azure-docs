@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 02/17/2023
 ms.author: anfdocs
 ---
 
@@ -30,9 +30,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files cross-region replication | Generally available (GA) | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
-| Cross-zone replication | Public preview | No |
 | Standard network features | Generally available (GA) | No |
 
 ## Portal access

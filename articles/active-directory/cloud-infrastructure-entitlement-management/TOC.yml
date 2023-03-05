@@ -31,14 +31,14 @@
       - name: View key statistics and data about your authorization system
         href: ui-dashboard.md
       - name: View data about the activity in your authorization system
-        href: product-dashboard.md
-      - name: View current billable resources in your authorization system
-        href: product-data-billable-resources.md  
+        href: product-dashboard.md  
     - name: View information about your Authorization Systems
       expanded: false
       items:
       - name: View and configure settings for data collection
         href: product-data-sources.md
+      - name: View current billable resources in your authorization system
+        href: product-data-billable-resources.md
     - name: Manage organizational and personal information
       expanded: false
       items:
@@ -162,4 +162,6 @@
       href: faqs.md
     - name: Glossary
       href: multi-cloud-glossary.md
+    - name: Microsoft Entra Permissions Management partners
+      href: partner-list.md
 

@@ -229,4 +229,4 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [azure-csi-blob-storage-provision]: azure-csi-blob-storage-provision.md
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
-[install-azure-cli]: /cli/azure/install_azure_cli
+[install-azure-cli]: /cli/azure/install-azure-cli

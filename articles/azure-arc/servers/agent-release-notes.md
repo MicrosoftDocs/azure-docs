@@ -16,16 +16,27 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
-## Version 1.26 - January 2022
+## Version 1.27 - February 2023
+
+### Fixed
+
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
+
+## Version 1.26 - January 2023
 
 > [!NOTE]
-> Version 1.26 is only available for Linux operating systems. The most recent Windows agent version is 1.25.
+> Version 1.26 is only available for Linux operating systems.
 
 ### Fixed
 
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
 
-## Version 1.25 - January 2022
+## Version 1.25 - January 2023
 
 ### New features
 
@@ -74,26 +85,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
 - Improved logging during the installation process.
 - The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
-
-## Version 1.22 - September 2022
-
-### Known issues
-
-- When connecting a server and specifying multiple tags, the value of the last tag is used for all tags. You will need to fix the tags after onboarding to use the correct values.
-
-### New features
-
-- The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
-- If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
-- Added support for Ubuntu 22.04
-- Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
-
-### Fixed
-
-- The agent can now be installed on Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
-- Agent telemetry is now sent through the proxy server if one is configured.
-- Improved accuracy of network connectivity checks
-- When switching the agent from monitoring mode to full mode, existing restrictions are now retained. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
 
 ## Next steps
 

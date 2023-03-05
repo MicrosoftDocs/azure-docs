@@ -11,7 +11,7 @@ This article describes how to view and manage sensors with [Microsoft Defender f
 
 ## Prerequisites
 
-Before you can use the procedures in this article, you'll need to have network sensors onboarded to Defender for IoT. For more information, see:
+Before you can use the procedures in this article, you need to have network sensors onboarded to Defender for IoT. For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 - [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
@@ -34,7 +34,7 @@ Details about each sensor are listed in the following columns:
 |**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on an OT sensor. The name of the version is based on the day the package was built by Defender for IoT. |
-|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on all OT, cloud-connected sensors. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is *manual* or *automatic*. *Manual* means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages are automatically installed on all OT, cloud-connected sensors. |
 |**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package on an OT sensor. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
@@ -61,25 +61,39 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 
 Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
 
+### OT sensor updates
+
 |Task |Description  |
 |---------|---------|
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Push threat intelligence updates**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-prepare-to-update.png" border="false"::: **Prepare an OT sensor to update to software version 22.x or higher**     |   Individual, OT sensors only. <br><br>Available from the **Sites and sensors** toolbar, the **...** options menu, or a sensor details page. <br><br>For more information, see: <br>- [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-recover.png" border="false"::: **Recover a password**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page. Enter the secret identifier obtained on the sensor's sign-in screen.      |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-update.png" border="false"::: **Sensor update (Preview)** | OT sensors only. <br><br>Run remote updates on OT sensors directly from the Azure portal, or download update packages to update manually. <br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md). |
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Threat intelligence update (Preview)**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-prepare-to-update.png" border="false"::: **Prepare an OT sensor to update to software version 22.x or higher**     |   Individual, OT sensors only. <br><br>Available from the **Sites and sensors** toolbar, the **...** options menu, or a sensor details page. <br><br>For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).   |
+
+### Sensor deployment and access
+
+|Task |Description  |
+|---------|---------|
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-recover.png" border="false"::: **Recover a OT sensor password**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page. Enter the secret identifier obtained on the sensor's sign-in screen.      |
+| **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Download an activation file**     |   Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.      |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false"::: **Edit a sensor zone**     |    For individual sensors only, from the **...** options menu or a sensor details page.  <br><br>Select **Edit**, and then select a new zone from the **Zone** menu or select **Create new zone**. Select **Submit** to save your changes.    |
+| **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up OT sensor health monitoring via SNMP](how-to-set-up-snmp-mib-monitoring.md).|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Create an activation command**     | Individual, Enterprise IoT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. <br><br>For more information, see [Install Enterprise IoT sensor software](eiot-sensor.md#install-enterprise-iot-sensor-software).        |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
+|<a name="endpoint"></a> **Download endpoint details** (Public preview) | OT sensors only, with versions 22.x and higher only.<br><br>Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
+
+### Sensor maintenance and troubleshooting
+
+|Task |Description  |
+|---------|---------|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
-| **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
-| **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
-|<a name="endpoint"></a> **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
 
 ## Retrieve forensics data stored on the sensor
 
-Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
@@ -87,7 +101,7 @@ Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data fr
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md).
+Each type of data has a different retention period and maximum capacity. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Reactivate an OT sensor
 
@@ -99,17 +113,17 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
-- **Change your plan commitment**: If you make changes to your plan, such as changing your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
+- **Change your plan commitment**: If you make changes to your plan, such as changing your price plan from a trial to a monthly commitment, you need to reactivate your sensors to reflect the new changes.
 
 In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
-1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
-1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
+1. [Onboard the sensor again](onboard-sensors.md#onboard-an-ot-sensor), registering it with any new settings.
+1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file).
 
 ### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
 
-If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
+If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you need a different activation procedure than for earlier releases.
 
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
@@ -136,7 +150,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
     - Sensor fails regular sanity tests
     - No traffic detected by the sensor
     - Sensor software version is no longer supported
-    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
+    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors) fails
 
     For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
@@ -176,4 +190,11 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
 ## Next steps
 
-[View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+> [!div class="nextstepaction"]
+> [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md)
+
+> [!div class="nextstepaction"]
+> [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)

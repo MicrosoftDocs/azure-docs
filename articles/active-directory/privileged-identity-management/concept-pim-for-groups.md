@@ -11,7 +11,7 @@ ms.subservice: pim
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2023
+ms.date: 3/3/2023
 ms.author: amsliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -22,16 +22,15 @@ ms.collection: M365-identity-device-management
 
 # Privileged Identity Management (PIM) for Groups (preview)
 
-With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to a variety of scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and 3rd party applications.
+With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
 ## What is PIM for Groups?
 
-PIM for Groups is part of Azure AD Privileged Identity Management – alongside with PIM for Azure AD Roles and PIM for Azure Resources, PIM for Groups enables users to activate the ownership or membership of an Azure AD security group or Microsoft 365 group. Groups can be used to govern access to a variety of scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and 3rd party applications.
+PIM for Groups is part of Azure AD Privileged Identity Management – alongside with PIM for Azure AD Roles and PIM for Azure Resources, PIM for Groups enables users to activate the ownership or membership of an Azure AD security group or Microsoft 365 group. Groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
 With PIM for Groups you can use policies similar to ones you use in PIM for Azure AD Roles and PIM for Azure Resources: you can require approval for membership or ownership activation, enforce multi-factor authentication (MFA), require justification, limit maximum activation time, and more. Each group in PIM for Groups has two policies: one for activation of membership and another for activation of ownership in the group. Up until January 2023, PIM for Groups feature was called “Privileged Access Groups”.
 
->[!Note]
-> For groups used for elevating into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from less-privileged administrators. For example, the Helpdesk Administrator has permission to reset an eligible user's passwords.
+[!INCLUDE [PIM for Groups note](../includes/pim-for-groups-include.md)]
 
 ## What are Azure AD role-assignable groups?
 
@@ -53,7 +52,7 @@ Azure AD role-assignable group feature is not part of Azure AD Privileged Identi
 
 Groups can be role-assignable or non-role-assignable. The group can be enabled in PIM for Groups or not enabled in PIM for Groups. These are independent properties of the group. Any Azure AD security group and any Microsoft 365 group (except dynamic groups and groups synchronized from on-premises environment) can be enabled in PIM for Groups. The group does not have to be role-assignable group to be enabled in PIM for Groups.
 
-If you want to assign Azure AD role to a group, it has to be role-assignable. Even if you do not intend to assign Azure AD role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see “What are Azure AD role-assignable groups?” in the section above.
+If you want to assign Azure AD role to a group, it has to be role-assignable. Even if you do not intend to assign Azure AD role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Azure AD role-assignable groups?”](#what-are-azure-ad-role-assignable-groups) in the section above.
 
 Up until January 2023, it was required that every Privileged Access Group (former name for this PIM for Groups feature) had to be role-assignable group. This restriction is currently removed. Because of that, it is now possible to enable more than 500 groups per tenant in PIM, but only up to 500 groups can be role-assignable.
 
@@ -64,6 +63,14 @@ There are two ways to make a group of users eligible for Azure AD role:
 2.	Make active assignment of a role to a group and assign users to be eligible to group membership.
 
 To provide a group of users with just-in-time access to Azure AD directory roles with permissions in SharePoint, Exchange, or Security & Microsoft Purview compliance portal (for example, Exchange Administrator role), be sure to make active assignments of users to the group, and then assign the group to a role as eligible for activation (Option #1 above). If you choose to make active assignment of a group to a role and assign users to be eligible to group membership instead, it may take significant time to have all permissions of the role activated and ready to use.
+
+## Privileged Identity Management and group nesting
+
+In Azure AD, role-assignable groups can’t have other groups nested inside them. To learn more, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md). This is applicable to active membership: one group cannot be an active member of another group that is role-assignable.
+
+One group can be an eligible member of another group, even if one of those groups is role-assignable.
+
+If a user is an active member of Group A, and Group A is an eligible member of Group B, the user can activate their membership in Group B. This activation will be only for the user that requested the activation for, it does not mean that the entire Group A becomes an active member of Group B.
 
 ## Next steps
 

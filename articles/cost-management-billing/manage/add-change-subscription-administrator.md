@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 01/26/2023
 ms.author: banders
 
 ---
@@ -17,7 +17,7 @@ To manage access to Azure resources, you must have the appropriate administrator
 
 This article describes how add or change the administrator role for a user using Azure RBAC at the subscription scope. 
 
-This article applies to a Microsoft Online Service Program (pay-as-you-go) account or a Visual Studio account. If you have a Microsoft Customer Agreement (Azure plan) account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
+This article applies to a Microsoft Online Service Program (pay-as-you-go) account or a Visual Studio account. If you have a Microsoft Customer Agreement (Azure plan) account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md). If you have an Azure Enterprise Agreement, see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
 
 Microsoft recommends that you manage access to resources using Azure RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](/powershell/module/servicemanagement/azure.service), you'll need to use a classic administrator.
 
@@ -36,8 +36,7 @@ To identify accounts for which you're a billing administrator, visit the [Cost M
 
 If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then look under **Settings**. Select **Properties** and the account administrator of the subscription is shown in the **Account Admin** box. 
 
-If you don't see **Account Admin**, you have a Microsoft Customer Agreement account. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement).
-
+If you don't see **Account Admin**, you might have a Microsoft Customer Agreement or Enterprise Agreement account. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement) or see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
 
 ## Assign a subscription administrator
 

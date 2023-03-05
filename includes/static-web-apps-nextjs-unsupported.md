@@ -18,5 +18,5 @@ During the preview, the following features of Static Web Apps are unsupported fo
 - The `staticwebapps.config.json` file.
   - Features such as custom headers and routing can be controlled using the `next.config.js` file.
 - `skip_app_build` and `skip_api_build` can't be used.
-- The maximum app size for the hybrid Next.js application is 100 MB. Consider using Static HTML exported Next.js apps if your requirement is more than 100 MB.
+- The maximum app size for the hybrid Next.js application is 100 MB. Use [standalone](../articles/static-web-apps/deploy-nextjs-hybrid.md#enable-standalone-feature) feature by Next.js for optimized app sizes. If this is not sufficient either, consider using Static HTML exported Next.js apps if your requirement is more than 100 MB.
 - Incremental static regeneration (ISR) does not support caching images and [on-demand revalidation](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#using-on-demand-revalidation)

@@ -6,7 +6,7 @@ ms.author: gicheng
 tags: azure-resource-manager, terraform
 ms.custom: ignite-2022
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 09/22/2022
 ---

@@ -175,7 +175,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 1. Enter the action group name and a short name.
 1. Verify the subscription and resource group.
 1. Under action type, select **Email/SMS/Push/Voice**.
-1. Enter an action name such as **Notify global admin**.
+1. Enter an action name such as **Notify Global Administrator**.
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
 1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
 1. Add any additional actions you want to trigger.

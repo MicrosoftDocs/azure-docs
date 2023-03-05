@@ -119,16 +119,16 @@
       href: how-to-ingest-iot-hub-data.md
     - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
-    - name: Integrate with Logic Apps
-      href: how-to-integrate-logic-apps.md
+    - name: Integrate with Power Platform and Logic Apps
+      href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
     items:
-    - name: Manage endpoints and routes
-      href: how-to-manage-routes.md
-    - name: Route events with a managed identity
-      href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer
-      href: how-to-use-data-history.md
+    - name: Create endpoints
+      href: how-to-create-endpoints.md
+    - name: Create routes and filters
+      href: how-to-create-routes.md
+    - name: Create a data history connection
+      href: how-to-create-data-history-connection.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
     - name: Integrate with Azure Maps
@@ -178,7 +178,7 @@
   - name: Digital Twins CLI
     href: /cli/azure/dt
   - name: DTDL v2 spec
-    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
   - name: Query language reference
     items:
       - name: Clauses
@@ -199,6 +199,8 @@
         href: reference-query-operators.md
       - name: Reserved keywords
         href: reference-query-reserved.md
+  - name: Azure Digital Twins Power Platform and Logic Apps connector
+    href: /connectors/azuredigitaltwins/
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -259,6 +261,8 @@
         href: https://pypi.org/project/azure-digitaltwins-core/
       - name: Python SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-digitaltwins-core
+  - name: Migrate from preview control plane APIs
+    href: resources-migrate-from-preview-apis.md
   - name: Digital Twins CLI package
     href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: Terraform modules
@@ -295,8 +299,6 @@
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-      - name: Custom Swaggers for Logic Apps connector
-        href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: Multivariate Anomaly Detection Toolkit
         href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies

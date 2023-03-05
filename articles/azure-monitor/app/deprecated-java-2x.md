@@ -2,7 +2,7 @@
 title: Use Application Insights Java 2.x
 description: Learn how to use Application Insights Java 2.x so that you can send trace logs, monitor dependencies, filter telemetry, and measure metrics.
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -13,7 +13,7 @@ ms.reviewer: mmcc
 > [!CAUTION]
 > This article applies to Application Insights Java 2.x, which is [no longer recommended](https://azure.microsoft.com/updates/application-insights-java-2x-retirement/).
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
 
 In this article, you'll learn how to use Application Insights Java 2.x. This article shows you how to:
 
@@ -90,7 +90,7 @@ If your project is already set up to use Gradle for build, merge the following c
   * `applicationinsights-core` gives you the bare API, for example, if your application isn't servlet-based.
   
 * How should I update the SDK to the latest version?
-  * As of November 2020, for monitoring Java applications, we recommend using Application Insights Java 3.x. For more information on how to get started, see [Application Insights Java 3.x](./java-in-process-agent.md).
+  * As of November 2020, for monitoring Java applications, we recommend using Application Insights Java 3.x. For more information on how to get started, see [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
 
 ### Add an ApplicationInsights.xml file
 Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
@@ -195,7 +195,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 ### Azure App Service, Azure Kubernetes Service, VMs config
 
-The best and easiest approach to monitor your applications running on any Azure resource providers is to use [Application Insights Java 3.x](./java-in-process-agent.md).
+The best and easiest approach to monitor your applications running on any Azure resource providers is to use [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
 
 ### Exceptions and request failures
 Unhandled exceptions and request failures are automatically collected by the Application Insights web filter.
@@ -1192,11 +1192,11 @@ Add the following binding code to the configuration file:
 <!--Link references-->
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
-[availability]: ./monitor-web-app-availability.md
+[availability]: ./availability-overview.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: #explore-java-trace-logs-in-application-insights
 [metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: #get-started-with-application-insights-in-a-java-web-project
-[javaagent]: java-in-process-agent.md
+[javaagent]: opentelemetry-enable.md?tabs=java

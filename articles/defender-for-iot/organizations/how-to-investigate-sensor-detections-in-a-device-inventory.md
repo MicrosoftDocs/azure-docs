@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 07/21/2022
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
@@ -49,7 +49,13 @@ If you're working with a cloud-connected sensor, any edits you make in the senso
 
 **To edit device details**:
 
-1. Select one or more devices in the grid, and then select **View full details** in the pane on the right.
+1. Select a device in the grid, and then select **Edit** in the toolbar at the top of the page.
+
+1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
+
+You can also open the edit pane from the device details page:
+
+1. Select a device in the grid, and then select **View full details** in the pane on the right.
 
 1. In the device details page, select **Edit Properties**.
 
@@ -61,8 +67,9 @@ Editable fields include:
 - Device name
 - Device type
 - OS
-- Purdue layer
+- Purdue level
 - Description
+- Scanner or programming device
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
@@ -81,24 +88,23 @@ You may need to merge duplicate devices if the sensor has discovered separate ne
 Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
 > [!NOTE]
+>
 > - You can only merge authorized devices.
 > - Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
 > - Alternately, merge devices from the [Device map](how-to-work-with-the-sensor-device-map.md) page.
 When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. 
+For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window.
 
 **To merge devices from the device inventory:**
 
-1. Use the SHIFT key to select two devices from the inventory, and then right-click one of them.
+In the device inventory grid, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
 
-1. Select **Merge** to merge the devices. This can take up to 2 minutes to complete.
-
-1. When the **Set merge device attributes** dialog appears, enter a meaningful name for your merged device, and then select **Save**.
+The devices are merged, and a confirmation message appears at the top right.
 
 ## View inactive devices
 
-You may want to view devices in your network that have been inactive and delete them. 
+You may want to view devices in your network that have been inactive and delete them.
 
 For example, devices may become inactive because of misconfigured SPAN ports, changes in network coverage, or by unplugging them from the network
 
@@ -119,14 +125,17 @@ You may want to delete devices from your device inventory, such as if they've be
 
 Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
-**To delete a single device**:
+**To delete one or more devices**:
 
-You can delete a single device when they’ve been inactive for more than 10 minutes.
+You can delete a device when it's been inactive for more than 10 minutes.
 
-1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
-1. At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-**To delete all inactive devices**
+1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
+
+A confirmation message appears at the top right.
+
+**To delete all inactive devices**:
 
 This procedure is supported for the *cyberx* and admin users only.
 
@@ -178,3 +187,4 @@ For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods)

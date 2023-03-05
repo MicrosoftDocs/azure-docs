@@ -52,7 +52,7 @@ The following table provides a list of high-level features and capabilities comp
 | Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 16 TB |
 | Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
 | Storage auto-grow | Yes (1-GB increments) | No |
-| Max IOPS | Basic - Variable. GP/MO: up to 20 K  | Up to 20 K |
+| Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 18 K |
 | **Networking/Security** | | |
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
