@@ -86,6 +86,10 @@ The SAP library provides storage for SAP installation media, Bill of Material (B
 
 Most SAP application landscapes are partitioned in different tiers. In SDAF these are called workload zones, for example, you might have different workload zones for development, quality assurance, and production. See [workload zones](deployment-framework.md#deployment-components). 
 
+The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`, for example, `DEV-WEEU-SAP01-INFRASTRUCTURE` for a development environment hosted in the West Europe region using the SAP01 virtual network or `PRD-WEEU-SAP02-INFRASTRUCTURE` for a production environment hosted in the West Europe region using the SAP02 virtual network. 
+
+The `SAP01` and `SAP02` define the logical names for the Azure virtual networks, these can be used to further partition the environments. If you need two Azure Virtual Networks for the same workload zone, for example, for a multi subscription scenario where you host development environments in two subscriptions, you can use the different logical names for each virtual network. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
+
 The workload zone provides the following services for the SAP Applications:
 
 * Azure Virtual Network, for a virtual network, subnets and network security groups.
