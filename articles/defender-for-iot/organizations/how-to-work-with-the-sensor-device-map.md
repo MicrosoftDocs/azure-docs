@@ -148,7 +148,7 @@ You can only merge [authorized devices](device-inventory.md#unauthorized-devices
 
 1. Sign into your OT sensor and select **Device map**.
 
-1. Select the authorized devices you want to merge by holding the shift button to select more than one device, and then right-click and select **Merge**. 
+1. Select the authorized devices you want to merge by using the SHIFT key to select more than one device, and then right-click and select **Merge**. 
 
 The devices are merged, and a confirmation message appears at the top right. Merge events are listed in the OT sensor's event timeline.
 
