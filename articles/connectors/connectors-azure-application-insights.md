@@ -59,7 +59,7 @@ For this step, you need an application ID and an API key for your resource.
 
     ![Screenshot that shows the Application ID in the Azure portal.](./media/connectors-azure-application-insights/6apikey.png)
 
-1. Provide a name for your connection, the application ID, and the API key.
+1. Provide a connection name, the application ID, and the API key.
 
     ![Screenshot that shows the Logic App Designer flow connection window.](./media/connectors-azure-application-insights/7connection.png)
 
