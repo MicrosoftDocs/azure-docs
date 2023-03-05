@@ -3,6 +3,7 @@ title: Manage Azure users for Microsoft Defender for IoT
 description: Learn how to manage user permissions in the Azure portal for Microsoft Defender for IoT services.
 ms.date: 09/04/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ms.collection:
   -       zerotrust-services
 ---
