@@ -79,7 +79,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. Select **Save** to save your certificate settings.
 
-### Deploy a certificate on an on-premises management console sensor
+### Deploy a certificate on an on-premises management console
 
 1. Sign into your on-premises management console and select **System settings** > **SSL/TLS certificates**.
 
