@@ -24,7 +24,7 @@ When HA is enabled, Azure Cosmos DB for MongoDB vCore runs one replica node for 
 
 ## Configure high availability
 
-High availability (HA) can be specified when creating the cluster or in the Scale section in the Azure Portal.
+High availability (HA) can be specified when creating the cluster or in the Scale section in the Azure portal.
 
 ## Next steps
 

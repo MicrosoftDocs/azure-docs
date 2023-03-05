@@ -17,7 +17,7 @@ This page outlines the multiple layers of security available to protect the data
 ## In transit
 Encryption (SSL/TLS) is always enforced, and attempts to connect to your cluster without encryption will fail. Only connections via a MongoDB client are accepted and encryption is always enforced.
 
-Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encrpted in-transit with Transport Layer Security 1.2.
+Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encrypted in-transit with Transport Layer Security 1.2.
 
 ## At rest
 Azure Cosmos DB for MongoDB vCore uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including all backups, are encrypted on disk, including the temporary files. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on, and can't be disabled.

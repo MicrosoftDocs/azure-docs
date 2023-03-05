@@ -12,7 +12,7 @@ ms.date: 02/07/2023
 
 # Introduction to Azure Cosmos DB for MongoDB vCore
 
-Azure Cosmos DB for MongoDB vCore provides developers with a fully managed MongoDB-compatible database service for building modern applications with a familiar architecture. With Cosmos DB for MongoDB vCore, developers can enjoy the benefits of native azure integrations and the vCore architecture, designed to offer seamless lift and shift and unbeatable performance.
+Azure Cosmos DB for MongoDB vCore provides developers with a fully managed MongoDB-compatible database service for building modern applications with a familiar architecture. With Cosmos DB for MongoDB vCore, developers can enjoy the benefits of native Azure integrations and the vCore architecture, designed to offer seamless lift and shift and unbeatable performance.
 
 ## Effortless Management with Azure Platform
 Azure Cosmos DB for MongoDB vCore provides a comprehensive and integrated solution for resource management, making it easy for developers to seamlessly manage their resources using familiar Azure tools. The service features deep integration into various Azure products, such as Azure Monitor, Azure CLI, and more ensuring that developers have everything they need to work efficiently and effectively. 
