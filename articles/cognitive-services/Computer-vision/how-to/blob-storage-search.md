@@ -7,8 +7,12 @@ To get started with the image retrieval and video search experiences in Vision S
 
 ![Blob storage creation](../media/storage-instructions/create-storage.png)
 
-You can create your storage account in any region, but creating it in the same region as your Azure Computer Vision Resource is more efficient and reduces cost. Complete the required
-parameters to configure your storage account and select `Review`, then `Create`. 
+You can create your storage account in any region, but creating it in the same region as your Azure Computer Vision Resource is more efficient and reduces cost. Complete the required parameters to configure your storage account and select `Review`, then `Create`. 
+
+> [!IMPORTANT]
+> You need to create your storage account in the **same subscription as the Computer Vision resource** that you selected for this demo. 
+
+![Show the resource](../media/storage-instructions/subscription.png)
 
 Once your storage account has been deployed, select `Go to resource` to open the storage account overview. 
 
