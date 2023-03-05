@@ -85,7 +85,7 @@ When you create your own queries, verify that they're working properly in Log An
 
    ![Screenshot that shows the Log Analytics query configuration window.](./media/connectors-azure-application-insights/8query.png)
 
-### Configure the logic app to send email
+### Add an action to send email
 
 1. Select **New step**.
 
