@@ -14,7 +14,9 @@ This article describes how to create and deploy SSL/TLS certificates on OT netwo
 - Between an on-premises management console and a high availability (HA) server, if configured
 - Between OT sensors or on-premises management consoles and partners servers defined in [alert forwarding rules](how-to-forward-alert-information-to-partners.md)
 
-Some organizations also validate their certificates against a Certificate Revocation List (CRL) and the certificate expiration date, and the certificate trust chain. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
+SSL/TLS certificates can be deployed during initial configuration as well later on.
+
+Certificates are validated against a passphrase, if available, and the certificate expiration date. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
 
 Each certificate authority (CA)-signed certificate must have both a `.key` file and a `.crt` file, which are uploaded to OT network sensors and on-premises management consoles after the first sign-in. While some organizations may also require a `.pem` file, a `.pem` file isn't required for Defender for IoT.
 
@@ -73,9 +75,9 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
     ---
 
-1. Select **Enable Certificate Validation** to turn on system-wide validation for SSL/TLS certificates with the issuing Certificate Authority and Certificate Revocation Lists.
+1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
-1. Select **SAVE** to save your certificate settings.
+1. Select **Save** to save your certificate settings.
 
 ### Deploy a certificate on an on-premises management console sensor
 
@@ -83,7 +85,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
 
-1. In the **SSL/TLS certificate** pane, , select one of the following, and then follow the instructions in the relevant tab:
+1. In the **SSL/TLS certificate** pane, select one of the following, and then follow the instructions in the relevant tab:
 
     - **Import a trusted CA certificate**
     - **Use Locally generated self-signed certificate (Insecure, not recommended)**
@@ -99,13 +101,11 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
         | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
         | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
         | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
-    
-        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
 
         For example:
 
         :::image type="content" source="media/how-to-deploy-certificates/cm-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/cm-ssl-certificate.png":::
-    
+
     # [Locally generated self-signed certificates](#tab/cm-locally-generated-self-signed-certificate)
     
     > [!NOTE]
@@ -118,9 +118,9 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload the files you'd created earlier.
 
-1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](#verify-crl-server-access).
+1. Select the **Enable Certificate Validation** option to validate the certificate against a [CRL server](#verify-crl-server-access).
 
-1. Select **Save** to save your certificate settings.
+1. Select **SAVE** to save your certificate settings.
 
 You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
 
