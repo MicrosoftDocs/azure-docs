@@ -4,7 +4,7 @@ description: Learn about performance testing results for HC-series VM sizes in A
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -32,7 +32,7 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-:::image type="content" source="./media/latency-hc.png" alt-text="MPI latency on Azure HC.":::
+![MPI latency on Azure HC](./media//hpc/latency-hc.png)
 
 ## MPI bandwidth
 
@@ -42,7 +42,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hc.png" alt-text="MPI bandwidth on Azure HC.":::
+![MPI bandwidth on Azure HC](./media/hpc/bandwidth-hc.png)
 
 
 ## Mellanox Perftest
