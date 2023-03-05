@@ -150,3 +150,4 @@ The dense captioning feature is part of the [Analyze Image](https://aka.ms/visio
 
 * Learn the related concept of [object detection](concept-object-detection-40.md).
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)

@@ -766,5 +766,5 @@ See the following list of possible errors and their causes:
 
 ## Next steps
 
-* Explore the [concept articles](../concept-object-detection-40.md) to learn more about each feature.
+* Explore the [concept articles](../concept-describing-images-40.md) to learn more about each feature.
 * See the [API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.

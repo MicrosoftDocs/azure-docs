@@ -24,11 +24,15 @@ Image Analysis 4.0 is now available through client library SDKs in C#, C++, and 
 
 ### Image Analysis 4.0 model customization
 
-You can now create and train your own custom image classification and object detection models, using Vision Studio or the v4.0 REST APIs.
+You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
 
 ### Image Retrieval APIs
 
-As part of the Image Analysis 4.0 API, the Image Retrieval APIs enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a many-dimensional vector space. Use vector similarity to match images with search terms based on semantic closeness.
+As part of the Image Analysis 4.0 API, the [Image Retrieval APIs](./how-to/image-retrieval.md) enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a many-dimensional vector space. Use vector similarity to match images with search terms based on semantic closeness.
+
+### Background removal APIs
+
+As part of the Image Analysis 4.0 API, the [Background removal API](./concept-background-removal.md) lets you remove the background of an image. This operation can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object.
 
 ## October 2022
 
