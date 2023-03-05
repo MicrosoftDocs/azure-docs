@@ -3,16 +3,21 @@
 
 ## Getting started with storage account
 
-To get started with the image retrieval and video search experiences in Vision Studio, you will need to [create a new Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+To get started with the **Search photos with natural language** or with **Video summary and frame locator** in Vision Studio, you will need to select or create a new storage account. Your storage account can be in any region, but creating it in the same region as your Azure Computer Vision resource is more efficient and reduces cost. 
+
+> [!IMPORTANT]
+> You need to create your storage account in the **same subscription as the Computer Vision resource** that you selected in the **Search photos with natural language** or with **Video summary and frame locator** pages as shown below.
+
+![Show the resource](../media/storage-instructions/subscription.png)
+
+## Create a new storage account
+
+To get started [create a new storage account here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+
 
 ![Blob storage creation](../media/storage-instructions/create-storage.png)
 
-You can create your storage account in any region, but creating it in the same region as your Azure Computer Vision Resource is more efficient and reduces cost. Complete the required parameters to configure your storage account and select `Review`, then `Create`. 
-
-> [!IMPORTANT]
-> You need to create your storage account in the **same subscription as the Computer Vision resource** that you selected for this demo. 
-
-![Show the resource](../media/storage-instructions/subscription.png)
+Complete the required parameters to configure your storage account and select `Review`, then `Create`. 
 
 Once your storage account has been deployed, select `Go to resource` to open the storage account overview. 
 
