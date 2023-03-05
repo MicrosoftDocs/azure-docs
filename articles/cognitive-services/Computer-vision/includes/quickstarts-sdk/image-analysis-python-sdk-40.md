@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Use the Image Analysis client library for Python to analyze a remote image to read text and generate captions.
 
-[Reference documentation](/python/api/azure-ai-vision) | [Library source code](tbd) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/python/api/azure-ai-vision) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > You can also analyze a local image. See the [reference documentation](/python/api/azure-ai-vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) for scenarios involving local images.

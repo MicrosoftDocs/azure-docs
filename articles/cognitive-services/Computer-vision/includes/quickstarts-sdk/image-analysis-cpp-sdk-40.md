@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Use the Image Analysis client library for C++ to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
 
-[Reference documentation](/cpp/api/azure.ai.vision.imageanalysis) | [Library source code](tbd) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core/0.8.1-beta.1) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis/0.8.1-beta.1) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/cpp/api/azure.ai.vision.imageanalysis) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core/0.8.1-beta.1) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis/0.8.1-beta.1) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > You can also analyze a local image. See the [reference documentation](/cpp/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
