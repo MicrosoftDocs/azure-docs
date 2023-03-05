@@ -40,7 +40,7 @@ The role maps to a set of actions that the policy permits on the data resource. 
 A DevOps policy on a data resource is enforced on the data resource itself and all children contained by it. For example, a DevOps policy on an Azure subscription applies to all resource groups, to all policy-enabled data sources within each resource group, and to all databases contained within each data source.
 
 ## A sample scenario to demonstrate the concept and the benefits
-Bob and Alice are involved with the DevOps process at their company. Given their role, they need to log in to dozens of SQL servers on-premise and Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, puts all these SQL data sources into Resource Group 1. He then creates an Azure AD group and includes Alice and Bob. Next, he uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access to Resource Group 1, which hosts the Azure SQL servers.
+Bob and Alice are involved with the DevOps process at their company. Given their role, they need to log in to dozens of SQL servers on-premises and Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, puts all these SQL data sources into Resource Group 1. He then creates an Azure AD group and includes Alice and Bob. Next, he uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access to Resource Group 1, which hosts the Azure SQL servers.
 
 ![Diagram shows an example of DevOps policy on resource group.](./media/concept-policies-devops/devops-policy-on-resource-group.png).
 
