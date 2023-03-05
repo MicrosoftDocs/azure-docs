@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/01/2023
+ms.date: 03/05/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -78,7 +78,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 ### Deprecation of App Service language monitoring policies
 
-The following App Service language monitoring policies are set to be deprecated because they generate false negatives. To realize the best security value, you should always use the latest language version.
+The following App Service language monitoring policies are set to be deprecated because they generate false negatives and they don't necessarily provide better security. Instead, you should always ensure you're using a language version without any known vulnerabilities.
 
 | Policy name | Policy ID |
 |--|--|
