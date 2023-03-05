@@ -100,7 +100,7 @@ When you create your own queries, verify that they're working properly in Log An
    1. Enter the email address of the recipient.
    1. Enter a subject for the email.
    1. Select anywhere in the **Body** box. On the **Dynamic content** menu that opens at the right, select **Body**.
-   1. Select the **Add new parameter** dropdown list and select **Attachments** and **Is HTML**.
+   1. From the **Add new parameter** list, select **Attachments** and **Is HTML**.
 
       ![Screenshot that shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/connectors-azure-application-insights/10emailbody.png)
 
