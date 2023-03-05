@@ -83,7 +83,7 @@ When you create your own queries, verify that they're working properly in Log An
 
 1. In the **Chart Type** box, select **Html Table**.
 
-    ![Screenshot that shows the Log Analytics query configuration window.](./media/connectors-azure-application-insights/8query.png)
+   ![Screenshot that shows the Log Analytics query configuration window.](./media/connectors-azure-application-insights/8query.png)
 
 ### Configure the logic app to send email
 
