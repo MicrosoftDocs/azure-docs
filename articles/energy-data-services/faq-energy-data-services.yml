@@ -35,11 +35,11 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy Preview?
           answer: >
-            Pricing for Azure Data Manager for Energy Preview will be made available on Azure.com via the Product Pricing Page. 
+            Pricing for Azure Data Manager for Energy Preview is available on Azure.com via the Product Pricing Page. 
           
         - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy will have a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
 
         - question: Are there any data storage charges?
           answer: >
@@ -71,5 +71,5 @@ sections:
             
         - question: Can I move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another? 
           answer: > 
-            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Microsoft Energy Data Service instance.
+            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Azure Data Manager for Energy Preview instance.
 
