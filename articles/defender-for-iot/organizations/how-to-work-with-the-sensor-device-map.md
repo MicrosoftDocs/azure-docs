@@ -217,7 +217,7 @@ On the on-premises management console, zone maps show all network elements relat
 
 1. Sign into an on-premises management console and select **Site Management** > **View Zone Map** for the zone you want to view. For example:
 
-    :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Default region to default business unit." lightbox="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Screenshot of default region to default business unit." lightbox="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png":::
 
 1. Use any of the following map tools to change your map display:
 
