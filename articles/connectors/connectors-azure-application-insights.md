@@ -117,7 +117,7 @@ When you create your own queries, verify that they're working properly in Log An
 
 ### Save and test your logic app
 
-1. Select **Save** to save your changes.
+1. On the designer toolbar, select **Save** to save your changes.
 
     You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
 
