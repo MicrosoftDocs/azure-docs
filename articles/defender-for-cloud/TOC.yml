@@ -23,8 +23,6 @@
       href: faq-data-collection-agents.yml
     - name: Azure Virtual Machines questions
       href: faq-vms.yml
-    - name: Azure Log Analytics questions
-      href: faq-azure-monitor-logs.yml
 
 - name: Quickstarts
   items:
