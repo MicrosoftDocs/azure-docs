@@ -41,9 +41,9 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 
 First, install the client library. You can install the client library with:
 
-    ```console
-    python -m pip install azure-ai-vision
-    ```
+```console
+python -m pip install azure-ai-vision
+```
 
 Next create a new Python file &mdash; *quickstart-file.py*, for example. 
 

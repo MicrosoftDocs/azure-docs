@@ -34,9 +34,6 @@ The following example images illustrate what the Image Analysis service returns 
 
 |Original image  |With background removed  |Alpha matte  |
 |---------|---------|---------|
-
-| | | |
-|---------|---------|---------|
 | :::image type="content" source="media/background-removal/building1.png" alt-text="Photo of a city near water.":::    |  :::image type="content" source="media/background-removal/building1-result.png" alt-text="Photo of a city near water; sky is whited out.":::       |   :::image type="content" source="media/background-removal/building1-matte.png" alt-text="Alpha matte of a city skyline.":::      |
 |   :::image type="content" source="media/background-removal/person5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person5-result.png" alt-text="Photo of a group of people using a tablet; background is whited out.":::     |   :::image type="content" source="media/background-removal/person5-matte.png" alt-text="Alpha matte of a group of people.":::      |
 
