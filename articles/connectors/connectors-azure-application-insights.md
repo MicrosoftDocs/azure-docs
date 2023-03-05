@@ -113,7 +113,7 @@ When you create your own queries, verify that they're working properly in Log An
     1. Select **Attachment Content**.
     1. In the **Is HTML** box, select **Yes**.
 
-       ![Screenshot that shows the Office 365 email configuration screen.](./media/connectors-azure-application-insights/12emailattachment.png)
+       ![Screenshot that shows the configured Send an email action.](./media/connectors-azure-application-insights/12emailattachment.png)
 
 ### Save and test your logic app
 
