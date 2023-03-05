@@ -25,31 +25,55 @@ Version 4.0 of Image Analysis offers the ability to detect people appearing in i
 
 The following JSON response illustrates what the Analysis 4.0 API returns when describing the example image based on its visual features.
 
-![Photo of a woman in a kitchen.](./Images/windows-kitchen.jpg)
+![Photo of four people.](./Images/family_photo.png)
 
 ```json
 {
-    "metadata":
-    {
-        "width": 1260,
-        "height": 473
-    },
-    "peopleResult":
-    {
-        "values":
-        [
-            {
-                "boundingBox":
-                {
-                    "x": 660,
-                    "y": 0,
-                    "w": 582,
-                    "h": 473
-                },
-                "confidence": 0.9680353999137878
-            }
-        ]
-    }
+  "modelVersion": "2023-02-01-preview",
+  "metadata": {
+    "width": 300,
+    "height": 231
+  },
+  "peopleResult": {
+    "values": [
+      {
+        "boundingBox": {
+          "x": 0,
+          "y": 41,
+          "w": 95,
+          "h": 189
+        },
+        "confidence": 0.9474349617958069
+      },
+      {
+        "boundingBox": {
+          "x": 204,
+          "y": 96,
+          "w": 95,
+          "h": 134
+        },
+        "confidence": 0.9470965266227722
+      },
+      {
+        "boundingBox": {
+          "x": 53,
+          "y": 20,
+          "w": 136,
+          "h": 210
+        },
+        "confidence": 0.8943784832954407
+      },
+      {
+        "boundingBox": {
+          "x": 170,
+          "y": 31,
+          "w": 91,
+          "h": 199
+        },
+        "confidence": 0.2713555097579956
+      }
+    ]
+  }
 }
 ```
 
