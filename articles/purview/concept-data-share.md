@@ -49,7 +49,7 @@ Microsoft Purview Data Sharing only stores metadata about your share. It doesn't
 
 ## Get started
 
-Get started with Microsoft Purview in-place data sharing for Azure Storage by watching a [demo](https://aka.ms/purview-data-share/overview-demo) and following the [Data Sharing Quickstart](quickstart-data-share.md).
+Get started with Microsoft Purview in-place data sharing for Azure Storage by reviewing the [next steps](#next-steps) or following the [Data Sharing Quickstart](quickstart-data-share.md).
 
 ## Data sharing scenarios
 
