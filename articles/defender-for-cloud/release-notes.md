@@ -26,11 +26,11 @@ Updates in March include:
 
 Azure Defender for Key Vault has the following new alert:
 
-| Alert (alert type) | Description | MITRE tactics<br>([Learn more](alerts-reference.#intentions)) | Severity |
+| Alert (alert type) | Description | MITRE tactics | Severity |
 |---|---|:-:|---|
 | **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
 
-You can see a list of all of the [alerts available for Key Vault](alerts-reference.#alerts-azurekv).
+You can see a list of all of the [alerts available for Key Vault](alerts-reference.md).
 
 ## February 2023
 
