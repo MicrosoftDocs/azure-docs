@@ -27,7 +27,6 @@ Cosmos DB for MongoDB vCore is built with flexibility for developers at the cent
 
 ## Next steps
 
-In this guide, we've shown that scaling and configuring your database in the Azure Cosmos DB for MongoDB vCore portal is a straightforward process, with the ability to adjust the cluster tier, increase storage size, and enable or disable high availability without any downtime.
 
 > [!div class="nextstepaction"]
 > [TODO: Link to another guide or concept](about:blank)
