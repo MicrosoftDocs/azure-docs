@@ -104,7 +104,7 @@ When you create your own queries, verify that they're working properly in Log An
 
       ![Screenshot that shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/connectors-azure-application-insights/10emailbody.png)
 
-      ![Screenshot that shows the Add new parameter dropdown list in the Send an email window with the Attachments and Is HTML checkboxes selected.](./media/connectors-azure-application-insights/11emailparameter.png)
+      ![Screenshot that shows the Send an email action with the Add new parameter list open and the Attachments and Is HTML checkboxes selected.](./media/connectors-azure-application-insights/11emailparameter.png)
 
 1. On the **Dynamic content** menu:
 
