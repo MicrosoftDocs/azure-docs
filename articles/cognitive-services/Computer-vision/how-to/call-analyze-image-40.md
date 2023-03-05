@@ -261,11 +261,11 @@ A populated URL might look like this:
 This section shows you how to parse the results of the API call. It includes the API call itself.
 
 
-
-
 #### [C#](#tab/csharp)
 
-The following code calls the Image Analysis API and prints the results to the console.
+### With visual features
+
+The following code calls the Image Analysis API and prints the results for all standard visual features.
 
 ```csharp
 using var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
@@ -354,10 +354,50 @@ else if (result.Reason == ImageAnalysisResultReason.Error)
 }
 ```
 
+### With custom model
+
+The following code calls the Image Analysis API and prints the results for custom model analysis.
+
+```csharp
+using var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
+
+var result = analyzer.Analyze();
+
+if (result.Reason == ImageAnalysisResultReason.Analyzed)
+{
+    if (result.CustomObjects != null)
+    {
+        Console.WriteLine(" Custom Objects:");
+        foreach (var detectedObject in result.CustomObjects)
+        {
+            Console.WriteLine($"   \"{detectedObject.Name}\", Bounding box {detectedObject.BoundingBox}, Confidence {detectedObject.Confidence:0.0000}");
+        }
+    }
+
+    if (result.CustomTags != null)
+    {
+        Console.WriteLine($" Custom Tags:");
+        foreach (var tag in result.CustomTags)
+        {
+            Console.WriteLine($"   \"{tag.Name}\", Confidence {tag.Confidence:0.0000}");
+        }
+    }
+}
+else if (result.Reason == ImageAnalysisResultReason.Error)
+{
+    var errorDetails = ImageAnalysisErrorDetails.FromResult(result);
+    Console.WriteLine(" Analysis failed.");
+    Console.WriteLine($"   Error reason : {errorDetails.Reason}");
+    Console.WriteLine($"   Error code : {errorDetails.ErrorCode}");
+    Console.WriteLine($"   Error message: {errorDetails.Message}");
+}
+```
 
 #### [Python](#tab/python)
 
-The following code calls the Image Analysis API and prints the results to the console.
+### With visual features
+
+The following code calls the Image Analysis API and prints the results for all standard visual features.
 
 ```python
 image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
@@ -421,7 +461,40 @@ elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
     print("   Error message: {}".format(error_details.message))
 ```
 
+### With custom model
+
+The following code calls the Image Analysis API and prints the results for custom model analysis.
+
+```python
+image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
+
+result = image_analyzer.analyze()
+
+if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
+
+    if result.custom_objects is not None:
+        print(" Custom Objects:")
+        for object in result.custom_objects:
+            print("   '{}', {} Confidence: {:.4f}".format(object.name, object.bounding_box, object.confidence))
+
+    if result.custom_tags is not None:
+        print(" Custom Tags:")
+        for tag in result.custom_tags:
+            print("   '{}', Confidence {:.4f}".format(tag.name, tag.confidence))
+
+elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
+
+    error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
+    print(" Analysis failed.")
+    print("   Error reason: {}".format(error_details.reason))
+    print("   Error code: {}".format(error_details.error_code))
+    print("   Error message: {}".format(error_details.message))
+```
 #### [C++](#tab/cpp)
+
+### With visual features
+
+The following code calls the Image Analysis API and prints the results for all standard visual features.
 
 The following code calls the Image Analysis API and prints the results to the console.
 
@@ -537,6 +610,50 @@ std::string PolygonToString(std::vector<int32_t> boundingPolygon)
     }
     out += "}";
     return out;
+}
+```
+
+### With custom model
+
+The following code calls the Image Analysis API and prints the results for custom model analysis.
+
+```cpp
+auto analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
+
+auto result = analyzer->Analyze();
+
+if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
+{
+    const auto objects = result->GetCustomObjects();
+    if (objects.HasValue())
+    {
+        std::cout << " Custom objects:" << std::endl;
+        for (const auto object : objects.Value())
+        {
+            std::cout << "   \"" << object.Name << "\", ";
+            std::cout << "Bounding box " << object.BoundingBox.ToString();
+            std::cout << ", Confidence " << object.Confidence << std::endl;
+        }
+    }
+
+    const auto tags = result->GetCustomTags();
+    if (tags.HasValue())
+    {
+        std::cout << " Custom tags:" << std::endl;
+        for (const auto tag : tags.Value())
+        {
+            std::cout << "   \"" << tag.Name << "\"";
+            std::cout << ", Confidence " << tag.Confidence << std::endl;
+        }
+    }
+}
+else if (result->GetReason() == ImageAnalysisResultReason::Error)
+{
+    auto errorDetails = ImageAnalysisErrorDetails::FromResult(result);
+    std::cout << " Analysis failed." << std::endl;
+    std::cout << "   Error reason = " << (int)errorDetails->GetReason() << std::endl;
+    std::cout << "   Error code = " << errorDetails->GetErrorCode() << std::endl;
+    std::cout << "   Error message = " << errorDetails->GetMessage() << std::endl;
 }
 ```
 
