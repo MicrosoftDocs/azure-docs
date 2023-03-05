@@ -4,7 +4,7 @@ description: Learn about performance testing results for HB-series VM sizes in A
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 09/09/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -33,7 +33,7 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-:::image type="content" source="./media/latency-hb.png" alt-text="MPI latency on Azure HB.":::
+:::image type="content" source="./media/hpc/latency-hb.png" alt-text="MPI latency on Azure HB.":::
 
 ## MPI bandwidth
 
