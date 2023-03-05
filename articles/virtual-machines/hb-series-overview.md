@@ -16,7 +16,7 @@ author: mamccrea
 
 Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
 
-Physically, an [HB-series](../../hb-series.md) server is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
+Physically, an [HB-series](hb-series.md) server is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. The VM will see:
 
@@ -28,7 +28,7 @@ Process pinning will work on HB-series VMs because we expose the underlying sili
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HB-series VM.
 
-![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/architecture/hb-segregation-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hpc/architecture/hb-segregation-cores.png)
 
 ## Hardware specifications
 
