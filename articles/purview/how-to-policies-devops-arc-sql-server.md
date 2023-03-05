@@ -1,19 +1,19 @@
 ---
-title: Provision access to Azure Arc-enabled SQL Server for DevOps actions
-description: Step-by-step guide on provisioning access to Azure Arc-enabled SQL Server through Microsoft Purview DevOps policies
+title: Manage access to SQL Server 2022 system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to SQL Server 2022 system metadata, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 03/03/2023
 ms.custom:
 ---
-# Provision access to system metadata in Azure Arc-enabled SQL Server
+# Provision access to system metadata in Azure Arc-enabled SQL Server 2022
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-This how-to guide covers how to provision access from Microsoft Purview to Azure Arc-enabled SQL Server system metadata (DMVs and DMFs) *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This how-to guide covers how to configure SQL Server 2022 to enforce policies created in Microsoft Purview. It covers onboarding with Azure Arc, enabling Azure AD on the SQL Server, and provisioning access to its system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 
 This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Arc-enabled SQL Server.
 
-| **Microsoft Purview policy action** | **Data source specific actions**     |
+| **DevOps role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |

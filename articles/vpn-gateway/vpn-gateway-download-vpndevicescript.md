@@ -2,9 +2,7 @@
 title: 'Download VPN device configuration scripts for S2S VPN connections'
 description: Learn how to download VPN device configuration scripts for S2S VPN connections with Azure VPN Gateways.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/24/2022

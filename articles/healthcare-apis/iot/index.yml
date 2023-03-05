@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: MedTech service documentation
-summary: MedTech service documentation for Azure Health Data Services. The MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service. 
+summary: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service.
 
 metadata:
   title: Azure Health Data Services MedTech service
-  description: The MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
+  description: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device message data from multiple devices, transform that data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 1/5/2023
+  ms.date: 02/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: The MedTech service data flow
-            url: data-flow.md
+          - text: Understand the device message data transformation
+            url: understand-service.md
       - linkListType: quickstart
         links:
           - text: Get started with the MedTech service
@@ -49,22 +49,17 @@ landingContent:
           - text: Azure portal
             url: deploy-new-manual.md
 
-  - title: The MedTech service with Azure IoT Hub 
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Receive device data through Azure IoT Hub
-            url: device-data-through-iot-hub.md 
- 
   - title: Configure the MedTech service mappings
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Device mappings
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: Device mapping
             url: how-to-configure-device-mappings.md
-          - text: FHIR destination mappings
-            url: how-to-configure-fhir-mappings.md
-
+          - text: FHIR destination mapping
+            url: how-to-configure-fhir-mappings.md 
+ 
   - title: Monitor the MedTech service
     linkLists:
       - linkListType: how-to-guide
@@ -76,14 +71,19 @@ landingContent:
           - text: Enable diagnostic settings
             url: how-to-enable-diagnostic-settings.md
 
-  - title: Integrate with the MedTech service
+  - title: Troubleshoot the MedTech service
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
-          - text: The MedTech service and Azure Machine Learning Service
-            url: concepts-machine-learning.md
-          - text: The MedTech service and Microsoft Power BI
-            url: concepts-power-bi.md
-          - text: The MedTech service and Microsoft Teams notifications
-            url: concepts-teams.md
+          - text: Deployment errors
+            url: troubleshoot-errors-deployment.md
+          - text: Error logs
+            url: troubleshoot-errors-logs.md
+
+  - title: The MedTech service with Azure IoT Hub 
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Receive device messages through Azure IoT Hub
+            url: device-messages-through-iot-hub.md
             

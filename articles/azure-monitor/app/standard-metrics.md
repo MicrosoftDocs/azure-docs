@@ -13,7 +13,7 @@ Standard metrics are pre-aggregated during collection, they have better performa
 
 ## Availability metrics
 
-Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/monitor-web-app-availability.md) to start using any metrics from this category.
+Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/availability-overview.md) to start using any metrics from this category.
 
 ### Availability (availabilityResults/availabilityPercentage)
 The *Availability* metric shows the percentage of the web test runs that didn't detect any issues. The lowest possible value is 0, which indicates that all of the web test runs have failed. The value of 100 means that all of the web test runs passed the validation criteria.

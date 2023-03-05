@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 01/18/2023
 ms.author: banders
 ---
 
@@ -15,6 +15,9 @@ ms.author: banders
 
 You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
 You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
+
+> [!NOTE]
+> If you have multiple EA billing accounts in your organization, you must grant the EA roles to Azure SPNs individually in each EA billing account.
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -29,7 +32,7 @@ To automate EA actions by using an SPN, you need to create an Azure Active Direc
 Follow the steps in these articles to create and authenticate your service principal.
 
 - [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
-- [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+- [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application)
 
 Here's an example of the application registration page.
 
@@ -37,7 +40,11 @@ Here's an example of the application registration page.
 
 ### Find your SPN and tenant ID
 
-You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article.
+You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications are registered in Azure AD in the tenant. Two types of objects get created when the app registration is completed:
+
+- Application object - The application object ID is what you see under App Registrations in Azure AD. The object ID should *not* be used to grant any EA roles.
+
+- Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Azure AD. The object ID is used to grant EA roles to the SPN.
 
 1. Open Azure Active Directory, and then select **Enterprise applications**.
 1. Find your app in the list.
@@ -66,10 +73,12 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
-- An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role.
+- An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role. The EnrollmentReader role assigned to an SPN isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - A DepartmentReader role can be assigned to an SPN only by a user who has an enrollment writer or department writer role.
 - A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+
+When you grant an EA role to an SPN, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
 An SPN can have only one role.
 

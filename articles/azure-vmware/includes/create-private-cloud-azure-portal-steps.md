@@ -15,7 +15,10 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
 
 ### [Portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. Select **Create a resource**. 
 
@@ -58,7 +61,7 @@ Instead of the Azure portal to create an Azure VMware Solution private cloud, yo
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 1. Create a resource group with the ['az group create'](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 01/11/2023
 ms.author: victorh
 ---
 

@@ -84,7 +84,7 @@ The **Stay signed in?** prompt appears after a user successfully signs in. This 
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
 
-KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
+KMSI setting is available in User settings. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 
@@ -106,7 +106,7 @@ Details about the sign-in error are found in the **Sign-in logs** in Azure AD. S
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
 
-You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
+You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the user settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
 
 You also can use the [persistent browser session controls in Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to prevent users from seeing the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for everyone else in the directory.
 

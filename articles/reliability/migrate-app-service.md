@@ -5,10 +5,10 @@ description: Learn how to migrate Azure App Service to availability zone support
 author: anaharris-ms
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 03/03/2023
 ms.author: anaharris
 ms.reviewer: jordanselig
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 
@@ -23,6 +23,11 @@ An App Service lives in an App Service plan (ASP), and the App Service plan exis
 - For App Services that aren't configured to be zone redundant, the VM instances are placed in a single zone that is selected by the platform in the selected region.
 
 - For App Services that are configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a VM instance capacity larger than three is specified and the number of instances is a multiple of three (3 * N), the instances will be spread evenly. However, if the number of instances is not a multiple of three, the remainder of the instances will get spread across the remaining one or two zones.
+
+> [!NOTE]
+> [App Service SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) is calculated based on the Maximum Available Minutes and Downtime which is standard irrespective of availability zone enablement. Downtime for the App Service is defined as the following.
+>
+> “Downtime: The total accumulated Deployment Minutes, across all Apps deployed by Customer in a given Microsoft Azure subscription, during which the App is unavailable. A minute is considered unavailable for a given App when there is no connectivity between the App and Microsoft’s Internet gateway.”
 
 ## Prerequisites
 
@@ -45,6 +50,7 @@ Availability zone support is a property of the App Service plan. The following a
   - Germany West Central
   - Japan East
   - North Europe
+  - Norway East
   - Qatar Central
   - South Africa North
   - South Central US
@@ -58,8 +64,8 @@ Availability zone support is a property of the App Service plan. The following a
   - West US 3
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
 - Availability zones are only supported in the newer portion of the App Service footprint.
-  - Currently, if you're running on Pv3, then it's possible that you're already on a footprint that supports availability zones. In this scenario, you can create a new App Service plan and specify zone redundancy.
-  - If you aren't using Pv3 or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](#migration-guidance-redeployment).
+  - Currently, if you're running on Pv2 or Pv3, then it's possible that you're already on a footprint that supports availability zones. In this scenario, you can create a new App Service plan and specify zone redundancy.
+  - If you aren't using Pv2/Pv3 or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](#migration-guidance-redeployment).
 
 ## Downtime requirements
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 01/12/2023
 ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
@@ -116,24 +116,8 @@ Conversation summarization feature would simplify the text into the following:
 
 ## Get started with summarization
 
-# [Document summarization](#tab/document-summarization)
+[!INCLUDE [development options](./includes/development-options.md)]
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
-
-|Development option  |Description  | Links |
-|---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate document summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use document summarization](quickstart.md) |
-
-# [Conversation summarization](#tab/conversation-summarization)
-
-To use this feature, you submit raw text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
-
-|Development option  |Description  | Links |
-|---------|---------|---------|
-| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
-
----
 
 ## Input requirements and service limits
 

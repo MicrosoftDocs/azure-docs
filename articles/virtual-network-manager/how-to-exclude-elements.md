@@ -95,12 +95,8 @@ The advanced editor can be used to select virtual networks during the creation o
 
    ```json
       {
-          "allOf": [
-             {
-                "field": "Name",
-                "contains": "myVNet01"
-             }
-          ]
+      "field": "Name",
+      "contains": "myVNet01"
       }
    ```
 1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-EastUS.
@@ -113,14 +109,10 @@ The advanced editor can be used to select virtual networks during the creation o
 
     ```json
     [
-        {
-           "allOf": [
-              {
-                 "field": "Name",
-                 "contains": "myVNet01"
-              }
-           ]
-        }
+      {
+         "field": "Name",
+         "contains": "myVNet01"
+      }
     ]
     ```
 

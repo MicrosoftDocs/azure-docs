@@ -47,7 +47,7 @@ There are no other prerequisites for the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 

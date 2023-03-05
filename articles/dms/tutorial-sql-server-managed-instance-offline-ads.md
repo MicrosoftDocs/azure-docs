@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 01/26/2023
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio
@@ -69,7 +69,7 @@ Before you begin the tutorial:
 
 - Ensure that the service account that's running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
 
-- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target managed instance before you restore the database. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate).
+- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target managed instance before you restore the database. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
 
     > [!TIP]
     > If your database contains sensitive data that's protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), the migration process automatically migrates your Always Encrypted keys to your target managed instance.
@@ -252,8 +252,16 @@ After all database backups are restored on the instance of Azure SQL Managed Ins
 > [!IMPORTANT]
 > After the migration, the availability of SQL Managed Instance with Business Critical service tier might take significantly longer than the General Purpose tier because three secondary replicas have to be seeded for an Always On High Availability group. The duration of this operation depends on the size of the data. For more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
+## Limitations
+
+Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [sql-mi-limitations](includes/sql-managed-instance-limitations.md)]
+
+
 ## Next steps
 
 - Complete a quickstart to [migrate a database to SQL Managed Instance by using the T-SQL RESTORE command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
 - Learn more about [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
 - Learn how to [connect apps to SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
+- To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

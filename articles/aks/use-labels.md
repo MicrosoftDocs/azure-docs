@@ -3,10 +3,8 @@ title: Use labels in an Azure Kubernetes Service (AKS) cluster
 description: Learn how to use labels in an Azure Kubernetes Service (AKS) cluster.
 author: rayoef
 ms.author: rayoflores
-ms.service: container-service
-ms.topic: how-to 
+ms.topic: article 
 ms.date: 03/03/2022
-ms.custom: template-how-to
 #Customer intent: As a cluster operator, I want to learn how to use labels in an AKS cluster so that I can set scheduling rules for nodes.
 ---
 

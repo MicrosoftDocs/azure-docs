@@ -5,17 +5,20 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # The MedTech service and Azure Machine Learning Service
 
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
 In this article, we'll explore using the MedTech service and Azure Machine Learning Service.
 
 ## The MedTech service and Azure Machine Learning Service reference architecture
 
-The MedTech service enables IoT devices seamless integration with Fast Healthcare Interoperability Resources (FHIR&#174;) services. This reference architecture is designed to accelerate adoption of Internet of Medical Things (IoMT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure ML Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
+The MedTech service enables IoT devices seamless integration with FHIR services. This reference architecture is designed to accelerate adoption of Internet of Medical Things (IoMT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure ML Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
 
 The four line colors show the different parts of the data journey.
 
@@ -68,6 +71,6 @@ In this article, you learned about the MedTech service and Machine Learning serv
 For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [The MedTech service overview](overview.md)
+> [What is the MedTech service?](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

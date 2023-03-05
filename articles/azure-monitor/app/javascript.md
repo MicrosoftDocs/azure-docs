@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Find out about the performance and usage of your webpage or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures. You also get user and session counts. All this telemetry can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. By inserting trace calls in your JavaScript code, you can track how the different features of your webpage application are used.
 
-Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](opentelemetry-enable.md?tabs=java) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Add the JavaScript SDK
 
@@ -90,7 +90,7 @@ This version of the snippet detects and reports failures when the SDK is loaded 
 - Missing telemetry on how your users are using your site.
 - Missing JavaScript errors that could potentially be blocking your users from successfully using your site.
 
-For information on this exception, see the [SDK load failure](javascript-sdk-load-failure.md) troubleshooting page.
+For information on this exception, see the [SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting) troubleshooting page.
 
 Reporting of this failure as an exception to the portal doesn't use the configuration option ```disableExceptionTracking``` from the Application Insights configuration. For this reason, if this failure occurs, it will always be reported by the snippet, even when `window.onerror` support is disabled.
 
@@ -317,10 +317,10 @@ For single-page applications, reference plug-in documentation for guidance speci
 
 | Plug-ins |
 |---------------|
-| [React](javascript-react-plugin.md#enable-correlation)|
-| [React Native](javascript-react-native-plugin.md#enable-correlation)|
-| [Angular](javascript-angular-plugin.md#enable-correlation)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
+| [React](javascript-framework-extensions.md#enable-correlation)|
+| [React Native](javascript-framework-extensions.md#enable-correlation)|
+| [Angular](javascript-framework-extensions.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md#enable-correlation)|
 
 ### Advanced correlation
 
@@ -368,10 +368,10 @@ When you use an npm-based configuration, a location must be determined to store 
 
 | Extensions |
 |---------------|
-| [React](javascript-react-plugin.md)|
-| [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
+| [React](javascript-framework-extensions.md)|
+| [React Native](javascript-framework-extensions.md)|
+| [Angular](javascript-framework-extensions.md)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md)|
 
 ## Explore browser/client-side data
 
@@ -533,4 +533,4 @@ If the SDK reports correlation recursively, enable the configuration setting of 
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-* [Troubleshoot SDK load failure](javascript-sdk-load-failure.md)
+* [Troubleshoot SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting)

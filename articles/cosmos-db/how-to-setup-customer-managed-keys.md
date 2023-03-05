@@ -56,9 +56,15 @@ Using customer-managed keys with Azure Cosmos DB requires you to set two propert
     - [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
     - [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
 
-1. Once these settings have been enabled, on the access policy tab, you can choose your preferred permission model to use. Access policies are set by default, but Azure role-based access control is supported as well.
+
+### Choosing the preferred security model 
+
+Once purge protection and soft-delete have been enabled, on the access policy tab, you can choose your preferred permission model to use. Access policies are set by default, but Azure role-based access control is supported as well.
 
 The necessary permissions must be given for allowing Cosmos DB to use your encryption key. This step varies depending on whether the Azure Key Vault is using either Access policies or role-based access control.
+
+> [!NOTE]
+> It is important to note that only one security model can be active at a time, so there is no need to seed the role based access control if the Azure Key Vault is set to use access policies and vice versa)
 
 ### Add an access policy
 
@@ -103,7 +109,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
 
-1. Then, the necessary permissions must be assigned to Cosmos DB’s principal. So, like the last role assignment, go to the assignment page but this time look for the **“Key Vault Crypto Service Encryption User”** role and on the members tab look for Cosmos DB’s principal. To find the principal, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by application ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`.
+1. Then, the necessary permissions must be assigned to Cosmos DB’s principal. So, like the last role assignment, go to the assignment page but this time look for the **“Key Vault Crypto Service Encryption User”** role and on the members tab look for Cosmos DB’s principal. To find the principal, search for **Azure Cosmos DB** principal and select it.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" lightbox="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" alt-text="Screenshot of the Azure Cosmos DB principal being assigned to a permission.":::
 
@@ -647,7 +653,7 @@ No, there's no charge to enable this feature.
 
 All the data stored in your Azure Cosmos DB account is encrypted with the customer-managed keys, except for the following metadata:
 
-- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-db-account)
+- The names of your Azure Cosmos DB [accounts, databases, and containers](./resource-model.md#elements-in-an-azure-cosmos-db-account)
 
 - The names of your [stored procedures](./stored-procedures-triggers-udfs.md)
 

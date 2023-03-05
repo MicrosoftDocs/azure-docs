@@ -4,8 +4,8 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: Event Hubs for Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: What is Azure Event Hubs for Apache Kafka?
+      href: azure-event-hubs-kafka-overview.md
     - name: Azure Schema Registry in Event Hubs
       href: schema-registry-overview.md      
     - name: Terminology
@@ -72,7 +72,7 @@
     - name: Capture Event Hubs data in Parquet format
       href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
       maintainContext: true
-    - name: Build real time dashboards with Power BI
+    - name: Build real-time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
       maintainContext: true
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
@@ -210,6 +210,8 @@
 
     - name: Process data
       items:
+        - name: Build real-time dashboard with Power BI dataset
+          href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
         - name: Capture Event Hubs data in Delta Lake format
           href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
         - name: Capture Event Hubs data in Parquet format

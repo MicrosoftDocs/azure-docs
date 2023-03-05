@@ -8,8 +8,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/13/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Configure a custom domain name for your Azure API Management instance
@@ -57,7 +58,7 @@ There are several API Management endpoints to which you can assign a custom doma
 
 API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
-> [!WARNING
+> [!WARNING]
 > If you require certificate pinning, please use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
 # [Custom](#tab/custom)
@@ -77,8 +78,11 @@ If you use Azure Key Vault to manage a custom domain TLS certificate, make sure 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
 * When you use command-line tools or management API, these permissions must be granted manually, in two steps:
-    1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page. 
-    1. Give the list and get secrets permissions to this principal ID on the Azure Key Vault containing the certificate.
+    1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page.
+    1.  Assign permissions to the managed identity to access the key vault. Use steps in the following section.
+    
+    [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
+
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 

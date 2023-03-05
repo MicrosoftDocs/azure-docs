@@ -6,8 +6,8 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: The MedTech service data flow
-    href: data-flow.md
+  - name: Understand the device message data transformation
+    href: understand-service.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,53 +15,53 @@ items:
     href: get-started.md
   - name: Deploy the MedTech service
     expanded: true
-    items:
-    - name: Deployment methods   
-      expanded: true
-      items:
-      - name: Choose a deployment method
-        href: deploy-new-choose.md
-      - name: ARM template
-        href: deploy-new-arm.md
-      - name: Azure PowerShell or the Azure CLI
-        href: deploy-new-powershell-cli.md
-      - name: Azure Bicep
-        href: deploy-new-bicep-powershell-cli.md
-      - name: Azure portal - Manual
-        href: deploy-new-manual.md
-      - name: Azure portal - Configure
-        href: deploy-new-config.md
-      - name: Azure portal - Deploy
-        href: deploy-new-deploy.md   
+    items:    
+    - name: Choose a deployment method
+      href: deploy-new-choose.md
+    - name: ARM template
+      href: deploy-new-arm.md
+    - name: Azure PowerShell or the Azure CLI
+      href: deploy-new-powershell-cli.md
+    - name: Azure Bicep
+      href: deploy-new-bicep-powershell-cli.md
+    - name: Azure portal - Manual
+      href: deploy-new-manual.md
+    - name: Azure portal - Configure
+      href: deploy-new-config.md
+    - name: Azure portal - Deploy
+      href: deploy-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
-  - name: Receive device data through Azure IoT Hub
-    href: device-data-through-iot-hub.md 
+  - name: Receive device messages through Azure IoT Hub
+    href: device-messages-through-iot-hub.md 
 - name: How-to guides
   expanded: true
   items: 
   - name: Map
-    expanded: true
+    expanded: false
     items:
+    - name: Mapping debugger
+      expanded: false
+      items:
+        - name: Use the Mapping debugger
+          href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
       items:
-      - name: Device mappings
+      - name: Configure the device mapping
         href: how-to-configure-device-mappings.md
-      - name: CalculatedContentTemplate mappings
-        href: how-to-use-calculatedcontenttemplate-mappings.md
-      - name: IotJsonPathContentTemplate mappings
+      - name: Use CalculatedContent mappings
+        href: how-to-use-calculatedcontent-mappings.md
+      - name: Use IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
-      - name: Custom functions
-        href: how-to-use-custom-functions.md  
+      - name: Use custom functions
+        href: how-to-use-custom-functions.md 
     - name: Destination
       expanded: false
       items:
-      - name: FHIR destination mappings
+      - name: Configure the FHIR destination mapping
         href: how-to-configure-fhir-mappings.md
-  - name: Create copies of mappings
-    href: how-to-create-mappings-copies.md
   - name: Monitor
     expanded: false
     items:
@@ -71,13 +71,13 @@ items:
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
-  - name: Troubleshoot and problem solve
+  - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors and conditions
-      href: troubleshoot-error-messages-and-conditions.md
-    - name: Device and FHIR destination mappings
-      href: troubleshoot-mappings.md
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Error logs
+      href: troubleshoot-errors-logs.md   
 - name: Concepts
   expanded: false
   items:

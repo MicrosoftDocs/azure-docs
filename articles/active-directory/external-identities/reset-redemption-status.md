@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 12/07/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management

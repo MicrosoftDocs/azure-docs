@@ -3,15 +3,14 @@ title: Provide optional claims to Azure AD apps
 description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/04/2022
+ms.date: 12/28/2022
 ms.author: davidmu
-ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
+ms.reviewer: ludwignick
 ---
 
 # Provide optional claims to your app
@@ -235,7 +234,7 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 
 ## Configuring groups optional claims
 
-This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
+This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest. Group optional claims are only emitted in the JWT for **user principals**. **Service principals** _will not_ have group optional claims emitted in the JWT.
 
 > [!IMPORTANT]
 > Azure AD limits the number of groups emitted in a token to 150 for SAML assertions and 200 for JWT, including nested groups.  For more information on group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
@@ -366,7 +365,7 @@ This section covers the configuration options under optional claims for changing
         ]
     }
     ```
-3) Emit group names in the format of samAccountName for on-prem synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
+3) Emit group names in the format of samAccountName for on-premises synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
     
     **Application manifest entry:**
 

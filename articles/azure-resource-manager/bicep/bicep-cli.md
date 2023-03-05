@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/10/2023
 ---
 
 # Bicep CLI commands
@@ -130,7 +130,7 @@ The command returns an array of available versions.
 
 ## publish
 
-The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md).
+The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md). To publish a module, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
@@ -157,7 +157,7 @@ The `publish` command doesn't recognize aliases that you've defined in a [bicepc
 
 When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
-To restore external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
 To use the restore command, you must have Bicep CLI version **0.4.1008 or later**. This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
 

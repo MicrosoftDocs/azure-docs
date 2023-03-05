@@ -16,10 +16,20 @@ This article outlines the process to register and govern an Azure Data Lake Stor
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited** |[Yes](#data-sharing)|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited* |[Yes](#data-sharing)|
 
+\* *Lineage is supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+When scanning Azure Data Lake Storage Gen2 source, Microsoft Purview supports extracting technical metadata including:
+
+- Storage account
+- Data Lake Storage Gen2 Service
+- File system (container)
+- Folders
+- Files
+- Resource sets
+
+When setting up scan, you can choose to scan the entire ADLS Gen2 or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
 ## Prerequisites
 
@@ -73,33 +83,30 @@ It's important to register the data source in Microsoft Purview prior to setting
 
 > [!TIP]
 > To troubleshoot any issues with scanning:
-> 1. Confirm you have followed all [**prerequisites for scanning**](#prerequisites-for-scan).
+> 1. Confirm you have properly set up [**authentication for scanning**](#authentication-for-a-scan)
 > 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
-### Prerequisites for scan
-
-In order to have access to scan the data source, an authentication method in the ADLS Gen2 Storage account needs to be configured.
-The following options are supported:
-
-> [!Note]
-> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
-
-* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
-
-* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
-
-* **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
-
-   > [!Note]
-   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Microsoft Purview account’s_ SAMI with required access permission to secrets inside _Azure key vault_.
-
-* **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
-
 ### Authentication for a scan
+
+Your Azure network may allow for communications between your Azure resources, but if you've set up firewalls, private endpoints, or virtual networks within Azure, you'll need to follow one of these configurations below.
+
+|Networking constraints  |Integration runtime type  |Available credential types  |
+|---------|---------|---------|
+|No private endpoints or firewalls | Azure IR | Managed identity (Recommended), service principal, or account key|
+|Firewall enabled but no private endpoints| Azure IR | Managed identity |
+|Private endpoints enabled | *Self-Hosted IR | Service principal, account key|
+
+*To use a self-hosted integration runtime, you'll first need to [create one](manage-integration-runtimes.md) and confirm your [network settings for Microsoft Purview](catalog-private-link.md)
 
 # [System or user assigned managed identity](#tab/MI)
 
 #### Using a system or user assigned managed identity for scanning
+
+There are two types of managed identity you can use:
+
+* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
+
+* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 It's important to give your Microsoft Purview account or user-assigned managed identity (UAMI) the permission to scan the ADLS Gen2 data source. You can add your Microsoft Purview account's system-assigned managed identity (which has the same name as your Microsoft Purview account) or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permissions are needed.
 
@@ -140,6 +147,9 @@ It's important to give your Microsoft Purview account or user-assigned managed i
 # [Account Key](#tab/AK)
 
 #### Using Account Key for scanning
+
+> [!Note]
+> If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and [assign _Microsoft Purview account’s_ System Assigned Managed Identity (SAMI) required access permission to secrets inside _Azure key vault_.](manage-credentials.md#microsoft-purview-permissions-on-the-azure-key-vault)
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
@@ -225,15 +235,19 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 #### If using Account Key
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select **+ New** under credential.
+
+1. Select **Account Key** as the authentication method, then select the appropriate **Key vault connection**, and provide the name of the secret you used to store the account key. Then select **Create**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
+
+1. Select **Test connection**. On a successful connection, select **Continue**
 
 # [Service Principal](#tab/SP)
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 

@@ -1,8 +1,8 @@
 ---
-title: Monitor an Azure Kubernetes Service (AKS) cluster deployed
-description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
+title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
+description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/09/2023
 ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.reviewer: aul
 ---
@@ -13,7 +13,7 @@ This article describes how to set up Container insights to monitor a managed Kub
 
 ## Prerequisites
 
-If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## New AKS cluster
 
@@ -21,7 +21,7 @@ You can enable monitoring for an AKS cluster when it's created by using any of t
 
 - **Azure CLI**: Follow the steps in [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md).
 - **Azure Policy**: Follow the steps in [Enable AKS monitoring add-on by using Azure Policy](container-insights-enable-aks-policy.md).
-- **Terraform**: If you're [deploying a new AKS cluster by using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you don't choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution). Complete the profile by including the [addon_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specifying **oms_agent**.
+- **Terraform**: If you're [deploying a new AKS cluster by using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you don't choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution). Complete the profile by including **oms_agent** profile.
 
 ## Existing AKS cluster
 
@@ -62,21 +62,30 @@ provisioningState       : Succeeded
 
 ## [Terraform](#tab/terraform)
 
-To enable monitoring by using Terraform:
+1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster) depending on the version of the [Terraform AzureRM provider version](/azure/developer/terraform/provider-version-history-azurerm).
 
-1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster).
+   * If the Terraform AzureRM provider version is 3.0 or higher, add the following:
 
-   ```
-   addon_profile {
+    ```
     oms_agent {
-      enabled                    = true
-      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
-     }
-   }
-   ```
+       log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+      }
+    ```
 
-1. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) by following the steps in the Terraform documentation.
-1. Enable collection of custom metrics by using the guidance at [Enable custom metrics](container-insights-custom-metrics.md).
+   * If the Terraform AzureRM provider is less than version 3.0, add the following:
+
+    ```
+    addon_profile {
+     oms_agent {
+        enabled                    = true
+        log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+       }
+    }
+    ```
+
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) by following the steps in the Terraform documentation.
+
+3. Enable collection of custom metrics by following the guidance at [Enable custom metrics](container-insights-custom-metrics.md).
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
@@ -100,7 +109,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor:
       | Log Analytics workspace | Select a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) from the dropdown list or select **Create new** to create a default Log Analytics workspace. The Log Analytics workspace must be in the same subscription as the AKS container. |
       | Enable Prometheus metrics | Select this option to collect Prometheus metrics for the cluster in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). |
       | Azure Monitor workspace | If you select **Enable Prometheus metrics**, you must select an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). The Azure Monitor workspace must be in the same subscription as the AKS container and the Log Analytics workspace. |
-      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
+      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/prometheus-metrics-enable.md#enable-prometheus-metric-collection) to the Azure Monitor workspace if it isn't already. |
     
 1. Select **Use managed identity** if you want to use [managed identity authentication with Azure Monitor Agent](container-insights-onboard.md#authentication).
 
@@ -376,8 +385,10 @@ AKS clusters with system-assigned identity must first disable monitoring and the
       ```
 
 ## Private link
+Use one of the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md).
 
-To enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md), your cluster must be using managed identity authentication with Azure Monitor Agent.
+### Managed identity authentication
+Use the following procedure if your cluster is using managed identity authentication with Azure Monitor Agent.
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your Azure Monitor private link service.
 
@@ -405,6 +416,35 @@ To enable network isolation by connecting your cluster to the Log Analytics work
     ```
 
 1. Enable monitoring with the managed identity authentication option by using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
+
+### Without managed identity authentication
+Use the following procedure if you're not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+
+1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+
+2. Disable public Ingestion on your Log Analytics workspace. 
+
+    Use the following command to disable public ingestion on an existing workspace.
+
+    ```cli
+    az monitor log-analytics workspace update --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+    Use the following command to create a new workspace with public ingestion disabled.
+
+    ```cli
+    az monitor log-analytics workspace create --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
+
+
+4. Enable monitoring for the AKS cluster.
+
+    ```cli
+    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
+    ```
+
 
 ## Limitations
 

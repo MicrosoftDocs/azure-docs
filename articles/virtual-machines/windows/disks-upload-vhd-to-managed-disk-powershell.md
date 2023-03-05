@@ -42,7 +42,7 @@ For detailed steps on assigning a role, see [Assign Azure roles using Azure Powe
 
 ## Get started
 
-There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
+There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
 
 Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy.
 
@@ -62,7 +62,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### (Optional) Grant access to the disk
 
-If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#assign-rbac-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
+If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#assign-rbac-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
@@ -72,7 +72,7 @@ New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
 
 ### Use Add-AzVHD
 
-The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
+The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
 
 > [!NOTE]
 > If you're using Azure AD to enforce upload restrictions, add `DataAccessAuthMode 'AzureActiveDirectory'` to the end of your `Add-AzVhd` command.
@@ -188,13 +188,14 @@ $sourceDiskName = <sourceDiskNameHere>
 $targetDiskName = <targetDiskNameHere>
 $targetRG = <targetResourceGroupHere>
 $targetLocate = <yourTargetLocationHere>
+$targetVmGeneration = "V1" # either V1 or V2
 #Expected value for OS is either "Windows" or "Linux"
 $targetOS = <yourOSTypeHere>
 
 $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
 # Adding the sizeInBytes with the 512 offset, and the -Upload flag
-$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload' -HyperVGeneration $targetVmGeneration
 
 $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
 

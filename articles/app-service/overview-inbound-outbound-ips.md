@@ -1,9 +1,10 @@
 ---
 title: Inbound/Outbound IP addresses
 description: Learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for your app.
+ms.author: msangapu
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: "UpdateFrequency3, devx-track-azurepowershell"
 
 ---
 

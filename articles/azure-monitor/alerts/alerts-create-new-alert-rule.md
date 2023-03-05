@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 12/28/2022
+ms.date: 02/12/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -73,7 +73,7 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
 
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
         If you select more than one dimension value, each time series that results from the combination will trigger its own alert and be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
@@ -88,14 +88,31 @@ Then you define these elements for the resulting alert actions by using:
 
         |Field |Description |
         |---------|---------|
-        |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold evaluates the rule by using the threshold value that you configure.<br>Dynamic thresholds use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
-        |Operator|Select the operator for comparing the metric value against the threshold. |
+        |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
+        |Operator|Select the operator for comparing the metric value against the threshold. <br>If you are using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
-        |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. |
+        |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts. |
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
+
+    1. (Optional) In the **When to evaluate** section: 
+
+        |Field |Description |
+        |---------|---------|
+        |Check every|Select how often the alert rule checks if the condition is met.    |
+        |Lookback period|Select how far back to look each time the data is checked. For example, every 1 minute you’ll be looking at the past 5 minutes.|
+
+    1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period will trigger the alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. This setting is defined by your application business policy. 
+
+        Select values for these fields:
+
+        |Field  |Description  |
+        |---------|---------|
+        |Number of violations|The number of violations within the configured time frame that trigger the alert.|
+        |Evaluation period|The time period within which the number of violations occur. |
+        |Ignore data before|Use this setting to select the date from which to start using the metric historical data for calculating the dynamic thresholds. For example, if a resource was running in testing mode and is moved to production, you may want to disregard the metric behavior while the resource was in testing.|
 
     1. Select **Done**.
 
@@ -119,7 +136,7 @@ Then you define these elements for the resulting alert actions by using:
 
         |Field  |Description  |
         |---------|---------|
-        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br> **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
@@ -132,6 +149,9 @@ Then you define these elements for the resulting alert actions by using:
         If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
         You can select up to six more splittings for any columns that contain text or numbers.
+        
+        > [!NOTE]
+        > Dimensions can **only** be number or string columns. If for example you want to use a dynamic column as a dimension, you need to convert it to a string first.
 
         You can also decide *not* to split when you want a condition applied to multiple resources in the scope. An example would be if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80 percent.
 
@@ -286,14 +306,28 @@ Then you define these elements for the resulting alert actions by using:
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for resource health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+        
     ---
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
@@ -403,7 +437,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |
 |resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
 |status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
-|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
 |resourceType     |The type of the resource that was affected by the event. An example is `Microsoft.Resources/deployments`.         |
 
 For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).

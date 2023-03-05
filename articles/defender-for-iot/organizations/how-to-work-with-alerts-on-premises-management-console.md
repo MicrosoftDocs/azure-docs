@@ -1,7 +1,7 @@
 ---
 title: View and manage OT alerts on the on-premises management console - Microsoft Defender for IoT
 description: Learn how to view and manage OT alerts collected from all connected OT network sensors on a Microsoft Defender for IoT on-premises management console.
-ms.date: 12/12/2022
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
@@ -70,8 +70,6 @@ You may want to export a selection of alerts to a CSV file for offline sharing a
 
 The CSV file is generated, and you're prompted to save it locally.
 
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -81,10 +79,13 @@ The CSV file is generated, and you're prompted to save it locally.
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+> [Accelerate on-premises OT alert workflows](how-to-accelerate-alert-incident-response.md)
 
 > [!div class="nextstepaction"]
 > [Forward alert information](how-to-forward-alert-information-to-partners.md)
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

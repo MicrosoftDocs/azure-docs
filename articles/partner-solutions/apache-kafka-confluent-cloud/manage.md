@@ -56,7 +56,7 @@ To delete the resources in Azure:
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az-confluent-organization-delete) command to delete the organization resource by name:
 

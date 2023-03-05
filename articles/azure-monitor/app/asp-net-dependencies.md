@@ -2,7 +2,7 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 01/09/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: casocha
@@ -82,7 +82,7 @@ To have this data displayed in the dependency charts in Application Insights, se
 
 Alternatively, `TelemetryClient` provides the extension methods `StartOperation` and `StopOperation`, which can be used to manually track dependencies as shown in [Outgoing dependencies tracking](custom-operations-tracking.md#outgoing-dependencies-tracking).
 
-If you want to switch off the standard dependency tracking module, remove the reference to `DependencyTrackingTelemetryModule` in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow the instructions in [Application Insights for ASP.NET Core applications](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+If you want to switch off the standard dependency tracking module, remove the reference to `DependencyTrackingTelemetryModule` in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow the instructions in [Application Insights for ASP.NET Core applications](asp-net-core.md#configure-or-remove-default-telemetrymodules).
 
 ## Track AJAX calls from webpages
 
@@ -106,7 +106,7 @@ For ASP.NET applications, the full SQL query text is collected with the help of 
 | Platform | Steps needed to get full SQL query |
 | --- | --- |
 | Web Apps in Azure App Service|In your web app control panel, [open the Application Insights pane](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET. |
-| IIS Server (Azure Virtual Machines, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
+| IIS Server (Azure Virtual Machines, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Application Insights Agent PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
 | Azure Cloud Services | Add a [startup task to install StatusMonitor](../../azure-monitor/app/azure-web-apps-net-core.md). <br> Your app should be onboarded to the ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](./asp-net.md) or [ASP.NET Core applications](./asp-net-core.md). |
 | IIS Express | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
 | WebJobs in Azure App Service| Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
@@ -220,6 +220,10 @@ dependencies
 
 In the Log Analytics query view, `timestamp` represents the moment the TrackDependency() call was initiated, which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
+### Does dependency tracking in Application Insights include logging response bodies?
+
+Dependency tracking in Application Insights does not include logging response bodies as it would generate too much telemetry for most applications.
+
 ## Open-source SDK
 
 Like every Application Insights SDK, the dependency collection module is also open source. Read and contribute to the code or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
@@ -252,7 +256,7 @@ Below is the currently supported list of dependency calls that are automatically
 ### Java
 
 See the list of Application Insights Java's
-[autocollected dependencies](java-in-process-agent.md#autocollected-dependencies).
+[autocollected dependencies](opentelemetry-enable.md?tabs=java#distributed-tracing).
 
 ### Node.js
 
@@ -268,8 +272,8 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
-* [Availability](./monitor-web-app-availability.md)
-* Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans-using-the-opentelemetry-annotation).
+* [Availability](./availability-overview.md)
+* Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 * See [data model](./data-model.md) for Application Insights types and data model.

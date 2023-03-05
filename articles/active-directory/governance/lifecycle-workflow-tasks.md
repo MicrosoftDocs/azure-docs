@@ -5,10 +5,10 @@ author: OWinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2022
-ms.subservice: compliance
+ms.date: 01/26/2023
 ---
 # Lifecycle Workflow built-in tasks (preview)
 
@@ -25,10 +25,6 @@ Lifecycle Workflow's built-in tasks each include an identifier, known as **taskD
 ## Common task parameters (preview)
 
 Common task parameters are the non-unique parameters contained in every task. When adding tasks to a new workflow, or a workflow template, you can customize and configure these parameters so that they match your requirements.
-
-
-> [!NOTE]
-> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day.
 
 |Parameter  |Definition  |
 |---------|---------|
@@ -123,12 +119,15 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
 
 ### Generate Temporary Access Pass and send via email to user's manager
 
-When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass(TAP), and have it sent to the new user's manager.
+When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass (TAP), and have it sent to the new user's manager.
+
+> [!NOTE]
+> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day. If the hire date at the time of workflow execution is already in the past, the current time is used as the start time.
 
 With this task in the Azure portal, you're able to give the task a name and description. You must also set:
 
-**Activation duration**- How long the password is active.
-**One time use**- If the password is one use only.
+- **Activation duration**- How long the passcode is active.
+- **One time use**- If the passcode can only be used once.
 :::image type="content" source="media/lifecycle-workflow-task/tap-task.png" alt-text="Screenshot of Workflows task: TAP task.":::
  
 
@@ -136,8 +135,7 @@ The Azure AD prerequisites to run the **Generate Temporary Access Pass and send 
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
-- An enabled TAP tenant policy. For more information, see [Enable the Temporary Access Pass policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
- 
+- The TAP tenant policy must be enabled and the selected values for activation duration and one time use must be within the allowed range of the policy. For more information, see [Enable the Temporary Access Pass policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
 > [!IMPORTANT]
 > A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or AAD role assignments for this task to work for them.
@@ -175,13 +173,9 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 
 ```
 
-> [!NOTE]
-> The employee hire date is the same as the startDateTime used for the tapLifetimeInMinutes parameter.
-
-
 ### Add user to groups
 
-Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task.
 :::image type="content" source="media/lifecycle-workflow-task/add-group-task.png" alt-text="Screenshot of Workflows task: Add user to group task.":::
@@ -255,7 +249,7 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
@@ -329,7 +323,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 
@@ -359,7 +353,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 ### Remove user from selected groups
 
-Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-group-task.png" alt-text="Screenshot of Workflows task: Remove user from select groups.":::
@@ -398,7 +392,7 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 
 ### Remove users from all groups
 
-Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
 
 
 You're able to customize the task name and description for this task in the Azure portal.
@@ -526,7 +520,7 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 
 ### Delete User
 
-Allows cloud-only user accounts to be deleted. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/delete-user-task.png" alt-text="Screenshot of Workflows task: Delete user account.":::
 
 

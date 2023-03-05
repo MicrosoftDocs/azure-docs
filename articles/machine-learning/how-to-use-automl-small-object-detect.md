@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2.
 author: PhaniShekhar
 ms.author: phmantri
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to

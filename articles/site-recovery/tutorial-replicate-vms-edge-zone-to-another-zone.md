@@ -27,14 +27,14 @@ Here the primary location is an Azure Public MEC and secondary location is anoth
 
 ### Prerequisites
 
-- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-9.2.0)
+- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps)
 - The minimum Azure Az PowerShell version must be 9.1.0+. Use the following command to see the current version:
 
     ```
     Get-InstalledModule -Name Az
     ```
 
-- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix.md#linux).
 - Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. 
 
     >[!Note]

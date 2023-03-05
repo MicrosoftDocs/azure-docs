@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=stt-tts) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
@@ -28,7 +28,7 @@ function synthesizeSpeech() {
 synthesizeSpeech();
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=stt-tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
 
 > [!NOTE]
 > The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -50,18 +50,18 @@ function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text to speech",
         result => {
             if (result) {
-                synthesizer.close();
+                speechSynthesizer.close();
                 return result.audioData;
             }
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -84,18 +84,18 @@ function synthesizeSpeech() {
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` and `audioConfig` objects as parameters. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`. The call to `synthesizer.close()` is needed for synthesis to function correctly.
+Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` and `audioConfig` objects as parameters. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `speechSynthesizer.close()`. The call to `speechSynthesizer.close()` is needed for synthesis to function correctly.
 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             if (result) {
                 // return result as stream
                 return fs.createReadStream("path-to-file.wav");
@@ -103,7 +103,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -134,17 +134,17 @@ The following code works for the client side:
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             return result.audioData;
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -156,14 +156,14 @@ For any server-based code, if you need to work with the data as a stream, you ne
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
-            synthesizer.close();
+            speechSynthesizer.close();
 
             // convert arrayBuffer to stream
             // return stream
@@ -173,7 +173,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -193,17 +193,17 @@ The following code works for the client side:
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             return result.audioData;
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -215,14 +215,14 @@ For any server-based code, if you need to work with the data as a stream, you ne
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
-            synthesizer.close();
+            speechSynthesizer.close();
 
             // convert arrayBuffer to stream
             const bufferStream = new PassThrough();
@@ -231,7 +231,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -262,19 +262,19 @@ function synthesizeSpeech() {
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
             console.log(`Audio data byte size: ${audioData.byteLength}.`)
 
-            synthesizer.close();
+            speechSynthesizer.close();
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -285,7 +285,7 @@ You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, a
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=stt-tts) of supported *neural* voices.
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -309,10 +309,10 @@ For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.h
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
 
     const ssml = xmlToString("ssml.xml");
-    synthesizer.speakSsmlAsync(
+    speechSynthesizer.speakSsmlAsync(
         ssml,
         result => {
             if (result.errorDetails) {
@@ -321,11 +321,11 @@ function synthesizeSpeech() {
                 console.log(JSON.stringify(result));
             }
 
-            synthesizer.close();
+            speechSynthesizer.close();
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```

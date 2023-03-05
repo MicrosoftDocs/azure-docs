@@ -74,7 +74,7 @@ In this section, you will configure the Azure Cosmos DB for NoSQL account as the
 
    :::image type="content" source="media/migrate-data-striim/get-ssh-url.png" alt-text="Get the SSH URL":::
 
-1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
+1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using an SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
 
    :::image type="content" source="media/migrate-data-striim/striim-vm-connect.png" alt-text="Connect to Striim VM":::
 

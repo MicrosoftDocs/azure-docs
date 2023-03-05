@@ -91,7 +91,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 7. Replace the `app.route()` method call with the following code:
 
     ```python
-    @app.route(route="hello", http_auth_level=func.AuthLevel.ANONYMOUS)
+    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     ```
 
     This code enables your HTTP function endpoint to be called in Azure without having to provide an [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Local execution doesn't require authorization keys. 
@@ -99,8 +99,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Your function code should now look like the following example:
 
     ```python
+    app = func.FunctionApp()
     @app.function_name(name="HttpTrigger1")
-    @app.route(route="hello", http_auth_level=func.AuthLevel.ANONYMOUS)
+    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     def test_function(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('Python HTTP trigger function processed a request.')
 

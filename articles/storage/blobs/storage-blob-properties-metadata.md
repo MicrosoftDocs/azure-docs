@@ -23,12 +23,12 @@ In addition to the data they contain, blobs support system properties and user-d
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 > [!NOTE]
 > Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
 >
-> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
+> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index](storage-manage-find-blobs.md).
 
 ## Set and retrieve properties
 
@@ -59,9 +59,17 @@ To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.s
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-## See also
+## Resources
 
-- [Set Blob Properties operation](/rest/api/storageservices/set-blob-properties)
-- [Get Blob Properties operation](/rest/api/storageservices/get-blob-properties)
-- [Set Blob Metadata operation](/rest/api/storageservices/set-blob-metadata)
-- [Get Blob Metadata operation](/rest/api/storageservices/get-blob-metadata)
+To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing system properties and user-defined metadata use the following REST API operations:
+
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties) (REST API)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

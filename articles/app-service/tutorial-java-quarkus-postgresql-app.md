@@ -303,3 +303,8 @@ Learn more about running Java apps on App Service on Linux in the developer guid
 
 > [!div class="nextstepaction"] 
 > [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+
+Learn how to secure your app with a custom domain and certificate.
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

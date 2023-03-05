@@ -141,11 +141,7 @@ In this tutorial, you learn how to:
         var path = require('path');
 
         module.exports = function (context, req) {
-            var index = 'index.html';
-            if (process.env["HOME"] != null)
-            {
-                index = path.join(process.env["HOME"], "site", "wwwroot", index);
-            }
+            var index = context.executionContext.functionDirectory + '/../index.html';
             context.log("index.html path: " + index);
             fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
@@ -168,13 +164,9 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ExecutionContext context, ILogger log)
         {
-            string indexFile = "index.html";
-            if (Environment.GetEnvironmentVariable("HOME") != null)
-            {
-                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
-            }
+            var indexFile = Path.Combine(context.FunctionAppDirectory, "index.html");
             log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
@@ -475,6 +467,9 @@ In this tutorial, you learn how to:
     ```
 
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
+    
+    > [!NOTE]
+    > Some browers will automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 

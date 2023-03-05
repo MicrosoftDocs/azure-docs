@@ -1,51 +1,58 @@
 ---
-title: Create a new Azure Application Insights resource | Microsoft Docs
+title: Create a new Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 ms.topic: conceptual
-ms.date: 01/28/2023
+ms.date: 02/28/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource
 
-Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
+> [!CAUTION]
+> This article applies to Application Insights Classic resources, which are [no longer recommended](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024).
+>
+> The information in this article is stale and won't be updated.
+> 
+> [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities).
+
+Application Insights displays data about your application in an Azure resource. Creating a new resource is part of [setting up Application Insights to monitor a new application][start]. After you've created your new resource, you can get its instrumentation key and use it to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
 
 > [!IMPORTANT]
-> On **February 29th, 2024,** [support for classic Application Insights will end](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024). [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities). Newer regions introduced after February 2021 do not support creating classic Application Insights resources.
+> On **February 29, 2024,** [support for classic Application Insights will end](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024). [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities). Newer regions introduced after February 2021 don't support creating classic Application Insights resources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Sign in to Microsoft Azure
+## Sign in to Azure
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Create an Application Insights resource
 
-Sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource:
+Sign in to the [Azure portal](https://portal.azure.com) and create an Application Insights resource.
 
-![Click the `+` sign in the upper left corner. Select Developer Tools followed by Application Insights](./media/create-new-resource/new-app-insights.png)
+![Screenshot that shows selecting the + sign in the upper-left corner, Developer Tools, and Application Insights.](./media/create-new-resource/new-app-insights.png)
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
-   | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
-   | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
-   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
+   | **Name**      | `Unique value` | Name that identifies the app you're monitoring. |
+   | **Resource group**     | `myResourceGroup`      | Name for the new or existing resource group to host Application Insights data. |
+   | **Region** | `East US` | Select a location near you or near where your app is hosted. |
+   | **Resource mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see [Workspace-based Application Insights resources](create-workspace-resource.md).
 
 > [!NOTE]
-> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](../logs/cross-workspace-query.md#identifying-an-application) as it simplifies the required syntax.
+> You can use the same resource name across different resource groups, but it can be beneficial to use a globally unique name. If you plan to [perform cross-resource queries](../logs/cross-workspace-query.md#identify-an-application), using a globally unique name simplifies the required syntax.
 
-Enter the appropriate values into the required fields, and then select **Review + create**.
+Enter the appropriate values in the required fields. Select **Review + create**.
 
 > [!div class="mx-imgBorder"]
-> ![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
+> ![Screenshot that shows entering values in required fields and the Review + create button.](./media/create-new-resource/review-create.png)
 
-When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
+After your app is created, a new pane displays performance and usage data about your monitored application.
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
+The instrumentation key identifies the resource that you want to associate with your telemetry data. You need to copy the instrumentation key and add it to your application's code.
 
 ## Install the SDK in your app
 
@@ -53,13 +60,15 @@ Install the Application Insights SDK in your app. This step depends heavily on t
 
 Use the instrumentation key to configure [the SDK that you install in your application][start].
 
-The SDK includes standard modules that send telemetry without you having to write any additional code. To track user actions or diagnose issues in more detail, [use the API][api] to send your own telemetry.
+The SDK includes standard modules that send telemetry, so you don't have to write any more code. To track user actions or diagnose issues in more detail, [use the API][api] to send your own telemetry.
 
-## Creating a resource automatically
+## Create a resource automatically
+
+Use PowerShell or the Azure CLI to create a resource automatically.
 
 ### PowerShell
 
-Create a new Application Insights resource
+Create a new Application Insights resource.
 
 ```powershell
 New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
@@ -71,6 +80,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
 ```
+
 #### Results
 
 ```powershell
@@ -94,7 +104,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key, see the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### Azure CLI (preview)
 
@@ -104,9 +114,9 @@ To access the preview Application Insights Azure CLI commands, you first need to
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command, you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
-Now you can run the following to create your Application Insights resource:
+Run the following command to create your Application Insights resource:
 
 ```azurecli
 az monitor app-insights component create --app
@@ -151,17 +161,18 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key, see the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
-## Application Insights overriding default endpoints
+## Override default endpoints
 
 > [!WARNING]
-> Endpoint modification is not recommended. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
+> Don't modify endpoints. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
 
-To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
+To send data from Application Insights to certain regions, you need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article.
+
+These changes require you to adjust the sample code and replace the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 
 ---
 
@@ -170,7 +181,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 # [.NET](#tab/net)
 
 > [!NOTE]
-> The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
+> The *applicationinsights.config* file is automatically overwritten anytime an SDK upgrade is performed. After you perform an SDK upgrade, be sure to reenter the region-specific endpoint values.
 
 ```xml
 <ApplicationInsights>
@@ -198,7 +209,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 
 # [.NET Core](#tab/netcore)
 
-Modify the appsettings.json file in your project as follows to adjust the main endpoint:
+Modify the *appsettings.json* file in your project to adjust the main endpoint:
 
 ```json
 "ApplicationInsights": {
@@ -209,7 +220,7 @@ Modify the appsettings.json file in your project as follows to adjust the main e
   }
 ```
 
-The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
+The values for Live Metrics and the Profile Query endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -226,14 +237,14 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # [Azure Functions](#tab/functions)
 
-For Azure Functions it is now recommended to use [connection strings](./sdk-connection-string.md?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
+For Azure Functions, we recommend that you use [connection strings](./sdk-connection-string.md?tabs=net) set in the function's Application settings. To access Application settings for your function from within the functions pane, select **Settings** > **Configuration** > **Application settings**.
 
-Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
-Value: `Connection String Value`
+**Name**: `APPLICATIONINSIGHTS_CONNECTION_STRING`<br>
+**Value**: `Connection String Value`
 
 # [Java](#tab/java)
 
-Modify the applicationinsights.xml file to change the default endpoint address.
+Modify the *applicationinsights.xml* file to change the default endpoint address:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -280,24 +291,24 @@ appInsights.Configuration.start();
 The endpoints can also be configured through environment variables:
 
 ```
-Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
-Profile Endpoint: "Profile_Query_Endpoint_address"
-Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
+**Instrumentation Key*: "APPINSIGHTS_INSTRUMENTATIONKEY"
+*Profile endpoint*: "Profile_Query_Endpoint_address"
+*Live Metrics endpoint*: "QuickPulse_Endpoint_Address"
 ```
 
 # [JavaScript](#tab/js)
 
-The current Snippet (listed below) is version "5", the version is encoded in the snippet as sv:"#" and the [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet listed here's version 5. The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
 !function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
-// name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
-// ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
-// useXhr: 1, // Use XHR instead of fetch to report failures (if available),
-crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
-// onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+// name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied.
+// ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head (default) = 0ms load after timeout.
+// useXhr: 1, // Use XHR instead of fetch to report failures (if available).
+crossOrigin: "anonymous", // When supplied, this will add the provided value as the cross origin attribute on the script tag.
+// onInit: null, // Once the Application Insights instance has loaded and initialized, this callback function will be called with 1 argument -- the sdk instance. (DO NOT ADD anything to the sdk.queue -- as they won't get called.)
 cfg: { // Application Insights Configuration
     instrumentationKey:"INSTRUMENTATION_KEY",
     endpointUrl: "TelemetryChannel_Endpoint_Address"
@@ -306,19 +317,19 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> For readability and to reduce possible JavaScript errors, all of the possible configuration options are listed on a new line in snippet code above, if you don't want to change the value of a commented line it can be removed.
+> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
 
 # [Python](#tab/python)
 
-For guidance on modifying the ingestion endpoint for the opencensus-python SDK consult the [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+For guidance on modifying the ingestion endpoint for the opencensus-python SDK, consult the [opencensus-python repo](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py).
 
 ---
 
 ### Regions that require endpoint modification
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
-|Region |  Endpoint Name | Value |
+|Region |  Endpoint name | Value |
 |-----------------|:------------|:-------------|
 | Azure China | Telemetry Channel | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -327,19 +338,19 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-If you currently use the [Application Insights REST API](/rest/api/application-insights/) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
+If you currently use the [Application Insights REST API](/rest/api/application-insights/), which is normally accessed via `api.applicationinsights.io`, you need to use an endpoint that's local to your region.
 
-|Region |  Endpoint Name | Value |
+|Region |  Endpoint name | Value |
 |-----------------|:------------|:-------------|
 | Azure China | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
 
 ## Next steps
-* [Diagnostic Search](./diagnostic-search.md)
-* [Explore metrics](../essentials/metrics-charts.md)
-* [Write Analytics queries](../logs/log-query-overview.md)
-* To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](../../azure-government/compare-azure-government-global-azure.md#application-insights).
-* To learn more about Azure China, consult the [Azure China Playbook](/azure/china/).
+* Use [Diagnostic Search](./diagnostic-search.md).
+* [Explore metrics](../essentials/metrics-charts.md).
+* [Write Log Analytics queries](../logs/log-query-overview.md).
+* To learn more about the custom modifications for Azure Government, see the detailed guidance for [Azure monitoring and management](../../azure-government/compare-azure-government-global-azure.md#application-insights).
+* To learn more about Azure China, see the [Azure China Playbook](/azure/china/).
 
 <!--Link references-->
 

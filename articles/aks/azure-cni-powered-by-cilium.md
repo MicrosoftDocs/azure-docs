@@ -1,7 +1,9 @@
 ---
 title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Azure CNI Powered by Cilium.
-services: container-service
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions
 ms.date: 10/24/2022
@@ -112,7 +114,6 @@ Create the cluster using `--enable-cilium-dataplane`:
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
@@ -121,29 +122,13 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
 ### Option 2: Assign IP addresses from an overlay network
 
-Run these commands to create a resource group and VNet with a single subnet:
-
-```azurecli-interactive
-# Create the resource group
-az group create --name <resourceGroupName> --location <location>
-```
-
-```azurecli-interactive
-# Create a VNet with a subnet for nodes and a subnet for pods
-az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-```
-
-Then create the cluster using `--enable-cilium-dataplane`:
+Run this commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
-  --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
-  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --enable-cilium-dataplane
 ```
 
