@@ -58,7 +58,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
         | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
         | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
     
-        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate will be checked once during the import process.
+        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate is checked once during the import process.
 
         For example:
 
@@ -83,8 +83,6 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
 1. Sign into your on-premises management console and select **System settings** > **SSL/TLS certificates**.
 
-1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
-
 1. In the **SSL/TLS certificate** pane, select one of the following, and then follow the instructions in the relevant tab:
 
     - **Import a trusted CA certificate**
@@ -92,6 +90,8 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
     # [Trusted CA certificates](#tab/cm-import-trusted-ca-certificate)
     
+    1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
+
     1. Enter the following parameters:
     
         | Parameter  | Description  |
@@ -109,16 +109,15 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
     # [Locally generated self-signed certificates](#tab/cm-locally-generated-self-signed-certificate)
     
     > [!NOTE]
-    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment. We recommend using self-signed certificates in test environments only.
+    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment.
+    > We recommend using self-signed certificates in test environments only.
     > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
 
     Select **I CONFIRM** to acknowledge the warning.
 
     ---
 
-1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload the files you'd created earlier.
-
-1. Select the **Enable Certificate Validation** option to validate the certificate against a [CRL server](#verify-crl-server-access).
+1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](#create-ca-signed-ssltls-certificates) and [Certificate Revocation Lists](#verify-crl-server-access).
 
 1. Select **SAVE** to save your certificate settings.
 
