@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 03/25/2021 
+ms.date: 03/04/2023 
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
