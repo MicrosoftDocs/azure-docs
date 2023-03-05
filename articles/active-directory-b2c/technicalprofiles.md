@@ -116,7 +116,7 @@ The **Protocol** element specifies the protocol to be used for the communication
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that's used as part of the technical profile. Possible values are `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that's used as part of the technical profile. Possible values are `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`. |
 | Handler | No | When the protocol name is set to `Proprietary`, specifies the name of the assembly that's used by Azure AD B2C to determine the protocol handler. |
 
 ## Metadata
