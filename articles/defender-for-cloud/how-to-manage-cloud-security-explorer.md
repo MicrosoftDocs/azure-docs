@@ -4,10 +4,10 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 02/07/2023
+ms.date: 03/05/2023
 ---
 
-# Cloud security explorer
+# Build queries with cloud security explorer
 
 Defender for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
 
