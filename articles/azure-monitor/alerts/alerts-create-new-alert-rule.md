@@ -30,23 +30,20 @@ Then you define these elements for the resulting alert actions by using:
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 
-    The **Available signal types** for your selected resources are at the bottom right of the pane.
-
     > [!NOTE]
     > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources in more than one subscription, alerts are sent about those resources from different subscriptions.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
-1. Select **Include all future resources** to include any future resources added to the selected scope.
-1. Select **Done**.
+1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
-1. On the **Select a signal** pane, filter the list of signals by using the signal type and monitor service:
+1. On the **Select a signal** pane, you can search for the signal name or you can filter the list of signals by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
-    - **Monitor service**: The service sending the signal. This list is pre-populated based on the type of alert rule you selected.
+    - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
     This table describes the services available for each type of alert rule:
 
-    |Signal type  |Monitor service  |Description  |
+    |Signal type  |Signal source  |Description  |
     |---------|---------|---------|
     |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. "Platform" means the metrics are provided by the resource provider, namely, Azure.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
@@ -60,7 +57,8 @@ Then you define these elements for the resulting alert actions by using:
     |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-1. Select the **Signal name**, and follow the steps in the following tab that corresponds to the type of alert you're creating.
+1. Select the **Signal name** and **Apply**.
+1. Follow the steps in the tab that corresponds to the type of alert you're creating.
 
     ### [Metric alert](#tab/metric)
 
