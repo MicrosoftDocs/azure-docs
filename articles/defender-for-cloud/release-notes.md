@@ -16,6 +16,22 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## March 2023
+
+Updates in March include:
+
+- [New alert in Azure Defender for Key Vault](#new-alert-in-azure-defender-for-key-vault)
+
+### New alert in Azure Defender for Key Vault
+
+Azure Defender for Key Vault has the following new alert:
+
+| Alert (alert type) | Description | MITRE tactics<br>([Learn more](alerts-reference.#intentions)) | Severity |
+|---|---|:-:|---|
+| **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
+
+You can see a list of all of the [alerts available for Key Vault](alerts-reference.#alerts-azurekv).
+
 ## February 2023
 
 Updates in February include:
