@@ -18,7 +18,7 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to ru
 
 ### Configure a cache rule
 
-Run [az acr cache][az acr cache] command to manage cache rules in  Azure Container Registry.
+Run `az acr cache` command to manage cache rules in  Azure Container Registry.
 
 1. Show a cache rule for a given `MyRegistry` Azure Container Registry.
  
@@ -64,7 +64,7 @@ Run [az acr cache][az acr cache] command to manage cache rules in  Azure Contain
 
 ### Configure Credential Set
 
-Run [az acr credential-set][az acr credential-set] command to manage Credential Sets in  Azure Container Registry.
+Run `az acr credential-set`command to manage Credential Sets in  Azure Container Registry.
 
 1.  Show a credential set rule for a given `MyRegistry` Azure Container Registry.
 
