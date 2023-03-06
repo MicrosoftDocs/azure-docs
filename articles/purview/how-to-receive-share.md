@@ -99,7 +99,7 @@ This registration is only needed the first time when sharing or receiving data i
 
    :::image type="content" source="./media/how-to-receive-share/attach-shared-data-inline.png" alt-text="Screenshot showing share invitation configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true" lightbox="./media/how-to-receive-share/attach-shared-data-large.png":::  
 
-1. On the Manage data shares page, you'll see the new share with the status of **Creating** until it has completed and is attached.
+1. On the Manage data shares page, you'll see the new share with the status of **Attaching** until it has completed and is attached.
 
     :::image type="content" source="./media/how-to-receive-share/manage-data-shares-window-creating.png" alt-text="Screenshot showing the attach share window, with the attach button highlighted after you specify a target data store to receive or access shared data." border="true":::  
 

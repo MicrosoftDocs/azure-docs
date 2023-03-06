@@ -125,7 +125,7 @@ Once a share is created, you can update description, assets, and recipients.
 > [!NOTE]
 > If you only have the **Reader** role on the source storage account, you will be able to view list of sent shares and received shares but not edit. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
-You can find your sent shares one of three ways:
+You can find your sent shares one of two ways:
 
 * Access the blob storage or ADLS Gen2 asset where the data was shared from in the data catalog. Open it, then select **Data Share**. There you're able to see all the shares for that asset. Select a share, and then select the **Edit** option.
 
@@ -133,13 +133,7 @@ You can find your sent shares one of three ways:
 
    :::image type="content" source="./media/how-to-share-data/select-share-to-edit.png" alt-text="Screenshot of the Manage data shares page with a share selected and the edit button highlighted." border="true":::
 
-* You can [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) for the share in the data catalog, and narrow results to only data shares. Then select the **Edit** button.
-
-   :::image type="content" source="./media/how-to-share-data/search-for-share.png" alt-text="Screenshot of the data catalog search, showing the data share filter selected and a share highlighted." border="true":::
-
-   :::image type="content" source="./media/how-to-share-data/edit-share-asset.png" alt-text="Screenshot of a data share asset, with the edit button highlighted." border="true":::
-
-* For shares that you sent, you can find them in the **Shares** menu in the Microsoft Purview Data Map.
+* For shares that you sent, you can find them in the **Shares** menu in the Microsoft Purview Data Map. There you're able to see all the shares you have sent. Select a share, and then select the **Edit** option.
 
    :::image type="content" source="./media/how-to-share-data/select-shares-in-data-map-inline.png" alt-text="Screenshot of the Data Shares menu in the Microsoft Purview Data Map." border="true" lightbox="./media/how-to-share-data/select-shares-in-data-map.png":::
 
@@ -181,7 +175,7 @@ Here are what each of the recipient statuses mean:
 
 | Status | Meaning |
 |---|---|
-|Active | The share has been accepted and the recipient has access to the shared data. |
+|Attached | The share has been accepted and the recipient has access to the shared data. |
 |Detached | The recipient hasn't accepted the invitation or is no longer active. They aren't receiving the share. |
 
 You can **remove or delete recipients** by either selecting the delete button on the recipient's row, or selecting multiple recipients and then selecting the **Delete recipients** button at the top of the page.
