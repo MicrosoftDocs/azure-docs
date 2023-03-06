@@ -780,7 +780,7 @@ public class HttpTriggerJava {
 ```
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-powershell"  
 
 As an example, the following *function.json* file defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
@@ -802,6 +802,43 @@ As an example, the following *function.json* file defines a `route` property for
     ]
 }
 ```
+
+::: zone-end 
+::: zone pivot="programming-language-python"
+
+As an example, the following code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
+
+# [v2](#tab/python-v2)
+
+```python
+@app.function_name(name="httpTrigger")
+@app.route(route="products/{category:alpha}/{id:int?}")
+```
+
+# [v1](#tab/python-v1)
+
+In the *function.json* file:
+
+```json
+{
+    "bindings": [
+    {
+        "type": "httpTrigger",
+        "name": "req",
+        "direction": "in",
+        "methods": [ "get" ],
+        "route": "products/{category:alpha}/{id:int?}"
+    },
+    {
+        "type": "http",
+        "name": "res",
+        "direction": "out"
+    }
+    ]
+}
+```
+
+---
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"
@@ -885,6 +922,14 @@ Route parameters that defined a function's `route` pattern are available to each
 
 The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
 
+# [v2](#tab/python-v2)
+
+```python
+@app.table_input(arg_name="product", table_name="products", row_key="{id}", partition_key="products" connection="AzureWebJobsStorage")
+```
+
+# [v1](#tab/python-v1)
+
 ```json
 {
     "type": "table",
@@ -895,6 +940,8 @@ The following configuration shows how the `{id}` parameter is passed to the bind
     "rowKey": "{id}"
 }
 ```
+
+---
 
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
