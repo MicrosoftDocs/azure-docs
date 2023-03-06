@@ -50,9 +50,9 @@ Applications that the recommendation identified appear in the list of **Impacted
  
 ## Known limitations
 
-- Currently in the current list of **Impacted resources**, only the app name and resource ID is shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, go to **Azure AD** > **App registrations** > **Certificates and Secrets** for the impacted application. 
+- Currently in the list of **Impacted resources**, only the app name and resource ID is shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, go to **Azure AD** > **App registrations** > **Certificates and Secrets** for the application. 
 
-- An impacted resource with credentials that expired recently will be marked as completed. If that resource has more than one credential expiring soon, the status of the resource will still be active.
+- An **Impacted resource** with credentials that expired recently will be marked as **Complete**. If that resource has more than one credential expiring soon, the status of the resource will be **Active**.
 
 ## Next steps
 
