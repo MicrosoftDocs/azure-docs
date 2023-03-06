@@ -50,7 +50,7 @@ Click **OnPremisesExtensionAttributes** to synchronize the attributes extensionA
 
 These are the extended user or group attributes defined in your Azure AD tenant. 
 
-Select **+ Add** to choose which custom attributes to synchronize. The list will be populated with the available extension properties in your tenant. You can filter the list by using the search bar. 
+Select **+ Add** to choose which custom attributes to synchronize. The list shows the available extension properties in your tenant. You can filter the list by using the search bar. 
 
 :::image type="content" border="true" source="./media/concepts-custom-attributes/add.png" alt-text="Screenshot of how to add directory extension attributes.":::
 
@@ -64,7 +64,7 @@ Click **Select**, and then **Save** to confirm the change.
 
 :::image type="content" border="true" source="./media/concepts-custom-attributes/select.png" alt-text="Screenshot of how to save directory extension attributes.":::
 
-Azure AD DS will back fill all synchronized users and groups with the onboarded custom attribute values. The custom attribute values will gradually populate for objects that contain the directory extension in Azure AD. During the backfill synchronization process, incremental changes in Azure AD will temporarily be paused, and the sync time will depend on the size of the tenant. 
+Azure AD DS back fills all synchronized users and groups with the onboarded custom attribute values. The custom attribute values gradually populate for objects that contain the directory extension in Azure AD. During the backfill synchronization process, incremental changes in Azure AD are paused, and the sync time depends on the size of the tenant. 
 
 To check the backfilling status, click **Azure AD DS Health** and verify the **Synchronization with Azure AD** monitor has an updated timestamp within an hour since onboarding. Once updated, the backfill is complete. 
 
