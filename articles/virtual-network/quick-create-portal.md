@@ -32,8 +32,6 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. On the **Virtual networks** page, select **Create**.
 
-   :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
-
 1. On the **Basics** tab of the **Create virtual network** screen, enter or select the following information:
 
    - **Subscription**: Keep the default or select a different subscription.
@@ -41,19 +39,21 @@ A virtual network is the fundamental building block for private networks in Azur
    - **Virtual network name**: Enter *VNet1*.
    - **Region**: Keep the default or select a different region for the network and all its resources.
 
-1. Select **Next**.
+   :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
 
-   :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
+1. Select **Next**.
 
 1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**. Accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**, and then select **Next**.
 
-   :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the IP Addresses tab of the Create virtual network screen.":::
+   :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
 
 1. On the **IP Addresses** tab, select the **Add Azure Bastion subnet** link near the bottom of the page.
 
-   :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
+   :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the IP Addresses tab of the Create virtual network screen.":::
 
 1. Accept the defaults to add an IPv4 address space **10.1.0.0/16** that has a subnet named **default** with address range **10.1.0.0/24**, and another **AzureBastionSubnet** with address space **10.1.1.0/24**.
+
+   :::image type="content" source="./media/quick-create-portal/example-review-create.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
 
 1. Select **Review + create**, and after validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
 
@@ -64,8 +64,6 @@ Create two VMs in the virtual network by using the following steps. Name one VM 
 1. In the portal, search for and select **Virtual machines**.
 
 1. On the **Virtual machines** page, select **Create**, and select **Azure virtual machine**.
-
-   :::image type="content" source="./media/quick-create-portal/azure-virtual-machine-basic-settings.png" alt-text="Screenshot of creating basic settings for a VM.":::
 
 1. On the **Basics** tab of the **Create a virtual machine** screen, enter or select the following values:
 
@@ -78,6 +76,8 @@ Create two VMs in the virtual network by using the following steps. Name one VM 
    - **Username**, **Password**, and **Confirm password**: Enter an admin username and password for the VM.
    - **Public inbound ports**: Select **None**.
 
+   :::image type="content" source="./media/quick-create-portal/azure-virtual-machine-basic-settings.png" alt-text="Screenshot of creating basic settings for a VM.":::
+
 1. Select the **Networking** tab at the top of the page.
   
 1. On the **Networking** page, enter or select the following values:
@@ -86,7 +86,7 @@ Create two VMs in the virtual network by using the following steps. Name one VM 
    - **Subnet**: Select **default** if not already selected.
    - **Public IP**: Select **None**.
    
-1. Select the **Review + create**. Review the settings, and then select **Create**.
+1. Select **Review + create**. Review the settings, and then select **Create**.
 
 1. After the VM is created, select **Create another VM** to create a second VM named *VM2* with the same settings.
 
@@ -111,14 +111,10 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 ## Communicate between VMs
 
-1. On VM1, start PowerShell.
+1. From the desktop of VM1, open a command prompt and enter `ping myVM2`. You get a reply similar to the following message:
 
-1. Enter `ping myVM2`.
-
-   You get a response similar to the following message:
-
-   ```powershell
-   PS C:\Users\myVM1> ping myVM2
+   ```cmd
+   C:\windows\system32>ping VM2
    
    Pinging VM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data:
    Request timed out.
@@ -127,36 +123,38 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
    Request timed out.
    
    Ping statistics for 10.0.0.5:
-      Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
    ```
 
    The ping fails because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through Windows firewall.
 
 1. To allow ICMP to inbound through Windows firewall on this VM, enter the following command:
 
-   ```powershell
-   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
+   ```cmd
+   netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol=icmpv4:8,any dir=in action=allow
    ```
 
 1. Close the Azure Bastion connection.
 
 1. Connect to VM2 the same way you connected to VM1.
 
-1. In PowerShell on VM2, enter `ping VM1`.
+1. On VM2, from a command prompt, enter `ping VM1`.
 
    This time you get a success reply similar to the following message, because you allowed ICMP through the firewall on VM1.
 
-   ```powershell
-   Pinging VM1.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
-   Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
-   Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
-   Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
-   Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+   ```cmd
+   C:\windows\system32>ping VM1
    
-   Ping statistics for 10.1.0.4:
-      Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Pinging VM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
+   Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+
+   Ping statistics for 10.0.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
    Approximate round trip times in milli-seconds:
-      Minimum = 1ms, Maximum = 1ms, Average = 1ms
+       Minimum = 0ms, Maximum = 2ms, Average = 0ms
    ```
 
 1. Close the Azure Bastion connection.

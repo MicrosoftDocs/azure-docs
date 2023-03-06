@@ -14,9 +14,7 @@ ms.custom: devx-track-azurepowershell, mode-arm
 
 # Quickstart: Use Bicep templates to create a virtual network
 
-This quickstart shows you how to create a virtual network by using a Bicep template.
-
-A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
+This quickstart shows you how to create a virtual network with two subnets by using a Bicep template. A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
