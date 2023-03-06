@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: references_regions
 ---
 
-# Background removal (preview)
+# Background removal (version 4.0 preview)
 
 The Image Analysis service can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
 

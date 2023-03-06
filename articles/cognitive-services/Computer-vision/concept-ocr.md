@@ -14,7 +14,7 @@ ms.date: 02/20/2023
 ms.author: pafarley
 ---
 
-# OCR for images (preview)
+# OCR for images (version 4.0 preview)
 
 > [!NOTE]
 >

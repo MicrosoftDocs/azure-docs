@@ -42,7 +42,7 @@ For a more structured approach, follow a Training module for Image Analysis.
 
 [!INCLUDE [image analysis versions](./includes/image-analysis-versions.md)]
 
-## Image Analysis features
+## Analyze Image
 
 You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the Analyze Image API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 

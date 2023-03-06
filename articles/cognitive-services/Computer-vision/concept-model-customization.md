@@ -13,7 +13,7 @@ ms.date: 02/06/2023
 ms.author: pafarley
 ---
 
-# Model customization (preview)
+# Model customization (version 4.0 preview)
 
 Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
 
@@ -176,4 +176,4 @@ We do not recommend you use custom models for business critical environments due
 
 ## Next steps
 
-* [Create and train a custom model](./how-to/model-customization.md)
+[Create and train a custom model](./how-to/model-customization.md)

@@ -14,7 +14,7 @@ ms.date: 09/12/2022
 ms.author: pafarley
 ---
 
-# People detection (preview)
+# People detection (version 4.0 preview)
 
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
