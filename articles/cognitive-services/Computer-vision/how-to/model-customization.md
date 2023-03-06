@@ -90,6 +90,8 @@ The COCO file you just created is now stored in the Azure Storage container that
 >
 > If you have a ready-made COCO file you want to import, go to the **Datasets** tab and select `Add COCO files to this dataset`. You can choose to add a specific COCO file from a Blob storage account or import from the Azure Machine Learning labeling project. 
 >
+> Currently, Microsoft is addressing an issue which causes COCO file import to fail with large datasets when initiated in Vision Studio. To train using a large dataset, it's recommended to use the REST API instead.
+>
 > ![Choose COCO]( ../media/customization/import-coco.png)
 >
 > [!INCLUDE [coco-files](../includes/coco-files.md)]
