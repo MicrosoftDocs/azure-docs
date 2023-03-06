@@ -54,7 +54,6 @@ For more information, see [Device data retention periods](references-data-retent
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
 For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
-<!--placeholder. Sensor and CM? What exactly changed? Change heading to match. Shereen.-->
 
 ### Activation files expiration updates
 
@@ -63,8 +62,6 @@ Activation files on locally-managed OT sensors now remain activated for as long 
 You'll only need to update you activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
-
-<!--Shereen / approval needed mia.-->
 
 ### UI enhancements for managing the device inventory
 
