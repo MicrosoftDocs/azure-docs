@@ -28,7 +28,7 @@ After creating a new customer tenant, you can customize the end-user experience.
 
 ## How to customize the default sign-in experience
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding will appear in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. [CSS reference guide](#css-reference-guide)
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default branding appears in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. [CSS reference guide](#css-reference-guide)
 
 1. Make sure you're using the directory that contains your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 
@@ -78,9 +78,9 @@ The default sign-in experience is the global look and feel that applies across a
 
 1. On the **Footer** tab, you can customize the URLs and link text for the privacy and terms of use hyperlinks that appear in the footer of the sign-in page.  
 
-   - **Privacy & Cookies** – Select the checkbox next to Privacy & Cookies to display this hyperlink in the footer. The Microsoft default privacy link displays unless you enter your own hyperlink Display text and URL. 
+   - **Privacy & Cookies** – Select the checkbox next to Privacy & Cookies to display this hyperlink in the footer. The Microsoft default privacy link displays unless you enter your own hyperlink Display text and URL.
 
-   - **Terms of Use** – Select the checkbox next to Terms of Use to display this hyperlink in the footer. The Microsoft terms of use link  displays unless you enter your own hyperlink Display text and URL. 
+   - **Terms of Use** – Select the checkbox next to Terms of Use to display this hyperlink in the footer. The Microsoft terms of use link displays unless you enter your own hyperlink Display text and URL.
 
    <!--[Screenshot](media/12-company-branding-footer-tab.png)-->
 
@@ -127,7 +127,7 @@ The default sign-in experience is the global look and feel that applies across a
 
 ## How to add a customized browser language
 
-By adding a browser language and modifying some or all of the branding elements, you can create an experience that’s unique to users who sign in using that browser language. For any elements you don’t modify, your default elements will appear.
+By adding a browser language and modifying some or all of the branding elements, you can create an experience that’s unique to users who sign in using that browser language. For any elements you don’t modify, your default elements appear.
 
 1. Sign in to the Azure portal using a Global administrator account for the directory.
 
@@ -183,7 +183,7 @@ By adding a browser language and modifying some or all of the branding elements,
 
    <!--[Screenshot](media/16-company-branding-browser-language.png)-->
 
-1. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, and **Sign-in form** tabs. For detailed steps, refer to the section above. To customize the default sign-in experience.
+1. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, and **Sign-in form** tabs. For detailed steps, refer to the [How to customize the default sign-in experience](#how-to-customize-the-default-sign-in-experience).
 
 1. When you’re finished, select the **Next: Review** tab and review all of your language customizations. Then select **Add** if you would like to save your changes or **Previous** if you would like to continue customizing.
 

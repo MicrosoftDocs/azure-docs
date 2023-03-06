@@ -62,7 +62,7 @@ In this article, you run a script to complete the following steps:
 
 1. After script finishes running, go to the [Azure portal](https://portal.azure.com), the **Directories + subscriptions** filter :::image type="icon" source="./media/portal-directory-subscription-filter.png" border="false"::: in the top menu to view the **Directories + Subscriptions** page.
 
-1. Switch to the new tenant that was just created by the script.
+1. Switch to the new customer tenant.
 
 1. Copy the link from the PowerShell interface and paste it into your browser (you must switch to the correct tenant in the previous step for this step to work)
 
@@ -70,7 +70,7 @@ In this article, you run a script to complete the following steps:
 
 ## Test the sign-in flow
 
-Now that you've created a customer tenant, you can use the a sample JavaScript application to test the sign-in flow.
+Now that you've created a customer tenant, you can use a sample JavaScript application to test the sign-in flow.
 
 1. Clone or download the [JavaScript sample application](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/) to your local machine.
 
