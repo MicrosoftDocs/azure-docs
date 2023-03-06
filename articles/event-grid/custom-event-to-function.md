@@ -194,7 +194,7 @@ The second example uses PowerShell to perform similar steps.
 
     #Construct body using Hashtable
     $htbody = @{
-        id= $eventID
+        id= $eventID.ToString()
         eventType="recordInserted"
         subject="myapp/vehicles/motorcycles"
         eventTime= $eventDate   
