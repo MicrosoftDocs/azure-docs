@@ -95,7 +95,7 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
 1. Select the incident to open the incident details page, where you can find additional details. For example:
 
-    - Understand the incident's business impact and physical location using details like the an IoT device's site, zone, sensor name, and device importance.
+    - Understand the incident's business impact and physical location using details, like an IoT device's site, zone, sensor name, and device importance.
 
     - Learn about recommended remediation steps by selecting an alert in the incident timeline and viewing the **Remediation steps** area.
 

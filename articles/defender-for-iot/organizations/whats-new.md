@@ -95,7 +95,7 @@ For more information, see [Define and view OT sensor settings from the Azure por
 
 ### Alerts GA in the Azure portal
 
-The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](../device-builders/index.yml), detect changes or suspicious activity in network traffic that need your attention.
+The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](../device-builders/index.yml), detect changes or suspicious activity in network traffic that needs your attention.
 
 Specific alerts triggered by the Enterprise IoT sensor currently remain in public preview.
 
