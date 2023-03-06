@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use the Azure portal to create a virtual network'
 titleSuffix: Azure Virtual Network
-description: In this quickstart, learn how to use the Azure portal to create a virtual network and virtual machines.
+description: Learn how to use the Azure portal to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.author: allensu
 ms.date: 03/02/2023
@@ -11,11 +11,12 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
 tags: azure-resource-manager
 ms.custom: mode-ui
+#Customer intent: I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 
-# Quickstart: Create a virtual network by using the Azure portal
+# Quickstart: Use the Azure portal to create a virtual network
 
-This quickstart shows you how to create a virtual network by using the Azure portal. You then deploy two virtual machines (VMs), securely connect to the VMs from the internet, and communicate privately between the VMs.
+This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, securely connect to the VMs from the internet, and communicate privately between the VMs.
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
@@ -36,7 +37,7 @@ A virtual network is the fundamental building block for private networks in Azur
 1. On the **Basics** tab of the **Create virtual network** screen, enter or select the following information:
 
    - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *myResourceGroup*.
+   - **Resource group**: Select **Create new**, and then name the group *VNetTest*.
    - **Virtual network name**: Enter *VNet1*.
    - **Region**: Keep the default or select a different region for the network and all its resources.
 
@@ -54,11 +55,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Accept the defaults to add an IPv4 address space **10.1.0.0/16** that has a subnet named **default** with address range **10.1.0.0/24**, and another **AzureBastionSubnet** with address space **10.1.1.0/24**.
 
-1. Select **Review + create**, and after validation succeeds, select **Create**. It takes a few minutes to create the virtual network.
+1. Select **Review + create**, and after validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
 
-## Create virtual machines
+## Create VMs
 
-Create two VMs in the virtual network by doing the following steps. Name one VM *VM1* and the other VM *VM2*.
+Create two VMs in the virtual network by using the following steps. Name one VM *VM1* and the other VM *VM2*.
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -87,11 +88,12 @@ Create two VMs in the virtual network by doing the following steps. Name one VM 
    
 1. Select the **Review + create**. Review the settings, and then select **Create**.
 
-1. After the VM is created, you can select **Create another VM** to create the second VM with the same settings.
+1. After the VM is created, select **Create another VM** to create a second VM named *VM2* with the same settings.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+>[!NOTE]
+>VMs in a virtual network protected by Bastion don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in your Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
-## Connect to VM1
+## Connect to a VM
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -161,7 +163,7 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 ## Clean up resources
 
-When you're done using the virtual network and VMs, delete the resource group to delete all the resources it contains.
+When you're done using the virtual network and VMs, you can delete the resource group and all the resources it contains.
 
 1. In the Azure portal, search for and select **Resource groups**.
 
@@ -175,9 +177,8 @@ When you're done using the virtual network and VMs, delete the resource group to
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You connected to the VMs from the internet through Azure Bastion, and securely communicated between the two VMs.
+In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You connected to the VMs from the internet through Azure Bastion, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
-
-To learn more about types of VM network communications, see [Filter network traffic](tutorial-filter-network-traffic.md).
-
+Advance to the next article to learn more about configuring different types of VM network communications.
+> [!div class="nextstepaction"]
+> [Filter network traffic](tutorial-filter-network-traffic.md)

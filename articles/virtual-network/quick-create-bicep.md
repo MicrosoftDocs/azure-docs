@@ -1,19 +1,22 @@
 ---
-title: 'Quickstart: Create a virtual network - Bicep'
+title: 'Quickstart: Use Bicep to create a virtual network'
 titleSuffix: Azure Virtual Network
-description: Learn how to use Bicep to create an Azure virtual network.
+description: Learn how to use Bicep templates to create and connect through an Azure virtual network and virtual machines.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 03/06/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-arm
+#Customer intent: I want to use Bicep templates to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 
-# Quickstart: Create a virtual network - Bicep
+# Quickstart: Use Bicep templates to create a virtual network
 
-In this quickstart, you learn how to create a virtual network with two subnets using Bicep. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like VMs, to securely communicate with each other and with the internet.
+This quickstart shows you how to create a virtual network by using a Bicep template.
+
+A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -23,37 +26,37 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets)
+The Bicep file this quickstart uses is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets)
+
+The Bicep template defines the following Azure resources:
+
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/main.bicep" :::
 
-The following Azure resources have been defined in the Bicep file:
+## Deploy the Bicep template
 
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): Create an Azure virtual network.
-- [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets): Create a subnet.
+1. Save the Bicep file to your local computer as *main.bicep* .
+1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
-## Deploy the Bicep file
+   # [CLI](#tab/CLI)
 
-1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+   ```azurecli
+   az group create --name TestRG --location eastus
+   az deployment group create --resource-group TestRG --template-file main.bicep
+   ```
 
-    # [CLI](#tab/CLI)
+   # [PowerShell](#tab/PowerShell)
 
-    ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
-    ```
+   ```azurepowershell
+   New-AzResourceGroup -Name TestRG -Location eastus
+   New-AzResourceGroupDeployment -ResourceGroupName TestRG -TemplateFile ./main.bicep
+   ```
 
-    # [PowerShell](#tab/PowerShell)
+   ---
 
-    ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
-    ```
-
-    ---
-
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+   When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Review deployed resources
 
@@ -61,14 +64,14 @@ Use Azure CLI or Azure PowerShell to review the deployed resources.
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
-az resource list --resource-group exampleRG
+```azurecli
+az resource list --resource-group TestRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+```azurepowershell
+Get-AzResource -ResourceGroupName TestRG
 ```
 
 ---
@@ -80,17 +83,17 @@ You can use the Azure portal to explore the resources by browsing the settings b
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the virtual network, use Azure portal, Azure CLI, or Azure PowerShell to delete the resource group. This removes the virtual network and all the related resources.
+When you no longer need the resources that you created with the virtual network, you can use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all its resources.
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
 ```
 
