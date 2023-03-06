@@ -74,7 +74,7 @@
     items:
     - name: Customize content models overview
       href: customize-content-models-overview.md
-      displayName: Azure Video Indexer website, Azure Video Indexer API, specific use case, language models overview, person models overview, brands model overview, Animated characters, ms.author, Gate notice, Next steps, content models, conceptual articles, title, links, benefits, type, customization, guides, brands-model, person-model, characters-recognition, language-model
+      displayName: Azure Video Indexer website, Azure Video Indexer API, specific use case, language models overview, person models overview, brands model overview, Gate notice, content models, customization, brands-model, person-model, language-model
     - name: Customize brands model overview
       href: customize-brands-model-overview.md
       displayName: advanced Machine Learning algorithms, Azure Video Indexer brand detection, Azure Video Indexer account, custom Brands model feature, social media analysis, retail compete analysis, brand detection feature, box detection example, Bing brands database, Azure  description, ms.topic, visual text, other terms, wide variety, business scenarios, contextual advertising, Day 2" presentation, high precision, Next steps, unapproved brands, 90k brands, audio content, Microsoft Build, brand mentions, Windows logo, Brands overview, Microsoft Windows, title, article, juliako, speech, indexing, products, services, companies, contents, archive, discovery, customization, list, part, transcript, verbatim, construction, word, Apple, Fox, languages, topics, APIs, website
