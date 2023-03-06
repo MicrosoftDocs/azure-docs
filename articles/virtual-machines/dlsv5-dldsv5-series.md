@@ -39,7 +39,7 @@ Dlsv5-series virtual machines do not have any temporary storage thus lowering th
 | Standard_D2ls_v5 | 2  | 4   | Remote Storage Only | 4  | 3750/85 | 10000/1200 | 2  | 12500 |
 | Standard_D4ls_v5               | 4  | 8  | Remote Storage Only  | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
 | Standard_D8ls_v5               | 8  | 16  | Remote Storage Only  | 16 | 12800/290   | 20000/1200 | 4 | 12500 |
-| Standard_D16s_v5              | 16 | 32  | Remote Storage Only  | 32 | 25600/600 | 40000/1200 | 8 | 12500 |
+| Standard_D16ls_v5              | 16 | 32  | Remote Storage Only  | 32 | 25600/600 | 40000/1200 | 8 | 12500 |
 | Standard_D32ls_v5              | 32 | 64 | Remote Storage Only | 32 | 51200/865 | 80000/2000 | 8 | 16000 |
 | Standard_D48ls_v5              | 48 | 96 | Remote Storage Only | 32 | 76800/1315 | 80000/3000 | 8 | 24000 |
 | Standard_D64ls_v5              | 64 | 128 | Remote Storage Only | 32 | 80000/1735 | 80000/3000 | 8 | 30000 |
