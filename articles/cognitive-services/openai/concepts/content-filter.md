@@ -33,7 +33,7 @@ The table below outlines the various ways content filtering can appear:
 |------------------------|-------------------|
 | 200 |    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for each generation will be either stop or length. |
 
-**Example response:**
+**Example request payload:**
 
 ```json
 {
