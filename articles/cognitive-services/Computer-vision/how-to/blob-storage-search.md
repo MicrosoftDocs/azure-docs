@@ -3,12 +3,15 @@ title: Configure your blob storage for image retrieval and video search in Visio
 titleSuffix: Azure Cognitive Services
 description: To get started with the **Search photos with natural language** or with **Video summary and frame locator** in Vision Studio, you will need to select or create a new storage account.
 services: cognitive-services
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 03/06/2023
+ms.author: pafarley
+
 ---
 
 # Configure your blob storage for image retrieval and video search in Vision Studio
@@ -42,7 +45,7 @@ Create a CORS rule by setting the **Allowed Origins** field to `https://<your re
 
 In the Allowed Methods field, select the `GET` checkbox to allow an authenticated request from a different domain. In the **Max age** field, enter the value `9999`, and click `Save`. 
 
-[Learn more about CORS support for Azure Storage](https://learn.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+[Learn more about CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
 ![Show completed CORS](../media/storage-instructions/cors-rule.png)
 
