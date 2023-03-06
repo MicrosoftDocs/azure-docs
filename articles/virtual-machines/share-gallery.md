@@ -47,7 +47,7 @@ If you share gallery resources to someone outside of your Azure tenant, they wil
 > 
 > [RBAC - Shared within your organization](vm-generalized-image-version.md#rbac---shared-within-your-organization)
 > 
-> [RBAC - Shared from another tenant](vm-generalized-image-version.md##rbac---shared-from-another-tenant)
+> [RBAC - Shared from another tenant](vm-generalized-image-version.md#rbac---shared-from-another-tenant)
 > 
 
 ### [Portal](#tab/portal)
