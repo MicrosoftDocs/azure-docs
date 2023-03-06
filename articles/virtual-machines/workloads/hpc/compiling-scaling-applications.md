@@ -26,12 +26,12 @@ The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of
 
 The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
 
-- For smaller scale jobs (i.e. < 256K connections) use the option:
+- For smaller scale jobs (that is, < 256K connections) use the option:
    ```bash
    UCX_TLS=rc,sm
    ```
 
-- For larger scale jobs (i.e. > 256K connections) use the option:
+- For larger scale jobs (that is, > 256K connections) use the option:
    ```bash
    UCX_TLS=dc,sm
    ```
@@ -51,7 +51,7 @@ Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR In
 - For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX on HB and HBv2 VM sizes.
 - For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this approach.
-- For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
+- For larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Compiling applications
 <br>
@@ -71,7 +71,7 @@ Clang supports the  `-march=znver1` flag to enable best code generation and tuni
 
 ### FLANG
 
-The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and an additional number of FLANG-specific compiler options.
+The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and other number of FLANG-specific compiler options.
 
 ### DragonEgg
 
@@ -101,7 +101,7 @@ icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=lar
 ```
 
 ### GCC Compiler 
-For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, are not recommended. GCC 7.3, and newer, will deliver significantly higher performance on HPL, HPCG, and DGEMM tests.
+For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, are not recommended. GCC 7.3, and newer, delivers significantly higher performance on HPL, HPCG, and DGEMM tests.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
