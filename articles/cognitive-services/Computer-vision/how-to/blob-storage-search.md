@@ -44,13 +44,13 @@ In the Allowed Methods field, select the `GET` checkbox to allow an authenticate
 
 [Learn more about CORS support for Azure Storage](https://learn.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
-![Show completed CORS](../media/storage-instructions/temp.png)
+![Show completed CORS](../media/storage-instructions/cors-rule.png)
 
 This will allow Vision Studio to access images and videos in your blob storage container to extract insights on your data.
 
 ## Upload images and videos in Vision Studio
 
-In the **Try with your own video** or **Try with your own image** section in Vision Studio, select the storage account that you configured with the CORS rule. Select the container in which your images or videos are stored. If you don't have a container, you can create one and upload the images or videos from your local device. If you have updated the CORS rules on the storage account, refresh the **Video files on container** section.
+In the **Try with your own video** or **Try with your own image** section in Vision Studio, select the storage account that you configured with the CORS rule. Select the container in which your images or videos are stored. If you don't have a container, you can create one and upload the images or videos from your local device. If you have updated the CORS rules on the storage account, refresh the Blob container or Video files on container sections.
 
 ![Show upload in VS](../media/storage-instructions/video-selection.png)
 
