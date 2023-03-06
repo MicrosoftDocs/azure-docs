@@ -133,17 +133,12 @@ Results:
 ]
 ```
 
+## Next steps
+
 In this tutorial, you've done the following tasks:
 
 > [!div class="checklist"]
 > - Learned how to query using SQL
-
-## Next steps
-
-Want to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-
-- [Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s](../convert-vcore-to-request-unit.md) 
-- [Estimate RU/s using the Azure Cosmos DB capacity planner - API for NoSQL](estimate-ru-with-capacity-planner.md)
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
