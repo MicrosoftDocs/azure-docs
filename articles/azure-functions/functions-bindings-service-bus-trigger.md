@@ -333,7 +333,7 @@ C# script uses a *function.json* file for configuration instead of attributes. T
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `queue_output`:
+For Python v2 functions defined using a decorator, the following properties on the `service_bus_queue_trigger`:
 
 | Property    | Description |
 |-------------|-----------------------------|
