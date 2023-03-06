@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 03/06/2023
 
 ms.author: justinha
 author: justinha
@@ -98,9 +98,9 @@ Combined registration adheres to both multifactor authentication and SSPR polici
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 
-- *Multifactor Authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor Authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor Authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
 - *SSPR registration enforced:* Users are asked to register during sign-in. They register only SSPR methods.
 - *SSPR refresh enforced:* Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
@@ -108,10 +108,14 @@ When registration is enforced, users are shown the minimum number of methods nee
 
 Consider the following example scenario:
 
-- A user is enabled for SSPR. The SSPR policy requires two methods to reset and has enabled Authenticator app, email, and phone.
+- A user is enabled for SSPR. The SSPR policy requires two methods to reset and has enabled Microsoft Authenticator app, email, and phone.
 - When the user chooses to register, two methods are required:
-   - The user is shown Authenticator app and phone by default.
+   - The user is shown Microsoft Authenticator app and phone by default.
    - The user can choose to register email instead of Authenticator app or phone.
+
+When a user tries to set up Microsoft Authenticator can click **I want to setup a different method** to register other authentication methods. The list of available methods is determined by the Authentication methods policy for the tenant. 
+
+:::image type="content" border="true" source="media/concept-registration-mfa-sspr-combined/choose.png" alt-text="Screenshot of how to choose another method when you set up Microsoft Authenticator.":::
 
 The following flowchart describes which methods are shown to a user when interrupted to register during sign-in:
 
@@ -119,7 +123,7 @@ The following flowchart describes which methods are shown to a user when interru
 
 If you have both multifactor authentication and SSPR enabled, we recommend that you enforce multifactor authentication registration.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up to date, or they can make changes if they need to. Users must perform multi-factor authentication when accessing this page.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up to date, or they can make changes if they need to. Users must perform multifactor authentication to access this page.
 
 ### Manage mode
 
