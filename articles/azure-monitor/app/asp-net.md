@@ -379,5 +379,5 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 ## Next steps
 
-* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
+* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](availability-overview.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.

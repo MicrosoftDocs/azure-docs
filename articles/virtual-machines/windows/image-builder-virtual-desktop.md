@@ -190,7 +190,7 @@ Multi-session images are intended for pooled usage. Here's an example of the ima
 ```json
 "publisher": "MicrosoftWindowsDesktop",
 "offer": "Windows-10",
-"sku": "20h2-evd",
+"sku": "20h2-avd",
 "version": "latest"
 ```
 

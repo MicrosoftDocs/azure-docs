@@ -190,6 +190,7 @@
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
+        "alexbuckgit",
         "atookey",
         "chbain",
         "Court72",
@@ -963,7 +964,8 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
+        "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
@@ -1205,6 +1207,9 @@
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
+      },
+      "ms.custom": {
+        "articles/machine-learning/v1/*.md": "UpdateFrequency5"
       }
     },
     "template": [

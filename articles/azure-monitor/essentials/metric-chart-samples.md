@@ -45,6 +45,16 @@ Your storage account resource is experiencing an excess volume of failed transac
 
 In the metric picker, select your storage account and the **Transactions** metric. Switch chart type to **Bar chart**. Click **Apply splitting** and select dimension **API name**. Then click on the **Add filter** and pick the **API name** dimension once again. In the filter dialog, select the APIs that you want to plot on the chart.
 
+## Total requests of Cosmos DB by Database Names and Collection Names
+
+You want to identify which collection in which database of your Cosmos DB instance is having maximum requests to adjust your costs for Cosmos DB.
+
+![Segmented line chart of Total Requests](./media/metrics-charts/multiple-split-example.png)
+
+### How to configure this chart?
+
+In the metric picker, select your Cosmos DB resource and the **Total Requests** metric. Click **Apply splitting** and select dimensions **DatabaseName** and **CollectionName**.
+
 ## Next steps
 
 * Learn about Azure Monitor [Workbooks](../visualize/workbooks-overview.md)
