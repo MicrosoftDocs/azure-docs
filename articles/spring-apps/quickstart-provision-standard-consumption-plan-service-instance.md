@@ -154,7 +154,7 @@ Create your Azure Spring Apps instance by specifying the resource id of the Mana
         --resource-group $RESOURCE_GROUP \
         --name $SPRING_APPS_NAME \
         --managed-environment $MANAGED_ENV_RESOURCE_ID \
-        --sku standardGen2 \
+        --sku StandardGen2 \
         --location $LOCATION
 ```
 
