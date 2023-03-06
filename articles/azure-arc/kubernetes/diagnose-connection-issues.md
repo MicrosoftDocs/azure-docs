@@ -53,7 +53,7 @@ Be sure that the Microsoft.Kubernetes, Microsoft.KubernetesConfiguration, and Mi
 
 ### Are all network requirements met?
 
-Review the [network requirements](meet-network-requirements.md) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Are all pods in the `azure-arc` namespace running?
 
