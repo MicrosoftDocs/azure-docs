@@ -1,6 +1,6 @@
 ---
-title: Azure services
-description: Learn about Region types and service categories in Azure.
+title: Available Azure services by region types and categories 
+description: Learn about region types and service categories in Azure.
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
