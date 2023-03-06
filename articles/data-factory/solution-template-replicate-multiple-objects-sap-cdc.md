@@ -25,12 +25,12 @@ The template contains three activities:
 - **Mapping dataflow** replicates each SAP ODP object from SAP system to Azure Data Lake Gen2 in Delta format. It will do initial full load in the first run and then do incremental load in the subsequent runs automatically. It will merge the changes to Azure Data Lake Gen2 in Delta format.
 
 An external control file in json format is required in this template. The schema for the control file is as below.
-- *checkPointKey* is a custom key to manage the checkpoint of your changed data capture in ADF. You can get more details [here](concepts-change-data-capture.md#checkpoint).
+- *checkPointKey* is your custom key to manage the checkpoint of your changed data capture in ADF. You can get more details [here](concepts-change-data-capture.md#checkpoint).
 - *sapContext* is your SAP ODP context from the source SAP system. You can get more details [here](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset).
 - *sapObjectName* is your SAP ODP object name to be loaded from the SAP system. You can get more details [here](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset).
 - *sapRunMode* is to determine how you want to load SAP object. It can be fullLoad, incrementalLoad or fullAndIncrementalLoad.
 - *sapKeyColumns* are your key column names from SAP ODP objects used to do the dedupe in mapping dataflow.
-- *sapPartitions* are list of partition condition leading to separate extraction processes in the connected SAP system.
+- *sapPartitions* are list of partition conditions leading to separate extraction processes in the connected SAP system.
 - *deltaContainer* is your container name in the Azure Data Lake Gen2 as the destination store.
 - *deltaFolder* is your folder name in the Azure Data Lake Gen2 as the destination store. 
 - *deltaKeyColumns* are your columns used to determine if a row from the source matches a row from the sink when you want to update or delete a row.
@@ -87,7 +87,7 @@ A sample control file is as below:
 
 ## How to use this solution template
 
-1. Create and upload a control file into json format to your Azure Data Lake Gen2 as the destination store. The default container to store the control file is **delta** and default control file name is **SapToDeltaParameters.json**.
+1. Create and upload a control file into json format to your Azure Data Lake Gen2 as the destination store. The default container to store the control file is **demo** and default control file name is **SapToDeltaParameters.json**.
 
 	
 2. Go to the **Replicate multiple tables from SAP ODP to Azure Data Lake Storage Gen2 in Delta format** template and **click** it. 
