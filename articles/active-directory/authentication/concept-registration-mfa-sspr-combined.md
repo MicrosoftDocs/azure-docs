@@ -113,7 +113,7 @@ Consider the following example scenario:
    - The user is shown Microsoft Authenticator app and phone by default.
    - The user can choose to register email instead of Authenticator app or phone.
 
-When a user tries to set up Microsoft Authenticator can click **I want to setup a different method** to register other authentication methods. The list of available methods is determined by the Authentication methods policy for the tenant. 
+When they set up Microsoft Authenticator, the user can click **I want to setup a different method** to register other authentication methods. The list of available methods is determined by the Authentication methods policy for the tenant. 
 
 :::image type="content" border="true" source="media/concept-registration-mfa-sspr-combined/choose.png" alt-text="Screenshot of how to choose another method when you set up Microsoft Authenticator.":::
 
