@@ -35,7 +35,7 @@ The preview is available on [npm][3.0.0-preview.4] and CDN.
 
 - Extended map coverage in China, Japan, and Korea.
 
-- A sneak peek of the updated map designs.
+- Preview of refreshed map styles.
 
 - More details on roads/building footprints/trails coverage.
 
@@ -43,7 +43,7 @@ The preview is available on [npm][3.0.0-preview.4] and CDN.
 
 #### Changes (3.0.0-preview.4)
 
-- Deprecated `absolute` and `relative-delay` flow types in [TrafficControlOptions]. Use `relative` instead.
+- Traffic data now only support relative mode.
 
 - Deprecated `showBuildingModels` in [StyleOptions].
 
