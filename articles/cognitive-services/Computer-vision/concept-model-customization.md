@@ -65,16 +65,20 @@ The following table describes the limits on the scale of your custom model proje
 
 |    Category   | Generic image classifier                      | Generic object detector                      |
 | ------------------------- | ------------------------------- | ------------------------------- |
-| Max # training hours      | 288 (12 days)                   | 288 (12 days)                   |
-| Max # images              | 1,000,000                       | 200,000                         |
-| Min # images per category | 2                               | 2                               |
-| Max # tags per image      | multilabel: 100, multiclass: 1  | N/A                              |
-| Max # regions per image   | N/A                              | 1,000                           |
-| Max # categories          | 2,000                           | 1,000                           |
-| Max image size            | 20MB                            | 20MB                            |
-| Max image width or height    | 10,240                          | 10,240                          |
-| Available regions         | West US 2, East US, West Europe | West US 2, East US, West Europe |
-| Accepted image types               | jpg, png, bmp, gif, jpeg        | jpg, png, bmp, gif, jpeg        |
+| Max # training hours                | 288 (12 days)                   | 288 (12 days)                   |
+| Max # training images               | 1,000,000                       | 200,000                         |
+| Max # evaluation images             | 1,00,000                        | 100,000                         |
+| Min # training images per category  | 2                               | 2                               |
+| Max # tags per image                | multiclass: 1                   | NA                              |
+| Max # regions per image             | NA                              | 1,000                           |
+| Max # categories                    | 2,000                           | 1,000                           |
+| Min # categories                    | 2                               | 1                               |
+| Max image size (Training)           | 20MB                            | 20MB                            |
+| Max image size (Prediction)         | Sync: 6MB, Batch: 20MB          | Sync: 6MB, Batch: 20MB          |
+| Max image width/height (Training)   | 10,240                          | 10,240                          |
+| Min image width/height (Prediction) | 50                              | 50                              |
+| Available regions                   | West US 2, East US, West Europe | West US 2, East US, West Europe |
+| Accepted image types                | jpg, png, bmp, gif, jpeg        | jpg, png, bmp, gif, jpeg        |
 
 ## Frequently asked questions
 
