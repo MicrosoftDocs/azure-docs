@@ -19,7 +19,10 @@ ms.subservice: B2C
 
 Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
-See, [What is Microsoft Sentinel?](../sentinel/overview.md)
+Lear more: 
+
+* [What is Microsoft Sentinel?](../sentinel/overview.md)
+* [What is SOAR?](https://www.microsoft.com/security/business/security-101/what-is-soar)
 
 More uses for Microsoft Sentinel, with Azure AD B2C, are:
 
@@ -31,11 +34,10 @@ More uses for Microsoft Sentinel, with Azure AD B2C, are:
 
 In this tutorial, learn how to:
 
-> [!div class="checklist"]
-> * Transfer Azure AD B2C logs to a Log Analytics workspace
-> * Enable Microsoft Sentinel in a Log Analytics workspace
-> * Create a sample rule in Microsoft Sentinel to trigger an incident
-> * Configure an automated response
+* Transfer Azure AD B2C logs to a Log Analytics workspace
+* Enable Microsoft Sentinel in a Log Analytics workspace
+* Create a sample rule in Microsoft Sentinel to trigger an incident
+* Configure an automated response
 
 ## Configure Azure AD B2C with Azure Monitor Log Analytics
 
