@@ -30,6 +30,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy](partner-grit-app-proxy.md)
 - [Configure Grit's biometric authentication with Azure Active Directory B2C](partner-grit-authentication.md)
+- [Create and run your own custom policies in Azure Active Directory B2C](custom-policies-series-overview.md)
 - [Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md)
 - [Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md)
 - [Validate user inputs by using Azure Active Directory B2C custom policy](custom-policies-series-validate-user-input.md)
