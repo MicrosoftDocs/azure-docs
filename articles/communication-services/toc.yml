@@ -16,15 +16,9 @@ items:
   - name: Identity and access
     items:
       - name: Create and manage access tokens
-        href: quickstarts/access-tokens.md
+        href: quickstarts/identity/access-tokens.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Authenticate with Azure AD (Azure CLI)
-        href: quickstarts/identity/service-principal-from-cli.md
-      - name: Quick-create identities for testing
-        href: quickstarts/identity/quick-create-identity.md
-      - name: Create identities and tokens in Azure Logic Apps
-        href: quickstarts/identity/logic-app.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -50,7 +44,9 @@ items:
       - name: Handle Email events
         href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md            
+        href: quickstarts/email/logic-app.md
+      - name: Enable User Engagement Tracking
+        href: quickstarts/email/enable-user-engagement-tracking.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -65,8 +61,8 @@ items:
     items:
       - name: Send an SMS message
         href: quickstarts/sms/send.md
-      - name: Handle SMS events
-        href: quickstarts/sms/handle-sms-events.md
+      - name: Receive and reply to SMS
+        href: quickstarts/sms/receive-sms.md
       - name: Send an SMS in Azure Logic Apps
         href: quickstarts/sms/logic-app.md
       - name: Apply for a Short Code
@@ -116,7 +112,7 @@ items:
       - name: Communication as external user
         items:
         - name: Manage access tokens for external users
-          href: quickstarts/identity/access-token-teams-external-users.md 
+          href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting video to your client app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
         - name: Add Teams meeting chat to your client app
@@ -243,6 +239,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Video constraints
+        href: concepts/voice-video-calling/video-constraints.md
       - name: Customizing the video background
         href: concepts/voice-video-calling/video-effects.md
       - name: Pre-Call diagnostics
@@ -449,10 +447,18 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with Recognize action 
       href: how-tos/call-automation/recognize-action.md
+    - name: Record every call in the resource
+      href: how-tos/call-automation/record-every-call.md
   - name: Using the Chat SDK
     items: 
     - name: Integrate with Data Loss Prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
+  - name: Using Azure Event Grid
+    items:
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Local testing events
+      href: how-tos/event-grid/local-testing-event-grid.md
 - name: Samples
   items:
   - name: Overview

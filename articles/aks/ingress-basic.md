@@ -3,7 +3,6 @@ title: Create an ingress controller in Azure Kubernetes Service (AKS)
 description: Learn how to create and configure an ingress controller in an Azure Kubernetes Service (AKS) cluster.
 author: asudbring
 ms.author: allensu
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 02/23/2023

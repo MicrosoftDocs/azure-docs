@@ -3,7 +3,6 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Az
 description: Use Azure CLI to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: raorugan
 ms.author: raorugan
-ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 10/10/2022
 ms.custom: template-how-to 

@@ -17,7 +17,7 @@ ms.custom: azure-synapse, mode-ui
 In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign `HIGH` [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 
 ## Sign in to the Azure portal

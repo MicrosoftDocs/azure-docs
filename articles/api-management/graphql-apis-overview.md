@@ -90,6 +90,8 @@ For example, a resolver for the preceding `users` query might map to a `GET` ope
 </http-data-source>
 ```
 
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
+
 ## Manage GraphQL APIs
 
 * Secure GraphQL APIs by applying both existing access control policies and a [GraphQL validation policy](validate-graphql-request-policy.md) to secure and protect against GraphQL-specific attacks.
