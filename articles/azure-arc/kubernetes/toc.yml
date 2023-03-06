@@ -31,8 +31,6 @@
   items:
   - name: Agent overview
     href: conceptual-agent-overview.md
-  - name: Connection requirements
-    href: system-requirements.md
   - name: Network requirements
     href: network-requirements.md
   - name: Connectivity modes

@@ -19,5 +19,5 @@ For a complete list of network requirements for Azure Arc features and Azure Arc
 
 ## Next steps
 
-* Review additional [prerequisites for connecting clusters to Azure Arc](system-requirements.md).
-* Use our [quickstart](quickstart-connect-cluster.md) to connect your cluster.
+- Use our [quickstart](quickstart-connect-cluster.md) to connect your cluster.
+- Review [frequently asked questions](faq.md) about Arc-enabled Kubernetes.
