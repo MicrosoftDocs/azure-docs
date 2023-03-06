@@ -9,7 +9,7 @@ ms.custom: ----, ----, ----
 
 author: ziqiwang
 ms.author: ziqiwang
-ms.date: 02/28/2023
+ms.date: 03/06/2023
 ms.reviewer: franksolomon
 ---
 
@@ -24,7 +24,9 @@ Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk
 To make Nebula available for your training jobs, import the `torch_nebula` python package in your script. Nebula has full compatibility with different distributed PyTorch training strategies, including PyTorch Lightning, DeepSpeed, and more. The Nebula API offers a simple way to monitor and view checkpoint lifecycles. The APIs support various model types, and ensure checkpoint consistency and reliability.  
 
 > [!IMPORTANT] 
-> The `torch-nebula` package is not available in the public PyPI python package index. This package is only available in the Azure Machine Learning ACPT. To avoid problems, please don't try to install `torch-nebula` from PyPI, or the `pip` command.
+> The `torch-nebula` package is not available in the public PyPI python package index. This package is only available in the Azure Container for PyTorch (ACPT) curated environment on Azure Machine Learning. To avoid problems, please don't try to install `torch-nebula` from PyPI, or the `pip` command.
+
+To maintain stability and to avoid confusion, the next ACPT version release will rename this package to `nebula-ml`.
 
 In this document, you'll learn how to use Nebula with ACPT on Azure Machine Learning, to quickly checkpoint your model training jobs. Additionally, you'll learn how to view and manage Nebula checkpoint data. You'll also learn how to resume the model training jobs from the last available checkpoint if Azure Machine Learning suffers interruption, failure, or termination.
 
@@ -43,13 +45,13 @@ When large model training operations experience failures and terminations, data 
 
 :::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time cost to restore a training process from checkpoints.":::
 
-However, the checkpoint save process itself generates large overheads. A TB-sized checkpoint save can often become a training process bottleneck. The synchronized checkpoint process blocks the training process for hours. Checkpoint-related overheads can take up 12% of total training time, on average, and can rise to 43% [(Maeng et al., 2021)](https://cs.stanford.edu/people/trippel/pubs/cpr-mlsys-21.pdf).
+However, the checkpoint saves process itself generates large overheads. A TB-sized checkpoint save can often become a training process bottleneck. The synchronized checkpoint process blocks the training process for hours. Checkpoint-related overheads can take up 12% of total training time, on average, and can rise to 43% [(Maeng et al., 2021)](https://cs.stanford.edu/people/trippel/pubs/cpr-mlsys-21.pdf).
 
 To summarize, large model checkpoint management involves heavy storage, and job recovery time overheads. Frequent checkpoint saves, combined with training job resumptions from the latest available checkpoints, become a great challenge.
 
 ## Nebula to the Rescue
 
-To train large, distributed models, a reliable and efficient way to save and resume training progress, that avoids data loss and resource waste, becomes helpful. Nebula reduces checkpoint save times and training GPU hour demands. For large model Azure Machine Learning training jobs, Nebula offers faster and easier checkpoint management and saves. In turn, it helps shrink large-scale model training time demands.
+To train large, distributed models, a reliable and efficient way to save and resume training progress, that avoids data loss and waste of resources, becomes helpful. Nebula reduces checkpoint save times and training GPU hour demands. For large model Azure Machine Learning training jobs, Nebula offers faster and easier checkpoint management and saves. In turn, it helps shrink large-scale model training time demands.
 
 Nebula can
 
@@ -57,7 +59,7 @@ Nebula can
 
   :::image type="content" source="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" lightbox="media/reference-checkpoint-performance-with-Nebula/nebula-checkpoint-time-savings.png" alt-text="Screenshot that shows the time savings benefit of Nebula.":::
 
-  This example shows the reduction of checkpoint and end-to-end training time needed for four checkpoint saves of Huggingface GPT2, GPT2-Large, and GPT-XL training jobs. For the medium-sized Huggingface GPT2-XL checkpoint saves (20.6 GB), Nebula achieved a 96.9% time reduction for one checkpoint.
+  This example shows the checkpoint and end-to-end training time reduction for four checkpoint saves of Huggingface GPT2, GPT2-Large, and GPT-XL training jobs. For the medium-sized Huggingface GPT2-XL checkpoint saves (20.6 GB), Nebula achieved a 96.9% time reduction for one checkpoint.
   
   The checkpoint speed gain can still increase with model size and GPU numbers. For example, testing a training point checkpoint save of 97 GB on 128 A100 Nvidia GPUs can shrink from 20 minutes to 1 second.
 
@@ -97,7 +99,7 @@ Nebula use involves:
 - [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](resource-curated-environments#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
@@ -117,7 +119,7 @@ We plan to integrate Nebula into some trainers, to make initialization simple an
 Nebula provides APIs to handle checkpoint saves. You can use these APIs in your training scripts, similar to the PyTorch `torch.save()` API. These [examples](#examples) show how to use Nebula in your training scripts.
 
 ### View your checkpointing histories
-When your training job finishes, navigate to the Job `Name> Outputs + logs` pane. In the left panel, expand the **Nebula** folder, and select checkpointHistories.csv. This shows detailed information about Nebula checkpoint saves - duration, throughput, and checkpoint size.
+When your training job finishes, navigate to the Job `Name> Outputs + logs` pane. In the left panel, expand the **Nebula** folder, and select `checkpointHistories.csv` to see detailed information about Nebula checkpoint saves - duration, throughput, and checkpoint size.
 
 :::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-save-metadata.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-save-metadata.png" alt-text="Screenshot that shows metadata about the checkpoint saves.":::
 
