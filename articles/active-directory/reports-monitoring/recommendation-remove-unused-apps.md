@@ -37,8 +37,7 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Determine if the identified application is needed.
     - If the application is no longer needed, remove it from your tenant.
-    - If the application is needed, we suggest you take appropriate steps to ensure the application isn't used in intervals of more than 30 days.
-    - We recommend updating the frequency of access such that the application’s last used time is within 30 days from its last access date.
+    - If the application is needed, we suggest you take appropriate steps to ensure the application is used in intervals of less than 30 days.
 
 ## Known limitations
 

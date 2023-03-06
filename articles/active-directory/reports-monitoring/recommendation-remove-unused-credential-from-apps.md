@@ -49,11 +49,12 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 ### Use Microsoft Graph to remove an unused credential
 
-To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+You can use Microsoft Graph to remove an unused credential programmatically. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
 
 - Remove a **credential** from a service principal resource:
     - Use the Microsoft Graph Service Principal API service action `removePassword`
     - [servicePrincipal: removePassword MS Graph API documentation](/graph/api/serviceprincipal-removepassword?view=graph-rest-beta&preserve-view=true)
+
 - Remove a **key credential** from a service principal resource:
     - Use the Microsoft Graph Service Principal API service action `removeKey`
     - [servicePrincipal: removeKey MS Graph API documentation](/graph/api/serviceprincipal-removekey?view=graph-rest-beta&preserve-view=true)

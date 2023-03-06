@@ -49,12 +49,15 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 ### Use Microsoft Graph to renew expiring service principal credentials
 
-To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+You can use Microsoft Graph to renew expiring service credentials programmatically. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
 
 When renewing service principal credentials using Microsoft Graph, you need to run a query to get the password credentials on a service principal, add a new password credential, then remove the old credentials. 
 
 1. Run the following query in Microsoft Graph to get the password credentials on a service principal:
-    - https://graph.microsoft.com/v1.0/servicePrincipals/{id}?$select=passwordCredentials
+
+    ```http
+    https://graph.microsoft.com/v1.0/servicePrincipals/{id}?$select=passwordCredentials
+    ```
     - Replace {id} with the service principal ID.
 
 1. Add a new password credential.
