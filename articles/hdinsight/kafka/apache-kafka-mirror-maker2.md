@@ -91,7 +91,9 @@ This architecture features two clusters in different resource groups and virtual
 1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
 1. Connect to `PRIMARYCLUSTER`
-   'ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net'
+   ```
+   ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
+   ```
 
 1. Execute the following command and get the entries of worker nodes IPs and FQDNs  `cat /etc/hosts` 
    
@@ -101,10 +103,11 @@ This architecture features two clusters in different resource groups and virtual
    ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
     
-1. Save and close the file. 
+1. After above changes the `/etc/hosts` file for `SECONDARYCLUSTER` will look like the given image.
 
    :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true":::
-
+   
+1. Save and close the file.   
 
 ### Create Multiple Topics in PRIMARYCLUSTER
 1. Use this command to create topics and replace variables. 
@@ -150,8 +153,21 @@ This architecture features two clusters in different resource groups and virtual
    config.storage.replication.factor=1
    ```
 1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics that you want to replicate along with configs with regex. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
-1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
+1. You can control the topics that you want to replicate along with configurations using regular expressions. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
+1. Increase the replication factor from 1 to 3 for these topics 
+   ```
+   checkpoints.topic.replication.factor=1
+   heartbeats.topic.replication.factor=1
+   offset-syncs.topic.replication.factor=1
+ 
+   offset.storage.replication.factor=1
+   status.storage.replication.factor=1
+   config.storage.replication.factor=1
+   ```
+   > [!NOTE]
+   > The reason being default insync replica for all the topics at the broker level is 2. Keeping replication factor=1, will throw exception while running mirrormaker2
+   
+1. You need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
 1. If you want to mirror topics on both sides like `Primary to Secondary` and `Secondary to Primary` (active-active) then you can add extra configs
    ```
    destination->source.enabled=true
