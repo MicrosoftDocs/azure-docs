@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 03/06/2023
 ms.author: gasinh
 ms.subservice: B2C
 #Customer intent: As an IT professional, I want to gather logs and audit data using Microsoft Sentinel and Azure Monitor to secure applications that use Azure Active Directory B2C.
@@ -50,8 +50,8 @@ Learn more, [Monitor Azure AD B2C with Azure Monitor](./azure-monitor.md).
 
 After you configure your Azure AD B2C instance to send logs to Azure Monitor, enable an instance of Microsoft Sentinel.
 
->[!IMPORTANT]
->To enable Microsoft Sentinel, obtain Contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, use Contributor or Reader permissions on the resource group to which the workspace belongs.
+   >[!IMPORTANT]
+   >To enable Microsoft Sentinel, obtain Contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, use Contributor or Reader permissions on the resource group to which the workspace belongs.
 
 1. Go to the [Azure portal](https://portal.azure.com). 
 2. Select the subscription where the Log Analytics workspace is created.
@@ -66,8 +66,8 @@ After you configure your Azure AD B2C instance to send logs to Azure Monitor, en
 
 5. Select **Add Microsoft Sentinel**.
 
->[!NOTE]
->It's possible to run Microsoft Sentinel on more than one workspace, however data is isolated in a single workspace.</br> See, [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
+   >[!NOTE]
+   >It's possible to run Microsoft Sentinel on more than one workspace, however data is isolated in a single workspace.</br> See, [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
 
 ## Create a Microsoft Sentinel rule
 
@@ -77,8 +77,8 @@ You can create custom analytics rules to discover threats and anomalous behavior
 
 See, [Create custom analytics rules to detect threats](../sentinel/detect-threats-custom.md)
 
->[!NOTE]
->Microsoft Sentinel has templates to create threat detection rules that search your data for suspicious activity. There are no native Azure AD B2C connectors at this time. For this tutorial, you create a rule.
+   >[!NOTE]
+   >Microsoft Sentinel has templates to create threat detection rules that search your data for suspicious activity. For this tutorial, you create a rule.
 
 ### Notification rule for unsuccessful forced access
 
@@ -118,48 +118,65 @@ Use the following steps to receive notification about two or more unsuccessful, 
 
     ![Screenshot of selected settings, the Validation passed banner, and the Create option.](./media/azure-sentinel/review-create.png)
 
-8. View the rule and the incidents that it generates. Find your newly created custom rule of type **Scheduled** in the table under the **Active rules** tab on the main **Analytics** screen. From this list, you can edit, enable, disable, or delete rules by using the corresponding buttons.
+#### View a rule and related incidents
 
-    ![Screenshot that shows active rules with options to edit, enable, disable or delete.](./media/azure-sentinel/rule-crud.png)
+View the rule and the incidents it generates. Find your newly created custom rule of type **Scheduled** in the table under the **Active rules** tab on the main 
 
-9. View the results of your new rule for Azure AD B2C unsuccessful logins. Go to the **Incidents** page, where you can triage, investigate, and remediate the threats. 
+1. Go to the **Analytics** screen.
+2. Select the **Active rules** tab.
+3. In the table, under **Scheduled**, find the rule.  
 
-    An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
+You can edit, enable, disable, or delete the rule.
 
-    > [!NOTE]
-    > A key feature of Microsoft Sentinel is [incident investigation](../sentinel/investigate-cases.md).
+    ![Screenshot of active rules with Enable, Disable, Delete, and Edit options.](./media/azure-sentinel/rule-crud.png)
+
+#### Triage, investigate, and remediate incidents
+
+An incident can include multiple alerts, and is an aggregation of relevant evidence for an investigation. At the incident level, you can set properties such as Severity and Status.
+
+Learn more: [Investigate incidents with Microsoft Sentinel](../sentinel/investigate-cases.md).
     
-10. To begin an investigation, select a specific incident. 
-
-    On the right, you can see detailed information for the incident. This information includes severity, entities involved, the raw events that triggered the incident, and the incident's unique ID.
+1. Go to the **Incidents** page.
+2. Select an incident. 
+3. On the right, detailed incident information appears, including severity, entities, events, and the incident ID.
 
     ![Screenshot that shows incident information.](./media/azure-sentinel/select-incident.png)
 
-11. Select **View full details** on the incident pane. Review the tabs that summarize the incident information and provide more details.
+4. On the **Incidents** pane, elect **View full details**. 
+5. Review tabs that summarize the incident.
 
-    ![Screenshot that shows tabs for incident information.](./media/azure-sentinel/full-details.png)
+    ![Screenshot of a list of incidents.](./media/azure-sentinel/full-details.png)
 
-12. Select **Evidence** > **Events** > **Link to Log Analytics**. The result displays the `UserPrincipalName` value of the identity that's trying to log in with the number of attempts.
+6. Select **Evidence** > **Events** > **Link to Log Analytics**. 
+7. In the results, see the identity `UserPrincipalName` value attempting sign-in.
 
-    ![Screenshot that shows full details of a selected incident.](./media/azure-sentinel/logs.png)
+    ![Screenshot of incident details.](./media/azure-sentinel/logs.png)
 
 ## Automated response
 
-Microsoft Sentinel provides a [robust SOAR capability](../sentinel/automation-in-azure-sentinel.md). Automated actions, called a *playbook* in Microsoft Sentinel, can be attached to analytics rules to suit your requirements.
+Microsoft Sentinel has security orchestration, automation, and response (SOAR) functions. Attach automated actions, or a playbook, to analytics rules.
 
-In this example, we add an email notification for an incident that the rule creates. To accomplish this task, use an [existing playbook from the Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification). After the playbook is configured, edit the existing rule and select the playbook on the **Automated response** tab.
+See, [Microsoft Sentinel automated responses](../architecture/solution-ideas/articles/microsoft-sentinel-automated-response.md)
 
-![Screenshot that shows the image configuration screen for the automated response associated with a rule.](./media/azure-sentinel/automation-tab.png)
+### Email notification for an incident
 
-## Related information
+For this task, use a playbook from the Microsoft Sentinel GitHub repository. 
+
+1. Go to a configured playbook.
+2. Edit the rule.
+3. On the **Automated response** tab select the playbook.
+
+Learn more: [Incident-Email-Notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+
+   ![Screenshot of automated response options for a rule.](./media/azure-sentinel/automation-tab.png)
+
+## Resources
 
 For more information about Microsoft Sentinel and Azure AD B2C, see:
 
-- [Sample workbooks](https://github.com/azure-ad-b2c/siem#workbooks)
+* [Azure AD B2C Reports & Alerts, Workbooks](https://github.com/azure-ad-b2c/siem#workbooks)
+* [Microsoft Sentinel documentation](../sentinel/index.yml)
 
-- [Microsoft Sentinel documentation](../sentinel/index.yml)
+## Next step
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Handle false positives in Microsoft Sentinel](../sentinel/false-positives.md)
+[Handle false positives in Microsoft Sentinel](../sentinel/false-positives.md)
