@@ -9,7 +9,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/24/2023
 ms.custom: references_regions
-#Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects to my users.
+#Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
 # Quickstart: Configure Microsoft Dev Box Preview
@@ -52,7 +52,7 @@ Use the following steps to create a dev center so that you can manage your dev b
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discover-dev-centers.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers.":::
 
-1. On the **Dev centers** page, select **+Create**.
+1. On the **Dev centers** page, select **Create**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers.":::
 
@@ -157,7 +157,7 @@ You now need a network connection to associate the virtual network and subnet wi
    |----|----|
    |**Domain join type**|Select **Hybrid Azure active directory join**.|
    |**Subscription**|Select the subscription in which you want to create the network connection.|
-   |**Resource group**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
+   |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for your network connection.|
    |**Virtual network**|Select the virtual network that you want the network connection to use.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
@@ -220,13 +220,13 @@ Dev box definitions define the image and SKU (compute + storage) that will be us
 
 ## Create a project
 
-Dev box projects enable you to manage team-level settings, including providing access to development teams so developers can create dev boxes.
+Dev box projects enable you to manage team-level settings. These settings include providing access to development teams so that developers can create dev boxes.
 
 To create and configure a project in a dev box:
 
 1. In the search box, enter **projects**. In the search results, select **Projects**.
 
-1. On the **Projects** page,  select **+Create**.
+1. On the **Projects** page, select **Create**.
 
 1. On the **Create a project** page, on the **Basics** tab, enter the following values:
 
@@ -235,7 +235,7 @@ To create and configure a project in a dev box:
    |**Subscription**|Select the subscription in which you want to create the project.|
    |**Resource group**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Dev center**|Select the dev center that you want to associate with this project. All the settings at the dev center level will be applied to the project.|
-   |**Name**|Enter a name for your project. |
+   |**Name**|Enter a name for the project. |
    |**Description**|Enter a brief description of the project. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot that shows the Basics tab on the page for creating a dev box project.":::
@@ -268,7 +268,7 @@ To create a dev box pool that's associated with a project:
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool.png" alt-text="Screenshot that shows the list of dev box pools in a project. The list is empty.":::
 
-1. On the **Create a dev box pool** pane, select or enter the following values:
+1. On the **Create a dev box pool** pane, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -277,7 +277,7 @@ To create a dev box pool that's associated with a project:
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
    |**Dev box Creator Privileges**|Select **Local Administrator** or **Standard User**.|
    |**Enable Auto-stop**|**Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created.|
-   |**Stop time**| Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool will be shut down at this time, every day.|
+   |**Stop time**| Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool will be shut down at this time every day.|
    |**Time zone**| Select the time zone that the stop time is in.|
    |**Licensing**| Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
@@ -299,7 +299,7 @@ To assign roles:
 
 1. In the search box, enter **projects**. In the search results, select **Projects**.
 
-1. Select the project that you want to provide your team members access to.
+1. Select the project that you want to give team members access to.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/select-project.png" alt-text="Screenshot of the list of existing projects.":::
 
@@ -317,13 +317,13 @@ To assign roles:
    |**Assign access to**     |    User     |
    |**Members**     |    Your account     |
 
-   The user can now view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+   The user can now view the project and all the pools within it. The user can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 ## Assign the Project Admin role
 
-The Microsoft Dev Box Preview service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To give users permissions to manage projects, add them to the DevCenter Project Admin role.
+The Microsoft Dev Box Preview service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams, like creating and managing dev box pools. To give users permissions to manage projects, add them to the DevCenter Project Admin role.
 
 You can assign the DevCenter Project Admin role by using the steps described earlier in [Provide access to a dev box project](#provide-access-to-a-dev-box-project), but selecting the Project Admin role instead of the Dev Box User role. For more information, go to [Provide access to projects for project admins](how-to-project-admin.md).
 

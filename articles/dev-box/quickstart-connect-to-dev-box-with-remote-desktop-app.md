@@ -27,7 +27,7 @@ To complete this quickstart, you must first:
 
 ## Download the client and connect to your dev box
 
-Remote Desktop clients are available for many operating systems and devices. In this quickstart, you can view the steps for Windows or the steps for a non-Windows operating system by selecting the appropriate tab.
+Remote Desktop clients are available for many operating systems and devices. In this quickstart, you can view the steps for Windows or the steps for a non-Windows operating system by selecting the relevant tab.
 
 # [Windows](#tab/windows)
 
@@ -69,7 +69,7 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. Select **Configure Remote Desktop** from **Quick actions**.
+1. Under **Quick actions**, select **Configure Remote Desktop**.
 
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/configure-remote-desktop-non-windows.png" alt-text="Screenshot of the button for configuring Remote Desktop in the area for quick actions.":::
 

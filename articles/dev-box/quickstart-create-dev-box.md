@@ -69,7 +69,7 @@ When you no longer need your dev box, you can delete it:
 
 1. For the dev box you that you want to delete, from the **Actions** menu, select **Delete**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the Delete option on the dev box settings menu.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the menu command for deleting a dev box.":::
 
 1. To confirm the deletion, select **Delete**.
 
