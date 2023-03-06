@@ -1,7 +1,7 @@
 ---
 title: "Migrate a Custom Vision project to Image Analysis 4.0"
 titleSuffix: Azure Cognitive Services
-description: Learn how generate an annotation file from an old Custom Vision project, so you can train a custom Image Analysis model on previous training data.
+description: Learn how to generate an annotation file from an old Custom Vision project, so you can train a custom Image Analysis model on previous training data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

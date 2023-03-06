@@ -159,7 +159,7 @@ No, Image Analysis model customization service uses a low-code AutoML training s
 
 ### Can I export my model after training?
 
-Currently, the prediction API is only supported through the cloud service.
+The prediction API is only supported through the cloud service.
 
 ### Why does the evaluation fail for my object detection model?
 

@@ -764,6 +764,6 @@ See the following list of possible errors and their causes:
 
 ## Next steps
 
-* Explore the [concept articles](../concept-describing-images-40.md) to learn more about each feature.
+* Explore the [concept articles](../concept-describe-images-40.md) to learn more about each feature.
 * Explore the [code samples on GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/).
 * See the [API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.

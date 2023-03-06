@@ -45,11 +45,11 @@ This section shows you how to parse the results of the API call.
 
 The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream. The following is an example of the 4-channel PNG image response for the `backgroundRemoval` mode:
 
-:::image type="content" source="../media/background-removal/building1-result.png" alt-text="Photo a city, with the background transparent.":::
+:::image type="content" source="../media/background-removal/building-1-result.png" alt-text="Photo of a city, with the background transparent.":::
 
 The following is an example of the 1-channel PNG image response for the `foregroundMatting` mode:
 
-:::image type="content" source="../media/background-removal/building1-matte.png" alt-text="Black and white image showing the alpha matte of the city photograph.":::
+:::image type="content" source="../media/background-removal/building-1-matte.png" alt-text="Alpha matte of the city photograph.":::
 
 The API will return an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 

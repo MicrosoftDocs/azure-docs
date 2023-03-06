@@ -1,5 +1,5 @@
 ---
-title: Do Image Retrieval using vectorization - Image Analysis 4.0
+title: Do image retrieval using vectorization - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the image retrieval API to vectorize image and search terms.
 services: cognitive-services
@@ -11,9 +11,10 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 02/21/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
-# Do Image Retrieval using vectorization (version 4.0 preview)
+# Do image retrieval using vectorization (version 4.0 preview)
 
 The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
 

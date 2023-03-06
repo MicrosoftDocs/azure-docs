@@ -65,10 +65,10 @@ conceptualContent:
           url: quickstarts-sdk/image-analysis-client-library-40.md
         - itemType: concept
           text: Image tagging
-          url: concept-tagging-images-40.md
+          url: concept-tag-images-40.md
         - itemType: concept
           text: Image captions
-          url: concept-describing-images-40.md
+          url: concept-describe-images-40.md
         - itemType: concept
           text: Optical Character Recognition
           url: concept-ocr.md
@@ -157,7 +157,7 @@ tools:
     imageSrc: media/index/logo_python.svg
     url: /python/api/azure-ai-vision
   - title: C++
-    imageSrc: media/index/logo_Cplusplus.svg
+    imageSrc: media/index/logo-cplusplus.svg
     url: /cpp/cognitive-services/vision
   - title: Go
     imageSrc: media/index/logo_go.svg

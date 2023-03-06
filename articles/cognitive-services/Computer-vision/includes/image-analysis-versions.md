@@ -9,6 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/20/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 ## Image Analysis versions

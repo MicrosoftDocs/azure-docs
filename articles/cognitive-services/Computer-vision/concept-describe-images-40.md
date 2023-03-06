@@ -11,13 +11,13 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
+ms.custom: seodec18, ignite-2022, references_regions
 ---
 
 # Image captions (version 4.0 preview)
 Image captions in Image Analysis 4.0 (preview) are available through the Caption and Dense Captions features. 
 
-Caption generates a one sentence description for all image contents. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image.Dense Captions also returns bounding box coordinates of the described image regions. Both these features use the latest groundbreaking Florence based AI models. 
+Caption generates a one sentence description for all image contents. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. Both these features use the latest groundbreaking Florence based AI models. 
 
 At this time, image captioning is available in English language only.
 

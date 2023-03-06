@@ -40,6 +40,6 @@ Get started with the Image Analysis 4.0 REST API or client libraries to set up a
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart.md)]
+[!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart-40.md)]
 
 ::: zone-end

@@ -151,15 +151,15 @@ items:
     - name: Version 4.0 (preview)
       items:
       - name: Image tagging
-        href: concept-tagging-images-40.md
+        href: concept-tag-images-40.md
       - name: Image captions
-        href: concept-describing-images-40.md
+        href: concept-describe-images-40.md
       - name: Object detection
         href: concept-object-detection-40.md
       - name: Optical Character Recognition
         href: concept-ocr.md
       - name: Smart-cropped thumbnails
-        href: concept-generating-thumbnails-40.md
+        href: concept-generate-thumbnails-40.md
       - name: People detection
         href: concept-people-detection.md
       - name: Model customization
