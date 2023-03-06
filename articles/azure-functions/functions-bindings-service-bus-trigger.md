@@ -206,7 +206,7 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a Service Bus queue message via a trigger.
+The following example demonstrates how to read a Service Bus queue message via a trigger. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 
