@@ -55,23 +55,14 @@ In this tutorial, you'll:
 
 ## Prerequisites 
 
+- An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md):
+
+    - For this tutorial, select CPU type. To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu).  
+    - Verify Python kernel selected Python 3.8 or higher.
+- [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
 - The following roles and permissions: Azure Machine Learning (???). 
 - Familiarity with data science concepts.  
-
-## Create a new notebook in Azure Machine Learning 
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-1. Select your workspace, if it isn't already open.    
-1. [Create a notebook](/azure/machine-learning/how-to-manage-files) or [open an existing notebook](/azure/machine-learning/how-to-run-jupyter-notebooks#access-notebooks-from-your-workspace). 
-1. [Connect to a compute instance](/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script).  
-    
-    For this tutorial, select CPU type. 
-    
-    To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu). 
- 
-1. Verify Python kernel selected Python 3.8 or higher. 
-
 
  ## Install required Python tools
 
