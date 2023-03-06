@@ -98,23 +98,23 @@ Use the following steps to receive notification about two or more unsuccessful, 
 
    ![Screenshot of Create new rule with options and selections.](./media/azure-sentinel/create-new-rule.png)
 
-4. Select the **Set rule logic** tab.
-5. Enter a query in the **Rule query** field. The query example organizes the sign-ins by `UserPrincipalName`.
+9. Select the **Set rule logic** tab.
+10. Enter a query in the **Rule query** field. The query example organizes the sign-ins by `UserPrincipalName`.
 
     ![Screenshot of query text in the Rule query field under Set rule logic.](./media/azure-sentinel/rule-query.png)
 
-5. Go to **Query scheduling**.
-6. For **Run query every**, enter **5** and **Minutes**.
-7. For **Lookup data from the last**, enter **5** and **Minutes**.
-8. For **Generate alert when number of query results**, select **Is greater than**, and **0**.
-9. For **Event grouping**, select **Group all events into a single alert**. 
-10. For **Stop running query after alert is generated**, select **Off**.
-11. Select **Next: Incident settings (Preview)**. 
+11. Go to **Query scheduling**.
+12. For **Run query every**, enter **5** and **Minutes**.
+13. For **Lookup data from the last**, enter **5** and **Minutes**.
+14. For **Generate alert when number of query results**, select **Is greater than**, and **0**.
+15. For **Event grouping**, select **Group all events into a single alert**. 
+16. For **Stop running query after alert is generated**, select **Off**.
+17. Select **Next: Incident settings (Preview)**. 
 
    ![Screenshot of Query scheduling selections and options.](./media/azure-sentinel/query-scheduling.png)
 
-12. Go to the **Review and create** tab to review rule settings. 
-13. When the **Validation passed** banner appears, select **Create**.
+18. Go to the **Review and create** tab to review rule settings. 
+19. When the **Validation passed** banner appears, select **Create**.
 
     ![Screenshot of selected settings, the Validation passed banner, and the Create option.](./media/azure-sentinel/review-create.png)
 
@@ -156,7 +156,7 @@ Learn more: [Investigate incidents with Microsoft Sentinel](../sentinel/investig
 
 Microsoft Sentinel has security orchestration, automation, and response (SOAR) functions. Attach automated actions, or a playbook, to analytics rules.
 
-See, [Microsoft Sentinel automated responses](../../architecture/solution-ideas/articles/microsoft-sentinel-automated-response.md)
+See, [What is SOAR?](https://www.microsoft.com/security/business/security-101/what-is-soar)
 
 ### Email notification for an incident
 
