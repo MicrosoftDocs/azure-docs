@@ -124,7 +124,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
 | OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 12 SP4+, WinServer 2016+           |
 | Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
-| Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)                      | 
+| Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
 > Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
