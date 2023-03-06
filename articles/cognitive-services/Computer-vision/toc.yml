@@ -136,6 +136,8 @@ items:
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
+      - name: Configure storage account
+        href: how-to/blob-storage-search.md
     - name: Version 3.2
       items:
       - name: Call the Analyze API
@@ -205,7 +207,7 @@ items:
       - name: Python
         href: /python/api/azure-ai-vision
       - name: C++
-        href: /cpp/api/azure.ai.vision.imageanalysis
+        href: /cpp/cognitive-services/vision
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
