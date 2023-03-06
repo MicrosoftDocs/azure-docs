@@ -1,5 +1,5 @@
 ---
-title: Configure and use the Deployment Environments Azure CLI extension
+title: Configure Deployment Environments by using the Azure CLI extension
 titleSuffix: Azure Deployment Environments
 description: Learn how to set up and use the Azure Deployment Environments Preview Azure CLI extension to configure the Deployment Environments service.
 ms.service: deployment-environments
@@ -10,36 +10,37 @@ ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
-# Configure Azure Deployment Environments service using Azure CLI
+# Configure Azure Deployment Environments by using the Azure CLI extension
 
-This article shows you how to use the Deployment Environments Azure CLI extension to configure an Azure Deployment Environments Preview service. In Azure Deployment Environments Preview, you'll use Deployment Environments Azure CLI extension to create [environments](./concept-environments-key-concepts.md#environments).
+This article shows you how to use the Azure Deployment Environments Preview Azure CLI extension to configure a Deployment Environments service. In Deployment Environments, you'll use Deployment Environments Azure CLI extension to create and work with [environments](./concept-environments-key-concepts.md#environments).
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Setup
 
-1. Install the Deployment Environments Azure CLI Extension:
+1. Install the Deployment Environments Azure CLI extension:
 
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
     1. Install the Deployment Environments AZ CLI extension:
 
-       - **Automated installation**
+      - **Automated installation**
 
-         Execute the script https://aka.ms/DevCenter/Install-DevCenterCli.ps1 directly in PowerShell to install:
+        To install, execute the script https://aka.ms/DevCenter/Install-DevCenterCli.ps1 directly in PowerShell:
 
-         ```powershell
-         iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-         ```
+        ```powershell
+        iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
+        ```
   
-         Any existing dev center extension is uninstalled and the latest version is installed.
+        Any existing dev center extension is uninstalled and the latest version is installed.
 
       - **Manual installation**
 
-          - Run the following command in the Azure CLI:
-    ```azurecli
-    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-    ```
+        In the Azure CLI, run the following command:
+
+        ```azurecli
+        az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
+        ```
 
 1. Sign in to the Azure CLI:
 
@@ -47,7 +48,7 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
     az login
     ```
 
-1. Set the default subscription to the subscription in which you'll create your specific Deployment Environment resources.
+1. Set the default subscription to the subscription you'll use to create your specific Deployment Environment resources:
 
     ```azurecli
     az account set --subscription {subscriptionId}
@@ -61,7 +62,7 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
 az group create -l <region-name> -n <resource-group-name>
 ```
 
-Optionally, set defaults (which means there is no need to pass the argument into each command):
+Optionally, set defaults so that you don't need to pass the argument into each command:
 
 ```azurecli
 az configure --defaults group=<resource-group-name>
@@ -79,30 +80,30 @@ az devcenter dev <command> --help
 
 ### Dev centers
 
-#### Create a dev center with user-assigned identity
+#### Create a dev center by using a user-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --identity-type "UserAssigned" --user-assigned-identity
     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1" --location <location-name> -g <resource-group-name> - <name>
 ```
 
-#### Create a dev center with system-assigned identity
+#### Create a dev center by using a system-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --location <location-name> -g <resource-group-name> -n <name> \
     --identity-type "SystemAssigned"
 ```
 
-#### List dev centers (in the selected subscription if resource group is not specified or configured in defaults)
-
-```azurecli
-az devcenter admin devcenter list --output table
-```
-
 #### List dev centers (in the specified resource group)
 
 ```azurecli
 az devcenter admin devcenter list -g <resource-group-name>
+```
+
+#### List dev centers (in the selected subscription if resource group isn't specified or configured in defaults)
+
+```azurecli
+az devcenter admin devcenter list --output table
 ```
 
 #### Get a specific dev center
@@ -156,7 +157,7 @@ az devcenter admin environment-type delete --dev-center-name <devcenter-name> --
 az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
 ```
 
-### Project Environment Types
+### Project environment types
 
 #### Create project environment types
 
@@ -196,13 +197,13 @@ az devcenter admin project-allowed-environment-type list --project-name <project
 
 ### Catalogs
 
-#### Create a catalog with a GitHub repository
+#### Create a catalog that uses a GitHub repository
 
 ```azurecli
 az devcenter admin catalog create --git-hub secret-identifier="https://<key-vault-name>.azure-int.net/secrets/<secret-name>" uri=<git-clone-uri> branch=<git-branch> -g <resource-group-name> --name <name> --dev-center-name <devcenter-name>
 ```
 
-#### Create a catalog with a Azure DevOps repository
+#### Create a catalog that uses an Azure DevOps repository
 
 ```azurecli
 az devcenter admin catalog create --ado-git secret-identifier="https://<key-vault-name>.azure-int.net/secrets/<secret-name>" uri=<git-clone-uri> branch=<git-branch> -g <resource-group-name> --name <name> --dev-center-name <devcenter-name>
@@ -228,7 +229,7 @@ az devcenter admin catalog delete -g <resource-group-name> --dev-center-name <de
 
 ### Catalog items
 
-#### List catalog items available in a project
+#### List catalog items that are available in a project
 
 ```azurecli
 az devcenter dev catalog-item list --dev-center-name <devcenter-name> --project-name <name>
@@ -242,16 +243,16 @@ az devcenter dev catalog-item list --dev-center-name <devcenter-name> --project-
 az devcenter admin project create -g <resource-group-name> -n <project-name> --dev-center-id <devcenter-resource-id>
 ```
 
-#### List projects (in the selected subscription if resource group is not specified or configured in defaults)
-
-```azurecli
-az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects' | project id, name"
-```
-
 #### List projects (in the specified resource group)
 
 ```azurecli
 az devcenter admin project list -g <resource-group-name>
+```
+
+#### List projects (in the selected subscription if resource group isn't specified or configured in defaults)
+
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects' | project id, name"
 ```
 
 #### Delete a project
@@ -278,7 +279,7 @@ az devcenter environment deploy-action --action-id "deploy" --dev-center <devcen
     -g <resource-group-name> --project-name <project-name> -n <name> --parameters <parameters-json-string>
 ```
 
-### List environments in a project
+### List the environments in a project
 
 ```azurecli
 az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
