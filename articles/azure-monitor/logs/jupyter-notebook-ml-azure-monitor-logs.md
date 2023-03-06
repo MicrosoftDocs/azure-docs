@@ -29,7 +29,7 @@ In this tutorial, you'll:
 
 1. Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/). 
 1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook.
-1. Explore and visualize log data in your notebook using Graphly. 
+1. Explore and visualize log data in your notebook. 
 1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
 ## Tools you'll use
@@ -39,7 +39,7 @@ In this tutorial, you'll:
 |[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
 |[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 |[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
-|[PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).| |
+|[Plotly](https://spark.apache.org/docs/api/python/index.html).| An open source graphing library for Python. |
 |[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Needed to ingest data you process in Jupyter Notebook back to the Log Analytics workspace. |
 
 ## Limitations 
