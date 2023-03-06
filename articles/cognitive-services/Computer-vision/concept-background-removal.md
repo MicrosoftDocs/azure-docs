@@ -35,8 +35,12 @@ The following example images illustrate what the Image Analysis service returns 
 
 |Original image  |With background removed  |Alpha matte  |
 |---------|---------|---------|
-| :::image type="content" source="media/background-removal/building-1.png" alt-text="Photo of a city near water.":::    |  :::image type="content" source="media/background-removal/building-1-result.png" alt-text="Photo of a city near water; sky is whited out.":::       |   :::image type="content" source="media/background-removal/building-1-matte.png" alt-text="Alpha matte of a city skyline.":::      |
-|   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is whited out.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
+
+| | | |
+|---------|---------|---------|
+| :::image type="content" source="media/background-removal/building-1.png" alt-text="Photo of a city near water.":::    |  :::image type="content" source="media/background-removal/building-1-result.png" alt-text="Photo of a city near water; sky is transparent.":::       |   :::image type="content" source="media/background-removal/building-1-matte.png" alt-text="Alpha matte of a city skyline.":::      |
+|   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is transparent.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
+|   :::image type="content" source="media/background-removal/bears.png" alt-text="Photo of a group of bears in the woods.":::  |    :::image type="content" source="media/background-removal/bears-result.png" alt-text="Photo of a group of bears; background is transparent out.":::     |   :::image type="content" source="media/background-removal/bears-alpha.png" alt-text="Alpha matte of a group of bears.":::      |
 
 
 ## Limitations
@@ -46,9 +50,7 @@ It's important to note the limitations of background removal:
 * Background removal works best for categories such as people and animals, buildings and environmental structures, furniture, vehicles, food, text and graphics, and personal belongings.
 * Objects that aren't prominent in the foreground may not be identified as part of the foreground.
 * Images with thin and detailed structures, like hair or fur, may show some artifacts when overlaid on backgrounds with strong contrast to the original background.
-* The latency of the background removal operation will be higher, up to several seconds, for large images.
-
-   We suggest you experiment with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on a downsampled version of the image, then resizing the alpha matte to the original size and applying it to the original image).
+* The latency of the background removal operation will be higher, up to several seconds, for large images. We suggest you experiment with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on a downsampled version of the image, then resizing the alpha matte to the original size and applying it to the original image).
 
 ## Use the API
 
