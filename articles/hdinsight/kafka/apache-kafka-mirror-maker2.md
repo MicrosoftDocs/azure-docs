@@ -61,7 +61,7 @@ This architecture features two clusters in different resource groups and virtual
 1. Create a new virtual network **kafka-primary-vnet** in **kafka-primary-rg**. Leave the default settings.
 1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**, also with default settings.
    > [!NOTE]
-   > Keep the address of both vnet non overlapping otherwise vnet peering won't work.
+   > Keep the address of both vnet nonoverlapping otherwise vnet peering won't work.
    > Example: 
    > 1. kafka-primary-vnet can have address space 10.0.0.0
    > 2. kafka-secondary-vnet can have address space 10.1.0.0 
@@ -73,9 +73,8 @@ This architecture features two clusters in different resource groups and virtual
     1. On the **Add peering** screen, enter the details as shown in the following screenshot.
 
         :::image type="content" source="./media/apache-kafka-mirror-maker2/peer-1.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering primary to secondary." border="true":::
-        :::image type="content" source="./media/apache-kafka-mirror-maker2/peer-2.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering to primary." border="true":::
-        
-
+        :::image type="content" source="./media/apache-kafka-mirror-maker2/peer-2.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering from secondary to primary." border="true":::
+     
 1. Create two new Kafka clusters:
 
    | Cluster name | Resource group | Virtual network | Storage account |
@@ -103,7 +102,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
     
-1. After above changes the `/etc/hosts` file for `SECONDARYCLUSTER` will look like the given image.
+1. After making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
 
    :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true":::
    
@@ -168,7 +167,7 @@ This architecture features two clusters in different resource groups and virtual
    > The reason being default insync replica for all the topics at the broker level is 2. Keeping replication factor=1, will throw exception while running mirrormaker2
    
 1. You need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
-1. If you want to mirror topics on both sides like `Primary to Secondary` and `Secondary to Primary` (active-active) then you can add extra configs
+1. If you want to mirror topics on both sides, like `Primary to Secondary` and `Secondary to Primary` (active-active) then you can add extra configs
    ```
    destination->source.enabled=true
    destination->source.topics = .*
