@@ -186,7 +186,7 @@ To define an endpoint, you need to specify:
 
 ### Create online endpoint
 
-You'll use the *endpoints/online/managed/sample/endpoint.yml* file to configure the endpoint. The following snippet shows the contents of the file:
+Begin by setting the endpoint's name and then configuring it. In this article, you'll use the *endpoints/online/managed/sample/endpoint.yml* file to configure the endpoint. The following snippet shows the contents of the file:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
@@ -217,12 +217,18 @@ To create an online endpoint:
 
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment named `blue` for your endpoint, run the following command to use the `blue-deployment.yml` file that contains all the required inputs to configure a deployment:
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment named `blue` for your endpoint, run the following command to use the `blue-deployment.yml` file to configure the key aspects of the deployment:<!-- [link to "define the deployment" section in Deploy article] -->
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_blue":::
 
 > [!IMPORTANT]
 > The `--all-traffic` flag in the `az ml online-deployment create` allocates 100% of the endpoint traffic to the newly created blue deployment.
+
+In the `blue-deployment.yaml` file, we specify the `path` (where to upload files from) inline. The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
+
+For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
+
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
 
 # [Python](#tab/python)
 
@@ -250,22 +256,17 @@ To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. This
 
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment for your managed online endpoint, use the `ManagedOnlineDeployment` class. This class allows users to configure the following key aspects of the deployment:
-
-**Key aspects of a deployment**
-* `name` - Name of the deployment.
-* `endpoint_name` - Name of the endpoint to create the deployment under.
-* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
-* `code_configuration` - the configuration for the source code and scoring script
-    * `path`- Path to the source code directory for scoring the model
-    * `scoring_script` - Relative path to the scoring file in the source code directory
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-* `instance_count` - The number of instances to use for the deployment
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment for your managed online endpoint, use the `ManagedOnlineDeployment` class. This class allows users to configure the key aspects of the deployment. <!-- [link to "define the deployment" section in Deploy article] -->
 
 1. Configure blue deployment:
 
     [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_deployment)]
+
+    In this example, we specify the `path` (where to upload files from) inline. The SDK automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the codes.
+
+    For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
+
+    For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
 
     > [!NOTE]
     > To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
