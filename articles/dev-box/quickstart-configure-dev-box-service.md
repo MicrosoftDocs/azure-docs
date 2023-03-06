@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 - Owner or contributor permissions on an Azure subscription or a specific resource group.
 - An existing virtual network and subnet. If you don't have them, [follow these instructions to create them](#create-a-virtual-network-and-subnet).
 - Network Contributor permissions on an existing virtual network (owner or contributor), or permission to create a new virtual network and subnet.
-- User licenses. To use Dev Box Preview, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory P1. These licenses are available independently and are included in the following subscriptions:
+- User licenses. To use Dev Box Preview, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
 
   - Microsoft 365 F3
   - Microsoft 365 E3, Microsoft 365 E5
@@ -36,7 +36,7 @@ To complete this quickstart, you need:
   - Microsoft 365 Business Premium
   - Microsoft 365 Education Student Use Benefit
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), which allows you to use your Windows licenses on Azure with Dev Box.
-- A configured and working Azure Active Directory (Azure AD) join or hybrid Active Directory join:
+- A configured and working Azure AD join or hybrid Active Directory join:
 
   - To learn how to join devices directly to Azure AD, see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
   - To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Azure Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
@@ -48,7 +48,7 @@ Use the following steps to create a dev center so that you can manage your dev b
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type **dev centers**, and then select **Dev centers** in the search results.
+1. In the search box, enter **dev centers**. In the search results, select **Dev centers**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discover-dev-centers.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers.":::
 
@@ -91,7 +91,7 @@ Network connections determine the region in which dev boxes are deployed. They a
 
 You must have a virtual network and subnet available for your network connection. To create them:
 
-1. In the search box, type **virtual network**, and then select **Virtual Network** in the search results.
+1. In the search box, enter **virtual network**. In the search results, select **Virtual Network**.
 
 1. On the **Virtual Network** page, select **Create**.
 
@@ -114,23 +114,17 @@ You must have a virtual network and subnet available for your network connection
 
 ### Create the connection
 
-You now need a network connection to associate the virtual network and subnet with the dev center. To create the connection:
+You now need a network connection to associate the virtual network and subnet with the dev center. To create the connection, complete the steps on the relevant tab.
 
-1. In the search box, type **network connections**, and then select **Network connections** in the search results.
+#### [Azure AD join](#tab/AzureADJoin/)
 
-1. On the **Network Connections** page, select **+Create**.
+1. In the search box, enter **network connections**. In the search results, select **Network connections**.
+
+1. On the **Network connections** page, select **Create**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-network-connection.png" alt-text="Screenshot that shows the page for network connections and the button for creating a connection.":::
 
-1. Follow the steps on the appropriate tab to create your network connection.
-
-   #### [Azure AD join](#tab/AzureADJoin/)
-
-1. On the **Network Connections** page, select **Create**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-network-connection.png" alt-text="Screenshot that shows the Network Connections page with Create highlighted.":::
-
-1. On the **Create a network connection** pane, on the **Basics** tab, select or enter the following values:
+1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
 
    Name|Value|
    |----|----|
@@ -143,9 +137,21 @@ You now need a network connection to associate the virtual network and subnet wi
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-native-join.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, including the option for Azure Active Directory join.":::
 
-   #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
+1. Select **Review + Create**.
 
-   On the **Create a network connection** page, on the **Basics** tab, enter the following values:
+1. On the **Review** tab, select **Create**.
+
+1. When the deployment is complete, select **Go to resource**. The **Network Connection overview** page appears, which confirms that you created the connection.
+
+#### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
+
+1. In the search box, enter **network connections**. In the search results, select **Network connections**.
+
+1. On the **Network connections** page, select **Create**.
+
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-network-connection.png" alt-text="Screenshot that shows the page for network connections and the Create button.":::
+
+1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -162,19 +168,19 @@ You now need a network connection to associate the virtual network and subnet wi
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-hybrid-join.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, including the option for hybrid Azure Active Directory join.":::
 
-   ---
-
 1. Select **Review + Create**.
 
 1. On the **Review** tab, select **Create**.
 
 1. When the deployment is complete, select **Go to resource**. The **Network Connection overview** page appears, which confirms that you created the connection.
 
+---
+
 ## Attach the network connection to the dev center
 
 To provide network configuration information for dev boxes, you need to associate a network connection with a dev center. Use the following steps to attach the network connection to your dev center:
 
-1. In the search box, type **dev centers**, and then select **Dev centers** in the search results.
+1. In the search box, enter **dev centers**. In the search results, select **Dev centers**.
 
 1. Select the dev center that you created, and then select **Networking**.
 
@@ -218,7 +224,7 @@ Dev box projects enable you to manage team-level settings, including providing a
 
 To create and configure a project in a dev box:
 
-1. In the search box, type **projects**, and then select **Projects** in the search results.
+1. In the search box, enter **projects**. In the search results, select **Projects**.
 
 1. On the **Projects** page,  select **+Create**.
 
@@ -250,7 +256,7 @@ A dev box pool is a collection of dev boxes that have similar settings. Dev box 
 
 To create a dev box pool that's associated with a project:
 
-1. In the search box, type **projects**, and then select **Projects** in the search results.
+1. In the search box, enter **projects**. In the search results, select **Projects**.
 
 1. Open the project in which you want to create the dev box pool.
   
@@ -291,7 +297,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 To assign roles:
 
-1. In the search box, type **projects**, and then select **Projects** in the search results.
+1. In the search box, enter **projects**. In the search results, select **Projects**.
 
 1. Select the project that you want to provide your team members access to.
 
@@ -315,7 +321,7 @@ To assign roles:
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
-## Assign project admin role
+## Assign the Project Admin role
 
 The Microsoft Dev Box Preview service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To give users permissions to manage projects, add them to the DevCenter Project Admin role.
 

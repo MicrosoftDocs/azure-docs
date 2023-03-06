@@ -35,7 +35,7 @@ Organizations can use Microsoft Dev Box Preview in a range of scenarios.
 
 An organization that has globally distributed development teams can configure Dev Box to enable developers to create their own dev boxes in their closest region. Developers can create dev boxes as needed, without waiting for the IT admin team. Users can access dev boxes from any device and from any operating system.
 
-Dev Box supports developers working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
+Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
 
 Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
 
@@ -52,8 +52,8 @@ Dev Box helps dev infra teams provide the appropriate dev boxes for each user's 
 
 Dev Box has the following benefits for IT admins:
 
-- You can manage dev boxes like any other device:
-  - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes just like any other device on your network.
+- You can manage dev boxes like any other device on your network:
+  - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
   - If a dev box is compromised, isolate it while helping users get back up and running on a new dev box.
 - Dev Box provides secure access in a secure environment. Access controls in Azure Active Directory (Azure AD) organize access by project or user type:
@@ -78,7 +78,7 @@ Dev Box projects are the point of access for development teams. You assign the D
 
 Dev box pools make your dev box definitions available in projects. Dev box pools are groups of dev box definitions that have similar settings. For example, you can configure an auto-stop schedule on a dev box pool to stop all the dev boxes in the pool at a specified time.
 
-When the configuration of the service is complete, developers can create and manage their dev boxes through the developer portal. They'll have access to only the dev box pools that are associated with projects for which they have the Dev Box User role.
+When the configuration of the service is complete, developers can create and manage their dev boxes through the developer portal. They have access to only the dev box pools that are associated with projects for which they have the Dev Box User role.
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
@@ -86,5 +86,5 @@ When the configuration of the service is complete, developers can create and man
 
 Start using Microsoft Dev Box Preview:
 
-- [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure Microsoft Dev Box Preview](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a dev box](./quickstart-create-dev-box.md)
