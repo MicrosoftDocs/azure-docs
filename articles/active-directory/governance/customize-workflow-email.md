@@ -32,14 +32,9 @@ For more information on these customizable parameters, see: [Common email-specif
 
 For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
-To customize emails you must have the following:
-
-- A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
-- Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
-
 ## Customize email using the Azure portal
 
-When customizing an email sent via Lifecycle workflows, you can choose to customize either a new or existing task. These customizations are done the same way no matter if the task is new or existing, but the following steps walks you through updating an existing task. To customize emails sent out from tasks within workflows using the Azure portal, you'd follow these steps:
+When customizing an email sent via Lifecycle workflows, you can choose to customize either a new or existing task. These customizations are done the same way no matter if the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent out from tasks within workflows using the Azure portal, you'd follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -53,7 +48,7 @@ When customizing an email sent via Lifecycle workflows, you can choose to custom
 
 1. On the tasks screen, select the task for which you want to customize the email.
 
-1. On the specific task screen you are able to set CC to include others in the email outside of the default audience. 
+1. On the specific task screen, you're able to set CC to include others in the email outside of the default audience. 
 
 1. Select the **Email Customization** tab.
 
@@ -74,7 +69,7 @@ The following screenshot is an example of the proper format for dynamic attribut
 
 :::image type="content" source="media/customize-workflow-email/workflow-dynamic-attribute-example.png" alt-text="Example of dynamic attributes in customized emails.":::
 
-When typing this it will be written the following way:
+When typing this it's written the following way:
 
 ```html
 Welcome to the team, {{userGivenName}}
@@ -89,7 +84,21 @@ For more information and next steps, please contact your manager, {{managerDispl
 
 For a full list of dynamic attributes that can be used with customized emails, see:[Dynamic attributes within email](lifecycle-workflow-tasks.md#dynamic-attributes-within-email).
 
+## Use custom branding and domain in emails sent out using workflows
 
+Emails sent out using Lifecycle workflows can be customized to have your own company branding, or be sent out using your company domain. To enable these features the following prerequisites are required:
+
+- A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
+- Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
+
+After these prerequisites are satisfied, you'd follow these steps:
+
+1. On the Lifecycle workflows page, select **Workflow settings (Preview)**.
+
+1. On the settings page, with **email domain** you're able to select your domain from a drop-down list of your verified domains.
+    :::image type="content" source="media/customize-workflow-email/workflow-email-settings.png" alt-text="Screenshot of workflow domain settings":::
+1. With the Use company branding banner logo setting, you're able to turn on whether or not company branding is used in emails.
+    :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of email logo setting.":::
 
 
 ## Customize email using Microsoft Graph
