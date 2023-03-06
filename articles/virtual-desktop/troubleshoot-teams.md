@@ -29,10 +29,11 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 - This feature doesn't support uploading custom background images.
 - This feature doesn’t support taking screenshots for incoming videos from the virtual machine (VM). As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead.
-- This feature doesn't support content sharing for redirected videos during application window sharing, 
-- You currently can't select minimized windows. In order to select windows, you'll need to maximize them first.
-- If you've opened a window overlapping the window you're currently sharing during a meeting, the overlapping window's contents won't update for meeting users.
-- If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see presenter's identity bar or call monitor may turn black.
+- This feature doesn't support content sharing for redirected videos during screen sharing and application window sharing.
+- The following issues occur during application window sharing:
+  - You currently can't select minimized windows. In order to select windows, you'll need to maximize them first.
+  - If you've opened a window overlapping the window you're currently sharing during a meeting, the overlapping window's contents won't update for meeting users.
+  - If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see a black area where the presenter's identity bar or call monitor is located or being overlaid over the screen.
 - Switching tenants too fast can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your Teams client. 
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
