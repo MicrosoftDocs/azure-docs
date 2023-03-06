@@ -3,7 +3,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: include
-ms.date: 11/04/2022
+ms.date: 2/17/2023
 ---
 
 1. To find a data asset, use Microsoft Purview's [search](../how-to-search-catalog.md) or [browse](../how-to-browse-catalog.md) functionality.

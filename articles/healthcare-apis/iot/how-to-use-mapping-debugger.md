@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 03/05/2023
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to use the MedTech service Mapping debugger in the Azure portal. The Mapping debugger is a tool used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations for persistence in the FHIR service. This new self-service tool allows you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal.
+In this article, you'll learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 > [!TIP]
 > To learn about how the MedTech service transforms and persists device message data into the FHIR service see, [Understand the device message data transformation](understand-service.md).
