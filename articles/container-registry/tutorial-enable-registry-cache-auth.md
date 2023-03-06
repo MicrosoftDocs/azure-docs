@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Enable Caching for ACR (Preview) with authentication - Azure portal
 
-This article is part three of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. 
+This article is part four of a five-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. 
 
 This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure portal. You have to use the Credential set to make an authenticated pull or to access a private repository.
 

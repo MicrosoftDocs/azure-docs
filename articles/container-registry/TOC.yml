@@ -54,6 +54,8 @@
       items:
       - name: Caching for ACR - Overview
         href: tutorial-registry-cache.md
+      - name: Enable Caching for ACR- Azure CLI
+        href: tutorial-enable-registry-cache-cli.md
       - name: Enable Caching for ACR- Azure portal
         href: tutorial-enable-registry-cache.md
       - name: Enable Caching for ACR with authentication- Azure portal

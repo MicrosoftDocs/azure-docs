@@ -9,10 +9,11 @@ ms.author: tejaswikolli
 
 Caching for Azure Container Registry (Preview) feature allows users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
-This article is part one in a four-part tutorial series. The tutorial covers:
+This article is part one in a five-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
 > * Caching for ACR (preview) 
+> * Enable Caching for ACR - Azure CLI
 > * Enable Caching for ACR - Azure portal
 > * Enable Caching for ACR with authentication - Azure portal
 > * Troubleshooting guide for Caching for ACR
@@ -63,11 +64,11 @@ Implementing Caching for ACR provides the following benefits:
 
 - Caching for ACR only supports 50 cache rules.
 
-- Caching for ACR is only available by using the Azure portal. The Azure CLI is in target for the coming weeks.  
+- Caching for ACR is only available by using the Azure portal and Azure CLI.  
 
 ## Next steps
 
-* To enable Caching for ACR (preview) using the Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
+* To enable Caching for ACR (preview) using the Azure CLI advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache-cli.md).
 
 <!-- LINKS - External -->
 

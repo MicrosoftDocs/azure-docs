@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Troubleshoot guide for Caching for ACR (Preview)
 
-This article is part four in a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides information about the Caching for ACR (preview) feature, its limitations, and benefits of the implementation in your registry. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR (preview) feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using the Azure portal.
+This article is part five in a five-part tutorial series. [Part one](tutorial-registry-cache.md) provides information about the Caching for ACR (preview) feature, its limitations, and benefits of the implementation in your registry. In [part two](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR (preview) feature by using the Azure CLI. In [part three](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR with authentication by using the Azure portal.
 
 This article helps you troubleshoot problems you might encounter when attempting to use Caching for ACR (preview).
 
