@@ -23,13 +23,13 @@ Azure AD supports adding custom data to resources using [extensions](/graph/exte
 - [onPremisesExtensionAttributes](/graph/extensibility-overview?tabs=http#extension-attributes) are a set of 15 attributes that can store extended user string attributes. 
 - [Directory extensions](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) allow the schema extension of specific directory objects, such as users and groups, with strongly-typed attributes through registration with an application in the tenant. 
 
-Both types of extensions can be configured By using Azure AD Connect for users who are managed on-premises, or Microsoft Graph APIs for cloud-only users. 
+Both types of extensions can be configured By using Azure AD Connect for users who are managed on-premises, or MSGraph APIs for cloud-only users. 
 
 >[!Note] 
 >The following types of extensions aren't supported for synchronization:  
 >- Custom Security Attributes in Azure AD (Preview)
 >- MSGraph Schema Extensions
->- Open Extensions
+>- MSGraph Open Extensions
 
 
 ## Requirements 
@@ -38,7 +38,7 @@ The minimum SKU supported for custom attributes is the Enterprise SKU. If you us
 
 ## How Custom Attributes work 
 
-After you create a managed domain, click **Custom Attributes (Preview)** under **Settings** to enable attribute synchronization. 
+After you create a managed domain, click **Custom Attributes (Preview)** under **Settings** to enable attribute synchronization. Click **Save** to confirm the change. 
 
 :::image type="content" border="true" source="./media/concepts-custom-attributes/enable.png" alt-text="Screenshot of how to enable custom attributes.":::
 
