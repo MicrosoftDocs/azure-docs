@@ -11,6 +11,7 @@ ms.author: sehan
 ms.date: 09/28/2022
 ms.reviewer: mopeakande
 ms.custom: upgrade
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade steps for Azure Container Instances web services to managed online endpoints
