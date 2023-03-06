@@ -2,8 +2,8 @@
 title: 'Tutorial: Search for nearby locations on a map'
 titleSuffix:  Microsoft Azure Maps
 description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive pop-up boxes to a map.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: azure-maps

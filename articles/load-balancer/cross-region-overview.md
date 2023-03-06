@@ -114,6 +114,8 @@ Traffic started by the user will travel to the closest participating region thro
 
 Cross-region load balancer routes the traffic to the appropriate regional load balancer.
 
+:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
+
 ### Participating regions
 * East US 
 * West Europe 

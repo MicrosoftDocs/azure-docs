@@ -62,7 +62,7 @@ For code examples that show how to authorize and call management operations from
 - [.NET](https://github.com/Azure-Samples/storage-dotnet-resource-provider-getting-started)
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
 - [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
-- [Python](https://github.com/Azure-Samples/storage-python-manage)
+- [Python](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
 
 ## Azure Resource Manager versus classic deployments
 

@@ -76,7 +76,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
-   sudo iotedge config mp --connection-string `PASTE_DEVICE_CONNECTION_STRING_HERE`
+   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
    This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
@@ -124,13 +124,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    A successful status response shows the `aziot` services as running or ready.
 
-If you need to troubleshoot the service, retrieve the service logs.
+1. If you need to troubleshoot the service, retrieve the service logs.
 
    ```bash
    sudo iotedge system logs
    ```
 
-Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device.
 
    ```bash
    sudo iotedge check

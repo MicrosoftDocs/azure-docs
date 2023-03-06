@@ -191,7 +191,7 @@ To provide networking configuration information for dev boxes, associate a netwo
 
 1. On the **Add network connection** pane, select the network connection you created earlier, and then select **Add**.
 
-After the dev center is created, several health checks are run on the network. You can view the status of the checks on the resource overview page. You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes that are in dev box pools are created and domain joined in the location of the virtual network that's assigned to the network connection.
+After the network connection is attached to the dev center, several health checks are run on the network connection. You can view the status of the checks on the resource overview page. You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes that are in dev box pools are created and domain joined in the location of the virtual network that's assigned to the network connection.
 
 :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of a network connection.":::
 
@@ -302,21 +302,23 @@ Before a user can create a dev box that's based in the dev box pools in a projec
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/select-project.png" alt-text="Screenshot that shows a list of existing projects.":::
 
-1. On the left menu, select **Access Control (IAM)**.
+1. On the left menu, select **Access control (IAM)**.
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/project-permissions.png" alt-text="Screenshot that shows the Project Access control page with the Access Control link highlighted.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/project-permissions.png" alt-text="Screenshot showing the Project Access control page with the Access Control link highlighted.":::
 
-1. On the project command bar, select **Add** > **Add role assignment**.
+1. On the command bar, select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-   |Setting  |Value  |
-   |---------|---------|
-   |Role     |    DevCenter Dev Box User    |
-   |Assign access to     |    User     |
-   |Members     |    Your account     |
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **DevCenter Dev Box User**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
-   The user can now view the project and all the pools in it. The user can create dev boxes from any of the pools and manage the dev boxes in the [developer portal](https://aka.ms/devbox-portal).
+    :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the Add role assignment pane.":::
+
+   The user will now be able to view the project and all the pools in it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 

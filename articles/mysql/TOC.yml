@@ -139,6 +139,8 @@
         href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Power Apps
+      href: flexible-server/tutorial-create-power-app-with-mysql.md
     - name: Power Automate
       href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI

@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you maintain business continuity 
 
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.custom: subject-moving-resources
+ms.custom: "UpdateFrequency3, subject-moving-resources"
 
 #Customer intent: As an Azure service administrator, I want to recover my App Service app from a region-wide failure in Azure.
 ---
