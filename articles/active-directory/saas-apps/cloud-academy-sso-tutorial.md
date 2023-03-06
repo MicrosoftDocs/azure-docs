@@ -144,13 +144,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. On the **General Settings** page, complete the following steps:
 
-    ![Screenshot that shows integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
+    ![Screenshot that shows integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings-v2.png)
 
     1. In the **SSO URL (Location)** box, paste the login URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
     1. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
-
-    1. In the **Email Domains** box, enter all the domain values your company uses for user emails.
 
 1. Perform the following steps in the below page:
 
