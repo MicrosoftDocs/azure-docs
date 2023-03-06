@@ -41,10 +41,11 @@ The following example images illustrate what the Image Analysis service returns 
 ## Limitations
 
 It's important to note the limitations of background removal:
-- Background removal works best for categories such as people and animals, buildings and environmental structures, furniture, vehicles, food, text and graphics, and personal belongings
-- Objects that aren't prominent in the foreground may not be identified as part of the foreground.
-- Images with thin and detailed structures, like hair or fur, may show some artifacts when overlaid on backgrounds with strong contrast to the original background.
-- The latency of the background removal operation will be higher, up to several seconds, for large images.
+
+* Background removal works best for categories such as people and animals, buildings and environmental structures, furniture, vehicles, food, text and graphics, and personal belongings.
+* Objects that aren't prominent in the foreground may not be identified as part of the foreground.
+* Images with thin and detailed structures, like hair or fur, may show some artifacts when overlaid on backgrounds with strong contrast to the original background.
+* The latency of the background removal operation will be higher, up to several seconds, for large images.
 
    We suggest you experiment with integrating both modes into your workflow to find the best usage for your needs (for instance, calling background removal on the original image versus calling foreground matting on a downsampled version of the image, then resizing the alpha matte to the original size and applying it to the original image).
 
