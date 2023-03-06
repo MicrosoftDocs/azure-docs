@@ -178,10 +178,10 @@ The streamed logs look like this:
 > [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Integrate your app with an Azure virtual network](overview-vnet-integration.md)
+> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
 
 > [!div class="nextstepaction"]
-> [Use Private Endpoings for App Service apps](./networking/private-endpoint.md)
+> [Use Private Endpoings for App Service apps](../../networking/private-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Azure Monitor overview](/azure-monitor/overview.md)
@@ -190,7 +190,7 @@ The streamed logs look like this:
 > [Application monitoring for Azure App Service overview](/azure-monitor/app/azure-web-apps.md)
 
 > [!div class="nextstepaction"]
-> [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
 
 > [!div class="nextstepaction"]
 > [Configure custom container](../../configure-custom-container.md)
