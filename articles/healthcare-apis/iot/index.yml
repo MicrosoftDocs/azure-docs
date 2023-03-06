@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 01/31/2023
+  ms.date: 02/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -49,22 +49,17 @@ landingContent:
           - text: Azure portal
             url: deploy-new-manual.md
 
-  - title: The MedTech service with Azure IoT Hub 
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Receive device messages through Azure IoT Hub
-            url: device-messages-through-iot-hub.md 
- 
   - title: Configure the MedTech service mappings
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Device mappings
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: Device mapping
             url: how-to-configure-device-mappings.md
-          - text: FHIR destination mappings
-            url: how-to-configure-fhir-mappings.md
-
+          - text: FHIR destination mapping
+            url: how-to-configure-fhir-mappings.md 
+ 
   - title: Monitor the MedTech service
     linkLists:
       - linkListType: how-to-guide
@@ -76,14 +71,19 @@ landingContent:
           - text: Enable diagnostic settings
             url: how-to-enable-diagnostic-settings.md
 
-  - title: Integrate with the MedTech service
+  - title: Troubleshoot the MedTech service
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
-          - text: The MedTech service and Azure Machine Learning Service
-            url: concepts-machine-learning.md
-          - text: The MedTech service and Microsoft Power BI
-            url: concepts-power-bi.md
-          - text: The MedTech service and Microsoft Teams notifications
-            url: concepts-teams.md
+          - text: Deployment errors
+            url: troubleshoot-errors-deployment.md
+          - text: Error logs
+            url: troubleshoot-errors-logs.md
+
+  - title: The MedTech service with Azure IoT Hub 
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Receive device messages through Azure IoT Hub
+            url: device-messages-through-iot-hub.md
             

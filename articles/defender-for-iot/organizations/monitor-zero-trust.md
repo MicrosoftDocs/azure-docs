@@ -9,13 +9,7 @@ ms.collection:
 
 # Tutorial: Monitor your OT networks with Zero Trust principles
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing the following sets of security principles:
-
-|Verify explicitly  |Use least privilege access  |Assume breach  |
-|---------|---------|---------|
-|Always authenticate and authorize based on all available data points.     | Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.        | Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses. 
-
-<!--replace with include file-->
+[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
 Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 
@@ -27,7 +21,10 @@ In this tutorial, you learn how to:
 > * [Look for alerts on unknown devices](#look-for-alerts-on-unknown-devices)
 > * [Look for vulnerable systems](#look-for-vulnerable-systems)
 > * [Look for alerts on cross-subnet traffic](#look-for-alerts-on-cross-subnet-traffic)
-> * [Simulate traffic to test your network](#simulate-traffic-to-test-your-network)
+> * [Simulate malicious traffic to test your network](#simulate-malicious-traffic-to-test-your-network)
+
+> [!IMPORTANT]
+> The **Recommendations** page in the Azure portal is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -67,7 +64,7 @@ You've separated your network in to sites and zones to keep each subsystem separ
 
 ## Look for alerts on unknown devices
 
-Do you know what devices are on your network, and who they're communicating with? Defender for IoT triggers alerts for any new, unknown device detected on your network so that you can identify it and ensure both the device security and your network security.
+Do you know what devices are on your network, and who they're communicating with? Defender for IoT triggers alerts for any new, unknown device detected in OT subnets so that you can identify it and ensure both the device security and your network security.
 
 Unknown devices might include *transient* devices, which move between networks. For example, transient devices might include a technician's laptop, which they connect to the network when maintaining servers, or a visitor's smartphone, which connects to a guest network at your office.
 
@@ -104,6 +101,25 @@ Specific sites or zones that generate many alerts for unknown devices are at ris
     - Learn the alert if the device is legitimate so that the alert isn't triggered again for the same device. On the alert details page, select **Learn**.
     - Block the device if it's not legitimate.
 
+## Look for unauthorized devices
+
+We recommend that you proactively watch for new, unauthorized devices detected on your network. Regularly checking for unauthorized devices can help prevent threats of rogue or potentially malicious devices that might infiltrate your network.
+
+For example, use the **Review unauthorized devices** recommendation to identify all unauthorized devices.
+
+**To review unauthorized devices**:
+
+1. In Defender for IoT on the Azure portal, select **Recommendations (Preview)** and search for the **Review unauthorized devices** recommendation.
+1. View the devices listed in the **Unhealthy devices** tab. Each of these devices in unauthorized and might be a risk to your network.
+
+Follow the remediation steps, such as to mark the device as authorized if the device is known to you, or disconnect the device from your network if the device remains unknown after investigation.
+
+For more information, see [Enhance security posture with security recommendations](recommendations.md).
+
+> [!TIP]
+> You can also review unauthorized devices by [filtering the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory) by the **Authorization** field, showing only devices marked as **Unauthorized**.
+
+
 ## Look for vulnerable systems
 
 If you have devices on your network with outdated software or firmware, they might be vulnerable to attack. Devices that are end-of-life, and have no more security updates are especially vulnerable.
@@ -120,7 +136,7 @@ If you have devices on your network with outdated software or firmware, they mig
 
 1. In the **SiteName** select at the top of the page, select one or more sites to filter the data by site. Filtering data by site can help you identify concerns at specific sites, which may require site-wide updates or device replacements.
 
-## Simulate traffic to test your network
+## Simulate malicious traffic to test your network
 
 To verify the security posture of a specific device, run an **Attack vector** report to simulate traffic to that device. Use the simulated traffic to locate and mitigate vulnerabilities before they're exploited.
 
@@ -189,7 +205,7 @@ When monitoring for Zero Trust, the following list is an example of important De
 
 :::row:::
     :::column:::
-    - Unauthorized device connected to the network
+    - Unauthorized device connected to the network, especially any malicious IP/Domain name requests 
     - Known malware detected
     - Unauthorized connection to the internet
     - Unauthorized remote access

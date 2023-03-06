@@ -58,8 +58,8 @@ import azure.cognitiveservices.speech as speechsdk
 
 def from_file():
     speech_config = speechsdk.SpeechConfig(subscription="YourSpeechKey", region="YourSpeechRegion")
-    audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+    audio_config = speechsdk.AudioConfig(filename="your_file_name.wav")
+    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 
     result = speech_recognizer.recognize_once_async().get()
     print(result.text)
@@ -157,6 +157,12 @@ speech_config.speech_recognition_language="de-DE"
 ```
 
 [`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+
+## Language identification
+
+You can use [language identification](../../../language-identification.md?pivots=programming-language-python#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#speech-to-text).
 
 ## Use a custom endpoint
 
