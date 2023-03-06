@@ -15,7 +15,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Prerequisites
 
-In addition to the prequisites below, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
+In addition to the prerequisites below, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
