@@ -1,6 +1,6 @@
 ---
 author: sdwheeler
-description: Learn how to use the Bash command line in your browser with Azure Cloud Shell.
+description: Learn how to start using Azure Cloud Shell.
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.workload: infrastructure-services
 tags: azure-resource-manager
-title: Quickstart for Bash in Azure Cloud Shell
+title: Quickstart for Azure Cloud Shell
 ---
 # Quickstart for Azure Cloud Shell
 
