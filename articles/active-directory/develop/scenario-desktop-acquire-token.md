@@ -215,6 +215,9 @@ There are various ways you can acquire tokens in a desktop application.
 - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)
 
 ---
+Important
+If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
+
 ## Next steps
 
 Move on to the next article in this scenario,
