@@ -63,15 +63,15 @@ During security principal-based authorization, permissions are evaluated as show
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
 1. Azure determines whether a role assignment exists for the principal.
-    1. If a role assignment exists, the role assignment conditions (2) are evaluated next.
-    1. If not, the ACLs (3) are evaluated next.
-1. Azure determines whether the all of the ABAC role assignment conditions, if any exist, match the attributes of the request.
-    1. If no conditions exist, access is granted.
-    1. If conditions exist and all of them match the attributes of the request, access is granted.
-    1. If conditions exist and at least one of them does not match the attributes of the request, the ACLs (3) are evaluated next.
+    - If a role assignment exists, the role assignment conditions (2) are evaluated next.
+    - If not, the ACLs (3) are evaluated next.
+1. Azure determines whether all of the ABAC role assignment conditions, if any exist, match the attributes of the request.
+    - If no conditions exist, access is granted.
+    - If conditions exist and all of them match the attributes of the request, access is granted.
+    - If conditions exist and at least one of them does not match the attributes of the request, the ACLs (3) are evaluated next.
 1. If access has not been explicitly granted after evaluating the role assignments and conditions, the ACLs are evaluated.
-    1. If the ACLs permit the requested level of access, access is granted.
-    1. If not, access is denied.
+    - If the ACLs permit the requested level of access, access is granted.
+    - If not, access is denied.
 
 > [!IMPORTANT]
 > Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment and its conditions. That's because the system evaluates Azure role assignments and conditions first, and if the assignment grants sufficient access permission, ACLs are ignored.
