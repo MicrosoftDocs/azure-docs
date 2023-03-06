@@ -49,7 +49,7 @@ Each alert rule defines the severity of the alerts that it creates based on the 
 | Sev 1 | Error  | Degradation of performance or loss of availability of some aspect of an application or service. Requires attention but not immediate. |
 | Sev 2 | Warning | A problem that doesn't include any current loss in availability or performance, although it has the potential to lead to more severe problems if unaddressed. |
 | Sev 3 | Informational | Doesn't indicate a problem but provides interesting information to an operator, such as successful completion of a regular process. |
-| Sev 4 | Verbose | Detailed information that isn't useful.
+| Sev 4 | Verbose | Doesn't indicate a problem but provides detailed information that is verbose.
 
 Assess the severity of the condition each rule is identifying to assign an appropriate level. Define the types of issues you assign to each severity level and your standard response to each in your alerts strategy.
 
