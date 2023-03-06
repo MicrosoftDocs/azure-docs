@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: template-concept, engagement-fy23
+ms.custom: engagement-fy23
 ms.date: 03/06/2023
 ms.author: mbender
 ---
