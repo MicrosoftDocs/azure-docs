@@ -39,13 +39,20 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 
 Create a new C++ application.
 
-In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Select the **Console App** template that has C++, Windows, and Console tags, and then choose **Next**.
+#### [Windows](#tab/windows)
+
+In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Create a new **C++ Console application** and then choose **Next**.
 
 In the **Configure your new project** dialog, enter _ImageAnalysisQuickstart_ in the **Project name** edit box. Choose **Create** to create the project.
 
 ### Install the client library 
 
 Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
+
+#### [Linux](#tab/linux)
+
+Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/README-Linux.md#install-the-vision-sdk-package) to install the Vision SDK for Linux.
+---
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 

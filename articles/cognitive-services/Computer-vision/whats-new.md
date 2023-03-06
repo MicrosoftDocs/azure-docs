@@ -36,7 +36,7 @@ You can now create and train your own [custom image classification and object de
 
 ### Image Retrieval APIs (public preview)
 
-As part of the Image Analysis 4.0 API, the [Image Retrieval APIs](./how-to/image-retrieval.md) enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a many-dimensional vector space. Use vector similarity to match images with search terms based on semantic closeness.
+As part of the Image Analysis 4.0 API, the [Image Retrieval APIs](./how-to/image-retrieval.md) enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. Use vector similarity to match images with search terms based on semantic closeness.
 
 ### Background removal APIs (public preview)
 
