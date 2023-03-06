@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 02/03/2023
+ms.date: 03/07/2023
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -50,6 +50,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
 
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
+
+Be sure to also meet all [network requirements](network-requirements.md).
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -137,14 +139,6 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
 ---
-
-## Meet network requirements
-
-[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
-
-[!INCLUDE [network-requirements](includes/network-requirements.md)]
-
-For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Create a resource group
 
