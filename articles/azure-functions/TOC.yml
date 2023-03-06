@@ -43,6 +43,9 @@
           - name: Maven 
             displayName: Java, quickstart, get started
             href: create-first-function-cli-java.md
+          - name: Quarkus 
+            displayName: Java, quickstart, get started
+            href: functions-create-first-quarkus.md
           - name: Spring Cloud
             displayName: Java, quickstart, get started
             href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
@@ -163,6 +166,9 @@
         - name: JavaScript
           displayName: Connect to a database, Azure Cosmos DB
           href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+        - name: Python
+          displayName: Connect to a database, Azure Cosmos DB
+          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -405,20 +411,6 @@
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Command line
-                  href: ./create-first-function-cli-csharp.md
-                - name: Visual Studio
-                  href: ./functions-create-your-first-function-visual-studio.md
-                - name: Visual Studio Code
-                  href: ./create-first-function-vs-code-csharp.md
-                - name: Java with Quarkus
-                  href: functions-create-first-quarkus.md
-                - name: Java using Gradle
-                  href: functions-create-first-java-gradle.md
-                - name: Java using Eclipse
-                  href: functions-create-maven-eclipse.md
-                - name: Java using IntelliJ IDEA
-                  href: functions-create-maven-intellij.md
                 - name: Kotlin using Maven
                   href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
@@ -866,6 +858,10 @@
             href: errors-diagnostics/diagnostic-events/azfd0002.md
           - name: AZFD0003
             href: errors-diagnostics/diagnostic-events/azfd0003.md
+          - name: AZFD0004
+            href: errors-diagnostics/diagnostic-events/azfd0004.md
+          - name: AZFD0005
+            href: errors-diagnostics/diagnostic-events/azfd0005.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

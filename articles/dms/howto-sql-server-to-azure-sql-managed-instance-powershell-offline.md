@@ -344,4 +344,4 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 Find out more about Azure Database Migration Service in the article [What is the Azure Database Migration Service?](./dms-overview.md).
 
-For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](/data-migration/).

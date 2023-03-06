@@ -87,7 +87,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 When ACR is behind a virtual network, Azure Machine Learning can’t use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
-> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](v1/how-to-train-with-custom-image.md) that already include the packages.
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.
@@ -319,6 +319,17 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
+
+## Secure Azure Monitor and Application Insights
+
+To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
+
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+
+    > [!TIP]
+    > New workspaces create a workspace-based Application Insights resource by default.
+
+1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 ## Securely connect to your workspace
 

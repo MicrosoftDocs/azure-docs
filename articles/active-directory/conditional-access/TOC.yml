@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multi-Factor Authentication
+  - name: Require Azure AD Multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -120,8 +120,6 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
-    - name: FAQ
-      href: faqs.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies

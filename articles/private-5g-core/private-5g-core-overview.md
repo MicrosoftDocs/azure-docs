@@ -1,6 +1,6 @@
 ---
-title: What is Azure Private 5G Core Preview?
-description: Azure Private 5G Core Preview is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
+title: What is Azure Private 5G Core?
+description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -9,9 +9,9 @@ ms.date: 02/20/2022
 ms.custom: template-overview
 ---
 
-# What is Azure Private 5G Core Preview?
+# What is Azure Private 5G Core?
 
-*Azure Private 5G Core Preview* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
+*Azure Private 5G Core* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
 
 Azure Private 5G Core provides: 
 
@@ -150,7 +150,7 @@ In the context of private mobile networks, a single RAN can connect to both a pr
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
-Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
+Each packet core instance is standards-compliant and compatible with several RAN partners in the Azure private MEC ecosystem.
 
 Azure Private 5G Core exposes an N2 and N3 interface for the 5G control plane and user plane respectively. It complies with the following 3GPP Technical Specifications, allowing you to integrate with a wide range of RAN models:
 
@@ -179,9 +179,7 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 
 ## Azure centralized monitoring
 
-Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as described in [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md). You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
-
-:::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Screenshot of Log Analytics showing a query made on devices registered with the private mobile network." lightbox="media/azure-private-5g-core/log-analytics-tool.png":::
+Azure Private 5G Core is integrated with Azure Monitor. You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
 
 ## Next steps
 

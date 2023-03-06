@@ -1,6 +1,6 @@
 ---
 title: Collect information for a site
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: Learn about the information you'll need to create a site in an existing private mobile network.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,13 +12,14 @@ ms.custom: template-how-to
 
 # Collect the required information for a site
 
-Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. 
+Azure Private 5G Core private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site.
 
 You can use this information to create a site in an existing private mobile network using the [Azure portal](create-a-site.md). You can also use it as part of an ARM template to [deploy a new private mobile network and site](deploy-private-mobile-network-with-site-arm-template.md), or [add a new site to an existing private mobile network](create-site-arm-template.md).
 
 ## Prerequisites
 
-You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
 
 ## Collect mobile network site resource values
 
@@ -31,8 +32,8 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
    |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
-   |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
-   |The billing plan for the site that you are creating. The available plans have the following allowances:</br></br> G1 - 1 Gbps per site and 100 devices per network. </br> G2 - 2 Gbps per site and 200 devices per network. </br> G3 - 3 Gbps per site and 300 devices per network. </br> G4 - 4 Gbps per site and 400 devices per network. </br> G5 - 5 Gbps per site and 500 devices per network.|**Instance details: Site plan**|
+   |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 activated SIMs per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 activated SIMs per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 activated SIMs per network and 10 RAN connections. </br> G3 - 3 Gbps per site, 300 activated SIMs per network and unlimited RAN connections. </br> G4 - 4 Gbps per site, 400 activated SIMs per network and unlimited RAN connections. </br> G5 - 5 Gbps per site, 500 activated SIMs per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 activated SIMs per network and unlimited RAN connections.|**Instance details: Site plan**|
 
 ## Collect packet core configuration values
 
@@ -67,7 +68,28 @@ For each data network that you want to configure, collect all the values in the 
    | The network address of the subnet from which dynamic IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support dynamic IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`192.0.2.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Dynamic UE IP pool prefixes**|
    | The network address of the subnet from which static IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support static IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`203.0.113.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Static UE IP pool prefixes**|
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
-   |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
+   |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses. </br></br>When NAPT is disabled, static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network must be configured in the data network router. </br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.   |**NAPT**|
+
+## Collect values for diagnostics package gathering
+
+You can use a storage account and user assigned managed identity, with write access to the storage account, to gather diagnostics packages for the site.
+
+If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this after site creation.
+
+If you want to configure diagnostics package gathering during site creation, see [Collect values for diagnostics package gathering](gather-diagnostics.md#collect-values-for-diagnostics-package-gathering).
+
+## Choose the authentication method for local monitoring tools
+
+Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+
+If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+
+If you want to access your local monitoring tools using local usernames and passwords, you don't need to set any additional configuration. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
+
+You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+
+> [!NOTE]
+> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Azure AD. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
 
 ## Collect local monitoring values
 
@@ -75,18 +97,31 @@ You can use a self-signed or a custom certificate to secure access to the [distr
 
 If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
-If you want to provide a custom HTTPS certificate at site creation, follow the steps below. You'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
+If you want to provide a custom HTTPS certificate at site creation, follow the steps below.
 
-   1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the Azure Key Vault is configured with **Azure Virtual Machines for deployment** resource access.
-   1. [Add the certificate to your Key Vault](../key-vault/certificates/quick-create-portal.md). If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) for information on enabling auto-rotation.
+   1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
+   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
+
+      - Be signed by a globally known and trusted CA.
+      - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
+
+      We also recommend setting a DNS name for your certificate.
+
+   1. If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) for information on enabling auto-rotation.
+
       > [!NOTE]
-      > Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
       >
-      > If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
+      > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
+
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
 
       - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
-      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+      - If you want to, assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
+
+          - If you have an existing user-assigned identity configured for diagnostic collection you can modify it.
+          - Otherwise, you can create a new user-assigned identity.
 
    1. Collect the values in the following table.
 
@@ -97,7 +132,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
 ## Next steps
 
-You can now use the information you've collected to create the site.
+Use the information you've collected to create the site:
 
-- [Create a site - Azure portal](create-a-site.md)
-- [Create a site - ARM template](create-site-arm-template.md)
+   - [Create a site - Azure portal](create-a-site.md)
+   - [Create a site - ARM template](create-site-arm-template.md)

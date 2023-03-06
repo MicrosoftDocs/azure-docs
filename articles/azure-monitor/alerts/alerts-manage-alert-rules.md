@@ -4,7 +4,7 @@ description: Manage your alert rules in the Azure portal, or using the CLI or Po
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
 # Manage your alert rules
@@ -14,7 +14,25 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 ## Manage alert rules in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. You'll see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
+1. From the top command bar, select **Alert rules**. The page shows all your alert rules across on all subscriptions.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot of alerts rules page.":::
+
+1. You can filter the list of rules using the available filters:
+    - Subscription
+    - Alert condition
+    - Severity
+    - User response
+    - Monitor service
+    - Signal type
+    - Resource group
+    - Target resource type
+    - Resource name
+    - Suppression status
+
+    > [!NOTE]
+    > If you filter on a `target resource type` scope, the alerts rules list doesn’t include resource health alert rules. To see the resource health alert rules, remove the `Target resource type` filter, or filter the rules based on the `Resource group` or `Subscription`.
+
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
 1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
     - **Scope**. You can edit the scope for all alert rules **other than**:
@@ -52,7 +70,7 @@ To enable recommended alert rules:
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Enable**.
 
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-rule-pane.jpg" alt-text="Screenshot of recommended alert rules pane."::: 
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
 
 ## Manage metric alert rules with the Azure CLI
 

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.date: 09/28/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: upgrade
 ---
 
@@ -64,7 +64,7 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 
 ## Upgrade steps
 
-### With our [CLI](how-to-deploy-online-endpoints.md) or [SDK preview](how-to-deploy-managed-online-endpoint-sdk-v2.md)
+### With our [CLI](how-to-deploy-online-endpoints.md) or [SDK](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/managed).
 

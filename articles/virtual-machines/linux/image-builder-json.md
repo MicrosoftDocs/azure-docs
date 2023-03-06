@@ -760,7 +760,7 @@ Image Builder will read these commands, these commands are written out to the AI
 
 Azure Image Builder supports three distribution targets:
 
-- **managedImage** - managed image.
+- **ManagedImage** - Managed image.
 - **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 

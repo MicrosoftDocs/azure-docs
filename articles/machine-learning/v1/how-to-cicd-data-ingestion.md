@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
+ms.custom: UpdateFrequency5, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete

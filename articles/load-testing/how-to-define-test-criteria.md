@@ -10,12 +10,9 @@ ms.date: 10/19/2022
 ms.topic: how-to
 ---
 
-# Define fail criteria for load tests by using Azure Load Testing Preview
+# Define fail criteria for load tests by using Azure Load Testing
 
-In this article, you'll learn how to define test fail criteria for your load tests with Azure Load Testing Preview. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria. Criteria can apply to the entire load test, or to an individual request in the JMeter script.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you'll learn how to define test fail criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria. Criteria can apply to the entire load test, or to an individual request in the JMeter script.
 
 ## Prerequisites  
 

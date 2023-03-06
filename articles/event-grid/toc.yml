@@ -141,6 +141,10 @@ items:
             href: communication-services-email-events.md
         - name: Azure Container Registry
           href: event-schema-container-registry.md
+        - name: Azure Data Box
+          href: event-schema-data-box.md
+        - name: Azure Data Manager for Agriculture
+          href: event-schema-data-manager-for-agriculture.md
         - name: Azure Event Hubs
           href: event-schema-event-hubs.md
         - name: Azure Health Data Services
@@ -316,12 +320,8 @@ items:
       href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
-    - name: Disaster recovery
-      items:
-      - name: Build your own disaster recovery plan
-        href: custom-disaster-recovery.md
-      - name: Build your own client-side disaster recovery
-        href: custom-disaster-recovery-client-side.md
+    - name: Build your own client-side disaster recovery
+      href: custom-disaster-recovery-client-side.md
     - name: Track asynchronous REST operations
       href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
     - name: Move

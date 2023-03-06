@@ -16,10 +16,20 @@ This article outlines the process to register and govern an Azure Data Lake Stor
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited** |[Yes](#data-sharing)|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy)  | Limited* |[Yes](#data-sharing)|
 
+\* *Lineage is supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+When scanning Azure Data Lake Storage Gen2 source, Microsoft Purview supports extracting technical metadata including:
+
+- Storage account
+- Data Lake Storage Gen2 Service
+- File system (container)
+- Folders
+- Files
+- Resource sets
+
+When setting up scan, you can choose to scan the entire ADLS Gen2 or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
 ## Prerequisites
 

@@ -36,7 +36,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Start by enabling the **Defender for IoT** data connector to stream all your Defender for IoT events into Microsoft Sentinel.
+Start by enabling the [Defender for IoT data connector](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
 
 **To enable the Defender for IoT data connector**:
 
@@ -156,15 +156,11 @@ The following types of updates generate new records in the **SecurityAlert** tab
 - A new device is added to an existing alert
 - The device properties for an alert are updated
 
+
+
 ## Next steps
 
-[Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
+The [Microsoft Defender for IoT](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
-The **Microsoft Defender for IoT** solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
-
-For more information, see:
-
-- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
-- [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
-- [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
-- [Microsoft Defender for IoT data connector](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot)
+> [!div class="nextstepaction"]
+> [Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md)

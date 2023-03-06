@@ -2,10 +2,9 @@
 title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 11/14/2020
+ms.date: 02/22/2023
 ms.author: allensu
 author: asudbring
 
@@ -54,6 +53,18 @@ spec:
   selector:
     app: public-app
 ```
+
+### Specify the load balancer IP address
+
+If you want to use a specific IP address with the load balancer, there are two ways:
+
+> [!IMPORTANT]
+> Adding the *LoadBalancerIP* property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead.
+
+* **Set service annotations**: Use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address.
+* **Add the *LoadBalancerIP* property to the load balancer YAML manifest**: Add the *Service.Spec.LoadBalancerIP* property to the load balancer YAML manifest. This field is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235), and it can't support dual-stack. Current usage remains the same and existing services are expected to work without modification.
+
+### Deploy the service manifest
 
 Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and specify the name of your YAML manifest.
 
@@ -301,7 +312,10 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
+>
 > If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you may have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
+>
+> For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
 

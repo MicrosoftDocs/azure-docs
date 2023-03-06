@@ -1,12 +1,11 @@
 ---
-title: View Azure virtual network topology | Microsoft Docs
+title: View Azure virtual network topology
 description: Learn how to view the resources in a virtual network, and the relationships between the resources.
 services: network-watcher
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.custom: ignite-2022, engagement-fy23
 ms.workload: infrastructure-services
 ms.date: 11/11/2022

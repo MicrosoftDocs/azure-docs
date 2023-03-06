@@ -6,7 +6,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

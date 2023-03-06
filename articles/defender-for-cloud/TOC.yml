@@ -7,32 +7,22 @@
   - name: What is Microsoft Defender for Cloud?
     displayName: Defender for cloud, servers, storage, sql, containers, app service, key vault, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
-  - name: What are the enhanced security features?
-    displayName: azure defender
-    href: enhanced-security-features-overview.md
   - name: What's new?
     displayName: changelog, news, release notes
     href: release-notes.md
   - name: Important upcoming changes
     displayName: release notes, changelog, news
     href: upcoming-changes.md
-  - name: Availability
+  - name: Common questions
     items:
-    - name: Supported platforms for servers
-      displayName: coverage, supported platforms, cloud services, virtual machines
-      href: os-coverage.md
-    - name: Servers coverage by OS, machine type, and cloud
-      displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
-      href: supported-machines-endpoint-solutions-clouds-servers.md
-    - name: Defender for Containers feature availability
-      displayName: Containers, features availability, environment information
-      href: supported-machines-endpoint-solutions-clouds-containers.md
-    - name: Feature coverage for Azure PaaS resources
-      displayName: Paas, resources
-      href: features-paas.md
-    - name: User roles and permissions
-      displayName: RBAC, permissions, roles, contributor, security, reader, admin, owner
-      href: permissions.md
+    - name: General questions
+      href: faq-general.yml
+    - name: Permissions questions
+      href: faq-permissions.yml
+    - name: Data collection and agent questions
+      href: faq-data-collection-agents.yml
+    - name: Azure Virtual Machines questions
+      href: faq-vms.yml
 
 - name: Quickstarts
   items:
@@ -98,10 +88,25 @@
 
 - name: Concepts
   items:
+  - name: Interoperability and permissions
+    items:
+    - name: User roles and permissions
+      href: permissions.md
+    - name: Azure cloud support
+      displayName: coverage, supported platforms, cloud services, roles, permissions
+      href: support-matrix-defender-for-cloud.md
+    - name: Defender for Servers support matrices
+      displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
+      href: support-matrix-defender-for-servers.md
+    - name: Defender for Containers support matrices
+      displayName: Containers, features availability, environment information
+      href: support-matrix-defender-for-containers.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
+    - name: Zero Trust infrastructure and integrations
+      href: zero-trust.md
     - name: Planning multicloud security
       items:
       - name: Get started
@@ -163,25 +168,23 @@
       - name: Reference list of attack paths and cloud security graph components
         displayName: attack, paths, security, graph, components
         href: attack-path-reference.md
-  - name: Protect servers
+  - name: Plan Defender for Servers deployment
     items:
-    - name: Plan Defender for Servers deployment
-      items:
-      - name: Get started
-        displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
-        href: plan-defender-for-servers.md
-      - name: Review data residency and workspace design 
-        href: plan-defender-for-servers-data-workspace.md
-      - name: Determine roles and access
-        href: plan-defender-for-servers-roles.md
-      - name: Select a plan
-        href: plan-defender-for-servers-select-plan.md
-      - name: Review agents and extensions
-        href: plan-defender-for-servers-agents.md
-      - name: Scale a Defender for Servers deployment
-        href: plan-defender-for-servers-scale.md
-      - name: Common questions
-        href: faq-defender-for-servers.yml
+    - name: Get started
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
+      href: plan-defender-for-servers.md
+    - name: Review data residency and workspace design 
+      href: plan-defender-for-servers-data-workspace.md
+    - name: Determine roles and access
+      href: plan-defender-for-servers-roles.md
+    - name: Select a plan
+      href: plan-defender-for-servers-select-plan.md
+    - name: Review agents and extensions
+      href: plan-defender-for-servers-agents.md
+    - name: Scale a Defender for Servers deployment
+      href: plan-defender-for-servers-scale.md
+    - name: Common questions
+      href: faq-defender-for-servers.yml
   - name: Protect cloud workloads
     items:
     - name: Agentless scanning
@@ -559,6 +562,12 @@
     - name: Enable pull request annotations in GitHub or in Azure DevOps
       displayName: PR annotations, annotations, DevOps, GitHub, pull request
       href: enable-pull-request-annotations.md
+    - name: Defender for DevOps FAQ
+      displayName: DevOps, FAQ
+      href: devops-faq.md
+    - name: Credential scanner rules
+      displayName: credential, scanner, rules, DevOps
+      href: concept-credential-scanner-rules.md
 
 - name: Reference
   items:
@@ -571,18 +580,6 @@
     href: /rest/api/defenderforcloud/
   - name: Security baseline
     href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
-  - name: FAQ for Microsoft Defender for Cloud
-    items:
-    - name: General questions
-      href: faq-general.yml
-    - name: Permissions questions
-      href: faq-permissions.yml
-    - name: Data collection and agent questions
-      href: faq-data-collection-agents.yml
-    - name: Virtual Machines questions
-      href: faq-vms.yml
-    - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
@@ -653,6 +650,10 @@
       href: episode-twenty-four.md
     - name: AWS ECR coverage in Defender for Containers
       href: episode-twenty-five.md
+    - name: Governance capability improvements in Defender for Cloud
+      href: episode-twenty-six.md
+    - name: Demystifying Defender for Servers
+      href: episode-twenty-seven.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -16,6 +16,11 @@ items:
 - name: How-to guides
   expanded: true
   items:
+  - name: Develop Applications
+    expanded: false
+    items:
+    - name: Using DICOM Service for digital pathology
+      href: dicom-digital-pathology.md
   - name: Access DICOM service
     expanded: false
     items:

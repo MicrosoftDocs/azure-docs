@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
@@ -197,24 +196,24 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     The output of list with correct ownership and permission is similar to the following:
 
     ```Output
-    azureUser@vm-h2hnm5j5uxk2a:/var/aziot$ sudo ls -Rla /var/aziot
+    azureUser@vm:/var/aziot$ sudo ls -Rla /var/aziot
     /var/aziot:
     total 16
     drwxr-xr-x  4 root    root    4096 Dec 14 00:16 .
     drwxr-xr-x 15 root    root    4096 Dec 14 00:15 ..
-    drw-r--r--  2 aziotcs aziotcs 4096 Jan 14 00:31 certs
-    drwx------  2 aziotks aziotks 4096 Jan 14 00:35 secrets
-    
+    drwxr-xr-x  2 aziotcs aziotcs 4096 Jan 14 00:31 certs
+    drwx------  2 aziotks aziotks 4096 Jan 23 17:23 secrets
+
     /var/aziot/certs:
     total 20
-    drw-r--r-- 2 aziotcs aziotcs 4096 Jan 14 00:31 .
+    drwxr-xr-x 2 aziotcs aziotcs 4096 Jan 14 00:31 .
     drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
     -rw-r--r-- 1 aziotcs aziotcs 1984 Jan 14 00:24 azure-iot-test-only.root.ca.cert.pem
     -rw-r--r-- 1 aziotcs aziotcs 5887 Jan 14 00:27 iot-edge-device-ca-gateway-full-chain.cert.pem
-    
+
     /var/aziot/secrets:
-    total 20
-    drwx------ 2 aziotks aziotks 4096 Jan 14 00:35 .
+    total 16
+    drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
     drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
     -rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
     -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-gateway.key.pem

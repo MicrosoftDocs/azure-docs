@@ -2,9 +2,9 @@
 title: Manage Azure Data Lake Analytics using Python
 description: This article describes how to use Python to manage Data Lake Analytics accounts, data sources, users, & jobs.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/08/2018
+ms.date: 01/20/2023
 ms.custom: devx-track-python
 ---
 # Manage Azure Data Lake Analytics using Python
@@ -101,7 +101,7 @@ Run this script to verify that the modules can be imported.
 
 ### Interactive user authentication with a pop-up
 
-This method is not supported.
+This method isn't supported.
 
 ### Interactive user authentication with a device code
 
@@ -125,7 +125,7 @@ credentials = DefaultAzureCredential()
 
 ### Noninteractive authentication with API and a certificate
 
-This method is not supported.
+This method isn't supported.
 
 ## Common script variables
 
@@ -265,7 +265,7 @@ adlaAcctClient.compute_policies.create_or_update(
 
 ## Next steps
 
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
+- To see the same tutorial using other tools, select the tab selectors on the top of the page.
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 

@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the JavaScript REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the JavaScript SDK Developers Guide.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -45,7 +45,7 @@ npm init
 To use Azure Maps JavaScript SDK, you'll need to install the search package. Each of the Azure Maps services including search, routing, rendering and geolocation are each in their own package.
 
 ```powershell
-npm install @azure/maps-search
+npm install @azure-rest/maps-search
 ```
 
 Once the package is installed, create a `search.js` file in the `mapsDemo` directory:
@@ -62,8 +62,10 @@ mapsDemo
 
 | Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][search readme] | [@azure/maps-search][search package] | [search samples][search sample] |
+| [Search][search readme] | [@azure-rest/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
+| [Render][js render readme] | [@azure-rest/maps-render][js render package]|[render sample][js render sample] |
+| [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
 
 ## Create and authenticate a MapsSearchClient
 
@@ -109,12 +111,12 @@ MAPS_CLIENT_ID="<maps-client-id>"
 Once your environment variables are created, you can access them in your JavaScript code:
 
 ```JavaScript
-const { MapsSearchClient } = require("@azure/maps-search"); 
+const MapsSearch = require("@azure-rest/maps-search").default; 
 const { DefaultAzureCredential } = require("@azure/identity"); 
 require("dotenv").config(); 
  
 const credential = new DefaultAzureCredential(); 
-const client = new MapsSearchClient(credential, process.env.MAPS_CLIENT_ID); 
+const client = MapsSearch(credential, process.env.MAPS_CLIENT_ID); 
 ```
 
 ### Using a subscription key credential
@@ -123,7 +125,7 @@ You can authenticate with your Azure Maps subscription key. Your subscription ke
 
 :::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
 
-You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
+You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Core Authentication Package][core auth package]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
 
 You can accomplish this by using a `.env` file to store the subscription key variable. You'll need to install the [dotenv][dotenv] package to retrieve the value:
 
@@ -140,11 +142,12 @@ MAPS_SUBSCRIPTION_KEY="<subscription-key>"
 Once your environment variable is created, you can access it in your JavaScript code:
 
 ```JavaScript
-const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+const MapsSearch = require("@azure-rest/maps-search").default;
+const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
 const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
-const client = new MapsSearchClient(credential);
+const client = MapsSearch(credential);
 ```
 
 ## Fuzzy search an entity
@@ -153,41 +156,54 @@ The following code snippet demonstrates how, in a simple console application, to
 
 ```JavaScript
 
-const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search"); 
-require("dotenv").config(); 
- 
-async function main() { 
-  // Authenticate with Azure Map Subscription Key 
-  const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY); 
-  const client = new MapsSearchClient(credential); 
- 
-  // Setup the fuzzy search query 
-  const response = await client.fuzzySearch({ 
-    query: "Starbucks", 
-    coordinates: [47.61010, -122.34255], 
-    countryCodeFilter: ["US"], 
-  }); 
- 
-  // Log the result 
-  console.log(`Starbucks search result nearby Seattle:`); 
-  response.results.forEach((result) => { 
-    console.log(`\ 
-      * ${result.address.streetNumber} ${result.address.streetName} 
-        ${result.address.municipality} ${result.address.countryCode} ${result.address.postalCode} 
-        Coordinate: (${result.position[0].toFixed(4)}, ${result.position[1].toFixed(4)})\ 
-    `); 
-} 
- 
-main().catch((err) => { 
-  console.error(err); 
-}); 
+const MapsSearch = require("@azure-rest/maps-search").default;
+const { isUnexpected } = require("@azure-rest/maps-search");
+const { AzureKeyCredential } = require("@azure/core-auth");
+require("dotenv").config();
+
+async function main() {
+  // Authenticate with Azure Map Subscription Key
+  const credential = new AzureKeyCredential(
+    process.env. MAPS_SUBSCRIPTION_KEY
+  );
+  const client = MapsSearch(credential);
+
+  // Setup the fuzzy search query
+  const response = await client.path("/search/fuzzy/{format}", "json").get({
+    queryParameters: {
+      query: "Starbucks",
+      lat: 47.61559,
+      lon: -122.33817,
+      countrySet: ["US"],
+    },
+  });
+
+  // Handle the error response
+  if (isUnexpected(response)) {
+    throw response.body.error;
+  }
+  // Log the result
+  console.log(`Starbucks search result nearby Seattle:`);
+  response.body.results.forEach((result) => {
+    console.log(`\
+      * ${result.address.streetNumber} ${result.address.streetName}
+        ${result.address.municipality} ${result.address.countryCode} ${
+      result.address.postalCode
+    }
+        Coordinate: (${result.position.lat.toFixed(4)}, ${result.position.lon.toFixed(4)})\
+    `);
+  });
+}
+
+main().catch((err) => {
+  console.error(err);
+});
+
 
 ```
 
-In the above code snippet, you create a `MapsSearchClient` object using your Azure credentials. This is done using your Azure Maps subscription key, however you could use the [Azure AD credential](#using-an-azure-ad-credential) discussed in the previous section. You then pass the search query and options to the `fuzzySearch` method. Search for Starbucks (`query: "Starbucks"`) near Seattle (`coordinates: [47.61010, -122.34255], countryFilter: ["US"]`). For more information, see [FuzzySearchRequest][FuzzySearchRequest] in the [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK].
-
-The method `fuzzySearch` provided by `MapsSearchClient` will forward the request to Azure Maps REST endpoints. When the results are returned, they're written to the console. For more information, see [SearchAddressResult][SearchAddressResult].
-
+The code snippet above shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult][FuzzySearchResult] object and writes them to the console. For more details, see the [FuzzySearchRequest][FuzzySearchRequest] documentation.
+ 
 Run `search.js` with Node.js:
 
 ```powershell
@@ -196,176 +212,181 @@ node search.js
 
 ## Search an Address
 
-The [searchAddress][searchAddress] method can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
+The [searchAddress][searchAddress] query can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
 
 ```JavaScript
-const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+const MapsSearch = require("@azure-rest/maps-search").default;
+const { isUnexpected } = require("@azure-rest/maps-search");
+const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
 async function main() {
-  const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
-  const client = new MapsSearchClient(credential);
-
-  const response = await client.searchAddress(
-    "1912 Pike Pl, Seattle, WA 98101, US"
+  const credential = new AzureKeyCredential(
+    process.env. MAPS_SUBSCRIPTION_KEY
   );
+  const client = MapsSearch(credential);
 
-  console.log(`The coordinate is: ${response.results[0].position}`);}
+  const response = await client.path("/search/address/{format}", "json").get({
+    queryParameters: {
+      query: "1301 Alaskan Way, Seattle, WA 98101, US",
+    },
+  });
+  if (isUnexpected(response)) {
+    throw response.body.error;
+  }
+  const { lat, lon } = response.body.results[0].position;
+  console.log(`The coordinate is: (${lat}, ${lon})`);
+}
 
 main().catch((err) => {
   console.error(err);
 });
+
 ```
 
-The results returned from `client.searchAddress` are ordered by confidence score and in this example only the first result returned with be displayed to the screen.
+The results are ordered by confidence score and in this example only the first result returned with be displayed to the screen.
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so you can wait until completion or query the result periodically. The example below demonstrates how to call batched reverse search method:
+Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so you can use the poller to wait until completion. The example below demonstrates how to call batched reverse search method:
 
 ```JavaScript
-    const poller = await client.beginReverseSearchAddressBatch([
+  const batchItems = await createBatchItems([
     // This is an invalid query
-    { coordinates: [148.858561, 2.294911] },
-    {
-      coordinates: [47.61010, -122.34255],
-    },
-    { coordinates: [47.6155, -122.33817] },
-      options: { radiusInMeters: 5000 },
+    { query: [148.858561, 2.294911] },
+    { query: [47.61010, -122.34255] },
+    { query: [47.61559, -122.33817], radius: 5000 },
   ]);
+  const initialResponse = await client.path("/search/address/reverse/batch/{format}", "json").post({
+    body: { batchItems },
+  });
 ```
 
-In this example, three queries are passed into the _batched reverse search_ request. The first query is invalid, see [Handing failed requests](#handing-failed-requests) for an example showing how to handle the invalid query.
+In this example, three queries are passed into the helper function `createBatchItems` which is imported from `@azure-rest/maps-search`. This helper function composed the body of the batch request. The first query is invalid, see [Handing failed requests](#handing-failed-requests) for an example showing how to handle the invalid query.
 
-Use the `getResult` method from the poller to check the current result. You check the status using `getOperationState` to see if the poller is still running. If it is, you can keep calling `poll` until the operation is finished:
+Use the `getLongRunningPoller` method with the `initialResponse` to get the poller. Then you can use `pollUntilDone` to get the final result:
 
 ```JavaScript
-  while (poller.getOperationState().status === "running") {
-    const partialResponse = poller.getResult();
-    logResponse(partialResponse)
-    await poller.poll();
-  }
+  const poller = getLongRunningPoller(client, initialResponse);
+  const response = await poller.pollUntilDone();
+  logResponseBody(response.body);
 ```
 
-Alternatively, you can wait until the operation has completed, by using `pollUntilDone()`:
-
-```JavaScript
-const response = await poller.pollUntilDone();
-logResponse(response)
-```
-
-A common scenario for LRO is to resume a previous operation later. Do that by serializing the poller’s state with the `toString` method, and rehydrating the state with a new poller using `resumeReverseSearchAddressBatch`:
+A common scenario for LRO is to resume a previous operation later. Do that by serializing the poller’s state with the `toString` method, and rehydrating the state with a new poller using the `resumeFrom` option in `getLongRunningPoller`:
 
 ```JavaScript
   const serializedState = poller.toString();
-  const rehydratedPoller = await client.resumeReverseSearchAddressBatch(
-    serializedState
-  );
-  const response = await rehydratedPoller.pollUntilDone();
-  logResponse(response);
+  const rehydratedPoller = getLongRunningPoller(client, initialResponse, {
+    resumeFrom: serializedState,
+  });
+
+  const resumeResponse = await rehydratedPoller.pollUntilDone();
+  logResponseBody(response);
 ```
 
 Once you get the response, you can log it:
 
 ```JavaScript
-function logResponse(response) {
-  console.log(
-    `${response.totalSuccessfulRequests}/${response.totalRequests} succeed.`
-  );
-  response.batchItems.forEach((item, idx) => {
-    console.log(`The result for ${idx + 1}th request:`);
-   // Check if the request is failed
-    if (item.response.error) {
-      console.error(item.response.error);
+ 
+function logResponseBody(resBody) {
+  const { summary, batchItems } = resBody;
+
+  const { totalRequests, successfulRequests } = summary;
+  console.log(`${successfulRequests} out of ${totalRequests} requests are successful.`);
+
+  batchItems.forEach(({ response }, idx) => {
+    if (response.error) {
+      console.log(`Error in ${idx + 1} request: ${response.error.message}`);
     } else {
-      item.response.results.forEach((result) => {
-        console.log(result.address.freeformAddress);
+      console.log(`Results in ${idx + 1} request:`);
+      response.addresses.forEach(({ address }) => {
+        console.log(`  ${address.freeformAddress}`);
       });
     }
   });
-}
+} 
+
 ```
 
 ### Handing failed requests
 
-Handle failed requests by checking for the `error` property in the response batch item. See the `logResponse` function in the completed batch reverse search example below.
+Handle failed requests by checking for the `error` property in the response batch item. See the `logResponseBody` function in the completed batch reverse search example below.
 
 ### Completed batch reverse search example
 
 The complete code for the reverse address batch search example:
 
 ```JavaScript
-const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+const MapsSearch = require("@azure-rest/maps-search").default,
+  { createBatchItems, getLongRunningPoller } = require("@azure-rest/maps-search");
+const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
 async function main() {
   const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
-  const client = new MapsSearchClient(credential);
+  const client = MapsSearch(credential);
 
-  const poller = await client.beginReverseSearchAddressBatch([
+  const batchItems = createBatchItems([
     // This is an invalid query
-    { coordinates: [148.858561, 2.294911] },
+    { query: [148.858561, 2.294911] },
     {
-      coordinates: [47.61010, -122.34255],
+      query: [47.6101, -122.34255],
     },
-    { coordinates: [47.6155, -122.33817] },
-      options: { radiusInMeters: 5000 },
+    { query: [47.6155, -122.33817], radius: 5000 },
   ]);
 
-  // Get the partial result and keep polling
-  while (poller.getOperationState().status === "running") {
-    const partialResponse = poller.getResult();
-    logResponse(partialResponse);
-    await poller.poll();
-  }
+  const initialResponse = await client.path("/search/address/reverse/batch/{format}", "json").post({
+    body: { batchItems },
+  });
+  const poller = getLongRunningPoller(client, initialResponse);
 
-  // You can simply wait for the operation is done
-  // const response = await poller.pollUntilDone();
-  // logResponse(response)
+  const response = await poller.pollUntilDone();
+  logResponseBody(response.body);
 
-  // Resume the poller
   const serializedState = poller.toString();
-  const rehydratedPoller = await client.resumeReverseSearchAddressBatch(
-    serializedState
-  );
-  const response = await rehydratedPoller.pollUntilDone();
-  logResponse(response);
+  const rehydratedPoller = getLongRunningPoller(client, initialResponse, {
+    resumeFrom: serializedState,
+  });
+  const resumeResponse = await rehydratedPoller.pollUntilDone();
+  logResponseBody(resumeResponse.body);
 }
 
-function logResponse(response) {
-  console.log(
-    `${response.totalSuccessfulRequests}/${response.totalRequests} succeed.`
-  );
-  response.batchItems.forEach((item, idx) => {
-    console.log(`The result for ${idx + 1}th request:`);
-    if (item.response.error) {
-      console.error(item.response.error);
+function logResponseBody(resBody) {
+  const { summary, batchItems } = resBody;
+
+  const { totalRequests, successfulRequests } = summary;
+  console.log(`${successfulRequests} out of ${totalRequests} requests are successful.`);
+
+  batchItems.forEach(({ response }, idx) => {
+    if (response.error) {
+      console.log(`Error in ${idx + 1} request: ${response.error.message}`);
     } else {
-      item.response.results.forEach((result) => {
-        console.log(result.address.freeformAddress);
+      console.log(`Results in ${idx + 1} request:`);
+      response.addresses.forEach(({ address }) => {
+        console.log(`  ${address.freeformAddress}`);
       });
     }
   });
 }
 
-main().catch((err) => {
-  console.error(err);
-});
+main().catch(console.error);
+
 ```
 
 ## Additional information
 
 - The [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK].
 
-[JS-SDK]: /javascript/api/overview/azure/maps-search-readme?view=azure-node-preview
+[JS-SDK]: /javascript/api/@azure-rest/maps-search
 
 [defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
 
-[searchAddress]: /javascript/api/@azure/maps-search/mapssearchclient?view=azure-node-preview#@azure-maps-search-mapssearchclient-searchaddress
+[searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 
-[FuzzySearchRequest]: /javascript/api/@azure/maps-search/fuzzysearchrequest?view=azure-node-preview
+[FuzzySearchRequest]: /javascript/api/@azure-rest/maps-search/fuzzysearch
+ 
+[FuzzySearchResult]: /javascript/api/@azure-rest/maps-search/searchfuzzysearch200response
 
-[SearchAddressResult]: /javascript/api/@azure/maps-search/searchaddressresult?view=azure-node-preview
 
 [search]: /rest/api/maps/search
 [Node.js Release]: https://github.com/nodejs/release#release-schedule
@@ -375,14 +396,23 @@ main().catch((err) => {
 
 [authentication]: azure-maps-authentication.md
 [Identity library]: /javascript/api/overview/azure/identity-readme
+[core auth package]: /javascript/api/@azure/core-auth/
 
 [Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
-[search package]: https://www.npmjs.com/package/@azure/maps-search
-[search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta
+[search package]: https://www.npmjs.com/package/@azure-rest/maps-search
+[search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
+[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
 [js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
+
+[js render readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-render-rest/README.md
+[js render package]: https://www.npmjs.com/package/@azure-rest/maps-render
+[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v1-beta
+
+[js geolocation readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-geolocation-rest/README.md
+[js geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation
+[js geolocation sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-geolocation-rest/samples/v1-beta

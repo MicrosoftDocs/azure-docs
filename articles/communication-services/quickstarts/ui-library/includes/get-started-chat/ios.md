@@ -49,7 +49,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta1'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta2'
     end
     ```
 

@@ -4,9 +4,9 @@ description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
 ms.date: 07/04/2022
 ms.reviewer: geg
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up an Azure VM using Enhanced policy
 

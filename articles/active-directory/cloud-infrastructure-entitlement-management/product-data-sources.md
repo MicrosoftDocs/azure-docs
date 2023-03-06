@@ -1,6 +1,6 @@
 ---
-title: View and configure settings for data collection from your authorization system in Permissions Management
-description: How to view and configure settings for collecting data from your authorization system in Permissions Management.
+title: View and configure settings for data collection
+description: How to view and configure settings for collecting data from your authorization system.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 01/25/2023
 ms.author: jfields
 ---
 

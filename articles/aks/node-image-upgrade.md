@@ -1,7 +1,6 @@
 ---
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
-ms.service: container-service
 ms.topic: article
 ms.date: 11/25/2020
 ms.author: jpalma
@@ -14,6 +13,8 @@ AKS supports upgrading the images on a node so you're up to date with the newest
 For more information about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases).
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
+
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
 
 > [!NOTE]
 > The AKS cluster must use virtual machine scale sets for the nodes.
@@ -171,3 +172,4 @@ az aks nodepool show \
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[auto-upgrade-node-image]: auto-upgrade-node-image.md

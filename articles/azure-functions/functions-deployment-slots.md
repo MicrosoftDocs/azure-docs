@@ -59,6 +59,7 @@ Some configuration settings are slot-specific. The following lists detail which 
 - Always On
 - Diagnostic settings
 - Cross-origin resource sharing (CORS)
+- Private endpoints
 
 **Non slot-specific settings**:
 

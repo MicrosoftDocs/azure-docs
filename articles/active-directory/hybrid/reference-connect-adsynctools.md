@@ -669,7 +669,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 #### -Credential
-Azure AD Global Admin Credential
+Azure AD Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -1071,7 +1071,7 @@ Remove-ADSyncToolsAadObject -SourceAnchor '2epFRNMCPUqhysJL3SWL1A==' -SyncObject
 ```
 ### PARAMETERS
 #### -Credential
-Azure AD Global Admin Credential
+Azure AD Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)

@@ -8,12 +8,11 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 01/30/2023
 ms.author: banders
 ---
 
 # Manage Azure savings plans
-
 
 After you buy an Azure savings plan, you may need to apply the savings plan to a different subscription, change who can manage the savings plan, or change the scope of the savings plan.
 
@@ -26,6 +25,8 @@ To view a savings plan order, go to **Savings Plan** > select the savings plan, 
 ## Change the savings plan scope
 
 Your savings plan discount applies to virtual machines, Azure Dedicated Hosts, Azure App services, Azure Container Instances, and Azure Premium Functions resources that match your savings plan and run in the savings plan scope. The billing scope is dependent on the subscription used to buy the savings plan.
+
+Changing a savings plan's scope doesn't affect its term.
 
 To update a savings plan scope:
 
