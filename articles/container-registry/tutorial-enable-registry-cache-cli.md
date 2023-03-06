@@ -1,6 +1,6 @@
 ---
-title: Enable Caching for ACR (preview)- Azure portal
-description: Learn how to enable Registry Cache in your Azure Container Registry using Azure portal.
+title: Enable Caching for ACR (preview)- Azure CLI
+description: Learn how to enable Registry Cache in your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Enable Caching for ACR (Preview) - Azure CLI
 
-This article is part two of a five-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure portal.
+This article is part two of a five-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure CLI.
 
 ## Prerequisites
 
@@ -97,4 +97,4 @@ Run [az acr credential-set][az acr credential-set] command to manage Credential 
 
 ## Next steps
 
-* To enable Caching for ACR (preview) using the Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache-cli.md).
+* To enable Caching for ACR (preview) using the Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
