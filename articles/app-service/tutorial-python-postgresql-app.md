@@ -23,6 +23,8 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 ## Provision and deploy using the Azure Developer CLI
 
+Sample Python applications using the Flask and Django framework are provided for this tutorial. The Azure Developer CLI can greatly streamline the process of deploying the apps to Azure.
+
 The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use the Azure Developer CLI to provision and deploy the resources for the sample application.
 
 1. Install the Azure Developer CLI. For a full list of supported installation options and tools, visit the [installation guide](/azure/developer/azure-developer-cli/install-azd).
@@ -43,8 +45,16 @@ The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) acceler
 
 1. Run the `azd up` command of the Azure Developer CLI to clone, provision and deploy the app resources. Provide the name of the template you wish to use for the `--template` parameter. The `azd up` command will also prompt you to login to Azure and provide a name and location for the app.
 
+    ### [Flask](#tab/flask)
+    
     ```bash
     azd up --template msdocs-flask-postgresql-sample-app
+    ```
+    
+    ### [Django](#tab/django)
+    
+    ```bash
+    azd up --template msdocs-django-postgresql-sample-app
     ```
 
 1. When the `azd up` command finishes running it will print out the URLs for your web app in the console. Copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. 
@@ -69,7 +79,7 @@ You could also run these commands one at a time instead of using `azd up` if you
 
 When you run `azd up`, the Azure Developer CLI clones the template repository down to your local machine. The project initialization can also be achieved by running the `azd init` command. The initialize step prompts for essential configuration information such as the name of the environment the Azure location to deploy to.
 
-The template includes the source code for a Flask web application written in Python that connects to a Postgres database. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
+The template includes the source code for a Flask or Django web application written in Python that connects to a Postgres database. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
 
 ### Resource provisioning
 
@@ -122,7 +132,7 @@ The Azure Developer CLI also deployed your application code to the provisioned A
 
 To deploy one or more apps successfully, azd needs to know more about your project. The `azure.yaml` file at the root of the project helps the Azure Developer CLI understand how to deploy different parts of your project to different Azure resources. The `azure.yaml` file specifies each app source code location, the type of app, and the Azure Service that should host that app. 
 
-Consider the following `azure.yaml` file from the sample application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the App Service that was created.
+Consider the following `azure.yaml` file from the sample Flask application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the App Service that was created.
 
 ```yml
 name: flask-postgresql-sample-app
