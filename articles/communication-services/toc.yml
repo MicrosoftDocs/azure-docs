@@ -362,7 +362,7 @@ items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
     - name: European Union Data Boundary
-      href: concepts/eudb.md
+      href: concepts/european-union-data-boundary.md
     - name: Azure Government
       href: concepts/government.md
   - name: Pricing
