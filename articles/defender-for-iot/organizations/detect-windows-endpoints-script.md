@@ -22,7 +22,7 @@ The script described in this article is supported for the following Windows oper
 - Windows NT
 - Windows 7
 - Windows 10
-- Windows Server 2003/2008/2012/2016
+- Windows Server 2003/2008/2012/2016/2019
 
 ## Prerequisites
 
