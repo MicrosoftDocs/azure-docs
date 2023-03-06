@@ -200,7 +200,7 @@ Manually add users to the lab by providing their email address:
     :::image type="content" source="./media/tutorial-setup-lab/list-of-added-users.png" alt-text="Screenshot that shows the Users page, showing the list of user email addresses.":::
 
     > [!NOTE]
-    > After a student registers for the lab uing the registration link, the user list also displays their name. The name that's shown in the list is constructed by using the first and last names of the student's information from Azure Active Directory or their Microsoft Account.  For more information about supported account types, see [Student accounts](how-to-configure-student-usage.md#student-accounts).
+    > After a student registers for the lab uing the registration link, the user list also displays their name. The name that's shown in the list is constructed by using the first and last names of the student's information from Azure Active Directory or their Microsoft Account.  For more information about supported account types, see [Student accounts](how-to-configure-student-usage.md#user-account-types).
 
 ## Send invitation emails to users
 
