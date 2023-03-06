@@ -145,7 +145,7 @@ services:
     host: appservice
 ```
 
-### Removing the resources
+## Remove the resources
 
 Once you are finished experimenting with your sample application, you can run the `azd down` command to remove the app from Azure. Removing resources helps to avoid unintended costs or unused services in your Azure subscription.
 
