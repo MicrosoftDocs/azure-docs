@@ -2,7 +2,7 @@
 title: include file
 description: Send email.net sdk include file
 author: bashan-git
-manager: sphenry
+manager: sundraman
 services: azure-communication-services
 ms.author: bashan
 ms.date: 04/15/2022
@@ -38,7 +38,7 @@ EmailSendResult returns the following status on the email operation performed.
 | ---------------------| --------------------------------------------------------------------------------------------------------------------------------------------|
 | NotStarted | We're not sending this status from our service at this time. |
 | Running | The email send operation is currently in progress and being processed. |
-| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events]([GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)) |
+| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
 | Failed | The email send operation was not successful and encountered an error. The email was not sent. The result will contain an error object with more details on the reason for failure or cancellation. |
 | Canceled | The email send operation was canceled before it could complete. The email was not sent. The result will contain an error object with more details on the reason for failure or cancellation.|
 
@@ -161,7 +161,7 @@ var recipient = "emailalias@contoso.com";
 
 To send an email message, you need to:
 - Call SendSync method which sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service; Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
-- SendAsync method returns EmailSendOperation which returns "Succeeded" EmailSendStatus if email is out of delivery. Add this code to the end of `Main` method in **Program.cs**:
+- SendAsync method returns EmailSendOperation which returns "Succeeded" EmailSendStatus if email is out for delivery. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
 try
@@ -199,14 +199,14 @@ EmailSendOperation only returns email operation status. To get the actual email 
 - Failed. 
 - Quarantined.
 
-See [Handle Email Events](../email/handle-email-events.md) for details.
+See [Handle Email Events](../handle-email-events.md) for details.
 
 You can also now subscribe to Email Operational logs which provides information related to delivery metrics for messages sent from the Email service.
 
 - Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
 - Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
 
-Please see how to [Get started with log analytics in Azure Communication Service](../../concepts/logging-and-diagnostics.md)
+Please see how to [Get started with log analytics in Azure Communication Service](../../concepts/analytics/logging-and-diagnostics.md)
 
 ### Run the code
 
