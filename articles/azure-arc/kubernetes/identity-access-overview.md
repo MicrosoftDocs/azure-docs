@@ -7,7 +7,7 @@ description: "Understand identity and access options for Arc-enabled Kubernetes 
 
 # Azure Arc-enabled Kubernetes identity and access overview
 
-You can authenticate, authorize, and control access to your Azure Arc-enabled Kubernetes clusters. Kubernetes role-based access control (Kubernetes RBAC) lets you grant users, groups, and service accounts access to only the resources they need. You can further enhance the security and permissions structure by using Azure Active Directory and Azure role-based access control (RBAC).
+You can authenticate, authorize, and control access to your Azure Arc-enabled Kubernetes clusters. Kubernetes role-based access control (Kubernetes RBAC) lets you grant users, groups, and service accounts access to only the resources they need. You can further enhance the security and permissions structure by using Azure Active Directory and Azure role-based access control (Azure RBAC).
 
 While Kubernetes RBAC works only on Kubernetes resources within your cluster, Azure RBAC works on resources across your Azure subscription.
 
