@@ -1,13 +1,13 @@
 ---
-title: What are the cloud security graph, attack path analysis, and the cloud security explorer?
+title: What is the cloud security graph?
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 03/06/2023
 ---
 
-# What are the cloud security graph, attack path analysis, and the cloud security explorer? 
+# What is the cloud security graph?
 
 <iframe src="https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
