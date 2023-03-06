@@ -19,14 +19,14 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files for cloud-connected sensors no longer expire](#activation-files-for-cloud-connected-sensors-no-longer-expire)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Support for transient devices
 
 Defender for IoT now identifies *transient* devices as a unique device type that represents devices that were detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
-For more information, see [Defender for IoT device inventory](device-inventory) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+For more information, see [Defender for IoT device inventory](device-inventory.md) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 ### Learn DNS traffic by configuring allowlists
 
@@ -40,7 +40,7 @@ For example:
 
 :::image type="content" source="media/release-notes/data-mining-allowlist.png" alt-text="Screenshot of how to create a data mining report for DNS allowlists.":::
     
-For more information, see [Allow internet connections on an OT network](how-to-accelerate-alert-incident-response#allow-internet-connections-on-an-ot-network) and [Create data mining queries](how-to-create-data-mining-queries).
+For more information, see [Allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network) and [Create data mining queries](how-to-create-data-mining-queries.md).
 
     
 ### Device data retention updates
@@ -86,7 +86,7 @@ Starting in version 22.3.6, selected notifications on the OT sensor's **Device m
 
 After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. However, you may still have existing notifications to handle from before the update. Handle these notifications as needed to clear them from your OT sensor.
 
-For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map#manage-device-notifications).
+For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map.md#manage-device-notifications).
 
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
