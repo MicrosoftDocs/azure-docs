@@ -38,7 +38,7 @@ To get started, you'll need:
 
 The Keyless integration includes the following components:
 
-* **Azure AD B2C** – authorization server that verifies user credentials, or the IdP
+* **Azure AD B2C** – authorization server that verifies user credentials. Also known as the IdP.
 * **Web and mobile applications** – mobile or web applications to protect with Keyless and Azure AD B2C
 * **The Keyless Authenticator mobile app** – Sift mobile app for authentication to the Azure AD B2C enabled applications
 
@@ -60,7 +60,7 @@ Use the following sections to add an IdP, configure the IdP, and create a user f
 
 To add a new Identity provider:
 
-1. Sign in to the **[Azure portal](https://portal.azure.com/#home)** as Global Administrator of the Azure AD B2C tenant. 
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant. 
 2. Select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
@@ -93,25 +93,26 @@ To configure an IdP:
 
 Keyless appears as a new OpenID Connect (OIDC) IdP with B2C identity providers.
 
-1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.
-2. Select **New** user flow.
-3. Select **Sign up and sign in**.
-4. Select a **version**.
-5. Select **Create**.
-6. Enter a **Name** for your policy.
-7. In the Identity providers section, select the created Keyless Identity Provider.
-8. Enter a name.
-9. Select the IdP you created.
-10. Add an email address. Azure won’t redirect the sign-in to Keyless; a screen appears with a user option.
-11. Leave the **Multi-factor Authentication** field.
-12. Select **Enforce conditional access policies**.
-13. Under **User attributes and token claims**, in the **Collect attribute** option, select **Email Address**. 
-14. Add user attributes Azure AD collects with claims Azure AD B2C returns to the client application.
-15. Select **Create**.
-16. Select the new **User flow**.
-17. On the left panel, select **Application Claims**. 
-18. Under options, select the **email** checkbox.
-19. Select **Save**.
+1. Open the Azure AD B2C tenant.
+2. Under **Policies**, select **User flows**.
+3. Select **New** user flow.
+4. Select **Sign up and sign in**.
+5. Select a **version**.
+6. Select **Create**.
+7. Enter a **Name** for your policy.
+8. In the Identity providers section, select the created Keyless Identity Provider.
+9. Enter a name.
+10. Select the IdP you created.
+11. Add an email address. Azure won’t redirect the sign-in to Keyless; a screen appears with a user option.
+12. Leave the **Multi-factor Authentication** field.
+13. Select **Enforce conditional access policies**.
+14. Under **User attributes and token claims**, in the **Collect attribute** option, select **Email Address**. 
+15. Add user attributes Azure AD collects with claims Azure AD B2C returns to the client application.
+16. Select **Create**.
+17. Select the new **User flow**.
+18. On the left panel, select **Application Claims**. 
+19. Under options, select the **email** checkbox.
+20. Select **Save**.
 
 ## Test the user flow
 
