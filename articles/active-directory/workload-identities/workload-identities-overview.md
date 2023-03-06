@@ -45,11 +45,13 @@ More and more, solutions are reliant on non-human entities to complete vital tas
 Human users typically have a single identity used to access a broad range of resources. Unlike a human user, a software workload may deal with multiple credentials to access different resources and those credentials need to be stored
 securely. It’s also hard to track when a workload identity is created or when it should be revoked. Enterprises risk their applications or services being exploited or breached because of difficulties in securing workload identities.
 
+:::image type="content" source="media/workload-identities-overview/pain-points.svg" alt-text="Shows pain points in securing workload identities." border="false":::
+
 Most identity and access management solutions on the market today are focused only on securing human identities and not workload identities. Microsoft Entra Workload Identities helps resolve these issues when securing workload identities.
 
 ## Key scenarios
 
-Here are some ways you can use workload identities:
+Here are some ways you can use workload identities.
 
 Secure access with adaptive policies:
 
