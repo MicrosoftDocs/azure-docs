@@ -45,6 +45,8 @@
       href: volume-hard-quota-guidelines.md
     - name: Regional capacity quota
       href: regional-capacity-quota.md
+    - name: Understand default and individual user and group quotas
+      href: default-individual-user-group-quotas-introduction.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
   - name: Performance
@@ -257,6 +259,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+      - name: Manage default and individual user and group quotas for a volume
+        href: manage-default-individual-user-group-quotas.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA

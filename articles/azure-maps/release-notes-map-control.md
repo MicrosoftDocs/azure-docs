@@ -2,8 +2,8 @@
 title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 1/31/2023
 ms.topic: reference
 ms.service: azure-maps

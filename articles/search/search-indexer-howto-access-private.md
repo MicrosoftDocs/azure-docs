@@ -54,7 +54,7 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
-+ You should have a minimum of Contributor permissions on both Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
++ You should have a minimum of Contributor permissions on both Azure Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
 
 <a name="group-ids"></a>
 
@@ -142,7 +142,9 @@ When you complete these steps, you have a shared private link that's provisioned
 > Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 > For `managedInstance`, see [create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for help formulating a fully qualified domain name.
 
-Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in. If you're using a REST client, such as Postman, you'll need to provide a bearer token that allows your request to go through. Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For other approaches, see [Manage with REST](search-manage-rest.md).
+While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client like Postman needs to provide a bearer token that allows your request to go through. 
+
+Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For more durable approaches, see [Manage with REST](search-manage-rest.md).
 
 1. Open a command line and run `az login` for Azure sign-in.
 
@@ -150,6 +152,12 @@ Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in me
 
    ```azurecli
    az account show
+   ```
+
+   Change the subscription if it's not the right one:
+
+   ```azurecli
+   az account set --subscription {{Azure PaaS subscription ID}}
    ```
 
 1. Create a bearer token, and then copy the entire token (everything between the quotation marks).
@@ -168,7 +176,7 @@ Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in me
 
 1. Set the content type to JSON.
 
-1. Send the request. You should get a list of all shared private link resources that exist for your search service.
+1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and sub-resource combination.
 
 1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
 
@@ -197,7 +205,7 @@ Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in me
    az account get-access-token
    ```
 
-1. To check the status, rerun the first GET Shared Private Link request to monitor the provisioning state as it transitions from updating to succeeded.
+1. Send the request. To check the status, rerun the first GET Shared Private Link request to monitor the provisioning state as it transitions from updating to succeeded.
 
 ### [**PowerShell**](#tab/ps-create)
 
