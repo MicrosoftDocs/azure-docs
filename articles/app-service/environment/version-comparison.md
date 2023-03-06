@@ -53,11 +53,12 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
+|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and the Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
 
 ### Certificates and domains
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
 |IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
 |Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |Yes         |
 |Support for App Service Managed Certificates   |No         |No         |No        |
@@ -66,6 +67,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 ### Backup and restore
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
 |Perform a backup and restore operation on a storage account behind a firewall    |Yes         |Yes         |No         |
 
 ## Frequently asked questions
@@ -92,9 +94,6 @@ App Service Environment v1 uses the Premium SKU and App Service Environment v2 u
 |I1       |1        |3.5      |
 |I2       |2        |7        |
 |I3       |4        |14       |
-|         |         |         |
-|         |         |         |  
-|         |         |         |
 
 #### Premium
 
@@ -104,7 +103,6 @@ App Service Environment v1 uses the Premium SKU and App Service Environment v2 u
 |P2       |2        |3.5      |
 |P3       |4        |7        |
 |P4       |8        |14       |
-
 
 ### What does "no networking dependencies on the customer's virtual network" mean?
 
