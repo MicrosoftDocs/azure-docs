@@ -125,7 +125,7 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
 
 [How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
 
-### Create Trunks
+### Create or Update Trunks
 
 Register your SBCs by providing their fully qualified domain names and port numbers.
 
@@ -138,7 +138,10 @@ sipRoutingAsyncClient.setTrunksWithResponse(asList(
 
 ```
 
-### Create Routes
+### Create or Update Routes
+
+> [!NOTE]
+> Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
 For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match destination phone number, and FQDN of registered trunk where call will be routed to when matched.
 
@@ -150,6 +153,31 @@ sipRoutingAsyncClient.setRoutes(asList(
 )).block();
 
 ```
+
+### Updating existing configuration
+
+Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+
+``` java
+
+sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 1235));
+
+```
+
+Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
+Therefore the same method is used to Create and update routing rules.
+
+### Removing a direct routing configuration
+
+You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+
+``` java
+
+sipRoutingClient.deleteTrunk("sbc.us.contoso.com");
+
+```
+
+All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
 
 ### Run the code
 
@@ -170,10 +198,6 @@ Run the following mvn command to execute the app.
 ``` console
 	mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
-
-## Updating existing configuration
-
-## Removing a direct routing configuration
 
 
 > [!NOTE]

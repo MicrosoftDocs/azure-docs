@@ -73,7 +73,7 @@ var client = new SipRoutingClient(connectionString);
 
 [How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
 
-### Create Trunks
+### Create or Update Trunks
 
 Azure Communication Services direct routing allows communication only with registered SBC. To register an SBC you need its FQDN and port.
 
@@ -91,7 +91,10 @@ await client.SetTrunksAsync(new List<SipTrunk> { usTrunk, euTrunk });
 
 ```
 
-### Create Routes
+### Create or Update Routes
+
+> [!NOTE]
+> Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
 For outbound calling routing rules should be provided. Each rule consists of 2 parts: regex pattern, that should match dialed phone number and FQDN of registered trunk, where call will be routed. In this example we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`
 
@@ -104,9 +107,32 @@ await client.SetRoutesAsync(new List<SipTrunkRoute> { usRoute, defaultRoute });
 
 ```
 
-## Updating existing configuration
+### Updating existing configuration
 
-## Removing a direct routing configuration
+Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+
+``` csharp
+
+var usTrunk = new SipTrunk("sbc.us.contoso.com", 1235);
+await client.SetTrunkAsync(usTrunk);
+
+```
+
+Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
+Therefore the same method is used to Create and update routing rules.
+
+### Removing a direct routing configuration
+
+You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+
+``` csharp
+
+await client.DeleteTrunkAsync("sbc.us.contoso.com");
+
+```
+
+All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+
 
 
 > [!NOTE]

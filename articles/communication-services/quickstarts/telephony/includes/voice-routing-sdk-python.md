@@ -105,7 +105,7 @@ except Exception as ex:
 
 [How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
 
-### Create Trunks
+### Create or Update Trunks
 
 Register your SBCs by providing their fully qualified domain names and port numbers.
 
@@ -114,7 +114,10 @@ new_trunks = [SipTrunk(fqdn="sbc.us.contoso.com", sip_signaling_port=1234), SipT
 sip_routing_client.set_trunks(new_trunks)
 ```
 
-### Create Routes
+### Create or Update Routes
+
+> [!NOTE]
+> Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
 For outbound calling routing rules should be provided. Each rule consists of 2 parts: regex pattern, that should match destination phone number and FQDN of registered trunk, where call will be routed to when matched.
 
@@ -125,6 +128,28 @@ new_routes = [us_route, def_route]
 sip_routing_client.set_routes(new_routes)
 ```
 
+### Updating existing configuration
+
+Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+
+``` python
+new_trunk = SipTrunk(fqdn="sbc.us.contoso.com", sip_signaling_port=1235)
+sip_routing_client.set_trunk(new_trunk)
+```
+
+Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
+Therefore the same method is used to Create and update routing rules.
+
+### Removing a direct routing configuration
+
+You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+
+``` python
+sip_routing_client.delete_trunk("sbc.us.contoso.com")
+```
+
+All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+
 ## Run the code
 
 From a console prompt, navigate to the directory containing the *direct_routing_sample.py* file, then execute the following Python command to run the app.
@@ -132,11 +157,6 @@ From a console prompt, navigate to the directory containing the *direct_routing_
 ```console
 python direct_routing_sample.py
 ```
-
-## Updating existing configuration
-
-## Removing a direct routing configuration
-
 
 > [!NOTE]
 > More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-phonenumbers/README.md).
