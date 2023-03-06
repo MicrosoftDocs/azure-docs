@@ -143,6 +143,8 @@ items:
           href: event-schema-container-registry.md
         - name: Azure Data Box
           href: event-schema-data-box.md
+        - name: Azure Data Manager for Agriculture
+          href: event-schema-data-manager-for-agriculture.md
         - name: Azure Event Hubs
           href: event-schema-event-hubs.md
         - name: Azure Health Data Services
