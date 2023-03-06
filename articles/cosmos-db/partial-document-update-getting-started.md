@@ -376,4 +376,4 @@ Here's some common errors that you might encounter while using this feature:
 ## Next steps
 
 - [Partial Document Update in Azure Cosmos DB](partial-document-update.md)
-- [Frequently asked questions about Partial Document Update in Azure Cosmos DB](partial-document-update-faq.md)
+- [Frequently asked questions about Partial Document Update in Azure Cosmos DB](partial-document-update-faq.yml)
