@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
-Lear more: 
+Learn more: 
 
 * [What is Microsoft Sentinel?](../sentinel/overview.md)
 * [What is SOAR?](https://www.microsoft.com/security/business/security-101/what-is-soar)
@@ -91,7 +91,7 @@ Use the following steps to receive notification about two or more unsuccessful, 
 
    ![Screenshot of the Create option under Analytics.](./media/azure-sentinel/create-scheduled-rule.png)
 
-3. In the Analytics Rule wizard, go to the **General**.
+3. In the Analytics Rule wizard, go to **General**.
 4. For **Name**, enter a name for unsuccessful logins.
 5. For **Description**, indicate the rule notifies for two or more unsuccessful sign-ins, within 60 seconds.
 6. For **Tactics**, select a category. For example, select **PreAttack**.
