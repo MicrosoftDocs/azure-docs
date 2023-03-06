@@ -4,13 +4,12 @@ titleSuffix: Azure AD B2C
 description: Tutorial for configuring Keyless with Azure Active Directory B2C for passwordless authentication 
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 03/06/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
