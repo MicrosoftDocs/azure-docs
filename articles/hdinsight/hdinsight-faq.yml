@@ -266,7 +266,7 @@ sections:
           LLAP is enabled for security reasons (Apache Ranger), not performance. Use larger node VMs to accommodate for the resource usage of LLAP (for example, minimum D13V2). 
 
       - question: |
-          How can I add additional AAD groups after creating an ESP cluster?
+          How can I add additional Azure AD groups after creating an ESP cluster?
         answer: |
           There are two ways to achieve this goal:
           1- You can recreate the cluster and add the additional group at the time of cluster creation. If you're using scoped synchronization in AAD-DS, make sure group B is included in the scoped synchronization.
@@ -360,7 +360,7 @@ sections:
       - question: |
           How do I retrieve the configuration details from HDI cluster by using an Azure Active Directory user?
         answer: |
-          To negotiate proper authentication tokens with your AAD user, go through the gateway by using the following format:
+          To negotiate proper authentication tokens with your Azure AD user, go through the gateway by using the following format:
           
           * https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
           
