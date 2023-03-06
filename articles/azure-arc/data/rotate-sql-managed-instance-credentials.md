@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: GuptaSeattle
 ms.author: guptapra
 ms.reviewer: mikeray
-ms.date: 03/14/2023
+ms.date: 03/06/2023
 ms.topic: how-to
 ---
 # Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)
