@@ -163,7 +163,7 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 ## Clean up resources
 
-When you're done using the virtual network and VMs, you can delete the resource group and all the resources it contains.
+When you're done using the virtual network and VMs, you can delete the resource group and all its resources.
 
 1. In the Azure portal, search for and select **Resource groups**.
 

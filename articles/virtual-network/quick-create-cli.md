@@ -37,7 +37,6 @@ az group create \
 
 ## Create a virtual network and subnet
 
-Create a virtual network with . This example creates a default virtual network named **myVNet** with one subnet named **default** .
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network named *VNet1* with one subnet named `default` in the `TestRG` resource group.
 
 ```azurecli-interactive
@@ -172,11 +171,11 @@ mstsc /v:<publicIpAddress>
 
 ## Clean up resources
 
-When you're done with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all the resources it contains.
+When you're done with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
 
 ```azurecli-interactive
 az group delete \
-    --name CreateVNetQS-rg \
+    --name TestRG \
     --yes
 ```
 

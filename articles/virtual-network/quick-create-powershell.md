@@ -191,7 +191,7 @@ Private communication between VMs in a virtual network is unrestricted.
 
 ## Clean up resources
 
-When you're done with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it contains.
+When you're done with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all its resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'TestRG' -Force

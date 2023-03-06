@@ -37,7 +37,7 @@ The Bicep template defines the following Azure resources:
 
 ## Deploy the Bicep template
 
-1. Save the Bicep file to your local computer as *main.bicep* .
+1. Save the Bicep file to your local computer as *main.bicep*.
 1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
    # [CLI](#tab/CLI)
@@ -78,30 +78,30 @@ Get-AzResource -ResourceGroupName TestRG
 
 You can use the Azure portal to explore the resources by browsing the settings blades for **VNet1**.
 
-1. On the **Overview** tab, you will see the defined address space of **10.0.0.0/16**.
-2. On the **Subnets** tab, you will see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the Bicep file.
+1. On the **Overview** tab, you see the defined address space of **10.0.0.0/16**.
+2. On the **Subnets** tab, you see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the Bicep file.
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the virtual network, you can use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all its resources.
+When you're done with the virtual network, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all its resources.
 
 # [CLI](#tab/CLI)
 
 ```azurecli
-az group delete --name exampleRG
+az group delete --name TestRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name TestRG
 ```
 
 ---
 
 ## Next steps
 
-In this quickstart, you deployed an Azure virtual network with two subnets. To learn more about Azure virtual networks, continue to the tutorial for virtual networks.
+In this quickstart, you created and deployed an Azure virtual network with two subnets. To learn more about Azure virtual networks, continue to the tutorial for virtual networks.
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
