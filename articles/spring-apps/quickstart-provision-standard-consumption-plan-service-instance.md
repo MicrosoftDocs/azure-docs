@@ -61,8 +61,6 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. On the Azure Spring Apps **Create** page, select **Review and Create** to finish creating the Azure Spring Apps instance.
 
----
-
 ### [Azure CLI](#tab/Azure-CLI)
 
 The following procedure creates an instance of Azure Spring Apps using the Azure CLI.
@@ -128,8 +126,6 @@ To create the environment, run the following command.
     --location $LOCATION
 ```
 
----
-
 ## Step 2: Deploy an Azure Spring Apps instance
 
 1. Install the latest `spring` extension for Azure Spring Apps.
@@ -181,6 +177,8 @@ To create the environment, run the following command.
     INFRA_RESOURCE_GROUP=${MANAGED_ENVIRONMENT}_SpringApps_${SERVICE_ID}
     echo ${INFRA_RESOURCE_GROUP}
 ```
+
+---
 
 ## Clean up resources
 
