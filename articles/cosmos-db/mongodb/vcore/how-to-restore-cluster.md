@@ -1,7 +1,7 @@
 ---
 title: Restore a cluster
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
-description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results1.
+description: Learn how to restore a cluster in Azure Cosmos DB for MongoDB vCore.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
@@ -13,37 +13,27 @@ ms.date: 02/07/2023
 
 # Restore a cluster in Azure Cosmos DB for MongoDB (vCore)
 
-{TODO: Briefly describe what the customer will do in this how-to guide}
+Azure Cosmos DB for MongoDB vCore provides automatic backups that enable point-in-time recovery (PITR) without any action required from users. Backups are kept for 35 days, and are performed automatically in the background.
 
-{NOTE: Be prescriptive in your how-to guides, don't cover all possible options}
+## Backup
 
-## Prerequisites
+During the preview phase, backups are free of charge.
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Azure Cosmos DB for MongoDB (vCore) account. [Create an API for MongoDB (vCore) account](how-to-create-account.md).
-- {TODO: Any extra prerequisites}
+Backups allow customers to restore a server to any point in time within the retention period, which is 35 days for all clusters. All backups are encrypted using AES 256-bit encryption.
 
-## {TODO: First task}
+In Azure regions that support availability zones, backup snapshots are stored in three availability zones. As long as at least one availability zone is online, the cluster is restorable.
 
-{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
+Backup files can't be exported. They may only be used for restore operations in Azure Cosmos DB for MongoDB vCore.
 
-1. {TODO: Add prescriptive steps for task}
+## Restore
 
-## {TODO: Second task}
+The restore process creates a new cluster in the same Azure region, subscription, and resource group as the original. The new cluster has the same configuration as the original.
 
-{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
-
-1. {TODO: Add prescriptive steps for task}
-
-## {TODO: Third task}
-
-{TODO: Provide a brief description of what will happen in this task. Keep it to fewer than 200 words.}
-
-1. {TODO: Add prescriptive steps for task}
+To restore data, customers must file a support ticket. Once the support ticket is submitted, our team will guide you through the process of restoring your data from the backup. It is important to note that the backup and restore feature is designed to protect against data loss, but it does not provide a complete disaster recovery solution. Customers should ensure that they have their own disaster recovery plan in place to protect against larger scale outages.
 
 ## Next steps
 
-{TODO: Add a brief sentence or two recapping what just happened. Start with "In this guide,".}
+In this guide, we have covered the backup and restore features for Azure Cosmos DB for MongoDB vCore. The automatic backup feature allows point-in-time recovery without any user action required, and backups are kept for up to 35 days. During the preview phase, backup costs are free of charge.
 
 > [!div class="nextstepaction"]
 > [TODO: Link to another guide or concept](about:blank)

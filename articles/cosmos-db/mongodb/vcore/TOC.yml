@@ -12,6 +12,8 @@
       href: high-availability.md
     - name: Migration options
       href: migration-options.md
+    - name: Security
+      href: security.md
 - name: How to
   items:
     - name: Create account
