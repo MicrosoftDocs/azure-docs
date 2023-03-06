@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: How to query with SQL in Azure Cosmos DB?'
-description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB using the query playground'
+description: In this tutorial, learn how to query with SQL queries in Azure Cosmos DB using the query playground.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: tutorial-develop, mvc, ignite-2022
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 03/07/2023
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the API for NoSQL
@@ -16,10 +16,14 @@ ms.date: 08/26/2021
 
 The Azure Cosmos DB [API for NoSQL](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
-This article covers the following tasks: 
+This article covers the following tasks:
 
 > [!div class="checklist"]
-> * Querying data with SQL
+> - Query data with SQL
+
+## Prerequisites
+
+This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those resources? Complete this quickstart: [Create an Azure Cosmos DB account, database, container, and items from the Azure portal](quickstart-portal.md).
 
 ## Sample document
 
@@ -56,20 +60,15 @@ The SQL queries in this article use the following sample document.
 
 ## Where can I run SQL queries?
 
-You can run queries using the Data Explorer in the Azure portal and via the [REST API and SDKs](sdk-dotnet-v2.md).
+You can run queries using the Data Explorer in the Azure portal and by using the [REST API and SDKs](sdk-dotnet-v2.md).
 
-For more information about SQL queries, see:
-* [SQL query and SQL syntax](query/getting-started.md)
-
-## Prerequisites
-
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those resources? Complete the [5-minute quickstart](quickstart-portal.md).
+For more information about SQL queries, see [Getting started with queries](query/getting-started.md).
 
 ## Example query 1
 
-Given the sample family document above, following SQL query returns the documents where the ID field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
+Given the sample family document, following SQL query returns the documents where the ID field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
-**Query**
+Query:
 
 ```sql
     SELECT * 
@@ -77,7 +76,7 @@ Given the sample family document above, following SQL query returns the document
     WHERE f.id = "WakefieldFamily"
 ```
 
-**Results**
+Results:
 
 ```json
 {
@@ -112,7 +111,7 @@ Given the sample family document above, following SQL query returns the document
 
 The next query returns all the given names of children in the family whose ID matches `WakefieldFamily`.
 
-**Query**
+Query:
 
 ```sql
     SELECT c.givenName 
@@ -121,9 +120,9 @@ The next query returns all the given names of children in the family whose ID ma
     WHERE f.id = 'WakefieldFamily'
 ```
 
-**Results**
+Results:
 
-```
+```json
 [
     {
         "givenName": "Jesse"
@@ -134,19 +133,19 @@ The next query returns all the given names of children in the family whose ID ma
 ]
 ```
 
-
-## Next steps
-
 In this tutorial, you've done the following tasks:
 
 > [!div class="checklist"]
-> * Learned how to query using SQL  
+> - Learned how to query using SQL
+
+## Next steps
+
+Want to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+
+- [Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s](../convert-vcore-to-request-unit.md) 
+- [Estimate RU/s using the Azure Cosmos DB capacity planner - API for NoSQL](estimate-ru-with-capacity-planner.md)
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution.md)
-
-Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
