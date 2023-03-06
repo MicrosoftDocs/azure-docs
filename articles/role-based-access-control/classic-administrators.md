@@ -11,7 +11,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2021
+ms.date: 03/06/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -48,6 +48,9 @@ This article describes how to add or change the Co-Administrator and Service Adm
     ![Screenshot that adds co-administrator](./media/classic-administrators/add-coadmin.png)
 
 ## Add a guest user as a Co-Administrator
+
+> [!NOTE]
+> Removing a guest user from your Azure Active Directory does not remove the guest user's classic Co-Administrator access to a subscription. You must follow the steps in the [Remove a Co-Administrator](#remove-a-co-administrator) section to remove the guest user's classic Co-Administrator access to a subscription.
 
 To add a guest user as a Co-Administrator, follow the same steps as in the previous [Add a Co-Administrator](#add-a-co-administrator) section. The guest user must meet the following criteria:
 
