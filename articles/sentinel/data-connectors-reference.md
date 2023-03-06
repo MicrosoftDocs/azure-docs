@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 02/28/2023
+ms.date: 03/06/2023
 ms.author: cwatson
 ---
 
@@ -84,7 +84,6 @@ Data connectors are available as part of the following offerings:
 ## Atlassian
 
 - [Atlassian Confluence Audit (using Azure Function)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
-- [Atlassian Jira](data-connectors/atlassian-jira.md)
 
 ## Auth0
 
@@ -118,7 +117,7 @@ Data connectors are available as part of the following offerings:
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
-- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama-preview.md)
+- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
@@ -136,15 +135,18 @@ Data connectors are available as part of the following offerings:
 
 - [Citrix ADC (former NetScaler)](data-connectors/citrix-adc-former-netscaler.md)
 - [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
-- [Citrix WAF (Web App Firewall)](data-connectors/citrix-waf-web-app-firewall.md)
 
 ## Claroty
 
 - [Claroty](data-connectors/claroty.md)
 
+## Cloud Software Group
+
+- [Citrix WAF (Web App Firewall)](data-connectors/citrix-waf-web-app-firewall.md)
+
 ## Cloudflare
 
-- [Cloudflare (Preview) (using Azure Function)](data-connectors/cloudflare-preview-using-azure-function.md)
+- [Cloudflare (Preview) (using Azure Function)](data-connectors/cloudflare-using-azure-function.md)
 
 ## Cognni
 
@@ -362,7 +364,7 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for Office 365](data-connectors/microsoft-defender-for-office-365.md)
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
-- [Microsoft Purview (Preview)](data-connectors/microsoft-purview-preview.md)
+- [Microsoft Purview (Preview)](data-connectors/microsoft-purview.md)
 - [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
 - [Office 365](data-connectors/office-365.md)
@@ -371,10 +373,10 @@ Data connectors are available as part of the following offerings:
 - [Syslog](data-connectors/syslog.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api-preview.md)
-- [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama-preview.md)
+- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
+- [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
-- [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama-preview.md)
+- [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 
@@ -518,7 +520,7 @@ Data connectors are available as part of the following offerings:
 
 ## Senserva, LLC
 
-- [SenservaPro (Preview)](data-connectors/senservapro-preview.md)
+- [SenservaPro (Preview)](data-connectors/senservapro.md)
 
 ## Slack
 
@@ -581,7 +583,7 @@ Data connectors are available as part of the following offerings:
 
 ## Ubiquiti
 
-- [Ubiquiti UniFi (Preview)](data-connectors/ubiquiti-unifi-preview.md)
+- [Ubiquiti UniFi (Preview)](data-connectors/ubiquiti-unifi.md)
 
 ## vArmour Networks
 
