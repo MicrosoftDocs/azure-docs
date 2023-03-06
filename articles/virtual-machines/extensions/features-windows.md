@@ -124,7 +124,7 @@ You can use the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextens
 
 ### Azure portal
 
-You can apply VM extensions to an existing VM through the Azure portal. Select the VM in the portal, select **Extensions**, and then select **Add**. Choose the extension that you want from the list of available extensions, and follow the instructions in the wizard.
+You can apply VM extensions to an existing VM through the Azure portal. Select the VM in the portal, select **Extensions + applications**, and then select **Add**. Choose the extension that you want from the list of available extensions, and follow the instructions in the wizard.
 
 The following example shows the installation of the Microsoft Antimalware extension from the Azure portal:
 
