@@ -72,7 +72,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ### What SKUs are available on App Service Environment v1, v2, and v3?
 
-App Service Environment v1 uses the Premium SKU and App Service Environment v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following tables lists the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 from Isolated or Premium to ensure you aren't over-provisioned.
+App Service Environment v1 uses the Premium SKU and App Service Environment v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following tables list the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 from Isolated or Premium to ensure you aren't over-provisioned.
 
 #### Isolated v2
 
