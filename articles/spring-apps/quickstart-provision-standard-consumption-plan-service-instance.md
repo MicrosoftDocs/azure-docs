@@ -168,7 +168,7 @@ To create the environment, run the following command.
         --resource-group $RESOURCE_GROUP \
         --name $SPRING_APPS_NAME \
         --managed-environment $MANAGED_ENV_RESOURCE_ID \
-        --sku standardGen2 \
+        --sku StandardGen2 \
         --location $LOCATION
 ```
 
