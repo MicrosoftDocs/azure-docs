@@ -540,7 +540,7 @@
               href: dapr-settings.md
             - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
-            - name: Manage workflows with the Dapr extension
+            - name: Deploy and run workflows with the Dapr extension
               href: dapr-workflow.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md

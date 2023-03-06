@@ -1,12 +1,12 @@
 ---
-title: Manage workflows with the Dapr extension for Azure Kubernetes Service (AKS)
-description: Learn how to run and manage Dapr Workflow on your Azure Kubernetes Service (AKS) clusters via the Dapr extension.
+title: Deploy and run workflows with the Dapr extension for Azure Kubernetes Service (AKS)
+description: Learn how to deploy and run Dapr Workflow on your Azure Kubernetes Service (AKS) clusters via the Dapr extension.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 03/03/2023
+ms.date: 03/06/2023
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,12 +14,13 @@ ms.custom: devx-track-azurecli
 
 With the Dapr Workflow API, you can easily orchestrate messaging, state management, and failure-handling logic across various microservices. Dapr Workflow can help you create long-running, fault-tolerant, and stateful applications. 
 
-In this guide, you'll use the [provided order processing workflow example][dapr-workflow-sample] to:
+In this guide, you use the [provided order processing workflow example][dapr-workflow-sample] to:
 
 > [!div class="checklist"]
+> - Create an Azure Container Registry and an AKS cluster for this sample.
 > - Install the Dapr extension on your AKS cluster.
 > - Deploy the sample application to AKS. 
-> - Start and query workflow instances using API calls.
+> - Start and query workflow instances using HTTP API calls.
 
 The workflow example is an ASP.NET Core project with:
 - A [`Program.cs` file][dapr-program] that contains the setup of the app, including the registration of the workflow and workflow activities.
@@ -56,8 +57,8 @@ cd dapr-workflows-aks-sample
 Run the following commands to test that the Docker image works for the application.
 
 ```sh       
-docker build -t ghcr.io/<your-repo>/dwf-sample:0.1.0 -f Deploy/Dockerfile .
-docker push ghcr.io/<your-repo>/dwf-sample:0.1.0
+docker build -t ghcr.io/<your-repo>/workflows-sample:0.1.0 -f Deploy/Dockerfile .
+docker push ghcr.io/<your-repo>/workflows-sample:0.1.0
 ```
 
 ### Create an Azure Container Registry
@@ -80,11 +81,11 @@ acrName.azurecr.io
 Tag the [Docker image](#prepare-the-docker-image) you prepared earlier to your new ACR using the result from the ACR query:
 
 ```sh
-docker tag ghcr.io/<your-repo>/dwf-sample:0.1.0 acrName.azurecr.io/dwf-sample:0.1.0
-docker push acrName.azurecr.io/dwf-sample:0.1.0
+docker tag ghcr.io/<your-repo>/workflows-sample:0.1.0 acrName.azurecr.io/workflows-sample:0.1.0
+docker push acrName.azurecr.io/workflows-sample:0.1.0
 ```
 
-For more details, see the [Deploy and use ACR][acr] tutorial.
+For more information, see the [Deploy and use ACR][acr] tutorial.
 
 ### Create a Kubernetes cluster
 
@@ -102,7 +103,7 @@ For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
 ### Update the containers for deployment
 
-Navigate to the [`deployment.yaml` file in your fork of the sample project][deployment-yaml] and open in your chosen code editor.
+Navigate to the [`deployment.yaml` file in your fork of the sample project][deployment-yaml] and open in your preferred code editor.
 
 ```sh
 cd Deploy
@@ -113,15 +114,15 @@ In the `deployment.yaml` file, update the `containers` spec value to your new AC
 
 ```yaml
 containers:
-- name: dwf-sample
-  image: acrName.azurecr.io/dwf-sample:0.1.0
+- name: workflows-sample
+  image: acrName.azurecr.io/workflows-sample:0.1.0
 ```
 
 Save and close the `deployment.yaml` file.
 
 ### Install Dapr on your AKS cluster
 
-Install the Dapr extension on your AKS cluster. Before you do this, make sure you've:
+Install the Dapr extension on your AKS cluster. Before you start, make sure you've:
 - [Installed or updated the `k8s-extension`][k8s-ext]. 
 - [Registered the `Microsoft.KubernetesConfiguration` service provider][k8s-sp]
 
@@ -139,15 +140,15 @@ az k8s-extension show --cluster-type managedClusters --cluster-name myAKSCluster
 kubectl get pods -A
 ```
 
-### Run the application
+### Deploy the Redis Actor state store component
 
-To run the application, start by navigating to the `Deploy` directory in your forked version of the sample:
+Navigate to the `Deploy` directory in your forked version of the sample:
 
 ```sh
 cd Deploy
 ```
 
-Run Redis:
+Deploy the Redis component:
 
 ```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -155,24 +156,26 @@ helm install redis bitnami/redis
 kubectl apply -f redis.yaml
 ```
 
-Run the application:
+### Run the application
+
+Once you've deployed Redis, deploy the application to AKS:
 
 ```sh
 kubectl apply -f deployment.yaml
 ```
 
-Expose the Dapr sidecar and the sample app
+Expose the Dapr sidecar and the sample app:
 
 ```sh
 kubectl apply -f service.yaml
-export SAMPLE_APP_URL=$(kubectl get svc/workflows-sample -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export APP_URL=$(kubectl get svc/workflows-sample -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 export DAPR_URL=$(kubectl get svc/workflows-sample-dapr -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
 
 Verify that the above commands were exported:
 
 ```sh
-echo $SAMPLE_APP_URL
+echo $APP_URL
 echo $DAPR_URL
 ```
 
@@ -181,13 +184,13 @@ echo $DAPR_URL
 Now that the application and Dapr have been deployed to the AKS cluster, you can now start and query workflow instances. Begin by making an API call to the sample app to restock items in the inventory:
 
 ```sh
-curl -X GET $SAMPLE_APP_URL/stock/restock
+curl -X GET $APP_URL/stock/restock
 ```
 
 Start the workflow:
 
 ```sh
-curl -i -X POST $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234/start \
+curl -X POST $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234/start \
   -H "Content-Type: application/json" \
   -d '{ "input" : {"Name": "Paperclips", "TotalCost": 99.95, "Quantity": 1}}'
 ```
@@ -195,38 +198,49 @@ curl -i -X POST $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/123
 Expected output:
 
 ```json
-HTTP/1.1 202 Accepted
-Date: Fri, 03 Mar 2023 19:19:15 GMT
-Content-Type: application/json
-Content-Length: 22
-Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
-
 {"instance_id":"1234"}
 ```
 
 Check the workflow status:
 
 ```sh
-curl -i -X GET $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234
+curl -X GET $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234
 ```
 
 Expected output:
 
 ```json
-HTTP/1.1 202 Accepted
-Date: Fri, 03 Mar 2023 19:19:44 GMT
-Content-Type: application/json
-Content-Length: 388
-Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
-
-{"WFInfo":{"instance_id":"1234"},"start_time":"2023-03-03T19:19:16Z","metadata":{"dapr.workflow.custom_status":"","dapr.workflow.input":"{\"Name\":\"Paperclips\",\"Quantity\":1,\"TotalCost\":99.95}","dapr.workflow.last_updated":"2023-03-03T19:19:33Z","dapr.workflow.name":"OrderProcessingWorkflow","dapr.workflow.output":"{\"Processed\":true}","dapr.workflow.runtime_status":"COMPLETED"}}
+{
+  "WFInfo":
+    {
+      "instance_id":"1234"
+    },
+    "start_time":"2023-03-03T19:19:16Z",
+    "metadata":
+    {
+      "dapr.workflow.custom_status":"",
+      "dapr.workflow.input":"{\"Name\":\"Paperclips\",\"Quantity\":1,\"TotalCost\":99.95}",
+      "dapr.workflow.last_updated":"2023-03-03T19:19:33Z",
+      "dapr.workflow.name":"OrderProcessingWorkflow",
+      "dapr.workflow.output":"{\"Processed\":true}",
+      "dapr.workflow.runtime_status":"COMPLETED"
+    }
+}
 ```
 
 Notice that the workflow status is marked as completed.
 
 ## Next steps
 
-[Learn how to add configuration settings to the Dapr extension][dapr-config]
+In this guide, you deployed and ran workflows on a Dapr extension for AKS. You learned how to:
+
+> [!div class="checklist"]
+> - Create an Azure Container Registry and an AKS cluster for this sample.
+> - Install the Dapr extension on your AKS cluster.
+> - Deploy the sample application to AKS. 
+> - Start and query workflow instances using HTTP API calls.
+
+[Learn how to add configuration settings to the Dapr extension on your AKS cluster][dapr-config].
 
 <!-- Links Internal -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
