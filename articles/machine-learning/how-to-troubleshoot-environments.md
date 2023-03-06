@@ -332,7 +332,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
  
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Multiple credentials for base image registry
@@ -371,7 +371,7 @@ myEnv.docker.base_image_registry.registry_identity = None
 **Resources**
 * [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Secrets in base image registry
@@ -409,7 +409,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
  
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Deprecated Docker attribute
@@ -1225,7 +1225,10 @@ If the image you're trying to reference doesn't exist in the container registry 
 * Check that you've used the correct tag and that you've set `user_managed_dependencies` to `True`. Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section) to `True` disables conda and uses the user's installed packages
 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
-* Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
+* Set [workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb) for the container registry if needed
+
+**Resources**
+* [Workspace connections v1](https://aka.ms/azureml/environment/set-connection-v1)
 
 ### I/O Error
 <!--issueDescription-->
@@ -1546,7 +1549,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
