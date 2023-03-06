@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-All Azure services set default limits and quotas for resources and features. Azure Spring Apps offers three pricing tiers: Basic, Standard, and Enterprise.
+All Azure services set default limits and quotas for resources and features. Azure Spring Apps offers four pricing plans: Basic, Standard, Enterprise, and Standard consumption.
 
 ## Azure Spring Apps service plans and limits
 
