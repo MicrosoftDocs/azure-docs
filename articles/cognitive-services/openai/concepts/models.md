@@ -34,12 +34,12 @@ Each model family has a series of models that are further distinguished by capab
 
 Azure OpenAI model names typically correspond to the following standard naming convention:
 
-`{family}-{capability}[-{input-type}]-{identifier}`
+`{capability}-{family}[-{input-type}]-{identifier}`
 
 | Element | Description |
 | --- | --- |
-| `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
-| `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
+| `{capability}` | The model capability of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
+| `{family}` | The relative family of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
 
@@ -157,28 +157,30 @@ When using our embeddings models, keep in mind their limitations and risks.
 ### GPT-3 Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| ada | 	Yes	| No	|	N/A	| East US, South Central US, West Europe |
-| text-ada-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| babbage | Yes | No | N/A | East US, South Central US, West Europe |
-| text-babbage-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| curie | Yes | No | N/A | East US, South Central US, West Europe |
-| text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| davinci<sup>1</sup> | Yes | No | N/A | East US, South Central US, West Europe |
+| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe |
+| text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
+| text-babbage-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
+| text-curie-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
 | text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | text-davinci-003 | Yes | No | East US | N/A |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
+<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| code-cushman-001<sup>2</sup> | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
+| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe |
 | code-davinci-002 | Yes | No | East US,  West Europe |  N/A |
-| code-davinci-fine-tune-002<sup>2</sup> | Yes | No | N/A | East US, West Europe |
+| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe |
 
-<sup>2</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
+<sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
+<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	

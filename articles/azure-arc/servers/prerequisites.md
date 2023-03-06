@@ -57,7 +57,7 @@ The Azure Arc service and Azure Connected Machine Agent are supported on Windows
 * Connected to a power source
 * Powered on
 
-For example, a computer running Windows 11 that's responsible for digital signage, point-of-sale solutions, and general back office management tasks is a good candidate for Azure Arc. End-user productivity machines, such as a laptop, which may go offline for long periods of time, shouldn't use Azure Arc and instead should consider [Microsoft Intune](/mem/intune) or [Microsoft Endpoint Configuration Manager](/mem/configmgr).
+For example, a computer running Windows 11 that's responsible for digital signage, point-of-sale solutions, and general back office management tasks is a good candidate for Azure Arc. End-user productivity machines, such as a laptop, which may go offline for long periods of time, shouldn't use Azure Arc and instead should consider [Microsoft Intune](/mem/intune) or [Microsoft Configuration Manager](/mem/configmgr).
 
 ### Short-lived servers and virtual desktop infrastructure
 

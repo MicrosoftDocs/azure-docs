@@ -32,10 +32,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In order to successfully deploy the sample, you need:
 
-- [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [GitHub CLI](https://cli.github.com)
 - [Helm](https://helm.sh/docs/helm/helm_install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- [jq](https://stedolan.github.io/jq/download/)
+- GitHub token with the following scopes: `repo`, `workflow`, `write:packages`, `delete:packages`, `read:org`, `delete_repo`.
 
 ## 1 - Deploy the sample
 
@@ -360,8 +362,7 @@ The PR merging event starts a GitHub workflow `checkpromote` in the `control pla
 
 Once the `checkpromote` is successful, it starts the `cd` workflow that promotes the change (application registration) to the `Stage` environment. For better visibility, it also updates the git commit status in the `control plane` repository:
 
-![Git commit status deploying to dev](media/tutorial-workload-management/dev-git-commit-status.png)
- :::image type="content" source="media/tutorial-workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
+:::image type="content" source="media/tutorial-workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
 
 > [!NOTE]
 > If the `drone` cluster fails to reconcile the assignment manifests for any reason, the promotion flow will fail. The commit status will be marked as failed, and the application registration will not be promoted to the `Stage` environment.

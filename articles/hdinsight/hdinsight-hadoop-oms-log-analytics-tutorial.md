@@ -65,7 +65,7 @@ If you want to disable Azure Monitor, you can do the same in this portal.
 
 ## Enable Azure Monitor using Azure PowerShell
 
-You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet.
+You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor) cmdlet.
 
 ```powershell
 # Enter user information
@@ -97,7 +97,7 @@ Get-AzHDInsightAzureMonitor `
     -ClusterName $cluster
 ```
 
-To disable, the use the [Disable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet:
+To disable, the use the [Disable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor) cmdlet:
 
 ```powershell
 Disable-AzHDInsightAzureMonitor -ResourceGroupName $resourceGroup `
