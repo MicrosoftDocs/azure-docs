@@ -68,7 +68,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
-- Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
+- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
 
   | Endpoint | Port |
   |----------------|-------|

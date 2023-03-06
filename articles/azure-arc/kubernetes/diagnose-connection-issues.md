@@ -99,7 +99,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### Is the proxy server able to reach required network endpoints?
 
-Review the [network requirements](meet-network-requirements.md) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Is the proxy server only using HTTP?
 
