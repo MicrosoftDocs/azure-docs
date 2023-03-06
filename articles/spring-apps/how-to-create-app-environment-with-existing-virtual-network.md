@@ -1,18 +1,19 @@
 ---
-title: Create an Azure Container Apps Environment with existing virtual network in Azure Spring Apps
-description: Learn how to create an Azure Container Apps Environment for an existing virtual network in Azure Spring Apps
+title: Create an Azure Container Apps Environment with an existing virtual network in Azure Spring Apps
+description: Learn how to create an Azure Container Apps Environment with an existing virtual network in Azure Spring Apps
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/2/2023
+ms.custom: devx-track-java
 ---
 
-# Create an Azure Container Apps Environment with a virtual network in Azure Spring Apps
+# Create an Azure Container Apps Environment with an existing virtual network in Azure Spring Apps
 
-**This article applies to:** ✔️ Standard consumption plan ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise  
 
-This article describes how to create an Azure Container Apps Environment in an existing virtual network in an Azure Apps instance.
+This article describes how to create an Azure Container Apps Environment with an existing virtual network in an Azure Apps instance.
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -28,21 +29,22 @@ The following procedure creates an Azure Container Apps Environment with a virtu
 
    :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted.":::
 
-1. On the Azure Spring Apps **Create** page, use the following guidelines to specify your settings.
+1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
-   - **Subscription**: Select the subscription you want billed for this resource.
-   - **Resource group**: A new resource group is recommended.
-   - **Name**: The service name must meet the following requirements:
-     - Have a minimum length of 4 and a maximum length of 32 characters.
-     - Contains only lowercase letters, numbers, and hyphens.
-     - Starts with a letter, and ends with a letter or a number.
-   - **Region**: Currently, only the following regions are supported:
-     - East US
-     - West Europe
-     - East Asia
-     - Southeast Asia.
+   - **Project Details**
+
+     - **Subscription**: Select the subscription you want to be billed for this resource.
+     - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as \<*ResourceGroupName*\>.
+
+   - **Service Details**
+
+     - **Name**: Create the \<*ServiceInstanceName*\>. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+     - **Location**: Currently, only the following regions are supported: Australia East, Central US, East US, East US 2, West Europe, East Asia, North Europe, South Central US, UK South, West US 3.
    - **Plan**: Select **Standard Consumption** for the **Pricing tier** option.
-   - For **App Environment**, select **Create new** under the dropdown menu.
+
+   - **App Environment**
+
+     - Select **Create new** to create a mew Azure Container Apps Environment or select an existing one from the dropdown menu.
 
    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps Environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps Environment." lightbox="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png":::
 
@@ -75,12 +77,6 @@ Use the Azure CLI to create an Azure Container Apps Environment with a virtual n
     az extension add --name containerapp --upgrade
    ```
 
-- Set the following variables names:
-  - `$RESOURCE_GROUP` - Set to the name of the resource group that contains your Azure Spring Apps instance.
-  - `$LOCATION` - Set to `East US`.
-  - `$VNET_NAME` - Set to name to be used for the virtual network associated with your Azure Spring Apps instance.
-  - `$AZURE_CONTAINER_APPS_ENVIRONMENT` - Set to the name to be used for your Azure Container Apps Environment.
-
 ## Setup
 
 1. Sign in to Azure.
@@ -107,12 +103,12 @@ Use the Azure CLI to create an Azure Container Apps Environment with a virtual n
     az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Set the following environment variables to the variables you defined previously.
+1. Set the following environment variables.
 
    ```bash
-    RESOURCE_GROUP = $RESOURCE_GROUP
-    LOCATION = $LOCATION
-    APP_ENVIRONMENT = $AZURE_CONTAINER_APPS_ENVIRONMENT
+    RESOURCE_GROUP = "<resource-group-name>"
+    LOCATION = "eastus"
+    APP_ENVIRONMENT = "<azure-container-apps-environment-name>"
    ```
 
 ## Create an environment
@@ -121,6 +117,12 @@ An Azure Container Apps Environment creates a secure boundary around a group of 
 
 > [!NOTE]
 > You can use an existing virtual network that has a dedicated subnet with a CIDR range of `/23` or larger.
+
+1. Declare a variable for the name of the virtual network:
+
+    ```bash
+    VNET_NAME = "<virtual-network-name>"
+   ```
 
 1. Create an Azure virtual network to associate with the Azure Container Apps Environment. The virtual network must have a subnet available for the environment deployment.
 
@@ -146,7 +148,7 @@ An Azure Container Apps Environment creates a secure boundary around a group of 
     $INFRASTRUCTURE_SUBNET = `az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
    ```
 
-1. Create the Azure Container Apps Environment using the virtual network deployed in the preceding steps.
+1. Create the Azure Container Apps Environment using the deployed virtual network.
 
    ```azurecli
     az containerapp env create \
