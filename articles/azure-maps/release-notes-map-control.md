@@ -35,7 +35,7 @@ The preview is available on [npm][3.0.0-preview.4] and CDN.
 
 - Extended map coverage in China, Japan, and Korea.
 
-- Preview of refreshed map styles.
+- Preview of refreshed map styles (Road / Night / Hybrid / Gray Scale Dark / Gray Scale Light / Terra / High Contrast Dark / High Contrast Light).
 
 - More details on roads/building footprints/trails coverage.
 
