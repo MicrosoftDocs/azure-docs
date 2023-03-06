@@ -52,6 +52,7 @@ Once you've created a new project, install the client library by right-clicking 
 #### [Linux](#tab/linux)
 
 Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/README-Linux.md#install-the-vision-sdk-package) to install the Vision SDK for Linux.
+
 ---
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
