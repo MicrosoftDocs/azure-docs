@@ -58,6 +58,8 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. In **Networking**, select **Private endpoint connections**.
 
+    :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/storage-networking-settings.png" alt-text="Screenshot of private endpoint connection tab under storage account networking settings.":::
+
 1. Select the pending private endpoint request from Azure Front Door Premium then select **Approve**.
 
     :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/approve-private-endpoint-connection.png" alt-text="Screenshot of approving private endpoint connection from storage account.":::
