@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 01/30/2023
+ms.date: 03/06/2023
 ms.custom: references_regions
 ---
 
@@ -19,8 +19,8 @@ We are pleased to announce the launch of Openshift 4.11 for Azure Red Hat Opensh
 
 - Ability to deploy Openshift 4.11
 - Multi-version support: 
-    - This enables customers to select specific Y and Z version of the release
-    - Customers can still deploy 4.10 clusters if that version is specified
+    - This enables customers to select specific Y and Z version of the release. See [Red Hat OpenShift versions](support-lifecycle.md#red-hat-openshift-versions) for more information about versions.
+    - Customers can still deploy 4.10 clusters if that version is specified. See [Selecting a different ARO version](tutorial-create-cluster.md#selecting-a-different-aro-version) for more information.
     <!--- Include link to docs for the above -->
 - OVN as the CNI for clusters 4.11 and above
 - Accelerated networking VMs 
