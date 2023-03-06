@@ -6,6 +6,7 @@ ms.date: 3/6/2023
 ms.author: jordanselig
 ms.topic: article
 ---
+
 # App Service Environment version comparison
 
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over the earlier versions.
@@ -72,11 +73,17 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ## Frequently asked questions
 
-### What SKUs are available on App Service Environment v1, v2, and v3?
+- [What SKUs are available on App Service Environment v1, v2, and v3?](#what-skus-are-available-on-app-service-environment-v1-v2-and-v3)
+- [What does "no networking dependencies on the customer's virtual network" mean?](#what-does-no-networking-dependencies-on-the-customers-virtual-network-mean)
+- [Why is backup and restore to a storage account behind a firewall not supported on App Service Environment v3?](#why-is-backup-and-restore-to-a-storage-account-behind-a-firewall-not-supported-on-app-service-environment-v3)
+- [What does custom domain suffix refer to?](#what-does-custom-domain-suffix-refer-to)
+- [What regions are the different versions supported in?](#what-regions-are-the-different-versions-supported-in)
+
+#### What SKUs are available on App Service Environment v1, v2, and v3?
 
 App Service Environment v1 uses the Premium SKU and App Service Environment v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following tables list the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 from Isolated or Premium to ensure you aren't over-provisioned.
 
-#### Isolated v2
+**App Service Environment v3 (Isolated v2)**:
 
 |Isolated v2|Cores    |RAM (GB) |
 |:---------:|:-------:|:-------:|
@@ -87,7 +94,7 @@ App Service Environment v1 uses the Premium SKU and App Service Environment v2 u
 |I5v2       |32       |128      |
 |I6v2       |64       |256      |
 
-#### Isolated
+**App Service Environment v2 (Isolated)**:
 
 |Isolated |Cores    |RAM (GB) |
 |:-------:|:-------:|:-------:|
@@ -95,7 +102,7 @@ App Service Environment v1 uses the Premium SKU and App Service Environment v2 u
 |I2       |2        |7        |
 |I3       |4        |14       |
 
-#### Premium
+**App Service Environment v1 (Premium)**:
 
 |Premium  |Cores    |RAM (GB) |
 |:-------:|:-------:|:-------:|
@@ -104,7 +111,7 @@ App Service Environment v1 uses the Premium SKU and App Service Environment v2 u
 |P3       |4        |7        |
 |P4       |8        |14       |
 
-### What does "no networking dependencies on the customer's virtual network" mean?
+#### What does "no networking dependencies on the customer's virtual network" mean?
 
 On App Service Environment v3, you don't need to set inbound and outbound rules for the management and dependency traffic. App Service Environment v3 was designed so that management and dependency traffic stays within the Azure backbone instead of your virtual network. The only traffic that traverses your virtual network is the application traffic to and from your apps.
 
@@ -132,11 +139,11 @@ On App Service Environment v2, there are many inbound and outbound requirements 
 
 For more information on App Service Environment v3 networking dependencies, see [inbound and outbound dependencies](network-info.md#inbound-and-outbound-dependencies).
 
-### Why is backup and restore to a storage account behind a firewall not supported on App Service Environment v3?
+#### Why is backup and restore to a storage account behind a firewall not supported on App Service Environment v3?
 
 This limitation is a result of the underlying infrastructure change that was implemented for App Service Environment v3. Since backup and restore are management operations, and all management traffic is isolated outside of the customer's virtual network, these operations need to take place through the Azure backbone network using an IP that the customer doesn't have access to. Therefore the customer can't explicitly allow this traffic through the firewall on their storage account.
 
-### What does custom domain suffix refer to?
+#### What does custom domain suffix refer to?
 
 The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2. 
 
@@ -144,7 +151,7 @@ It's different from a custom domain binding on App Service. The custom domain su
 
 For more information on custom domain suffix, see [Custom domain suffix for App Service Environments](how-to-custom-domain-suffix.md).
 
-### What regions are the different versions supported in?
+#### What regions are the different versions supported in?
 
 Due to hardware changes between the versions, there are some regions where App Service Environment v1/v2 may be supported, but not App Service Environment v3. The [supported regions list](overview.md#regions) is continuously updated with the latest availabilities.
 
