@@ -20,7 +20,7 @@ This article details what is communicated to users and where they can view infor
 
 ## Role Based Access (RBAC) For Security Incident Resource Impact
 
-[Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Given the sensitive nature of security incidents, role-based access is leveraged to limit the audience of their impacted resource information. Users authorized with the following roles can view security impacted resource information:
+[Azure role-based access control (Azure RBAC)](../azure/role-based-access-control/overview) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Given the sensitive nature of security incidents, role-based access is leveraged to limit the audience of their impacted resource information. Users authorized with the following roles can view security impacted resource information:
 
 **Subscription level**
 - Subscription Owner
