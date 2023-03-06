@@ -139,7 +139,7 @@ RECOGNIZED: Text=Turn on the lights.
 ```
 
 > [!NOTE]
-> Support for the JSON response for CLY via the LanguageUnderstandingServiceResponse_JsonResult property was added in the Speech SDK version 1.26.
+> Support for the JSON response for CLU via the LanguageUnderstandingServiceResponse_JsonResult property was added in the Speech SDK version 1.26.
 
 The intents are returned in the probability order of most likely to least likely. Here's a formatted version of the JSON output where the `topIntent` is `HomeAutomation.TurnOn` with a confidence score of 0.97712576 (97.71%). The second most likely intent might be `HomeAutomation.TurnOff` with a confidence score of 0.8985081 (84.31%).
 
