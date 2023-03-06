@@ -4,7 +4,7 @@ description: Specifications for the HBv3-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ---
 
