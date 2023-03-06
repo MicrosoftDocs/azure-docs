@@ -30,6 +30,19 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy](partner-grit-app-proxy.md)
 - [Configure Grit's biometric authentication with Azure Active Directory B2C](partner-grit-authentication.md)
+- [Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md)
+- [Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md)
+- [Validate user inputs by using Azure Active Directory B2C custom policy](custom-policies-series-validate-user-input.md)
+- [Create branching in user journey by using Azure Active Directory B2C custom policy](custom-policies-series-branch-user-journey.md)
+- [Validate custom policy files by using TrustFrameworkPolicy schema](custom-policies-series-install-xml-extensions.md)
+- [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md)
+- [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md)
+- [Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md)
+- [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md)
+- [Manage administrator accounts in Azure Active Directory B2C](tenant-management-manage-administrator.md)
+- [Manage emergency access accounts in Azure Active Directory B2C](tenant-management-emergency-access-account.md)
+- [Review tenant creation permission in Azure Active Directory B2C](tenant-management-check-tenant-creation-permission.md)
+- [Find tenant name and tenant ID in Azure Active Directory B2C](tenant-management-read-tenant-name.md)
 
 ### Updated articles
 
