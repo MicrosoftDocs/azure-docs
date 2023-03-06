@@ -89,15 +89,17 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on the language of your function app and programming model.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
+
+In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on your Python programming model.
 
 [!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
 

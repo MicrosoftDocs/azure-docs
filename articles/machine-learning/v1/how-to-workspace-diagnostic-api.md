@@ -10,7 +10,7 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # How to use workspace diagnostics (SDK v1)
@@ -26,7 +26,7 @@ In this article, learn how to use the workspace diagnostics from the Azure Machi
 
 ## Prerequisites
 
-* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
+* An Azure Machine Learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml).
 
 ## Diagnostics from Python

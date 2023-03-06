@@ -37,8 +37,8 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 
 >[!NOTE]
 > Currently, Microsoft Purview roles related to creating, updating, and deleting policies must be configured at the root collection level.
->
-> In addition, to easily search Azure AD users or groups when creating or updating the subject of a policy, the Policy Author may greatly benefit from having the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) permission in Azure AD. This is a common permission for users in an Azure tenant. Without the Directory Reader permission, the Policy Author will have to type the complete username or email for all the principals included in the subject.
+
+In addition, to easily search Azure AD users or groups when creating or updating the subject of a policy, the Policy Author may greatly benefit from having the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) permission in Azure AD. This is a common permission for users in an Azure tenant. Without the Directory Reader permission, the Policy Author will have to type the complete username or email for all the principals included in the subject.
 
 #### Configure Microsoft Purview permissions for publishing Data Owner policies
 

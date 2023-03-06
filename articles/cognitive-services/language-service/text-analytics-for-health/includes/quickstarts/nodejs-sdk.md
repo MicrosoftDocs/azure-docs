@@ -4,12 +4,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 02/17/2023
 ms.author: jboback
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) 
+[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
 
 Use this quickstart to create a Text Analytics for health application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
@@ -23,7 +23,7 @@ Use this quickstart to create a Text Analytics for health application with the c
     * You can use the free pricing tier (`Free F0`) to try the service (providing 5000 text records - 1000 characters each) and upgrade later to the `Standard S` pricing tier for production. You can also start with the `Standard S` pricing tier, receiving the same initial quota for free (5000 text records) before getting charged. For more information on pricing, visit [Language Service Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
 > [!div class="nextstepaction"]
-> <a href="https://github.com/Azure/azure-sdk-for-js/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Node.js%20version**:%20%0A-%20**Browser%20name%20and%20version**:%20%0A-%20**Typescript%20version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Using%20Text%20Analytics%20for%20health%20client%20library%20and%20REST%20API%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart%3Fpivots%3Dprogramming-language-javascript)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md)%0A*%20Section:%20**Prerequisites**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -48,11 +48,11 @@ npm init
 Install the npm package:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-language-text
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://github.com/Azure/azure-sdk-for-js/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Node.js%20version**:%20%0A-%20**Browser%20name%20and%20version**:%20%0A-%20**Typescript%20version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Using%20Text%20Analytics%20for%20health%20client%20library%20and%20REST%20API%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart%3Fpivots%3Dprogramming-language-javascript)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md)%0A*%20Section:%20**Set-up-the-environment**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Code example
 
@@ -66,92 +66,135 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint.
-const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
 
-// Example method for extracting information from healthcare-related text.
-async function healthExample(client) {
-    console.log("== Recognize Healthcare Entities Sample ==");
-
-    const documents = [
-        "Prescribed 100mg ibuprofen, taken twice daily."
+const documents = ["Patient does not suffer from high blood pressure."];
+  
+  async function main() {
+    console.log("== Text analytics for health sample ==");
+  
+    const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const actions = [
+      {
+        kind: "Healthcare",
+      },
     ];
-    const poller = await client.beginAnalyzeHealthcareEntities(documents, "en", {
-        includeStatistics: true
-    });
-
+    const poller = await client.beginAnalyzeBatch(actions, documents, "en");
+  
     poller.onProgress(() => {
-        console.log(
-            `Last time the operation was updated was on: ${poller.getOperationState().lastModifiedOn}`
-        );
+      console.log(
+        `Last time the operation was updated was on: ${poller.getOperationState().modifiedOn}`
+      );
     });
-    console.log(
-        `The analyze healthcare entities operation was created on ${poller.getOperationState().createdOn
-        }`
-    );
-    console.log(
-        `The analyze healthcare entities operation results will expire on ${poller.getOperationState().expiresOn
-        }`
-    );
-
+    console.log(`The operation was created on ${poller.getOperationState().createdOn}`);
+    console.log(`The operation results will expire on ${poller.getOperationState().expiresOn}`);
+  
     const results = await poller.pollUntilDone();
-
-    for await (const result of results) {
+  
+    for await (const actionResult of results) {
+      if (actionResult.kind !== "Healthcare") {
+        throw new Error(`Expected a healthcare results but got: ${actionResult.kind}`);
+      }
+      if (actionResult.error) {
+        const { code, message } = actionResult.error;
+        throw new Error(`Unexpected error (${code}): ${message}`);
+      }
+      for (const result of actionResult.results) {
         console.log(`- Document ${result.id}`);
-        if (!result.error) {
-            console.log("\tRecognized Entities:");
-            for (const entity of result.entities) {
-                console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+        if (result.error) {
+          const { code, message } = result.error;
+          throw new Error(`Unexpected error (${code}): ${message}`);
+        }
+        console.log("\tRecognized Entities:");
+        for (const entity of result.entities) {
+          console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+          if (entity.dataSources.length > 0) {
+            console.log("\t and it can be referenced in the following data sources:");
+            for (const ds of entity.dataSources) {
+              console.log(`\t\t- ${ds.name} with Entity ID: ${ds.entityId}`);
             }
-            if (result.entityRelations && (result.entityRelations.length > 0)) {
-                console.log(`\tRecognized relations between entities:`);
-                for (const relation of result.entityRelations) {
-                    console.log(
-                        `\t\t- Relation of type ${relation.relationType} found between the following entities:`
-                    );
-                    for (const role of relation.roles) {
-                        console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
-                    }
-                }
+          }
+        }
+        if (result.entityRelations.length > 0) {
+          console.log(`\tRecognized relations between entities:`);
+          for (const relation of result.entityRelations) {
+            console.log(
+              `\t\t- Relation of type ${relation.relationType} found between the following entities:`
+            );
+            for (const role of relation.roles) {
+              console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
             }
-        } else console.error("\tError:", result.error);
+          }
+        }
+      }
     }
-}
-
-healthExample(textAnalyticsClient).catch((err) => {
+  }
+  
+  main().catch((err) => {
     console.error("The sample encountered an error:", err);
-});
+  });
 ```
 
 ### Output
 
 ```console
+== Text analytics for health sample ==
+The operation was created on Mon Feb 13 2023 13:12:10 GMT-0800 (Pacific Standard Time)
+The operation results will expire on Tue Feb 14 2023 13:12:10 GMT-0800 (Pacific Standard Time)
+Last time the operation was updated was on: Mon Feb 13 2023 13:12:10 GMT-0800 (Pacific Standard Time)
 - Document 0
     Recognized Entities:
-    - Entity "100mg" of type Dosage
-    - Entity "ibuprofen" of type MedicationName
-    - Entity "twice daily" of type Frequency
-    Recognized relations between entities:
-        - Relation of type DosageOfMedication found between the following entities:   
-                - "100mg" with the role Dosage
-                - "ibuprofen" with the role Medication
-        - Relation of type FrequencyOfMedication found between the following entities:
-                - "ibuprofen" with the role Medication
-                - "twice daily" with the role Frequency
+    - Entity "high blood pressure" of type SymptomOrSign
+        and it can be referenced in the following data sources:
+            - UMLS with Entity ID: C0020538
+            - AOD with Entity ID: 0000023317
+            - BI with Entity ID: BI00001
+            - CCPSS with Entity ID: 1017493
+            - CCS with Entity ID: 7.1
+            - CHV with Entity ID: 0000015800
+            - COSTAR with Entity ID: 397
+            - CSP with Entity ID: 0571-5243
+            - CST with Entity ID: HYPERTENS
+            - DXP with Entity ID: U002034
+            - HPO with Entity ID: HP:0000822
+            - ICD10 with Entity ID: I10-I15.9
+            - ICD10AM with Entity ID: I10-I15.9
+            - ICD10CM with Entity ID: I10
+            - ICD9CM with Entity ID: 997.91
+            - ICPC2ICD10ENG with Entity ID: MTHU035456
+            - ICPC2P with Entity ID: K85004
+            - LCH with Entity ID: U002317
+            - LCH_NW with Entity ID: sh85063723
+            - LNC with Entity ID: LA14293-7
+            - MDR with Entity ID: 10020772
+            - MEDCIN with Entity ID: 33288
+            - MEDLINEPLUS with Entity ID: 34
+            - MSH with Entity ID: D006973
+            - MTH with Entity ID: 005
+            - MTHICD9 with Entity ID: 997.91
+            - NANDA-I with Entity ID: 00905
+            - NCI with Entity ID: C3117
+            - NCI_CPTAC with Entity ID: C3117
+            - NCI_CTCAE with Entity ID: E13785
+            - NCI_CTRP with Entity ID: C3117
+            - NCI_FDA with Entity ID: 1908
+            - NCI_GDC with Entity ID: C3117
+            - NCI_NCI-GLOSS with Entity ID: CDR0000458091
+            - NCI_NICHD with Entity ID: C3117
+            - NCI_caDSR with Entity ID: C3117
+            - NOC with Entity ID: 060808
+            - OMIM with Entity ID: MTHU002068
+            - PCDS with Entity ID: PRB_11000.06
+            - PDQ with Entity ID: CDR0000686951
+            - PSY with Entity ID: 23830
+            - RCD with Entity ID: XE0Ub
+            - SNM with Entity ID: F-70700
+            - SNMI with Entity ID: D3-02000
+            - SNOMEDCT_US with Entity ID: 38341003
+            - WHO with Entity ID: 0210
 ```
 
 > [!TIP]
 > Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 > [!div class="nextstepaction"]
-> <a href="https://github.com/Azure/azure-sdk-for-js/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Node.js%20version**:%20%0A-%20**Browser%20name%20and%20version**:%20%0A-%20**Typescript%20version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Using%20Text%20Analytics%20for%20health%20client%20library%20and%20REST%20API%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart%3Fpivots%3Dprogramming-language-javascript)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md)%0A*%20Section:%20**Code-example**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-> [!div class="nextstepaction"]
-> <a href="https://github.com/Azure/azure-sdk-for-js/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Node.js%20version**:%20%0A-%20**Browser%20name%20and%20version**:%20%0A-%20**Typescript%20version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Using%20Text%20Analytics%20for%20health%20client%20library%20and%20REST%20API%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart%3Fpivots%3Dprogramming-language-javascript)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Ftext-analytics-for-health%2Fquickstart.md)%0A*%20Section:%20**Clean-up-resources**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>

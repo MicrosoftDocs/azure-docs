@@ -2,7 +2,7 @@
 title: 'Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using the REST API Azure Resource Manager template version.
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 02/01/2023
 ---
 
 # Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
@@ -90,9 +90,14 @@ Use the **Tables - Update** API to create the table with the following PowerShel
                         "description": "Additional message properties"
                     },
                     {
-                        "name": "ExtendedColumn",
+                        "name": "CounterName",
                         "type": "string",
-                        "description": "An additional column extended at ingestion time"
+                        "description": "Name of the counter"
+                    },
+                    {
+                        "name": "CounterValue",
+                        "type": "real",
+                        "description": "Value collected for the counter"
                     }
                 ]
             }
@@ -180,7 +185,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
 ## Create a data collection rule
-The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint. It also defines the transformation that will be applied to it. The DCR also defines the destination workspace and table the transformed data will be sent to.
+The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's sent to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
@@ -199,7 +204,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
     - `dataCollectionEndpointId`: Identifies the Resource ID of the data collection endpoint.
     - `streamDeclarations`: Defines the columns of the incoming data.
     - `destinations`: Specifies the destination workspace.
-    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table.
+    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
 
     ```json
     {
@@ -214,12 +219,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
             },
             "location": {
                 "type": "string",
-                "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Rule."
                 }
@@ -279,7 +278,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                             "destinations": [
                                 "clv2ws1"
                             ],
-                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)",
+                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=jsonContext.CounterValue",
                             "outputStream": "Custom-MyTable_CL"
                         }
                     ]
@@ -305,9 +304,9 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot that shows DCR details.":::
 
-1. Copy the **Resource ID** for the DCR. You'll use it in the next step.
+1. Copy the **Immutable ID** for the DCR. You'll use it in a later step when you send sample data using the API.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 
     > [!NOTE]
     > All the properties of the DCR, such as the transformation, might not be displayed in the Azure portal even though the DCR was successfully created with those properties.
@@ -357,6 +356,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     #information needed to send data to the DCR endpoint
     $dcrImmutableId = "dcr-000000000000000"; #the immutableId property of the DCR object
     $dceEndpoint = "https://my-dcr-name.westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
+    $streamName = "Custom-MyTableRawData"; #name of the stream in the DCR that represents the destination table
 
     ##################
     ### Step 1: Obtain a bearer token used later to authenticate against the DCE.
@@ -404,7 +404,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     ##################
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
-    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
+    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2021-11-01-preview"
 
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```

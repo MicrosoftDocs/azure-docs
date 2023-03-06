@@ -69,6 +69,7 @@ The following code returns the best child run based on the relevant primary metr
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml import MLClient
+mlflow_client = MlflowClient()
 
 credential = DefaultAzureCredential()
 ml_client = None
@@ -76,7 +77,7 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your Azure Machine Learning workspace
     subscription_id = ''   
     resource_group = ''  
     workspace_name = ''
@@ -136,7 +137,7 @@ Download the conda environment file and create an environment object to be used 
 
 conda_file = mlflow_client.download_artifacts(
     best_run.info.run_id, "outputs/conda_env_v_1_0_0.yml", local_dir
-
+)
 from azure.ai.ml.entities import Environment
 env = Environment(
     name="automl-images-env-onnx",
@@ -278,7 +279,7 @@ returned_job_run = mlflow_client.get_run(returned_job.name)
 
 # Download run's artifacts/outputs
 onnx_model_path = mlflow_client.download_artifacts(
-    best_run.info.run_id, 'outputs/model_'+str(batch_size)+'.onnx', local_dir
+    returned_job_run.info.run_id, 'outputs/model_'+str(batch_size)+'.onnx', local_dir
 )
 ```
 

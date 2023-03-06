@@ -6,7 +6,7 @@ ms.date: 09/23/2019
 ms.author: glenga
 ---
 
-Binding attributes are defined directly in the *function.json* file. Depending on the binding type, additional properties may be required. The [queue output configuration](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration) describes the fields required for an Azure Storage queue binding. The extension makes it easy to add bindings to the *function.json* file. 
+Binding attributes are defined in the *function.json* file for a given function. Depending on the binding type, additional properties may be required. The [queue output configuration](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration) describes the fields required for an Azure Storage queue binding. The extension makes it easy to add bindings to the *function.json* file. 
 
 To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
 

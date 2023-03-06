@@ -84,6 +84,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Using Private Link with IoT Edge
+      href: using-private-link.md   
     - name: Confidential computing
       href: deploy-confidential-applications.md
   - name: Offline capabilities
@@ -298,10 +300,10 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
-- name: Azure IoT Edge 1.1
-  href: /previous-versions/azure/iot-edge
 - name: Reference
   items:
+  - name: Azure IoT Edge 1.1 archive
+    href: /previous-versions/azure/iot-edge
   - name: Runtime modules environment variables
     href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
   - name: Create test certificates
@@ -339,22 +341,24 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
+      href: https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples
+    - name: C
+      href: https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples
     - name: Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
     - name: Java
-      href: https://github.com/Azure-Samples/azure-iot-samples-java
+      href: https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples
     - name: Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+      href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
   - name: Azure Certified for IoT device catalog
     href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Tools for VS Code
+  - name: Azure IoT Tools for Visual Studio Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer

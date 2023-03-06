@@ -125,7 +125,9 @@
     - name: About HANA database backup
       href: sap-hana-database-about.md
     - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md      
+      href: azure-backup-architecture-for-sap-hana-backup.md
+  - name: Azure Blob backup
+    href: blob-backup-overview.md          
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -136,6 +138,12 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
+    - name: Private endpoints
+      items:
+      - name: V1 experience
+        href: private-endpoints-overview.md
+      - name: V2 experience
+        href: backup-azure-private-endpoints-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -342,10 +350,8 @@
         href: backup-azure-dataprotection-use-rest-api-backup-disks.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-disks.md
-  - name: Azure Blobs backup
+  - name: Azure Blob backup
     items:
-    - name: Overview
-      href: blob-backup-overview.md
     - name: From the Azure portal
       items:
       - name: Configure and manage
@@ -620,10 +626,10 @@
       href: backup-azure-security-feature.md
     - name: Private Endpoints
       items:
-      - name: Overview
-        href: private-endpoints-overview.md
-      - name: Create and use
+      - name: V1 experience
         href: private-endpoints.md
+      - name: V2 experience
+        href: backup-azure-private-endpoints-configure-manage.md
     - name: Encryption in Azure Backup
       href: backup-encryption.md
     - name: Encryption using customer-managed keys

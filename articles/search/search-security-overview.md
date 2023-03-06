@@ -166,29 +166,13 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
 + Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
 
-+ During support, this information may be used to make suggestions to the customer. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." 
-
-+ Microsoft might expose an object name in dashboards visible to the customer.
-
-Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft won't have a full history of your service, which could impede troubleshooting of the object in question.
-
-To remove references to specific objects, or to change the data retention period, [file a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md) for your search service.
-
-1. In **Problem details**, tag your request using the following selections:
-
-   + **Issue type**: Technical
-   + **Problem type**: Setup and configuration
-   + **Problem subtype**: Issue with security configuration of the service
-
-1. When you get to **Additional details** (the third tab), describe the object names you would like removed, or specify the retention period that you require.
-
-   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="Screenshot of the first page of the support ticket with issue and problem types selected." border="true":::
++ During support, this information may be used to provide quick resolution to issues and escalate product team if needed
 
 <a name="encryption"></a>
 

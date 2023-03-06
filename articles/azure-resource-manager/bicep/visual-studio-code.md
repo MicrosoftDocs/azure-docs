@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 02/21/2023
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -28,6 +28,7 @@ These commands include:
 - [Decompile into Bicep](#decompile-into-bicep)
 - [Deploy Bicep File](#deploy-bicep-file)
 - [Generate Parameters File](#generate-parameters-file)
+- [Import Kubernetes Manifest (preview)](#import-kubernetes-manifest-preview)
 - [Insert Resource](#insert-resource)
 - [Open Bicep Visualizer](#open-bicep-visualizer)
 - [Open Bicep Visualizer to the side](#open-bicep-visualizer)
@@ -64,11 +65,15 @@ This command decompiles an ARM JSON template into a Bicep file, and places it in
 
 You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
 
-[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
+[!INCLUDE [Visual Studio Code authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ### Generate parameters file
 
 This command creates a parameter file in the same folder as the Bicep file. The new parameter file name is `<bicep-file-name>.parameters.json`.
+
+### Import Kubernetes manifest (Preview)
+
+This command imports a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests), and creates a [Bicep module](./modules.md). For more information, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md), and [Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernetes provider (Preview)](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).
 
 ### Insert resource
 
@@ -76,7 +81,7 @@ The `insert resource` command adds a resource declaration in the Bicep file by p
 
 You can find the resource ID by using one of these methods:
 
-- Use [Azure Resource extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
+- Use [Azure Resource extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
 
     :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension.":::
 

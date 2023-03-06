@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 02/17/2023
 ms.author: cshoe
 ---
 
@@ -18,8 +18,8 @@ To request an increase in quota amounts for your container app, learn [how to re
 
 | Feature | Scope | Default | Is Configurable<sup>1</sup> | Remarks |
 |--|--|--|--|--|
-| Environments | Region |  Up to 5 | Yes | Limit up to five environments per subscription, per region.<br><br>For example, if you deploy to three regions you can get up to 15 environments for a single subscription. |
-| Container Apps | Environment | 20 | Yes | |
+| Environments | Region |  Up to 15 | Yes | Limit up to 15 environments per subscription, per region.<br><br>For example, if you deploy to three regions you can get up to 45 environments for a single subscription. |
+| Container Apps | Environment | Unlimited | Yes | |
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 30 | Yes | |
 | Cores | Replica | 2 | No | Maximum number of cores that can be requested by a revision replica. |

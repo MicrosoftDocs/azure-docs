@@ -1,6 +1,391 @@
 {
     "redirections": [
     {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/ai-composition-overview.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/ai-composition-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/continuous-video-recording.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/continuous-video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/customer-managed-keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/manage-retention-policy.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/manage-retention-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/managed-identity.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-extension.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/player-widget.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/player-widget",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/policy-definitions-security.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/policy-definitions-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/quotas-limitations.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/quotas-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/release-notes.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sample-player-widget.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sample-player-widget",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sdk.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/terminology.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/video-recording.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/direct-methods.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/production-readiness.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/production-readiness",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension.md",
+      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension",
+      "redirect_document_id": false
+    },
+        {
+            "source_path": "articles/cloudfoundry/index.yml",
+            "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-deploy-your-first-app.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-get-started.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-oms-nozzle.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-oms-nozzle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/create-cloud-foundry-on-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/create-cloud-foundry-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/how-cloud-foundry-integrates-with-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series-retirement.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
+            "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
       "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
       "redirect_document_id": false
@@ -5774,16 +6159,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/guidance/guidance-ra-hybrid-networking.md",
             "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking",
             "redirect_document_id": false
@@ -5936,6 +6311,16 @@
         {
             "source_path_from_root": "/articles/guidance/guidance-service-fabric-migrate-from-cloud-services.md",
             "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md",
+            "redirect_url": "/azure/batch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-pools-to-simplified-compute-node-communication-model-migration-guide.md",
+            "redirect_url": "/azure/batch",
             "redirect_document_id": false
         },
         {
@@ -7399,13 +7784,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
+            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md",
             "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-wfs.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-wfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
             "redirect_document_id": false
         },
         {
@@ -10484,6 +10879,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-faq.md",
+            "redirect_url": "/azure/devtest-labs/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/lab-services/devtest-lab-add-claimable-vm.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-add-claimable-vm",
             "redirect_document_id": true
@@ -12715,736 +13115,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-dashboard-monitor-scale-tabs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-editions-feature-chart.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-issuer-name-issuer-key.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-migrating-to-edi-guide.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-process-edifact-invoice.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-provision-services.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-release-notes.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-services-administration-and-development-task-list.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-service-state-chart.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-throttling-thresholds.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/biztalk-troubleshoot-using-ops-logs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/index.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/integration-hybrid-connection-create-manage.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/biztalk-services/integration-hybrid-connection-overview.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/index.md",
-            "redirect_url": "/azure/logic-apps/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-author-definitions.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-author-definitions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-azure-functions.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-functions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-azure-resource.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-create-deploy-template.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-deploy-from-vs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/logic-apps-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-content-type.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-content-type",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-loops-and-scopes.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-create-api-app.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-create-api-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-logic-app-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-diagnosing-failures.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-diagnosing-failures",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-agreements.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-agreements",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-as2.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-as2-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-as2-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-b2b.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-b2b",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-certificates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-certificates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-edifact.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact-decode",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-edifact-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact-encode",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-flatfile.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-flatfile",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-maps.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-maps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-metadata.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-metadata",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-overview.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-partners.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-partners",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-schemas.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-schemas",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-transform.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-transform",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-x12.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-x12-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12-decode",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-x12-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12-encode",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-xml.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-xml",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-xml-validation.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-xml-validation",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-examples-and-scenarios.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-logic-app-features.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-connection.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-gateway-connection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-install.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-gateway-install",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-http-endpoint.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-http-endpoint",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-limits-and-config.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-limits-and-config",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-monitor-b2b-message.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-monitor-b2b-message",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-monitor-your-logic-apps.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-monitor-your-logic-apps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-what-are-logic-apps.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-pricing.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-pricing",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-scenario-error-and-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-scenario-error-and-exception-handling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-scenario-function-sb-trigger.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-scenario-function-sb-trigger",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-schema-2015-08-01.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-schema-2015-08-01",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-schema-2016-04-01.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-schema-2016-04-01",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-securing-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-securing-a-logic-app",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-b2b-messages-omsportal.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-b2b-messages-omsportal",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-as2-tracking-schemas",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-x12-tracking-schema",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-file.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-file-connector",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-file-connector.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-file-connector",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-connector-sap-connector.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-manage-from-vs.md",
-            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "/azure/connectors/apis-list",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-overview.md",
-            "redirect_url": "/azure/connectors/apis-list",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
-            "redirect_url": "/azure/connectors/connectors-native-http",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-create-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-what-are-logic-apps.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-overview",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-native-query.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-create-deploy-template.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-deploy-from-vs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/call-logic-apps-from-power-automate-power-apps.md",
-            "redirect_url": "/azure/logic-apps/call-from-power-automate-power-apps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md",
-            "redirect_url": "/azure/logic-apps/create-monitoring-tracking-queries",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-loops-and-scopes.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-switch-case.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-use-logic-app-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-as2-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-schema-2015-08-01.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-schema-2016-04-01",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-use-logic-app-features.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-using-sap-connector-old.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-manage-from-vs.md",
-            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-monitor-b2b-message.md",
-            "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-track-b2b-messages-omsportal.md",
-            "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-monitor-your-logic-apps.md",
-            "redirect_url": "/azure/logic-apps/monitor-logic-apps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
-            "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/policy-samples.md",
-            "redirect_url": "/azure/logic-apps/policy-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-create-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/create-logic-apps-visual-studio-code.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-overview-preview.md",
-            "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-azure-portal.md",
-            "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-azure-portal",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-visual-studio-code.md",
-            "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-visual-studio-code",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-serverless-get-started-vs.md",
-            "redirect_url": "/azure/logic-apps/create-serverless-apps-visual-studio",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact-encode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact-decode.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
-            "redirect_url": "/azure/logic-apps/create-parameters-workflows",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-custom-connector-register.md",
-            "redirect_url": "/connectors/custom-connectors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-azure-active-directory-authentication.md",
-            "redirect_url": "/connectors/custom-connectors/azure-active-directory-authentication",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-soap-connector-create-register.md",
-            "redirect_url": "/connectors/custom-connectors/create-register-logic-apps-soap-connector",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
-            "redirect_url": "/connectors/custom-connectors/create-web-api-connector",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-api-postman-collection.md",
-            "redirect_url": "/connectors/custom-connectors/define-postman-collection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-faq.md",
-            "redirect_url": "/connectors/custom-connectors/faq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-openapi-extensions.md",
-            "redirect_url": "/connectors/custom-connectors/openapi-extensions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/custom-connector-submit-certification.md",
-            "redirect_url": "/connectors/custom-connectors/submit-certification",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
-            "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointserver.md",
-            "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-box.md",
-            "redirect_url": "/connectors/box",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-dropbox.md",
-            "redirect_url": "/connectors/dropbox",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-excel.md",
-            "redirect_url": "/connectors/excelonlinebusiness",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-facebook.md",
-            "redirect_url": "/connectors/facebook",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-googledrive.md",
-            "redirect_url": "/connectors/googledrive",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-mailchimp.md",
-            "redirect_url": "/connectors/mailchimp",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-microsofttranslator.md",
-            "redirect_url": "/connectors/microsofttranslator",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-office365-users.md",
-            "redirect_url": "/connectors/office365users",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-office365-video.md",
-            "redirect_url": "/connectors/office365video",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-projectonline.md",
-            "redirect_url": "/connectors/projectonline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-rss.md",
-            "redirect_url": "/connectors/rss",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-trello.md",
-            "redirect_url": "/connectors/trello",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-twitter.md",
-            "redirect_url": "/connectors/twitter",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-yammer.md",
-            "redirect_url": "/connectors/yammer",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
-            "redirect_url": "/connectors/todo",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-bingsearch.md",
-            "redirect_url": "/connectors/bingsearch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
-            "redirect_url": "/connectors/twilio",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-create-api-sendgrid.md",
-            "redirect_url": "/connectors/sendgrid",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-schema-migration.md",
-            "redirect_url": "/azure/logic-apps/update-consumption-workflow-schema",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-error-and-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/event-grid/cli-samples.md",
             "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
             "redirect_document_id": true
@@ -14100,6 +13770,26 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-designer-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-form.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-form",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-python.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/search-get-started-vs-code.md",
             "redirect_url": "/previous-versions/azure/search/search-get-started-vs-code",
             "redirect_document_id": false
@@ -14108,6 +13798,11 @@
             "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
             "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-performance-optimization.md",
+            "redirect_url": "/azure/search/search-reliability",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
@@ -21001,6 +20696,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/tutorial-migrate-webapps.md",
+            "redirect_url": "/azure/migrate/tutorial-modernize-asp-net-appservice-code",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/site-recovery/concepts-vmware-to-azure-architecture.md",
             "redirect_url": "vmware-azure-architecture",
             "redirect_document_id": false
@@ -22674,6 +22374,47 @@
         {
             "source_path": "articles/application-gateway/tutorial-protect-application-gateway.md",
             "redirect_URL": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/workloads/sap/index.md",
+            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/private-multi-access-edge-compute-mec/deploy-metaswitch-fusion-core-solution.md",
+            "redirect_URL": "/azure/private-5g-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-post-deployment.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-post-deployment",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-prerequisites.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-troubleshooting",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
+            "redirect_document_id": false
+          },
+      
+        {
+            "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
+            "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
         }
     ]

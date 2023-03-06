@@ -55,6 +55,7 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |I need to share data from sources registered in Microsoft Purview | Data share contributor|
 |I need to view insights for collections I'm a part of | Insights reader **or** data curator |
 |I need to create or manage our [self-hosted integration runtime (SHIR)](manage-integration-runtimes.md) | Data source administrator |
+|I need to create managed private endpoints | Data source administrator |
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview governance portal roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
 >[!NOTE]

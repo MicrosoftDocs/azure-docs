@@ -27,7 +27,7 @@ You'll also need the following software installed on your computer.
 
 ## Getting Started Locally
 
-First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld). The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
+First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) and check out the `main-azure` branch. The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
 
 ```cli
 git clone -b main-azure https://github.com/microsoft/FluidHelloWorld.git

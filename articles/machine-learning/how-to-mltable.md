@@ -24,10 +24,10 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Azure ML supports a Table type (`mltable`) that allows for a *blueprint* that defines *how* you would like data files to *materialize* into a Pandas or Spark data frame (rows and columns). Azure ML Tables have these two key features:
+Azure Machine Learning supports a Table type (`mltable`) that allows for a *blueprint* that defines *how* you would like data files to *materialize* into a Pandas or Spark data frame (rows and columns). Azure Machine Learning Tables have these two key features:
 
 1. **An `MLTable` file.** A YAML-based file that defines the materialization blueprint. In the `MLTable`, you can specify:
-    - The storage location(s) of the data - local, in the cloud, or on a public http(s) server. Azure ML supports *Globbing* patterns. These locations can specify sets of filenames, with wildcard characters (`*`, `?`, `[abc]`, `[a-z]`).
+    - The storage location(s) of the data - local, in the cloud, or on a public http(s) server. Azure Machine Learning supports *Globbing* patterns. These locations can specify sets of filenames, with wildcard characters (`*`, `?`, `[abc]`, `[a-z]`).
     - *read transformation* - for example, the file format type (delimited text, Parquet, Delta, json), delimiters, headers, etc.
     - Column type conversions (enforce schema).
     - New column creation, using folder structure information - for example, creation of a year and month column, using the `{year}/{month}` folder structure in the path.
@@ -40,7 +40,7 @@ In this article you'll learn:
 > - When to use Tables instead of Files or Folders.
 > - How to install the MLTable SDK.
 > - How to define the materialization blueprint using an `MLTable` file.
-> - Examples that show use of Tables in Azure ML.
+> - Examples that show use of Tables in Azure Machine Learning.
 > - How to use Tables during interactive development (for example, in a notebook).
 
 ## Prerequisites
@@ -53,9 +53,9 @@ In this article you'll learn:
 
 
 ## When to use tables instead of files or folders
-Tabular data *doesn't* require Azure ML Tables (`mltable`). You can use Azure ML File (`uri_file`) and Folder (`uri_folder`) types, and provide your own parsing logic, to materialize the data into a Pandas or Spark data frame. In cases where you have a simple CSV file or Parquet folder, you'll find it **easier** to use Azure ML Files/Folders rather than Tables.
+Tabular data *doesn't* require Azure Machine Learning Tables (`mltable`). You can use Azure Machine Learning File (`uri_file`) and Folder (`uri_folder`) types, and provide your own parsing logic, to materialize the data into a Pandas or Spark data frame. In cases where you have a simple CSV file or Parquet folder, you'll find it **easier** to use Azure Machine Learning Files/Folders rather than Tables.
 
-### An example of when *not* to use Azure ML tables
+### An example of when *not* to use Azure Machine Learning tables
 
 Let's assume you have a single CSV file on a public http server, and you'd like to read into Pandas. Two lines of Python code can read the data:
 
@@ -65,7 +65,7 @@ import pandas as pd
 pd.read_csv("https://azuremlexamples.blob.core.windows.net/datasets/iris.csv")
 ```
 
-With Azure ML Tables, you would need to first define the `MLTable` file:
+With Azure Machine Learning Tables, you would need to first define the `MLTable` file:
 
 ```yml
 # /data/iris/MLTable
@@ -91,15 +91,15 @@ tbl =  mltable.load("/data/iris")
 tbl.to_pandas_dataframe()
 ```
 
-For a simple CSV file, definition of the `MLTable` creates unnecessary extra work. Instead, you'll find Azure ML Tables (`mltable`) much more useful to deal with these scenarios:
+For a simple CSV file, definition of the `MLTable` creates unnecessary extra work. Instead, you'll find Azure Machine Learning Tables (`mltable`) much more useful to deal with these scenarios:
 
 - The schema of your data is complex and/or that schema frequently changes.
 - You only need a subset of data (for example: a sample of rows or files, specific columns, etc.).
 - AutoML jobs that require tabular data.
 
-### A motivating example for using Azure ML tables
+### A motivating example for using Azure Machine Learning tables
 
-We explained when to *avoid* Azure ML Tables. Here, we'll see a motivating example of when Azure ML Tables can help your workflow. Imagine a scenario where you have many text files in a folder:
+We explained when to *avoid* Azure Machine Learning Tables. Here, we'll see a motivating example of when Azure Machine Learning Tables can help your workflow. Imagine a scenario where you have many text files in a folder:
 
 ```text
 ├── my_data
@@ -136,7 +136,7 @@ The data has these important characteristics:
 - The first million records for zip_code are numeric, but later on, they'll become alphanumeric.
 - Some static variables in the data aren't useful for machine learning.
 
-You can materialize the above text files into a data frame using Pandas and an Azure ML Folder (`uri_folder`):
+You can materialize the above text files into a data frame using Pandas and an Azure Machine Learning Folder (`uri_folder`):
 
 ```python
 import glob
@@ -189,7 +189,7 @@ However, problems can occur when
 - **The schema changes (for example, a column name changes):** All consumers of the data must independently update their Python code. Other examples can involve type changes, added / removed columns, encoding change, etc.
 - **The data size increases** - If the data becomes too large for Pandas to process, all the consumers of the data will need to switch to a more scalable library (PySpark/Dask).
 
-Azure ML Tables allow the data asset creator to define the materialization blueprint in a single file. Then, consumers can then easily materialize the data into a data frame. The consumers can avoid the need to write their own Python parsing logic. The creator of the data asset defines an `MLTable` file:
+Azure Machine Learning Tables allow the data asset creator to define the materialization blueprint in a single file. Then, consumers can then easily materialize the data into a data frame. The consumers can avoid the need to write their own Python parsing logic. The creator of the data asset defines an `MLTable` file:
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
@@ -239,7 +239,7 @@ tbl = mltable.load("./my_data")
 df = tbl.to_pandas_dataframe()
 ```
 
-In this scenario, Azure ML Tables, instead of Files or Folders, offers these key benefits:
+In this scenario, Azure Machine Learning Tables, instead of Files or Folders, offers these key benefits:
 
 - Consumers don't need to create their own Python parsing logic to materialize the data into Pandas or Spark.
 - One location (the MLTable file) can handle schema changes, to avoid required code changes in multiple locations.
@@ -250,10 +250,10 @@ In this scenario, Azure ML Tables, instead of Files or Folders, offers these key
 |---------|---------|---------|---------|---------|
 |**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |       Read/write a single file - the file can have any format.   |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |
 |**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`      |  You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder.       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |
-|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`    |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.     | In V1 APIs, the Azure ML back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure ML workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to Azure ML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. |
+|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`    |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.     | In V1 APIs, the Azure Machine Learning back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure Machine Learning workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to Azure Machine Learning* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. |
 
 ## Installing the `mltable` library
-MLTable is pre-installed on Compute Instance, AzureML Spark, and DSVM. You can install `mltable` Python library with this code:
+MLTable is pre-installed on Compute Instance, Azure Machine Learning Spark, and DSVM. You can install `mltable` Python library with this code:
 
 ```bash
 pip install mltable
@@ -262,7 +262,7 @@ pip install mltable
 > [!NOTE]
 > - MLTable is a separate library from `azure-ai-ml`.
 > - If you use a Compute Instance/Spark/DSVM, we recommend that you keep the package up-to-date with `pip install -U mltable`
-> - MLTable can be used totally ‘disconnected’ to Azure ML (and the cloud). You can use MLTable anywhere you can get a Python session – for example: locally, Cloud VM, Databricks, Synapse, On-prem server, etc.
+> - MLTable can be used totally ‘disconnected’ to Azure Machine Learning (and the cloud). You can use MLTable anywhere you can get a Python session – for example: locally, Cloud VM, Databricks, Synapse, On-prem server, etc.
 
 ## The `MLTable` file
 
@@ -323,7 +323,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
 ```
 
 > [!TIP]
-> The Azure ML VSCode extension will show the available schemas and autocomplete when you type `$schema:`:
+> The Azure Machine Learning VSCode extension will show the available schemas and autocomplete when you type `$schema:`:
 > :::image type="content" source="media/how-to-mltable/vscode-storage-ext-0.png" alt-text="Autocomplete":::
 
 #### Where to store the `MLTable` file
@@ -358,7 +358,7 @@ transformations:
 
 #### How to co-locate `MLTable` files with data in cloud storage
 
-Typically, you'll author your MLTable file either locally in an IDE (such as VSCode), or with a cloud-based VM such as an Azure ML Compute Instance. To create a self-contained MLTable *artifact*, you must store the `MLTable` file with the data. If you place your MLTable artifact (data and `MLTable` file) in your local storage, [Create Data asset](#create-a-data-asset) will become the easiest way to upload that artifact to cloud storage because your artifact will automatically upload.
+Typically, you'll author your MLTable file either locally in an IDE (such as VSCode), or with a cloud-based VM such as an Azure Machine Learning Compute Instance. To create a self-contained MLTable *artifact*, you must store the `MLTable` file with the data. If you place your MLTable artifact (data and `MLTable` file) in your local storage, [Create Data asset](#create-a-data-asset) will become the easiest way to upload that artifact to cloud storage because your artifact will automatically upload.
 
 If you already placed your data in cloud storage, you have some options to co-locate your `MLTable` file with the data.
 
@@ -379,7 +379,7 @@ VSCode has an **[Azure Storage VSCode extension](https://marketplace.visualstudi
 
 ##### Option 2: Upload `MLTable` file to cloud storage
 
-The `azcopy` utility - pre-installed on Azure ML Compute Instance and DSVM - allows you to upload/download files from Azure Storage to your compute instance:
+The `azcopy` utility - pre-installed on Azure Machine Learning Compute Instance and DSVM - allows you to upload/download files from Azure Storage to your compute instance:
 
 ```bash
 azcopy login
@@ -422,7 +422,7 @@ If you author files locally (or in a DSVM), you can use `azcopy` or the [Azure S
 
 ## Create a Data asset
 
-An Azure ML data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
+An Azure Machine Learning data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
 You can create a Table data asset using:
 
@@ -433,9 +433,9 @@ az ml data create --name <name_of_asset> --version 1 --path <folder_with_MLTable
 ```
 
 > [!NOTE]
-> The path points to the **folder** that contains the `MLTable` file. The path can be local or remote (a cloud storage URI). If the path is a local folder, then the folder will automatically be uploaded to the default Azure ML datastore in the cloud.
+> The path points to the **folder** that contains the `MLTable` file. The path can be local or remote (a cloud storage URI). If the path is a local folder, then the folder will automatically be uploaded to the default Azure Machine Learning datastore in the cloud.
 
-Only the data in the *same* folder as the `MLTable` file will upload when you create data assets from a local folder. That upload will go to the default Azure ML datastore located in the cloud. Then, the asset is created. If any relative path in the `MLTable` `path` section exists, and the data *isn't* in the same folder, the data won't upload, and the relative path won't work.
+Only the data in the *same* folder as the `MLTable` file will upload when you create data assets from a local folder. That upload will go to the default Azure Machine Learning datastore located in the cloud. Then, the asset is created. If any relative path in the `MLTable` `path` section exists, and the data *isn't* in the same folder, the data won't upload, and the relative path won't work.
 
 # [Python](#tab/Python-SDK)
 
@@ -471,7 +471,7 @@ ml_client.data.create_or_update(my_data)
 
 ## An end-to-end example
 
-In this example, you'll author an MLTable file locally, create an asset, and then use the data asset in an Azure ML job.
+In this example, you'll author an MLTable file locally, create an asset, and then use the data asset in an Azure Machine Learning job.
 
 ### Step 1: Download the data for the example
 To complete this end-to-end example, first download a sample of the Green Taxi data from *Azure Open Datasets* into a local data folder:
@@ -568,7 +568,7 @@ ml_client.data.create_or_update(my_data)
 ---
 
 > [!NOTE]
-> Your local data folder - containing the parquet file and MLTable - will automatically upload to cloud storage (default Azure ML datastore) on asset create.
+> Your local data folder - containing the parquet file and MLTable - will automatically upload to cloud storage (default Azure Machine Learning datastore) on asset create.
 
 ### Step 4: Create a job
 
@@ -1049,10 +1049,10 @@ The `mltable` library supports tabular data reads from different path types:
 |A path on your local computer     | `./home/username/data/my_data`         |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage    |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
-|A long-form Azure ML datastore  |   `azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/<path>`      |
+|A long-form Azure Machine Learning datastore  |   `azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/<path>`      |
 
 > [!NOTE]
-> `mltable` handles user credential passthrough for paths on Azure Storage and Azure ML datastores. If you do not have permission to the data on the underlying storage, you can't access the data.
+> `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you do not have permission to the data on the underlying storage, you can't access the data.
 
 ### Files, folders and globs
 
@@ -1126,7 +1126,7 @@ df = tbl.to_pandas_dataframe()
 df.head()
 ```
 
-##### [Azure ML Datastore](#tab/datastore)
+##### [Azure Machine Learning Datastore](#tab/datastore)
 
 Update the placeholders (`<>`) in the code snippet with your specific information.
 
@@ -1199,7 +1199,7 @@ df = tbl.to_pandas_dataframe()
 df.head()
 ```
 
-##### [Azure ML Datastore](#tab/datastore)
+##### [Azure Machine Learning Datastore](#tab/datastore)
 
 Update the placeholders (`<>`) in the code snippet with your specific information.
 
@@ -1244,11 +1244,11 @@ df.head()
 ---
 
 ### Reading data assets
-In this section, you'll learn how to access your Azure ML data assets into Pandas.
+In this section, you'll learn how to access your Azure Machine Learning data assets into Pandas.
 
 #### Table asset
 
-Earlier, if you created a Table asset in Azure ML (an `mltable`, or a V1 `TabularDataset`), you can load that asset into Pandas with:
+Earlier, if you created a Table asset in Azure Machine Learning (an `mltable`, or a V1 `TabularDataset`), you can load that asset into Pandas with:
 
 ```python
 import mltable

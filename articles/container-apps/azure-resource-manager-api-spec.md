@@ -278,6 +278,10 @@ The following example ARM template deploys a container app.
                   "secretRef": "mysecret"
                 }
               ],
+              "command": [
+                "npm",
+                "start"
+              ],
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -392,7 +396,7 @@ properties:
     registries:
       - passwordSecretRef: myregistrypassword
         server: myregistry.azurecr.io
-        username: myregistrye
+        username: myregistry
     dapr:
       appId: mycontainerapp
       appPort: 80
@@ -408,6 +412,9 @@ properties:
             value: 80
           - name: secret_name
             secretRef: mysecret
+        command:
+          - npm
+          - start
         resources:
           cpu: 0.5
           memory: 1Gi

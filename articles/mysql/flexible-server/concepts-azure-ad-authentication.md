@@ -81,7 +81,7 @@ The following permissions are required to allow the UMI to read from the Microso
 
 For guidance about how to grant and use the permissions, refer to [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 
-After you grant the permissions to the UMI, they're enabled for all servers or instances created with the UMI assigned as a server identity.
+After you grant the permissions to the UMI, they're enabled for all servers created with the UMI assigned as a server identity.
 
 ## Token Validation
 
