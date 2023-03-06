@@ -256,6 +256,9 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
+  - name: User-defined data types (type)
+    displayName: custom
+    href: user-defined-data-types.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
