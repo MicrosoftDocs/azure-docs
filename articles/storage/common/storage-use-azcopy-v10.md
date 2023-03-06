@@ -30,6 +30,7 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [Linux ARM64 Preview](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [Homebrew](https://formulae.brew.sh/formula/azcopy) brew install azcopy
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
