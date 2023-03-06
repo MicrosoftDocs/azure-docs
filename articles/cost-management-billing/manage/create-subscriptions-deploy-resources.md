@@ -21,7 +21,7 @@ When you try to create multiple Azure subscriptions in a short period of time, y
 The message is normal and expected.
 
 > [!IMPORTANT]
-> Your subscription must have consumption history before you can create another subscription.
+> Your existing subscription should generate consumption history before you create another one
 
 The message can appear for customers with the following Azure subscription agreement types:
 
@@ -34,7 +34,7 @@ The message can appear for customers with the following Azure subscription agree
 
 ## Solution
 
-Expect a delay before you can create another subscription until your existing subscription has consumption usage history.
+Expect a delay before you can create another subscription.
 
 If you're new to Azure and don't have any consumption usage, read the [Get started guide for Azure developers](/azure/guides/developer/azure-developer-guide) to help you get started with Azure services.
 
