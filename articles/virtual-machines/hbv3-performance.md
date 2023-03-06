@@ -27,7 +27,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 ## Process pinning
 
-[Process pinning](compiling-scaling-applications.md#process-pinning) works well on HBv3-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
+[Process pinning](./workloads/hpc/compiling-scaling-applications.md#process-pinning) works well on HBv3-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
 
 ## MPI latency
 
@@ -48,7 +48,7 @@ The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftes
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## Next steps
-- Learn about [scaling MPI applications](compiling-scaling-applications.md).
+- Learn about [scaling MPI applications](./workloads/hpc/compiling-scaling-applications.md).
 - Review the performance and scalability results of HPC applications on the HBv3 VMs at the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv3-vms/bc-p/2235843).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
