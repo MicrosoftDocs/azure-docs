@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
@@ -34,10 +34,20 @@ Removing credentials not actively used by applications improves security posture
 
 ## Action plan
 
-1. For application resources, navigate to **Azure AD** > **App registration** and locate the application with unused credentials.
+Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
+
+1. Take note of the application name and ID that the recommendation identified.
+
+1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+
+    ![Screenshot of the Azure AD app registration area, with the App registrations menu item highlighted.](media/recommendation-remove-unused-credential-from-apps/app-registrations-list.png)
+
 1. Navigate to the **Certificates & Secrets** section of the app registration.
 1. Locate the unused credential and remove it.
-1. To remove a credential from a service principal resource, use the MS Graph Service Principal API service action `removePassword`.
+
+    ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
+
+To remove a credential from a service principal resource, use the MS Graph Service Principal API service action `removePassword`.
  
 ## Next steps
 

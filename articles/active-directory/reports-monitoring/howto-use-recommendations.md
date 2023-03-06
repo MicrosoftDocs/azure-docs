@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/03/2023
+ms.date: 03/06/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
@@ -37,31 +37,39 @@ There are different role requirements for viewing or updating a recommendation. 
 | Security Operator | Update and read |
 | Security Administrator | Update and read |
 
-Some recommendations may require a P2 or other license. Refer to the [Recommendation availability and license requirements](overview-recommendations.md#recommendation-availability-and-license-requirements).
+Some recommendations may require a P2 or other license. For more information, see [Recommendation availability and license requirements](overview-recommendations.md#recommendation-availability-and-license-requirements).
 
 ## How to read a recommendation
 
-To view the details of a recommendation, sign in to Azure using a least-privileged role for read-only access.
+To view the details of a recommendation:
+1. Sign in to Azure using the appropriate least-privilege role.
+1. Go to **Azure AD** > **Recommendations** and select a recommendation from the list.
+
+    ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
 Each recommendation provides the same set of details that explain what the recommendation is, why it's important, and how to fix it.
 
-The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
-
-The **Priority** of a recommendation could be low, medium, or high. These values are determined by several factors, such as security implications, health concerns, or potential breaking changes.
-
-- **High**: Must do. Not acting will result in severe security implications or potential downtime.
-- **Medium**: Should do. No severe risk if action isn't taken.
-- **Low**: Might do. No security risks or health concerns if action isn't taken.
-
-The **Impacted resources** for a recommendation could be things like applications or users. This detail gives you an idea of what type of resources you need to address. The impacted resource could also be at the tenant level, so you may need to make a global change. 
-
 ![Screenshot of a recommendation's status, priority, and impacted resource type.](./media/howto-use-recommendations/recommendation-status-risk.png)
 
-The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
+- The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
 
-The recommendation's **Value** is an explanation of why completing the recommendation will benefit you, and the value of the associated feature. 
+- The **Priority** of a recommendation could be low, medium, or high. These values are determined by several factors, such as security implications, health concerns, or potential breaking changes.
 
-The **Action plan** provides step-by-step instructions to implement a recommendation. May include links to relevant documentation or direct you to other pages in the Azure AD portal.
+    - **High**: Must do. Not acting will result in severe security implications or potential downtime.
+    - **Medium**: Should do. No severe risk if action isn't taken.
+    - **Low**: Might do. No security risks or health concerns if action isn't taken.
+
+- The **Impacted resource type** for a recommendation could be applications, users, or your full tenant. This detail gives you an idea of what type of resources you need to address. If the impacted resource is at the tenant level, you may need to make a global change. 
+
+![Screenshot of the recommendation status description, description, and value.](media/howto-use-recommendations/status-description-value.png)
+
+- The **Status description** tells you the date the recommendation status changed and if it was changed by the system or a user.
+
+- The recommendation's **Value** is an explanation of why completing the recommendation will benefit you, and the value of the associated feature. 
+
+- The **Action plan** provides step-by-step instructions to implement a recommendation. The Action plan may include links to relevant documentation or direct you to other pages in the Azure AD portal.
+
+- If the impacted resource type is applications, a list of the **Impacted resources** appears at the bottom of the recommendation. The resource's name, ID, date it was first detected, and status are provided.
 
 ## How to update a recommendation
 
@@ -70,8 +78,6 @@ To update the status of a recommendation or a related resource, sign in to Azure
 1. Go to **Azure AD** > **Recommendations**.
 
 1. Select a recommendation from the list to view the details, status, and action plan.
-
-    ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
 1. Follow the **Action plan**.
 
@@ -101,7 +107,7 @@ Continue to monitor the recommendations in your tenant for changes.
 
 Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
 
-To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the Migrate apps from Active Directory Federated Services (ADFS) to Azure AD recommendation.
+To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the "Migrate apps from Active Directory Federated Services (ADFS) to Azure AD" recommendation.
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.

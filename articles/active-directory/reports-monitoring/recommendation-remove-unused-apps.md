@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
@@ -30,7 +30,11 @@ Removing unused applications improves the security posture and promotes good app
 
 Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
 
-1. Navigate to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+1. Take note of the application name and ID that the recommendation identified.
+1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+
+    ![Screenshot of the Azure AD app registration area, with the App registrations menu item highlighted.](media/recommendation-remove-unused-apps/app-registrations-list.png)
+
 1. We suggest you take appropriate steps to ensure the application is not used in longer intervals of more than 30 days. If so, we recommend updating the frequency of access such that the application’s last used time is within 30 days from its last access date.
 
 ## Known limitations
