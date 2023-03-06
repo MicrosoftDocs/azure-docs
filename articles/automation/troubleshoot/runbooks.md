@@ -26,11 +26,11 @@ It fails with the following error:
  
 ### Cause
 
-The naming convention isn't followed. Ensure that your runbook name starts with a letter and can contain letters, numbers, underscores, and dashes. The naming convention requirements are now enforced starting Az module version 1.9 through the portal and cmdlets
+The naming convention is not being followed. Ensure that your runbook name starts with a letter and can contain letters, numbers, underscores, and dashes. The naming convention requirements are now being enforced starting with the Az module version 1.9 through the portal and cmdlets.
 
 ### Workaround
 
-We recommend that you must follow the runbook naming convention or revert [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module where the naming convention isn't enforced.
+We recommend that you follow the runbook naming convention or revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module where the naming convention isn't enforced.
 
 
 ## Diagnose runbook issues
