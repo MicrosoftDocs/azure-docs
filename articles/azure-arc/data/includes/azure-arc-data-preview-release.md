@@ -24,7 +24,7 @@ March 2023 preview release is now available.
 |`monitors.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`postgresqls.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
-|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v10|
+|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v11|
 |`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
 |`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
