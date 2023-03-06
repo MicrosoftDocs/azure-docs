@@ -213,9 +213,15 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
 
-To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f.
+To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
 
-
+```sql
+SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
+   FROM pg_stat_ssl
+   JOIN pg_stat_activity
+   ON pg_stat_ssl.pid = pg_stat_activity.pid
+   ORDER BY ssl;
+```
 ## Next steps
 
 * Learn how to create a flexible server by using the **Private access (VNet integration)** option in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).

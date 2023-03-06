@@ -1112,6 +1112,24 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azportal
+    title: Azure Portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: platform-nocode
+    title: Power Platform
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
