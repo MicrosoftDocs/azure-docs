@@ -22,8 +22,6 @@ This article covers the recommendation to renew expiring application credentials
 
 Application credentials can include certificates and other types of secrets that need to be registered with that application. These credentials are used to prove the identity of the application.
 
-## Logic 
-
 This recommendation shows up if your tenant has application credentials that will expire soon. 
 
 ## Value 
@@ -47,12 +45,14 @@ Applications that the recommendation identified appear in the list of **Impacted
     ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
 
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
-1. Use the Azure AD sign-in logs to validate that the thumbprint of the certificate matches the one that was recently uploaded.
+1. Use the Azure AD sign-in logs to validate that the Key ID of the credential matches the one that was recently added.
 1. After validating the new credential, navigate back to **Azure AD** > **App registrations** > **Certificates and Secrets** for the app and remove the old credential.
  
 ## Known limitations
 
-When looking for the application with the credential that needs to be rotated, only the app name is used. The service doesn't have the ability to show the resource ID for the app.
+- Currently in the current list of **Impacted resources**, only the app name and resource ID is shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, go to **Azure AD** > **App registrations** > **Certificates and Secrets** for the impacted application. 
+
+- An impacted resource with credentials that expired recently will be marked as completed. If that resource has more than one credential expiring soon, the status of the resource will still be active.
 
 ## Next steps
 

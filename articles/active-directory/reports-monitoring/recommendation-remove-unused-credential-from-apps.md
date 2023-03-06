@@ -22,8 +22,6 @@ This article covers the recommendation to remove unused credentials from apps. T
 
 Application credentials can include certificates and other types of secrets that need to be registered with that application. These credentials are used to prove the identity of the application. Only credentials actively in use by an application should remain registered with the application.
 
-## Logic 
-
 This recommendation shows up if your tenant has application credentials that haven't been used in more than 30 days. 
 
 ## Value 
@@ -46,18 +44,6 @@ Applications that the recommendation identified appear in the list of **Impacted
 1. Locate the unused credential and remove it.
 
     ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
-
-### Use Microsoft Graph to remove an unused credential
-
-You can use Microsoft Graph to remove an unused credential programmatically. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
-
-- Remove a **credential** from a service principal resource:
-    - Use the Microsoft Graph Service Principal API service action `removePassword`
-    - [servicePrincipal: removePassword MS Graph API documentation](/graph/api/serviceprincipal-removepassword?view=graph-rest-beta&preserve-view=true)
-
-- Remove a **key credential** from a service principal resource:
-    - Use the Microsoft Graph Service Principal API service action `removeKey`
-    - [servicePrincipal: removeKey MS Graph API documentation](/graph/api/serviceprincipal-removekey?view=graph-rest-beta&preserve-view=true)
 
 ## Next steps
 

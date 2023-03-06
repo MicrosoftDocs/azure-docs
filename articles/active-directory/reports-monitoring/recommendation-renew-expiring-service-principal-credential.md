@@ -31,20 +31,25 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 ## Action plan
 
-1. Navigate to **Azure AD** > **Enterprise applications**.
-    - The status of the service principal appears in the **Certificate Expiry Status** column.
-    - Use the search box at the top of the list to find the service principal that was listed in the recommendation.
+1. Select the name of the application from the list of **Impacted resources** to go directly to the **Enterprise applications - Single sign-on** page for the selected application.
+
+    a. Alternatively, go to **Azure AD** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
+    
+    b. Use the search box at the top of the list to find the application that was listed in the recommendation.
     
     ![Screenshot of the Enterprise applications area with the search box highlighted.](media/recommendation-renew-expriring-service-principal-credential/recommendation-enterprise-apps-list.png)
+    
+    c. Select the service principal with the credential that needs to be rotated, then select **Single sign-on** from the side menu.
 
-1. Select the service principal with the credential that needs to be rotated, then select **Single sign-on** from the side menu.
 1. Edit the **SAML signing certificate** section and follow the prompts to add a new certificate.
     
     ![Screenshot of the edit single-sign-on process.](media/recommendation-renew-expriring-service-principal-credential/recommendation-edit-sso.png)
 
 1. After adding the certificate, change its properties to make the certificate active, which makes the other certificate inactive.
 1. Once the certificate is successfully added and activated, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
-1. Use the Azure AD sign-in logs to validate that the thumbprint of the certificate matches the one that was recently uploaded.
+1. Use the Azure AD sign-in logs to validate that the Key ID of the certificate matches the one that was recently uploaded.
+    - Go to **Azure AD Sign-in logs** > **Service principal sign-ins**.
+    - Open the details for a related sign-in and check that the **Client credential type** is "Client secret" and the **Credential key ID** matches your credential.
 1. After validating the new credential, navigate back to the **Single sign-on** area for the app and remove the old credential.
 
 ### Use Microsoft Graph to renew expiring service principal credentials
@@ -74,8 +79,9 @@ When renewing service principal credentials using Microsoft Graph, you need to r
 
 - Service principal credentials that expire before the recommendation is completed will be marked complete by the system.
 
-- The recommendation currently doesn't display the password secret credential in service principal when you select the impacted resource from the list.
+- The recommendation currently doesn't display the password secret credential in service principal when you select an **Impacted resource** from the list.
 
+- The **ID** shown in the list of **Impacted resources** is for the application not the service principal.
 
 ## Next steps
 
