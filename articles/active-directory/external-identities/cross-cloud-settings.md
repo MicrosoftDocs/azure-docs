@@ -97,7 +97,7 @@ The following scenarios are supported when collaborating with an organization fr
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
 > [!NOTE]
-> Enabling the [SharePoint and OneDrive integration with Azure AD B2B](https://learn.microsoft.com/sharepoint/sharepoint-azureb2b-integration) will provide the best experience for inviting users from another Microsoft cloud within SharePoint and OneDrive.
+> Enabling the [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration) will provide the best experience for inviting users from another Microsoft cloud within SharePoint and OneDrive.
 
 ## Limitations with collaborating across Microsoft clouds
 
