@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
-See, [What is Microsoft Sentinel?](../../sentinel/overview.md)
+See, [What is Microsoft Sentinel?](../sentinel/overview.md)
 
 More uses for Microsoft Sentinel, with Azure AD B2C, are:
 
@@ -82,42 +82,41 @@ See, [Create custom analytics rules to detect threats](../sentinel/detect-threat
 
 ### Notification rule for unsuccessful forced access
 
-In the following example, you receive a notification if someone tries to force access to your environment but isn't successful. It might mean a brute-force attack. You want to get notified for two or more unsuccessful logins within 60 seconds.
+Use the following steps to receive notification about two or more unsuccessful, forced access attempts into your environment. An example is brute-force attack. 
 
-1. From the left menu in Microsoft Sentinel, select **Analytics**.
+1. In Microsoft Sentinel, from the left menu, select **Analytics**.
+2. On the top bar, select **+ Create** > **Scheduled query rule**. 
 
-2. On the action bar at the top, select **+ Create** > **Scheduled query rule**. 
+   ![Screenshot of the Create option under Analytics.](./media/azure-sentinel/create-scheduled-rule.png)
 
-    ![Screenshot that shows selections for creating a scheduled query rule.](./media/azure-sentinel/create-scheduled-rule.png)
+3. In the Analytics Rule wizard, go to the **General**.
+4. For **Name**, enter a name for unsuccessful logins.
+5. For **Description**, indicate the rule notifies for two or more unsuccessful sign-ins, within 60 seconds
+6. For **Tactics**, select a category. For example, select **PreAttack**.
+7. For **Severity**, select a severity level.
+8. **Status** is **Enabled** by default. To change a rule, go to the **Active rules** tab.
 
-3. In the Analytics Rule wizard, go to the **General** tab and enter the following information:
+   ![Screenshot of Create new rule with options and selections.](./media/azure-sentinel/create-new-rule.png)
 
-    | Field | Value |
-    |:--|:--|
-    |**Name** | Enter a name that's appropriate for Azure AD B2C unsuccessful logins. |
-    |**Description** | Enter a description that says the rule will notify on two or more unsuccessful logins within 60 seconds. |
-    | **Tactics** | Choose from the categories of attacks by which to classify the rule. These categories are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.<BR>For our example, we'll choose **PreAttack**. <BR> MITRE ATT&CK is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. This knowledge base is used as a foundation for the development of specific threat models and methodologies.
-    | **Severity** | Select an appropriate severity level. |
-    | **Status** | When you create the rule, its status is **Enabled** by default. That status means the rule will run immediately after you finish creating it. If you don't want it to run immediately, select **Disabled**. The rule will then be added to your **Active rules** tab, and you can enable it from there when you need it.|
+4. Select the **Set rule logic** tab.
+5. Enter a query in the **Rule query** field. The query example organizes the sign-ins by `UserPrincipalName`.
 
-    ![Screenshot that shows basic rule properties.](./media/azure-sentinel/create-new-rule.png)
+    ![Screenshot of query text in the Rule query field under Set rule logic.](./media/azure-sentinel/rule-query.png)
 
-4. To define the rule query logic and configure settings, on the **Set rule logic** tab, write a query directly in the
-**Rule query** box. 
+5. Go to **Query scheduling**.
+6. For **Run query every**, enter **5** and **Minutes**.
+7. For **Lookup data from the last**, enter **5** and **Minutes**.
+8. For **Generate alert when number of query results**, select **Is greater than**, and **0**.
+9. For **Event grouping**, select **Group all events into a single alert**. 
+10. For **Stop running query after alert is generated**, select **Off**.
+11. Select **Next: Incident settings (Preview)**. 
 
-    ![Screenshot that shows entering the rule query in the tab for setting rule logic.](./media/azure-sentinel/rule-query.png)
+   ![Screenshot of Query scheduling selections and options.](./media/azure-sentinel/query-scheduling.png)
 
-    This query will alert you when there are two or more unsuccessful logins within 60 seconds to your Azure AD B2C tenant. It will organize the logins by `UserPrincipalName`.
+12. Go to the **Review and create** tab to review rule settings. 
+13. When the **Validation passed** banner appears, select **Create**.
 
-5. In the **Query scheduling** section, set the following parameters:
-
-    ![Screenshot that shows setting query scheduling parameters.](./media/azure-sentinel/query-scheduling.png)
-
-6. Select **Next: Incident settings (Preview)**. You'll configure and add the automated response later.
-
-7. Go to the **Review and create** tab to review all the settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
-
-    ![Screenshot that shows the tab for reviewing and creating a rule.](./media/azure-sentinel/review-create.png)
+    ![Screenshot of selected settings, the Validation passed banner, and the Create option.](./media/azure-sentinel/review-create.png)
 
 8. View the rule and the incidents that it generates. Find your newly created custom rule of type **Scheduled** in the table under the **Active rules** tab on the main **Analytics** screen. From this list, you can edit, enable, disable, or delete rules by using the corresponding buttons.
 
