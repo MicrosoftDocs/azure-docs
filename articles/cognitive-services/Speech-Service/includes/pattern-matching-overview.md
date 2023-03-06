@@ -58,17 +58,17 @@ These entities are lazy matches that attempt to match as few words as possible u
 
 In this case, the utterance "Take me to the floor parking 2" would match and return floorName1 = "parking" and floorName2 = "2".
 
-It may be tricky to handle extra text if it's captured. Perhaps the user kept talking and the utterance captured more than their command. "Take me to floor parking 2 yes Janice I heard about that let's". In this case the floorName1 would be correct, but floorName2 would = "2 yes Janice I heard about that let's". It's important to be aware of the way the Entities will match, and adjust your scenario appropriately. The Any entity type is the most basic and least precise type of matching done.
+It may be tricky to handle extra text if it's captured. Perhaps the user kept talking and the utterance captured more than their command. "Take me to floor parking 2 yes Janice I heard about that let's". In this case the floorName1 would be correct, but floorName2 would = "2 yes Janice I heard about that let's". It's important to be aware of the way the Entities match, and adjust your scenario appropriately. The Any entity type is the most basic and least precise type of matching done.
 
 ### List Entity
 
-The "List" entity is made up of a list of phrases that will guide the engine on how to match it. The "List" entity has two modes. "Strict" and "Fuzzy".
+The "List" entity is made up of a list of phrases that guide the engine on how to match it. The "List" entity has two modes. "Strict" and "Fuzzy".
 
 Let's assume we have a list of floors for our elevator. Since we're dealing with speech, we add entries using the lexical format as well.
 
 > "1", "2", "3", "lobby", "ground floor", "one", "two", "three"
 
-When an entity of type ID "List" is used in "Strict" mode, the engine will only match if the text in the slot appears in the list.
+When an entity of type ID "List" is used in "Strict" mode, the engine only matches if the text in the slot appears in the list.
 
 > "take me to floor one" will match.
 
@@ -76,7 +76,7 @@ When an entity of type ID "List" is used in "Strict" mode, the engine will only 
 
 It's important to note that the entire Intent will not match, not just the entity.
 
-When an entity of type ID "List" is used in "Fuzzy" mode, the engine will still match the Intent, and will return the text that appeared in the slot in the utterance even if it's not in the list. This is useful behind the scenes to help make the speech recognition better.
+When an entity of type ID "List" is used in "Fuzzy" mode, the engine still matches the Intent, and will return the text that appeared in the slot in the utterance, even if it's not in the list. This is useful behind the scenes to help make the speech recognition better.
 
 > [!WARNING]
 > Fuzzy list entities are implemented, but not integrated into the speech recognition part. Therefore, they will match entities, but not improve speech recognition.
@@ -117,7 +117,7 @@ If "floorName" is a prebuilt integer entity, the expectation is that whatever te
 
 In the pattern, it is allowed to include words or entities that "might" be present in the utterance. This is especially useful for determiners like "the", "a", or "an". This doesn't have any functional difference from hard coding out the many combinations, but can help reduce the number of patterns needed. Indicate optional items with "[" and "]". Indicate required items with "(" and ")". You may include multiple items in the same group by separating them with a '|' character.
 
-To see how this would reduce the number of patterns needed consider the following set.
+To see how this would reduce the number of patterns needed, consider the following set:
 
 > "Take me to {floorName}"
 
