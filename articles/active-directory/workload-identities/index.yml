@@ -34,6 +34,23 @@ landingContent:
           - text: Secure workload identities
             url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   # Card
+  - title: Connect without needing to manage secrets
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is workload identity federation?
+            url: workload-identity-federation.md
+      - linkListType: video
+        links:
+          - text: Learn why you would use workload identity federation
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RWXamJ
+      - linkListType: how-to-guide
+        links:
+          - text: Configure an app to trust an external identity provider
+            url: workload-identity-federation-create-trust.md
+          - text: Configure a managed identity to trust an external identity provider
+            url: workload-identity-federation-create-trust-user-assigned-managed-identity.md
+  # Card
   - title: Apply Conditional Access policies to service principals
     linkLists:
       - linkListType: overview
@@ -61,21 +78,5 @@ landingContent:
         links:
           - text: Access reviews for service principals
             url: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
-  # Card
-  - title: Connect without needing to manage secrets
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is workload identity federation?
-            url: workload-identity-federation.md
-      - linkListType: video
-        links:
-          - text: Learn why you would use workload identity federation
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RWXamJ
-      - linkListType: how-to-guide
-        links:
-          - text: Configure an app to trust an external identity provider
-            url: workload-identity-federation-create-trust.md
-          - text: Configure a managed identity to trust an external identity provider
-            url: workload-identity-federation-create-trust-user-assigned-managed-identity.md
+
   
