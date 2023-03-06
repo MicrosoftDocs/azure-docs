@@ -48,13 +48,21 @@ Service Health provides the below information to users whose resources are impac
 |**Tenant Name**|Unique ID for the tenant that contains the impacted resource|
 |**Tenant ID**|Unique ID for the tenant that contains the affected resource|
 
-## Accessing Impacted Resources programmatically via an API:
+## Accessing Impacted Resources programmatically via an API
 
 Security incident impacted resource information can be retrieved programmatically using Events API. To access the list of resources impacted by a Security incident, the following endpoints can be used by users authorized with the above-mentioned roles.
 
-**Subscription:** [Operation: POST](https://management.azure.com/subscriptions/4970d23e-ed41-4670-9c19-02a1d2808ff9/providers/microsoft.resourcehealth/events/3N8Z-DD8/listSecurityAdvisoryImpactedResources?api-version=2022-10-01)
+**Subscription**
 
-**Tenant:** [Operation: POST](https://management.azure.com/providers/microsoft.resourcehealth/events/3N8Z-DD8/listSecurityAdvisoryImpactedResources?api-version=2022-10-01)
+```HTTP
+https://management.azure.com/subscriptions/(“subscriptionID”)/providers/microsoft.resourcehealth/events/3N8Z-DD8/listSecurityAdvisoryImpactedResources?api-version=2022-10-01
+```
+
+**Tenant**
+
+```HTTP
+https://management.azure.com/providers/microsoft.resourcehealth/events/3N8Z-DD8/listSecurityAdvisoryImpactedResources?api-version=2022-10-01
+```
 
 ## Next steps
 - [Introduction to the Azure Service Health dashboard](service-health-overview.md)
