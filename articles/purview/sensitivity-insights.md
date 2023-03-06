@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 02/20/2023
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
