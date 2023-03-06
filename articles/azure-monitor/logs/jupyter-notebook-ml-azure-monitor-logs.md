@@ -36,7 +36,7 @@ In this tutorial, you'll:
 
 | Tool | Description |
 | --- | --- |
-|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
+|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
 |[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 |[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
 |[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
@@ -144,7 +144,7 @@ In this tutorial, you'll:
    
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
-1. Check how much data was ingested into each of the tables in the workspace every hour over the last week.
+1. Check how much data you ingested into each of the tables in you Log Analytics workspace every hour over the last week.
     
     ```python
     UsageQuery_AllTypes = """
