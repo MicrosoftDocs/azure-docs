@@ -66,7 +66,7 @@ Combined registration supports the authentication methods and actions in the fol
 > [!NOTE]
 > <b>Alternate phone</b> can only be registered in *manage mode* on the [Security info](https://mysignins.microsoft.com/security-info) page and requires Voice calls to be enabled in the Authentication methods policy. <br /> 
 > <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
-> <b>App passwords</b> are available only to users who have been enforced for per-user MFA. App passwords are not available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
+> <b>App passwords</b> are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
 > <b>FIDO2 security keys</b>, can only be added in *manage mode only* on the [Security info](https://mysignins.microsoft.com/security-info) page.
 
 Users can set one of the following options as the default multifactor authentication method. 
@@ -77,9 +77,9 @@ Users can set one of the following options as the default multifactor authentica
 - Text message
 
 >[!NOTE]
->Virtual phone numbers are not supported for Voice calls or SMS messages.
+>Virtual phone numbers aren't supported for Voice calls or SMS messages.
 
-Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
+Third party authenticator apps don't provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
 ## Combined registration modes
 
@@ -104,7 +104,7 @@ The following are sample scenarios where users might be prompted to register or 
 - *SSPR registration enforced:* Users are asked to register during sign-in. They register only SSPR methods.
 - *SSPR refresh enforced:* Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
-When registration is enforced, users are shown the minimum number of methods needed to be compliant with both multifactor authentication and SSPR policies, from most to least secure. Users going through combined registration where both MFA and SSPR registration is enforced and the SSPR policy requires two methods will first be required to register an MFA method as the first method and can select another MFA or SSPR specific method as the second registered method (e.g. email, security questions etc.)
+When registration is enforced, users are shown the minimum number of methods needed to be compliant with both multifactor authentication and SSPR policies, from most to least secure. Users going through combined registration where both MFA and SSPR registration are enforced and the SSPR policy requires two methods will first be required to register an MFA method as the first method and can select another MFA or SSPR specific method as the second registered method (e.g. email, security questions etc.)
 
 Consider the following example scenario:
 
@@ -139,7 +139,7 @@ A user has not set up all required security info and goes to the Azure portal. A
 
 ### Set up security info from My Account
 
-An admin has not enforced registration.
+An admin hasn't enforced registration.
 
 A user who hasn't yet set up all required security info goes to [https://myaccount.microsoft.com](https://myaccount.microsoft.com). The user selects **Security info** in the left pane. From there, the user chooses to add a method, selects any of the methods available, and follows the steps to set up that method. When finished, the user sees the method that was set up on the Security info page.
 

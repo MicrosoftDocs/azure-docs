@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Combined password policy and check for weak passwords in Azure Active Directory
 
 Beginning in October 2021, Azure Active Directory (Azure AD) validation for compliance with password policies also includes a check for [known weak passwords](concept-password-ban-bad.md) and their variants. 
-As the combined check for password policy and banned passwords gets rolled out to tenants, Azure AD and Office 365 admin center users may see differences when they create, change, or reset their passwords. This topic explains details about the password policy criteria checked by Azure AD. 
+This topic explains details about the password policy criteria checked by Azure AD. 
 
 ## Azure AD password policies
 
@@ -39,7 +39,7 @@ The following Azure AD password policy requirements apply for all passwords that
 
 ## Password expiration policies
 
-Password expiration policies are unchanged but they're included in this topic for completeness. A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
+Password expiration policies are unchanged but they're included in this topic for completeness. A *Global Administrator* or *User Administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 > [!NOTE]
 > By default, only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
