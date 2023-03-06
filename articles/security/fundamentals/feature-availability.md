@@ -264,7 +264,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors/azure-ddos-protection.md) | GA | GA |
-| - [Microsoft Purview](../../sentinel/data-connectors/microsoft-purview-preview.md) | Public Preview | Not Available |
+| - [Microsoft Purview](../../sentinel/data-connectors/microsoft-purview.md) | Public Preview | Not Available |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
 | - [Microsoft Defender for IoT](../../sentinel/data-connectors/microsoft-defender-for-iot.md) | GA | GA |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
