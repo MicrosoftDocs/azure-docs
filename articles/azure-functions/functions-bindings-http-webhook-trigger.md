@@ -925,7 +925,9 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 # [v2](#tab/python-v2)
 
 ```python
-@app.table_input(arg_name="product", table_name="products", row_key="{id}", partition_key="products" connection="AzureWebJobsStorage")
+@app.table_input(arg_name="product", table_name="products", 
+                 row_key="{id}", partition_key="products",
+                 connection="AzureWebJobsStorage")
 ```
 
 # [v1](#tab/python-v1)
