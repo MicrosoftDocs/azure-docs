@@ -1531,16 +1531,29 @@ The following example shows an Azure Cosmos DB input binding. The function reads
 # [v2](#tab/python-v2)
 
 ```python
-@app.route()
+@app.queue_trigger(arg_name="msg", 
+   queue_name="outqueue", 
+   connection="AzureWebJobsStorage")
 @app.cosmos_db_input(
-    arg_name="documents", database_name="<DB_NAME>",
-    collection_name="<COLLECTION_NAME>",
-    connection_string_setting="CONNECTION_STRING")
-def test_function(req: func.HttpRequest, id: func.In[func.QueueMessage],
-    documents: func.DocumentList) -> func.HttpResponse:
+    arg_name="documents", 
+    database_name="MyDatabase",
+    collection_name="MyCollection",
+    id="{msg.payload_property}",
+    partition_key="{msg.payload_property}",
+    connection_string_setting="MyAccount_COSMOSDB")
+@app.cosmos_db_output(arg_name="outputDocument", 
+    database_name="MyDatabase",", 
+    collection_name="MyCollection",
+    connection_string_setting="MyAccount_COSMOSDB")
+def test_function(msg: func.QueueMessage,
+                  inputDocument: func.DocumentList, 
+                  outputDocument: func.Out[func.Document]):
      document = documents[id]
      document["text"] = "This was updated!"
-     return document
+     doc = inputDocument[0]
+     doc["text"] = "This was updated!"
+     outputDocument.set(doc)
+     print(f"Updated document.")
 ```
 
 # [v1](#tab/python-v1)
@@ -1597,15 +1610,16 @@ The following example shows a function that retrieves a single document. The fun
 ```python
 @app.route()
 @app.cosmos_db_input(
-    arg_name="documents", database_name="<DB_NAME>",
-    collection_name="<COLLECTION_NAME>",
-    connection_string_setting="CONNECTION_STRING")
+    arg_name="documents", 
+    database_name="ToDoItems",
+    collection_name="Items",
+    connection_string_setting="CosmosDBConnection")
 def test_function(req: func.HttpRequest,
     todoitems: func.DocumentList) -> func.HttpResponse:
      id = req.params.get('id')
      partitionKeyValue = req.params.get('partitionKeyValue')
      if not todoitems:
-         logging.warning("ToDo items not found")
+         logging.warning("ToDoItems not found")
      else:
         logging.info("Found ToDo item, Text=%s", 
                      todoitems[0]['description'])
@@ -1679,10 +1693,11 @@ The following example shows a function that retrieves a single document. The fun
 
 ```python
 @app.function_name()
-@app.route(route="todoitems/{partitionKey}/{id}", auth_level=func.AuthLevel.ANONYMOUS)
+@app.route(route="todoitems/{partitionKey}/{id}")
 @app.cosmos_db_input(
-    arg_name="documents", database_name="<DB_NAME>",
-    collection_name="<COLLECTION_NAME>",
+    arg_name="todoitems", 
+    database_name="ToDoItems",
+    collection_name="Items",
     connection_string_setting="CONNECTION_STRING",
     partition_key="{partitionKey}",
     id="{id}")
@@ -1695,9 +1710,6 @@ def test_function(req: func.HttpRequest,
                      todoitems[0]['description'])
 
      return 'OK'
-
-     return 'OK'
-
 ```
 
 # [v1](#tab/python-v1)
