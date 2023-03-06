@@ -82,6 +82,16 @@ landingContent:
             url: /training/modules/analyze-logs-with-kql/
 
   # Card
+  - title: Videos
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Autoscale
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
+          - text: Analysis and Visualizations
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH
+
+  # Card
   - title: Reference - CLI
     linkLists:
       - linkListType: reference
