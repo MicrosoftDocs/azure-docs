@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/3/2023
+ms.date: 3/6/2023
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -15,50 +15,96 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ## Comparison between versions
 
+### Deployment
+
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)  |
-|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](networking.md) on the customer's virtual network         |
-|Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
+|Available SKUs  |P1, P2, P3, P4         |I1, I2, I3         |I1v2, I2v2, I3v2, I4v2, I5v2, I6v2        |
+|Maximum instance count     |55 hosts (default front-ends + workers)         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |
 |Zone redundancy     |No         |No - [zone pinning](zone-redundancy.md) to one zone is available         |[Yes](../../reliability/migrate-app-service-environment.md)         |
 |Dedicated host group     |No         |No         |Yes (not compatible with zone redundancy)         |
-|Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
-|Scaling speed     |30+ minutes for Windows, 60+ minutes for Linux         |30+ minutes for Windows, 60+ minutes for Linux         |Less than 15 minutes for both Windows and Linux         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
-|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
-|Private endpoint support     |No         |No         |Yes, must be explicitly [enabled](networking.md#private-endpoint)         |
-|Reach apps in an internal-VIP App Service Environment across global peering     |No         |No         |Yes         |
 |FTPS     |Yes         |Yes         |Yes, must be explicitly [enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
 |Remote debugging     |Yes         |Yes         |Yes, must explicitly [enable](configure-network-settings.md#remote-debugging-access)         |
-|SMTP traffic     |Yes         |Yes         |Yes         |
-|Network watcher or NSG flow logs to monitor traffic    |Yes         |Yes         |Yes         |
-|IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
-|Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |Yes         |
-|Perform a backup and restore operation on a storage account behind a firewall    |Yes         |Yes         |No         |
-|Azure Policy integration     |Yes         |Yes         |Yes         |
-|Azure Advisor integration     |Yes         |Yes         |Yes         |
-|Maximum instance count     |55 hosts (default front-ends + workers)         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |
-|Support for App Service Managed Certificates   |No         |No         |No        |
-|Available SKUs  |I1, I2, I3         |I1, I2, I3         |I1v2, I2v2, I3v2, I4v2, I5v2, I6v2        |
-|DNS fall-back  |Azure DNS        |Azure DNS       |User must configure - either have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers        |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 |Subnet delegation   |Not required         |Not required         |Must be delegated to `Microsoft.Web/hostingEnvironments`        |
+
+### Networking
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](networking.md) on the customer's virtual network         |
+|Private endpoint support     |No         |No         |Yes, must be explicitly [enabled](networking.md#private-endpoint)         |
+|Reach apps in an internal-VIP App Service Environment across global peering     |No         |No         |Yes         |
+|SMTP traffic     |Yes         |Yes         |Yes         |
+|Network watcher or NSG flow logs to monitor traffic    |Yes         |Yes         |Yes         |
 |Subnet size|?  |An App Service Environment v2 with no App Service plans at all uses 12 addresses before you create an app. If you use the internal load balancer deployment, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet is a /27 address space (32 addresses).  |
+
+### Scaling
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
+|Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
+|Scaling speed     |30+ minutes for Windows, 60+ minutes for Linux         |30+ minutes for Windows, 60+ minutes for Linux         |Less than 15 minutes for both Windows and Linux         |
+
+### Pricing
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
+
+### Certificates and domains
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
+|Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |Yes         |
+|Support for App Service Managed Certificates   |No         |No         |No        |
+|DNS fall-back  |Azure DNS        |Azure DNS       |User must configure - either have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers        |
+
+### Backup and restore
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|Perform a backup and restore operation on a storage account behind a firewall    |Yes         |Yes         |No         |
 
 ## Frequently asked questions
 
-### What SKUs are available on App Service Environment v1/v2 and App Service Environment v3?
+### What SKUs are available on App Service Environment v1, v2, and v3?
 
-App Service Environment v1 and v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following table lists the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 to ensure you aren't over-provisioned.
+App Service Environment v1 uses the Premium SKU and App Service Environment v2 use the Isolated SKU. App Service Environment v3 uses Isolated v2. The following tables lists the available instances for each SKU with their respective core counts and RAM. The corresponding instances between Isolated v2 and Isolated have double the cores and RAM. This increase in capacity should be reviewed when migrating to App Service Environment v3 from Isolated or Premium to ensure you aren't over-provisioned.
 
-|Isolated |Cores    |RAM (GB) |&rarr;   |Isolated v2|Cores    |RAM (GB) |
-|:-------:|:-------:|:-------:|:-------:|:---------:|:-------:|:-------:|
-|I1       |1        |3.5      |&rarr;   |I1v2       |2        |8        |
-|I2       |2        |7        |&rarr;   |I2v2       |4        |16       |
-|I3       |4        |14       |&rarr;   |I3v2       |8        |32       |
-|         |         |         |         |I4v2       |16       |64       |
-|         |         |         |         |I5v2       |32       |128      |
-|         |         |         |         |I6v2       |64       |256      |
+#### Isolated v2
+
+|Isolated v2|Cores    |RAM (GB) |
+|:---------:|:-------:|:-------:|
+|I1v2       |2        |8        |
+|I2v2       |4        |16       |
+|I3v2       |8        |32       |
+|I4v2       |16       |64       |
+|I5v2       |32       |128      |
+|I6v2       |64       |256      |
+
+#### Isolated
+
+|Isolated |Cores    |RAM (GB) |
+|:-------:|:-------:|:-------:|
+|I1       |1        |3.5      |
+|I2       |2        |7        |
+|I3       |4        |14       |
+|         |         |         |
+|         |         |         |  
+|         |         |         |
+
+#### Premium
+
+|Premium  |Cores    |RAM (GB) |
+|:-------:|:-------:|:-------:|
+|P1       |1        |1.75     |
+|P2       |2        |3.5      |
+|P3       |4        |7        |
+|P4       |8        |14       |
+
 
 ### What does "no networking dependencies on the customer's virtual network" mean?
 
@@ -92,7 +138,7 @@ For more information on App Service Environment v3 networking dependencies, see 
 
 This limitation is a result of the underlying infrastructure change that was implemented for App Service Environment v3. Since backup and restore are management operations, and all management traffic is isolated outside of the customer's virtual network, these operations need to take place through the Azure backbone network using an IP that the customer doesn't have access to. Therefore the customer can't explicitly allow this traffic through the firewall on their storage account.
 
-### What is custom domain suffix referring to?
+### What does custom domain suffix refer to?
 
 The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2. 
 
