@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 This quickstart describes how to configure the Microsoft Dev Box Preview service by using the Azure portal to enable development teams to self-serve dev boxes.
 
-This quickstart will take you through the process of setting up your Dev Box environment. You'll create a dev center to organize your dev box resources, configure network components to enable dev boxes to connect to your organizational resources, and create a dev box definition that will form the basis of your dev boxes. You'll then create a project and a dev box pool, which work together to help you give access to users who will manage or use the dev boxes.
+This quickstart takes you through the process of setting up your Dev Box environment. You create a dev center to organize your dev box resources, configure network components to enable dev boxes to connect to your organizational resources, and create a dev box definition that will form the basis of your dev boxes. You then create a project and a dev box pool, which work together to help you give access to users who will manage or use the dev boxes.
 
 After you complete this quickstart, you'll have a Dev Box configuration ready for users to create and connect to dev boxes.
 

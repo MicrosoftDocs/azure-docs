@@ -16,7 +16,7 @@ After you configure the Microsoft Dev Box Preview service and create dev boxes, 
 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
-In this quickstart, you'll download a Remote Desktop client (Windows and non-Windows). You'll then use that client to connect to a dev box.
+In this quickstart, you download a Remote Desktop client (Windows and non-Windows). You then use that client to connect to a dev box.
 
 ## Prerequisites
 
