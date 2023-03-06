@@ -186,7 +186,10 @@ sections:
       - question: Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
         answer: |
           As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-          
+       
+      - question: Why am I seeing 502 errors or unhealthy backend servers after I changed the DNS servers for the virtual network?
+        answer: The instances of your application gateway use the virtual network's DNS configuration for name resolution. After changing any DNS server configuration, you need to restart (Stop and Start) the application gateway for the new DNS servers to get assigned. Until then, FQDN-based name resolutions for outbound connectivity could fail.
+       
       - question: Can I deploy anything else in the application gateway subnet?
         answer: No. But you can deploy other application gateways in the subnet.
         
@@ -259,7 +262,8 @@ sections:
           Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
-        answer: No.
+        answer: |
+          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients (feature in Preview). Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
         answer: Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack VNets. 
