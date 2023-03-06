@@ -52,7 +52,7 @@ using Azure.ResourceManager.Storage;
 
 The following code sample gets a blob service endpoint for a specified storage account:
 
-:::code language="dotnet" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="26,29":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="26,29":::
 
 ## Create a client object using the service endpoint
 
@@ -68,7 +68,7 @@ using Azure.Storage.Blobs;
 
 The following code sample creates a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object using the endpoint we retrieved in the earlier example:
 
-:::code language="dotnet" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint" highlight="12":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint" highlight="12":::
 
 ## Next steps
 
