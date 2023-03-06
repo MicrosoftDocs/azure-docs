@@ -144,7 +144,9 @@ In this tutorial, you'll:
    
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
-1. Check how much data you ingested into each of the tables in you Log Analytics workspace every hour over the last week.
+Now that you've integrated your Log Analytics workspace with your notebook, let's look at some explore data in the workspace by running a query from the notebook:
+
+1. Check how much data you ingested into each of the tables in you Log Analytics workspace each hour over the past week.
     
     ```python
     UsageQuery_AllTypes = """
@@ -175,12 +177,13 @@ In this tutorial, you'll:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="A graph that shows how much data was ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
 
+    You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
 ## Train the model
 
-Model training is an iterative process that begins with data preparation and cleaning, and might include experimentation with several models until you find a model that's a good fit for your data set.
+Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
 
-In this tutorial, for the sake of simplicity, we'll: 
+In this tutorial, to shorten the process, we'll: 
 
 - Skip the data cleaning step.
 - Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
@@ -188,7 +191,7 @@ In this tutorial, for the sake of simplicity, we'll:
 
 To train a machine learning model on data in your Log Analytics workspace:
 
-1. Retrieve hourly usage data for our selected data types over the last three weeks. 
+1. Retrieve hourly usage data for the selected data types over the last three weeks. 
   
     ```python
     datatypes = ["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs", "AzureDiagnostics", "Perf"]
@@ -233,7 +236,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks" lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
 
 
-1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
+1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
 
     ```python
     my_data['Year'] = pd.DatetimeIndex(my_data['TimeGenerated']).year
