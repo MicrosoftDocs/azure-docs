@@ -71,6 +71,7 @@ Run `az acr credential-set`command to manage Credential Sets in  Azure Container
     ```azurecli-interactive
     az acr credential-set show -r MyRegistry -n MyCredSet
     ```
+
 2. List the credential sets for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
