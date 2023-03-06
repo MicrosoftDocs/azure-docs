@@ -128,7 +128,7 @@ function envVarMatchesHeader(headerValue) {
 > The `x-ms-auth-internal-token` header is only available on Windows App Service.
 
 ## Instances
-Once Health Check is enabled, you can monitor the status of your instances through the instances tab. The instances tab will show your machines name, the status of that machine and give you the option to manually restart the machine.
+Once Health Check is enabled, you can monitor the status of your instances through the instances tab. The instances tab will show your machine's name, the status of that machine and give you the option to manually restart the machine.
 
 If the status of your machine is unhealthy, you can restart the machine manually using the restart button.  If there are other applications on the same machine, they will be listed on the opening blade.  Keep in mind that any other applications hosted on the same machine will also be affected by the restart.  
 
