@@ -9,7 +9,7 @@
       href: azure-machine-learning-glossary.md
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
-      href: concept-azure-machine-learning-architecture.md
+      href: ./v1/concept-azure-machine-learning-architecture.md
 - name: Upgrade to v2
   items:
     - name: Upgrade overview
