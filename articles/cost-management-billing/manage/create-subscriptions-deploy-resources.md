@@ -18,12 +18,10 @@ When you try to create multiple Azure subscriptions in a short period of time, y
 
 `You can deploy resources onto your recently created subscriptions`
 
-The message is normal and expected. 
+The message is normal and expected.
 
 > [!IMPORTANT]
 > Your subscription must have consumption history before you can create another subscription.
-
-If you're new to Azure and don't have any consumption usage, read the [Get started guide for Azure developers](/azure/guides/developer/azure-developer-guide) to help you get started with Azure services.
 
 The message can appear for customers with the following Azure subscription agreement types:
 
@@ -36,7 +34,9 @@ The message can appear for customers with the following Azure subscription agree
 
 ## Solution
 
-Expect a delay before you can create another subscription.
+Expect a delay before you can create another subscription until your existing subscription has consumption usage history.
+
+If you're new to Azure and don't have any consumption usage, read the [Get started guide for Azure developers](/azure/guides/developer/azure-developer-guide) to help you get started with Azure services.
 
 ## Need help? Contact us.
 
