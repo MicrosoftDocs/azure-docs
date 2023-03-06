@@ -158,7 +158,7 @@ tools:
     url: /python/api/azure-ai-vision
   - title: C++
     imageSrc: media/index/logo_Cplusplus.svg
-    url: /cpp/api/azure.ai.vision.imageanalysis
+    url: /cpp/cognitive-services/vision
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision

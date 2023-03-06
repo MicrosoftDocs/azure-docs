@@ -45,18 +45,4 @@ export VISION_ENDPOINT=your-endpoint
 
 After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
 
-#### [macOS](#tab/macos)
-
-##### Bash
-
-```bash
-export VISION_KEY=your-key
-```
-
-```bash
-export VISION_ENDPOINT=your-endpoint
-```
-
-After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
-
 ---

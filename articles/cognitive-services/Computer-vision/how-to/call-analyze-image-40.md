@@ -55,7 +55,7 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 ```
 
 > [!TIP]
-> You can also analyze a local image. See the [reference documentation](/cpp/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk) for scenarios involving local images.
+> You can also analyze a local image. See the [reference documentation]() for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk) for scenarios involving local images.
 
 #### [REST](#tab/rest)
 
@@ -496,8 +496,6 @@ elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
 
 The following code calls the Image Analysis API and prints the results for all standard visual features.
 
-The following code calls the Image Analysis API and prints the results to the console.
-
 ```cpp
 auto analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
 
@@ -596,7 +594,7 @@ else if (result->GetReason() == ImageAnalysisResultReason::Error)
 }
 ```
 
-Use the following helper method to parse rectangle coordinates:
+Use the following helper method to display rectangle coordinates:
 
 ```cpp
 std::string PolygonToString(std::vector<int32_t> boundingPolygon)
@@ -767,4 +765,5 @@ See the following list of possible errors and their causes:
 ## Next steps
 
 * Explore the [concept articles](../concept-describing-images-40.md) to learn more about each feature.
+* Explore the [code samples on GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/).
 * See the [API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.
