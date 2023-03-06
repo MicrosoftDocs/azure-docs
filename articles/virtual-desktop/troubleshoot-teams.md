@@ -3,7 +3,7 @@ title: Troubleshoot Microsoft Teams on Azure Virtual Desktop - Azure
 description: Known issues and troubleshooting instructions for Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 ms.author: helohr
 manager: femila
 ---
@@ -30,10 +30,10 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - This feature doesn't support uploading custom background images.
 - This feature doesn’t support taking screenshots for incoming videos from the virtual machine (VM). As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead.
 - This feature doesn't support content sharing for redirected videos during application window sharing, 
-    - You currently can't select minimized windows. In order to select windows, you'll need to maximize them first.
-    - If you've opened a window overlapping the window you're currently sharing during a meeting, the overlapping window's contents won't update for meeting users.
-    - If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see presenter's identity bar or call monitor may turn black.
-- Switching tenants too fast can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your client. 
+- You currently can't select minimized windows. In order to select windows, you'll need to maximize them first.
+- If you've opened a window overlapping the window you're currently sharing during a meeting, the overlapping window's contents won't update for meeting users.
+- If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see presenter's identity bar or call monitor may turn black.
+- Switching tenants too fast can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your Teams client. 
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 

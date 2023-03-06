@@ -3,7 +3,7 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 ms.author: helohr
 manager: femila
 ---
