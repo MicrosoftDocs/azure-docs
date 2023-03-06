@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 03/03/2023
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -595,7 +595,7 @@ The following table explains the trigger configuration properties that you set i
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, the following properties for a trigger are defined in the `route` decorator, which adds HttpTrigger and HttpOutput binding:
 
 | Property    | Description |
 |-------------|-----------------------------|
