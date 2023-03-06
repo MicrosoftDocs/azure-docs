@@ -23,7 +23,7 @@ This document details how to use Bash and PowerShell in Azure Cloud Shell from t
 
    ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][06]
 
-   The first time you start Cloud Shell you are prompted to create a storage account for the Azure
+   The first time you start Cloud Shell you're prompted to create a storage account for the Azure
    file share.
 
    ![Screenshot showing the create storage prompt.][05]
@@ -127,7 +127,7 @@ Run the following command to see a list of all Azure CLI commands.
 az
 ```
 
-Run the following command to get a list of Azure CLI command that apply to WebApps:
+Run the following command to get a list of Azure CLI commands that apply to WebApps:
 
 ```azurecli-interactive
 az webapp --help
@@ -143,7 +143,7 @@ Get-Command -Module Az.*
 
 Under `Azure` drive, the `Get-AzCommand` lists context-specific Azure commands.
 
-Run the following commands to list the Azure PowerShell commands that apply to WebApps.
+Run the following commands to get a list the Azure PowerShell commands that apply to WebApps.
 
 ```azurepowershell-interactive
 cd 'Azure:/My Subscription/WebApps'
