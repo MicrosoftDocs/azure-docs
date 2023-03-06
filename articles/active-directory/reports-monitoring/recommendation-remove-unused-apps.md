@@ -20,7 +20,7 @@ This article covers the recommendation to investigate unused applications. This 
 
 ## Description
 
-This recommendation shows up if your tenant has applications that haven't been used in more than 30 days, so haven't been issued any tokens. Applications or service principals that were added but never used will show up as unused apps, which will also trigger this recommendation.
+This recommendation shows up if your tenant has applications that haven't been used in more than 30 days, so haven't been issued any tokens. Applications or service principals that were added but never used show up as unused apps, which will also trigger this recommendation.
 
 ## Value 
 
@@ -35,22 +35,25 @@ Applications that the recommendation identified appear in the list of **Impacted
 
     ![Screenshot of the Azure AD app registration area, with the App registrations menu item highlighted.](media/recommendation-remove-unused-apps/app-registrations-list.png)
 
-1. We suggest you take appropriate steps to ensure the application is not used in longer intervals of more than 30 days. If so, we recommend updating the frequency of access such that the application’s last used time is within 30 days from its last access date.
+1. Determine if the identified application is needed.
+    - If the application is no longer needed, remove it from your tenant.
+    - If the application is needed, we suggest you take appropriate steps to ensure the application isn't used in intervals of more than 30 days.
+    - We recommend updating the frequency of access such that the application’s last used time is within 30 days from its last access date.
 
 ## Known limitations
 
 Take note of the following common scenarios or known limitations of the "Remove unused applications" recommendation.
 
-* The time frame for application usage that triggers this recommendation cannot be customized.
+* The time frame for application usage that triggers this recommendation can't be customized.
 
-* The following apps will not show up as a part of this recommendation, but are currently under review for future enhancements: 
+* The following apps won't show up as a part of this recommendation, but are currently under review for future enhancements: 
     - Microsoft-owned applications
     - Password single sign-on
     - Linked single sign-on
     - App proxy
     - Add-in apps
 
-* This recommendation currently surfaces applications that were created within the past 30 days *and* shows as unused. Updates to the recommendation to filter out newly-created apps so that they can complete a full cycle are in progress.
+* This recommendation currently surfaces applications that were created within the past 30 days *and* shows as unused. Updates to the recommendation to filter out recently created apps so that they can complete a full cycle are in progress.
 
 ## Next steps
 

@@ -42,6 +42,7 @@ Some recommendations may require a P2 or other license. For more information, se
 ## How to read a recommendation
 
 To view the details of a recommendation:
+
 1. Sign in to Azure using the appropriate least-privilege role.
 1. Go to **Azure AD** > **Recommendations** and select a recommendation from the list.
 
@@ -69,7 +70,7 @@ Each recommendation provides the same set of details that explain what the recom
 
 - The **Action plan** provides step-by-step instructions to implement a recommendation. The Action plan may include links to relevant documentation or direct you to other pages in the Azure AD portal.
 
-- If the impacted resource type is applications, a list of the **Impacted resources** appears at the bottom of the recommendation. The resource's name, ID, date it was first detected, and status are provided.
+- The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
 
 ## How to update a recommendation
 
@@ -105,7 +106,7 @@ Continue to monitor the recommendations in your tenant for changes.
 
 ### How to use Microsoft Graph with Azure Active Directory recommendations
 
-Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, mark a recommendation as completed by a user, postpone a recommendation for later, and more. 
+Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, postpone a recommendation for later, and more. 
 
 To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the "Migrate apps from Active Directory Federated Services (ADFS) to Azure AD" recommendation.
 

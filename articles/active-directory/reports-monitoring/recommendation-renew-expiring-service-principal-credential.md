@@ -21,7 +21,7 @@ This article covers the recommendation to renew expiring service principal crede
 
 ## Description
 
-An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application will not be able to authenticate with your tenant. 
+An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application won't be able to authenticate with your tenant. 
 
 This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
@@ -42,20 +42,41 @@ Renewing the service principal credential(s) before expiration ensures the appli
     
     ![Screenshot of the edit single-sign-on process.](media/recommendation-renew-expriring-service-principal-credential/recommendation-edit-sso.png)
 
-1. After adding the certificate, change its properties to make the certificate active. This will make the other certificate inactive.
-1. Once the certificate is successfully added and activated, update the service code to ensure it works with the new credential and has no negative customer impact. You should use Azure AD’s sign-in logs to validate that the thumbprint of the certificate matches the one that was just uploaded.
-1. After validating the new credential, navigate back to the **Certificates and Secrets** area for the app and remove the old credential.
+1. After adding the certificate, change its properties to make the certificate active, which makes the other certificate inactive.
+1. Once the certificate is successfully added and activated, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
+1. Use the Azure AD sign-in logs to validate that the thumbprint of the certificate matches the one that was recently uploaded.
+1. After validating the new credential, navigate back to the **Single sign-on** area for the app and remove the old credential.
+
+### Use Microsoft Graph to renew expiring service principal credentials
+
+To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+
+When renewing service principal credentials using Microsoft Graph, you need to run a query to get the password credentials on a service principal, add a new password credential, then remove the old credentials. 
+
+1. Run the following query in Microsoft Graph to get the password credentials on a service principal:
+    - https://graph.microsoft.com/v1.0/servicePrincipals/{id}?$select=passwordCredentials
+    - Replace {id} with the service principal ID.
+
+1. Add a new password credential.
+    - Use the Microsoft Graph Service Principal API service action `addPassword`
+    - [servicePrincipal: addPassword MS Graph API documentation](/graph/api/serviceprincipal-addpassword?view=graph-rest-beta&preserve-view=true)
+
+1. Remove the old/original credentials.
+    - Use the Microsoft Graph Service Principal API service action `removePassword`
+    - [servicePrincipal: removePassword MS Graph API documentation](/graph/api/serviceprincipal-removepassword?view=graph-rest-beta&preserve-view=true) 
 
 ## Known limitations
 
-Service principals that expire before the recommendation is completed by a user will be marked complete by the system. This recommendation identifies service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
+- This recommendation identifies service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
 
-You can see the recommendation but won't be able to see the service principal credential when you click on the impacted resource. Credentials are not displayed on the Enterprise applications area. You can use Microsoft Graph to pull this information programmatically. 
- 
+- Service principal credentials that expire before the recommendation is completed will be marked complete by the system.
+
+- The recommendation currently doesn't display the password secret credential in service principal when you select the impacted resource from the list.
+
+
 ## Next steps
 
 - [Review the Azure AD recommendations overview](overview-recommendations.md)
 - [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
 - [Learn about securing service principals](../fundamentals/service-accounts-principal.md)
-

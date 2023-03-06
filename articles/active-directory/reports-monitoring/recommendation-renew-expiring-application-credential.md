@@ -46,8 +46,9 @@ Applications that the recommendation identified appear in the list of **Impacted
 
     ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
 
-1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and has no negative customer impact. You should use Azure AD’s sign-in logs to validate that the thumbprint of the certificate matches the one that was just uploaded.
-1. After validating the new credential, navigate back to the Certificates and Secrets blade for the app and remove the old credential.
+1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
+1. Use the Azure AD sign-in logs to validate that the thumbprint of the certificate matches the one that was recently uploaded.
+1. After validating the new credential, navigate back to **Azure AD** > **App registrations** > **Certificates and Secrets** for the app and remove the old credential.
  
 ## Known limitations
 

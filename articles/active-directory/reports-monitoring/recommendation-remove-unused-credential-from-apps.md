@@ -47,11 +47,20 @@ Applications that the recommendation identified appear in the list of **Impacted
 
     ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
 
-To remove a credential from a service principal resource, use the MS Graph Service Principal API service action `removePassword`.
- 
+### Use Microsoft Graph to remove an unused credential
+
+To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+
+- Remove a **credential** from a service principal resource:
+    - Use the Microsoft Graph Service Principal API service action `removePassword`
+    - [servicePrincipal: removePassword MS Graph API documentation](/graph/api/serviceprincipal-removepassword?view=graph-rest-beta&preserve-view=true)
+- Remove a **key credential** from a service principal resource:
+    - Use the Microsoft Graph Service Principal API service action `removeKey`
+    - [servicePrincipal: removeKey MS Graph API documentation](/graph/api/serviceprincipal-removekey?view=graph-rest-beta&preserve-view=true)
+
 ## Next steps
 
 - [Review the Azure AD recommendations overview](overview-recommendations.md)
 - [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
-- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendations-api-overview)
 - [Learn about app and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
