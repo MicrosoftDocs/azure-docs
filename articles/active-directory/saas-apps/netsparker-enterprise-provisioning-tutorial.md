@@ -32,7 +32,7 @@ This tutorial describes the steps you need to perform in both Netsparker Enterpr
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An administrator account with Netsparker Enterprise. 
 
 ## Step 1. Plan your provisioning deployment
@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Netsparker Enterprise to support provisioning with Azure AD
 
-1. Login to [Netsparker Enterprise admin console](https://www.netsparkercloud.com). 
+1. Log in to [Netsparker Enterprise admin console](https://www.netsparkercloud.com). 
 1. Click on profile logo and navigate to **API Settings**.
 1. Enter your **Current Password** and then click on **Submit**.
 1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Netsparker Enterprise application in the Azure portal.
@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Netsparker Enterprise from the Azure AD application gallery
 
-Add Netsparker Enterprise from the Azure AD application gallery to start managing provisioning to Netsparker Enterprise. If you have previously setup Netsparker Enterprise for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Netsparker Enterprise from the Azure AD application gallery to start managing provisioning to Netsparker Enterprise. If you have previously setup Netsparker Enterprise for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -60,7 +60,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
+* If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Netsparker Enterprise 
@@ -97,7 +97,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Netsparker Enterprise**.
 
-1. Review the user attributes that are synchronized from Azure AD to Netsparker Enterprise in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Netsparker Enterprise for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Netsparker Enterprise API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Netsparker Enterprise in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Netsparker Enterprise for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Netsparker Enterprise API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Netsparker Enterprise|
    |---|---|---|---|
@@ -106,7 +106,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails[type eq "work"].value|String||&check;
    |name.givenName|String||&check;
    |name.familyName|String||&check;
-   |phoneNumbers[type eq "mobile"].value|String|||
+   |phoneNumbers[type eq "mobile"].value|String||
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Netsparker Enterprise**.
 
@@ -115,7 +115,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|Required by Netsparker Enterprise|
    |---|---|---|---|
    |displayName|String|&check;|&check;
-   |members|Reference|||
+   |members|Reference||
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
-1. When you are ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
@@ -137,8 +137,8 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## More resources
 
