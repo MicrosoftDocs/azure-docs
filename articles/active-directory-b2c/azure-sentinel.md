@@ -93,7 +93,7 @@ Use the following steps to receive notification about two or more unsuccessful, 
 
 3. In the Analytics Rule wizard, go to the **General**.
 4. For **Name**, enter a name for unsuccessful logins.
-5. For **Description**, indicate the rule notifies for two or more unsuccessful sign-ins, within 60 seconds
+5. For **Description**, indicate the rule notifies for two or more unsuccessful sign-ins, within 60 seconds.
 6. For **Tactics**, select a category. For example, select **PreAttack**.
 7. For **Severity**, select a severity level.
 8. **Status** is **Enabled** by default. To change a rule, go to the **Active rules** tab.
