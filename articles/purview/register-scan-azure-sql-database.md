@@ -456,6 +456,9 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every six hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
 
+    > [!Note]
+    > Toggle on  **Lineage extraction** will trigger daily scan.
+
 ### Search Azure SQL Database assets and view runtime lineage
 
 You can [browse through the data catalog](how-to-browse-catalog.md) or [search the data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. The following steps describe how to view runtime lineage details:
