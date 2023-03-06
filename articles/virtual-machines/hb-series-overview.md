@@ -4,7 +4,7 @@ description: Learn about the preview support for the HB-series VM size in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
