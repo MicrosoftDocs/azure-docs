@@ -1,15 +1,15 @@
 ---
 title: Connect an Azure Elastic SAN (preview) volume to an AKS cluster.
-description: Learn how to connect to an Azure Elastic SAN (preview) volume an AKS cluster.
+description: Learn how to connect to an Azure Elastic SAN (preview) volume an Azure Kubernetes Service cluster.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/06/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Connect Elastic SAN volumes to AKS
+# Connect Elastic SAN volumes to an Azure Kubernetes Service cluster
 
 For AKS clusters connecting to Elastic SAN, use the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) enabled on your cluster to connect Elastic SAN volumes. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
 
@@ -26,6 +26,12 @@ The Kubernetes iSCSI CSI driver is available on GitHub:
 ### Licensing
 
 The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/LICENSE).
+
+## Pre-requisites
+
+- Have an [Azure Elastic SAN](elastic-san-create.md) with volumes
+- Either the [latest Azure CLI](/cli/azure/install-azure-cli) or use the following command to install the Azure PowerShell preview module: `Install-Module -Name Az.ElasticSan -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion 0.1.0`
+- Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver.
 
 ## Get started
 
@@ -102,7 +108,9 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 Once you've retrieved your volume's information, you need to create a few yml files for your new resources on your AKS cluster.
 
-First, create a storageclass.yml file. This file defines your persistent volume's storageclass.
+### Storageclass
+
+Create a storageclass.yml file, Use the following example to create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -162,7 +170,7 @@ spec:
         values: ["data-iscsiplugin"]
 ```
 
-Finally, create a [pod](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your pod.yml file might look like:
+Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your pod.yml file might look like. You can use it to make your own pod manifest, replace the `name`, `image`, and `mountPath` values with your own:
 
 ```yml
 apiVersion: v1
