@@ -18,17 +18,17 @@ author: mamccrea
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term **pNUMA** to refer to a physical NUMA domain, and **vNUMA** to refer to a virtualized NUMA domain. 
+Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We use the term **pNUMA** to refer to a physical NUMA domain, and **vNUMA** to refer to a virtualized NUMA domain. 
 
-Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7742 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. Four adjacent CCXs share access to 2 channels of physical DRAM. 
+Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7742 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS sees a pNUMA/vNUMA boundary. Four adjacent CCXs share access to two channels of physical DRAM. 
 
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domains 0 and 16 (i.e. the first CCX of each CPU socket). All remaining 30 pNUMA domains are assigned to the VM at which point they become vNUMA. Thus, the VM will see:
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domains 0 and 16 (that is, the first CCX of each CPU socket). All remaining 30 pNUMA domains are assigned to the VM at which point they become vNUMA. Thus, the VM sees:
 
 `(30 vNUMA domains) * (4 cores/vNUMA) = 120` cores per VM 
 
 The VM itself has no awareness that pNUMA 0 and 16 are reserved. It enumerates the vNUMA it sees as 0-29, with 15 vNUMA per socket symmetrically, vNUMA 0-14 on vSocket 0, and vNUMA 15-29 on vSocket 1.
 
-Process pinning will work on HBv2-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency. 
+Process pinning works on HBv2-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency. 
 
 
 ## Hardware specifications 
