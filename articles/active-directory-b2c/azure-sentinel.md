@@ -26,10 +26,10 @@ More uses for Microsoft Sentinel, with Azure AD B2C, are:
 * Detect previously undetected threats and minimize false positives with analytics and threat intelligence features
 * Investigate threats with artificial intelligence (AI)
   * Hunt for suspicious activities at scale, and benefit from the experience of years of cybersecurity work at Microsoft
-* Respond to incidents rapidly with common taske orchestration and automation 
+* Respond to incidents rapidly with common task orchestration and automation 
 * Meet your organization's security and compliance requirements 
 
-In this tutorial, you'll learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Transfer Azure AD B2C logs to a Log Analytics workspace
@@ -164,7 +164,7 @@ For this task, use a playbook from the Microsoft Sentinel GitHub repository.
 
 1. Go to a configured playbook.
 2. Edit the rule.
-3. On the **Automated response** tab select the playbook.
+3. On the **Automated response** tab, select the playbook.
 
 Learn more: [Incident-Email-Notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
 
