@@ -39,7 +39,7 @@ In this tutorial, you'll:
 |[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
 |[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 |[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
-|[Plotly](https://spark.apache.org/docs/api/python/index.html).| An open source graphing library for Python. |
+|[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
 |[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Needed to ingest data you process in Jupyter Notebook back to the Log Analytics workspace. |
 
 ## Limitations 
@@ -49,11 +49,11 @@ In this tutorial, you'll:
 
 ## Prerequisites 
 
-- An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md):
+- An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
-    - For this tutorial, select CPU type. To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu).  
-    - Verify Python kernel selected Python 3.8 or higher.
-- [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
+    - A CPU compute instance type. To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu).  
+    - Kernel set to Python 3.8 or higher.
+    - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
 - The following roles and permissions: Azure Machine Learning (???). 
 - Familiarity with data science concepts.  
