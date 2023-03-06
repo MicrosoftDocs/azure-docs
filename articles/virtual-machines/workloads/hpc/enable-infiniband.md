@@ -4,7 +4,7 @@ description: Learn how to enable InfiniBand on Azure HPC VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -63,6 +63,6 @@ sudo systemctl restart waagent
 ## Next steps
 
 - Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
-- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+- Review the [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
