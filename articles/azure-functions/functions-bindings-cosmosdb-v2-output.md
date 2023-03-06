@@ -698,7 +698,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_output`:
 
 | Property    | Description |
 |-------------|-----------------------------|

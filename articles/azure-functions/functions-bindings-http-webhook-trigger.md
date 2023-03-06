@@ -599,7 +599,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 
 | Property    | Description |
 |-------------|-----------------------------|
-|`route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
+| `route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
 | `trigger_arg_name` | Argument name for HttpRequest, defaults to 'req'. |
 | `binding_arg_name` | Argument name for HttpResponse, defaults to '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |

@@ -1764,7 +1764,11 @@ The following example shows an Azure Cosmos DB input binding Python function tha
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
-# [v1](#tab/python-v1-only)
+# [v2](#tab/python-v2)
+
+No equivalent sample for v2 at this time.
+
+# [v1](#tab/python-v1)
 
 Here's the binding data in the *function.json* file:
 
