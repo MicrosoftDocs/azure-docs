@@ -154,6 +154,8 @@ RECOGNIZED: Text=Turn on the lights.
     Language Understanding JSON: {"kind":"ConversationResult","result":{"query":"turn on the lights","prediction":{"topIntent":"HomeAutomation.TurnOn","projectKind":"Conversation","intents":[{"category":"HomeAutomation.TurnOn","confidenceScore":0.97712576},{"category":"HomeAutomation.TurnOff","confidenceScore":0.8431633},{"category":"None","confidenceScore":0.782861}],"entities":[{"category":"HomeAutomation.DeviceType","text":"lights","offset":12,"length":6,"confidenceScore":1,"extraInformation":[{"extraInformationKind":"ListKey","key":"light"}]}]}}}.
 ```
 
+> [!NOTE]
+> Support for the JSON response for CLY via the LanguageUnderstandingServiceResponse_JsonResult property was added in the Speech SDK version 1.26.
 
 The intents are returned in the probability order of most likely to least likely. Here's a formatted version of the JSON output where the `topIntent` is `HomeAutomation.TurnOn` with a confidence score of 0.97712576 (97.71%). The second most likely intent might be `HomeAutomation.TurnOff` with a confidence score of 0.8985081 (84.31%).
 
