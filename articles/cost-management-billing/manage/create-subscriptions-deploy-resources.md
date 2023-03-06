@@ -21,7 +21,7 @@ When you try to create multiple Azure subscriptions in a short period of time, y
 The message is normal and expected.
 
 > [!IMPORTANT]
-> Your existing subscription should generate consumption history before you create another one
+> All existing subscriptions should generate consumption history before you create another one
 
 The message can appear for customers with the following Azure subscription agreement types:
 
