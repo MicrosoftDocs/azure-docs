@@ -42,7 +42,7 @@ The following suggestions apply for optimal application scaling efficiency, perf
    ```
 
 ## Adaptive Routing
-Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting more optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
+Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting more optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## Process pinning
 
@@ -51,7 +51,7 @@ Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR In
 - For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX on HB and HBv2 VM sizes.
 - For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this approach.
-- For larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
+- For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries does this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Compiling applications
 <br>
@@ -75,7 +75,7 @@ The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and
 
 ### DragonEgg
 
-DragonEgg is a gcc plugin that replaces GCC’s optimizers and code generators with those from the LLVM project. DragonEgg that comes with AOCC works with gcc-4.8.x, has been tested for x86-32/x86-64 targets, and has been successfully used on various Linux platforms.
+DragonEgg is a gcc plugin that replaces GCC’s optimizers and code generators from the LLVM project. DragonEgg that comes with AOCC works with gcc-4.8.x, has been tested for x86-32/x86-64 targets, and has been successfully used on various Linux platforms.
 
 GFortran is the actual frontend for Fortran programs responsible for preprocessing, parsing, and semantic analysis generating the GCC GIMPLE intermediate representation (IR). DragonEgg is a GNU plugin, plugging into GFortran compilation flow. It implements the GNU plugin API. With the plugin architecture, DragonEgg becomes the compiler driver, driving the different phases of compilation.  After following the download and installation instructions, Dragon Egg can be invoked using: 
 
@@ -87,7 +87,7 @@ $ gfortran [gFortran flags]
 ```
    
 ### PGI Compiler
-PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. Below is sample CLI to compiler optimally with the Intel Compiler:
+PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. A sample CLI to compiler optimally with the Intel Compiler:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
@@ -101,7 +101,7 @@ icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=lar
 ```
 
 ### GCC Compiler 
-For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, are not recommended. GCC 7.3, and newer, delivers significantly higher performance on HPL, HPCG, and DGEMM tests.
+For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, aren't recommended. GCC 7.3, and newer, delivers higher performance on HPL, HPCG, and DGEMM tests.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
