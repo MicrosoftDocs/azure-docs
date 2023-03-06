@@ -8,7 +8,7 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2023
+ms.date: 03/06/2023
 ms.author: greglin
 ---
 
@@ -73,7 +73,7 @@ In this section, you create two VMs **myIISVMEastUS** and **myIISVMWestEurope** 
 
 1. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Disable**.
 
-    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/bootdiagnostics.png" alt-text="Screenshot of boot diagnostics.":::
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/boot-diagnostics.png" alt-text="Screenshot of boot diagnostics.":::
 
 1. Select **Review + create**.
 1. Review the settings, and then select **Create**.  
