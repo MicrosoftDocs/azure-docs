@@ -15,7 +15,7 @@ ms.date: 02/22/2023
 
 # Tutorial: Model development on a cloud workstation
  
-Learn how to develop a training script with a notebook on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
+Learn how to develop a training script with a notebook on an Azure Machine Learning cloud workstation. This tutorial covers the basics you need to get started:
 
 > [!div class="checklist"]
 > * Set up and configuring the cloud workstation. Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
@@ -39,7 +39,7 @@ The Notebooks section in your workspace is a good place to start learning about 
 
 ## Set up a new environment for prototyping
 
-In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. This section will help you create an environment tailored to your code. To create the new Jupyter kernel your notebook will connect to, you'll use a YAML file that defines the dependencies.
+In order for your script to run, you need to be working in an environment configured with the dependencies and libraries the code expects. This section helps you create an environment tailored to your code. To create the new Jupyter kernel your notebook connects to, you'll use a YAML file that defines the dependencies.
 
 * **Upload a file.**
     Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
@@ -50,7 +50,7 @@ In order for your script to run, you'll need to be working in an environment con
     1. Select **workstation_env.yml** file you just downloaded.
     1. Select **Upload**.
     
-    You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
+    You see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
     
     :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
     
@@ -66,14 +66,14 @@ In order for your script to run, you'll need to be working in an environment con
     
     1. Start your compute instance it if it's not already running.
     
-    1. Once the compute is running, you'll see a welcome message in the terminal, adn you can start typing commands. 
+    1. Once the compute is running, you see a welcome message in the terminal, and you can start typing commands. 
     1. View your current conda environments. The active environment is marked with a *.
     
         ```bash
         conda env list
         ```
     
-    1. Create the environment based on the conda file provided. It will take a few minutes to build this environment.
+    1. Create the environment based on the conda file provided. It takes a few minutes to build this environment.
     
         ```bash
         conda env create -f workstation_env.yml
@@ -100,7 +100,7 @@ In order for your script to run, you'll need to be working in an environment con
     
     1. Close the terminal window.
 
-You have a new kernel.  Next you'll open a notebook and use this kernel.
+You have a new kernel.  Next you open a notebook and use this kernel.
     
 ## Create a notebook
 
@@ -110,12 +110,12 @@ You have a new kernel.  Next you'll open a notebook and use this kernel.
 
 1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
 
-1. You will see the notebook connect to the default kernel in the top right. Switch to the kernel you just created, **Tutorial Workstation Env**.
+1. You'll see the notebook connect to the default kernel in the top right. Switch to the kernel you created, **Tutorial Workstation Env**.
 
 
 ## Develop a training script
 
-In this section you'll develop a Python training script that predicts credit card default payments, using the prepared test and training datasets from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+In this section you develop a Python training script that predicts credit card default payments, using the prepared test and training datasets from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
 
 This code uses `sklearn` for training and MLflow for logging the metrics.
 
@@ -142,7 +142,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     mlflow.sklearn.autolog()
     ```
 
-1. Next, load and process the data for this experiment. In this tutorial, you'll read the data from a file on the internet.
+1. Next, load and process the data for this experiment. In this tutorial, you read the data from a file on the internet.
 
     ```python
     # load the data
@@ -224,12 +224,12 @@ Now that you've tried two different models, which one do you like best?  Since y
 
     :::image type="content" source="media/tutorial-set-up-workstation/jobs.png" alt-text="Screenshot shows how to select Jobs in the navigation.":::
 
-1. You'll see an experiment named **Default**. Select this link.
+1. You see an experiment named **Default**. Select this link.
 1. There are two different runs shown, one for each of the models you tried.  The run names are auto-generated.  Use the pencil tool next to name if you wish to rename them.
 1. Select the link for the first job.
-1. You'll see more information about the job.  Under **Tags**, you'll see the estimator_name, which describes the type of model.
+1. You see more information about the job.  Under **Tags**, you see the estimator_name, which describes the type of model.
 
-1. Select the **Metrics** tab to view the metrics that were logged by `MLflow`. (Expect your results to differ, as you'll have a different training set.)
+1. Select the **Metrics** tab to view the metrics that were logged by `MLflow`. (Expect your results to differ, as you have a different training set.)
 
     :::image type="content" source="media/tutorial-set-up-workstation/metrics.png" alt-text="Screenshot shows metrics for a job.":::
 
@@ -241,7 +241,7 @@ Now that you've tried two different models, which one do you like best?  Since y
 
 ## Prepare notebook
 
-Once you are satisfied with the model code and results, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
+Once you're satisfied with the model code and results, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
 
 Use these steps to gather just the cells that you need:
 
@@ -266,7 +266,7 @@ You now have a Python script to use for training.  You may wish to add in some c
 
 ## Run the Python script
 
-For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. Later tutorials will show you how to run a training script in a more scalable way on more powerful compute resources.  
+For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. Later tutorials show you how to run a training script in a more scalable way on more powerful compute resources.  
 
 1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
 1. View your current conda environments. The active environment is marked with a *.
@@ -280,7 +280,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     conda activate workstation_env
     ```
 
-1. If you created a sub-folder for this tutorial, `cd` to that folder now.
+1. If you created a subfolder for this tutorial, `cd` to that folder now.
 1. Run your training script.
 
     ```bash
@@ -289,7 +289,7 @@ For now, you're running this code on your compute instance, which is your Azure 
 
 ## Examine results
 
-Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results will differ between runs as well.
+Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
 
 ## Clean up resources
 
