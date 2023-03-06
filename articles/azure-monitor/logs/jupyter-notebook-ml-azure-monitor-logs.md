@@ -179,7 +179,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
-## Train the model
+## Prepare data for model training
 
 Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
 
@@ -263,20 +263,22 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-dataframe-split-datetime.png" alt-text="Screenshot that shows a DataFrame with the newly-added Year, Month, Day, and Hour columns.":::
  
-## Split the dataset into a training set and a testing set
+1. Split the dataset into a training set and a testing set.
 
-To validate a machine learning model, we need to use some of the data we have to train the model and some of data to check how well the trained model is able to predict values the model doesn't yet know.    
-
-1. Use the [TimeSeriesSplit()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) time series cross-validator to split the dataset into a training set and a test set.
-
-    ```python
-    from sklearn.model_selection import TimeSeriesSplit
+    To validate a machine learning model, we need to use some of the data we have to train the model and some of data to check how well the trained model is able to predict values the model doesn't yet know.    
     
-    ts_cv = TimeSeriesSplit() #we use default values
+    1. Use the [TimeSeriesSplit()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) time series cross-validator to split the dataset into a training set and a test set.
+    
+        ```python
+        from sklearn.model_selection import TimeSeriesSplit
         
-    Y = my_data['ActualUsage']
-    X = my_data[['DataType', 'Year', 'Month', 'Day', 'Hour']] 
-    ```
+        ts_cv = TimeSeriesSplit() #we use default values
+            
+        Y = my_data['ActualUsage']
+        X = my_data[['DataType', 'Year', 'Month', 'Day', 'Hour']] 
+        ```
+
+## Train the model
 
 1. Train and evaluate a linear regression model.
 
