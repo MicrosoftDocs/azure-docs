@@ -128,7 +128,7 @@ View the rule and the incidents it generates. Find your newly created custom rul
 
 You can edit, enable, disable, or delete the rule.
 
-    ![Screenshot of active rules with Enable, Disable, Delete, and Edit options.](./media/azure-sentinel/rule-crud.png)
+   ![Screenshot of active rules with Enable, Disable, Delete, and Edit options.](./media/azure-sentinel/rule-crud.png)
 
 #### Triage, investigate, and remediate incidents
 
@@ -156,7 +156,7 @@ Learn more: [Investigate incidents with Microsoft Sentinel](../sentinel/investig
 
 Microsoft Sentinel has security orchestration, automation, and response (SOAR) functions. Attach automated actions, or a playbook, to analytics rules.
 
-See, [Microsoft Sentinel automated responses](../architecture/solution-ideas/articles/microsoft-sentinel-automated-response.md)
+See, [Microsoft Sentinel automated responses](../../architecture/solution-ideas/articles/microsoft-sentinel-automated-response.md)
 
 ### Email notification for an incident
 
