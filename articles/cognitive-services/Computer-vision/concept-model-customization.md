@@ -72,10 +72,15 @@ The following table describes the limits on the scale of your custom model proje
 | Max # regions per image   | N/A                              | 1,000                           |
 | Max # categories          | 2,000                           | 1,000                           |
 | Max image size            | 20MB                            | 20MB                            |
-| Max image width/height    | 10,240                          | 10,240                          |
+| Max image width or height    | 10,240                          | 10,240                          |
 | Available regions         | West US 2, East US, West Europe | West US 2, East US, West Europe |
+| Accepted image types               | jpg, png, bmp, gif, jpeg        | jpg, png, bmp, gif, jpeg        |
 
 ## Frequently asked questions
+
+### Why is my COCO file import failing when importing from blob storage?
+
+Currently, Microsoft is addressing an issue which causes COCO file import to fail with large datasets when initiated in Vision Studio. To train using a large dataset, it's recommended to use the REST API instead.
 
 ### Why does training take longer/shorter than my specified budget?
 

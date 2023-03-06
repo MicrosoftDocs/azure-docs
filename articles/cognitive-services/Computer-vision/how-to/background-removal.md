@@ -13,9 +13,9 @@ ms.date: 03/03/2023
 
 # Remove the background from images
 
-This article demonstrates how to call the Image Analysis 4.0 API to return information about an image's visual features, or to segment an image. It also shows you how to parse the returned information.
+This article demonstrates how to call the Image Analysis 4.0 API to segment an image. It also shows you how to parse the returned information.
 
-This guide assumes you've already [created a Computer Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) to get started.
+This guide assumes you've already [created a Computer Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) and obtained a key and endpoint URL.
 
 > [!IMPORTANT]
 > These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.

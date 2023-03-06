@@ -137,9 +137,7 @@ The first thing you need to do is create a COCO file from your training data. Yo
 
 ## Upload to storage
 
-Upload your COCO file to a blob storage container, ideally the same blob container that holds the training images themselves. If this storage account belongs to a different Azure subscription than the Computer Vision resource, then you need to manually give the Computer Vision resource permission to read from it. You can give permission by turning on System managed identities for the Computer Vision resource, then assigning the identity to a role that has permission to read from the blob container.
-
-![Screenshot of role assignment in the Azure portal.]( ../media/customization/roleassignment.png)
+Upload your COCO file to a blob storage container, ideally the same blob container that holds the training images themselves.
 
 ## Create your training dataset
 
