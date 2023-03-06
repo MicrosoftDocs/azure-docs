@@ -43,7 +43,7 @@ The following versions are supported for managed functions in Static Web Apps. I
 
 ## Re-enabling proxies in v4.x
 
-Azure Functions recently announced support for [re-enabling proxies in v4.x](../azure-functions/legacy-proxies.md#re-enable-proxies-in-functions-v4x). You can now enable the proxy support in your Static Web Apps managed functions by setting `SWA_ENABLE_PROXIES_MANAGED_FUNCTIONS` to `true` in your application settings. 
+Azure Functions recently supports [re-enabling proxies in v4.x](../azure-functions/legacy-proxies.md#re-enable-proxies-in-functions-v4x). To enable proxy support in managed functions for your static web app, set `SWA_ENABLE_PROXIES_MANAGED_FUNCTIONS` to `true` in your application settings. 
 
 [!NOTE] While the proxy support in v4.x exists, you should consider switching to Azure API Management integration with your managed function apps as soon as possible, and not just rely on proxies.
 
