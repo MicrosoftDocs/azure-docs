@@ -26,7 +26,7 @@ NUMA domains within VM OS = 4
 C-states = Enabled
 ```
 
-As a result, the server boots with 4 NUMA domains (2 per socket) each 32-cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
+As a result, the server boots with 4 NUMA domains (2 per socket) each 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 8 physical cores per server.
 
@@ -36,7 +36,7 @@ The following diagram shows the topology of the server. We reserve these 8 hyper
 
 ![Topology of the HBv3-series server](./media/hpc/architecture/hbv3/hbv3-topology-server.png)
 
-Note that the CCD boundary is not equivalent to a NUMA boundary. On HBv3, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host sever level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that will appear to a OS and application as shown below, 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](hbv3-series.md).
+The CCD boundary is not equivalent to a NUMA boundary. On HBv3, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that will appear to an OS and application as shown below. 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](hbv3-series.md).
 
 ![Topology of the HBv3-series VM](./media/hpc/architecture/hbv3/hbv3-topology-vm.png)
 
@@ -93,10 +93,10 @@ lstopo-no-graphics --no-io --no-legend --of txt
 ## InfiniBand networking
 HBv3 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
 
-HBv3 VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is strongly recommended.
+HBv3 VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is recommended.
 
 ## Temporary storage
-HBv3 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and will appear within your VM as a generic "SSD" device.
+HBv3 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it'll appear within your VM as a generic "SSD" device.
 
 Two other, larger SSDs are provided as unformatted block NVMe devices via NVMeDirect. As the block NVMe device bypasses the hypervisor, it will have higher bandwidth, higher IOPS, and lower latency per IOP.
 
@@ -118,7 +118,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 | Software specifications        | HBv3-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
-| Max MPI Job Size               | 36,000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true) |
+| Max MPI Job Size               | 36,000 cores (300 VMs in a single VM scale set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
