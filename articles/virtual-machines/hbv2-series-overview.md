@@ -53,7 +53,7 @@ Process pinning will work on HBv2-series VMs because we expose the underlying si
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 8 disks) |
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
-| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)  |
+| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
 > Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores. See [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
