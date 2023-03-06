@@ -311,6 +311,8 @@
             href: standard-premium/how-to-enable-private-link-storage-account.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+        - name: Connect to a storage static website
+          href: how-to-enable-private-link-storage-static-website.md
         - name: Connect to an App service
           items:
           - name: Azure portal
