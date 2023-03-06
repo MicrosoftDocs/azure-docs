@@ -148,9 +148,6 @@ params = {
 mlflow.log_params(params)
 ```
 
-> [!NOTE] 
-> Azure Machine Learning SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
-
 ## Logging metrics
 
 Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific numeric types:
@@ -222,7 +219,7 @@ mlflow.autolog()
 ```
 
 > [!TIP]
-> You can control what gets automatically logged wit autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
+> You can control what gets automatically logged with autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
 
 ## View jobs/runs information with MLflow
 
