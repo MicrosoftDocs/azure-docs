@@ -20,7 +20,9 @@ recommendations: false
 
 > [!NOTE]
 >
-> Add-on capabilities for Form Recognizer Studio are only available within the Read and Layout public preview (`2023-03-06`) release models.
+> Add-on capabilities for Form Recognizer Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
+
+Form Recognizer now supports more sophisticated analysis capabilities. There are three add-on capabilities available for the `2023-02-28-preview`: `ocr.highResolution`, `ocr.formula`, and `ocr.font`. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction.
 
 ## Extract content from large documents with small texts (high resolution documents)
 
