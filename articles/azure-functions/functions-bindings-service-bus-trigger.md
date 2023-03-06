@@ -3,7 +3,7 @@ title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -15,6 +15,23 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
 For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -191,6 +208,21 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 
 The following example demonstrates how to read a Service Bus queue message via a trigger.
 
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="ServiceBusQueueTrigger1")
+@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="CONNECTION_SETTING")
+def test_function(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message: %s',
+                 msg.get_body().decode('utf-8'))
+```
+
+# [v1](#tab/python-v1)
+
 A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
 
 ```json
@@ -238,6 +270,9 @@ def main(msg: func.ServiceBusMessage):
 
     logging.info(result)
 ```
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -292,6 +327,23 @@ C# script uses a *function.json* file for configuration instead of attributes. T
 ---
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `queue_output`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+| `arg_name` | The name of the variable that represents the queue or topic message in function code. |
+| `queue_name` | Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
+| `connection` | The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections). |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -314,6 +366,13 @@ See the trigger [example](#example) for more detail.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
