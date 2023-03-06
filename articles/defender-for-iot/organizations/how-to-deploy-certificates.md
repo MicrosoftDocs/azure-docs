@@ -104,7 +104,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
         For example:
 
-        :::image type="content" source="media/how-to-deploy-certificates/cm-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/cm-ssl-certificate.png":::
+        :::image type="content" source="media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
 
     # [Locally generated self-signed certificates](#tab/cm-locally-generated-self-signed-certificate)
     
