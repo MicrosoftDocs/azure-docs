@@ -100,10 +100,16 @@ After these prerequisites are satisfied, you'd follow these steps:
 1. With the Use company branding banner logo setting, you're able to turn on whether or not company branding is used in emails.
     :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of email logo setting.":::
 
+> [!NOTE]
+> Using custom branding and domain will remove the standard security disclaimer from emails sent using Lifecycle Workflows.
 
 ## Customize email using Microsoft Graph
 
 To customize email using Microsoft Graph API see: [workflow: createNewVersion](/graph/api/identitygovernance-workflow-createnewversion).
+
+## Set custom branding and domain workflow settings in Lifecycle Workflows using Microsoft Graph
+
+To turn on custom branding and domain feature settings in Lifecycle Workflows using Microsoft Graph API, see: [lifecycleManagementSettings resource type](/graph/api/resources/identitygovernance-lifecyclemanagementsettings)
 
 ## Next steps
 
