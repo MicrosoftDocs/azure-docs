@@ -57,7 +57,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Select **Review + create**, and after validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
 
-## Create VMs
+## Create virtual machines
 
 Create two VMs in the virtual network by using the following steps. Name one VM *VM1* and the other VM *VM2*.
 
