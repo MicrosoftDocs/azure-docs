@@ -186,7 +186,7 @@ To define an endpoint, you need to specify:
 
 ### Create online endpoint
 
-Begin by setting the endpoint's name and then configuring it. In this article, you'll use the *endpoints/online/managed/sample/endpoint.yml* file to configure the endpoint. The following snippet shows the contents of the file:
+First set the endpoint's name and then configure it. In this article, you'll use the *endpoints/online/managed/sample/endpoint.yml* file to configure the endpoint. The following snippet shows the contents of the file:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
@@ -217,7 +217,11 @@ To create an online endpoint:
 
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment named `blue` for your endpoint, run the following command to use the `blue-deployment.yml` file to configure the key aspects of the deployment:<!-- [link to "define the deployment" section in Deploy article] -->
+A deployment is a set of resources required for hosting the model that does the actual inferencing. In this article, you'll use the *endpoints/online/managed/sample/blue-deployment.yml* file to configure the key aspects of the deployment:<!-- [link to "define the deployment" section in Deploy article] -->. The following snippet shows the contents of the file:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+
+To create a deployment named `blue` for your endpoint, run the following command to use the `blue-deployment.yml` file to configure 
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_blue":::
 
@@ -279,9 +283,9 @@ A deployment is a set of resources required for hosting the model that does the 
 
 # [Studio](#tab/azure-studio)
 
-When you create a managed online endpoint in the Azure Machine Learning studio, you must define an initial deployment for the endpoint. To define a deployment, you must have a registered model in your workspace. Let's begin by registering the model that we'll use for the deployment.
+When you create a managed online endpoint in the Azure Machine Learning studio, you must define an initial deployment for the endpoint. Before you can define a deployment, you must have a registered model in your workspace. Let's begin by registering the model to use for the deployment.
 
-### Register the model
+### Register your model
 
 A model registration is a logical entity in the workspace. This entity may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
@@ -293,7 +297,7 @@ To register the example model, follow these steps:
 1. Select __Unspecified type__ for the __Model type__.
 1. Select __Browse__, and choose __Browse folder__.
 
-    :::image type="content" source="media/how-to-deploy-online-endpoints/register-model-folder.png" alt-text="A screenshot of the browse folder option." lightbox="media/how-to-deploy-online-endpoints/register-model-folder.png":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/register-model-folder.png" alt-text="A screenshot of the browse folder option." lightbox="media/how-to-safely-rollout-managed-endpoints/register-model-folder.png":::
 
 1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you cloned or downloaded earlier. When prompted, select __Upload__ and wait for the upload to complete.
 1. Select __Next__ after the folder upload is completed.
@@ -306,7 +310,7 @@ For information on creating an environment in the studio, see [Create an environ
 
 ### Create a managed online endpoint and the 'blue' deployment
 
-Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
+Use the Azure machine learning studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
 One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
 
@@ -315,11 +319,11 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Select the model named `model-1` by checking the circle next to its name.
 1. Select **Deploy** > **Deploy to real-time endpoint**.
 
-    :::image type="content" source="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" lightbox="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/deploy-from-models-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
     
     This action opens up a window where you can specify details about your endpoint.
 
-    :::image type="content" source="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" lightbox="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/online-endpoint-wizard.png" lightbox="media/how-to-safely-rollout-managed-endpoints/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
 1. Enter an __Endpoint name__.
 
@@ -329,14 +333,21 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+1. Select __Next__, until you get to the "Deployment" page. Here, perform the following tasks:
+
+    * Name the deployment "blue".
+    * Check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
     * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
 
-1. Select __Next__, accepting defaults, until you're prompted to create the deployment.
+1. Select __Next__ to go to the "Compute" page. Here, keep the default selection for the virtual machine "Standard_DS3_v2" and change the __Instance count__ to 1.
+1. Select __Next__, to accept the default traffic allocation (100%) to the blue deployment.
 1. Review your deployment settings and select the __Create__ button.
+
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/review-deployment-creation-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/review-deployment-creation-page.png" alt-text="A screenshot showing the review page for creating a managed online endpoint with a deployment.":::
 
 Alternatively, you can create a managed online endpoint from the **Endpoints** page in the studio.
 
@@ -344,9 +355,9 @@ Alternatively, you can create a managed online endpoint from the **Endpoints** p
 1. In the left navigation bar, select the **Endpoints** page.
 1. Select **+ Create**.
 
-    :::image type="content" source="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
-This action opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-10, accepting defaults until you're prompted to __Create__  the deployment.
+This action opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-11, accepting defaults until you're prompted to __Create__  the deployment.
 
 ---
 
@@ -400,7 +411,7 @@ You can view all your managed online endpoints in the **Endpoints** page. Go to 
 1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
 1. Select an endpoint name to view the endpoint's __Details__ page.
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/managed-endpoint-details-page.png" lightbox="media/how-to-deploy-online-endpoints/managed-endpoint-details-page.png" alt-text="Screenshot of managed endpoint details view.":::
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/managed-endpoint-details-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/managed-endpoint-details-page.png" alt-text="Screenshot of managed endpoint details view.":::
 
 ### Test the endpoint with sample data
 
@@ -411,7 +422,7 @@ Use the **Test** tab in the endpoint's details page to test your managed online 
 1. Enter sample input.
 1. Select **Test**.
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/test-deployment.png" lightbox="media/how-to-deploy-online-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" lightbox="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
 
 ---
 
