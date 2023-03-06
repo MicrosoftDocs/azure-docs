@@ -72,7 +72,9 @@ This architecture features two clusters in different resource groups and virtual
     1. Select **Add**.
     1. On the **Add peering** screen, enter the details as shown in the following screenshot.
 
-        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering." border="true":::
+        :::image type="content" source="./media/apache-kafka-mirror-maker2/peer-1.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering primary to secondary." border="true":::
+        :::image type="content" source="./media/apache-kafka-mirror-maker2/peer-2.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering to primary." border="true":::
+        
 
 1. Create two new Kafka clusters:
 
@@ -97,8 +99,10 @@ This architecture features two clusters in different resource groups and virtual
    ```
    ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
    ```
-1. Edit the `/etc/hosts` file of secondary cluster and add those entries here. 
-
+1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
+ 
+   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true"::: 
+   
 1. Save and close the file. 
 
 
