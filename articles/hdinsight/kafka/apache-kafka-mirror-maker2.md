@@ -100,10 +100,10 @@ This architecture features two clusters in different resource groups and virtual
    ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
    ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
- 
-   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true"::: 
-   
+    
 1. Save and close the file. 
+
+   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true":::
 
 
 ### Create Multiple Topics in PRIMARYCLUSTER
