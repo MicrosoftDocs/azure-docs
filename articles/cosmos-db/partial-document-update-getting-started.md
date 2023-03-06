@@ -225,8 +225,8 @@ key definition.
     
     const { resource: updated } = await container
         .item(
-            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
-            partitionKeyValue = 'road-bikes'
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
         )
         .patch(operations);
     ```
@@ -242,8 +242,8 @@ key definition.
     
     const { resource: updated } = await container
         .item(
-            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
-            partitionKeyValue = 'road-bikes'
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
         )
         .patch(operations);
     ```
@@ -260,8 +260,8 @@ key definition.
     
     const { resource: updated } = await container
         .item(
-            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
-            partitionKeyValue = 'road-bikes'
+            'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            'road-bikes'
         )
         .patch(
             body = operations,

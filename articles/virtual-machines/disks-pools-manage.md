@@ -49,7 +49,7 @@ Now that you've attached your disk and enabled the LUN, you must create and atta
 
 ### Prerequisites
 
-Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
+Install [version 6.1.0 or newer](/powershell/module/az.diskpool/) of the Azure PowerShell module.
 
 Install the disk pool module using the following command:
 

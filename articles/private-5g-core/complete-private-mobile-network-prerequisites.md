@@ -161,6 +161,21 @@ You need to obtain the object ID (OID) of the custom location resource provider 
 
 This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
 
+### Outbound firewall ports required
+
+Review and apply the firewall recommendations for the following services:
+
+- [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-system-requirements#url-patterns-for-firewall-rules)
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli%2Cazure-cloud#meet-network-requirements)
+- [Azure Network Function Manager](/azure/network-function-manager/requirements)
+
+The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.
+
+| URL pattern | Description|
+|--|--|
+| `https://*.azurecr.io` | Required to pull container images for Azure Private 5G Core workloads. |
+| `https://*.microsoftmetrics.com` </br> `https://*.hot.ingestion.msftcloudes.com`| Required for monitoring and telemetry for the Azure Private 5G Core service. |
+
 ## Order and set up your Azure Stack Edge Pro device(s)
 
 Do the following for each site you want to add to your private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
