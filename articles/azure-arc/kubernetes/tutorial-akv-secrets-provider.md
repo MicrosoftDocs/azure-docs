@@ -2,7 +2,7 @@
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 ms.custom: ignite-2022
-ms.date: 03/03/2023
+ms.date: 03/06/2023
 ms.topic: tutorial
 author: mayurigupta13
 ms.author: mayg
@@ -374,7 +374,7 @@ kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/DemoSecret
 
 ## Additional configuration options
 
-The Azure Key Vault Secrets Provider extension supports [Helm chart configurations](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md#configuration). You can enable any of these configurable parameters as needed for your deployment.
+The Azure Key Vault Secrets Provider extension supports [Helm chart configurations](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md#configuration).
 
 The following configuration settings are frequently used with the Azure Key Vault Secrets Provider extension:
 
@@ -395,6 +395,13 @@ You can also change these settings after installation by using the `az k8s-exten
 ```azurecli-interactive
 az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
 ```
+
+You can use other configuration settings as needed for your deployment. For example, to change the kubelet root directory while creating a cluster, modify the az k8s-extension create command:
+
+```azurecli-interactive
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.enable secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
+```
+
 
 ## Uninstall the Azure Key Vault Secrets Provider extension
 
