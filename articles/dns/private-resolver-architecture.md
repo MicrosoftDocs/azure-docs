@@ -17,22 +17,6 @@ This article discusses architectural design options that are available to resolv
 - For an overview of the Azure DNS Private Resolver, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md). 
 - For more information about components of the private resolver, see Azure DNS Private Resolver [endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 
-## Options for DNS resolution
-
-A private zone [virtual network link](private-dns-virtual-network-links.md) enables DNS resolution of your private zone in the linked VNet. This method is simple, but might not be ideal for every network design. For example, you might have multiple private zones such that link management becomes difficult, or need to resolve names differently in different VNets. Azure DNS Private Resolver adds more flexibility and scalability to DNS resolution on your network by providing some additional design options.
-
-The private resolver provides two components that you can use to resolve names in private zones and other namespaces: **forwarding rulesets** and **inbound endpoints**. How you deploy these elements ideally depends on your network design. 
-- **Forwarding rulesets** are linked to a VNet to provide DNS forwarding capabilities. A ruleset can contain a rule to forward queries to the private resolver's inbound endpoint, enabling resolution of the private zone in any VNet that is linked to the ruleset. In this scenario, the Hub VNet must be linked to the private zone. Spoke VNets linked to a ruleset with a forwarding rule for the private zone don't need to be linked to the private zone. DNS resolution of the private zone is carried out by the inbound endpoint in the hub VNet.
-    - By modifying rules in a single ruleset, you can control DNS resolution in all VNets linked to the ruleset.  
-    - When using this option, do not link the forwarding ruleset to the Hub VNet. Linking this type of ruleset to the same VNet where the inbound endpoint is provisioned can result in a DNS resolution loop. 
-    - The ruleset link design scenario is best suited to a [distributed DNS architecture](#distributed-dns-architecture) where network traffic is spread across your Azure network, and might be unique in some locations. 
-- **Inbound endpoints** are able to process inbound DNS queries, and can be configured as custom DNS for a VNet. Inbound endpoints can replace instances where you are [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
-    - To resolve a private DNS zone from a spoke VNet using this method, the VNet where the inbound endpoint exists must be linked to the private zone.
-    - The Hub VNet can be optionally linked to a forwarding ruleset. If a ruleset is linked to the Hub, all DNS traffic sent to the inbound endpoint will be processed by the ruleset.
-    - This custom DNS design scenario is best suited to a [centralized DNS architecture](#centralized-dns-architecture) where DNS resolution and network traffic flow are mostly to a hub VNet, and is controlled from a central location. 
-    
-These two scenarios are discussed in more detail in the next sections.
-
 ## Distributed DNS architecture 
 
 Consider the following hub and spoke VNet topology in Azure with a private resolver located in the hub and a ruleset link to the spoke VNet:
