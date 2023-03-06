@@ -36,7 +36,7 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 > If you want to use Full Fidelity Schema for API for NoSQL accounts, you can't use the Azure portal to enable Synapse Link. This option can't be changed after Synapse Link is enabled in your account and to set it you must use Azure CLI or PowerShell. For more information, check [analytical store schema representation documentation](analytical-store-introduction.md#schema-representation). 
 
 > [!NOTE]
-> You need [contributor role](role-based-access-control.md) to enable Synapse Link at account level. And you need at least [operator role](role-based-access-control.md) to enable Synapse Link in your containers or collections.
+> You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level. And you need at least [Operator role](role-based-access-control.md) to enable Synapse Link in your containers or collections.
 
 ### Azure portal
 
