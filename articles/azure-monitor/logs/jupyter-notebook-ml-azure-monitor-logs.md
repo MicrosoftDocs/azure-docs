@@ -35,18 +35,13 @@ In this tutorial, you'll:
 
 ## Tools you'll use
 
-- [Jupyter Notebook](https://jupyter.org/):
-
-    Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs: 
-    - In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services. 
-    - Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
-    
-    For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
-
-- [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. 
-- [Pandas library](https://pandas.pydata.org/) an open source data analysis and manipulation tool tool for Python.
-- [PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).
-- [Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) to ingest data you process in Jupyter Notebook back to the Log Analytics workspace.
+| Tool | Description |
+| --- | --- |
+|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
+|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
+|[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
+|[PySpark DataFrames](https://spark.apache.org/docs/api/python/index.html).| |
+|[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Needed to ingest data you process in Jupyter Notebook back to the Log Analytics workspace. |
 
 ## Limitations 
 
