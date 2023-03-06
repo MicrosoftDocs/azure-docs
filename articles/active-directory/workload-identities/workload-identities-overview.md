@@ -4,7 +4,7 @@ description: Understand the concepts and supported scenarios for using workload 
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2023
@@ -38,20 +38,35 @@ At a high level, there are two types of identities: human and machine/non-human 
 
 :::image type="content" source="media/workload-identities-overview/identity-types.svg" alt-text="Shows different types of machine and human identities" border="false":::
 
-## Supported scenarios
+## Need for securing workload identities
+
+More and more, solutions are reliant on non-human entities to complete vital tasks and the number of non-human identities is increasing dramatically. Recent cyber attacks show that adversaries are increasingly targeting non-human identities over human identities.
+
+Human users typically have a single identity used to access a broad range of resources. Unlike a human user, a software workload may deal with multiple credentials to access different resources and those credentials need to be stored
+securely. It’s also hard to track when a workload identity is created or when it should be revoked. Enterprises risk their applications or services being exploited or breached because of difficulties in securing workload identities.
+
+Most identity and access management solutions on the market today are focused only on securing human identities and not workload identities. Microsoft Entra Workload Identities helps resolve these issues when securing workload identities.
+
+## Key scenarios
 
 Here are some ways you can use workload identities:
+
+Secure access with adaptive policies:
+
+- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Enable real-time enforcement of Conditional Access location and risk policies using [Continuous access evaluation for workload identities](../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Manage [custom security attributes for an app](../manage-apps/custom-security-attributes-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
+
+Intelligently detect compromised identities:
+
+- Contain threats and reduce risk to workload identities using [Identity Protection](../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+
+Simplify lifecycle management:
 
 - Access Azure AD protected resources without needing to manage secrets for workloads that run on Azure using [managed identities](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
 - Access Azure AD protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md) for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Enable real-time enforcement of Conditional Access location and risk policies using [Continuous access evaluation for workload identities](../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Contain threats and reduce risk to workload identities using [Identity Protection](../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Manage [custom security attributes for an app](../manage-apps/custom-security-attributes-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
-
 
 ## Next steps
 
-- Learn how to [secure access of workload identities](../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json) with adaptive policies.
 - Get answers to [frequently asked questions about workload identities](workload-identities-faqs.md). 
