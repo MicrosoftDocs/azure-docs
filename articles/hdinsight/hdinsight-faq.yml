@@ -222,7 +222,7 @@ sections:
           To join VMs to a domain, you must have a domain controller. Azure AD DS is the managed domain controller, and is considered an extension of Azure Active Directory. Azure AD DS provides all the Kerberos requirements to build a secure Hadoop cluster in a managed way. HDInsight as a managed service integrates with Azure AD DS to provide security.
           
       - question: |
-          Can I use a self-signed certificate in an AAD-DS secure LDAP setup and provision an ESP cluster?
+          Can I use a self-signed certificate in an Azure AD-DS secure LDAP setup and provision an ESP cluster?
         answer: |
           Using a certificate issued by a certificate authority is recommended. But using a self-signed certificate is also supported on ESP. For more information, see:
           
@@ -231,7 +231,7 @@ sections:
           - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
       
       - question: |
-          Can I install Data Analytics Studio (DAS) an an ESP cluster?
+          Can I install Data Analytics Studio (DAS) an ESP cluster?
         answer: |
             No, DAS is not supported on ESP clusters.
       
