@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/29/2022
+ms.date: 03/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
@@ -60,6 +60,8 @@ Data resides in **Australia** for the following locations:
 The following locations are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the locations previously listed.
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
+
+To find the exact location where your data is located per region or country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
 
 
 ### Go-Local add-on
