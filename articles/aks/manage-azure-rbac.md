@@ -12,9 +12,9 @@ author: palma21
 
 # Use Azure role-based access control for Kubernetes Authorization
 
-When you leverage [integrated authentication between Azure Active Directory (Azure AD) and AKS](managed-aad.md), you can use Azure AD users, groups, or service principals as subjects in [Kubernetes role-based access control (Kubernetes RBAC)](/concepts-identity#kubernetes-rbac). This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately.
+When you leverage [integrated authentication between Azure Active Directory (Azure AD) and AKS](managed-aad.md), you can use Azure AD users, groups, or service principals as subjects in [Kubernetes role-based access control (Kubernetes RBAC)][kubernetes-rbac]. This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately.
 
-This article covers how to use Azure RBAC for Kubernetes Authorization, which allows for the unified management and access control across Azure resources, AKS, and Kubernetes resources. For more information, see [Azure RBAC for Kubernetes Authorization](/concepts-identity#azure-rbac-for-kubernetes-authorization).
+This article covers how to use Azure RBAC for Kubernetes Authorization, which allows for the unified management and access control across Azure resources, AKS, and Kubernetes resources. For more information, see [Azure RBAC for Kubernetes Authorization][azure-rbac-kubernetes-rbac].
 
 ## Before you begin
 
@@ -228,3 +228,5 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-role-definition-create]: /cli/azure/role/definition#az_role_definition_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get-credentials
+[kubernetes-rbac]: /concepts-identity#azure-rbac-for-kubernetes-authorization
+[azure-rbac-kubernetes-rbac]: /concepts-identity#azure-rbac-for-kubernetes-authorization
