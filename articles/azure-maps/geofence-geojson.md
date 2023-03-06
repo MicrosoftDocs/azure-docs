@@ -33,7 +33,7 @@ The data for geofence or set of geofences is represented by `Feature` Object and
 
 * All coordinate values are represented as [longitude, latitude] defined in `WGS84`.
 * For each Feature, which contains `MultiPoint`, `MultiLineString`, `MultiPolygon` , or `GeometryCollection`, the properties are applied to all the elements. for example: All the points in `MultiPoint` will use same radius to form a multiple circle geofence.
-* In point-circle scenario, a circle geometry can be represented using a `Point` geometry object with properties elaborated in [Extending GeoJSON geometries](./extend-geojson.md).
+* In point-circle scenario, a circle geometry can be represented using a `Point` geometry object with properties elaborated in [Extending GeoJSON geometries].
 
 Following is a sample request body for a geofence represented as a circle geofence geometry in `GeoJSON` using a center point and a radius. The valid period of the geofence data starts from 2018-10-22, 9AM to 5PM, repeated every day except for the weekend. `expiredTime` indicates this geofence data will be considered expired, if `userTime` in the request is later than `2019-01-01`.  
 
@@ -68,3 +68,4 @@ Following is a sample request body for a geofence represented as a circle geofen
 [GET Geofence]: /rest/api/maps/spatial/getgeofence
 [POST Geofence]: /rest/api/maps/spatial/postgeofence
 [rfc7946]: https://tools.ietf.org/html/rfc7946
+[Extending GeoJSON geometries]: extend-geojson.md

@@ -16,8 +16,8 @@ The Azure Maps Creator [wayfinding service] allows you to navigate from place to
 
 ## Prerequisites
 
-- Understanding of [Creator concepts](creator-indoor-maps.md).
-- An Azure Maps Creator [dataset] and [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial-creator-indoor-maps.md) tutorial helpful.
+- Understanding of [Creator concepts].
+- An Azure Maps Creator [dataset] and [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
 
 >[!IMPORTANT]
 >
@@ -122,6 +122,7 @@ The wayfinding service calculates the path through specific intervening points. 
 
 <!-- TODO: ## Implement the wayfinding service in your map   (Refer to sample app once completed)  -->
 
+[Creator concepts]: creator-indoor-maps.md
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
 [routeset]: /rest/api/maps/v20220901preview/routeset
@@ -130,3 +131,4 @@ The wayfinding service calculates the path through specific intervening points. 
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview
+[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md

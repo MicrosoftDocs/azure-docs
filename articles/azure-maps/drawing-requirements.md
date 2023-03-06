@@ -13,9 +13,9 @@ services: azure-maps
 
 # Drawing package requirements
 
-You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package].
 
-For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
+For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide].
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ A drawing package is a .zip archive that contains the following files:
 - DWG files in AutoCAD DWG file format.
 - A _manifest.json_ file that describes the DWG files in the drawing package.
 
-The drawing package must be zipped into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the package, but the manifest file must live at the root directory of the zipped package. The next sections detail the requirements for the DWG files, manifest file, and the content of these files. To view a sample package, you can download the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The drawing package must be zipped into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the package, but the manifest file must live at the root directory of the zipped package. The next sections detail the requirements for the DWG files, manifest file, and the content of these files. To view a sample package, you can download the [sample drawing package].
 
 ## DWG file conversion process
 
@@ -114,7 +114,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 
 If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
-You can see an example of the Exterior layer as the outline layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Exterior layer as the outline layer in the [sample drawing package].
 
 ### Unit layer
 
@@ -129,7 +129,7 @@ The Units layer should adhere to the following requirements:
 
 Name a unit by creating a text object in the UnitLabel layer, and then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-You can see an example of the Units layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Units layer in the [sample drawing package].
 
 ### Wall layer
 
@@ -138,7 +138,7 @@ The DWG file for each level can contain a layer that defines the physical extent
 - Walls must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 - The wall layer or layers should only contain geometry that's interpreted as building structure.
 
-You can see an example of the Walls layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Walls layer in the [sample drawing package].
 
 ### Door layer
 
@@ -158,7 +158,7 @@ The DWG file for each level can contain a Zone layer that defines the physical e
 
 Name a zone by creating a text object in the ZoneLabel layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
-You can see an example of the Zone layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Zone layer in the [sample drawing package].
 
 ### UnitLabel layer
 
@@ -168,7 +168,7 @@ The DWG file for each level can contain a UnitLabel layer. The UnitLabel layer a
 - Unit labels must fall entirely inside the bounds of their unit.
 - Units must not contain multiple text entities in the UnitLabel layer.
 
-You can see an example of the UnitLabel layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the UnitLabel layer in the [sample drawing package].
 
 ### ZoneLabel layer
 
@@ -178,7 +178,7 @@ The DWG file for each level can contain a ZoneLabel layer. This layer adds a nam
 - Zones labels must fall inside the bounds of their zone.
 - Zones must not contain multiple text entities in the ZoneLabel layer.
 
-You can see an example of the ZoneLabel layer in the [sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the ZoneLabel layer in the [sample drawing package].
 
 ## Manifest file requirements
 
@@ -213,7 +213,7 @@ The next sections detail the requirements for each object.
 |`locality` |string | false   | Name of a city, town, area, neighborhood, or region.|
 |`adminDivisions`|JSON array of strings | false| An array containing address designations. For example: (Country, State) Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
 |`postalCode`|string| false   | The mail sorting code. |
-|`hoursOfOperation` |string|false| Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format. |
+|`hoursOfOperation` |string|false| Adheres to the [OSM Opening Hours] format. |
 |`phone`    |string| false   |    Phone number associated with the building. |
 |`website`  |string| false   | Website associated with the building. |
 |`nonPublic`|bool| false     | Flag specifying if the building is open to the public. |
@@ -286,7 +286,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ### Sample drawing package manifest
 
-Below is the manifest file for the sample drawing package. Go to the [Sample drawing package for Azure Maps Creator](https://github.com/Azure-Samples/am-creator-indoor-data-examples) on GitHub to download the entire package.
+Below is the manifest file for the sample drawing package. Go to the [Sample drawing package] for Azure Maps Creator on GitHub to download the entire package.
 
 #### Manifest file
 
@@ -426,3 +426,7 @@ Learn more by reading:
 > [Creator for indoor maps](creator-indoor-maps.md)
 
 [Conversion service]: /rest/api/maps/v2/conversion
+[Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
+[Conversion Drawing Package Guide]: drawing-package-guide.md
+[sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
+[OSM Opening Hours]: https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification

@@ -44,7 +44,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
 > [!NOTE]
-> If the map configuration was created as part of a custom style and has a user provided alias, that alias will appear in the map configuration drop-down list, otherwise the `mapConfigurationId` will appear. The default map configuration ID for any given tileset can be found by using the [tileset get][tileset get] HTTP request and passing in the tileset ID:
+> If the map configuration was created as part of a custom style and has a user provided alias, that alias will appear in the map configuration drop-down list, otherwise the `mapConfigurationId` will appear. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
 > https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview

@@ -317,7 +317,7 @@ The data returned when running the list request is similar to the data provided 
 
 ## Get content from a data registry
 
-Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register][register or replace] API, you can access the data contained in the files.
+Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register] API, you can access the data contained in the files.
 
 Use the `udid` to get the content of a file registered in an Azure Maps account:
 
@@ -363,7 +363,7 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 
 [data registry]: /rest/api/maps/data-registry
 [list]: /rest/api/maps/data-registry/list
-[Register Or Replace]: /rest/api/maps/data-registry/register-or-replace
+[Register]: /rest/api/maps/data-registry/register-or-replace
 [Get operation]: /rest/api/maps/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
