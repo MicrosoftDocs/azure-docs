@@ -10,7 +10,13 @@ ms.date: 03/01/2023
 
 # Share a Grafana dashboard or panel
 
-In this guide for Azure Managed Grafana, learn how to share a Grafana dashboard with internal and external stakeholders. See how you can share a dashboard or a panel with anyone, whether they are in your Azure Active Directory tenant or not.
+In this guide for Azure Managed Grafana, learn how to share a Grafana dashboard with internal and external stakeholders, whether they are registered in your Azure Active Directory tenant or not.
+
+You can share Grafana panels and dashboards using:
+- A direct link
+- A snapshot
+- An embedded link (for panels only)
+- An export link (for dashboards only)
 
 > [!NOTE]
 > The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation.](https://grafana.com/docs/grafana/latest/dashboards/)
@@ -19,7 +25,7 @@ In this guide for Azure Managed Grafana, learn how to share a Grafana dashboard 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
-- A Grafana dashboard. If you don't have one, [create a Grafana dashboard ](./quickstart-managed-grafana-portal.md).
+- A Grafana dashboard. If you don't have one, [create a Grafana dashboard](./quickstart-managed-grafana-portal.md).
 
 ### [Portal](#tab/azure-portal)
 
@@ -33,12 +39,33 @@ Access Grafana dashboard and panel sharing options with the following steps:
    - To share a whole dashboard, select the **Share dashboard or panel** icon at the top of the page 
    - To share a single dashboard panel, hover on top of a panel title, expand the panel menu and select **Share**.
 
-## Share a dashboard
+   :::image type="content" source="media/share-dashboard/find-share-option.png" alt-text="Screenshot of the Grafana instance. Create a new dashboard.":::
 
-There a three dashboard sharing options available.
+A new window opens, offering various sharing options.
+
+> [!TIP] 
+> If you update a dashboard or a panel, make sure to save your changes before sharing it so that it contains the latest changes.
 
 ### Share a link
 
+The **Link** tab lets you create a direct link to a Grafana dashboard or panel. This link can then be accessed by users who have a Grafana viewer permission.
+
+Create a sharable link in one step , by selecting **Copy**, at the bottom of the **Link** tab. Optionally customize sharing with the options below:
+
+- **Lock time range**: sets the time range of the shared panel or dashboard to the time range currently displayed in your shared panel or dashboard.
+- **Theme**: keep the current theme or choose a dark or a light theme.
+- **Shorten URL**: shortens the sharable link
+
+### Share a snapshot publicly
+
+The **Snapshot** tab lets you share an interactive dashboard or panel publicly. Sensitive data like queries (metric, template, and annotation) and panel links are removed from the snapshot leaving only the visible metric data and series names embedded in your dashboard.
+
+> [!NOTE] 
+> Snapshots can be viewed by anyone that has the link and can access the URL.
+
+Optionally update the snapshot name, select an expiry date and change the value of the timeout. timeout.
+
+### Share a snapshot publicly
 
 ### [Portal](#tab/azure-portal)
 
