@@ -36,7 +36,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FHDInsight%2Fhdinsight-kafka-tools%2Fmaster%2Fsrc%2Farm%2FHDInsight4.0%2Fhdinsight-kafka-2.1-spark-2.4-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
    > [!WARNING]
-   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least four worker nodes. This template creates a Kafka cluster that contains four worker nodes.
 
    This template creates an HDInsight 4.0 cluster for both Kafka and Spark.
 
