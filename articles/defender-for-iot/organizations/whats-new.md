@@ -26,11 +26,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Defender for IoT now identifies *transient* devices as a unique device type that represents devices that were detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
-For more information, see [Defender for IoT device inventory](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/device-inventory?branch=pr-en-us-227891) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+For more information, see [Defender for IoT device inventory](device-inventory) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 ### Learn DNS traffic by configuring allowlists
 
-The *support* user on an OT sensor can now define a list of allowed DNS domains. Alerts are not triggered on the OT sensor for any traffic on a listed domain. 
+The *support* user can now decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. 
+
+When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
 All OT sensor users can view the list of allowed DNS domains and their resolved IP addresses in data mining reports.  
 
@@ -38,7 +40,8 @@ For example:
 
 :::image type="content" source="media/release-notes/data-mining-allowlist.png" alt-text="Screenshot of how to create a data mining report for DNS allowlists.":::
     
-For more information, see [Learn DNS traffic on an OT sensor](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-accelerate-alert-incident-response?branch=pr-en-us-229066#learn-dns-traffic-on-an-ot-sensor) and [Create data mining queries](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-create-data-mining-queries).
+For more information, see [Allow internet connections on an OT network](how-to-accelerate-alert-incident-response#allow-internet-connections-on-an-ot-network) and [Create data mining queries](how-to-create-data-mining-queries).
+
     
 ### Device data retention updates
 
@@ -86,7 +89,7 @@ Starting in version 22.3.6, selected notifications on the OT sensor's **Device m
 
 After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. However, you may still have existing notifications to handle from before the update. Handle these notifications as needed to clear them from your OT sensor.
 
-For more information, see [Manage device notifications](https://review.learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map?branch=pr-en-us-227891#manage-device-notifications).
+For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map#manage-device-notifications).
 
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
