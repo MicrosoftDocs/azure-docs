@@ -57,31 +57,31 @@ The Azure Developer CLI also enables you to configure your application to use a 
 
 ## Explore the azd template and workflow
 
-The sections ahead review the workflow steps the Azure Developer CLI completed for you in more detail for added context. The `azd up` command wraps and performs the following individual commands:
+The sections ahead review the workflow steps the Azure Developer CLI completed for you in more detail for added context. The `azd up` command wraps and performs the following individual commands and workflow steps:
 
 * `azd init`: Clone and initialize the project
 * `azd provision`: Create the necessary Azure resources
 * `azd deploy`: Build and deploy the code
 
-You could also choose to run these commands one at a time instead of using `azd up` if you prefer more granular control. Additional information for each of these steps is provided below.
+You could also run these commands one at a time instead of using `azd up` if you prefer more granular control. Additional information for each workflow stage is provided below.
 
 ### Project initialization
 
-When you run `azd up`, the Azure Developer CLI clones the template repository down to your local machine. The template includes all of the source code for a Flask web application written in Python that connects to a Postgres database. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
+When you run `azd up`, the Azure Developer CLI clones the template repository down to your local machine. The project initialization can also be achieved by running the `azd init` command. The initialize step prompts for essential configuration information such as the name of the environment the Azure location to deploy to.
 
-The project initialization can also be achieved by running the `azd init` command. The initialize step prompts for essential configuration information such as the name of the environment the Azure location to deploy to.
+The template includes the source code for a Flask web application written in Python that connects to a Postgres database. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
 
 ### Resource provisioning
 
-The Azure Developer CLI relies on Bicep files in the `infra` folder of the project template to provision resources in Azure. Bicep is a declarative language used to manage infrastructure as code in Azure. Some of the resources that were created and configured for the sample project include:
+the `azd up` command also creates all of the resources for your application in Azure using the Bicep files in the `infra` folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. You can also run the provisioning stage explicitly using the `azd provision` command. Some of the resources that were created and configured for the sample project include:
 
-* App Service Plan
-* App Service web app
-* Postgres database
-* Virtual network
-* Application Insights
+* Azure App Service plan
+* Azure App Service web app
+* Azure Database for PostgresSQL
+* Azure Virtual Network
+* Azure Application Insights
 
-You can inspect the Bicep files in the `infra` folder of the project to see details of how these resources were created. For example, the App Service Plan and App Service instance were created using the following Bicep code. The Bicep templates specify the required configuration values for the different properties of the resource.
+The Azure Developer CLI also handled all of the necessary configurations to conect these various services for your application run successfully. You can inspect the Bicep files in the `infra` folder of the project to see how each of these resources were created and configured. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code. The Bicep templates specify the required configuration values for the different properties of the resource.
 
 ```yaml
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
@@ -118,9 +118,9 @@ resource web 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Application Deployment
 
-The Azure Developer CLI also deployed your application code to the provisioned Azure resources. The Developer CLI understands how to deploy different types of application code to different services in Azure. For example, the sample application python app was deployed to App Service, but azd can also deploy to other services such as Azure Container Apps. 
+The Azure Developer CLI also deployed your application code to the provisioned Azure resources. The Developer CLI understands how to deploy different types of application code to different services in Azure. For example, the sample application python app was deployed to App Service, but azd can also deploy to other services such as Azure Container Apps. You can also use the `azd deploy` command to handle this step.
 
-The `azure.yaml` file in the project defines and describes the apps and types of Azure resources that are included in the template. This file helps the Azure Developer CLI understand how to deploy different parts of your project to different Azure resources. 
+To deploy one or more apps successfully, azd needs to know more about your project. The `azure.yaml` file at the root of the project helps the Azure Developer CLI understand how to deploy different parts of your project to different Azure resources. The `azure.yaml` file specifies each app source code location, the type of app, and the Azure Service that should host that app. 
 
 Consider the following `azure.yaml` file from the sample application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the App Service that was created.
 
