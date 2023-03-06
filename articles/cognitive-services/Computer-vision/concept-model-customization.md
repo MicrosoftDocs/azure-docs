@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Model customization (version 4.0 preview)
 
-Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
+Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource, and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
 
 > [!div class="nextstepaction"]
 > [Vision Studio quickstart](./how-to/model-customization.md?tabs=studio)
@@ -77,8 +77,8 @@ The following table describes the limits on the scale of your custom model proje
 | Max # regions per image             | NA                              | 1,000                           |
 | Max # categories                    | 2,000                           | 1,000                           |
 | Min # categories                    | 2                               | 1                               |
-| Max image size (Training)           | 20MB                            | 20MB                            |
-| Max image size (Prediction)         | Sync: 6MB, Batch: 20MB          | Sync: 6MB, Batch: 20MB          |
+| Max image size (Training)           | 20 MB                            | 20 MB                            |
+| Max image size (Prediction)         | Sync: 6 MB, Batch: 20 MB          | Sync: 6 MB, Batch: 20 MB          |
 | Max image width/height (Training)   | 10,240                          | 10,240                          |
 | Min image width/height (Prediction) | 50                              | 50                              |
 | Available regions                   | West US 2, East US, West Europe | West US 2, East US, West Europe |
@@ -88,7 +88,7 @@ The following table describes the limits on the scale of your custom model proje
 
 ### Why is my COCO file import failing when importing from blob storage?
 
-Currently, Microsoft is addressing an issue which causes COCO file import to fail with large datasets when initiated in Vision Studio. To train using a large dataset, it's recommended to use the REST API instead.
+Currently, Microsoft is addressing an issue that causes COCO file import to fail with large datasets when initiated in Vision Studio. To train using a large dataset, it's recommended to use the REST API instead.
 
 ### Why does training take longer/shorter than my specified budget?
 
@@ -142,8 +142,8 @@ If your data labeling budget is constrained, our recommended workflow is to repe
    - **Good enough** (performance is better than your expectation or performance close to your previous experiment with less data collected): Stop here and use this model.
    - **Not good** (performance is still below your expectation or better than your previous experiment with less data collected at a reasonable margin): 
    - Collect more images for each class&mdash;a number that's easy for you to collect&mdash;and go back to Step 2.
-   - If you notice the performance is not improving any more after a few iterations it could be because:
-      - this problem is not well defined or is too hard. Reach out to us for case-by-case analysis.
+   - If you notice the performance is not improving any more after a few iterations, it could be because:
+      - this problem isn't well defined or is too hard. Reach out to us for case-by-case analysis.
       - the training data might be of low quality: check if there are wrong annotations or very low-pixel images.
 
 
@@ -172,7 +172,7 @@ Below are the possible reasons:
 
 ### What is the expected latency for predictions with custom models?
 
-We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results. Microsoft is working on making latency improvements in the near future.
+We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results. Microsoft is working on making latency improvements in the near future.
 
 ## Next steps
 
