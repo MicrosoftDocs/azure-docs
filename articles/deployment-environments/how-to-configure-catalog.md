@@ -58,6 +58,7 @@ You can choose from two types of repositories:
 
 #### Get the clone URL of an Azure DevOps repository
 
+
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 1. [Get the clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
 1. Copy and save the URL. You use it later.
