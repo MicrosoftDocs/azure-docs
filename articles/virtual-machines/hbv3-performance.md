@@ -22,7 +22,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 |-------------------------------------------------|-------------------------------------------------------------------|
 | STREAM Triad                                    | 330-350 GB/s (amplified up to 630 GB/s)                                     |
 | High-Performance Linpack (HPL)                  | 4 TF (Rpeak, FP64), 8 TF (Rpeak, FP32) for 120-core VM size               |
-| RDMA latency & bandwidth                        | 1.2 microseconds (1-byte), 192 Gb/s (one-way)                                        |
+| RDMA latency & bandwidth                        | 1.2 microseconds (1 byte), 192 GB/s (one-way)                                        |
 | FIO on local NVMe SSDs (RAID0)                  | 7 GB/s reads, 3 GB/s writes; 186k IOPS reads, 201k IOPS writes |
 
 ## Process pinning
@@ -31,7 +31,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 ## MPI latency
 
-The MPI latency test from the OSU microbenchmark suite can be executed per below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
+The MPI latency test from the OSU microbenchmark suite can be executed as below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
 ```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
