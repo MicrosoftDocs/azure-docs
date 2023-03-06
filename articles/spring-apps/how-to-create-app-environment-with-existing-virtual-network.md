@@ -170,3 +170,7 @@ The following table describes the parameters used in the `containerapp env creat
 | `location`                          | The Azure location where the environment is to deploy.                                                                                                               |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers.                                                                               |
 | `internal-only`                     | (Optional) The environment doesn't use a public static IP, only internal IP addresses available in the custom VNET. (Requires an infrastructure subnet resource ID.) |
+
+---
+
+## Next steps
