@@ -37,7 +37,7 @@ For more information, see [Tutorial: Investigate and detect threats for IoT devi
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Sensor version 22.3.7**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Support for transient devices
@@ -69,7 +69,7 @@ For more information, see [Device data retention periods](references-data-retent
 
 ### UI enhancements when uploading SSL/TLS certificates
 
-The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
+The OT sensor version 22.3.7 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
 For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
@@ -83,7 +83,7 @@ For more information, see [Manage individual sensors](how-to-manage-individual-s
 
 ### UI enhancements for managing the device inventory
 
-The following enhancements were added to the OT sensor's device inventory in version 22.3.6:
+The following enhancements were added to the OT sensor's device inventory in version 22.3.7:
 
 - A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor. Edit device details directly from the device inventory page on the OT sensor console using the new **Edit** button in the toolbar at the top of the page.
 - The OT sensor now supports [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) simultaneously.
@@ -100,7 +100,7 @@ For more information, see [Malware engine alerts](alert-engine-messages.md#malwa
    
 ### Automatically resolved device notifications
 
-Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+Starting in version 22.3.7, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
 After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. However, you may still have existing notifications to handle from before the update. Handle these notifications as needed to clear them from your OT sensor.
 

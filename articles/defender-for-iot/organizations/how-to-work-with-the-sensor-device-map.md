@@ -200,7 +200,7 @@ The following table lists available responses for each notification, and when we
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |**Dismiss** |
 | **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|
 
-The following legacy notifications were removed in version 22.3.6. If you have an earlier OT sensor version installed, you may still have these notifications to resolve:
+The following legacy notifications were removed in version 22.3.7. If you have an earlier OT sensor version installed, you may still have these notifications to resolve:
 
 | Type | Description | Available responses |
 |--|--|--|
