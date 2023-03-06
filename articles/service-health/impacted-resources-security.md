@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 3/3/2023
 ---
 
-# Impacted Resource Support for Security Incidents
+# Resource impact from Azure security incidents
 
 In support of the experience of viewing affected resources, Service Health has enabled a new feature to:
 
