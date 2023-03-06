@@ -28,7 +28,7 @@ Install the following Python libraries: `os`, `requests`, `json`
 
 This example requires environment variables named `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
 
-[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+[!INCLUDE [Environment variables](../../common/environment-variables-openai.md)]
 
 ## Recognize speech from a microphone
 
