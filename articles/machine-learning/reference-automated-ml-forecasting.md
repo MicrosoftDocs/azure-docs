@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) command job YAML schema'
+title: 'CLI (v2) Forecasting command job YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) command job YAML schema.
+description: Reference documentation for the CLI (v2) Forecasting command job YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/11/2022
 ms.reviewer: ssalgado
 ---
 
-# CLI (v2) command job YAML schema
+# CLI (v2) Forecasting command job YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
