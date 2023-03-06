@@ -18,8 +18,6 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Register an app
-      href: how-to-register-apps-customers.md
     - name: Configure authentication methods and IdPs
       items:
         - name: Google federation

@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 03/03/2023
 ms.author: mimart
 ms.custom: it-pro
@@ -37,11 +37,11 @@ In this article, you learn how to us Azure portal to:
 
 1. To create a customer tenant, select **Create**.
 
-<!--   ![Screenshot that shows how to create a customer tenant.](media/ciam-pp1/3-create-tenant-create.png)-->
+   <!--[Screenshot that shows how to create a customer tenant.](media/3-create-tenant-create.png)-->
 
 1. Select **Customer**, and then select **Continue**. Note, if you filter the list of tenants by **Customer**, this step is skipped.
 
-<!--   ![Screenshot that shows how to select the type of the tenant.](media/ciam-pp1/4-create-tenant-select-customer1.png)-->
+   <!--[Screenshot that shows how to select the type of the tenant.](media/4-create-tenant-select-customer1.png)-->
 
 1. In the **Create a tenant for customers** page, on the **Basics** tab, enter the following information:
 
@@ -53,7 +53,7 @@ In this article, you learn how to us Azure portal to:
 
    - Select **Next: Add a subscription**.  
 
-<!--   ![Screenshot that shows the create a tenant for customers basic settings.](media/ciam-pp1/6-create-tenant-basics.png)-->
+   <!--[Screenshot that shows the create a tenant for customers basic settings.](media/6-create-tenant-basics.png)-->
 
 1. On the **Add a subscription** tab, enter the following information:
 
@@ -63,7 +63,7 @@ In this article, you learn how to us Azure portal to:
 
    - If **Resource group location** appears, select the geographic location of the resource group from the menu.
 
-<!--   ![Screenshot that shows the create a tenant for customers subscription settings.](media/ciam-pp1/7-create-tenant-add-subscription1.png)-->
+   <!--[Screenshot that shows the create a tenant for customers subscription settings.](media/7-create-tenant-add-subscription1.png)-->
 
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, and select **Create**.
 
@@ -73,11 +73,11 @@ Your new customer tenant is created. To start using your new Azure AD for custom
 
 1. Make sure you're using the directory that contains your Azure AD for customers tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
     
-<!--     ![Screenshot that shows how to switch tenants.](media/ciam-pp1/7-select-new-tenant.png)-->
+   <!--  ![Screenshot that shows how to switch tenants.](media/7-select-new-tenant.png)-->
 
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 1. In the Azure portal, search for and select **Azure Active Directory**. The following screenshot shows the Azure AD for customers overview screen.
 
-<!--   ![Screenshot that shows the customer tenant overview page.](media/ciam-pp1/7-create-tenant-overview.png)-->
+   <!--[Screenshot that shows the customer tenant overview page.](media/7-create-tenant-overview.png)-->
 
 ## Next steps

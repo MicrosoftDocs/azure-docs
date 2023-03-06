@@ -1,13 +1,13 @@
 ---
 title: Create a sign-up and sign-in user flow
-description: Learn how to register an app in your customer tenant.
+description: Learn how to create a sign-up and sign-in user flow for your customer-facing app.
 services: active-directory
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: overview
+ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: mimart
 ms.custom: it-pro
@@ -17,22 +17,22 @@ ms.custom: it-pro
 
 # Create a sign-up and sign-in user flow for customers  
 
-In your customer tenant, you can create user flows that allow users to **sign-in** or **sign up** for an app and create new local accounts. The user flow defines the series of steps the user follows during sign-up, and the user attributes you want to collect. The identity providers you allow them to use, such as [Google](6-Add-Google-identity-provider.md) and [Facebook](7-Add-Facebook-identity-provider.md). You can associate one or more applications with a single user flow.  
+In your customer tenant, you can create user flows that allow users to **sign-in** or **sign up** for an app and create new local accounts. The user flow defines the series of steps the user follows during sign-up, and the user attributes you want to collect. The identity providers you allow them to use, such as [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md). You can associate one or more applications with a single user flow.  
 
 In your Azure AD customer tenant, email sign-up is enabled by default in your local account identity provider settings. When a customer completes a user flow, they sign up for your application by entering an email address and a password, which creates a local account in your directory. The account username and password are stored locally, and Azure AD serves as the identity provider for the account.
 
 The following screenshot demonstrates the sign-in flow:
 
-<!--![Screenshot that shows the steps user goes through to sign-in](./media/ciam-pp1/sign-in-flow.png)-->
+<!--[Screenshot that shows the steps user goes through to sign-in](./media/sign-in-flow.png)
 
 > [!TIP]
-> For programmatic access follow the guidance in the [create user flows using Graph API](API%232-CIAM-branding.md)
-
+> For programmatic access, follow the guidance in the [create user flows using Graph API](API%232-CIAM-branding.md)
+-->
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, [create one now](1-Create-a-CIAM-tenant.md).
-- If you haven't already registered an application in your customer tenant, [register one now](2-Register-an-app.md).
+- If you haven't already created your own Azure AD customer tenant, create one now.
+- If you haven't already registered an application in your customer tenant, register one now.
 - Install [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on your local machine. To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 ## Create a user flow
@@ -41,7 +41,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the CIAM tenant created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
 
 1. Under **Azure services**, select **Azure Active Directory**.
 
@@ -49,7 +49,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **User flows**, and then select **New user flow**.
 
-<!--   ![Screenshot](media/ciam-pp1/17-create-user-flow-new-user-flow.png)-->
+   <!--[Screenshot](media/17-create-user-flow-new-user-flow.png)-->
 
 1. On the **Create** page:
 
@@ -58,7 +58,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
    1. In the **Identity providers** list, select the  **Email Accounts** identity provider. This identity provider allows uses to sign-in or sign-up  with their email address.
    
          > [!NOTE]
-         > Additional identity providers will be listed here only after you set up federation with them. For example, if you set up federation with [Google](6-Add-Google-identity-provider.md) or [Facebook](7-Add-Facebook-identity-provider.md), you'll be able to select those additional identity providers here.  
+         > Additional identity providers will be listed here only after you set up federation with them. For example, if you set up federation with [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md), you'll be able to select those additional identity providers here.  
 
    1. Under **Email accounts**, you can select one of the three options. For this tutorial, select **Email with password**.
 
@@ -71,7 +71,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
         
       The following screenshot demonstrates how to select the identity providers.
       
-<!--      ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/ciam-pp1/18-create-user-flow.png)-->
+   <!--   ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/18-create-user-flow.png)-->
 
    1. Under **User attributes**, choose the attributes you want to collect from the user upon sign-up. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**. (Users are only prompted for attributes when they sign up for the first time.)
 
@@ -80,11 +80,11 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 ## Add applications to the user flow
 
-Now you can associate applications with the user flow. Associating your user flow with an application allows you to enable sign-in or sign-up for that app. You can choose more than one application to be associated with the user flow. A single application can be associated only with one user flow. Once you associate the user flow with one or more applications, users who visit that application can sign up or sign in using the options configured in the user flow. 
+Now you can associate applications with the user flow. Associating your user flow with an application allows you to enable sign-in or sign-up for that app. You can choose more than one application to be associated with the user flow. A single application can be associated only with one user flow. Once you associate the user flow with one or more applications, users who visit that application can sign up or sign in using the options configured in the user flow.
 
 1. In the Azure portal, select **Azure Active Directory**.
 
-1. Select **External Identities**, and then select **User flows** under **Self-service sign up**. 
+1. Select **External Identities**, and then select **User flows** under **Self-service sign up**.
 
 1. Select the self-service sign-up user flow from the list you created.
 
@@ -92,45 +92,27 @@ Now you can associate applications with the user flow. Associating your user flo
 
 1. Select **Add application**.
 
-<!--   ![Screenshot the shows how to associate an application to a user flow.](media/ciam-pp1/20-create-user-flow-add-application.png)-->
+   <!--[Screenshot the shows how to associate an application to a user flow.](media/20-create-user-flow-add-application.png)-->
 
 1. Select the application from the list. Or use the search box to find the application, and then select it.
 
 1. Choose **Select**.
 
-## Run the JavaScript Sample Application
+## Test the user flow
 
-You can now use [JavaScript sample application](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/) to test functionality.  If you haven't done so, clone or download the app to your local machine as described in the [get the SPA sample code](2-Register-an-app.md#step-2-get-the-spa-sample-code) section. 
+Now that your application is associated with a user flow, you can test the sign-in process.
 
-1. Open your SAP app in a code editor such as Visual Studio Code. You can find the code in the  *ms-identity-javascript-tutorial\1-Authentication\1-sign-in* directory.
-1. Open *App/authConfig.js* configuration file and replace the following values:
+<!--steps TBD-->
 
-    1. `Enter_the_Application_Id_Here` with the **Application (client) ID** for the app you registered in the [add and register an app in your customer tenant](2-Register-an-app.md).
-    1. `Enter_the_Tenant_Info_Here` with your **Directory (tenant) ID**. You can find the tenant ID in the [app registration overview page](2-Register-an-app.md).
+1. Open your browser in private mode and go to **http://localhost:3000/**.
 
-<!--    ![Screenshot that shows how to configure the SPA application.](media/ciam-pp2/quick-start/sample-update-clientid.png)-->
+1. In the top right corner of the page, select **Sign-in** to start the authentication flow.
 
-1. In your terminal move to the directory where you've cloned / downloaded the sample app, and run the following command to start the app.
-    
-   ```bash
-   cd \1-Authentication\1-sign-in\App
-   npm install
-   npm start
-   ```
+1. Choose **Can't access your account?** to start the sign-up flow.
 
-1. Open your browser and visit *http://localhost:3000/*. (Recommend using private browsing mode).
+1. Follow the flow to enter your email, retrieve and enter the one-time passcode, and create new password. After you complete the sign-up steps, the page shows your newly created information.
 
-1. Select **Sign-in** at the top right corner to start the authentication flow. 
-
-<!--    ![Screenshot that shows how to sign-in into the SPA application.](./media/ciam-pp1/spa-app-sing-in.png)-->
-
-1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
-
-<!--    ![Screenshot that shows how to sign-in or sign-up.](./media/ciam-pp1/sign-in-or-sign-up.png)-->
-
-1. If you choose the sign-up option, after filling in your email, one time passcode and new password, you complete the whole sign-up flow. The page shows your newly created information.
-
-1. Select **Sign-out** at the right-up corner to sign out.
+1. Select **Sign-out** in the upper right corner of the page to sign out.
 
 ## (Optional) Select the layout of the attribute collection
 
@@ -146,7 +128,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
    The attributes you chose to collect are listed. You can change the attribute label, type, and whether it’s required. You can also change the order of display by selecting an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 
-<!--   ![Screenshot shows how to sort the attribute collection](media/ciam-pp1/19-create-user-flow-attribute-page-layout.png)-->
+   <!--[Screenshot shows how to sort the attribute collection](media/19-create-user-flow-attribute-page-layout.png)-->
 
 1. Select **Save**.
 
@@ -180,7 +162,7 @@ The custom attribute is now available in the list of user attributes and for use
 1. Select the attributes you want to add. For example, *Loyalty number*. 
 1. Select **Save**, to save the changes.
 
-<!--    ![Screenshot that shows how to select attributes to collect during the sign-up.](./media/ciam-pp1/user-flow-select-attributes.png)-->
+   <!-- ![Screenshot that shows how to select attributes to collect during the sign-up.](./media/user-flow-select-attributes.png)-->
 
 ## Next steps
 

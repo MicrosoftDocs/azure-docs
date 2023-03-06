@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: overview
+ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: mimart
 ms.custom: it-pro
@@ -21,7 +21,7 @@ By setting up federation with Facebook, you can allow invited users to sign in t
 
 The following screenshots show the sign-in with Facebook experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Facebook**. Then the user is redirected to the Facebook identity provider to complete the sign-in.
 
-<!--![Screenshot that shows the sign-in with Facebook flow.](./media/ciam-pp2/sign-in-with-facebook/sign-in-with-facebook-flow.png)-->
+<!--[Screenshot that shows the sign-in with Facebook flow.](./media/sign-in-with-facebook/sign-in-with-facebook-flow.png)-->
 
 ## Create a Facebook application
 
@@ -62,7 +62,7 @@ After you create the Facebook application, in this step you set the Facebook cli
 1. Go to **Azure Active Directory**.
 1. Select **External Identities** > **All identity providers**, then select **Facebook**.
 
-<!--    ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/ciam-pp2/sign-in-with-facebook/configure-facebook-idp.-->png)
+   <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.-->png)
 
 1. Enter a **Name**. For example, *Facebook*.
 1. For the **Client ID**, enter the Client ID of the Facebook application that you created earlier.
@@ -89,7 +89,7 @@ At this point, the Facebook identity provider has been set up in your Azure AD, 
 1. Select the user flow that you want to add the Facebook identity provider.
 1. Under the **Identity providers**, select **Facebook**.
 
-<!--    ![Screenshot that shows how to add Facebook identity provider a user flow.](./media/ciam-pp2/sign-in-with-facebook/add-facebook-to-user-flow.png)-->
+   <!-- ![Screenshot that shows how to add Facebook identity provider a user flow.](./media/sign-in-with-facebook/add-facebook-to-user-flow.png)-->
 
 1. Select **Save**.
 

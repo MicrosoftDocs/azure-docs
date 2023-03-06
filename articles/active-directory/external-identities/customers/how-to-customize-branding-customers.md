@@ -7,7 +7,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: overview
+ms.topic: how-to
+ms.date: 03/03/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -37,7 +38,7 @@ The default sign-in experience is the global look and feel that applies across a
 
 1. Under **Default sign-in experience**, select **Edit**.
 
-<!--   ![Screenshot](media/ciam-pp1/8-company-branding-default-edit-button.png) -->
+   <!--[Screenshot](media/8-company-branding-default-edit-button.png) -->
    
 ### To customize the sign-in page background and layout
 
@@ -49,7 +50,7 @@ The default sign-in experience is the global look and feel that applies across a
 
    - **Page background color** – The color that replaces the background image whenever the image can’t be loaded, for example due to connection latency.
 
-<!--   ![Screenshot](media/ciam-pp1/9-company-branding-basics-tab.png) -->
+   <!--[Screenshot](media/9-company-branding-basics-tab.png) -->
 
 1. Select **Next: Layout** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
@@ -63,15 +64,15 @@ The default sign-in experience is the global look and feel that applies across a
 
    - **Custom CSS** – Upload your own CSS file to replace default Microsoft styling with your own styling for: color, font, text size, position of elements, and displays for different devices and screen sizes.  
 
-<!--   ![Screenshot](media/ciam-pp1/10-company-branding-layout-tab.png) -->
+   <!--[Screenshot](media/10-company-branding-layout-tab.png) -->
 
 1. Select **Next: Header** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
 ### To customize the logo, privacy link, and terms of use
 
-1. On the **Header** tab, select the logo to display in the header of the sign-in page. 
+1. On the **Header** tab, select the logo to display in the header of the sign-in page.
 
-<!--   ![Screenshot](media/ciam-pp1/11-company-branding-header-tab.png)-->
+   <!--[Screenshot](media/11-company-branding-header-tab.png)-->
 
 1. Select **Next: Footer** if you would like to continue customizing or **Review + save** if you would like to save your changes. 
 
@@ -81,7 +82,7 @@ The default sign-in experience is the global look and feel that applies across a
 
    - **Terms of Use** – Select the checkbox next to Terms of Use to display this hyperlink in the footer. The Microsoft terms of use link  displays unless you enter your own hyperlink Display text and URL. 
 
-<!--   ![Screenshot](media/ciam-pp1/12-company-branding-footer-tab.png)-->
+   <!--[Screenshot](media/12-company-branding-footer-tab.png)-->
 
 1. Select **Next: Sign-in form** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
@@ -95,7 +96,7 @@ The default sign-in experience is the global look and feel that applies across a
 
    - **Square logo (dark theme)** – If the light theme square logo displays poorly on dark backgrounds, you can upload a logo to be used in its place when dark backgrounds are used (for example, Microsoft Azure AD Joined screens in the out-of-box experience). 
 
-<!--   ![Screenshot](media/ciam-pp1/13-company-branding-sign-in-form-tab-1.png)-->
+   <!--[Screenshot](media/13-company-branding-sign-in-form-tab-1.png)-->
 
 1. Scroll to the lower half of the page and configure more elements of the sign-in form:
 
@@ -113,14 +114,14 @@ The default sign-in experience is the global look and feel that applies across a
 
 ### To customize self-service password reset
 
- 1.   Scroll to the **Self-service password reset** section to configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. 
+ 1. Scroll to the **Self-service password reset** section to configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. 
 
       - **Show self-service password reset** – Select this checkbox to display the self-service password link. 
       - **Common URL** – Enter a password reset URL to use in place of the default Microsoft link. 
       - **Account collection display text** – Enter link text to display in place of the Microsoft default text “Can’t access your account” text. 
       - **Password collection display text** – Enter link text to display in place of the Microsoft default “Forgot password” text. 
- 
-<!--   ![Screenshot](media/ciam-pp1/14-company-branding-sign-in-form-tab-2.png)-->
+
+   <!--[Screenshot](media/14-company-branding-sign-in-form-tab-2.png)-->
 
 1. Select **Next: Review** and review all your modifications. Then select **Save** if you would like to save your changes or **Previous** if you would like to continue customizing.
 
@@ -134,7 +135,7 @@ By adding a browser language and modifying some or all of the branding elements,
 
 1. Under **Default sign-in experience**, select **Add browser language**. 
 
-<!--   ![Screenshot](media/ciam-pp1/15-company-branding-add-browser-language-button.png)-->
+   <!--[Screenshot](media/15-company-branding-add-browser-language-button.png)-->
 
 1. On the **Basics** tab, under **Language specific UI Customization**, select the browser language you want to customize from the menu. Azure AD includes support for the following languages:
 
@@ -177,10 +178,10 @@ By adding a browser language and modifying some or all of the branding elements,
    - Thai (Thailand)
    - Turkish (Turkey)
    - Ukrainian (Ukraine)
-   
+
    The following screenshot shows how to select a language.
-   
-<!--   ![Screenshot](media/ciam-pp1/16-company-branding-browser-language.png)-->
+
+   <!--[Screenshot](media/16-company-branding-browser-language.png)-->
 
 1. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, and **Sign-in form** tabs. For detailed steps, refer to the section above. To customize the default sign-in experience.
 
@@ -192,7 +193,7 @@ In the area of right-to-left (RTL) language support, such as Arabic and Hebrew l
 
 The following screenshot demonstrates a sign-in page in LTR and RTL orientations:
 
-<!--![Screenshot of the Azure AD sign-in page in English, Arabic and Hebrew.](./media/ciam-pp1/company-branding-rtl-support.png)-->
+<!--[Screenshot of the Azure AD sign-in page in English, Arabic and Hebrew.](./media/company-branding-rtl-support.png)-->
 
 ## CSS reference guide
 
@@ -200,10 +201,10 @@ Branding and customizing the user interface that Azure AD displays to your users
 
 ### HTML selectors
 
-- `body` -  Styles for the whole page 
+- `body` -  Styles for the whole page
 - **Styles for links**
 
-  - `a, a:link` - Styles for links 
+  - `a, a:link` - Styles for links.
   - `a:hover` - Styles for links when the mouse is over the link.
   - `a:focus` - Styles for links when the link has focus.
   - `a:focus:hover` - Styles for links when the link has focus and the mouse is over the link.
@@ -211,19 +212,19 @@ Branding and customizing the user interface that Azure AD displays to your users
 
 ### Azure AD CSS selectors
 
-- `.ext-background-image` -  Styles for the holder that contains the background image in the default lightbox template 
+- `.ext-background-image` -  Styles for the holder that contains the background image in the default lightbox template.
 
 - **Styles for the header**
 
-  - `.ext-header` -  Styles for the header at the top of the page 
+  - `.ext-header` -  Styles for the header at the top of the page.
 
   - `.ext-header-logo` -  Styles for the header logo at the top of the page.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-header.png)-->
+<!--  ![](./media/css-reference/ext-header.png)-->
 
 - **Styles for the full-screen background**
 
-  - `.ext-middle` -   Styles for the container in the default lightbox template that aligns the sign-in box vertically to the middle and horizontally to the center. 
+  - `.ext-middle` -   Styles for the container in the default lightbox template that aligns the sign-in box vertically to the middle and horizontally to the center.
 
 - **Styles for the partial-screen background (AD-FS style)**
 
@@ -233,11 +234,11 @@ Branding and customizing the user interface that Azure AD displays to your users
 
 - `.ext-sign-in-box` -  Styles for the sign-in box container.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-sign-in-box.png)-->
+<!--  ![](./media/css-reference/ext-sign-in-box.png)-->
 
 - `.ext-title` -  Styles for title text.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-title.png)-->
+<!--  ![](./media/css-reference/ext-title.png)-->
 
 - `.ext-subtitle` - Styles for subtitle text.
 
@@ -255,7 +256,7 @@ Branding and customizing the user interface that Azure AD displays to your users
 
   The following screenshot shows an example of a primary button.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-button-ext-primary.png)-->
+<!--  ![](./media/css-reference/ext-button-ext-primary.png)-->
 
 - **Styles for secondary buttons**
 
@@ -271,11 +272,11 @@ Branding and customizing the user interface that Azure AD displays to your users
 
   The following screenshot an example of a secondary button.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-secondary.png)-->
+<!--  ![](./media/css-reference/ext-secondary.png)-->
 
 - `.ext-error` - Styles for error text. The following screenshot shows an invalid username error message.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-error.png)-->
+<!--  ![](./media/css-reference/ext-error.png)-->
 
 - **Styles for text boxes**
 
@@ -291,15 +292,15 @@ Branding and customizing the user interface that Azure AD displays to your users
 
   The following screenshot shows an example of a text box.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-input-ext-text-box.png)-->
+<!--  ![](./media/css-reference/ext-input-ext-text-box.png)-->
   
 - `.ext-boilerplate-text` - Styles for the custom message text at the bottom of the sign-in box.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-boilerplate-text.png)-->
+<!--  ![](./media/css-reference/ext-boilerplate-text.png)-->
 
 - `.ext-promoted-fed-cred-box` - Styles for sign-in options text box.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-promoted-fed-cred-box.png)-->
+<!--  ![](./media/css-reference/ext-promoted-fed-cred-box.png)-->
 
 - **Footer**
 
@@ -313,7 +314,7 @@ Branding and customizing the user interface that Azure AD displays to your users
 
   The following screenshot shows the footer elements.
 
-<!--  ![](./media/ciam-pp1/css-reference/ext-footer.png)-->
+<!--  ![](./media/css-reference/ext-footer.png)-->
 
 ## Next steps
 

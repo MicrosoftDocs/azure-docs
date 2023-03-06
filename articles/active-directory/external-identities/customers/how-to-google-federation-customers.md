@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: overview
+ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: mimart
 ms.custom: it-pro
@@ -21,7 +21,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 
 The following screenshots show the sign-in with Google experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Google**. At that point, the user is redirected to the Google identity provider to complete the sign-in.
 
-<!--![Screenshot that shows the sign-in with Google flow.](./media/ciam-pp2/sign-in-with-google/sign-in-with-google-flow.png)-->
+<!--[Screenshot that shows the sign-in with Google flow.](./media/sign-in-with-google/sign-in-with-google-flow.png)-->
 
 ## Create a Google application
 
@@ -62,7 +62,7 @@ After you create the Google application, in this step you set the Google client 
 1. Go to **Azure Active Directory**.
 1. Select **External Identities** > **All identity providers**, then select **Google**.
 
-<!--    ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/ciam-pp2/sign-in-with-google/configure-google-idp.png)-->
+   <!-- ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/sign-in-with-google/configure-google-idp.png)-->
 
 1. Enter a **Name**. For example, *Google*.
 1. For the **Client ID**, enter the Client ID of the Google application that you created earlier.
@@ -89,7 +89,7 @@ At this point, the Google identity provider has been set up in your Azure AD, bu
 1. Select the user flow that you want to add the Google identity provider to.
 1. Under the **Identity providers**, select **Google**.
 
-<!--    ![Screenshot that shows how to add Google identity provider a user flow.](./media/ciam-pp2/sign-in-with-google/add-google-idp-to-user-flow.png)-->
+   <!-- ![Screenshot that shows how to add Google identity provider a user flow.](./media/sign-in-with-google/add-google-idp-to-user-flow.png)-->
 
 1. Select **Save**.
 
