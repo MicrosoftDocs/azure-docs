@@ -43,7 +43,7 @@ The following table compares the functionality of the versions of the Database M
 |SQL Server on Azure SQL VM - Offline migration | Yes |Yes  |  Migrate to SQL Server on Azure VMs offline.  |
 |Migrate logins|Yes  | Yes  | Migrate logins from your source to your target.|
 |Migrate schemas| Yes  | No  | Migrate schemas from your source to your target. |
-|Azure portal support |Yes  | Yes  | Control your migration by using the Azure portal. |
+|Azure portal support |Yes  | Yes  | Monitor your migration by using the Azure portal. |
 |Integration with Azure Data Studio | No  | Yes  | Migration support integrated with Azure Data Studio. |
 |Regional availability|Yes  |Yes  | More regions are available with the extension. |
 |Improved user experience| No  | Yes  | The extension is faster, more secure, and easier to troubleshoot. |

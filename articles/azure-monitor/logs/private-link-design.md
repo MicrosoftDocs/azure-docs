@@ -132,7 +132,7 @@ Restricting access as previously explained applies to data in the resource. Howe
 > * Change Tracking solution
 > * VM Insights
 > * Container Insights
-> * Log Analytics **Workspace Summary** pane (that shows the solutions dashboard)
+> * Log Analytics **Workspace Summary (deprecated)** pane (that shows the solutions dashboard)
 
 ## Application Insights considerations
 * You'll need to add resources hosting the monitored workloads to a private link. For example, see [Using private endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
@@ -173,7 +173,7 @@ We've identified the following products and experiences query workspaces through
 > * LogicApp connector
 > * Update Management solution
 > * Change Tracking solution
-> * The **Workspace Summary** pane in the portal (that shows the solutions dashboard)
+> * The **Workspace Summary (deprecated)** pane in the portal (that shows the solutions dashboard)
 > * VM Insights
 > * Container Insights
 

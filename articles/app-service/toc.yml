@@ -42,8 +42,6 @@
   items:
     - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
-    - name: Multi-region app
-      href: tutorial-multi-region-app.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
@@ -68,6 +66,10 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
+    - name: Multi-region app
+      href: tutorial-multi-region-app.md
+    - name: N-tier app
+      href: tutorial-secure-ntier-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
     - name: Connect to Azure resource as app
@@ -227,7 +229,7 @@
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
         - name: Subdomain takeover
-          href: reference-dangling-subdomain-prevention.md                
+          href: reference-dangling-subdomain-prevention.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -249,6 +251,8 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
+        - name: Name resoulution (DNS)
+          href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics

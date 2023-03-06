@@ -69,12 +69,12 @@ Azure Machine Learning offers many ways to deploy MLflow models into Online and 
 
 > [!div class="checklist"]
 > - MLflow SDK
-> - Azure ML CLI and Azure ML SDK for Python
+> - Azure Machine Learning CLI and Azure Machine Learning SDK for Python
 > - Azure Machine Learning studio
 
 Each workflow has different capabilities, particularly around which type of compute they can target. The following table shows them.
 
-| Scenario | MLflow SDK | Azure ML CLI/SDK | Azure ML studio |
+| Scenario | MLflow SDK | Azure Machine Learning CLI/SDK | Azure Machine Learning studio |
 | :- | :-: | :-: | :-: |
 | Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
 | Deploy to managed online endpoints (with a scoring script) |  | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) |  |
@@ -89,7 +89,7 @@ Each workflow has different capabilities, particularly around which type of comp
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure Machine Learning CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure Machine Learning CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
 
 
 ## Differences between models deployed in Azure Machine Learning and MLflow built-in server
@@ -104,7 +104,7 @@ The rest of this section mostly applies to online endpoints but you can learn mo
 
 ### Input formats
 
-| Input type | MLflow built-in server | Azure ML Online Endpoints |
+| Input type | MLflow built-in server | Azure Machine Learning Online Endpoints |
 | :- | :-: | :-: |
 | JSON-serialized pandas DataFrames in the split orientation | **&check;** | **&check;** |
 | JSON-serialized pandas DataFrames in the records orientation | Deprecated |  |
