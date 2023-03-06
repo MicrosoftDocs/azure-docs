@@ -2,9 +2,14 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/14/2022
+ms.date: 02/28/2023
 ms.author: eur
 ---
+
+### March 2023 release
+
+#### Custom neural voice
+Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 ### February 2023 release
 
