@@ -15,9 +15,9 @@ Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to
 
 ## Version 4.11 - February 2023
 
-We are pleased to announce the launch of Openshift 4.11 for Azure Red Hat Openshift. This release introduces a number of new features:
+We'e pleased to announce the launch of OpenShift 4.11 for Azure Red Hat OpenShift. This release introduces the following features:
 
-- Ability to deploy Openshift 4.11
+- Ability to deploy OpenShift 4.11
 - Multi-version support: 
     - This enables customers to select specific Y and Z version of the release. See [Red Hat OpenShift versions](support-lifecycle.md#red-hat-openshift-versions) for more information about versions.
     - Customers can still deploy 4.10 clusters if that version is specified. See [Selecting a different ARO version](tutorial-create-cluster.md#selecting-a-different-aro-version) for more information.
