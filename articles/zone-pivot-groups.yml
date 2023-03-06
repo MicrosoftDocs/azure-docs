@@ -1015,6 +1015,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-power
+  title: JS and Power Platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: platform-power
+    title: Power Platform
 - id: acs-js-csharp-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1104,6 +1112,24 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azportal
+    title: Azure Portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: platform-nocode
+    title: Power Platform
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -2055,3 +2081,12 @@ groups:
     title: Azure Developer CLI
   - id: deploy-manual
     title: Manual steps
+# Owner: daknappe (Azure Virtual Desktop)
+- id: azure-virtual-desktop-host-pool-types
+  title: Azure Virtual Desktop host pool management type
+  prompt: Choose a host pool management type
+  pivots:
+  - id: host-pool-automated
+    title: Automated host pool
+  - id: host-pool-standard
+    title: Standard host pool

@@ -55,17 +55,17 @@ Creator services create, store, and use various data types that are defined and 
 - Feature stateset
 - Routeset
 
-## Upload a Drawing package
+## Upload a drawing package
 
-Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
+Creator collects indoor map data by converting an uploaded drawing package. The drawing package represents a constructed or remodeled facility. For information about drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update) to upload a drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
-## Convert a Drawing package
+## Convert a drawing package
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types:
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts an uploaded drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types:
 
-- Errors: If any errors are detected, the conversion process fails. When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
+- Errors: If any errors are detected, the conversion process fails. When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
 - Warnings: If any warnings are detected, the conversion succeeds. However, we recommend that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in later processes.
 For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
@@ -82,7 +82,7 @@ Use the Tileset service to create a vector-based representation of a dataset. Ap
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted Drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
+A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
 
 At any time, developers can use the [Dataset service](/rest/api/maps/v2/dataset) to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service](/rest/api/maps/v2/dataset). For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
 
@@ -288,7 +288,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
-1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
+1. Follow steps in the [Upload a drawing package](#upload-a-drawing-package) and [Convert a drawing package](#convert-a-drawing-package) sections to upload and convert the new drawing package.
 2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/create) to append the converted data to the existing dataset.
 3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/create) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.

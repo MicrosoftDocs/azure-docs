@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 12/17/2022
+ms.date: 02/28/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -25,7 +25,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ## February 2023
 
-[**Document Translation in Language Studio**](document-translation/language-studio.md) is now available for Public Preview. The feature provides a no-code user interface that to translate documents from local storage or Azure Blob Storage interactively.
+[**Document Translation in Language Studio**](document-translation/language-studio.md) is now available for Public Preview. The feature provides a no-code user interface to interactively translate documents from local or Azure blob storage.
 
 ## November 2022
 
