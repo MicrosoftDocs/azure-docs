@@ -67,7 +67,7 @@ When you no longer need your dev box, you can delete it:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. For the dev box you that you want to delete, from the settings menu, select **Delete**.
+1. For the dev box you that you want to delete, from the **Actions** menu, select **Delete**.
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the Delete option on the dev box settings menu.":::
 

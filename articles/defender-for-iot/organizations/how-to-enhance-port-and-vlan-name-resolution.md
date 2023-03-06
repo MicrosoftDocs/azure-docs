@@ -21,7 +21,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. However, you might want to customize the name of a specific port to highlight it, such as when you're watching a port with unusually high detected activity.
 
-Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#group-highlight-and-filters-tools), or when you create OT sensor reports that include port information.
+Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](how-to-work-with-the-sensor-device-map.md), or when you create OT sensor reports that include port information.
 
 **To customize a port name:**
 

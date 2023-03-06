@@ -23,12 +23,11 @@ In this quickstart, you'll download a Remote Desktop client (Windows and non-Win
 To complete this quickstart, you must first:
 
 - [Configure Microsoft Dev Box Preview](./quickstart-configure-dev-box-service.md).
-
 - [Create a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
 ## Download the client and connect to your dev box
 
-Remote Desktop clients are available for many different operating systems and devices. In this quickstart, you can view the steps for Windows or the steps for a non-Windows operating system by selecting the appropriate tab.
+Remote Desktop clients are available for many operating systems and devices. In this quickstart, you can view the steps for Windows or the steps for a non-Windows operating system by selecting the appropriate tab.
 
 # [Windows](#tab/windows)
 
@@ -96,17 +95,17 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
 
 ## Clean up resources
 
-Dev boxes incur costs whenever they are running. When you finish using your dev box, shut down or stop it to avoid incurring unnecessary costs.
+Dev boxes incur costs whenever they're running. When you finish using your dev box, shut down or stop it to avoid incurring unnecessary costs.
 
 You can stop a dev box from the developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. For the dev box you want to stop, select the Actions menu, and then select **Stop**.
+1. For the dev box that you want to stop, select the **Actions** menu, and then select **Stop**.
 
-   :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/stop-dev-box.png" alt-text="Screenshot of the Stop option.":::
+   :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/stop-dev-box.png" alt-text="Screenshot of the menu command to stop a dev box.":::
 
-1. The dev box may take a few moments to stop.
+The dev box might take a few moments to stop.
 
 ## Next steps
 
