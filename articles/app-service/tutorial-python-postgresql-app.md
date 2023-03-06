@@ -21,9 +21,118 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 :::zone pivot="deploy-azd"
 
-## This is azd
+## Provision and deploy using the Azure Developer CLI
 
-Testing the azd approach.
+The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use the Azure Developer CLI to provision and deploy the resources for the sample application.
+
+1. Install the Azure Developer CLI. For a full list of supported installation options and tools, visit the [installation guide](/azure/developer/azure-developer-cli/install-azd).
+
+    ### [Windows](#tab/windows)
+
+    ```azdeveloper
+    powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
+    ```
+
+    ### [Linux/MacOS](#tab/linuxmac)
+
+    ```azdeveloper
+    curl -fsSL https://aka.ms/install-azd.sh | bash 
+    ```
+
+    ---
+
+1. Run the `azd up` command of the Azure Developer CLI to clone, provision and deploy the app resources. Provide the name of the template you wish to use for the `--template` parameter. The `azd up` command will also prompt you to login to Azure and provide a name and location for the app.
+
+    ```bash
+    azd up --template msdocs-flask-postgresql-sample-app
+    ```
+
+When the `azd up` command finishes running it will launch your browser to view the fully deployed application. You can experiment with the app to verify that it is working correctly. You can also locate the resource group that was created in Azure to see all of the provisioned resources.
+
+The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality or even remove the provisioned resources. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
+
+## Explore the AZD template and workflow
+
+The rest of this tutorial describes the steps the Azure Developer CLI completes for you in more detail for added context. The `azd up` command wraps and performs the following individual commands for you:
+
+* `azd init`: Clone and initialize the project
+* `azd provision`: Create the necessary Azure resources
+* `azd deploy`: Build and deploy the code
+
+You could also choose to run these commands one at a time instead of using `azd up` if you prefer more granular control. Additional information for each of these steps is provided below.
+
+### Project initialization
+
+When you run `azd up`, the Azure Developer CLI will close the template repository down to your local machine. The template includes all of the application source code, as well as necessary folders and configuration files for the project to work correctly as an AZD template. This step can also be achieved by running the `azd init` command.
+
+### Resource provisioning
+
+The Azure Developer CLI relies on Bicep files to provision resources in Azure. Bicep is a declarative language used to manage infrastructure as code in Azure. Azure Developer CLI templates include Bicep files in `infra` folder of the project. For example, some of the resources sample project created and configured include:
+
+* App Service
+* Postgres Server
+* Virtual Network
+* Application Insights
+
+You can inspect the Bicep files in the `infra` folder to see details of how these resources were created. For example, an App Service Plan and App Service instance were created using the following Bicep code. The Bicep templates provide necessary configuration values for the different properties of the resource.
+
+```yaml
+resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
+  name: '${prefix}-service-plan'
+  location: location
+  tags: tags
+  sku: {
+    name: 'B1'
+  }
+  properties: {
+    reserved: true
+  }
+}
+
+resource web 'Microsoft.Web/sites@2022-03-01' = {
+  name: '${prefix}-app-service'
+  location: location
+  tags: union(tags, { 'azd-service-name': 'web' })
+  kind: 'app,linux'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      alwaysOn: true
+      linuxFxVersion: 'PYTHON|3.10'
+      ftpsState: 'Disabled'
+      appCommandLine: 'startup.sh'
+    }
+    httpsOnly: true
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+```
+
+### Application Deployment
+
+The Azure Developer CLI also deploys your application code to the provisioned Azure resources. The Developer CLI understands how to deploy different types of projects to different resources in Azure. For example, the sample application python app was correctly deployed to App Service, but AZD can also deploy to other services such as Azure Kubernetes Service or Azure Container Apps. The `azure.yaml` file in the project defines and describes the apps and types of Azure resources that are included in the template. This file helps the Azure Developer CLI understand how to deploy different parts of your project to different Azure resources. 
+
+Consider the following `azure.yaml` file from the sample application. This configuration tells the Azure Developer CLI that the project code that should be deployed to the App Service instanc lives at the root of the project and uses Python.
+
+```yml
+name: flask-postgresql-sample-app
+metadata:
+  template: flask-postgresql-sample-app@0.0.1-beta
+services:
+  web:
+    project: .
+    language: py
+    host: appservice
+```
+
+### Removing the resources
+
+Once you are finished experimenting with your sample application, you can run the `azd down` command to remove the app from Azure. Removing resources helps to avoid unintended costs or unused services in your Azure subscription.
+
+```bash
+azd down
+```
 
 :::zone-end
 
@@ -32,8 +141,6 @@ Testing the azd approach.
 ## This is manual
 
 Testing the manual approach.
-
-:::zone-end
 
 ## Sample application
 
@@ -553,6 +660,9 @@ If you can't connect to the SSH session, then the app itself has failed to start
 #### I get an error when running database migrations
 
 If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
+
+
+:::zone-end
 
 ## Next steps
 
