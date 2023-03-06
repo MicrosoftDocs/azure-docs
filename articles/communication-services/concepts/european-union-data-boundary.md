@@ -33,7 +33,7 @@ For EU communication resources, when the organizer, initiator, or guests join a 
 All threads created from an EU resource will process and storage personal data in the EU. 
 
 
-## Other Resources
+## Other resources
 
 For more information, please refer to the Microsoft documentation on the EUDB:
 - [Microsoft EU Data Boundary Overview](https://www.microsoft.com/en-us/trust-center/privacy/european-data-boundary-eudb)
