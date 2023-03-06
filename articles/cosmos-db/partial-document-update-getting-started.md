@@ -19,7 +19,7 @@ This article links to code samples for the following scenarios:
 
 - Run a single patch operation
 - Combine multiple patch operations
-- Conditional patch syntax based on filter predicate
+- Use conditional patch syntax based on filter predicate
 - Run patch operation as part of a transaction
 
 ## [.NET](#tab/dotnet)
