@@ -82,26 +82,26 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
 
 1. We want to see this log data to Azure Monitor. You can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. You may also pass the connection_string directly into the `AzureLogHandler`, but connection strings shouldn't be added to version control.
 
-```shell
-APPLICATIONINSIGHTS_CONNECTION_STRING=<appinsights-connection-string>
-```
+   ```shell
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<appinsights-connection-string>
+   ```
 
-We recommend using the connection string to instantiate the exporters that are used to send telemetry to Application Insights. Modify your code from the previous step based on the following code sample:
+   We recommend using the connection string to instantiate the exporters that are used to send telemetry to Application Insights. Modify your code from the previous step based on the following code sample:
 
-```python
-import logging
-from opencensus.ext.azure.log_exporter import AzureLogHandler
+   ```python
+   import logging
+   from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler())
+   logger = logging.getLogger(__name__)
+   logger.addHandler(AzureLogHandler())
 
-# Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+   # Alternatively manually pass in the connection_string
+   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
 
-"""Generate random log data."""
-for num in range(5):
-    logger.warning(f"Log Entry - {num}")
-```
+   """Generate random log data."""
+   for num in range(5):
+       logger.warning(f"Log Entry - {num}")
+   ```
 
 1. The exporter sends log data to Azure Monitor. You can find the data under `traces`.
 
