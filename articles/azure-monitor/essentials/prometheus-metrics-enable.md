@@ -330,13 +330,13 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Verify Deployment
 
-Run the following command to verify that the daemon set was deployed properly:
+Run the following command to verify that the DaemonSet was deployed properly:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
 ```
 
-The output should resemble the following:
+The number of pods should be equal to the number of nodes on the cluster. The output should resemble the following:
 
 ```
 User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
@@ -344,7 +344,7 @@ NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SEL
 ama-metrics-node   1         1         1       1            1           <none>          10h
 ```
 
-Run the following command to which verify that the replica set was deployed properly:
+Run the following command to which verify that the ReplicaSets were deployed properly:
 
 ```
 kubectl get rs --namespace=kube-system
