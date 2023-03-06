@@ -29,17 +29,13 @@ Learn how to develop a training script with a notebook on an Azure Machine Learn
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
 - Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml), which you'll use to create a new environment for running a notebook.
 
-## Start with notebooks
+## Start with Notebooks
 
-A Jupyter Notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  
+The Notebooks section of studio is a good place to start learning about Azure Machine LEarning and its capabilities.  Here you can connect to compute resources, work wiith a terminal, and edit and run Jupyter Notebooks and scripts.  
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already open.
 1. On the left navigation, select **Notebooks**.
-
-## Connect to a compute instance
-
-Before you dive into code, you'll need to connect to a compute instance, which is a pre-configured cloud machine that runs your code.
 
 ## Set up a new environment for prototyping (optional)
 
@@ -47,64 +43,63 @@ In order for your script to run, you'll need to be working in an environment con
 
 The code in this tutorial works in the default environment that's on the compute instance. If you wish to skip creating one, skip to [Create a notebook](#create-a-notebook). Or continue on to learn how to create a new environment, which you might need in the future.
 
-## Optional environment: 1. Upload a file
+* **Upload a file.**
+    Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
+    
+    1. Select **+** and select **Upload files**
+    2. Select **Browse and select file(s)** 
+    3. Select **workstation_env.yml** file you downloaded earlier.
+    4. Select **Upload**
+    
+    You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
+    
+    :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
+    
+    You may not always need to define a new environment. There are kernels pre-installed on the compute instance, already configured for many common machine learning model development tasks. (In fact, this tutorial works with a pre-installed kernel.  But you're learning how to build your own, since you may need to do that for other jobs.)
 
-Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
+* **Create a kernel.**
 
-1. Select **+** and select **Upload files**
-2. Select **Browse and select file(s)** 
-3. Select **workstation_env.yml** file you downloaded earlier.
-4. Select **Upload**
-
-You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
-
-:::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
-
-You may not always need to define a new environment. There are kernels pre-installed on the compute instance, already configured for many common machine learning model development tasks. (In fact, this tutorial works with a pre-installed kernel.  But you're learning how to build your own, since you may need to do that for other jobs.)
-
-## Optional environment: 2. Create a new kernel
-
-Now use the Azure Machine Learning terminal to generate a new kernel, using the *workstation_env.yml* file.
-
-1. Select **Terminal** to open a terminal window.  You can also open the terminal from the left command bar:
-
-    :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
-
-1. Start your compute instance it if it's not already running.
-
-1. View your current conda environments. The active environment is marked with a *.
-
-    ```bash
-    conda env list
-    ```
-
-1. Create the environment based on the conda file provided. It will take a few minutes to build this environment.
-
-    ```bash
-    conda env create -f workstation_env.yml
-
-    ```
-
-1. Activate the new environment.
-
-    ```bash
-     conda activate workstation_env
-    ```
-
-1. Validate the correct environment is active, again looking for the environment marked with a *.
-
-    ```bash
-    conda env list
-    ```
-
-1. Create a new Jupyter kernel.
-
-    ```bash
-    python -m ipykernel install --user --name workstation_env --display-name "Tutorial Workstation Env" 
-    ```
-
-1. Close the terminal window.
-
+    Now use the Azure Machine Learning terminal to generate a new kernel, using the *workstation_env.yml* file.
+    
+    1. Select **Terminal** to open a terminal window.  You can also open the terminal from the left command bar:
+    
+        :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
+    
+    1. Start your compute instance it if it's not already running.
+    
+    1. View your current conda environments. The active environment is marked with a *.
+    
+        ```bash
+        conda env list
+        ```
+    
+    1. Create the environment based on the conda file provided. It will take a few minutes to build this environment.
+    
+        ```bash
+        conda env create -f workstation_env.yml
+    
+        ```
+    
+    1. Activate the new environment.
+    
+        ```bash
+         conda activate workstation_env
+        ```
+    
+    1. Validate the correct environment is active, again looking for the environment marked with a *.
+    
+        ```bash
+        conda env list
+        ```
+    
+    1. Create a new Jupyter kernel.
+    
+        ```bash
+        python -m ipykernel install --user --name workstation_env --display-name "Tutorial Workstation Env" 
+        ```
+    
+    1. Close the terminal window.
+    
 ## Create a notebook
 
 1. Select **+ Files**, and choose **Create new file**.
