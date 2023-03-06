@@ -24,11 +24,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### New Microsoft Sentinel incident experience for Defender for IoT
 
-Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. SOC analysts can now use the following incident enhancements when investigating OT/IoT-related incidents:
+Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. When investigating OT/IoT-related incidents, SOC analysts can now use the following enhancements on incident details pages:
 
-- Better understand an incident's business impact and physical location by viewing the related sites, zones, sensors, and device importance on an incident details page
-- Review a timeline of affected devices and related device details directly on the incident page, instead of investigating on entity details pages for the related devices
-- Review OT alert remediation steps directly on the incident details page
+- **View related sites, zones, sensors, and device importance** to better understand an incident's business impact and physical location.
+
+- **Review an aggregated timeline of affected devices and related device details**, instead of investigating on separate entity details pages for the related devices
+
+- **Review OT alert remediation steps** directly on the incident details page
 
 For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md) and [Navigate and investigate incidents in Microsoft Sentinel](/azure/sentinel/investigate-incidents).
 
