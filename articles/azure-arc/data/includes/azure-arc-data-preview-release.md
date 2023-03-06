@@ -9,11 +9,11 @@ ms.date: 12/7/2022
 <!--
 At this time, a test or preview build is not available for the next release.
 --->
-March 2023 test release is now available.
+March 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.17.0_2023-03-14 `|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
@@ -34,3 +34,9 @@ March 2023 test release is now available.
 |`arcdata` Azure CLI extension version|1.4.12 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.17.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+
+- Azure Arc-enabled SQL Managed Instance 
+  - Service-managed credential rotation - preview    
+- Azure Arc-enabled PostgreSQL 
+  - Require client connections to use SSL
+  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL 
