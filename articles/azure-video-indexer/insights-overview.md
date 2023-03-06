@@ -13,7 +13,7 @@ When a video is indexed, Azure Video Indexer analyzes the video and audio conten
 For information about features and other insights, see:
 
 - [Azure Video Indexer overview](video-indexer-overview.md)
-- [Transperancy note](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Transparency note](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
 Once you [set up](video-indexer-get-started.md) an Azure Video Indexer account (see [account types](accounts-overview.md)) and [upload a video](upload-index-videos.md), you can view insights as described below.
 
