@@ -405,6 +405,7 @@ For Python v2 functions defined using decorators, the following properties on th
 |`arg_name` | The name of the variable that represents the blob in function code. |
 |`path`  | The path to the blob  For the `blob_input` decorator, it's the blob read. For the `blob_output` decorator, it's the output or copy of the input blob. |
 |`connection` | The storage account connection string. |
+|`data_type` | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
