@@ -21,7 +21,7 @@ For various reasons, companies often can’t modify code for legacy apps. For ex
 Azure AD supports adding custom data to resources using [extensions](/graph/extensibility-overview). Azure Active Directory Domain Services (Azure AD DS) can synchronize the following types of extensions from Azure AD, so you can also use apps that depend on custom attributes with Azure AD DS:  
 
 - [onPremisesExtensionAttributes](/graph/extensibility-overview?tabs=http#extension-attributes) are a set of 15 attributes that can store extended user string attributes. 
-- [Directory extensions](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) allow the schema extension of specific directory objects, such as users and groups, with strongly-typed attributes through registration with an application in the tenant. 
+- [Directory extensions](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) allow the schema extension of specific directory objects, such as users and groups, with strongly typed attributes through registration with an application in the tenant. 
 
 Both types of extensions can be configured By using Azure AD Connect for users who are managed on-premises, or MSGraph APIs for cloud-only users. 
 
