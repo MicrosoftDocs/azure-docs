@@ -20,14 +20,14 @@ Service-managed credential rotation is a user-triggered operation that you initi
 
 Consider the following limitations when you rotate a managed instance service-managed credentials:
 
-- SQL Server failover groups are not supported.
-- Automatically pre-scheduled rotation is not supported.
-- The service-managed DPAPI symmetric keys, keytab, active directory accounts, and service-managed TDE credentials are not included in this credential rotation.
-- SQL Managed Instance Business Critical tier is not supported.
+- SQL Server failover groups aren't supported.
+- Automatically pre-scheduled rotation isn't supported.
+- The service-managed DPAPI symmetric keys, keytab, active directory accounts, and service-managed TDE credentials aren't included in this credential rotation.
+- SQL Managed Instance Business Critical tier isn't supported.
 
 ## General Purpose tier
 
-During a SQL Managed Instance service-managed credential rotation, the managed instance Kubernetes pod is terminated and re-provisioned when new credentials are generated. This causes a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on how to architect resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+During a SQL Managed Instance service-managed credential rotation, the managed instance Kubernetes pod is terminated and reprovisioned when new credentials are generated. This process causes a short amount of downtime as the new pod is created. To handle the interruption, build resiliency into your application such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on how to architect resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
 
 ## Prerequisites: 
 
@@ -39,7 +39,7 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 
 Service-managed credentials are associated with a generation within the managed instance. To rotate all service-managed credentials for a managed instance, the generation must be increased by 1.
 
-Run the following commands to get current service-managed credentials generation from spec and generate the new generation of service-managed credentials. This triggers a service-managed credential rotation.
+Run the following commands to get current service-managed credentials generation from spec and generate the new generation of service-managed credentials. This action triggers a service-managed credential rotation.
 
 ```console
 rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) + 1)) 
@@ -68,7 +68,7 @@ rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.sp
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }' 
 ```
 
-Triggering rollback is the same as triggering a rotation of service-managed credentials except that the target generation is previous generation and does not generate a new generation or credentials.
+Triggering rollback is the same as triggering a rotation of service-managed credentials except that the target generation is previous generation and doesn't generate a new generation or credentials.
 
 Rollback is same as triggering rotation of credentials that would lead to a rollback of credentials to previous generation without generating a new one.
 
