@@ -313,11 +313,20 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
-    1. Select the **JSON** tab > **Edit** and edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read` and select **Save**.
+    1. Select the **JSON** tab > **Edit**::
+        
+        1. In the `"actions"` section, add:
     
-        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
+            - `Microsoft.OperationalInsights/workspaces/read`
+            - `Microsoft.OperationalInsights/workspaces/query/read`
+            - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
+            - `Microsoft.OperationalInsights/workspaces/search/action`
+   
+        1. In the `"not actions"` section, add `Microsoft.OperationalInsights/workspaces/sharedKeys/read`.
 
-    1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
+        
+    1. Select **Save** > **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
 
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
