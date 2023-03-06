@@ -219,7 +219,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
 
-### Configure ADP to support multiple instances
+### Configure ADP to support multiple instances in the same tenant
 
 1. If you want to override the **Identifier (Entity ID)** value in the Azure portal then please follow the below steps:
 
@@ -239,9 +239,12 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     1. Go to the **Advanced settings** > **Advanced SAML claims options** and click **Edit** in the **Attributes & Claims** section.
 
-    1. Enable **Append application ID to issuer** checkbox.
+    1. Enable **Append application ID to issuer** checkbox and click **Save**.
 
-    1. Click **Save**.
+    1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
+    ![Adding application value manually in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
+    
+    1. **Save** the xml file and use in the ADP side.
 
 ### Create ADP test user
 
