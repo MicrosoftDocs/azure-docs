@@ -13,7 +13,7 @@ services: azure-maps
 
 # Drawing package requirements
 
-You can convert uploaded drawing packages into map data by using the [Azure Maps Conversion service](/rest/api/maps/v2/conversion). This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
 
@@ -23,7 +23,7 @@ The drawing package includes drawings saved in DWG format, which is the native f
 
 You can choose any CAD software to produce the drawings in the drawing package.  
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts the drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
+The [Conversion service] converts the drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
 
 ## Glossary of terms
 
@@ -49,7 +49,7 @@ The drawing package must be zipped into a single archive file, with the .zip ext
 
 ## DWG file conversion process
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) does the following on each DWG file:
+The [Conversion service] does the following on each DWG file:
 
 - Extracts feature classes:
   - Levels
@@ -84,10 +84,10 @@ Each DWG layer must adhere to the following rules:
 
 - A layer must exclusively contain features of a single class. For example, units and walls can’t be in the same layer.
 - A single class of features can be represented by multiple layers.
-- Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
+- Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Conversion service] raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
 - Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities aren't supported on the wall layer.
 
-The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) ignores those entities.  
+The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Conversion service] ignores those entities.  
 
 | Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
@@ -182,11 +182,11 @@ You can see an example of the ZoneLabel layer in the [sample drawing package](ht
 
 ## Manifest file requirements
 
-The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) to parse their content. Only the files identified by the manifest are ingested. Files that are in the zip folder, but aren't properly listed in the manifest, are ignored.
+The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Conversion service] to parse their content. Only the files identified by the manifest are ingested. Files that are in the zip folder, but aren't properly listed in the manifest, are ignored.
 
 The file paths in the `buildingLevels` object of the manifest file must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is "Basement.dwg." A DWG file for level 2 is named as "level_2.dwg." Use an underscore, if your level name has a space.
 
-Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for version 1.1 of the [Azure Maps Conversion service](/rest/api/maps/v2/conversion).
+Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for version 1.1 of the [Conversion service].
 
 >[!NOTE]
 > Unless otherwise specified, all properties with a string property type allow for one thousand characters.
@@ -424,3 +424,5 @@ Learn more by reading:
 
 > [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
+
+[Conversion service]: /rest/api/maps/v2/conversion

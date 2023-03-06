@@ -54,7 +54,7 @@ Azure Maps consists of the following services that can provide geographic contex
 
 ### Data service
 
-Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data-v2).
+Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see [Data service].
 
 ### Geolocation service
 
@@ -168,9 +168,9 @@ Maps Creator service is a suite of web services that developers can use to creat
 
 Maps Creator provides the following services:
 
-* [Dataset service]. Use the Dataset service to create a dataset from a converted Drawing package data. For information about Drawing package requirements, see Drawing package requirements.
+* [Dataset service]. Use the Dataset service to create a dataset from a converted drawing package data. For information about drawing package requirements, see drawing package requirements.
 
-* [Conversion service]. Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
+* [Conversion service]. Use the Conversion service to convert a DWG design file into drawing package data for indoor maps.
 
 * [Tileset service]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 
@@ -238,6 +238,7 @@ Stay up to date on Azure Maps:
 
 [Azure Maps blog]
 
+[Data service]: /rest/api/maps/data-v2
 [Dataset service]: creator-indoor-maps.md#datasets
 [Conversion service]: creator-indoor-maps.md#convert-a-drawing-package
 [Tileset service]: creator-indoor-maps.md#tilesets

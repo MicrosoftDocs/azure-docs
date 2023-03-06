@@ -22,12 +22,6 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 > * Create a tileset from the data in your dataset.
 > * Get the default map configuration ID from your tileset.
 
-In the next tutorials in the Creator series you'll learn to:
-
-> * Query the Azure Maps Web Feature Service (WFS) API to learn about your map features.
-> * Create a feature stateset that can be used to set the states of features in your dataset.
-> * Update the state of a given map feature.
-
 > [!TIP]
 > You can also create a dataset from a GeoJSON package. For more information, see [Create a dataset using a GeoJson package (Preview)](how-to-dataset-geojson.md).
 
@@ -166,7 +160,7 @@ To convert a drawing package:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Conversion Service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
+5. Enter the following URL to the [Conversion service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0

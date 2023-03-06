@@ -80,7 +80,7 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 
 3. Click **Send** and review the response body.
 
-    The ambiguous query string for "pizza" returned 10 [point of interest result](/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result includes details such as street address, latitude and longitude values, view port, and entry points for the location. The results are now varied for this query, and are not tied to any reference location.
+    The ambiguous query string for "pizza" returned 10 [point of interest result] (POI) in both the "pizza" and "restaurant" categories. Each result includes details such as street address, latitude and longitude values, view port, and entry points for the location. The results are now varied for this query, and are not tied to any reference location.
   
     In the next step, we'll use the `countrySet` parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries/regions, see [Search Coverage].
 
@@ -138,11 +138,11 @@ In this example, we'll be making reverse searches using a few of the optional pa
 
 5. Click **Send**, and review the response body.
 
-6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. We'll also need to remove `returnSpeedLimit` and `returnRoadUse` since we're requesting information about the municipality.  For all possible entity types, see [Entity Types](/rest/api/maps/search/getsearchaddressreverse#entitytype).
+6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. We'll also need to remove `returnSpeedLimit` and `returnRoadUse` since we're requesting information about the municipality.  For all possible entity types, see [Entity Types].
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Search reverse entityType.":::
 
-7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API](/rest/api/maps/search/getsearchpolygon).
+7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API].
 
 >[!TIP]
 >To get more information on these parameters, as well as to learn about others, see [Reverse Search Parameters].
@@ -185,6 +185,7 @@ In this example, we'll search for a cross street based on the coordinates of an 
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
 [Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[point of interest result]: /rest/api/maps/search/getsearchpoi#searchpoiresponse
 [Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch
 [Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
 [Best Practices for Search]: how-to-use-best-practices-for-search.md#geobiased-search-results
@@ -192,4 +193,5 @@ In this example, we'll search for a cross street based on the coordinates of an 
 [Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult
 [URI Parameter reference]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
 [Search Coverage]: geocoding-coverage.md
-[Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
+[Search Polygon API]: /rest/api/maps/search/getsearchpolygon
+[Entity Types]: /rest/api/maps/search/getsearchaddressreverse#entitytype
