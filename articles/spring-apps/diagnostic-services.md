@@ -33,12 +33,12 @@ Choose the log category and metric category you want to monitor.
 
 ## Logs
 
-|Log | Description |
-|----|----|
-| **ApplicationConsole** | Console log of all customer applications. |
-| **SystemLogs** | All available LogTypes are `ConfigServer`(Basic/Standard tier only), `ServiceRegistry`(all tiers), `ApiPortal`(Enterprise tier only), `ApplicationConfigurationService`(Enterprise tier only), `SpringCloudGateway` (Enterprise tier only), `SpringCloudGatewayOperator` (Enterprise tier only) |
-| **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs. |
-| **BuildLogs** | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage. |
+| Log                    | Description                                                                                                                                                                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ApplicationConsole** | Console log of all customer applications.                                                                                                                                                                                                                                                                   |
+| **SystemLogs**         | The available `LogType` values are `ConfigServer`(Basic/Standard tier only), `ServiceRegistry`(all tiers), `ApiPortal`(Enterprise tier only), `ApplicationConfigurationService`(Enterprise tier only), `SpringCloudGateway` (Enterprise tier only), and `SpringCloudGatewayOperator` (Enterprise tier only) |
+| **IngressLogs**        | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs.                                                                                                                                                                                      |
+| **BuildLogs**          | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage.                                                                                                                                                                                               |
 
 ## Metrics
 
@@ -238,8 +238,7 @@ AppPlatformSystemLogs 
 | limit 100
 ```
 
-
-There is another component named Spring Cloud Gateway Operator. It controls the lifecycle of Spring Cloud Gateway and routes. If you have any issue related why the route doesn't take effective, you may check the logs here. To review log entries for VMware Spring Cloud Gateway Operator in Enterprise tier, run the following query:
+Another component, named Spring Cloud Gateway Operator, controls the lifecycle of Spring Cloud Gateway and routes. If you encounter any issues with the route not taking effect, check the logs for this component. To review log entries for VMware Spring Cloud Gateway Operator in Enterprise tier, run the following query:
 
 ```sql
 AppPlatformSystemLogs 
