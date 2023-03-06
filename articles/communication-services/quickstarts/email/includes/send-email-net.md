@@ -5,7 +5,7 @@ author: bashan-git
 manager: sundraman
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/06/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -206,7 +206,7 @@ You can also now subscribe to Email Operational logs which provides information 
 - Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
 - Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
 
-Please see how to [Get started with log analytics in Azure Communication Service](../../concepts/analytics/logging-and-diagnostics.md)
+Please see how to [Get started with log analytics in Azure Communication Service](../../../concepts/logging-and-diagnostics.md)
 
 ### Run the code
 
@@ -224,7 +224,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ### Sending email async and polling for the email send status
 
-When you call SendAsync with Azure.WaitUntil.Started , your method returns after starting the operation. The method returns EmailSendOperation object. You can call UpdateStatusAsync method to refresh the email operation status. 
+When you call SendAsync with Azure.WaitUntil.Started, your method returns back after starting the operation. The method returns EmailSendOperation object. You can call UpdateStatusAsync method to refresh the email operation status. 
 
 The returned EmailSendOperation object contains an EmailSendStatus object which contains: 
 - Current status of the email send operation.
