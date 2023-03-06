@@ -23,10 +23,16 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process| n/a |
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
+| Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+> [!NOTE]
+> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
+>
+> In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
+
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
 
@@ -134,6 +140,29 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
+
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
 ```
 
 You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
@@ -286,6 +315,32 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.task_all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `yield` call on `context.task_all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
 ```
 
 The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.task_all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
@@ -514,6 +569,38 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import json
+from datetime import timedelta 
+
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+```
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -699,6 +786,36 @@ main = df.Orchestrator.create(orchestrator_function)
 
 To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import json
+from datetime import timedelta 
+
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+```
+
+To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -806,13 +923,33 @@ module.exports = async function (context) {
 # [Python](#tab/python)
 
 ```python
+import azure.functions as func
 import azure.durable_functions as df
 
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-async def main(client: str):
-    durable_client = df.DurableOrchestrationClient(client)
+# An HTTP-Triggered Function with a Durable Functions Client binding
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def main(client):
     is_approved = True
-    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
+    await client.raise_event(instance_id, "ApprovalEvent", is_approved)
+```
+
+
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def main(client: str):
+    is_approved = True
+    await client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 # [PowerShell](#tab/powershell)
@@ -942,6 +1079,31 @@ def entity_function(context: df.DurableOrchestrationContext):
 main = df.Entity.create(entity_function)
 ```
 
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.entity_trigger(context_name="context")
+def entity_function(context: df.DurableOrchestrationContext):
+
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+        context.set_result(current_value)
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    
+    context.set_state(current_value)
+```
+
 # [PowerShell](#tab/powershell)
 
 Durable entities are currently not supported in PowerShell.
@@ -954,7 +1116,7 @@ Durable entities are currently not supported in Java.
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
-# [C# (InProc)](#tab/csharp-isolated)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -974,7 +1136,7 @@ public static async Task Run(
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
-# [C# (Isolated)](#tab/csharp-inproc)
+# [C# (Isolated)](#tab/csharp-isolated)
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
@@ -996,9 +1158,24 @@ module.exports = async function (context) {
 import azure.functions as func
 import azure.durable_functions as df
 
-
 async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
+
+# [Python (PM2)](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def main(req: func.HttpRequest, client) -> func.HttpResponse:
     entity_id = df.EntityId("Counter", "myCounter")
     instance_id = await client.signal_entity(entity_id, "add", 1)
     return func.HttpResponse("Entity signaled")

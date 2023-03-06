@@ -50,12 +50,6 @@
         - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Use Microsoft-supplied scripts to create test certificates
-          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
-          href: tutorial-x509-scripts.md
-        - name: Create self-signed certificates
-          displayName: X.509 certificates, OpenSSL, CSR, thumbprint
-          href: tutorial-x509-self-sign.md
         - name: Upload and verify CA certificates
           displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
@@ -346,6 +340,9 @@
               href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
+            - name: CLI
+              displayName: device twins
+              href: twin-get-started-cli.md
             - name: .NET
               displayName: device twins
               href: iot-hub-csharp-csharp-twin-getstarted.md
@@ -363,6 +360,9 @@
             - name: Portal
               displayName: module twins, module identity
               href: iot-hub-portal-csharp-module-twin-getstarted.md
+            - name: CLI
+              displayName: module twins, module identity
+              href: module-twin-getstarted-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
@@ -541,7 +541,7 @@
     - name: Azure Policy built-ins
       href: ./policy-reference.md
     - name: X.509 certificates
-      displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS 
+      displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint 
       href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:

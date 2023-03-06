@@ -18,7 +18,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads.  For an Azure VM, an example for an instance type is `STANDARD_D2_V3`.
 
-In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that is installed with the AzureML extension. Two elements in AzureML extension represent the instance types: 
+In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that is installed with the Azure Machine Learning extension. Two elements in Azure Machine Learning extension represent the instance types: 
 [nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
 and [resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
@@ -26,7 +26,7 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 
 >[!IMPORTANT]
 > 
-> If you have [specified a nodeSelector when deploying the AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings), the nodeSelector will be applied to all instance types.  This means that:
+> If you have [specified a nodeSelector when deploying the Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings), the nodeSelector will be applied to all instance types.  This means that:
 > - For each instance type creating, the specified nodeSelector should be a subset of the extension-specified nodeSelector. 
 > - If you use an instance type **with nodeSelector**, the workload will run on any node matching both the extension-specified nodeSelector and the instance type-specified nodeSelector.
 > - If you use an instance type **without a nodeSelector**, the workload will run on any node mathcing the extension-specified nodeSelector.
@@ -34,7 +34,7 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 
 ## Default instance type
 
-By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an AzureML workspace:
+By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an Azure Machine Learning workspace:
 - If you don't apply a `nodeSelector`, it means the pod can get scheduled on any node.
 - The workload's pods are assigned default resources with 0.1 cpu cores, 2-GB memory and 0 GPU for request.
 - The resources used by the workload's pods are limited to 2 cpu cores and 8-GB memory:
@@ -136,7 +136,7 @@ items:
           memory: "1Gi"
 ```
 
-The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition overrides the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
+The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition overrides the `defaultinstancetype` definition created when Kubernetes cluster was attached to Azure Machine Learning workspace. 
 
 If you submit a training or inference workload without an instance type, it uses the `defaultinstancetype`.  To specify a default instance type for a Kubernetes cluster, create an instance type with name `defaultinstancetype`.  It's automatically recognized as the default.
 
@@ -315,5 +315,5 @@ If you use the `resource section`, the valid resource definition need to meet th
 
 ## Next steps
 
-- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md)
+- [Azure Machine Learning inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md)
 - [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)
