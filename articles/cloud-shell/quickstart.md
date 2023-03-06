@@ -43,19 +43,21 @@ Azure Cloud Shell needs access to manage resources. Access is provided through n
 be registered to your subscription. Use the following commands to register the Microsoft.CloudShell
 RP namespace in your subscription:
 
-# [Azure CLI](#tab/azurecli)
+### [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az account set --subscription <Subscription Name or Id>
 az provider register --namespace Microsoft.CloudShell
 ```
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionId <SubscriptionId>
 Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
 ```
+
+---
 
 > [!NOTE]
 > You only need to register the namespace once per subscription.
@@ -64,31 +66,35 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
 
 1. List subscriptions you have access to.
 
-   # [Azure CLI](#tab/azurecli)
+   ### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
    az account list
    ```
 
-   # [PowerShell](#tab/powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
 
+   ---
+
 1. Set your preferred subscription:
 
-   # [Azure CLI](#tab/azurecli)
+   ### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
    az account set --subscription 'my-subscription-name'
    ```
 
-   # [PowerShell](#tab/powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```azurepowershell-interactive
    Set-AzContext -Subscription <SubscriptionId>
    ```
+
+   ---
 
 > [!TIP]
 > Your subscription is remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
@@ -97,21 +103,23 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
 
 Create a new resource group in CentralUS named `MyRG`.
 
-# [Azure CLI](#tab/azurecli)
+### [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az group create --location centralus --name MyRG
 ```
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyRG -Location centralus
 ```
 
+---
+
 ### Get a list of Azure commands
 
-# [Azure CLI](#tab/azurecli)
+### [Azure CLI](#tab/azurecli)
 
 Run the following command to see a list of all Azure CLI commands.
 
@@ -125,7 +133,7 @@ Run the following command to get a list of Azure CLI command that apply to WebAp
 az webapp --help
 ```
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 Run the following command to see a list of all Azure PowerShell cmdlets.
 
@@ -141,6 +149,8 @@ Run the following commands to list the Azure PowerShell commands that apply to W
 cd 'Azure:/My Subscription/WebApps'
 Get-AzCommand
 ```
+
+---
 
 ## Next steps
 
