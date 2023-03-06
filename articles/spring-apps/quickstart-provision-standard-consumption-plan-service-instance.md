@@ -190,3 +190,5 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
+
+## Next steps
