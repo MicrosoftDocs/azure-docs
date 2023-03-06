@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/24/2023
+ms.date: 03/03/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -16,9 +16,7 @@ The traditional [Azure Container Networking Interface (CNI)](./configure-azure-c
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network (VNet) subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (using the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
-> Azure CNI Overlay is currently **_unavailable_** in the following regions:
-> - South Central US
-> - West US
+> Azure CNI Overlay is currently **_unavailable_** in the **West US** region. All other public regions are supported. 
 
 
 ## Overview of overlay networking
@@ -45,7 +43,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows Server 2022                                            | Linux only                                                                    |
+| OS platforms supported       | Linux and Windows Server 2022                                    | Linux only                                                                    |
 
 ## IP address planning
 
@@ -151,6 +149,22 @@ location="westcentralus"
 
 az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
 ```
+
+## Upgrade existing clusters
+
+To update an existing cluster to use Azure CNI overlay, there are a couple prerequisites:
+
+1. The cluster must use Azure CNI without the pod subnet feature.
+1. The cluster is _not_ using network policies.
+1. The Overlay Pod CIDR needs to be an address range that _does not_ overlap with the existing cluster's VNet.
+
+To update a cluster, run the following Azure CLI command. 
+
+```azurecli
+az aks update --name $clusterName --resource-group $resourceGroup --network-plugin azure --network-plugin-mode overlay --pod-cidr $overlayPodCidr
+```
+
+This will perform a rolling upgrade of nodes in **all** nodepools simultaneously to Azure CNI overlay and should be treated like a node image upgrade. During the upgrade, traffic from an Overlay pod to a CNI v1 pod will be SNATed(Source Network Address Translation)
 
 ## Next steps
 
