@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
-author: eriklindeman
-ms.author: eriklind
+author: brendansco
+ms.author: Brendanc
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -365,19 +365,7 @@ Once your tileset creation completes, you can get the `mapConfigurationId` using
 
 For more information, see [Map configuration](creator-indoor-maps.md#map-configuration) in the indoor maps concepts article.
 
-<!--For additional information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).-->
-
-## Additional information
-
-* For additional information see the how to [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md) article.
-* See [Azure IoT Maps Creator Functional API](/rest/api/maps-creator/) for additional information on the Creator REST API.
-
 ## Next steps
 
-To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs) in the next Creator tutorial.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md)
-
-> [!div class="nextstepaction"]
-> [Create custom styles for indoor maps](how-to-create-custom-styles.md)
+> [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)

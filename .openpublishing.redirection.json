@@ -7784,13 +7784,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
+            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md",
             "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-wfs.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-wfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
             "redirect_document_id": false
         },
         {
