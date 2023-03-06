@@ -462,28 +462,8 @@ For sample alerts that use the common schema, including see
 
 ## Alert context fields for activity log alerts
 
-### Administrative Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|authorization     |         |
-|action     |         |
-|scope     |         |
-|channels     |         |
-|claims     |         |
-|caller    |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|status     |         |
-|subStatus     |         |
-|submissionTimeStamp     |         |
-
-#### Sample activity log alert when the monitoringService = Activity Log - Administrative
+See [Azure activity log event schema](../essentials/activity-log-schema.md) for detailed information about the fields in activity log alerts.
+### Sample activity log alert when the monitoringService = Activity Log - Administrative
 
 ```json
 {
@@ -508,34 +488,7 @@ For sample alerts that use the common schema, including see
     }
 }
 ```
-### Policy Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|authorization     |         |
-|action     |         |
-|scope     |         |
-|channels     |         |
-|claims     |         |
-|caller    |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|properties     |         |
-|description     |         |
-|isComplianceCheck     |         |
-|resourceLocation     |         |
-|ancestors     |         |
-|policies     |         |
-|status     |         |
-|subStatus     |         |
-|submissionTimeStamp     |         |
-
-#### Sample activity log alert when the monitoringService = Activity Log - Policy
+### Sample activity log alert when the monitoringService = Activity Log - Policy
 
 ```json
 {
@@ -566,33 +519,7 @@ For sample alerts that use the common schema, including see
   }
 }
 ```
-
-### Autoscale Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|channels     |         |
-|claims     |         |
-|caller    |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|properties     |         |
-|description     |         |
-|resourceName     |         |
-|oldInstanceCount     |         |
-|newInstanceCount     |         |
-|activeAutoscaleProfile     |         |
-|lastScaleActionTime     |         |
-|status     |         |
-|submissionTimeStamp     |         |
-
-
-#### Sample activity log alert when the monitoringService = Activity Log - Autoscale
+### Sample activity log alert when the monitoringService = Activity Log - Autoscale
 
 ```json
 {
@@ -620,35 +547,7 @@ For sample alerts that use the common schema, including see
   }
 }
 ```
-
-### Security Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|channels     |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|properties     |         |
-|threatStatus     |         |
-|category     |         |
-|threatID     |         |
-|filePath     |         |
-|protectionType     |         |
-|actionTaken     |         |
-|resourceType     |         |
-|severity     |         |
-|compromisedEntity     |         |
-|remediationSteps    |         |
-|attackedReourceType     |         |
-|status     |         |
-|submissionTimeStamp     |         |
-
-#### Sample activity log alert when the monitoringService = Activity Log - Security
+### Sample activity log alert when the monitoringService = Activity Log - Security
 
 ```json
 {
@@ -679,45 +578,7 @@ For sample alerts that use the common schema, including see
   }
 }
 ```
-
-### Service Health Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|authorization     |         |
-|channels     |         |
-|claims     |         |
-|caller    |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|httpRequest     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|properties     |         |
-|title     |         |
-|service     |         |
-|region     |         |
-|communication     |         |
-|incidentType     |         |
-|trackingId     |         |
-|impactStartTime     |         |
-|impactMitigationTime     |         |
-|impactedServices     |         |
-|impactedServicesTableRows     |         |
-|defaultLanguageTitle     |         
-|defaultLanguageContent     |         |
-|stage     |         |
-|communicationId     |         |
-|maintenanceId     |         |
-|isHIR     |         |
-|version     |         |
-|status     |         |
-|submissionTimeStamp     |         |
-
-#### Sample activity log alert when the monitoringService = ServiceHealth
+### Sample activity log alert when the monitoringService = ServiceHealth
 
 ```json
 {
@@ -760,30 +621,7 @@ For sample alerts that use the common schema, including see
   }
 }
 ```
-
-### Resource Health Activity Log
-
-|Field  |Description  |
-|---------|---------|
-|channels     |         |
-|correlationID     |         |
-|eventSource     |         |
-|eventTimeStamp     |         |
-|eventDataID     |         |
-|level     |         |
-|OperationName     |         |
-|OperationID     |         |
-|properties     |         |
-|title     |         |
-|details     |         |
-|currentHealthStatus     |         |
-|previousHealthStatus     |         |
-|type     |         |
-|cause     |         |
-|status     |         |
-|submissionTimeStamp     |         |
-
-#### Sample activity log alert when the monitoringService = ResourceHealth
+### Sample activity log alert when the monitoringService = ResourceHealth
 
 ```json
 {
@@ -809,7 +647,6 @@ For sample alerts that use the common schema, including see
   }
 }
 ```
-
 ## Alert context fields for Prometheus alerts
 
 Field  |Description  |
@@ -866,7 +703,6 @@ Use action groups in the Azure portal or use the REST API to enable the common a
 You can also use the [Action Groups API](/rest/api/monitor/actiongroups) to opt in to the common alert schema. In the [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API call,
 - Set the "useCommonAlertSchema" flag to `true` to enable the common schema
 - Set the "useCommonAlertSchema" flag to `false` to use the non-common schema for email, webhook, Logic Apps, Azure Functions, or Automation runbook actions.
-
 
 #### Sample REST API call for using the common schema
 
