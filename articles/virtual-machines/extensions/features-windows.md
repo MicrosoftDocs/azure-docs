@@ -42,7 +42,7 @@ The Azure VM Agent manages interactions between an Azure VM and the Azure fabric
 
 The Azure VM Agent is preinstalled on Azure Marketplace images. It can also be installed manually on supported operating systems. 
 
-The agent runs on multiple operating systems. However, the extensions framework has a [limit for the operating systems that extensions use](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems). Some extensions are not supported across all operating systems and might emit error code 51 ("Unsupported OS"). Check the individual extension documentation for supportability.
+The agent runs on multiple operating systems. However, the extensions framework has a [limit for the operating systems that extensions use](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems). Some extensions aren't supported across all operating systems and might emit error code 51 ("Unsupported OS"). Check the individual extension documentation for supportability.
 
 ### Network access
 
@@ -55,7 +55,7 @@ If you use a [supported version of the Azure VM Agent](https://support.microsoft
 
 Agents can only be used to download extension packages and reporting status. For example, if an extension installation needs to download a script from GitHub (Custom Script extension) or needs access to Azure Storage (Azure Backup), then you need to open additional firewall or network security group (NSG) ports. Different extensions have different requirements, because they're applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access by using Azure NSG [service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-The Azure VM Agent does not have proxy server support for you to redirect agent traffic requests through. That means the Azure VM Agent will rely on your custom proxy (if you have one) to access resources on the internet or on the host through IP 168.63.129.16.
+The Azure VM Agent doesn't have proxy server support for you to redirect agent traffic requests through. That means the Azure VM Agent relies on your custom proxy (if you have one) to access resources on the internet or on the host through IP 168.63.129.16.
 
 ## Discover VM extensions
 
@@ -110,7 +110,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-The following example uses the [VMAccess extension](/troubleshoot/azure/virtual-machines/reset-rdp#reset-by-using-the-vmaccess-extension-and-powershell) to reset the administrative password of a Windows VM to a temporary password. After you run this code, you should reset the password at first login.
+The following example uses the [VMAccess extension](/troubleshoot/azure/virtual-machines/reset-rdp#reset-by-using-the-vmaccess-extension-and-powershell) to reset the administrative password of a Windows VM to a temporary password. After you run this code, you should reset the password at first sign-in.
 
 ```powershell
 $cred=Get-Credential
@@ -173,7 +173,7 @@ For more information on creating ARM templates, see [Virtual machines in an Azur
 
 When you run a VM extension, it might be necessary to include sensitive information such as credentials, storage account names, and access keys. Many VM extensions include a protected configuration that encrypts data and only decrypts it inside the target VM. Each extension has a specific protected configuration schema, and each is detailed in extension-specific documentation.
 
-The following example shows an instance of the Custom Script extension for Windows. The command to run includes a set of credentials. In this example, the command to run is not encrypted.
+The following example shows an instance of the Custom Script extension for Windows. The command to run includes a set of credentials. In this example, the command to run isn't encrypted.
 
 ```json
 {
@@ -355,7 +355,7 @@ The following troubleshooting actions apply to all VM extensions:
 
 - Look at the system logs. Check for other operations that might have interfered with the extension, such as a long-running installation of another application that required exclusive access to the package manager.
 
-- In a VM, if there is an existing extension with a failed provisioning state, any other new extension fails to install.
+- In a VM, if there's an existing extension with a failed provisioning state, any other new extension fails to install.
 
 ### Common reasons for extension failures
 
