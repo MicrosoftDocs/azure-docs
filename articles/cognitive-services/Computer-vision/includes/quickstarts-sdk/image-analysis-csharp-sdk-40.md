@@ -86,7 +86,7 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 
 ## Analyze Image
 
-From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
+From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
 
 <!--[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet-single)]-->
 
