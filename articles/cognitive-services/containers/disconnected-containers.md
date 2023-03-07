@@ -79,8 +79,8 @@ Access is limited to customers that meet the following requirements:
     **Speech service**
 
     * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-authorization-required-1)
+    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-authorization-required-2)
 
     **Language service**
 
