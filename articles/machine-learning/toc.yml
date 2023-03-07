@@ -1,7 +1,5 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
-- name: Switch to SDK & CLI v1 documentation
-  href: v1/introduction.md
 - name: Overview
   items:
     - name: What is Azure Machine Learning?
@@ -9,6 +7,9 @@
       href: overview-what-is-azure-machine-learning.md
     - name: Glossary
       href: azure-machine-learning-glossary.md
+    - name: Architecture & terms
+      displayName: architecture, concepts, definitions, glossary
+      href: ./v1/concept-azure-machine-learning-architecture.md
 - name: Upgrade to v2
   items:
     - name: Upgrade overview

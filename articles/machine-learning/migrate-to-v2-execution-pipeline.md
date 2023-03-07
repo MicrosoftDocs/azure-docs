@@ -11,6 +11,7 @@ ms.author: lochen
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade pipelines to SDK v2
