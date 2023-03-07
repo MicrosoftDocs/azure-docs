@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume an Az
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 03/07/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -110,7 +110,7 @@ Once you've retrieved your volume's information, you need to create a few yml fi
 
 ### Storageclass
 
-Create a storageclass.yml file, Use the following example to create a storageclass.yml file. This file defines your persistent volume's storageclass.
+Use the following example to create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -120,7 +120,7 @@ metadata:
 provisioner: manual
 ```
 
-### Presistent volume
+### Persistent volume
 
 After you've created the storage class, create a *pv.yml* file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a *pv.yml* file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
 
@@ -151,7 +151,7 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
-After creating the file, create the persistent volume with the following command:
+After creating the *pv.yml* file, create a persistent volume with the following command:
 
 ```bash
 kubectl apply -f pathtoyourfile/pv.yaml
@@ -193,7 +193,7 @@ kubectl get pvc pathtoyourfile
 ```
 
 
-Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your *pod.yml* file might look like. You can use it to make your own pod manifest, replace the `name`, `image`, and `mountPath` values with your own:
+Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your *pod.yml* file might look like. You can use it to make your own pod manifest, replace the values for `name`, `image`, and `mountPath` with your own:
 
 ```yml
 apiVersion: v1
@@ -217,13 +217,13 @@ spec:
         claimName: iscsiplugin-pvc
 ```
 
-After creating the *pod.yml* file, create the pod.
+After creating the *pod.yml* file, create a pod.
 
 ```bash
 kubectl apply -f pathtoyourfile/pod.yaml
 ```
 
-To verify your Pod was created run the following command: 
+To verify your Pod was created, run the following command: 
 
 ```bash
 kubectl get pods  
