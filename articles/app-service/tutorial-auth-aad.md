@@ -14,7 +14,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views frontend as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ In the tutorial, you learn:
 
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. You must deploy the frontend and backend app and configure authentication for this web app to be used successfully. 
 
-:::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the front-end app to the back-end app.":::
+:::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the frontend app to the backend app.":::
 
 ## Get the user profile
 
@@ -152,79 +152,79 @@ Browse to the frontend app and return the _fake_ profile from the backend. This 
 
 In this step, you enable authentication and authorization for the two web apps. This tutorial uses Azure Active Directory as the identity provider. 
 
-You also configure the front-end app to: 
+You also configure the frontend app to: 
 
-- Grant the front-end app access to the back-end app
+- Grant the frontend app access to the backend app
 - Configure App Service to return a usable token
 - Use the token in your code.
 
 For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
 
-### Enable authentication and authorization for back-end app
+### Enable authentication and authorization for backend app
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app.
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your backend app.
 
-1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
+1. In your backend app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
 1. Accept the default settings and select **Add**.
 
-    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
+    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
 1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
 
     :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
 
-If you stop here, you have a self-contained app that's already secured by the App Service authentication and authorization. The remaining sections show you how to secure a multi-app solution by "flowing" the authenticated user from the front end to the back end. 
+If you stop here, you have a self-contained app that's already secured by the App Service authentication and authorization. The remaining sections show you how to secure a multi-app solution by "flowing" the authenticated user from the frontend to the backend. 
 
-### Enable authentication and authorization for front-end app
+### Enable authentication and authorization for frontend app
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your backend app's management page.
 
-    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
+    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a backend app's management page selected.":::
 
-1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
+1. In your backend app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
 1. Accept the default settings and select **Add**.
 
-    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
+    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
 1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
 
     :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
 
 
-### Grant front-end app access to back end
+### Grant frontend app access to backend
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. To complete the authentication, you need to do three things:
 
-- Grant the frontend app access to the back-end app
+- Grant the frontend app access to the backend app
 - Configure App Service to return a usable token
 - Use the token in your code.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
-In this step, you **grant the frontend app access to the backend app** on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
+In this step, you **grant the frontend app access to the backend app** on the user's behalf. (Technically, you give the frontend's _AD application_ the permissions to access the backend's _AD application_ on the user's behalf.)
 
 1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **front-end-app-name**.
+1. Select **Add a permission**, then select **My APIs** > **\<front-end-app-name>**.
 
-1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
+1. In the **Request API permissions** page for the backend app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
     :::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected.":::
 
 ### Configure App Service to return a usable access token
 
-The frontend app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
+The frontend app now has the required permissions to access the backend app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the backend. For this step, you need the backend's client ID, which you copied from [Enable authentication and authorization for backend app](#enable-authentication-and-authorization-for-back-end-app).
 
 In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\<front-end-app-name>* and *\<back-end-client-id>*.
 
@@ -237,25 +237,27 @@ az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-na
 The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
-- `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT token that includes the back end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
+- `api://<back-end-client-id>/user_impersonation` is an exposed API in your backend app registration. It's the scope that gives you a JWT token that includes the backend app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-the-front-end-token-expires)).
 
 > [!TIP]
-> - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
+> - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the backend app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
 > - To configure the required scopes using a web interface instead, see the Microsoft steps at [Refresh auth tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
-> - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the frontend app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
+> - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the frontend app in the browser. To avoid this consent page, add the frontend's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the frontend's app registration.
 
 ::: zone pivot="platform-linux"
 
 ::: zone-end
     
-Your apps are now configured. The front end is now ready to access the back end with a proper access token.
+Your apps are now configured. The frontend is now ready to access the backend with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## 6. Frontend calls the authenticated backend
 
 The frontend app needs to pass the user's authentication with the correct `user_impersonation` scope to the backend. The following steps review the code provided in the sample for this functionality. 
+
+View the frontend app's source code:
 
 1. Use the frontend App Service injected `x-ms-token-aad-access-token` header to programmatically get the user's accessToken.
 
@@ -290,7 +292,7 @@ The frontend app needs to pass the user's authentication with the correct `user_
 
 The App service rejects the request with a 401 HTTP error code before the request reaches your application code. When your application code is reached, extract the bearerToken to get the accessToken. 
 
-The local backend app in Visual Studio Code.
+View the backend app's source code:
 
 ```javascript
 // ./src/server.js
@@ -339,20 +341,17 @@ In the preceding steps, you created Azure resources in a resource group.
     ```
 
 
-1. Delete app registrations for both frontend and backend apps
+1. Use the authentication apps' **Client ID**, you previously found and made note of in the `Enable authentication and authorization` sections for the backend and frontend apps.
+1. Delete app registrations for both frontend and backend apps.
 
     ```azurecli-interactive
-    # list all authentication apps
-    az ad app list --query [].[displayName,id] --output table
-    
     # delete app - do this for both frontend and backend app
-    # use ID in table from previous command
-    az ad app delete id
+    az ad app delete <client-id>
     ```
 
 ## Frequently asked questions
 
-### How do I test this authentication on my local development machine?**
+### How do I test this authentication on my local development machine?
 
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
@@ -397,7 +396,7 @@ Because the frontend app calls the backend app from server source code, this isn
     * 404: The URL to the server doesn't match a route the server has
 * Use the backend app's streaming logs to watch as you make the frontend request for the user's profile. There's debug information in the source code with `console.log` which helps determine where the failure happened.
 
-### What happens when the front-end token expires?
+### What happens when the frontend token expires?
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
