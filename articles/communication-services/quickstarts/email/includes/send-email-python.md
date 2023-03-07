@@ -13,62 +13,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
 
-Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 3.7+.
-- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
-- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
-
-### Prerequisite check
-- In a terminal or command window, run the `python --version` command to check that Python is installed.
-- To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
-
-## Set up the application environment
-
-To set up an environment for sending emails, take the steps in the following sections.
-
-### Create a new Python application
-
-1. Open your terminal or command window. Then use the following command to create a virtual environment and activate it. This command creates a new directory for your app.
-
-    ```console
-    python -m venv email-quickstart
-    ```
-
-1. Navigate to the root directory of the virtual environment and activate it using the following commands.
-
-    ```console
-    cd email-quickstart
-    .\Scripts\activate
-    ```
-
-1. Use a text editor to create a file called **send-email.py** in the project root directory and add the structure for the program, including basic exception handling.
-
-   ```python
-   import os
-   from azure.communication.email import EmailClient
-
-   try:
-       # Quickstart code goes here.
-   except Exception as ex:
-       print('Exception:')
-       print(ex)
-   ```
-
-In the following sections, you'll add all the source code for this quickstart to the **send-email.py** file that you created.
-
-### Install the package
-
-While still in the application directory, install the Azure Communication Services Email SDK for Python package by using the following command.
-
-```console
-pip install azure-communication-email
-```
-
-## Object model
+## Understanding Email Object model
 
 The following JSON message template & response object demonstrate some of the major features of the Azure Communication Services Email SDK for Python.
 
@@ -141,7 +86,72 @@ response = {
 }
 ```
 
-## Authenticate the client
+The `response.status` values are explained further in the following table.
+
+| Status Name | Description |
+| ----------- | ------------|
+| InProgress | The email send operation is currently in progress and being processed. |
+| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
+| Canceled | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Python](https://www.python.org/downloads/) 3.7+.
+- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
+- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
+### Prerequisite check
+- In a terminal or command window, run the `python --version` command to check that Python is installed.
+- To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+
+## Set up the application environment
+
+To set up an environment for sending emails, take the steps in the following sections.
+
+### Create a new Python application
+
+1. Open your terminal or command window. Then use the following command to create a virtual environment and activate it. This command creates a new directory for your app.
+
+    ```console
+    python -m venv email-quickstart
+    ```
+
+1. Navigate to the root directory of the virtual environment and activate it using the following commands.
+
+    ```console
+    cd email-quickstart
+    .\Scripts\activate
+    ```
+
+1. Use a text editor to create a file called **send-email.py** in the project root directory and add the structure for the program, including basic exception handling.
+
+   ```python
+   import os
+   from azure.communication.email import EmailClient
+
+   try:
+       # Quickstart code goes here.
+   except Exception as ex:
+       print('Exception:')
+       print(ex)
+   ```
+
+In the following sections, you'll add all the source code for this quickstart to the **send-email.py** file that you created.
+
+### Install the package
+
+While still in the application directory, install the Azure Communication Services Email SDK for Python package by using the following command.
+
+```console
+pip install azure-communication-email
+```
+## Creating the email client with authentication
+
+### Option 1: Authenticate using a connection string
 
 Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
@@ -150,11 +160,35 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
+### Option 2: Authenticate using Azure Active Directory
+
+You can also use Active Directory authentication using DefaultAzureCredential.
+
+```python
+from azure.communication.email import EmailClient
+from azure.identity import DefaultAzureCredential
+
+# To use Azure Active Directory Authentication (DefaultAzureCredential) make sure to have AZURE_TENANT_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET as env variables.
+endpoint = "https://<resource-name>.communication.azure.com"
+client = EmailClient(endpoint, DefaultAzureCredential())
+```
+
+### Option 3: Authenticate using AzureKeyCredential
+Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential).
+
+```python
+from azure.communication.email import EmailClient
+from azure.core.credentials import AzureKeyCredential
+credential = AzureKeyCredential("<api_key>")
+endpoint = "https://<resource-name>.communication.azure.com/"
+client = EmailClient(endpoint, credential);
+```
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Send an email message
 
-To send an email message, you need to
+To send an email message, you need to:
 - Construct the message with the following values:
    - `senderAddress`: A valid sender email address, found in the MailFrom field in the overview pane of the domain linked to your Email Communication Services Resource.
    - `recipients`: An object with a list of email recipients, and optionally, lists of CC & BCC email recipients. 
@@ -220,13 +254,6 @@ try:
 except Exception as ex:
     print(ex)
 ```
-
-| Status Name | Description |
-| ----------- | ------------|
-| InProgress | The email send operation is currently in progress and being processed. |
-| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
-| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| Canceled | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
 
 ## Run the code
 
