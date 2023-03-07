@@ -22,7 +22,8 @@ You can download the sample app from [GitHub](https://github.com/link.  -->
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Fully qualified domain name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system
+- Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
+- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
 ## Setting Up
 
@@ -126,10 +127,6 @@ Direct routing configuration consists of:
 1. Domain ownership verification - see [prerequisites](#prerequisites)
 1. Creating trunks (adding SBCs)
 1. Creating voice routes
-
-### Verify domain ownership
-
-In order to create a direct routing configuration, you need to verify that you control a domain for your Session Border Controller Fully Qualified Domain name (FQDN). Refer to [domain validation how-to](../../../how-tos/telephony/domain-validation.md).
 
 ### Create or Update Trunks
 

@@ -19,7 +19,9 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 3.7+.
-- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- A deployed Communication Services resource and a connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
+- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
 ## Setting up
 
@@ -31,7 +33,7 @@ Open your terminal or command window and create a new directory for your app, th
 mkdir direct-routing-quickstart && cd direct-routing-quickstart
 ```
 
-Use a text editor to create a file called *direct_routing_sample.py* in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
+Use a text editor to create a file called **direct_routing_sample.py** in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
 
 ```python
 import os
@@ -83,7 +85,7 @@ except Exception as ex:
     print(ex)
 ```
 
-Alternatively, using the endpoint and access key from the communication resource to authenticate is also possible.
+Alternatively, you can use the endpoint and access key from the communication resource to authenticate.
 
 ```python
 import os
@@ -99,11 +101,11 @@ except Exception as ex:
     print(ex)
 ```
 
-## Setup Direct Routing configuration
+## Setup direct routing configuration
 
-### Verify Domain Ownership
-
-[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
+1. Domain ownership verification - see [prerequisites](#prerequisites)
+1. Creating trunks (adding SBCs)
+1. Creating voice routes
 
 ### Create or Update Trunks
 
@@ -119,7 +121,7 @@ sip_routing_client.set_trunks(new_trunks)
 > [!NOTE]
 > Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
-For outbound calling routing rules should be provided. Each rule consists of 2 parts: regex pattern, that should match destination phone number and FQDN of registered trunk, where call will be routed to when matched.
+For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match dialed phone number and FQDN of a registered trunk where call is routed. In this example, we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`.
 
 ```python
 us_route = SipTrunkRoute(name="UsRoute", description="Handle US numbers '+1'", number_pattern="^\\+1(\\d{10})$", trunks=["sbc.us.contoso.com"])
@@ -133,26 +135,36 @@ sip_routing_client.set_routes(new_routes)
 Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` python
-new_trunk = SipTrunk(fqdn="sbc.us.contoso.com", sip_signaling_port=1235)
+new_trunk = SipTrunk(fqdn="sbc.us.contoso.com", sip_signaling_port=5063)
 sip_routing_client.set_trunk(new_trunk)
 ```
+
+> [!IMPORTANT]
+>The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
 
 Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
 Therefore the same method is used to Create and update routing rules.
 
 ### Removing a direct routing configuration
 
-You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+
+``` python
+
+
+``` 
+
+You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ``` python
 sip_routing_client.delete_trunk("sbc.us.contoso.com")
 ```
 
-All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+<!-- All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections. -->
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *direct_routing_sample.py* file, then execute the following Python command to run the app.
+From a console prompt, navigate to the directory containing the **direct_routing_sample.py** file, then execute the following Python command to run the app.
 
 ```console
 python direct_routing_sample.py

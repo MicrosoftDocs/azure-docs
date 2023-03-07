@@ -16,8 +16,8 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
-- Fully qualified domain name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
-- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN
+- Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
+- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
 ## Adding a Session Border controller
 
@@ -50,7 +50,6 @@ Here are some examples of basic regular expressions:
 For more information about regular expressions, see [.NET regular expressions overview](/dotnet/standard/base-types/regular-expressions).
 
 You can select multiple SBCs for a single pattern. In such a case, the routing algorithm chooses them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row aren't available next row will be selected. This way, you create complex routing scenarios.
-## Updating existing configuration
 
 ## Removing a direct routing configuration
 
