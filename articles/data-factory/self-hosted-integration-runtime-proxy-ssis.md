@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: seo-lt-2019
 ms.date: 02/28/2023
 ---
 
