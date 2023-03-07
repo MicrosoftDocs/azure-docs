@@ -135,7 +135,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks" lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
 
 
-1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
+1. Let's expand the timestamp information in the `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns using the Pandas [DatetimeIndex constructor](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
  
     The resulting DataFrame looks like this:
 
@@ -143,9 +143,9 @@ To train a machine learning model on data in your Log Analytics workspace:
  
 1. Split the dataset into a training set and a testing set.
 
-    To validate a machine learning model, we need to use some of the data we have to train the model and some of data to check how well the trained model is able to predict values the model doesn't yet know.    
+    To validate a machine learning model, we need to use some of the data we have to train the model and some of data to check how well the trained model predicts values the model doesn't yet know.    
     
-    1. Use the [TimeSeriesSplit()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) time series cross-validator to split the dataset into a training set and a test set.
+    Let's use the `scikit-learn` library's [TimeSeriesSplit() time series cross-validator](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) to split the dataset into a training set and a test set.
     
  
 ## Train the model
