@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/31/2017
+ms.date: 03/06/2023
 
 ---
 

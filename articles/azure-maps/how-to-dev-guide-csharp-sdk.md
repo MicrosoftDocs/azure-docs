@@ -52,7 +52,7 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 #### Azure Maps services
 
-| Service Name  | NuGet package           |  Samples     |
+| Service name  | NuGet package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
 | [Routing][routing readme] | [Azure.Maps.Routing][routing package] |  [routing samples][routing sample] |
