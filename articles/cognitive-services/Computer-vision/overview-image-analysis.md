@@ -126,7 +126,7 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Do Image Retrieval using vectorization](./how-to/image-retrieval.md)
+[Image Retrieval](./concept-image-retrieval.md)
 
 ## Background removal (v4.0 preview only)
 
