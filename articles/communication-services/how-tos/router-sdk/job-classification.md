@@ -39,13 +39,18 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
         PrioritizationRule = new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
         QueueSelectors = new List<QueueSelectorAttachment>()
         {
-            new QueueLabelSelector()
-            {
-                LabelSelectors = new List<LabelSelectorAttachment>
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Region = \"NA\", true, false)"),
+                labelSelectors: new List<QueueSelector>()
                 {
-                    new ExpressionRule("If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")")
-                }
-            }
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_NA_QUEUE"))
+                }),
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Escalated = \"NA\", false, true)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_DEFAULT_QUEUE"))
+                })
         }
     });
 ```
@@ -131,15 +136,7 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new StaticWorkerSelectorAttachment()
-            {
-                LabelSelector = new WorkerSelector()
-                {
-                    Key = "Foo",
-                    LabelOperator = LabelOperator.Equal,
-                    Value = "Bar"
-                }
-            }
+            new StaticWorkerSelectorAttachment(new WorkerSelector("Foo", LabelOperator.Equal, new LabelValue("Bar")))
         }
     });
 ```
@@ -174,19 +171,12 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new ConditionalWorkerSelectorAttachment()
-            {
-                Condition = new ExpressionRule("job.Urgent = true"),
-                LabelSelectors = new List<WorkerSelector>
+            new ConditionalWorkerSelectorAttachment(
+                condition: new ExpressionRule("job.Urgent = true")),
+                labelSelectors: new List<WorkerSelector>()
                 {
-                    new WorkerSelector()
-                    {
-                        Key = "Foo",
-                        LabelOperator = LabelOperator.Equal,
-                        Value = "Bar"
-                    }
+                    new WorkerSelector("Foo", LabelOperator.Equal, "Bar")
                 })
-            } 
         }
     });
 ```
@@ -227,7 +217,7 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new PassThroughLabelSelector(key: "Foo", @operator: LabelOperator.Equal)
+            new PassThroughQueueSelectorAttachment("Foo", LabelOperator.Equal)
         }
     });
 ```
@@ -263,22 +253,20 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new WeightedAllocationWorkerSelectorAttachment()
-            {
-                Weight = 0.3,
-                LabelSelectors = new List<WorkerSelector>
+            new WeightedAllocationWorkerSelectorAttachment(
+                new List<WorkerWeightedAllocation>()
                 {
-                    new WorkerSelector("Vendor", LabelOperator.Equal, "A")
+                    new WorkerWeightedAllocation(0.3, 
+                        new List<WorkerSelector>()
+                        {
+                            new WorkerSelector("Vendor", LabelOperator.Equal, "A")
+                        }),
+                    new WorkerWeightedAllocation(0.7, 
+                        new List<WorkerSelector>()
+                        {
+                            new WorkerSelector("Vendor", LabelOperator.Equal, "B")
+                        })
                 })
-            },
-            new WeightedAllocationWorkerSelectorAttachment()
-            {
-                Weight = 0.7,
-                LabelSelectors = new List<WorkerSelector>
-                {
-                    new WorkerSelector("Vendor", LabelOperator.Equal, "B")
-                })
-            }
         }
     });
 ```
@@ -326,12 +314,7 @@ var reclassifiedJob = await routerClient.ReclassifyJobAsync("<job id>");
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.reclassifyJob("<jobId>", {
-    classificationPolicyId: null,
-    labelsToUpdate: {
-        Hardware_VIP: true
-    }
-});
+await client.reclassifyJob("<jobId>");
 ```
 
 ::: zone-end

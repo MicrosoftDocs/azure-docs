@@ -40,26 +40,20 @@ await routerClient.CreateExceptionPolicyAsync(
             exceptionPolicyId: "Escalate_XBOX_Policy",
             exceptionRules: new Dictionary<string, ExceptionRule>()
             {
-                new (
-                    {
-                        ["Escalated_Rule"] = 
+                {
+                    ["Escalated_Rule"] = new ExceptionRule(new WaitTimeExceptionTrigger(300), 
+                        new Dictionary<string, ExceptionAction>()
                         {
-                            id: "Escalated_Rule",
-                            trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
-                            actions: new List<ExceptionAction>()
-                            {
-                                new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
+                            "EscalateReclassifyExceptionAction" = new ReclassifyExceptionAction(
+                                classificationPolicyId: "<classification policy id>", 
+                                labelsToUpsert: new Dictionary<string, object>()
                                 {
-                                    LabelsToUpsert = new LabelCollection(
-                                        new Dictionary<string, object>
-                                    {
-                                        ["Escalated"] = true,
-                                    })
-                                }
-                            }
-                        }
-                    }
-                )
+                                    ["Escalated"] = true,
+                                })
+                        })
+                }
+            }
+    ))
     {
         Name = "My exception policy"
     }
@@ -78,14 +72,18 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
         PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 1)"),
         QueueSelectors = new List<QueueSelectorAttachment>()
         {
-            new QueueLabelSelector()
-            {
-                LabelSelectors = new List<LabelSelectorAttachment>
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Escalated = true, true, false)"),
+                labelSelectors: new List<QueueSelector>()
                 {
-                    new ExpressionRule(
-                        "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")"))
-                }
-            }
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_Escalation_Queue"))
+                }),
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Escalated = false, true, false)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_Queue"))
+                })
         },
         FallbackQueueId = "Default"
     });

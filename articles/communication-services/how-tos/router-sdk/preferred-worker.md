@@ -36,19 +36,13 @@ In the following example, a job is created that targets a specific worker. If th
 ```csharp
 await routerClient.CreateJobAsync(
     options: new CreateJobOptions(
-            jobId: "89f0274f-555c-4f38-9dd2-966a44b32f8c",
+            jobId: "<job id>",
             channelId: "<channel id>",
             queueId: "<queue id>")
     {
-        RequestedWorkerSelectors = new List<WorkerSelector>
+        RequestedWorkerSelectors = new List<WorkerSelector>()
           {
-            new WorkerSelector()
-            {
-                Key = "Id",
-                Operator = LabelOperator.Equal,
-                Value = "<preferred worker id>",
-                TTL = TimeSpan.FromMinutes(1)
-            }
+            new WorkerSelector("Id", LabelOperator.Equal, "<preferred worker id>", TimeSpan.FromMinutes(1))
           }
     });
 ```

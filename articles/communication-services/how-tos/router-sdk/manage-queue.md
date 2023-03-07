@@ -56,14 +56,14 @@ The Job Router SDK will update an existing queue when the `UpdateQueue` or `Upda
 var queue = await administrationClient.UpdateQueueAsync(
     options: new UpdateQueueOptions("XBOX_DEFAULT_QUEUE")
     {
+        QueueId = "XBOX_DEFAULT_QUEUE",
+        Name = "XBOX Default Queue",
+        DistributionPolicyId = "Longest_Idle_45s_Min1Max10",
         Labels = new Dictionary<string, LabelValue>()
         {
             ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
         }
     });
-    id: "",
-    name: "XBOX Default Queue",
-    distributionPolicy: "Longest_Idle_45s_Min1Max10"
 );
 ```
 
