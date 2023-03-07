@@ -4,8 +4,8 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/13/2023
-ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
+ms.date: 3/08/2023
+ms.custom: "devx-track-js, seodec18, devx-track-azurecli, engagement-fy23"
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
 ---
@@ -42,9 +42,13 @@ The authentication in this procedure is provided at the hosting platform layer b
 
 :::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the front-end app to the back-end app.":::
 
-The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. In the next article in this series, the fake profile is replaced with a profile from Microsoft Graph.
+## Get the user profile
 
-Before your source code is executed on the frontend, the App Service injects the authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header. The frontend source code then accesses and sends the accessToken to the backend server as the `bearerToken` to securely access the backend API. The backend server validates the bearerToken before it's passed into your backend source code.  
+The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their **_fake_** profile from the backend. This tutorial uses a fake profile to simplify the steps to complete the scenario. 
+
+Before your source code is executed on the frontend, the App Service injects the authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header. The frontend source code then accesses and sends the accessToken to the backend server as the `bearerToken` to securely access the backend API. The backend server validates the bearerToken before it's passed into your backend source code. Once your backend source code receives the bearerToken, it can be used. 
+
+ _In [the next article](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md) in this series_, the bearerToken is exchanged for a token with a scope to access the Microsoft Graph API. The Microsoft Graph API returns the user's profile information.
 
 ## Prerequisites
 
@@ -53,7 +57,7 @@ Before your source code is executed on the frontend, the App Service injects the
 - [Node.js (LTS)](https://nodejs.org/download/)
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Clone the sample application 
+## 1. Clone the sample application 
 
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository. 
 
@@ -61,7 +65,7 @@ Before your source code is executed on the frontend, the App Service injects the
     git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
 
-## Create and deploy apps
+## 2. Create and deploy apps
 
 Create the resource group, web app plan, the web app and deploy in a single step.
 
@@ -73,10 +77,10 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<front-end-app-name>` with a unique name. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe"--runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe"--runtime "NODE:16-lts"
     ```
 
 1. Change into the backend web app directory.
@@ -85,10 +89,10 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd ../backend
     ```
 
-1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<back-end-app-name>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --plan myPlan --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
@@ -101,10 +105,10 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd frontend
     ```
 
-1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<front-end-app-name>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
     ```
 
 1. Change into the backend web app directory.
@@ -113,27 +117,27 @@ Create the resource group, web app plan, the web app and deploy in a single step
     cd ../backend
     ```
 
-1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<back-end-app-name>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --plan myPlan --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
 
-## Configure app setting
+## 3. Configure app setting
 
-The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting. The URL should in the format of `https://frontend-<ABC>`.
+The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting. The URL should be in the format of `https://<back-end-app-name>.azurewebsites.net`.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myAuthResourceGroup --name frontend-<ABC> --settings BACKEND_URL=backend-<ABC>
+az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings BACKEND_URL="https://<back-end-app-name>.azurewebsites.net"
 ```
 
-## Call the backend
+## 4. Call the backend
 
 Browse to the frontend app and return the _fake_ profile from the backend. This action validates that the frontend is successfully requesting the profile from the backend, and the backend is returning the profile. 
 
-1. Open the frontend web app in a browser. Replace `<ABC>` with your unique set of initials or numbers. : `https://frontend-<ABC>`.
+1. Open the frontend web app in a browser, `https://<front-end-app-name>.azurewebsites.net`. 
 
     :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
 
@@ -144,7 +148,7 @@ Browse to the frontend app and return the _fake_ profile from the backend. This 
 
     The `withAuthentication` value of **false** indicates the authentication _isn't_ set up yet. 
 
-## Configure authentication
+## 5. Configure authentication
 
 In this step, you enable authentication and authorization for the two web apps. This tutorial uses Azure Active Directory as the identity provider. 
 
@@ -212,7 +216,7 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **\backend-\<ABC\>**.
+1. Select **Add a permission**, then select **My APIs** > **front-end-app-name**.
 
 1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -222,12 +226,12 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 The frontend app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
-In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\frontend-\<ABC\>* and *\<back-end-client-id>*.
+In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\<front-end-app-name>* and *\<back-end-client-id>*.
 
 ```azurecli-interactive
-authSettings=$(az webapp auth show -g myAuthResourceGroup -n frontend-<ABC>)
+authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}')
-az webapp auth set --resource-group myAuthResourceGroup --name frontend-<ABC> --body "$authSettings"
+az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
 The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
@@ -249,7 +253,7 @@ Your apps are now configured. The front end is now ready to access the back end 
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-## Frontend calls the authenticated backend
+## 6. Frontend calls the authenticated backend
 
 The frontend app needs to pass the user's authentication with the correct `user_impersonation` scope to the backend. The following steps review the code provided in the sample for this functionality. 
 
@@ -280,6 +284,7 @@ The frontend app needs to pass the user's authentication with the correct `user_
     }
     ```
 
+    This tutorial returns a _fake_ profile to simplify the scenario. The [next tutorial](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md) in this series demonstrates how to exchange the backend bearerToken for a new token with the scope of a downstream Azure service, such as Microsoft Graph.
 
 ## <a name="call-api-securely-from-server-code"></a>Backend returns profile to frontend
 
@@ -307,9 +312,9 @@ if (bearerToken) {
 }
 ```
 
-## Browse to the apps
+## 7. Browse to the apps
 
-1. Use the frontend web site in a browser. The URL is in the formate of `https://frontend-<ABC>.azurewebsites.net/`.
+1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
 1. After authentication completes, the frontend application returns the home page of the app.
 
@@ -322,22 +327,41 @@ if (bearerToken) {
 
     The `withAuthentication` value of **true** indicates the authentication _is_ set up yet. 
 
-## When access tokens expire
+## 8. Clean up resources
 
-Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+In the preceding steps, you created Azure resources in a resource group. 
+
+1. Delete the resource group by running the following command in the Cloud Shell. This command may take a minute to run.
+
+
+    ```azurecli-interactive
+    az group delete --name myAuthResourceGroup
+    ```
+
+
+1. Delete app registrations for both frontend and backend apps
+
+    ```azurecli-interactive
+    # list all authentication apps
+    az ad app list --query [].[displayName,id] --output table
+    
+    # delete app - do this for both frontend and backend app
+    # use ID in table from previous command
+    az ad app delete id
+    ```
 
 ## Frequently asked questions
 
-**How do I test this authentication on my local development machine?**
+### How do I test this authentication on my local development machine?**
 
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
-**The app isn't displaying _fake_ profile, how do I debug it?**
+## The app isn't displaying _fake_ profile, how do I debug it?
 
 The frontend and backend apps both have `/debug` routes to help debug the authentication when this application doesn't return the _fake_ profile. The frontend debug route provides the critical pieces to validate:
 
 * Environment variables: 
-    * The `BACKEND_URL` is configured correctly as `https://backend-<ABC>.azurewebsites.net`. Don't include that trailing forward slash or the route.
+    * The `BACKEND_URL` is configured correctly as `https://<back-end-app-name>.azurewebsites.net`. Don't include that trailing forward slash or the route.
 * HTTP headers:
     * The `x-ms-token-*` headers are injected. 
 * Microsoft Graph profile name for signed in user is displayed.
@@ -373,28 +397,10 @@ Because the frontend app calls the backend app from server source code, this isn
     * 404: The URL to the server doesn't match a route the server has
 * Use the backend app's streaming logs to watch as you make the frontend request for the user's profile. There's debug information in the source code with `console.log` which helps determine where the failure happened.
 
-## Clean up resources
+### What happens when the front-end token expires?
 
-In the preceding steps, you created Azure resources in a resource group. 
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-1. Delete the resource group by running the following command in the Cloud Shell. This command may take a minute to run.
-
-
-    ```azurecli-interactive
-    az group delete --name myAuthResourceGroup
-    ```
-
-
-1. Delete app registrations for both frontend and backend apps
-
-    ```azurecli-interactive
-    # list all authentication apps
-    az ad app list --query [].[displayName,id] --output table
-    
-    # delete app - do this for both frontend and backend app
-    # use ID in table from previous command
-    az ad app delete id
-    ```
 
 <a name="next"></a>
 ## Next steps
