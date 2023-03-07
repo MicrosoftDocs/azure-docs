@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 03/07/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -460,15 +460,19 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
 
-#### Symptom - Unable to delete a configuration
+#### Delete a configuration
 
-On the **Configurations** page, there isn't a way to delete a configuration.
+There are two ways that you can delete a configuration. You can delete a configuration on the **Configurations** page or in **Enterprise applications**.
 
-**Cause**
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
 
-Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
+1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
 
-**Solution**
+1. Select **Delete** and then **OK** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/configurations-delete.png" alt-text="Screenshot of the Configurations page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/configurations-delete.png":::
+
+Follow these steps to delete a configuration in **Enterprise applications**.
 
 1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
 
