@@ -55,20 +55,47 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option. 
 
-**[FRAN] we will need a screenshot here**
+  **[FRAN] we will need a screenshot here**
 
-1. Select _Add_ to assign a[user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity will be used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity will be used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use. 
 
 1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
 > [!NOTE]
-> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/general/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
+> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
 
-**[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
+  **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
 
 ### Add CMK encryption to an existing Enterprise cache
 
+1. Go to the **Encryption** blade of an Enterprise or Enterprise Flash tier cache. If CMK is already set up, you will see the key information here.
+
+1. To change CMK settings, select **Change encryption settings** 
+
+  **FRAN -- need a screenshot here**
+
+1. Select **Use a customer-managed key**. This will bring up configuration options. 
+
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity will be used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+
+1. Select your chosen user assigned managed identity, and then choose which key input method to use. 
+
+1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
+
+> [!NOTE]
+> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
+
+1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
+
+  **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
+
+## Next Steps
+
+Learn more about Azure Cache for Redis features:
+
+- [Data persistence](cache-how-to-premium-persistence.md)
+- [Import/Export](cache-how-to-import-export-data.md)
