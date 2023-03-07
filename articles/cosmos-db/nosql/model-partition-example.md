@@ -593,6 +593,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we've covered:
 
-- [Work with databases, containers, and items](../account-databases-containers-items.md)
+- [Work with databases, containers, and items](../resource-model.md)
 - [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 - [Change feed in Azure Cosmos DB](../change-feed.md)

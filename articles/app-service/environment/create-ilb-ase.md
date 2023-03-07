@@ -4,7 +4,7 @@ description: Learn how to create an App Service environment with an internal loa
 author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 03/29/2022
+ms.date: 02/28/2023
 ms.author: madsd
 ms.custom: mvc, seodec18, mode-other
 ---
@@ -60,7 +60,7 @@ To create an ILB ASE:
     ![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
 > [!NOTE]
-> The App Service Environment name must be no more than 37 characters.
+> The App Service Environment name must be no more than 36 characters.
 
 6. Select Networking
 
