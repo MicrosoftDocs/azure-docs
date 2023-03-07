@@ -131,6 +131,14 @@ When you make calls to an endpoint that requires a role, the following condition
 - Databases must be accessible by Azure's infrastructure.
 - During public preview, database connections scale from 0 to 1 database worker.
 
+# When to select this database connection 
+
+Use the following table to determine if the Azure Static Web Apps database connection is right for your application.
+
+| Azure Static Web Apps database connection | Self-hosted database connection |
+|--|--|
+| If your application needs to serve content through a web browser with a UI client (React, Vue, Angular, Blazor) and you need to connect to a database, select Azure Static Web Apps database connections. | If your client is served through an API endpoint or mobile app, select [self-hosted Data API builder for Azure Databases as a Docker container](https://github.com/Azure/data-api-builder/blob/main/docs/readme.md). |
+
 ## Next steps
 
 > [!div class="nextstepaction"]
