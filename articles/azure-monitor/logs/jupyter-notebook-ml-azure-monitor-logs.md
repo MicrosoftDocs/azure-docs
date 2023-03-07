@@ -171,7 +171,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - we'll use this model to score new data in our Log Analytics workspace.
 
-1. Save the trained gradient boosting regression model as a pickle file.
+1. Save the trained gradient boosting regression model as a [pickle file](https://docs.python.org/library/pickle.html).
 
 
 
