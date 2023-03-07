@@ -20,7 +20,7 @@ The following table contains information about the VMs that Azure Private 5G Cor
 
 ## Remaining usable resource on ASE Pro GPU
 
-The following resources are available within ASE for other services after deploying AP5GC. You can use these resources, for example, to deploy additional virtual machines or storage accounts.
+The following resources are available within ASE after deploying AP5GC. You can use these resources, for example, to deploy additional virtual machines or storage accounts.
 
 | Resource | Value |
 |--|--|
