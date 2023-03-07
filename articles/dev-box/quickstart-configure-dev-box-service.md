@@ -25,9 +25,9 @@ After you complete this quickstart, you'll have a Dev Box configuration ready fo
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Owner or contributor permissions on an Azure subscription or a specific resource group.
+- Owner or Contributor role on an Azure subscription or a specific resource group.
 - An existing virtual network and subnet. If you don't have them, [follow these instructions to create them](#create-a-virtual-network-and-subnet).
-- Network Contributor permissions on an existing virtual network (owner or contributor), or permission to create a new virtual network and subnet.
+- Network Contributor permissions on an existing virtual network (Owner or Contributor), or permission to create a new virtual network and subnet.
 - User licenses. To use Dev Box Preview, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
 
   - Microsoft 365 F3
