@@ -20,14 +20,10 @@ In addition to the prerequisites below, be sure to meet all [network requirement
 ### [Azure CLI](#tab/azure-cli)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
-
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli) and connect your cluster to Azure Arc.
-
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
-
-* Install the latest version of **connectedk8s** Azure CLI extension:
+* The latest version of [Azure CLI](/cli/azure/install-azure-cli).
+* The latest version of **connectedk8s** Azure CLI extension, installed by running the following command:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -42,26 +38,20 @@ In addition to the prerequisites below, be sure to meet all [network requirement
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64` and/or `linux/arm64`.
 
 * At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU.
-
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
-
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
-
+* An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
 * [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
-
-* Install the **Az.ConnectedKubernetes** PowerShell module:
+* The **Az.ConnectedKubernetes** PowerShell module, installed by running the following command:
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
-
-* An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
 
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
@@ -72,9 +62,7 @@ In addition to the prerequisites below, be sure to meet all [network requirement
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64` and/or `linux/arm64`.
 
 * At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU.
-
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
-
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
