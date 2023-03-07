@@ -4,7 +4,7 @@ description: Specifications for the HBv2-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 03/04/2023
 ms.reviewer: jushiman
 ---
 
@@ -35,11 +35,11 @@ HBv2-series VMs feature 200 Gb/sec Mellanox HDR InfiniBand. These VMs are connec
 | Standard_HB120-16rs_v2 | 16 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
-- Supported [software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM
+- [Architecture and VM topology](hbv2-series-overview.md)
+- Supported [software stack](hbv2-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hbv2-performance.md) of the HBv2-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
