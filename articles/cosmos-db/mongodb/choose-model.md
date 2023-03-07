@@ -21,7 +21,7 @@ Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering
 
 Here are a few key factors to help you decide which is the right architecture for you:
 
-|             | RU-based | vCore-based |
+| Factor | RU-based | vCore-based |
 | ----------- | ----------- | -------|
 | What do you want to do |  &bull; Works well if you're trying to build new cloud-native MongoDB apps or refactor existing apps for all the benefits of a cloud-native offering | &bull; Works well if you're trying to lift and shift existing MongoDB apps and run them as-is on a fully supported managed service. |
 | What are your availability needs | &bull; Offers upto [99.999%](../high-availability.md#slas) of availability with multi-region deployments | &bull; Offers competitive SLA (once generally available) |
@@ -32,7 +32,7 @@ Here are a few key factors to help you decide which is the right architecture fo
 
 There are differences between the offerings in the way the resources are assigned and billed on the platform:
 
-|             | RU-based | vCore-based |
+| Resource details | RU-based | vCore-based |
 | ----------- | ----------- | -------|
 | How are the resources assigned | &bull; This option is a multi-tenant service that instantly assigns resources to the workload to meet its storage and throughput needs. <br/>&bull; Throughput uses the concept of [Request Units (RUs)](../request-units.md). | &bull; This option provides dedicated instances using preset CPU, memory and storage resources that scale to meet your needs. |
 | How are the resources billed | &bull; You pay variable fees for the RUs and consumed storage. <br/>&bull; RU charges are based on the choice of the model: provisioned throughput (standard or autoscale) or serverless. | &bull; You pay consistent flat fee based on the compute (CPU, memory and the number of nodes) and storage. | 
