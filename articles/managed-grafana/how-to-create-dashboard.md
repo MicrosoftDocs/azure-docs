@@ -36,15 +36,15 @@ Import a dashboard template from the Grafana Labs website.
 
     ### [Portal](#tab/azure-portal)
 
-    1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
-    1. In the Grafana portal, go to **Dashboards > Import**.
-    1. On the **Import** page, under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
+   1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
+   1. In the Grafana portal, go to **Dashboards > Import**.
+   1. Under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
 
-       :::image type="content" source="media/create-dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
+      :::image type="content" source="media/create-dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
 
-    1. Optionally update the dashboard name, folder and UID.
-    1. Select a datasource and select **Import**.
-    1. A new dashboard is displayed. Review and edit it if necessary.
+   1. Optionally update the dashboard name, folder and UID.
+   1. Select a datasource and select **Import**.
+   1. A new dashboard is displayed. Review and edit it if necessary.
 
     ### [Azure CLI](#tab/azure-cli)
     
