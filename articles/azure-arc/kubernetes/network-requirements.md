@@ -16,6 +16,13 @@ This topic describes the networking requirements for connecting a Kubernetes clu
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
+## Additional endpoints
+
+Depending on your scenario, you may need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
+
+- [Azure portal URLs](../azure-portal/azure-portal-safelist-urls.md)
+- [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints)
+
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Next steps
