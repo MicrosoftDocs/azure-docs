@@ -117,7 +117,7 @@
     - name: SolidWorks computer-aided design (CAD)
       displayName: SolidWorks CAD
       href: class-type-solidworks.md
-    - name: Sql database management and development
+    - name: SQL database management and development
       href: class-type-sql-server.md
 - name: How-tos
   items:
