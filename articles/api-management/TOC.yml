@@ -88,8 +88,6 @@
         href: devops-api-development-templates.md  
       - name: APIs
         items:
-            - name: GraphQL APIs
-              href: graphql-apis-overview.md
             - name: API design ebook
               href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: RESTful web API design
@@ -267,8 +265,6 @@
                 - name: Manage secrets using named values
                   displayName: Azure CLI, az apim nv
                   href: api-management-howto-properties.md
-                - name: Configure a GraphQL resolver
-                  href: configure-graphql-resolver.md
       - name: Secure your APIs
         items:
           - name: Secure API access
@@ -436,8 +432,6 @@
               href: forward-request-policy.md
             - name: get-authorization-context
               href: get-authorization-context-policy.md
-            - name: http-data-source
-              href: http-data-source-policy.md
             - name: include-fragment
               href: include-fragment-policy.md
             - name: invoke-dapr-binding
@@ -454,8 +448,6 @@
               href: mock-response-policy.md
             - name: proxy
               href: proxy-policy.md
-            - name: publish-event
-              href: publish-event-policy.md
             - name: publish-to-dapr
               href: publish-to-dapr-policy.md
             - name: quota

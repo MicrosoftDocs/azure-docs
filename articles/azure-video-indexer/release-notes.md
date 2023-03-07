@@ -495,10 +495,6 @@ You can now create an Azure Video Indexer paid account in the Switzerland West a
 
 ## October 2020
 
-### Animated character identification improvements
-
-Azure Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
-
 ### Planned Azure Video Indexer website authenticatication changes
 
 Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Azure Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
@@ -645,7 +641,7 @@ To fix the account configuration, in the Azure Video Indexer website, navigate t
 
 ### Configure the custom vision account
 
-Configure the custom vision account on paid accounts using the Azure Video Indexer website (previously, this was only supported by API). To do that, sign in to the Azure Video Indexer website, choose Model Customization > Animated characters > Configure.
+Configure the custom vision account on paid accounts using the Azure Video Indexer website (previously, this was only supported by API). To do that, sign in to the Azure Video Indexer website, choose Model Customization > <*model*> > Configure.
 
 ### Scenes, shots and keyframes – now in one insight pane
 
@@ -678,7 +674,7 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
 
 * Search for animated characters in the gallery
 
-    When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+    When indexing animated characters, you can now search for them in the account’s video galley.
 
 ## September 2019
 
@@ -686,7 +682,7 @@ Multiple advancements announced at IBC 2019:
 
 * Animated character recognition  (public preview)
 
-    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision.
 * Multi-language identification (public preview)
 
     Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
