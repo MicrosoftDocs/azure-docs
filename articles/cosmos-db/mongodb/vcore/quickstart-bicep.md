@@ -36,7 +36,7 @@ Get the connection string you need to connect to this cluster using your applica
 
 ## Clean up resources
 
-When you're done with your app and Azure Cosmos DB account, you can delete the Azure resources you created so you don't incur more charges.
+When you're done with your app and Azure Cosmos DB for MongoDB vCore cluster, you can delete the Azure resources you created so you don't incur more charges.
 
 1. TODO
 

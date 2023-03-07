@@ -37,7 +37,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. On the **Which API best suits your workload?** page, select the **Create** option within the **Azure Cosmos DB for MongoDB** section. For more information, see [API for MongoDB and it's various models](../choose-model.md).
 
-   :::image type="content" source="media/quickstart-portal/select-api-option.png" lightbox="mediahow-to-create-ac/count/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
+   :::image type="content" source="media/quickstart-portal/select-api-option.png" lightbox="media/quickstart-portal/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
 
 1. On the **Which type of resource?** page, select the **Create** option within the **vCore cluster** section. For more information, see [API for MongoDB vCore overview](introduction.md).
 
@@ -101,7 +101,7 @@ Get the connection string you need to connect to this cluster using your applica
 
 ## Clean up resources
 
-When you're done with your app and Azure Cosmos DB account, you can delete the Azure resources you created so you don't incur more charges.
+When you're done with your app and Azure Cosmos DB for MongoDB vCore cluster, you can delete the Azure resources you created so you don't incur more charges.
 
 1. TODO
 

@@ -24,6 +24,10 @@ landingContent:
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
+      - linkListType: tutorial
+        links:
+          - text: Build a Node.js web application
+            url: tutorial-nodejs-web-app.md
   - title: Use a MongoDB vCore cluster
     linkLists:
       - linkListType: how-to-guide
