@@ -5,6 +5,7 @@ ms.topic: article
 ms.date: 11/16/2022
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service

@@ -4,6 +4,7 @@ description: A guide to show you how to enable Event Grid events for your Signal
 services: signalr
 author: vicancy
 ms.service: signalr
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei

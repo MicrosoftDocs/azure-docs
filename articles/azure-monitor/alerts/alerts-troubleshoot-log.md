@@ -5,8 +5,6 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
-ms.custom: devx-track-azurepowershell
-
 ---
 # Troubleshoot log alerts in Azure Monitor  
 

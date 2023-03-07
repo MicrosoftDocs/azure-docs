@@ -4,8 +4,7 @@ description: Use a pre-trained ResNet 18 deep neural network from PyTorch with A
 
 ms.topic: tutorial
 ms.date: 01/05/2023
-ms.custom: devx-track-python, devx-track-azurepowershell, py-fresh-zinc
-
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Deploy a pre-trained image classification model to Azure Functions with PyTorch

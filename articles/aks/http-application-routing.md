@@ -2,6 +2,7 @@
 title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
 description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 author: asudbring
 ms.topic: how-to
 ms.date: 04/23/2021

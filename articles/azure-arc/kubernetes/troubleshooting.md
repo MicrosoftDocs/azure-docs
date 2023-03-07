@@ -2,6 +2,7 @@
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 ms.date: 01/23/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
 

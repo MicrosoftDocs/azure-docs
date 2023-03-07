@@ -4,7 +4,6 @@ description: Learn how to stop or start an Azure Kubernetes Service (AKS) cluste
 ms.topic: article
 ms.date: 08/09/2021
 author: palma21
-ms.custom: devx-track-azurepowershell
 ---
 
 # Stop and Start an Azure Kubernetes Service (AKS) cluster

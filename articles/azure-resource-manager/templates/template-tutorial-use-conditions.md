@@ -5,7 +5,6 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use condition in ARM templates

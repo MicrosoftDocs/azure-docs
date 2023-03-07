@@ -5,7 +5,6 @@ author: mumian
 ms.date: 09/28/2022
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates

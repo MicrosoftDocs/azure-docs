@@ -6,7 +6,7 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 01/31/2023
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
+ms.custom: mvc, cli-validate, seodec18, devdivchpfy22
 ---
 
 # Tutorial: Build a PHP and MySQL app in Azure App Service

@@ -5,6 +5,7 @@ keywords: vnet integration
 author: madsd
 ms.author: madsd
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 02/13/2023
 ms.tool: azure-cli, azure-powershell
 ---

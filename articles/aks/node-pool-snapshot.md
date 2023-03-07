@@ -2,10 +2,10 @@
 title: Snapshot Azure Kubernetes Service (AKS) node pools
 description: Learn how to snapshot AKS cluster node pools and create clusters and node pools from a snapshot.
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 09/11/2020
 ms.author: allensu
 author: asudbring
-
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot

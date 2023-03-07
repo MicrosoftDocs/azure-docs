@@ -10,8 +10,6 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Migrate Azure Active Directory Domain Services from the Classic virtual network model to Resource Manager

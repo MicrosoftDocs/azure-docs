@@ -4,6 +4,7 @@ description: Learn how to use Azure portal or PowerShell to create, view and man
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ms.date: 2/23/2022
 ms.reviewer: harelbr
 ---
