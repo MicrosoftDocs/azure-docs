@@ -13,18 +13,40 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
 
+## Understanding the Email Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
+
+| Name | Description |
+| ---- |-------------|
+| EmailAddress | This class contains an email address and an option for a display name. |
+| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
+| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
+| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
+| EmailSendStatus | This class represents the set of statuses of an email send operation. |
+
+EmailSendResult returns the following status on the email operation performed.
+
+| Status Name | Description |
+| ----------- | ------------|
+| NOT_STARTED | We're not sending this status from our service at this time. |
+| IN_PROGRESS | The email send operation is currently in progress and being processed. |
+| SUCCESSFULLY_COMPLETED | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| FAILED | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
+| USER_CANCELLED | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](https://learn.microsoft.com/java/openjdk/download) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- Create an [Azure Email Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource) to start sending emails.
-- A setup managed identity for a development environment, [see Authorize access with managed identity](https://docs.microsoft.com/azure/communication-services/quickstarts/managed-identity-from-cli).
+- A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../create-communication-resource.mdcreate-communication-resource).
+- Create an [Azure Email Communication Services resource](../create-email-communication-resource) to start sending emails.
+- A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal?pivot="programming-language-java").
 
-> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains).
+> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains).
 
 ### Prerequisite check
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
@@ -76,20 +98,9 @@ public class App
 }
 ```
 
-## Object model
+## Creating the email client with authentication
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
-
-| Name | Description |
-| ---- |-------------|
-| EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
-| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
-| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
-| EmailSendStatus | This class represents the set of statuses of an email send operation. |
-
-## Authenticate the client
+### Option 1: Authenticate using a connection string
 
 To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
@@ -104,9 +115,38 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
+### Option 2: Authenticate using an AzureKeyCredential
+
+Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure Portal](https://portal.azure.com/).
+
+```java
+String endpoint = "https://<resource-name>.communication.azure.com";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
+EmailClient emailClient = new EmailClientBuilder()
+    .endpoint(endpoint)
+    .credential(azureKeyCredential)
+    .buildClient();
+```
+
+### Option 3: Authenticate using Azure Active Directory
+
+A `DefaultAzureCredential` object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
+
+The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+
+```java
+// You can find your endpoint and access key from your resource in the Azure Portal
+String endpoint = "https://<resource-name>.communication.azure.com/";
+EmailClient emailClient = new EmailClientBuilder()
+    .endpoint(endpoint)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
+```
+
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Send an email message
+## Basic Email Sending 
 
 To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
 
@@ -128,15 +168,7 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-| Status Name | Description |
-| ----------- | ------------|
-| NOT_STARTED | We're not sending this status from our service at this time. |
-| IN_PROGRESS | The email send operation is currently in progress and being processed. |
-| SUCCESSFULLY_COMPLETED | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
-| FAILED | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| USER_CANCELLED | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
-
-## Run the code
+### Run the code
 
 1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
 
@@ -156,11 +188,11 @@ Make these replacements in the code:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-## Sample code
+### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
-## Advanced
+## Advanced Sending
 
 ### Send an email message to multiple recipients
 
