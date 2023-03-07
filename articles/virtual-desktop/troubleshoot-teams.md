@@ -34,7 +34,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
   - You currently can't select minimized windows. In order to select windows, you'll need to maximize them first.
   - If you've opened a window overlapping the window you're currently sharing during a meeting, the contents of the shared window that are covered by the overlapping window won't update for meeting users.
   - If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see a black area where the presenter toolbar or call monitor is located.
-- Switching tenants too fast can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your Teams client. 
+- Switching tenants can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your Teams client. 
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
