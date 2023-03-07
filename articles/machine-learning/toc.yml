@@ -486,8 +486,6 @@
               href: how-to-outsource-data-labeling.md
         - name: Prepare data with Apache Spark
           items:
-            - name: Apache Spark - Environment Configuration
-              href: quickstart-spark-data-wrangling.md
             - name: Submit Spark jobs in Azure Machine Learning
               displayName: Submit Spark jobs in Azure Machine Learning
               href: how-to-submit-spark-jobs.md
