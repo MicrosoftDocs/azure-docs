@@ -99,7 +99,7 @@ You can also configure directory schema extension attribute as non-conditional/c
     :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension1.png" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
 
 3. Select source application from application picker where extension property is defined. 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension2.png" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension2.png" alt-text="Screenshot of the source application aselection in MultiValue extension configuration section in the Azure portal.":::
 
 4. Click **Add** to add the selection to the claims.
 
