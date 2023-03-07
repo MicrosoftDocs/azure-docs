@@ -118,7 +118,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 | Software specifications        | HBv3-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
-| Max MPI Job Size               | 36,000 cores (300 VMs in a single VMScaleSet with singlePlacementGroup=true) |
+| Max MPI Job Size               | 36,000 cores (300 VMs in a single Virtual Machine Scale Set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
