@@ -174,6 +174,10 @@ Below are the possible reasons:
 
 We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using Image Analysis model customization should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
 ## Next steps
 
 [Create and train a custom model](./how-to/model-customization.md)
