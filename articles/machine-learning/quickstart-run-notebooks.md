@@ -40,7 +40,7 @@ You'll need to get your own files into the cloud.  For this tutorial, [download 
 1. On the toolbar above the file list, select **+** to add files.
 1. Select **Upload files**.
 
-    :::image type="content" source="media/tutorial-set-up-workstation/upload-files.png" alt-text="Screenshot: Upload files.":::
+    :::image type="content" source="media/quickstart-run-notebooks/upload-files.png" alt-text="Screenshot: Upload files.":::
 
 1. Browse to select the data file **titanic3.csv** that you just downloaded.
 1. Select **Upload**.
@@ -58,7 +58,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
 1. Still in the **Notebooks** section, again select **+** to add files.
 1. select **Create new file**.
     
-    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
+    :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
 1. Name your new notebook **visualize-sample-data.ipynb**.
  
@@ -86,7 +86,7 @@ Use the **Variable explorer** to see the variables defined in your current noteb
 1. Select the **"..."** in the notebook toolbar.
 1. Select **Variable explorer**.
     
-    :::image type="content" source="media/tutorial-set-up-workstation/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::
+    :::image type="content" source="media/quickstart-run-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::
 
     The explorer appears at the bottom.  You'll see your current variable, `df`.  The variable explorer is tool that will help you understand the current state of variables in your notebook.
 
@@ -126,7 +126,7 @@ The notebook kernel on the compute instance has all the basics for running your 
 
 1. Run this cell, which will produce these plots.
 
-    :::image type="content" source="media/tutorial-set-up-workstation/plots.png" alt-text="Display of plots created by the Python code.":::
+    :::image type="content" source="media/quickstart-run-notebooks/plots.png" alt-text="Display of plots created by the Python code.":::
 
 ### Add a markdown cell
 
@@ -161,7 +161,7 @@ If  you didn't comment out the `%pip install seaborn` cell before, you'll see `g
 
 From the toolbar above the script, select **Save and run script in terminal**.  
 
-:::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
+:::image type="content" source="media/quickstart-run-notebooks/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
 
 A new tab opens to show the terminal window.  You'll see some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
 
@@ -193,7 +193,7 @@ When you run the script in a terminal, you'll see text output, but not the plots
 
 1. In your **Files** section, you'll see the new image file, **plots.png**.  If you don't see the file, select **Refresh** to get the most up-to-date view of your files.  
 
-    :::image type="content" source="media/tutorial-set-up-workstation/refresh.png" alt-text="Screenshot: Refresh to see your new file.":::
+    :::image type="content" source="media/quickstart-run-notebooks/refresh.png" alt-text="Screenshot: Refresh to see your new file.":::
 
 1. Select the file **plots.png** to open it in another tab.
 1. Close the terminal tab and terminate the session.

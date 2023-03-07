@@ -15,49 +15,109 @@ ms.date: 02/22/2023
 
 # Tutorial: Model development on a cloud workstation
  
-Learn how prototype in a notebook to develop a training script on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
+Learn how to develop a training script with a notebook on an Azure Machine Learning cloud workstation. This tutorial covers the basics you need to get started:
 
 > [!div class="checklist"]
 > * Set up and configuring the cloud workstation. Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
 > * Use cloud-based development environments.
-> * Use MLflow to track your model metrics, all from within the notebook.
-
+> * Use MLflow to track your model metrics, all from within a notebook.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
-- Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml), which you'll use to create a new environment for running a notebook.
 
-## Start with notebooks
 
-A Jupyter Notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  
+## Start with Notebooks
+
+The Notebooks section in your workspace is a good place to start learning about Azure Machine Learning and its capabilities.  Here you can connect to compute resources, work with a terminal, and edit and run Jupyter Notebooks and scripts.  
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already open.
 1. On the left navigation, select **Notebooks**.
 
-## Connect to a compute instance
+## Set up a new environment for prototyping
 
-Before you dive into code, you'll need to connect to a compute instance, which is the pre-configured cloud machine that runs your code.
+In order for your script to run, you need to be working in an environment configured with the dependencies and libraries the code expects. This section helps you create an environment tailored to your code. To create the new Jupyter kernel your notebook connects to, you'll use a YAML file that defines the dependencies.
 
-If you don't have a compute instance yet, select **Create compute** on the landing page of **Notebooks**. You can use the default configurations to set it up quickly. It takes a few minutes to start.
+* **Upload a file.**
+    Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
-If you do have a compute instance, start it if it's not already running.
+    1. Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml) to your computer.
+    1. Select **+** and select **Upload files** to upload it to your workspace.
+    1. Select **Browse and select file(s)**.
+    1. Select **workstation_env.yml** file you just downloaded.
+    1. Select **Upload**.
 
-:::image type="content" source="media/tutorial-cloud-workstation/start-compute.png" alt-text="Screenshot showing the start compute tool in the notebook toolbar":::
+    You see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
+
+    You may not always need to define a new environment. There are kernels pre-installed on each compute instance that are already configured for many common machine learning model development tasks.
+
+* **Create a kernel.**
+
+    Now use the Azure Machine Learning terminal to create a new Jupyter kernel, based on the *workstation_env.yml* file.
+
+    1. Select **Terminal** to open a terminal window.  You can also open the terminal from the left command bar:
+
+        :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
+
+    1. Start your compute instance it if it's not already running.
+
+    1. Once the compute is running, you see a welcome message in the terminal, and you can start typing commands. 
+    1. View your current conda environments. The active environment is marked with a *.
+
+        ```bash
+        conda env list
+        ```
+
+    1. Create the environment based on the conda file provided. It takes a few minutes to build this environment.
+
+        ```bash
+        conda env create -f workstation_env.yml
+    
+        ```
+
+    1. Activate the new environment.
+
+        ```bash
+         conda activate workstation_env
+        ```
+
+    1. Validate the correct environment is active, again looking for the environment marked with a *.
+
+        ```bash
+        conda env list
+        ```
+
+    1. Create a new Jupyter kernel based on your active environment.
+
+        ```bash
+        python -m ipykernel install --user --name workstation_env --display-name "Tutorial Workstation Env" 
+        ```
+
+    1. Close the terminal window.
+
+You have a new kernel.  Next you open a notebook and use this kernel.
 
 ## Create a notebook
 
 1. Select **+ Files**, and choose **Create new file**.
 
-    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
+    :::image type="content" source="media/tutorial-cloud-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
 1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
-1. On the top right, observe the kernel dropdown menu. While you can use any of the built-in kernels right away, in this tutorial you're going to create a new kernel to generate an environment that has all the packages and libraries you need.
 
-  
-1. Copy and paste the following import code into the first cell of your notebook, _but don't run it yet._
+1. You'll see the notebook connect to the default kernel in the top right. Switch to the kernel you created, **Tutorial Workstation Env**.
+
+## Develop a training script
+
+In this section you develop a Python training script that predicts credit card default payments, using the prepared test and training datasets from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+
+This code uses `sklearn` for training and MLflow for logging the metrics.
+
+1. Copy and paste the following code into the first cell of your notebook.  This code imports the packages and libraries used in the training script.
 
     ```python
     import os
@@ -70,92 +130,17 @@ If you do have a compute instance, start it if it's not already running.
     from sklearn.model_selection import train_test_split
     ```
 
-## Set up a new environment for prototyping (optional)
-
-In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. To create the new Jupyter kernel your notebook will connect to, you'll use a YAML file that defines the dependencies.
-
-The code in this tutorial works in the default environment that's on the compute instance. If you wish to skip creating one, skip to [Develop a training script](#develop-a-training-script). Or continue on to learn how to create a new environment, which you might need in the future.
-
-## Upload a file
-
-Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
-
-1. Select **+** and select **Upload files**
-2. Select **Browse and select file(s)** 
-3. Select **workstation_env.yml** file you downloaded earlier.
-4. Select **Upload**
-
-You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
-
-:::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
-
-You may not always need to define a new environment. There are kernels pre-installed on the compute instance, already configured for many common machine learning model development tasks. (In fact, this tutorial works with a pre-installed kernel.  But you're learning how to build your own, since you may need to do that for other jobs.)
-
-## Create a new kernel
-
-Now use the Azure Machine Learning terminal to generate a new kernel, using the *workstation_env.yml* file.
-
-1. On the left, select **Open terminal** to open a terminal window.
-
-    :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
-
-1. View your current conda environments. The active environment is marked with a *.
-
-    ```bash
-    conda env list
-    ```
-
-1. Create the environment based on the conda file provided. It will take a few minutes to build this environment.
-
-    ```bash
-    conda env create -f workstation_env.yml
-
-    ```
-
-1. Activate the new environment.
-
-    ```bash
-     conda activate workstation_env
-    ```
-
-1. Validate the correct environment is active, again looking for the environment marked with a *.
-
-    ```bash
-    conda env list
-    ```
-
-1. Create a new Jupyter kernel.
-
-    ```bash
-    python -m ipykernel install --user --name workstation_env --display-name "Tutorial Workstation Env" 
-    ```
-
-1. Close the terminal window.
-
-## Connect notebook to the new kernel
-
-Now that you created the kernel, connect the notebook to this kernel to start running code.
-
-In the top right kernel selector of the notebook, check to see if the new kernel is listed. If it is, select it. If you don't see it, select the refresh button to load the new kernel, and then select it.
-
-## Develop a training script
-
-In this section you'll develop a Python training script that creates a credit card default prediction, using the prepared test and training datasets based on an [UCI dataset]().
-
-This code uses sklearn for training and MLflow for logging the metrics.
-
-1. Run the first cell in the notebook that you created early in the tutorial. This code imports the dependencies that are now installed on your kernel.
 1. Add the next code cell to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
     ```python
-    # Start Logging
-    mlflow.start_run()
-    
     # enable autologging
     mlflow.sklearn.autolog()
+
+    # Start Logging
+    mlflow.start_run()
     ```
 
-1. Next, load and process the data for this experiment. In this tutorial, you'll read the data from a file on the internet.
+1. Next, load and process the data for this experiment. In this tutorial, you read the data from a file on the internet.
 
     ```python
     # load the data
@@ -187,10 +172,10 @@ This code uses sklearn for training and MLflow for logging the metrics.
     X_test = test_df.values
     ```
 
-1. Train a tree based model.
+1. Train a model.
 
     ```python
-        # Train Gradient Boosting Classifier
+    # Train Gradient Boosting Classifier
     print(f"Training with data of shape {X_train.shape}")
     
     clf = GradientBoostingClassifier(
@@ -201,7 +186,7 @@ This code uses sklearn for training and MLflow for logging the metrics.
     y_pred = clf.predict(X_test)
     
     print(classification_report(y_test, y_pred))
-     # Stop Logging for this model
+    # Stop Logging for this model
     mlflow.end_run()
     ```
 
@@ -211,6 +196,9 @@ Now that you have model results, you may want to change something and try again.
 
 ```python
 # Train  AdaBoost Classifier
+# Start a second run
+mlflow.start_run()
+
 from sklearn.ensemble import AdaBoostClassifier
 
 print(f"Training with data of shape {X_train.shape}")
@@ -219,32 +207,56 @@ ada = AdaBoostClassifier()
 
 ada.fit(X_train, y_train)
 
-y_pred = clf.predict(X_test)
+y_pred = ada.predict(X_test)
 
 print(classification_report(y_test, y_pred))
-    # Stop Logging for this model
+# Stop Logging for this model
 mlflow.end_run()
 ```
 
+## Examine results
+
+Now that you've tried two different models, which one do you like best?  Since you used `MLflow` to log results, you can dive into these models in more detail.  
+
+1. On the left navigation, select **Jobs**.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/jobs.png" alt-text="Screenshot shows how to select Jobs in the navigation.":::
+
+1. You see an experiment named **Default**. Select this link.
+1. There are two different runs shown, one for each of the models you tried.  These run names are auto-generated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
+1. Select the link for the first job. The name appears at the top, you can also rename it here with the pencil tool.
+1. You see more information about the job.  Under **Tags**, you see the estimator_name, which describes the type of model.
+
+1. Select the **Metrics** tab to view the metrics that were logged by `MLflow`. (Expect your results to differ, as you have a different training set.)
+
+    :::image type="content" source="media/tutorial-cloud-workstation/metrics.png" alt-text="Screenshot shows metrics for a job.":::
+
+1. Select the **Images** tab to view the images generated by `MLflow`.  
+
+    :::image type="content" source="media/tutorial-cloud-workstation/images.png" alt-text="Screenshot shows images for a job.":::
+
+1. Go back and review the metrics and images for the other model.
+
 ## Prepare notebook
 
-Once you like the model code, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
+Once you're satisfied with the model code and results, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You could look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
 
 Use these steps to gather just the cells that you need:
 
-1. Click on the cell that contains the model you wish to use.  For this tutorial, let's use the second model you created.
+1. Go back to the **Notebooks** section of your workspace.
+1. Click inside the code cell for the model you wish to use.  For this tutorial, let's select the first model, GradientBoostingClassifier.
 1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** :::image type="icon" source="media/tutorial-cloud-workstation/gather-tool.png" border="false":::.
 1. On the **Create new Gather file** form, shorten the file name to **train**.
 1. Select **Create**.
 
-The new gathered notebook opens.  This notebook contains only cells needed to run the selected model cell.  Notice the other model cell doesn't appear here.  If you've done other things in the notebook, such as exploring and visualizing data, those cells wouldn't appear here either.
+The new gathered notebook opens.  This new notebook contains only cells needed to run the selected model.  Notice the other model cell doesn't appear here.  If you've done other things in the notebook, such as exploring and visualizing data, those cells wouldn't appear here either.
 
 ## Create a Python script
 
 Now use your new gathered notebook to create a Python script for training your model.
 
 1. On the notebook toolbar, select the menu.
-1. Select **Export as> Python file**.
+1. Select **Export as> Python**.
 
     :::image type="content" source="media/tutorial-cloud-workstation/export-python-file.png" alt-text="Screenshot shows exporting a Python file from the notebook.":::
 
@@ -252,21 +264,31 @@ You now have a Python script to use for training.  You may wish to add in some c
 
 ## Run the Python script
 
-For now, you're running this code *locally* - that is, on the same computer where the code exists.  Later tutorials will show you how to run a training script in a more scalable way on more powerful compute resources.  
+For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. Later tutorials show you how to run a training script in a more scalable way on more powerful compute resources.  
 
 1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
-1. Activate your kernel:
+1. View your current conda environments. The active environment is marked with a *.
+
+    ```bash
+    conda env list
+    ```
+
+1. Activate the kernel you created for this job:
 
     ```bash
     conda activate workstation_env
     ```
 
-1. If you created a sub-folder for this tutorial, `cd` to that folder now.
+1. If you created a subfolder for this tutorial, `cd` to that folder now.
 1. Run your training script.
 
     ```bash
     python train.py
     ```
+
+## Examine script results
+
+Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
 
 ## Clean up resources
 
