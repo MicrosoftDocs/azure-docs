@@ -178,7 +178,7 @@ TODO – are there any privacy things to note?
 
 
 ## Retrieve Survey Data Options:
--	1. Analyze through an Azure Log Analytics workspace?
+-	1. Analyze through an Azure Log Analytics workspace.
 -	2. Export results and analyze with PowerBI query.
 -	3. Export results for your own for analysis.
 
