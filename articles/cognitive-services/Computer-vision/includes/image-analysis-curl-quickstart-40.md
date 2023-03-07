@@ -168,7 +168,5 @@ A successful response is returned in JSON. The sample application parses and dis
 
 In this quickstart, you learned how to make basic image analysis calls using the REST API. Next, learn more about the Analysis 4.0 API features.
 
-> [!div class="nextstepaction"]
->[Call the Analyze Image 4.0 API](../how-to/call-analyze-image-40.md)
-
+* [Call the Analyze Image 4.0 API](../how-to/call-analyze-image-40.md)
 * [Image Analysis overview](../overview-image-analysis.md)

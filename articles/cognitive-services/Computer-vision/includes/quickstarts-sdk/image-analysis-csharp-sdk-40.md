@@ -270,8 +270,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
 
-> [!div class="nextstepaction"]
->[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
-
+* [Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/csharp/image-analysis/dotnetcore).
