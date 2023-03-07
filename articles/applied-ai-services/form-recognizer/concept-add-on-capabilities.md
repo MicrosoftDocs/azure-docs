@@ -26,7 +26,7 @@ Form Recognizer now supports more sophisticated analysis capabilities. These opt
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 
-*[`ocr.formula`](#formula-extraction)
+* [`ocr.formula`](#formula-extraction)
 
 * [`ocr.font`](#font-property-extraction)
 
