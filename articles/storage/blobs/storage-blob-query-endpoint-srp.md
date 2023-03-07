@@ -25,6 +25,10 @@ To work with the code examples in this article, follow these steps to set up you
 
 ### Install packages
 
+Install packages to work with the libraries used in this example.
+
+## [.NET](#tab/dotnet)
+
 Install the following packages using `dotnet add package`:
 
 ```dotnetcli
@@ -36,35 +40,137 @@ dotnet add package Azure.Storage.Blobs
 - [Azure.ResourceManager.Storage](/dotnet/api/overview/azure/resourcemanager.storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
 - [Azure.Storage.Blobs](/dotnet/api/overview/azure/storage.blobs-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 
-## Query for the service endpoint
+## [Java](#tab/java)
 
-To get the properties for a specified storage account, use the following method from a [StorageAccountCollection](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection) object:
+Open the `pom.xml` file in your text editor. 
 
-- [GetAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.getasync)
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
 
-For this example, add the following `using` directives:
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+Then add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services.
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager-storage</artifactId>
+</dependency>
+```
+
+## [JavaScript](#tab/javascript)
+
+Install the following packages using `npm install`:
+
+```console
+npm install @azure/identity
+npm install @azure/storage-blob
+npm install @azure/arm-storage
+```
+
+## [Python](#tab/python)
+
+Install the following packages using `pip install`:
+
+```console
+pip install azure-identity
+pip install azure-storage-blob
+pip install azure-mgmt-resource
+pip install azure-mgmt-storage
+```
+
+---
+
+### Set up the app code
+
+Add the necessary `using` or `import` directives to the code. Note that the code examples may split out functionality between files, but here we list all the directives together.
+
+## [.NET](#tab/dotnet)
+
+Add the following `using` directives:
 
 ```csharp
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage.Blobs;
+
 using Azure.ResourceManager;
 using Azure.ResourceManager.Resources;
 using Azure.ResourceManager.Storage;
 ```
 
+## [Java](#tab/java)
+
+```java
+import com.azure.identity.*;
+import com.azure.storage.blob.*;
+
+import com.azure.resourcemanager.*;
+```
+
+## [JavaScript](#tab/javascript)
+
+```javascript
+const {
+  BlobServiceProperties,
+  StorageManagementClient,
+} = require("@azure/arm-storage");
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+```
+
+## [Python](#tab/python)
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+from azure.mgmt.resource import ResourceManagementClient
+from azure.mgmt.storage import StorageManagementClient
+```
+
+---
+
+## Query for the blob service endpoint
+
 The following code sample gets a blob service endpoint for a specified storage account:
 
+## [.NET](#tab/dotnet)
+
+To get the properties for a specified storage account, use the following method from a [StorageAccountCollection](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection) object:
+
+- [GetAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.getasync)
+
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="26,29":::
+
+## [Java](#tab/java)
+
+## [JavaScript](#tab/javascript)
+
+## [Python](#tab/python)
 
 ## Create a client object using the service endpoint
 
 Once you have the blob service endpoint for a storage account, you can instantiate a client object to work with the data resources.
-
-For this example, add the following `using` directives:
-
-```csharp
-global using Azure.Core;
-using Azure.Identity;
-using Azure.Storage.Blobs;
-```
 
 The following code sample creates a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object using the endpoint we retrieved in the earlier example:
 
