@@ -340,7 +340,7 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Prerequisites
 
-- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the resource group hosting the VNet.
+- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role on the VNet and NetworkSecurityGroup.
 - Your AKS cluster's service principal or managed service identity (MSI) must be added to the Contributor role to the storage account.
 
 > [!NOTE]
