@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/07/2023
+ms.date: 03/02/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -53,6 +53,6 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 
 ## Next steps
 
-- [What is Azure Active Directory recommendations](overview-recommendations.md)
-
-- [Azure AD reports overview](overview-reports.md)
+- [Review the Azure AD recommendations overview](overview-recommendations.md)
+- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
