@@ -49,7 +49,8 @@ You can monitor the following metrics to help determine if you need to scale.
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider _scaling up_ to a larger tier. _Scaling out_ does not increase the number of supported client connections.
   - For more information on connection limits by cache size, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 - **Network Bandwidth**
-  - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If your Redis server is exceeding available network bandwidth, you should consider scaling up to a larger cache size with higher network bandwidth.
+  - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If your Redis server is exceeding available network bandwidth, you should consider scaling out or scaling up to a larger cache size with higher network bandwidth.
+  - For Enterprise tier caches using the _Enterprise cluster policy_, scaling out does not increase network bandwidth.
   - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
@@ -76,7 +77,7 @@ You can scale out/in with the following restrictions:
 
 - Scale out is only supported on the **Premium**, **Enterprise**, and **Enterprise Flash** tiers.
 - Scale in is only supported on the **Premium** tier.
-- On the **Premium** tier, clustering must be enbaled first before scaling in or out.
+- On the **Premium** tier, clustering must be enabled first before scaling in or out.
 - Only the **Enterprise** and **Enterprise Flash** tiers can scale up and scale out simultaneously.
 
 ## How to scale - Basic, Standard, and Premium tiers
@@ -245,7 +246,7 @@ While the cache is scaling to the new tier, a **Scaling Redis Cache** notificati
 :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
 **Fran, need a new screenshot here**
 
-When scaling is complete, the status changes from **Scaling** to **Running**.
+When scaling is complete, the status changes from **Updating** to **Running**.
 
 
 #### Scale using PowerShell
@@ -419,17 +420,11 @@ You can connect to your cache using the same [endpoints](cache-configure.md#prop
 
 The clustering protocol requires the client to make the correct shard connections, so the client should make share connections for you. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](https://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [https://redis.io](https://redis.io) in the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial).
 
-For non-TLS, use the following commands.
+You'll need to use the `-p` switch to specify the correct port to connect to. Use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used for the primary and replica nodes. The following port ranges are used:
 
-```bash
-Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
-Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
-Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
-...
-Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
-```
-- For TLS, replace `1300N` with `1500N`. 
-- For Enterprise and Enterprise Flash caches using OSS clustering, the primary connection is through port 10000. Connecting to individual nodes can be done using ports in the 8500-8599 range. Use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used. 
+- For non-TLS Premium tier caches, ports are available in the `130XX` range
+- For TLS enabled Premium tier caches, ports are available in the `150XX` range
+- For Enterprise and Enterprise Flash caches using OSS clustering, the initial connection is through port 10000. Connecting to individual nodes can be done using ports in the 85XX range. The 85xx ports will change over time and should not be hardcoded into your application. 
 
 ### Can I configure clustering for a previously created cache?
 
