@@ -26,6 +26,8 @@ landingContent:
             url: overview.md
           - text: What's new in Azure Virtual Desktop?
             url: whats-new.md
+          - text: Terminology
+            url: terminology.md
 
   # Card
   - title: Get started with Azure Virtual Desktop
@@ -44,24 +46,6 @@ landingContent:
             url: add-session-hosts-host-pool.md
           - text: Publish applications
             url: manage-app-groups.md
-
-  # Card
-  - title: Get started with Azure Virtual Desktop (classic)
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Create a tenant in Azure Virtual Desktop
-            url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
-          - text: Create service principals and role assignments with PowerShell
-            url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
-          - text: Create a host pool with Azure Marketplace
-            url: ./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md
-          - text: Manage app groups for Azure Virtual Desktop
-            url: ./virtual-desktop-fall-2019/manage-app-groups-2019.md
-          - text: Create a host pool to validate service updates
-            url: ./virtual-desktop-fall-2019/create-validation-host-pool-2019.md
-          - text: Set up service alerts
-            url: ./virtual-desktop-fall-2019/set-up-service-alerts-2019.md
 
   # Card
   - title: Azure Virtual Desktop for users
