@@ -24,6 +24,7 @@ This connector uses a Agari REST API connection to push data into Microsoft Sent
 ## Query samples
 
 **All Lookout Cloud Security logs**
+
    ```kusto
 LookoutCloudSecurity_CL
 
@@ -67,17 +68,17 @@ To integrate with Lookout Cloud Security for Microsoft Sentinel (using Azure Fun
 
  **To add a new API client:** 
 
-    1. Go to Administration > Enterprise Integration > API Clients and click New. 
+1. Go to Administration > Enterprise Integration > API Clients and click New. 
 
-     2. Enter a Name (required) and a Description (optional). 
+1. Enter a Name (required) and a Description (optional). 
 
-     3. Enter the Client ID that was provided to you. 
+1. Enter the Client ID that was provided to you. 
 
-     4. Select one or more Permissions from the dropdown list. 
+1. Select one or more Permissions from the dropdown list. 
 
-     5. Enter one or more Authorized IP addresses for this client. Separate each address with a comma.
+1. Enter one or more Authorized IP addresses for this client. Separate each address with a comma.
 
-     6. Click Save. 
+1. Click Save. 
 
  When prompted, copy the string for the client's secret. You will need this information (along with the client ID) to authenticate to the API gateway. 
 
