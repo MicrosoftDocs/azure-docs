@@ -4,6 +4,12 @@
   items:
     - name: What is vCore-based Azure Cosmos DB for MongoDB?
       href: introduction.md
+- name: Tutorials
+  items:
+    - name: Build web applications
+      items:
+        - name: Node.js
+          href: tutorial-nodejs-web-app.md
 - name: Concepts
   items:
     - name: MongoDB feature support

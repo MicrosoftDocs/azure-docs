@@ -15,7 +15,13 @@ metadata:
   ms.author: gahllevy
   ms.reviewer: nayakshweta
   ms.date: 02/07/2023
-landingContent:
+landingContent:  
+  - title: Get started with Azure Cosmos DB for MongoDB vCore
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Build a Node.js web application
+            url: tutorial-nodejs-web-app.md
   - title: Use Azure Cosmos DB for MongoDB vCore
     linkLists:
       - linkListType: how-to-guide
