@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 03/07/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -78,7 +78,9 @@ In this case, to open the Microsoft Purview governance portal, either use a mach
 
 ### Is it possible to restrict access to the Microsoft Purview managed storage account and event hub namespace (for private endpoint ingestion only) but keep portal access enabled for users across the web?
 
-No. When you set **Public network access** to **Deny**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for private endpoint ingestion only. When you set **Public network access** to **Allow**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for **All Networks**. You can't modify the private endpoint ingestion manually for the managed storage account or event hub namespace manually.
+Not in production. When you set **Public network access** to **Deny**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for private endpoint ingestion only. When you set **Public network access** to **Allow**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for **All Networks**. You can't modify the private endpoint ingestion manually for the managed storage account or event hub namespace manually.
+
+There is a [diabled for ingestion only preview feature that allows you to set restrictions for ingestion endpoints only so your users can still access the portal.](catalog-firewall.md)
 
 ### If public network access is set to Allow, does it mean the managed storage account and event hub namespace can be publicly accessible?
 
