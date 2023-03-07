@@ -240,3 +240,4 @@ Azure Communication Services - Call Logs - An Azure Communication Services conce
 
 Azure Communication Services - Log Analytics Preview - An Azure Communication Services concept document | Microsoft Learn
 
+note
