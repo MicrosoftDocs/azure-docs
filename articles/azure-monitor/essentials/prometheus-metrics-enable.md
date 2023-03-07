@@ -325,12 +325,17 @@ Deploy the template with the parameter file using any valid method for deploying
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
 - A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
 - You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
-
 ---
+
+## Enable windows metrics collection
+
+- For accessing windows metrics you must manually install the windows exporter on AKS nodes. Please enable the following collectors : `[defaults],container,memory,process,cpu_info`. You can deploy the following [YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file using `kubectl apply -f windows-exporter-daemonset.yaml`
+- Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` boolean to true.
+
 
 ## Verify Deployment
 
-Run the following command to verify that the daemon set was deployed properly:
+Run the following command to verify that the daemon set was deployed properly on the linux nodepools:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
@@ -342,6 +347,20 @@ The output should resemble the following:
 User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
 NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 ama-metrics-node   1         1         1       1            1           <none>          10h
+```
+
+Run the following command to verify that the daemon set was deployed properly on the windows nodepools:
+
+```
+kubectl get ds ama-metrics-win-node --namespace=kube-system
+```
+
+The output should resemble the following:
+
+```
+User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-metrics-win-node   3         3         3       3            3           <none>          10h
 ```
 
 Run the following command to which verify that the replica set was deployed properly:
@@ -372,6 +391,9 @@ Currently, Azure CLI is the only option to remove the metrics addon and stop sen
 If you don't already have it, install the aks-preview extension with the following command.
 
 The `aks-preview` extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+> [!NOTE]
+> Please upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is greater than '0.5.106'. You can find out the version using the `az version` command.
 
 ```azurecli
 az extension add --name aks-preview

@@ -148,6 +148,11 @@ Following are the default dashboards that are automatically provisioned and conf
 - Kubernetes / Kubelet
 - Node Exporter / USE Method / Node
 - Node Exporter / Nodes
+- Kubernetes / Compute Resources / Cluster (Windows)
+- Kubernetes / Compute Resources / Namespace (Windows)
+- Kubernetes / Compute Resources / Pod (Windows)
+- Kubernetes / USE Method / Cluster (Windows)
+- Kubernetes / USE Method / Node (Windows)
 
 ## Recording rules
 
@@ -181,6 +186,38 @@ Following are the default recording rules that are automatically configured by A
 - `instance_device:node_disk_io_time_seconds:rate5m`
 - `instance_device:node_disk_io_time_weighted_seconds:rate5m`
 - `instance:node_num_cpu:sum`
+- `node:windows_node:sum`
+- `node:windows_node_num_cpu:sum`
+- `:windows_node_cpu_utilisation:avg5m`
+- `node:windows_node_cpu_utilisation:avg5m`
+- `:windows_node_memory_utilisation:`
+- `:windows_node_memory_MemFreeCached_bytes:sum`
+- `node:windows_node_memory_totalCached_bytes:sum`
+- `:windows_node_memory_MemTotal_bytes:sum`
+- `node:windows_node_memory_bytes_available:sum`
+- `node:windows_node_memory_bytes_total:sum`
+- `node:windows_node_memory_utilisation:ratio`
+- `node:windows_node_memory_utilisation:`
+- `node:windows_node_memory_swap_io_pages:irate`
+- `:windows_node_disk_utilisation:avg_irate`
+- `node:windows_node_disk_utilisation:avg_irate`
+- `node:windows_node_filesystem_usage:`
+- `node:windows_node_filesystem_avail:`
+- `:windows_node_net_utilisation:sum_irate`
+- `node:windows_node_net_utilisation:sum_irate`
+- `:windows_node_net_saturation:sum_irate`
+- `node:windows_node_net_saturation:sum_irate`
+- `windows_pod_container_available`
+- `windows_container_total_runtime`
+- `windows_container_memory_usage`
+- `windows_container_private_working_set_usage`
+- `windows_container_network_received_bytes_total`
+- `windows_container_network_transmitted_bytes_total`
+- `kube_pod_windows_container_resource_memory_request`
+- `kube_pod_windows_container_resource_memory_limit`
+- `kube_pod_windows_container_resource_cpu_cores_request`
+- `kube_pod_windows_container_resource_cpu_cores_limit`
+- `namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate`
 
 ## Next steps
 
