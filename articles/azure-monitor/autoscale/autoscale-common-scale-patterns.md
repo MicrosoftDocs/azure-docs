@@ -10,7 +10,7 @@ ms.reviewer: akkumari
 ---
 # Overview of common autoscale patterns
 
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered based at a scheduled date and time.
+Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time.
 
 Azure autoscale supports many resource types. For more information about supported resources, see [Autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
