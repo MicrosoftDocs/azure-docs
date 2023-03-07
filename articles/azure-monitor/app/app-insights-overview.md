@@ -109,7 +109,7 @@ This section outlines supported scenarios.
 
 ### Supported platforms and frameworks
 
-Supported platforms and frameworks are listed below.
+This section lists all supported platforms and frameworks.
 
 #### Azure service integration (portal enablement, Azure Resource Manager deployments)
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
@@ -156,18 +156,23 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 
 ---------------------------
 
-## Troubleshooting
-
-### Frequently asked questions
+## Frequently asked questions
 
 Review [frequently asked questions](../faq.yml).
+
+## Troubleshooting
+
+Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
+
+## Help and support
+
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) using an Application Insights tag.
 
 ### User Voice
 
@@ -176,5 +181,7 @@ Leave product feedback for the engineering team on [UserVoice](https://feedback.
 ## Next steps
 
 - [Create a resource](create-workspace-resource.md)
+- [Auto-instrumentation overview](codeless-overview.md)
+- [Overview dashboard](overview-dashboard.md)
+- [Availability overview](availability-overview.md)
 - [Application Map](app-map.md)
-- [Transaction search](diagnostic-search.md)
