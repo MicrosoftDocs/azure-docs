@@ -87,8 +87,7 @@ The common schema includes information about the affected resource and the cause
 }
 ```
 
-For sample alerts that use the common schema, including see 
-
+For sample alerts that use the common schema, see [Sample alert payloads](alerts-payload-samples.md).
 ## Essentials fields
 
 | Field | Description|
@@ -668,7 +667,6 @@ See [Azure Monitor managed service for Prometheus rule groups (preview)](../esse
   }
 }
 ```
-
 ## Enable the common alert schema
 
 Use action groups in the Azure portal or use the REST API to enable the common alert schema. Schemas are defined at the action level. For example, you must separately enable the schema for an email action and a webhook action.
@@ -682,13 +680,11 @@ Use action groups in the Azure portal or use the REST API to enable the common a
 
 1. Open any existing action or a new action in an action group.
 1. Select **Yes** to enable the common alert schema.
-
 ### Enable the common schema using the REST API
 
 You can also use the [Action Groups API](/rest/api/monitor/actiongroups) to opt in to the common alert schema. In the [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API call,
 - Set the "useCommonAlertSchema" flag to `true` to enable the common schema
 - Set the "useCommonAlertSchema" flag to `false` to use the non-common schema for email, webhook, Logic Apps, Azure Functions, or Automation runbook actions.
-
 #### Sample REST API call for using the common schema
 
 The following [create or update](/rest/api/monitor/actiongroups/createorupdate) REST API request:
@@ -738,7 +734,6 @@ The following [create or update](/rest/api/monitor/actiongroups/createorupdate) 
   "tags": {}
 }
 ```
-
 ## Next steps
 
 - [Learn how to create a logic app that uses the common alert schema to handle all your alerts](./alerts-common-schema-integrations.md)
