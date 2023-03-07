@@ -42,7 +42,7 @@ The Notebooks section in your workspace is a good place to start learning about 
 In order for your script to run, you need to be working in an environment configured with the dependencies and libraries the code expects. This section helps you create an environment tailored to your code. To create the new Jupyter kernel your notebook connects to, you'll use a YAML file that defines the dependencies.
 
 * **Upload a file.**
-    Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
+    Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
     
     1. Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml) to your computer.
     1. Select **+** and select **Upload files** to upload it to your workspace.
@@ -135,11 +135,11 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 1. Add the next code cell to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
     ```python
-    # Start Logging
-    mlflow.start_run()
-    
     # enable autologging
     mlflow.sklearn.autolog()
+
+    # Start Logging
+    mlflow.start_run()
     ```
 
 1. Next, load and process the data for this experiment. In this tutorial, you read the data from a file on the internet.
@@ -198,22 +198,22 @@ Now that you have model results, you may want to change something and try again.
 
 ```python
 # Train  AdaBoost Classifier
-    # Start a second run
-    mlflow.start_run()
+# Start a second run
+mlflow.start_run()
 
-    from sklearn.ensemble import AdaBoostClassifier
-    
-    print(f"Training with data of shape {X_train.shape}")
-    
-    ada = AdaBoostClassifier()
-    
-    ada.fit(X_train, y_train)
-    
-    y_pred = ada.predict(X_test)
-    
-    print(classification_report(y_test, y_pred))
-    # Stop Logging for this model
-    mlflow.end_run()
+from sklearn.ensemble import AdaBoostClassifier
+
+print(f"Training with data of shape {X_train.shape}")
+
+ada = AdaBoostClassifier()
+
+ada.fit(X_train, y_train)
+
+y_pred = ada.predict(X_test)
+
+print(classification_report(y_test, y_pred))
+# Stop Logging for this model
+mlflow.end_run()
 ```
 
 ## Examine results
@@ -225,8 +225,8 @@ Now that you've tried two different models, which one do you like best?  Since y
     :::image type="content" source="media/tutorial-set-up-workstation/jobs.png" alt-text="Screenshot shows how to select Jobs in the navigation.":::
 
 1. You see an experiment named **Default**. Select this link.
-1. There are two different runs shown, one for each of the models you tried.  The run names are auto-generated.  Use the pencil tool next to name if you wish to rename them.
-1. Select the link for the first job.
+1. There are two different runs shown, one for each of the models you tried.  These run names are auto-generated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
+1. Select the link for the first job. The name appears at the top, you can also rename it here with the pencil tool.
 1. You see more information about the job.  Under **Tags**, you see the estimator_name, which describes the type of model.
 
 1. Select the **Metrics** tab to view the metrics that were logged by `MLflow`. (Expect your results to differ, as you have a different training set.)
@@ -271,9 +271,10 @@ For now, you're running this code on your compute instance, which is your Azure 
 1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
 1. View your current conda environments. The active environment is marked with a *.
 
-        ```bash
-        conda env list
-        ```
+    ```bash
+    conda env list
+    ```
+
 1. Activate the kernel you created for this job:
 
     ```bash
@@ -287,7 +288,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     python train.py
     ```
 
-## Examine results
+## Examine script results
 
 Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
 
