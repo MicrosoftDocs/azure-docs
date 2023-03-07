@@ -27,11 +27,12 @@ This provides you with a number of advantages:
 
 In this tutorial, you'll: 
 > [!div class="checklist"]
-> * Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/). 
-> * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook.
-> * Prepare data for model training. 
-> * Train and test regression models on historical data.
-> * Score new data using the trained model.
+> * Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/) 
+> * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
+> * Prepare data for model training 
+> * Train and test regression models on historical data
+> * Score new data using a trained model
+> * Identify ingestion anomalies
 > * Ingest anomalies into a custom table in your Log Analytics workspace. 
 
 ## Tools you'll use
@@ -197,6 +198,10 @@ To train a machine learning model on data in your Log Analytics workspace:
 1. Load the gradient boosting regression model pickle file and use it to predict values for new data. This is often called scoring.
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-scoring-new-data.png" alt-text="Screenshot that shows a DataFrame with information about the predicted and actual ingestion into the six tables we're exploring in this tutorial." 
+
+    As you can see, our DataFrame now includes a new **PredictedUsage** column.
+
+## Identify ingestion anomalies
 
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
