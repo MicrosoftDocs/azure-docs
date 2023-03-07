@@ -18,7 +18,7 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
-| Apache Spark     | 3.3 *              | 3.1.2         |
+| Apache Spark     | 3.3 *              | 3.1.3         |
 | Apache Hive      | 3.1.2 *             | 3.1.2         |
 | Apache Kafka     | 3.2.0  **            | 2.4.1         |
 | Apache Hadoop with YARN    | 3.3.4 *             | 3.1.1         |
