@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 11/05/2021
+ms.date: 03/07/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -72,7 +72,7 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Automation account
 
 > [!NOTE]
-> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) in your Automation account from the Azure portal or by using PowerShell.
+> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities.
 
 ### Subscription permissions
 

@@ -3,7 +3,7 @@ title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/21/2021
+ms.date: 03/07/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -375,8 +375,11 @@ The following example uses output from an activity called `Get Twitter Connectio
 
 ## Authenticate to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](./automation-security-overview.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the `AzureRunAsConnection` connection asset, which uses the PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. [Managed Identities](enable-managed-identity-for-automation.md) is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by importing the following runbook into the automation account, which leverages the system-assigned Managed Identity of the automation account to authenticate and access Azure resources.
 
+```powershell-interactive
+wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzMI/AzureAutomationTutorialWithIdentityGraphical.graphrunbook -outfile AzureAutomationTutorialWithIdentityGraphical.graphrunbook
+```
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
 The `Get Run As Connection` activity, or `Get-AutomationConnection`, is configured with a constant value data source named `AzureRunAsConnection`.
