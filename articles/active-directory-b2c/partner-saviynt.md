@@ -1,7 +1,7 @@
 ---
-title: Tutorial for configuring Saviynt with Azure Active Directory B2C
+title: Tutorial to configure Saviynt with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Tutorial to configure Azure Active Directory B2C with Saviynt for cross application integration to streamline IT modernization and promote better security, governance, and compliance. 
+description: Learn to configure Azure AD B2C with Saviynt for cross-application integration for better security, governance, and compliance. 
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -14,37 +14,41 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial for configuring Saviynt with Azure Active Directory B2C
+# Tutorial to configure Saviynt with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate Azure Active Directory (AD) B2C with [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/). Saviynt’s Security Manager platform provides the visibility, security, and governance today’s businesses need, in a single unified platform. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
+Learn to integrate Azure Active Directory B2C (Azure AD B2C) with the Saviynt Security Manager platform, which has visibility, security, and governance. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
-In this sample tutorial, you'll set up Saviynt to provide fine grained access control based delegated administration for Azure AD B2C users. Saviynt does the following checks to determine if a user is authorized to manage Azure AD B2C users.
+Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
 
-- Feature level security to determine if a user can perform a specific operation. For example, Create user, Update user, Reset user password, and so on.
+Use the following instructions to set up access control delegated administration for Azure AD B2C users. Saviynt determines if a user is authorized to manage Azure AD B2C users with:
 
-- Field level security to determine if a user can read/write a specific attribute of another user during user management operations. For example, help desk agent can only update phone number and all other attributes are read-only.
-
-- Data level security to determine if a user can perform a certain operation on a specific user. For example, help desk administrator for UK region can manage UK users only.
+* Feature level security to determine if users can perform an operation. 
+  * For example, create user, update user, reset user password, and so on
+* Field level security to determine if users can read/write user attributes during user management operations 
+  * For example, a Help Desk agent can update a phone number; other attributes are read-only
+* Data level security to determine if users can perform an operation on another user
+  * For example, a Help Desk administrator for the United Kingdom region manages UK users
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md). Tenant is linked to your Azure subscription.
-
-- A Saviynt [subscription](https://saviynt.com/contact-us/)
+* An Azure AD subscription
+  * If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
+* An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
+* Go to saviynt.com [Contact Us](https://saviynt.com/contact-us/) to request a demo
 
 ## Scenario description
 
 The Saviynt integration includes the following components:
 
-- [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) – The business-to-customer identity as a service that enables custom control of how your customers sign up, sign in, and manage their profiles.
-
-- [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – The identity governance platform that provides fine grained delegated administration for user life-cycle management and access governance of Azure AD B2C users.  
-
-- [Microsoft Graph API](/graph/use-the-api) – This API provides the interfaces for Saviynt to manage the Azure AD B2C users and their access in Azure AD B2C.
+* **Azure AD B2C** – The business-to-customer identity as a service that enables custom control of how your customers sign up, sign in, and manage their profiles
+  * See, [Azure AD B2C, Get started](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) 
+* **Saviynt for Azure AD B2C** – The identity governance platform that provides fine grained delegated administration for user life-cycle management and access governance of Azure AD B2C users.  
+  * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
+* **Microsoft Graph API** – This API provides the interfaces for Saviynt to manage the Azure AD B2C users and their access in Azure AD B2C
+  * [Microsoft Graph API](/graph/use-the-api)
+    
 
 The following architecture diagram shows the implementation.
 
