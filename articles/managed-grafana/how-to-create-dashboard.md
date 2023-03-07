@@ -33,7 +33,6 @@ Import a dashboard template from the Grafana Labs website.
 
 1. From the Grafana Labs website, browse through [Grafana dashboards templates](https://grafana.com/grafana/dashboards/?category=azure) and select a dashboard to import.
 1. Select **Copy ID to clipboard**.
-1. For the next steps, use the Azure portal or the Azure CLI.
 
     ### [Portal](#tab/azure-portal)
 
@@ -45,12 +44,11 @@ Import a dashboard template from the Grafana Labs website.
 
     1. Optionally update the dashboard name, folder and UID.
     1. Select a datasource and select **Import**.
-    1. A new dashboard is displayed.
-    1. Review the visualizations displayed and edit the dashboard if necessary.
+    1. A new dashboard is displayed. Review and edit it if necessary.
 
     ### [Azure CLI](#tab/azure-cli)
-
-    1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
+    
+    Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
 
        ```azurecli
        az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
@@ -73,11 +71,11 @@ Follow these steps to import a JSON dashboard to Grafana:
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<local-path-to-file>` with the name of the Azure Managed Grafana instance, its resource group, and the path to the JSON File on your local machine, ending with `.json`.
+Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<local-path-to-file>` with the name of the Azure Managed Grafana instance, its resource group, and the path to the JSON File on your local machine, ending with `.json`.
 
-    ```azurecli
-    az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition @<local-path-to-file>
-    ```
+   ```azurecli
+   az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition @<local-path-to-file>
+   ```
 
 ---
 
@@ -214,7 +212,7 @@ az grafana dashboard update --name <AMG-name> --resource-group <AMG-resource-gro
 
 ## Next steps
 
-In this how-to guide, you learned how to create a Grafana dashboard. To learn how to manage your data sources, go to:
+In this how-to guide, you learned how to create a Grafana dashboard. To learn share this dashboard with internal and external stakeholders, go to:
 
 > [!div class="nextstepaction"]
 > [Share a dashboard or panel](how-to-share-dashboard.md)

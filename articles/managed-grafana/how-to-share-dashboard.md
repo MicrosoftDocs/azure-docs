@@ -29,8 +29,6 @@ You can share Grafana visualizations by generating:
 - An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - A Grafana dashboard. If you don't have one, [create a Grafana dashboard](./quickstart-managed-grafana-portal.md).
 
-### [Portal](#tab/azure-portal)
-
 ## Open sharing options
 
 Access Grafana dashboard and panel sharing options with the following steps:
@@ -98,7 +96,7 @@ The **Export** tab lets you export a dashboard in JSON format. Do this by select
 
 **Export for sharing externally** is disabled by default. Optionally enable this option to generate JSON code for external stakeholders. The exported dashboard can then be [imported to Grafana](how-to-create-dashboard.md#import-a-json-dashboard).
 
-In this how-to guide, you learned how to create a Grafana dashboard. To learn how to manage your data sources, go to:
+In this how-to guide, you learned how to create a Grafana dashboard. To learn about the latest updates to Azure Managed Grafana, go to:
 
 > [!div class="nextstepaction"]
 > [What's new](concept-whats-new.md)
