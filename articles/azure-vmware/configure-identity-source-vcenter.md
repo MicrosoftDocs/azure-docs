@@ -158,7 +158,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 
 ## Add existing AD group to cloudadmin group
 > [!IMPORTANT]
-> Nested groups are not supported, and a their use may cause loss of access.
+> Nested groups are not supported, and their use may cause loss of access.
 
 You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a cloudadmin group. Users in the cloudadmin group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
