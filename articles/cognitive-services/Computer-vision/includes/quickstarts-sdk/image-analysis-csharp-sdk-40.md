@@ -189,7 +189,6 @@ dotnet run
 ## Output
 
 ```console
-Please wait for image analysis results...
  Caption:
    "a man pointing at a screen", Confidence 0.4892
  Text:
