@@ -34,23 +34,24 @@ This article details what is communicated to users and where they can view infor
 
 ## Viewing Impacted Resources for Security Incidents on the Service Health Portal
 
-In the Azure portal, the Impacted Resources tab under Service Health > Security Advisories displays resources that are affected by a security incident. The following example of the Impacted Resources tab shows an incident with confirmed affected resources.
+In the Azure portal, the Impacted Resources tab under Service Health > Security Advisories displays resources that are affected by a security incident. The following example of the Impacted Resources tab shows a security incident with impacted resources.
+
+:::image type="content" source="./media/impacted-resource-sec/impact-security.PNG" alt-text="Screenshot of information about affected resources in Azure Service Health.":::
 
 Service Health provides the below information to users whose resources are impacted by a security incident:
 
 |Column  |Description |
 |---------|---------|
-|**Resource Name**|This will be the resource name of the resource.  It will be text only for security impacted resources|
-|**Resource Type**|Type of affected resource (for example, virtual machine)|
-|**Location**|Location that contains the affected resource|
 |**Subscription ID**|Unique ID for the subscription that contains the affected resource|
 |**Subscription Name**|Subscription name for the subscription that contains the affected resource|
+|**Resource Name**|This will be the resource name of the resource.  It will be text only for security impacted resources|
 |**Tenant Name**|Unique ID for the tenant that contains the impacted resource|
 |**Tenant ID**|Unique ID for the tenant that contains the affected resource|
+|**App ID**| description
 
 ## Accessing Impacted Resources programmatically via an API
 
-Security incident impacted resource information can be retrieved programmatically using Events API. To access the list of resources impacted by a Security incident, the following endpoints can be used by users authorized with the above-mentioned roles.
+Impacted resource information for security incidents can be retrieved programmatically using the Events API. To access the list of resources impacted by a Security incident, the following endpoints can be used by users authorized with the above-mentioned roles.
 
 **Subscription**
 
