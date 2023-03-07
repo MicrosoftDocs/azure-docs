@@ -64,7 +64,8 @@ package com.communication.quickstart;
 
 import com.azure.communication.email.models.*;
 import com.azure.communication.email.*;
-import java.util.ArrayList;
+import com.azure.core.util.polling.PollResponse;
+import com.azure.core.util.polling.SyncPoller;
 
 public class App
 {
