@@ -68,19 +68,19 @@ Version 4.0 also lets you use dense captioning, which generates detailed caption
 
 [Image captions (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describe-images-40.md)
 
-:::image type="content" source="Images/description.png" alt-text="Photo of cows with a simple description on the right":::
+:::image type="content" source="Images/description.png" alt-text="Photo of cows with a simple description on the right.":::
 
 ### Detect objects
 
 Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects (v3.2)](concept-object-detection.md) [(v4.0 preview)](concept-object-detection-40.md)
 
-:::image type="content" source="Images/detect-objects.png" alt-text="Photo of an office with a rectangle drawn around a laptop":::
+:::image type="content" source="Images/detect-objects.png" alt-text="Photo of an office with a rectangle drawn around a laptop.":::
 
 ### Tag visual features
 
 Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0 preview)](concept-tag-images-40.md)
 
-:::image type="content" source="Images/tagging.png" alt-text="Photo of a skateboarder with tags listen on the right":::
+:::image type="content" source="Images/tagging.png" alt-text="Photo of a skateboarder with tags listed on the right.":::
 
 ### Get the area of interest / smart crop
 

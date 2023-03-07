@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 03/03/2023
+ms.custom: references_regions
 ---
 
 # Remove the background from images

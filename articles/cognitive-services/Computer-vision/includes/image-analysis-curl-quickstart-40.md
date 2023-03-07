@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022, references_regions
 ---
 
-Use the Image Analysis REST API to to read text and generate captions for the image (version 4.0 only).
+Use the Image Analysis REST API to read text and generate captions for the image (version 4.0 only).
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.

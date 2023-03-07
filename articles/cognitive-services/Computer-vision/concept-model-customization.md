@@ -172,7 +172,7 @@ Below are the possible reasons:
 
 ### What is the expected latency for predictions with custom models?
 
-We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results. Microsoft is working on making latency improvements in the near future.
+We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
 ## Next steps
 
