@@ -1651,7 +1651,7 @@
         href: netskope-cloud-security-tutorial.md
       - name: Netskope User Authentication
         href: netskope-user-authentication-tutorial.md
-      - name: Invicti
+      - name: Netsparker Enterprise
         href: netsparker-enterprise-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
@@ -2820,6 +2820,8 @@
         href: 15five-provisioning-tutorial.md
     - name: A - F
       items:
+      - name: Acunetix 360
+        href: acunetix-360-provisioning-tutorial.md
       - name: Adobe Identity Management
         href: adobe-identity-management-provisioning-tutorial.md
       - name: Adobe Identity Management (OIDC)
@@ -2841,7 +2843,9 @@
       - name: Apple School Manager
         href: apple-school-manager-provision-tutorial.md
       - name: Apple Business Manager
-        href: apple-business-manager-provision-tutorial.md      
+        href: apple-business-manager-provision-tutorial.md
+      - name: Ardoq
+        href: ardoq-provisioning-tutorial.md       
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: askSpoke
@@ -3118,6 +3122,8 @@
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
+      - name: Netsparker Enterprise
+        href: netsparker-enterprise-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
       - name: NordPass
