@@ -516,7 +516,7 @@ Not available
 
 ## Restore a continuous account that is configured with managed identity
 
-System identity is tied to one specific account and can't be reused in another account.  So, a new user-assigned identity is required during the restore process.
+A user-assigned identity is required in the restore request because the source account managed identity (User-assigned and System-assigned identities) cannot be carried over automatically to the target database account.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -525,7 +525,6 @@ Use the Azure CLI to restore a continuous account that is already configured usi
 > [!NOTE]
 > This feature is currently under Public Preview and requires Cosmos DB CLI Extension version 0.20.0 or higher.
 
-The newly created user assigned identity is only needed during the restore and can be cleaned up once the restore has completed. First, to restore a source account with system-assigned identity.
 
 1. Create a new user-assigned identity (or use an existing one) for the restore process.
 
@@ -563,9 +562,7 @@ The newly created user assigned identity is only needed during the restore and c
 
 1. Once the restore has completed, the target (restored) account will have the user-assigned identity.  If desired, user can update the account to use System-Assigned managed identity.
 
-By default, when you trigger a restore for an account with user-assigned managed identity, the user-assigned identity will be passed to the target account automatically.
 
-If desired, the user can also trigger a restore using a different user-assigned identity than the source account by specifying it in the restore parameters.
 
 ### [PowerShell / Azure Resource Manager template / Azure portal](#tab/azure-powershell+arm-template+azure-portal)
 
