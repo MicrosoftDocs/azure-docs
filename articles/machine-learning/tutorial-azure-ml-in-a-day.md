@@ -30,7 +30,7 @@ The *training script* handles the data preparation, then trains and registers a 
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 1. On the top bar above your opened notebook, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
 
@@ -494,6 +494,11 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 ## Next steps
 
-+ Convert this tutorial into a production ready [pipeline with reusable components](tutorial-pipeline-python-sdk.md).
-+ Learn about all of the [deployment options](how-to-deploy-online-endpoints.md) for Azure Machine Learning.
-+ Learn how to [authenticate to the deployed model](how-to-authenticate-online-endpoint.md).
+Now that you have an idea of what's involved in training and deploying a model, learn more about the process in these tutorials:
+
+|Tutorial  |Description  |
+|---------|---------|
+| [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md)     |  Store large data in the cloud and retrieve it from notebooks and scripts |
+| [Model development on a cloud workstation](tutorial-cloud-workstation.md) | Start prototyping and developing machine learning models |
+| [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
+| [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |

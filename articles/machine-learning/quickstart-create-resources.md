@@ -72,8 +72,6 @@ Now create a compute instance.
 1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
-In about two minutes, you'll see the **State** of the compute instance change from **Creating** to **Running**. It's now ready to go.
-
 ## Quick tour of the studio
 
 The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.

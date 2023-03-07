@@ -71,6 +71,7 @@ In order for your script to run, you need to be working in an environment config
         ```bash
         conda env list
         ```
+    1. If you created a subfolder for this tutorial, `cd` to that folder now.
 
     1. Create the environment based on the conda file provided. It takes a few minutes to build this environment.
 
@@ -245,7 +246,10 @@ Use these steps to gather just the cells that you need:
 
 1. Go back to the **Notebooks** section of your workspace.
 1. Click inside the code cell for the model you wish to use.  For this tutorial, let's select the first model, GradientBoostingClassifier.
-1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** :::image type="icon" source="media/tutorial-cloud-workstation/gather-tool.png" border="false":::.
+1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** 
+1. 
+    :::image type="content" source="media/tutorial-cloud-workstation/gather-tool.png" alt-text="Screenshot shows the gather tool above a code cell.":::.
+
 1. On the **Create new Gather file** form, shorten the file name to **train**.
 1. Select **Create**.
 
@@ -288,7 +292,17 @@ For now, you're running this code on your compute instance, which is your Azure 
 
 ## Examine script results
 
-Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
+Go back to **Jobs** to see the results of your training script. There isn't a third training run. 
+
+When you used **Gather** to create the trimmed notebook, the lines to start mlflow weren't included, since they aren't a direct dependency of the training code.  In order to log this training,  add those two lines back into the Python script, prior to the training.
+
+```python
+    # enable autologging
+    mlflow.sklearn.autolog()
+
+    # Start Logging
+    mlflow.start_run()
+```
 
 ## Clean up resources
 
