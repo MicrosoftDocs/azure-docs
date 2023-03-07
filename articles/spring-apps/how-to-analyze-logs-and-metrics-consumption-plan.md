@@ -22,7 +22,7 @@ This article shows you how to analyze logs and metrics in the Azure Spring Apps 
 
 ## Analyze logs
 
-The following sections describe a variety of tools in Azure that you can use to analyze your consumption plan usage.
+The following sections describe various tools in Azure that you can use to analyze your consumption plan usage.
 
 ### Configure logging options
 
@@ -42,7 +42,7 @@ You can configure logging options in the Azure Container Apps environment where 
 You can enable logs in Azure Spring Apps in the following ways:
 
 - When you select Log Analytics as the logging option.
-- When you select Azure Monitor as the logging option, with the following following categories selected in the Diagnostic setting:
+- When you select Azure Monitor as the logging option, with the following categories selected in the Diagnostic setting:
   - Spring App console logs
   - Spring App system logs
 
@@ -60,7 +60,7 @@ Use the following steps to query log data.
 
 1. In the Azure portal, go to your Azure Spring Apps instance.
 1. Select **Logs** from the navigation pane.
-1. In the **New Query 1** settings, enter a simple query such as the following example:
+1. In the **New Query 1** settings, enter a query such as the following example:
 
    ```sql
    AppEnvSpringAppConsoleLogs_CL
@@ -77,7 +77,7 @@ Use the following steps to perform analytics on log data.
 1. Select **Log Analytics** in the navigation pane.
 1. Select the Log Analytics workspace where you chose to store the logs.
 1. To open the **Log Search** pane, select **Logs**.
-1. To view logs, in the **Tables** search box, enter a simple query such as the following example:
+1. To view logs, in the **Tables** search box, enter a query such as the following example:
 
    ```sql
    AppEnvSpringAppConsoleLogs_CL
