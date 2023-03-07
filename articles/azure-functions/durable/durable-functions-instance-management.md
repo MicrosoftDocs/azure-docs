@@ -1012,6 +1012,7 @@ If you have an orchestration failure for an unexpected reason, you can *rewind* 
 
 > [!NOTE]
 > This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
+> The `rewind` API is only meant to be used against `Failed` or `Terminated` orchestrators. Orchestrators in other states such as `Running`, `Pending`, `Supended`, `Completed` cannot be be "rewinded".
 
 Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
 
