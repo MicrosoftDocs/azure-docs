@@ -1,45 +1,45 @@
 ---
-title:  Analyzing logs and metrics in the Azure Spring Apps Consumption plan
-description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard Consumption plan.
+title:  Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
+description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
 author: KarlErickson
 ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 3/1/2023
+ms.date: 3/14/2023
 ms.custom: devx-track-java
 ---
 
-# Analyze logs and metrics
+# Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
 
-**This article applies to:** ✔️ Consumption plan ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard Consumption plan.
+This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
-## Logs
+## Analyze logs
 
-There are a variety of tools in Azure to analyze your consumption plan.
+The following sections describe a variety of tools in Azure that you can use to analyze your consumption plan usage.
 
 ### Configure logging options
 
-Logging options are configured in your Container Apps environment where you deploy the Azure Spring Apps instance. You can choose between the following log destinations:
+You can configure logging options in the Azure Container Apps environment where you deploy your Azure Spring Apps instance. You can choose between the following log destinations:
 
-- **Log Analytics** - Azure Monitor Log Analytics is the default storage and viewing option.  Your logs are stored in a Log Analytics workspace where they can be viewed and analyzed using Log Analytics queries.
+- **Log Analytics** - Azure Monitor Log Analytics is the default storage and viewing option. Your logs are stored in a Log Analytics workspace where you can view and analyze them using Log Analytics queries.
 
-- **Azure Monitor** - Azure Monitor routes logs to one or more destinations:
+- **Azure Monitor** - Azure Monitor routes logs to one or more of the following destinations:
 
-  - Log Analytics workspace for viewing and analysis.
-  - Azure storage account to archive.
-  - Azure event hub for data ingestion and analytic services.
-  - Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.
+  - A Log Analytics workspace for viewing and analysis.
+  - An Azure storage account to archive.
+  - An Azure event hub for data ingestion and analytic services.
+  - An Azure partner monitoring solution such as Datadog, Elastic, Logz.io, and others.
 
 - **None** - You can disable the storage of log data.
 
-Logs are enabled in Azure Spring Apps in two ways:
+You can enable logs in Azure Spring Apps in the following ways:
 
 - When you select Log Analytics as the logging option.
 - When you select Azure Monitor as the logging option, with the following following categories selected in the Diagnostic setting:
@@ -63,8 +63,8 @@ Use the following steps to query log data.
 1. In the **New Query 1** settings, enter a simple query such as the following example:
 
    ```sql
-    AppEnvSpringAppConsoleLogs_CL
-    | limit 50
+   AppEnvSpringAppConsoleLogs_CL
+   | limit 50
    ```
 
 1. Select **Run**.
@@ -85,7 +85,7 @@ Use the following steps to perform analytics on log data.
    ```
 
 1. To view the search result, select **Run**.
-1. You can search the logs of the specific application, deployment or instance by setting a filter condition, as shown in the following example:
+1. You can search the logs of the specific application, deployment, or instance by setting a filter condition, as shown in the following example:
 
    ```sql
    AppEnvSpringAppConsoleLogs_CL
@@ -96,11 +96,11 @@ Use the following steps to perform analytics on log data.
    > [!NOTE]
    > `==` is case sensitive, but `=~` isn't.
 
-To learn more about the query language used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, see [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
+To learn more about the query language used in Log Analytics, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, see [Query data in Azure Monitor using Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
-## Metrics
+## Analyze metrics
 
-Azure Monitor collects metric data from your Azure Spring Apps instance at regular intervals to help you gain insights into the performance and health of your Spring Apps.
+Azure Monitor collects metric data from your Azure Spring Apps instance at regular intervals to help you gain insights into the performance and health of your Spring apps.
 
 To visualize the data, select **Metrics** in the navigation pane in your Azure Spring Apps instance. You can also retrieve raw metric data through the [Azure CLI](/cli/azure/monitor/metrics) and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
 
@@ -108,29 +108,31 @@ To visualize the data, select **Metrics** in the navigation pane in your Azure S
 
 Azure Spring Apps provides the metrics described in the following table:
 
-| Title                    | Description                                               | Metric ID       | Unit      |
-|--------------------------|-----------------------------------------------------------|-----------------|-----------|
-| CPU usage nanocores      | CPU usage in nanocores (1,000,000,000 nanocores = 1 core) | UsageNanoCores  | nanocores |
-| Memory working set bytes | Working set memory used in bytes                          | WorkingSetBytes | bytes     |
-| Network in bytes         | Network received bytes                                    | RxBytes         | bytes     |
-| Network out bytes        | Network transmitted bytes                                 | TxBytes         | bytes     |
-| Requests                 | Requests processed                                        | Requests        | n/a       |
-| Restart count            | Restart count of Spring App                               | RestartCount    | n/a       |
+| Title                    | Description                                               | Metric ID         | Unit      |
+|--------------------------|-----------------------------------------------------------|-------------------|-----------|
+| CPU usage nanocores      | CPU usage in nanocores (1,000,000,000 nanocores = 1 core) | `UsageNanoCores`  | nanocores |
+| Memory working set bytes | Working set memory used in bytes                          | `WorkingSetBytes` | bytes     |
+| Network in bytes         | Network received bytes                                    | `RxBytes`         | bytes     |
+| Network out bytes        | Network transmitted bytes                                 | `TxBytes`         | bytes     |
+| Requests                 | Requests processed                                        | `Requests`        | n/a       |
+| Restart count            | Restart count of Spring App                               | `RestartCount`    | n/a       |
 
 ### Use metrics explorer
 
 The Azure Monitor metrics explorer enables you to create charts from metric data to help you analyze your Azure Spring Apps resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on your Azure Spring Apps overview page. To learn more about metrics explorer, see [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
-1. Create a chart by selecting a metric in the **Metric** dropdown menu. You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
+1. Create a chart by selecting a metric in the **Metric** dropdown menu. You can modify the chart by changing the aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 
 #### Add filters
 
 Optionally, you can create filters to limit the data shown based on application name and instance name. Use the following steps to create a filter:
 
 1. Select **Add filter**.
-1. Select App or Instance from the **Property** list.
+1. Select **App** or **Instance** from the **Property** list.
 1. Select values from the **Value** list.
 
 ## Next steps
+
+[Azure Spring Apps documentation](./index.yml)
