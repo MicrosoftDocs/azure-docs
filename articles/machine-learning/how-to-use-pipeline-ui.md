@@ -85,7 +85,7 @@ To enable this feature:
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/enable-submission-wizard.png" alt-text="Screenshot showing how to enable submission wizard." lightbox= "./media/how-to-use-pipeline-ui/enable-submission-wizard.png":::
 
-After enabling the pipeline submission wizard, click **Configure & Submit** button on the top right to submit the pipeline job.
+After enabling the pipeline submission wizard, select **Configure & Submit** button on the top right to submit the pipeline job.
 
 Then you will see a step-by-step wizard, which allows you to edit pipeline inputs & outputs, and change runtime settings before submit the pipeline job. Follow the wizard to submit the pipeline job.
 
