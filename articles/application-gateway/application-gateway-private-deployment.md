@@ -370,6 +370,14 @@ While in public preview, the following limitations are known.
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
+### Private IP frontend configuration only with AGIC
+
+AGIC v1.7 must be used to introduce support for private frontend IP only.
+
+### Private Endpoint connectivity via Global VNet Peering
+
+If Application Gateway has a backend target or key vault reference to a private endpoint located in a VNet that is accessible via global VNet peering, traffic is dropped, resulting in an unhealthy status.
+
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
 If a subnet shares Application Gateway v2 deployments that were created both prior to and after enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality is limited to the prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality must either be reprovisioned, or newly created gateways must use a different subnet to enable enhanced network security group and route table features.
@@ -379,25 +387,12 @@ If a subnet shares Application Gateway v2 deployments that were created both pri
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
-### Private Endpoint Network Policy is unsupported
+### Unknown Backend Health status
 
-[Private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints might be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
+If backend health is _Unknown_, you may see the following error:
+   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
-### Private Endpoint connectivity via Global VNet Peering
-
-If Application Gateway has a backend target or key vault reference to a private endpoint located in a VNet that is accessible via global VNet peering, traffic is dropped, resulting in an unhealthy status.
-
-### Private IP frontend configuration only with AGIC
-
-AGIC doesn't currently support private IP frontend only deployments.
-
-### Backend Health status typo
-
-If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need an NSG and to eliminate route tables. The message to require NSG rules or eliminate the user-defined route (UDR) is incorrect and can be ignored. This issue will be fixed in a future release.
-
-### Tags in Route Table Rules
-
-If a tag is defined via Route Table, this might lead to provisioning failure of Application Gateway.
+This error can be ignored and will be clarified in a future release.
 
 ## Next steps
 
