@@ -382,7 +382,7 @@ The Layout model extracts all identified barcodes in the `barcodes` collection a
 | PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
 
    > [!NOTE]
-   > The `confidence` score is hard-coded for the `2023-03-06` public preview.
+   > The `confidence` score is hard-coded for the `2023-02-28` public preview.
 
    ```json
    "content": ":barcode:",
