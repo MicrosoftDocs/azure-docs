@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
 
