@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 03/07/2023
 ms.author: normesta
 ms.reviewer: sumameh
 ms.devlang: csharp, python
@@ -53,18 +53,18 @@ First, create a csv file that describes a sales order, and then upload that file
    > [!div class="mx-imgBorder"]
    > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png)
 
-2. In the **data** container, create a directory named **input**.
+3. In the **data** container, create a directory named **input**.
 
-3. Paste the following text into a text editor.
+4. Paste the following text into a text editor.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Save this file to your local computer and give it the name **data.csv**.
+5. Save this file to your local computer and give it the name **data.csv**.
 
-5. In storage browser, upload this file to the **input** folder.
+6. In storage browser, upload this file to the **input** folder.
 
 ## Create a job in Azure Databricks
 
@@ -160,7 +160,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
    This code inserts data into a temporary table view by using data from a csv file. The path to that csv file comes from the input widget that you created in an earlier step.
 
-2. Add the following code to merge the contents of the temporary table view with the Databricks Delta table.
+2. Copy and paste the following code block into a different cell. This code merges the contents of the temporary table view with the Databricks Delta table.
 
    ```
    %sql
@@ -207,20 +207,19 @@ Create an Azure Function that runs the Job.
 
 3. Copy the token that appears, and then click **Done**.
 
-1. In the upper corner of the Databricks workspace, choose the people icon, and then choose **User settings**.
+4. In the upper corner of the Databricks workspace, choose the people icon, and then choose **User settings**.
 
    ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
 
-2. Select the **Generate new token** button, and then select the **Generate** button.
+5. Select the **Generate new token** button, and then select the **Generate** button.
 
    Make sure to copy the token to safe place. Your Azure Function needs this token to authenticate with Databricks so that it can run the Job.
 
-***
-3. From the Azure portal menu or the **Home** page, select **Create a resource**.
+6. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-4. In the **New** page, select **Compute** > **Function App**.
+7. In the **New** page, select **Compute** > **Function App**.
 
-5. In the **Basics** tab of the **Create Function App** page, choose a resource group, and then change or verify the following settings:
+8. In the **Basics** tab of the **Create Function App** page, choose a resource group, and then change or verify the following settings:
 
    | Setting | Value | 
    |---------|-------|
@@ -230,23 +229,23 @@ Create an Azure Function that runs the Job.
    | Operating System | Windows |
    | Plan type | Consumption (Serverless) |
 
-6. Select **Review + create**, and then select **Create**. 
+9. Select **Review + create**, and then select **Create**. 
 
    When the deployment is complete, select **Go to resource** to open the overview page of the Function App.
 
-7. In the **Settings** group, select **Configuration**. 
+10. In the **Settings** group, select **Configuration**. 
 
-8. In the **Application Settings** page, choose the **New application setting** button to add each setting.
+11. In the **Application Settings** page, choose the **New application setting** button to add each setting.
 
-   ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
+    ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
 
-   Add the following settings:
+    Add the following settings:
 
-   |Setting name | Value |
-   |----|----|
-   |**DBX_INSTANCE**| The region of your databricks workspace. For example: `westus2.azuredatabricks.net`|
-   |**DBX_PAT**| The personal access token that you generated earlier. |
-   |**DBX_JOB_ID**|The identifier of the running job. |
+    |Setting name | Value |
+    |----|----|
+    |**DBX_INSTANCE**| The region of your databricks workspace. For example: `westus2.azuredatabricks.net`|
+    |**DBX_PAT**| The personal access token that you generated earlier. |
+    |**DBX_JOB_ID**|The identifier of the running job. |
 
 9. Select **Save** to commit these settings.
 
@@ -258,9 +257,9 @@ Create an Azure Function that runs the Job.
 
    The **New Function** pane appears.
 
-9. In the **New Function** pane, name the function **UpsertOrder**, and then select the **Create** button.
+12. In the **New Function** pane, name the function **UpsertOrder**, and then select the **Create** button.
 
-10. Replace the contents of the code file with this code, and then select the **Save** button:
+13. Replace the contents of the code file with this code, and then select the **Save** button:
 
     ```csharp
       #r "Azure.Messaging.EventGrid"
@@ -330,7 +329,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    | System topic name | <create any name> |
    | Filter to Event Types | Blob Created, and Blob Deleted |
 
-5. Select the **Create** button.
+4. Select the **Create** button.
 
 ## Test the Event Grid subscription
 
@@ -345,17 +344,9 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    Uploading a file raises the **Microsoft.Storage.BlobCreated** event. Event Grid notifies all subscribers to that event. In our case, the Azure Function is the only subscriber. The Azure Function parses the event parameters to determine which event occurred. It then passes the URL of the file to the Databricks Job. The Databricks Job reads the file, and adds a row to the Databricks Delta table that is located your storage account.
 
-3. To check if the job succeeded, open your databricks workspace, select the **Jobs** button, and then open your job.
+3. To check if the job succeeded, view the runs for your job. You'll see a completion status. For more information about how to view runs for a job, see [View runs for a job](/azure/databricks/workflows/jobs/jobs#--view-runs-for-a-job)
 
-4. Select the job to open the job page.
-
-   ![Spark job](./media/data-lake-storage-events/spark-job.png "Spark job")
-
-   When the job completes, you'll see a completion status.
-
-   ![Successfully completed job](./media/data-lake-storage-events/spark-job-completed.png "Successfully completed job")
-
-5. In a new workbook cell, run this query in a cell to see the updated delta table.
+4. In a new workbook cell, run this query in a cell to see the updated delta table.
 
    ```
    %sql select * from customer_data
@@ -365,7 +356,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    ![Latest record appears in table](./media/data-lake-storage-events/final_query.png "Latest record appears in table")
 
-6. To update this record, create a file named `customer-order-update.csv`, paste the following information into that file, and save it to your local computer.
+5. To update this record, create a file named `customer-order-update.csv`, paste the following information into that file, and save it to your local computer.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
@@ -374,9 +365,9 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    This csv file is almost identical to the previous one except the quantity of the order is changed from `228` to `22`.
 
-7. In Storage Explorer, upload this file to the **input** folder of your storage account.
+6. In Storage Explorer, upload this file to the **input** folder of your storage account.
 
-8. Run the `select` query again to see the updated delta table.
+7. Run the `select` query again to see the updated delta table.
 
    ```
    %sql select * from customer_data
