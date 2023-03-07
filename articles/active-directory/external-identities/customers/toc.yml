@@ -40,5 +40,5 @@ items:
       items:
         - name: Default branding
           href: how-to-customize-branding-customers.md
-	- name: Language-specific branding
+        - name: Language-specific branding
           href: how-to-customize-languages-customers.md
