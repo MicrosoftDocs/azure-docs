@@ -142,7 +142,7 @@ Yes, you can import data that was exported from Azure Cache for Redis instances.
 
 ### What RDB versions can I import?
 
-Azure Cache for Redis supports RDB import up through RDB version 7.
+See the [compatability section](#compatability) for the latest information. 
 
 ### Is my cache available during an Import/Export operation?
 
