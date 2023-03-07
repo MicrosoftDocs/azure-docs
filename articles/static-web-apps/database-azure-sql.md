@@ -99,7 +99,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 ## Configure the static web app
 
-The rest this tutorial focuses on editing your static web app's source code to make use of database connections locally.  
+The rest of this tutorial focuses on editing your static web app's source code to make use of database connections locally.  
 
 > [!IMPORTANT]
 > The following steps assume you are working with the static web app created in the [getting started guide](getting-started.md). If you are using a different project, make sure to adjust the following git commands to match your branch names.
