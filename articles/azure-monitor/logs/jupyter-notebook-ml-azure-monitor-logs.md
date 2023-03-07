@@ -194,7 +194,10 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-new-ingestion-graph.png" alt-text="A graph that shows hourly usage data for six data types over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-new-ingestion-graph.png":::
 
-1. Load the gradient boosting regression model from the pickle file and use it to predict values for new data. This is often called scoring.
+1. Load the gradient boosting regression model pickle file and use it to predict values for new data. This is often called scoring.
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-scoring-new-data.png" alt-text="Screenshot that shows a DataFrame with information about the predicted and actual ingestion into the six tables we're exploring in this tutorial." 
+
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
 
