@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/06/2023
+ms.date: 03/07/2023
 ms.author: sarahlipsey
-ms.reviewer: hafowler
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
 # Azure AD recommendation: Renew expiring application credentials (preview)
@@ -33,17 +33,9 @@ Renewing the app credential(s) before its expiration ensures the application con
 Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
 
 1. Take note of the application name and ID that the recommendation identified.
-
 1. Navigate to **Azure AD** > **App registration** and locate the application for which the credential needs to be rotated.
-
-    ![Screenshot of the Azure AD app registration area, with the App registrations menu item highlighted.](media/recommendation-renew-expiring-application-credential/app-registrations-list.png)
-
 1. Navigate to the **Certificates & Secrets** section of the app registration.
-
 1. Pick the credential type that you want to rotate and navigate to either **Certificates** or **Client Secret** tab and follow the prompts.
-
-    ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
-
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
 1. Use the Azure AD sign-in logs to validate that the Key ID of the credential matches the one that was recently added.
 1. After validating the new credential, navigate back to **Azure AD** > **App registrations** > **Certificates and Secrets** for the app and remove the old credential.

@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/06/2023
+ms.date: 03/07/2023
 ms.author: sarahlipsey
-ms.reviewer: hafowler
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
 # Azure AD recommendation: Remove unused credentials from apps (preview)
@@ -37,13 +37,8 @@ Applications that the recommendation identified appear in the list of **Impacted
 1. Take note of the application name and ID that the recommendation identified.
 
 1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
-
-    ![Screenshot of the Azure AD app registration area, with the App registrations menu item highlighted.](media/recommendation-remove-unused-credential-from-apps/app-registrations-list.png)
-
 1. Navigate to the **Certificates & Secrets** section of the app registration.
 1. Locate the unused credential and remove it.
-
-    ![Screenshot of the Certificates & secrets area of app registrations.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
 
 ## Next steps
 

@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/06/2023
+ms.date: 03/07/2023
 ms.author: sarahlipsey
-ms.reviewer: hafowler
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
 # Azure AD recommendation: Renew expiring service principal credentials (preview)
@@ -36,9 +36,7 @@ Renewing the service principal credential(s) before expiration ensures the appli
     a. Alternatively, go to **Azure AD** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
     
     b. Use the search box at the top of the list to find the application that was listed in the recommendation.
-    
-    ![Screenshot of the Enterprise applications area with the search box highlighted.](media/recommendation-renew-expriring-service-principal-credential/recommendation-enterprise-apps-list.png)
-    
+      
     c. Select the service principal with the credential that needs to be rotated, then select **Single sign-on** from the side menu.
 
 1. Edit the **SAML signing certificate** section and follow the prompts to add a new certificate.
