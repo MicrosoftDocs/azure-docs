@@ -255,7 +255,7 @@ items:
       - name: Diagnostic logs
         href: diagnostic-logs.md
       - name: Metrics
-        href: ../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains?toc=/azure/event-grid/toc.json
+        href: ../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains
     - name: Use cases
       items:
       - name: Use cases for domains

@@ -22,7 +22,7 @@
     },
     {
       "source_path": "metrics.md",
-      "redirect_url": "/azure-monitor/essentials/metrics-supported#microsofteventgridpartnertopics",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-supported#microsofteventgriddomains",
       "redirect_document_id": false
     },    
     {
