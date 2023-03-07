@@ -452,4 +452,4 @@ The output of the command resembles the following example:
 [enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
-[disk-based-solutions]: ../cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions
+[disk-based-solutions]: ../../../cloud-adoption-framework/docs/scenarios/app-platform/aks/storage.md#disk-based-solutions
