@@ -13,16 +13,43 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
 
-Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+## Understanding the Email Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for JavaScript.
+
+| Name | Description |
+| ---- |-------------|
+| EmailAddress | This class contains an email address and an option for a display name. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
+| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
+| EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
+| EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
+| EmailCustomHeader | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'. |
+| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
+| EmailRecipients | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
+| EmailSendStatus | This class represents the set of statuses of an email send operation. |
+
+EmailSendResult returns the following status on the email operation performed.
+
+| Status Name | Description |
+| ----------- | ------------|
+| isStarted | Returns true if the email send operation is currently in progress and being processed. |
+| isCompleted | Returns true if the email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| result | Property that exists if the email send operation has concluded. |
+| error | Property that exists if the email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
+| isCanceled | True if the email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
 
 ## Prerequisites
 
 - [Node.js (~14)](https://nodejs.org/download/release/v14.19.1/).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
-- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../../create-communication-resource.md).
 
-> Note: We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains).
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
+> Note: We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
 ### Prerequisite check
 
@@ -55,24 +82,9 @@ npm install @azure/communication-email --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Object model
+## Creating the email client with authentication
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for JavaScript.
-
-| Name | Description |
-| ---- |-------------|
-| EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
-| EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
-| EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
-| EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
-| EmailCustomHeader | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'. |
-| EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
-| EmailRecipients | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients. |
-| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
-| EmailSendStatus | This class represents the set of statuses of an email send operation. |
-
-## Authenticate the client
+### Option 1: Authenticate using a connection string
 
 Import the **EmailClient** from the client library and instantiate it with your connection string.
 
@@ -94,9 +106,30 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const emailClient = new EmailClient(connectionString);
 ```
 
+### Option 2: Authenticate using Azure Active Directory
+
+You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider shown below, or other credential providers provided with the Azure SDK, please install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
+
+```bash
+npm install @azure/identity
+```
+
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides a variety of credential types that your application can use to do this. The README for `@azure/identity` provides more details and samples to get you started.
+`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+
+```typescript
+import { DefaultAzureCredential } from "@azure/identity";
+import { EmailClient } from "@azure/communication-email";
+const endpoint = "https://<resource-name>.communication.azure.com";
+let credential = new DefaultAzureCredential();
+const client = new EmailClient(endpoint, credential);
+```
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Send an email message
+## Basic Email Sending 
+
+### Send an email message
 
 To send an email message, call the `beginSend` function from the EmailClient. This method returns a poller that checks on the status of the operation and retrieves the result once it's finished.
 
@@ -135,26 +168,18 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-| Status Name | Description |
-| ----------- | ------------|
-| isStarted | Returns true if the email send operation is currently in progress and being processed. |
-| isCompleted | Returns true if the email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
-| result | Property that exists if the email send operation has concluded. |
-| error | Property that exists if the email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| isCanceled | True if the email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
-
-## Run the code
+### Run the code
 
 use the node command to run the code you added to the send-email.js file.
 
 ```console
 node ./send-email.js
 ```
-## Sample code
+### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
 
-## Advanced
+## Advanced Sending
 
 ### Send an email message to multiple recipients
 
