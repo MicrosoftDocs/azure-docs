@@ -14,6 +14,7 @@ recommendations: false
 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD011 -->
 
 # Document processing models
 
@@ -42,7 +43,7 @@ recommendations: false
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
-| [Invoice](#invoice)  | Automate invoice invoices. |
+| [Invoice](#invoice)  | Automate invoices. |
 | [Receipt](#receipt)  | Extract receipt data from receipts.|
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
@@ -94,7 +95,7 @@ The general document model is ideal for extracting common key-value pairs from f
 
 :::image type="content" source="media/studio/health-insurance-logo.png" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
 
-The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and other key information from US health insurance cards.
+The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards.
 
 ***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
 
@@ -172,7 +173,7 @@ Use the business card model to scan and extract key information from business ca
 
  [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-Custom document models analyze and extract data from forms and documents specific to your business. They are trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
+Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
 
 Version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 

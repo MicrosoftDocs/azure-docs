@@ -159,9 +159,9 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 >[!NOTE]
 > Form Recognizer auto-detects language and locale data.
 
-### [2022-08-31 (GA)](#tab/2022-08-31)
+### [**2022-08-31 (GA)**](#tab/2022-08-31)
 
-#### Thermal receipts (e.g., retail, meal, parking, etc.)
+#### Thermal receipts (retail, meal, parking, etc.)
 
 | Supported Languages | Details |
 |:--------------------|:-------:|
@@ -198,7 +198,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 
 ### [2023-02-28-preview](#tab/2023-02-28-preview)
 
-#### Thermal receipts (e.g., retail, meal, parking, etc.)
+#### Thermal receipts (retail, meal, parking, etc.)
 
 | Supported Languages | Details |
 |:--------------------|:-------:|
@@ -277,7 +277,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 
  Form Recognizer v3.0 introduces several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
 
-### [2022-08-31 (GA)](#tab/2022-08-31)
+### [**2022-08-31 (GA)**](#tab/2022-08-31)
 
 #### Thermal receipts (receipt, receipt.retailMeal, receipt.creditCard, receipt.gas, receipt.parking)
 
@@ -285,7 +285,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
 |`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
-|`MerchantAddress`|`address`|Listed address of merchant|123 Main St Redmond WA 98052|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
 |`Total`|`number`|Full transaction total of receipt|$14.34|
 |`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
 |`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
@@ -309,7 +309,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
 |`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
-|`MerchantAddress`|`address`|Listed address of merchant|123 Main St Redmond WA 98052|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
 |`Total`|`number`|Full transaction total of receipt|$14.34|
 |`ArrivalDate`|`date`|Date of arrival|27Mar21|
 |`DepartureDate`|`date`|Date of departure|28Mar21|
@@ -330,7 +330,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
 |`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
-|`MerchantAddress`|`address`|Listed address of merchant|123 Main St Redmond WA 98052|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
 |`Total`|`number`|Full transaction total of receipt|$14.34|
 |`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
 |`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
@@ -355,7 +355,7 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
 |`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
-|`MerchantAddress`|`address`|Listed address of merchant|123 Main St Redmond WA 98052|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
 |`Total`|`number`|Full transaction total of receipt|$14.34|
 |`ArrivalDate`|`date`|Date of arrival|27Mar21|
 |`DepartureDate`|`date`|Date of departure|28Mar21|
