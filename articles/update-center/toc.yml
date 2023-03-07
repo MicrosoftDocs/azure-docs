@@ -4,6 +4,8 @@
   items:
   - name: About Update management center
     href: overview.md
+  - name: What's New 
+    href: whats-new.md
   - name: Support matrix
     href: support-matrix.md
 - name: Quickstarts
