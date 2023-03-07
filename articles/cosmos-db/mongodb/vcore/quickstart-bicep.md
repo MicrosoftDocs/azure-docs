@@ -22,21 +22,27 @@ In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
-## Create a cluster
+## Review the Bicep file
 
-Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](TODO).
 
 1. TODO
 
-## Get cluster credentials
+## Deploy the Bicep file
 
-Get the connection string you need to connect to this cluster using your application code.
+Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
+
+1. TODO
+
+## Review deployed resources
+
+List the resources deployed by the Bicep template to your target resource group.
 
 1. TODO
 
 ## Clean up resources
 
-When you're done with your app and Azure Cosmos DB for MongoDB vCore cluster, you can delete the Azure resources you created so you don't incur more charges.
+When you're done with your Azure Cosmos DB for MongoDB vCore cluster, you can delete the Azure resources you created so you don't incur more charges.
 
 1. TODO
 
