@@ -16,36 +16,38 @@ ms.subservice: B2C
 
 # Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall
 
-In this sample tutorial, learn how to enable [Azure Web Application Firewall (WAF)](https://azure.microsoft.com/services/web-application-firewall/#overview) solution for Azure Active Directory (AD) B2C tenant with custom domain. Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+Learn how to enable the Azure Web Application Firewall (WAF) service for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. WAF has centralized protection of web applications from common exploits and vulnerabilities.
 
->[!NOTE]
->This feature is in public preview.
+Learn more about [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/#overview)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure subscription – If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
-
-- [Azure Front Door (AFD)](../frontdoor/index.yml) – Responsible for enabling custom domains for Azure AD B2C tenant.  
-
-- [Azure WAF](https://azure.microsoft.com/services/web-application-firewall/#overview) – Manages all traffic that is sent to the authorization server.
+* An Azure subscription
+* If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant – authorization server that verifies user credentials using custom policies defined in the tenant
+  * Also known as the identity provider (IdP)
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
+* Azure Front Door (AFD) – enables custom domains for the Azure AD B2C tenant
+  * See, [Azure Front Door and CDN documentation](../frontdoor/index.yml)
+* WAF – Manages traffic sent to the authorization server
+  * [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/#overview)
 
 ## Azure AD B2C setup
 
-To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by AFD. Learn how to [enable Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).  
+To use custom domains in Azure AD B2C, use the custom domain features in AFD. See, [Enable custom domains for Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow).  
 
-After custom domain for Azure AD B2C is successfully configured using AFD, [test the custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
+> [!IMPORTANT]
+> After you configure the custom domain, see [Test your custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain).  
 
-## Onboard with Azure WAF
+## Onboard with WAF
 
-To enable Azure WAF, configure a WAF policy and associate that policy to the AFD for protection.
+To enable WAF, configure a WAF policy and associate it with the AFD for protection.
 
 ### Create a WAF policy
 
-Create a basic WAF policy with managed Default Rule Set (DRS) in the [Azure portal](https://portal.azure.com).
+Create a basic WAF policy with managed Default Rule Set (DRS):
 
 1. Go to the [Azure portal](https://portal.azure.com). Select **Create a resource** and then search for Azure WAF. Select **Azure Web Application Firewall (WAF)** > **Create**.
 
