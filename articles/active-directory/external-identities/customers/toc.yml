@@ -29,7 +29,7 @@ items:
         - name: Add a sign-up and sign-in flow
           href: how-to-user-flow-sign-up-sign-in-customers.md
         - name: Enable password reset
-          href: how-to-user-flow-password-reset-customers.md
+          href: how-to-enable-password-reset-customers.md
     - name: Customize branding
       items:
         - name: Default branding

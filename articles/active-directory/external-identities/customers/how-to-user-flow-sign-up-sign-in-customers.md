@@ -166,4 +166,4 @@ The custom attribute is now available in the list of user attributes and for use
 
 ## Next steps
 
-- [Enable password reset](how-to-user-flow-password-reset-customers.md)
+- [Enable password reset](how-to-enable-password-reset-customers.md)

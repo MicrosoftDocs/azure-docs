@@ -30,9 +30,9 @@ In this article, you run a script to complete the following steps:
 - Create default branding and language customizations
 ## Prerequisites
 
-- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
-- [PowerShellGet](https://learn.microsoft.com/en-us/powershell/scripting/gallery/installing-psget?view=powershell-7.2)
-- [Bicep tool](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
+- [PowerShell](/powershell/scripting/install/installing-powershell)
+- [PowerShellGet](/powershell/scripting/gallery/installing-psget)
+- [Bicep tool](/azure/azure-resource-manager/bicep/install)
 - [Node.js](https://nodejs.org/en/)
 - [Customer Tenant Creation Script](https://aka.ms/ciam-create-tenant-script)
 
