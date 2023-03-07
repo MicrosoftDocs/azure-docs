@@ -22,7 +22,7 @@ Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad
 
 Use the following instructions to set up access control delegated administration for Azure AD B2C users. Saviynt determines if a user is authorized to manage Azure AD B2C users with:
 
-* Feature level security to determine if users can perform an operation. 
+* Feature level security to determine if users can perform an operation
   * For example, create user, update user, reset user password, and so on
 * Field level security to determine if users can read/write user attributes during user management operations 
   * For example, a Help Desk agent can update a phone number; other attributes are read-only
@@ -47,7 +47,7 @@ The Saviynt integration includes the following components:
 * **Saviynt for Azure AD B2C** – identity governance for delegated administration of user life-cycle management and access governance
   * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
 * **Microsoft Graph API** – interface for Saviynt to manage Azure AD B2C users and their access
-  * [Use the Microsoft Graph API](/graph/use-the-api)
+  * See, [Use the Microsoft Graph API](/graph/use-the-api)
     
 
 The following architecture diagram illustrates the implementation.
