@@ -5,9 +5,9 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 03/04/2023
-ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.reviewer: wwilliams
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HC-series virtual machine overview
