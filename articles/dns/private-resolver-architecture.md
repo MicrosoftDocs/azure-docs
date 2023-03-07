@@ -1,5 +1,6 @@
 ---
 title: Private resolver architecture
+titleSuffix: Azure DNS Private Resolver architecture guidance
 description: Configure the Azure DNS Private Resolver for a centralized or non-centralized architecture
 services: dns
 author: greg-lindsay
@@ -21,7 +22,7 @@ This article discusses two architectural design options that are available to re
 
 Consider the following hub and spoke VNet topology in Azure with a private resolver located in the hub and a ruleset link to the spoke VNet:
 
-![Hub and spoke with ruleset diagram](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
+![Hub and spoke with ruleset diagram.](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
 
 **Figure 1**: Distributed DNS architecture using ruleset links
 
@@ -45,7 +46,7 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 
 Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet:
 
-![Hub and spoke with custom DNS diagram](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
+![Hub and spoke with custom DNS diagram.](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
 
 **Figure 2**: Centralized DNS architecture using custom DNS
 
