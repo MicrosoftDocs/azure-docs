@@ -210,6 +210,8 @@ items:
       href: how-to-distributed-tracing.md
     - name: Analyze logs and metrics
       href: diagnostic-services.md
+    - name: Analyze logs and metrics in the consumption plan
+      href: how-to-analyze-logs-and-metrics-consumption-plan.md
     - name: Stream logs in real time
       href: how-to-log-streaming.md
     - name: Application Insights using Java In-Process Agent
