@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Container Apps Environment with an existing virtual network in Azure Spring Apps
+title: Create Azure Spring Apps in Azure Container Apps Environment with an existing Virtual Network
 description: Learn how to create an Azure Container Apps Environment with an existing virtual network in Azure Spring Apps
 author: karlerickson
 ms.author: xuycao
@@ -14,6 +14,8 @@ ms.custom: devx-track-java
 **This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise  
 
 This article describes how to create an Azure Container Apps Environment with an existing virtual network in an Azure Apps instance.
+
+When Azure Spring Apps is created in an Azure Container Apps environment, it will share the same Virtual Network with other services and resources that dwell in the same Azure Container Apps Environment. Furthermore, you can pick an existing Virtual Network that was setup by your IT team to deploy your Azure Container Apps environment. This significantly simplifies the Virtual Network experience for running polyglot apps, when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment.
 
 ### [Azure portal](#tab/Azure-portal)
 
