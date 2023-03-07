@@ -4,7 +4,7 @@ description: Learn about configuring and optimizing the InfiniBand enabled H-ser
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -160,6 +160,6 @@ Optionally, the WALinuxAgent may be disabled as a pre-job step and enabled back 
 
 - Learn more about [enabling InfiniBand](enable-infiniband.md) on the InfiniBand-enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 - Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
-- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+- Review the [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
