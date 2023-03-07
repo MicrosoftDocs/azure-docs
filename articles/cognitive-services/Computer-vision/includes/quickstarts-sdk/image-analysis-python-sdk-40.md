@@ -106,7 +106,7 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console
-    python quickstart-file.py
+    python quickstart.py
     ```
 
 > [!div class="nextstepaction"]
