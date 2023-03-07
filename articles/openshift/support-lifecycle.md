@@ -78,7 +78,7 @@ For new patch versions of Red Hat OpenShift Container Platform:
 
 ## Supported versions policy exceptions
 
-The Azure Red Hat OpenShift SRE team reserves the right to add or remove new/existing versions, or delay upcoming minor release versions, that have been identified to have one or more critical production impacting bugs or security issues without advance notice.
+The Azure Red Hat OpenShift SRE team reserves the right to add or remove new/existing versions or delay upcoming minor release versions that has been identified to have one or more critical production impacting bugs or security issues without advance notice.
 
 Specific patch releases may be skipped, or rollout may be accelerated depending on the severity of the bug or security issue.
 
@@ -117,8 +117,8 @@ Reverting your cluster to a previous version, or a rollback, isn't supported. On
 
 **What does "Outside of Support" mean?**
 
-If your ARO cluster is running an OpenShift version that is not on the supported versions list, or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
-- When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version before receiving support, unless you are within the 30-day grace period after version support ends. 
+If your ARO cluster is running an OpenShift version that isn't on the supported versions list, or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
+- When opening a support ticket for your cluster, you'll be asked to upgrade the cluster to a supported version before receiving support, unless you are within the 30-day grace period after version support ends. 
 - Any runtime or SLA guarantees for clusters outside of support are voided.
 - Clusters outside of support will be patched only on a best effort basis.
-- Clusters outside of support will not be monitored.
+- Clusters outside of support won't be monitored.
