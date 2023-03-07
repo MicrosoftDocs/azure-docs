@@ -26,7 +26,7 @@ Configure outbound voice routing rules for Azure Communication Services direct r
 [!INCLUDE [Java](./includes/voice-routing-sdk-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-JavaScript"
 [!INCLUDE [JavaScript](./includes/voice-routing-sdk-jscript.md)]
 ::: zone-end
 
