@@ -53,6 +53,10 @@ The preview is available on [npm][3.0.0-preview.4] and CDN.
 
 - Cleaned up various memory leaks in [Map.dispose()].
 
+- Improved style picker's tab navigation for accessibility in list layout.
+
+- Optimized style switching by avoiding deep cloning objects.
+
 - Fixed an exception that occurred in [SourceManager] when style switching with sources that weren't vector or raster. 
 
 - **\[BREAKING\]** Previously `sourceadded` events are only emitted if new sources are added to the style. Now `sourceremoved` / `sourceadded` events are emitted when the new source and the original source in the current style aren't equal, even if they have the same source ID.
@@ -154,6 +158,8 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 #### Bug fixes (2.2.4)
 
 - Cleaned up various memory leaks in [Map.dispose()].
+
+- Improved style picker's tab navigation for accessibility in list layout.
 
 ### [2.2.3]
 
