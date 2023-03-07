@@ -85,7 +85,7 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 
 For more on these DMVs/DMFs you can check these docs
 - [Monitoring Microsoft Azure SQL Database performance using dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs)
-- [Security-Related Dynamic Management Views and Functions](sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
+- [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
 
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
