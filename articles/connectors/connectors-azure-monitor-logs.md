@@ -12,13 +12,13 @@ tags: connectors
 
 # Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 > [!NOTE]
 > 
 > The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](/connectors/azureloganalytics/) and the 
 > [Azure Application Insights connector](/connectors/applicationinsights/). This connector provides the same functionality as the 
 > other connectors and is the preferred method for running a query against a Log Analytics workspace or an Application Insights application.
-
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To build workflows in Azure Logic Apps that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor, you can use the Azure Monitor Logs connector.
 
@@ -38,7 +38,7 @@ For technical information about this connector's operations, see the [connector'
 > | Action | Description |
 > |--------|-------------|
 > | [Run query and and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each action](../logic-apps/logic-apps-control-flow-loops.md). |
-| [Run query and and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
+> | [Run query and and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
 
 ## Limitations
 
@@ -92,7 +92,7 @@ For technical information about this connector's operations, see the [connector'
    | **Resource Type** | Yes | **Log Analytics Workspace** or **Application Insights** | The resource type to connect from your workflow. This example continues by selecting **Log Analytics Workspace**. |
    | **Resource Name** | Yes | <*Azure-resource-name*> | The name for your Log Analytics workspace or Application Insights application. |
 
-1. In the **Query** box, add the following Kusto query to retrieve the specified log data:
+1. In the **Query** box, enter the following Kusto query to retrieve the specified log data:
 
    ```Kusto
    Event
@@ -102,7 +102,9 @@ For technical information about this connector's operations, see the [connector'
    | sort by Computer asc   
    ```
 
-1. For **Time Range**, select **Set in query**. For **Chart Type**, select **Html Table**.
+1. For **Time Range**, select **Set in query**.
+
+1. For **Chart Type**, select **Html Table**.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -110,7 +112,7 @@ For technical information about this connector's operations, see the [connector'
 > 
 > The account associated with the current connection sends the email. To specify another account, select **Change connection**.
 
-### Add email action
+## Add an email action
 
 1. In your workflow where you want to add the Office 365 Outlook action, follow one of these steps:
 
@@ -128,11 +130,9 @@ For technical information about this connector's operations, see the [connector'
 
 1. From the outputs list, select **Body**, which represents the results of the query that you previously entered in the Log Analytics action.
 
-   ![Screenshot of the settings for the new Send an email (V2) action, showing the body of the email being defined.](media/connectors-azure-monitor-logs/select-body.png)
+1. In the **To** box, enter the recipient's email address. For this example, use your own email address.
 
-1. Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. 
-
-    ![Screenshot of the settings for the new Send an email (V2) action, showing the subject line and email recipients being defined.](media/connectors-azure-monitor-logs/mail-action.png)
+1. In the **Subject** box, enter a subject for the email.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -140,17 +140,19 @@ For technical information about this connector's operations, see the [connector'
 
 1. On the designer toolbar, select **Run Trigger** > **Run**.
 
-   ![Save and run](media/connectors-azure-monitor-logs/save-run.png)
+1. When the workflow completes, check your email.
 
-1. When the workflow completes, check the mail of the recipient that you specified. You should receive a mail with a body similar to the following:
+   The email that you received has a body that looks similar to the following example:
 
-   ![An image of a sample email.](media/connectors-azure-monitor-logs/sample-mail.png)
+   ![Screenshot that shows the data from the workspace in an example email.](media/connectors-azure-monitor-logs/sample-mail.png)
 
    > [!NOTE]
-   > The workflow generates an email with a JPG file that depicts the query result set. If your query doesn't return results, the workflow won't create a JPG file.  
+   >
+   > The workflow generates an email with a JPG file that shows the query result set. 
+   > If your query doesn't return any results, the workflow won't create a JPG file.
 
 ## Next steps
 
-- Learn more about [log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+- Learn more about [log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 - Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 
