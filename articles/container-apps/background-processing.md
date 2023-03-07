@@ -141,7 +141,7 @@ Now you can create the message queue.
 
 ```azurecli
 az storage queue create \
-  --name 'myqueue" \
+  --name 'myqueue' \
   --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
