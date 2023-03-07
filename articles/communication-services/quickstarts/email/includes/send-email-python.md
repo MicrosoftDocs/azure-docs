@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
 
-## Understanding Email Object model
+## Understanding the Email Object model
 
 The following JSON message template & response object demonstrate some of the major features of the Azure Communication Services Email SDK for Python.
 
@@ -186,7 +186,9 @@ client = EmailClient(endpoint, credential);
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Send an email message
+## Basic Email Sending 
+
+### Send an email message
 
 To send an email message, you need to:
 - Construct the message with the following values:
@@ -224,7 +226,7 @@ Make these replacements in the code:
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
 
-## Get the status of the email delivery
+### Get the status of the email delivery
 
 We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient's `begin_send` method:
 
@@ -255,7 +257,7 @@ except Exception as ex:
     print(ex)
 ```
 
-## Run the code
+### Run the code
 
 Run the application from your application directory with the `python` command.
 
@@ -263,11 +265,11 @@ Run the application from your application directory with the `python` command.
 python send-email.py
 ```
 
-## Sample code
+### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)
 
-## Advanced
+## Advanced Sending
 
 ### Send an email message to multiple recipients
 
