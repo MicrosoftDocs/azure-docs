@@ -8,7 +8,6 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Build your first Azure data factory using Azure Resource Manager template
