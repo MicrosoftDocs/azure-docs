@@ -1,7 +1,6 @@
 ---
 title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 11/22/2022
 ms.custom: fasttrack-edit, devx-track-azurecli
@@ -13,6 +12,8 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 
 > [!Important]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
+
+This article explains how to manage system node pools in AKS. For information about how to use multiple node pools, see [use multiple node pools][use-multiple-node-pools].
 
 ## Before you begin
 
@@ -30,9 +31,9 @@ You need the Azure PowerShell version 7.5.0 or later installed and configured. R
 
 The following limitations apply when you create and manage AKS clusters that support system node pools.
 
-* See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between one and six characters.
+* See [Quotas, VM size restrictions, and region availability in AKS][quotas-skus-regions].
 * An API version of 2020-03-01 or greater must be used to set a node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools, but can be migrated to contain system node pools by following [update pool mode steps](#update-existing-cluster-system-and-user-node-pools).
+* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between one and six characters.
 * The mode of a node pool is a required property and must be explicitly set when using ARM templates or direct API calls.
 
 ## System and user node pools
@@ -42,12 +43,12 @@ You can enforce this behavior by creating a dedicated system node pool. Use the 
 
 System node pools have the following restrictions:
 
+* System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * System node pools require a VM SKU of at least 2 vCPUs and 4 GB memory. But burstable-VM(B series) isn't recommended.
 * A minimum of two nodes 4 vCPUs is recommended (for example, Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
-* System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * Spot node pools require user node pools.
 * Adding another system node pool or changing which node pool is a system node pool *does not* automatically move system pods. System pods can continue to run on the same node pool, even if you change it to a user node pool. If you delete or scale down a node pool running system pods that were previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
 
@@ -312,7 +313,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this article, you learned how to create and manage system node pools in an AKS cluster. For more information about how to use multiple node pools, see [use multiple node pools][use-multiple-node-pools].
+In this article, you learned how to create and manage system node pools in an AKS cluster. For information about how to start and stop AKS node pools, see [start and stop AKS node pools][start-stop-nodepools].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -352,3 +353,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
+[start-stop-nodepools]: /start-stop-nodepools.md

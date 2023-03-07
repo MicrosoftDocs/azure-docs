@@ -1,8 +1,8 @@
 ---
 title: Request real-time and forecasted weather data using Azure Maps Weather services 
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -746,7 +746,7 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services concepts](./weather-services-concepts.md)
+> [Weather services in Azure Maps](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services REST API](/rest/api/maps/weather)
+> [Azure Maps Weather services](/rest/api/maps/weather)

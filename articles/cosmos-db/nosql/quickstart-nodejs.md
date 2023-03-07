@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/21/2023
-ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey
+ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey, passwordless-js
 ---
 
 # Quickstart - Azure Cosmos DB for NoSQL client library for Node.js

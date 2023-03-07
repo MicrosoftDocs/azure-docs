@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
-author: stevemunk
-ms.author: v-munksteve
+author: brendansco
+ms.author: Brendanc
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -16,17 +16,11 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 
 > [!div class="checklist"]
 >
-> * Upload your indoor map Drawing package.
-> * Convert your Drawing package into map data.
+> * Upload your indoor map drawing package.
+> * Convert your drawing package into map data.
 > * Create a dataset from your map data.
 > * Create a tileset from the data in your dataset.
 > * Get the default map configuration ID from your tileset.
-
-In the next tutorials in the Creator series you'll learn to:
-
-> * Query the Azure Maps Web Feature Service (WFS) API to learn about your map features.
-> * Create a feature stateset that can be used to set the states of features in your dataset.
-> * Update the state of a given map feature.
 
 > [!TIP]
 > You can also create a dataset from a GeoJSON package. For more information, see [Create a dataset using a GeoJson package (Preview)](how-to-dataset-geojson.md).
@@ -36,22 +30,22 @@ In the next tutorials in the Creator series you'll learn to:
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md).
-4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
+4. Download the [Sample drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
 
 >[!IMPORTANT]
 >
-> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > * In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-## Upload a Drawing package
+## Upload a drawing package
 
-Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the Drawing package to Azure Maps resources.
+Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the drawing package to Azure Maps resources.
 
 The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2](creator-long-running-operation-v2.md).
 
-To upload the Drawing package:
+To upload the drawing package:
 
 1. In the Postman app, select **New**.
 
@@ -79,19 +73,19 @@ To upload the Drawing package:
 
 10. Select the **binary** radio button.
 
-11. Select **Select File**, and then select a Drawing package.
+11. Select **Select File**, and then select a drawing package.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="A screenshot of Postman showing the body tab in the POST window, with Select File highlighted, this is used to select the Drawing package to import into Creator.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="A screenshot of Postman showing the body tab in the POST window, with Select File highlighted, this is used to select the drawing package to import into Creator.":::
 
 12. Select **Send**.
 
 13. In the response window, select the **Headers** tab.
 
-14. Copy the value of the **Operation-Location** key. The Operation-Location key is also known as the `status URL` and is required to check the status of the Drawing package upload, which is explained in the next section.
+14. Copy the value of the **Operation-Location** key. The Operation-Location key is also known as the `status URL` and is required to check the status of the drawing package upload, which is explained in the next section.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="A screenshot of Postman showing the header tab in the response window, with the Operation Location key highlighted.":::
 
-### Check the Drawing package upload status
+### Check the drawing package upload status
 
 To check the status of the drawing package and retrieve its unique ID (`udid`):
 
@@ -117,9 +111,9 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="A screenshot of Postman showing the resource location URL in the responses header.":::
 
-### (Optional) Retrieve Drawing package metadata
+### (Optional) Retrieve drawing package metadata
 
-You can retrieve metadata from the Drawing package resource. The metadata contains information like the resource location URL, creation date, updated date, size, and upload status.
+You can retrieve metadata from the drawing package resource. The metadata contains information like the resource location URL, creation date, updated date, size, and upload status.
 
 To retrieve content metadata:
 
@@ -152,9 +146,9 @@ To retrieve content metadata:
     }
     ```
 
-## Convert a Drawing package
+## Convert a drawing package
 
-Now that the Drawing package is uploaded, you'll use the `udid` for the uploaded package to convert the package into map data. The [Conversion API](/rest/api/maps/v2/conversion) uses a long-running transaction that implements the pattern defined in the [Creator Long-Running Operation](creator-long-running-operation-v2.md) article.
+Now that the drawing package is uploaded, you'll use the `udid` for the uploaded package to convert the package into map data. The [Conversion API](/rest/api/maps/v2/conversion) uses a long-running transaction that implements the pattern defined in the [Creator Long-Running Operation](creator-long-running-operation-v2.md) article.
 
 To convert a drawing package:
 
@@ -166,7 +160,7 @@ To convert a drawing package:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Conversion Service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
+5. Enter the following URL to the [Conversion service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
@@ -180,9 +174,9 @@ To convert a drawing package:
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="A screenshot of Postman showing the URL value of the operation location key in the responses header.":::
 
-### Check the Drawing package conversion status
+### Check the drawing package conversion status
 
-After the conversion operation completes, it returns a `conversionId`. We can access the `conversionId` by checking the status of the Drawing package conversion process. The `conversionId` can then be used to access the converted data.
+After the conversion operation completes, it returns a `conversionId`. We can access the `conversionId` by checking the status of the drawing package conversion process. The `conversionId` can then be used to access the converted data.
 
 To check the status of the conversion process and retrieve the `conversionId`:
 
@@ -194,7 +188,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 4. Select the **GET** HTTP method:
 
-5. Enter the `status URL` you copied in [Convert a Drawing package](#convert-a-drawing-package). The request should look like the following URL:
+5. Enter the `status URL` you copied in [Convert a drawing package](#convert-a-drawing-package). The request should look like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/conversions/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -208,7 +202,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
       :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="A screenshot of Postman highlighting the conversion ID value that appears in the resource location key in the responses header.":::
 
-The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response includes a link to the [Drawing error visualizer](drawing-error-visualizer.md). You can use the Drawing Error visualizer to inspect the details of errors and warnings. To receive recommendations to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own drawing package, the JSON response includes a link to the [Drawing error visualizer](drawing-error-visualizer.md). You can use the Drawing Error visualizer to inspect the details of errors and warnings. To receive recommendations to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 The following JSON fragment displays a sample conversion warning:
 
@@ -239,7 +233,7 @@ The following JSON fragment displays a sample conversion warning:
 
 ## Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset/create). The Dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset/create). The Dataset Create API takes the `conversionId` for the converted drawing package and returns a `datasetId` of the created dataset.
 
 To create a dataset:
 
@@ -251,7 +245,7 @@ To create a dataset:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset). The request should look like the following URL (replace `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-the-drawing-package-conversion-status)):
+5. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset). The request should look like the following URL (replace `{conversionId`} with the `conversionId` obtained in [Check drawing package conversion status](#check-the-drawing-package-conversion-status)):
 
     ```http
     https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -371,19 +365,7 @@ Once your tileset creation completes, you can get the `mapConfigurationId` using
 
 For more information, see [Map configuration](creator-indoor-maps.md#map-configuration) in the indoor maps concepts article.
 
-<!--For additional information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).-->
-
-## Additional information
-
-* For additional information see the how to [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md) article.
-* See [Azure IoT Maps Creator Functional API](/rest/api/maps-creator/) for additional information on the Creator REST API.
-
 ## Next steps
 
-To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) using [WFS API](/rest/api/maps/v2/wfs) in the next Creator tutorial.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md)
-
-> [!div class="nextstepaction"]
-> [Create custom styles for indoor maps](how-to-create-custom-styles.md)
+> [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)

@@ -80,11 +80,17 @@ In order to use Arc resource bridge in a region, Arc resource bridge and the pri
 Arc resource bridge supports the following Azure regions:
 
 * East US
+* East US2
+* West US2
+* West US3
+* South Central US
 * West Europe
+* North Europe
 * UK South
 * Canada Central
 * Australia East
 * Southeast Asia
+
 
 ### Regional resiliency
 

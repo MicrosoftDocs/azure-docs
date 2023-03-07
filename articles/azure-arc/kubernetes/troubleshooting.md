@@ -78,13 +78,13 @@ For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/
 
 ### Outbound network connectivity issues
 
-Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](network-requirements.md) have been met.
 
 If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you have passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 ### Unable to retrieve MSI certificate
 
-Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met, then try again.
+Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](network-requirements.md) have been met, then try again.
 
 ### Azure CLI is unable to download Helm chart for Azure Arc agents
 
@@ -183,7 +183,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](network-requirements.md) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -487,7 +487,7 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
+Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](network-requirements.md) needed for Arc-enabled Kubernetes.
 
 If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net`, which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 

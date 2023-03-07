@@ -1,7 +1,6 @@
 ---
 title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
-services: container-service
 ms.topic: article
 ms.date: 1/9/2022
 

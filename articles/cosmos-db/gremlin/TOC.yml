@@ -90,7 +90,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Modeling and partitioning
       items:
         - name: Partitioning overview

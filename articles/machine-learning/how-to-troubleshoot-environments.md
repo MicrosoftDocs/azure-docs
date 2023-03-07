@@ -27,27 +27,29 @@ Environments are managed and versioned assets within your Machine Learning works
 
 Environments fall under three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments managed by Azure Machine Learning (AzureML) and are available by default in every workspace. They contain collections of Python packages and settings to help you get started with various machine learning frameworks, and you're meant to use them as is.
+Curated environments are pre-created environments managed by Azure Machine Learning and are available by default in every workspace. They contain collections of Python packages and settings to help you get started with various machine learning frameworks, and you're meant to use them as is.
 These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments have two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
+
+These types of environments have two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to Azure Machine Learning. For the second type, Docker build context based environments, Azure Machine Learning materializes the image from the context that you provide.
 
 When you want conda to manage the Python environment for you, use a system-managed environment.
-AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, AzureML adds common features to the derived image.
+Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, Azure Machine Learning adds common features to the derived image.
 Any Python packages present in the base image aren't available in the isolated conda environment.
 
 ### Create and manage environments
 
-You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, Visual Studio Code extension. 
+You can create and manage environments from clients like Azure Machine Learning Python SDK, Azure Machine Learning CLI, Azure Machine Learning Studio UI, Visual Studio Code extension. 
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment without registering or referencing an already existing environment.
 They aren't listed but you can retrieve them by version or label.
 
-AzureML builds environment definitions into Docker images.
-It also caches the images in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
+Azure Machine Learning builds environment definitions into Docker images.
+It also caches the images in the Azure Container Registry associated with your Azure Machine Learning Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
 Multiple environments with the same definition may result in the same cached image.
+
 Running a training script remotely requires the creation of a Docker image.
 
 ### Reproducibility and vulnerabilities
@@ -69,10 +71,10 @@ There are some ways to decrease the impact of vulnerabilities:
 Reproducibility is one of the foundations of software development. When you're developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
 
-AzureML's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
+Azure Machine Learning's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that Azure Machine Learning (AzureML) manages and are available by default in every AzureML workspace provisioned.
+**Curated environments** are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned.
 
 They contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is.
 These pre-created environments also allow for faster deployment time.
@@ -80,13 +82,13 @@ These pre-created environments also allow for faster deployment time.
 In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
 compute target and for model deployment. These types of environments have two subtypes:
 
-- BYOC (bring your own container): the user provides a Docker image to AzureML
-- Docker build context: AzureML materializes the image from the user provided content
+- BYOC (bring your own container): the user provides a Docker image to Azure Machine Learning
+- Docker build context: Azure Machine Learning materializes the image from the user provided content
 
 Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
 management becomes your responsibility.
 
-You use **system-managed environments** when you want conda to manage the Python environment for you. AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
+You use **system-managed environments** when you want conda to manage the Python environment for you. Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
 latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
@@ -158,7 +160,7 @@ To create a new environment, you must use one of the following approaches:
     * The directory should contain a Dockerfile and any other files needed to build the image
     * [Sample here](https://aka.ms/azureml/environment/create-env-build-context-v2)
 * Conda specification 
-    * You must specify a base Docker image for the environment; AzureML builds the conda environment on top of the Docker image provided
+    * You must specify a base Docker image for the environment; Azure Machine Learning builds the conda environment on top of the Docker image provided
     * Provide the relative path to the conda file
     * [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
@@ -330,7 +332,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
  
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Multiple credentials for base image registry
@@ -369,7 +371,7 @@ myEnv.docker.base_image_registry.registry_identity = None
 **Resources**
 * [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Secrets in base image registry
@@ -407,7 +409,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
  
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Deprecated Docker attribute
@@ -421,7 +423,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 	* `arguments`
 	* `shared_volumes`
 	* `gpu_support`
-		* AzureML now automatically detects and uses NVIDIA Docker extension when available
+		* Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available
 	* `smh_size`
 
 **Affected areas (symptoms):**
@@ -481,7 +483,8 @@ Ensure that you include a path for your build context
 
 ### Missing Dockerfile path
 <!--issueDescription-->
-This issue can happen when AzureML fails to find your Dockerfile. As a default, AzureML looks for a Dockerfile named 'Dockerfile' at the root of your build context directory unless you specify a Dockerfile path.
+
+This issue can happen when Azure Machine Learning fails to find your Dockerfile. As a default, Azure Machine Learning looks for a Dockerfile named 'Dockerfile' at the root of your build context directory unless you specify a Dockerfile path.
 
 **Potential causes:**
 * Your Dockerfile isn't at the root of your build context directory and/or is named something other than 'Dockerfile,' and you didn't provide its path
@@ -547,7 +550,7 @@ If you specified any of the above-listed properties in your environment definiti
 
 The following are accepted location types:
 * Git
-	* You can provide git URLs to AzureML, but you can't use them to build images yet. Use a storage account until builds have Git support
+	* You can provide git URLs to Azure Machine Learning, but you can't use them to build images yet. Use a storage account until builds have Git support
 * Storage account
 	* See this [storage account overview](../storage/common/storage-account-overview.md)
 	* See how to [create a storage account](../storage/common/storage-account-create.md)
@@ -586,8 +589,8 @@ For scenarios in which you're storing your Docker build context in a storage acc
 <!--issueDescription-->
 **Potential causes:**
 * You used a deprecated base image
-	* AzureML can't provide troubleshooting support for failed builds with deprecated images
-	* AzureML doesn't update or maintain these images, so they're at risk of vulnerabilities
+	* Azure Machine Learning can't provide troubleshooting support for failed builds with deprecated images
+	* Azure Machine Learning doesn't update or maintain these images, so they're at risk of vulnerabilities
 
 The following base images are deprecated:
 * `azureml/base`
@@ -809,14 +812,14 @@ channels:
 
 *Applies to: Python SDK v1*
 
-If you don't want AzureML to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
+If you don't want Azure Machine Learning to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
 
 ```python
 env.python.user_managed_dependencies = True
 ```
 * You're responsible for ensuring that all necessary packages are available in the Python environment in which you choose to run the script
 
-If you want AzureML to create a Python environment for you based on a conda specification, you must populate `conda_dependencies` in your environment definition 
+If you want Azure Machine Learning to create a Python environment for you based on a conda specification, you must populate `conda_dependencies` in your environment definition 
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -829,7 +832,7 @@ env.python.conda_dependencies = conda_dep
 
 *Applies to: Azure CLI & Python SDK v2*
 
-You must specify a base Docker image for the environment, and AzureML then builds the conda environment on top of that image
+You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
@@ -884,7 +887,7 @@ env.python.conda_dependencies = conda_dep
 
 *Applies to: Azure CLI & Python SDK v2*
 
-You must specify a base Docker image for the environment, and AzureML then builds the conda environment on top of that image
+You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
@@ -1113,7 +1116,7 @@ channels:
 
 **Troubleshooting steps**
 
-The AzureML SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
+The Azure Machine Learning SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
 
 *Applies to: Python SDK v1*
 
@@ -1158,7 +1161,7 @@ This issue can happen when there's a failure in accessing a workspace's associat
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 * Pipeline job failures.
 * Model deployment failures.
 <!--/issueDescription-->
@@ -1205,7 +1208,7 @@ This issue can happen when a Docker image pull fails during an image build.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1222,7 +1225,10 @@ If the image you're trying to reference doesn't exist in the container registry 
 * Check that you've used the correct tag and that you've set `user_managed_dependencies` to `True`. Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section) to `True` disables conda and uses the user's installed packages
 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
-* Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
+* Set [workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb) for the container registry if needed
+
+**Resources**
+* [Workspace connections v1](https://aka.ms/azureml/environment/set-connection-v1)
 
 ### I/O Error
 <!--issueDescription-->
@@ -1235,7 +1241,7 @@ This issue can happen when a Docker image pull fails due to a network issue.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
@@ -1261,7 +1267,7 @@ This issue can happen when a package listed in your conda specification is inval
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1283,7 +1289,7 @@ This issue can happen when there's a failure in communicating with the entity fr
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1305,7 +1311,7 @@ This issue can happen when there's a failure building a package required for the
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1332,7 +1338,7 @@ This issue can happen when a command isn't recognized during an image build.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1355,7 +1361,7 @@ This issue can happen when conda package resolution takes too long to complete.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1374,7 +1380,7 @@ This issue can happen when conda package resolution fails due to available memor
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1392,7 +1398,7 @@ This issue can happen when one or more conda packages listed in your specificati
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1425,7 +1431,7 @@ This issue can happen when a Python module listed in your conda specification do
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1456,7 +1462,7 @@ This issue can happen when there's no package found that matches the version you
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1491,7 +1497,7 @@ This issue can happen when building wheels for mpi4py fails.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1501,7 +1507,7 @@ Ensure that you have a working MPI installation (preference for MPI-3 support an
 * If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
 
 Ensure that you're using a compatible python version
-* AzureML requires Python 2.5 or 3.5+, but Python 3.7+ is recommended
+* Azure Machine Learning requires Python 2.5 or 3.5+, but Python 3.7+ is recommended
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 **Resources**
@@ -1518,7 +1524,7 @@ because you can't provide interactive authentication during a build
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1543,7 +1549,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
@@ -1556,7 +1562,7 @@ This issue can happen when an attempt to access a blob in a storage account is r
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1577,7 +1583,7 @@ This issue can happen when the conda environment fails to be created or updated 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1601,7 +1607,7 @@ This issue can happen when the conda command isn't recognized during conda envir
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1622,7 +1628,7 @@ This issue can happen when there's a package specified in your conda environment
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1642,7 +1648,7 @@ This issue can happen when you've specified a package on the command line using 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1659,7 +1665,7 @@ This issue can happen when there's a failure decoding a character in your conda 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 ## *Pip issues during build*
@@ -1669,18 +1675,18 @@ This issue can happen when your image build fails during Python package installa
 
 **Potential causes:**
 * There are many issues that could cause this error
-* This message is generic and is surfaced when AzureML analysis doesn't yet cover the error you're encountering
+* This message is generic and is surfaced when Azure Machine Learning analysis doesn't yet cover the error you're encountering
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
 Review your Build log for more information on your image build failure 
 
-Leave feedback for the AzureML team to analyze the error you're experiencing
+Leave feedback for the Azure Machine Learning team to analyze the error you're experiencing
 * [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
@@ -1693,7 +1699,7 @@ This issue can happen when pip fails to uninstall a Python package that the oper
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1722,7 +1728,7 @@ This issue can happen when you haven't specified any targets and no makefile is 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 
 **Troubleshooting steps**
 * Ensure that you've spelled the makefile correctly
@@ -1747,7 +1753,7 @@ This issue can happen when there's a failure in pushing a Docker image to a cont
 
 **Affected areas (symptoms):**
 * Failure in building environments from the UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
@@ -1768,14 +1774,14 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 ### Build log unavailable
 <!--issueDescription-->
 **Potential causes:**
-* AzureML isn't authorized to store your build logs in your storage account
+* Azure Machine Learning isn't authorized to store your build logs in your storage account
 * A transient error occurred while saving your build logs
 * A system error occurred before an image build was triggered
 
 **Affected areas (symptoms):**
 * A successful build, but no available logs.
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because AzureML implicitly builds the environment in the first step.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**

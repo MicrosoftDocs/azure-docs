@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
-ms.date: 02/12/2022
+ms.date: 02/13/2023
 ---
 
 # Use the Microsoft Purview governance portal

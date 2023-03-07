@@ -1,7 +1,7 @@
 ---
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 02/22/2023
 ---
 
@@ -15,12 +15,31 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## March 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Cloud features**: - [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
+
+### New Microsoft Sentinel incident experience for Defender for IoT
+
+Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. When investigating OT/IoT-related incidents, SOC analysts can now use the following enhancements on incident details pages:
+
+- **View related sites, zones, sensors, and device importance** to better understand an incident's business impact and physical location.
+
+- **Review an aggregated timeline of affected devices and related device details**, instead of investigating on separate entity details pages for the related devices
+
+- **Review OT alert remediation steps** directly on the incident details page
+
+For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md) and [Navigate and investigate incidents in Microsoft Sentinel](/azure/sentinel/investigate-incidents).
+
 ## February 2023
 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
@@ -85,7 +104,7 @@ For more information, see [Define and view OT sensor settings from the Azure por
 
 ### Alerts GA in the Azure portal
 
-The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](../device-builders/index.yml), detect changes or suspicious activity in network traffic that need your attention.
+The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](../device-builders/index.yml), detect changes or suspicious activity in network traffic that needs your attention.
 
 Specific alerts triggered by the Enterprise IoT sensor currently remain in public preview.
 
@@ -100,8 +119,6 @@ For more information, see:
 |Service area  |Updates  |
 |---------|---------|
 |**OT networks**     |**Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br><br>**Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)  |
-
-
 
 ### Update sensor software from the Azure portal (Public preview)
 
