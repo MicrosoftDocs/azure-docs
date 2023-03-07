@@ -35,6 +35,8 @@ The following table has a list of all the default targets that the Azure Monitor
 | coredns | bool | `false` | Scrape coredns service in the k8s cluster without any extra scrape config. |
 | kubeproxy | bool | `false` | Scrape kube-proxy in every linux node discovered in the k8s cluster without any extra scrape config.<br>Linux only. |
 | apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any extra scrape config. |
+| windowsexporter | bool | `false` | Scrape the windows exporter in every node in the k8s cluster without any extra scrape config.<br>Windows only. |
+| windowskubeproxy | bool | `false` | Scrape the windows kubeproxy in every node in the k8s cluster without any extra scrape config.<br>Windows only. |
 | prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of timeseries scraped. |
 
 If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true`, and apply the configmap to your cluster.
