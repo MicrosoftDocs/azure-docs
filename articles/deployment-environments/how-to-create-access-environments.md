@@ -1,7 +1,7 @@
 ---
 title: Create and access an environment by using the Azure CLI
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access an environment in an Azure Deployment Environments Preview project by using the AzureCLI.
+description: Learn how to create and access an environment in an Azure Deployment Environments Preview project by using the Azure CLI.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
@@ -49,8 +49,7 @@ This article shows you how to create and access an [environment](concept-environ
 Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 
 > [!NOTE]
-> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
-
+> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions can create an environment.
 
 1. Sign in to the Azure CLI:
 
@@ -107,15 +106,15 @@ Complete the following steps in the Azure CLI to create an environment and confi
    ```
 
 > [!NOTE]
-> You can use `--help` to view more details about any command, accepted arguments and examples. For example, use `az devcenter dev environment create --help` to view more details about creating an environment.
+> You can use `--help` to view more details about any command, accepted arguments, and examples. For example, use `az devcenter dev environment create --help` to view more details about creating an environment.
 
-### Troubleshoot permission error
+### Troubleshoot a permissions error
 
-You must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
+You must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
 
-If you don't have the correct permissions, creation of the environment will fail, and you may receive an error message like this:
+If you don't have the correct permissions, the environment isn't created. An error message like the following example might appear:
 
-```
+```output
 (EnvironmentNotFound) The environment resource was not found.
 Code: EnvironmentNotFound
 Message: The environment resource was not found.

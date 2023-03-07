@@ -11,14 +11,14 @@ ms.date: 02/28/2023
 
 # Manage your environment
 
-In Azure Deployment Environments Preview, a development infrastructure (dev infra) admin gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployments environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team have to access the environment’s resources are defined in the specific environment type.
+In Azure Deployment Environments Preview, a development infrastructure admin gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployments environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team have to access the environment’s resources are defined in the specific environment type.
 
 As a developer, you can create and manage your environments from the developer portal or by using the Azure CLI.  
 
 ## Prerequisites
 
 - Access to a project that has at least one environment type.
-- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions to create an environment.
+- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
 
 ## Manage an environment by using the developer portal
 
