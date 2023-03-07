@@ -306,8 +306,8 @@ These fields and properties appear in the `ConnectionEvents` log category. In **
 | `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
 | `properties` | n/a | The contents of this field are described in the rows that follow. |
-| `eventEpochTime` | `EventEpochTime` | The UNIX timestamp (number of seconds since January 1, 1970) when the event happened in UTC. This can be conversted to datetime format using function unixtime_seconds_todatetime in log analytics workspace. |
-| `clientIP` | `ClientIP` | The Redis client IP address. (if using Azure storage, this will either be in IPv4 or private link IPv6 format based on cache type) |
+| `eventEpochTime` | `EventEpochTime` | The UNIX timestamp (number of seconds since January 1, 1970) when the event happened in UTC. This can be converted to datetime format using function unixtime_seconds_todatetime in log analytics workspace. |
+| `clientIP` | `ClientIP` | The Redis client IP address. If using Azure storage, this will either be in IPv4 or private link IPv6 format based on cache type. If using Log Analytics, this result will always be in IPv4, as a separate IPv6 field is provided. |
 | n/a | `PrivateLinkIPv6` | The Redis client private link IPv6 address (only emitted if using both Private Link and log analytics). |
 | `id` | `ConnectionId` | Unique connection ID assigned by Redis. |
 | `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
