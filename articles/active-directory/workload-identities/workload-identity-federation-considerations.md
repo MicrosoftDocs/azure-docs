@@ -24,7 +24,7 @@ For more information on the scenarios enabled by federated identity credentials,
 
 ## General federated identity credential considerations
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf, someone in the Application Administrator or Application Owner roles.
 
@@ -34,7 +34,7 @@ Federated identity credentials don't consume the Azure AD tenant service princip
 
 ## Unsupported regions (user-assigned managed identities)
 
-*Applies to: user-assigned managed identities (public preview)*
+*Applies to: user-assigned managed identities*
 
 The creation of federated identity credentials is available on user-assigned managed identities created in most Azure regions during public. However, creation of federated identity credentials is **not supported** on user-assigned managed identities in the following regions:
 
@@ -50,13 +50,13 @@ Resources in these regions can still use federated identity credentials created 
 
 ## Supported signing algorithms and issuers
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but haven't been tested.
 
 ## Azure Active Directory issuers aren't supported
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 Creating a federation between two Azure AD identities from the same or different tenants isn't supported. When creating a federated identity credential, configuring the *issuer* (the URL of the external identity provider) with the following values isn't supported:
 
@@ -69,7 +69,7 @@ While it's possible to create a federated identity credential with an Azure AD i
 
 ## Time for federated credential changes to propagate
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 It takes time for the federated identity credential to be propagated throughout a region after being initially configured. A token request made several minutes after configuring the federated identity credential may fail because the cache is populated in the directory with old data. During this time window, an authorization request might fail with error message: `AADSTS70021: No matching federated identity record found for presented assertion.`
 
@@ -77,7 +77,7 @@ To avoid this issue, wait a short time after adding the federated identity crede
 
 ## Concurrent updates aren't supported (user-assigned managed identities)
 
-*Applies to: user-assigned managed identities (public preview)*
+*Applies to: user-assigned managed identities*
 
 Creating multiple federated identity credentials under the same user-assigned managed identity concurrently triggers concurrency detection logic, which causes requests to fail with 409-conflict HTTP status code.  
 
@@ -160,7 +160,7 @@ You can also provision multiple new federated identity credentials sequentially 
 
 ## Azure policy
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
 
@@ -180,7 +180,7 @@ It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) 
 
 ## Throttling limits
 
-*Applies to: user-assigned managed identities (public preview)*  
+*Applies to: user-assigned managed identities*  
 
 The following table describes limits on requests to the user-assigned managed identities REST APIS.  If you exceed a throttling limit, you receive an HTTP 429 error.
 
@@ -193,7 +193,7 @@ The following table describes limits on requests to the user-assigned managed id
 
 ## Errors
 
-*Applies to: applications and user-assigned managed identities (public preview)*
+*Applies to: applications and user-assigned managed identities*
 
 The following error codes may be returned when creating, updating, getting, listing, or deleting federated identity credentials.
 
