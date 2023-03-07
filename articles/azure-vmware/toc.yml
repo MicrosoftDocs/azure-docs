@@ -44,6 +44,8 @@
     href: concepts-identity.md
   - name: API Management
     href: concepts-api-management.md
+  -name : Azure Hybrid benefit
+    href: sql-server-hybrid-benefit.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
   - name: Internet connectivity design considerations
@@ -86,6 +88,14 @@
         href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
+    - name: Manage hybrid benefit for SQL Server
+      items:  
+      - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
+        href: migrate-sqlserver-standalone-cluster.md
+      - name: Migrate SQL Server failover cluster to Azure VMware Solution
+        href: migrate-sqlserver-failover-cluster.md
+      - name: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
+        href: migrate-sqlserver-always-on-cluster.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -114,7 +124,7 @@
     href: create-placement-policy.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
-  - name: Configure Identity
+  - name: Configure identity
     items:
     - name: Configure external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
