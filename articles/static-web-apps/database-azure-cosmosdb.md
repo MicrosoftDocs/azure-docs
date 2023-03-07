@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 03/07/2023
 ---
 
 # Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps (preview)
 
-In this tutorial, you learn how to connect an Azure Cosmos DB for NoSQL database to your static web app. Once configured, you can make REST or GraphQL requests to the built-in `/data-api` endpoint to manipulate data without having to write backend code.
+In this tutorial, you learn how to connect an Azure Cosmos DB for NoSQL database to your static web app. Once configured, you can make GraphQL requests to the built-in `/data-api` endpoint to manipulate data without having to write backend code.
 
 For the sake of simplicity, this tutorial shows you how to use an Azure database for local development purposes, but you may also use a local database server for your local development needs.
 

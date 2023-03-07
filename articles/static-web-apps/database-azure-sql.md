@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 03/07/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
