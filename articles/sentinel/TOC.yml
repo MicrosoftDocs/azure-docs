@@ -293,8 +293,6 @@
         href: data-connectors/aruba-clearpass.md
       - name: Atlassian Confluence Audit (using Azure Function)
         href: data-connectors/atlassian-confluence-audit-using-azure-function.md
-      - name: Atlassian Jira
-        href: data-connectors/atlassian-jira.md
       - name: Auth0 Access Management (using Azure Function)
         href: data-connectors/auth0-access-management-using-azure-function.md
       - name: Automated Logic WebCTRL
@@ -350,7 +348,7 @@
       - name: Cisco ASA
         href: data-connectors/cisco-asa.md
       - name: Cisco ASA/FTD via AMA (Preview)
-        href: data-connectors/cisco-asa-ftd-via-ama-preview.md
+        href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Function)
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
@@ -378,7 +376,7 @@
       - name: Claroty
         href: data-connectors/claroty.md
       - name: Cloudflare (Preview) (using Azure Function)
-        href: data-connectors/cloudflare-preview-using-azure-function.md
+        href: data-connectors/cloudflare-using-azure-function.md
       - name: Cognni
         href: data-connectors/cognni.md
       - name: Cohesity (using Azure Function)
@@ -532,7 +530,7 @@
       - name: Microsoft Project
         href: data-connectors/microsoft-project.md
       - name: Microsoft Purview (Preview)
-        href: data-connectors/microsoft-purview-preview.md
+        href: data-connectors/microsoft-purview.md
       - name: Microsoft Purview Information Protection
         href: data-connectors/microsoft-purview-information-protection.md
       - name: Microsoft Sysmon For Linux
@@ -620,7 +618,7 @@
       - name: SecurityBridge Threat Detection for SAP
         href: data-connectors/securitybridge-threat-detection-for-sap.md
       - name: SenservaPro (Preview)
-        href: data-connectors/senservapro-preview.md
+        href: data-connectors/senservapro.md
       - name: SentinelOne (using Azure Function)
         href: data-connectors/sentinelone-using-azure-function.md
       - name: Slack Audit (using Azure Function)
@@ -660,7 +658,7 @@
       - name: Threat Intelligence Platforms
         href: data-connectors/threat-intelligence-platforms.md
       - name: Threat Intelligence Upload Indicators API (Preview)
-        href: data-connectors/threat-intelligence-upload-indicators-api-preview.md
+        href: data-connectors/threat-intelligence-upload-indicators-api.md
       - name: Trend Micro Apex One
         href: data-connectors/trend-micro-apex-one.md
       - name: Trend Micro Deep Security
@@ -670,7 +668,7 @@
       - name: Trend Micro Vision One (using Azure Function)
         href: data-connectors/trend-micro-vision-one-using-azure-function.md
       - name: Ubiquiti UniFi (Preview)
-        href: data-connectors/ubiquiti-unifi-preview.md
+        href: data-connectors/ubiquiti-unifi.md
       - name: vArmour Application Controller
         href: data-connectors/varmour-application-controller.md
       - name: Vectra AI Detect
@@ -684,11 +682,11 @@
       - name: WatchGuard Firebox
         href: data-connectors/watchguard-firebox.md
       - name: Windows DNS Events via AMA (Preview)
-        href: data-connectors/windows-dns-events-via-ama-preview.md
+        href: data-connectors/windows-dns-events-via-ama.md
       - name: Windows Firewall
         href: data-connectors/windows-firewall.md
       - name: Windows Firewall Events via AMA (Preview)
-        href: data-connectors/windows-firewall-events-via-ama-preview.md
+        href: data-connectors/windows-firewall-events-via-ama.md
       - name: Windows Forwarded Events
         href: data-connectors/windows-forwarded-events.md
       - name: Windows Security Events via AMA
