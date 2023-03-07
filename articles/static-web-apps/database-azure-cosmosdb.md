@@ -203,10 +203,6 @@ Next, create the configuration file that your static web app uses to interface w
     "connection-string": "@env('DATABASE_CONNECTION_STRING')"
   },
   "runtime": {
-    "rest": {
-      "enabled": true,
-      "path": "/rest"
-    },
     "graphql": {
       "allow-introspection": true,
       "enabled": true,
