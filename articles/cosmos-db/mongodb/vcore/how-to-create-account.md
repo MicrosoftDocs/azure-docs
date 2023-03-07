@@ -1,63 +1,106 @@
 ---
-title: Create a new account
-titleSuffix: Azure Cosmos DB for MongoDB (vCore)
-description: Learn how to create a new Azure Cosmos DB for MongoDB (vCore) account to store databases, collections, and documents.
+title: Create a new cluster
+titleSuffix: Azure Cosmos DB for MongoDB vCore
+description: Learn how to create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
-ms.date: 02/07/2023
+ms.date: 03/07/2023
 ---
 
-# Create an Azure Cosmos DB for MongoDB (vCore) account
+# Create an Azure Cosmos DB for MongoDB vCore cluster
 
-An Azure Cosmos DB for MongoDB (vCore) account contains all of your MongoDB resources: databases, collections, and documents. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
+An Azure Cosmos DB for MongoDB vCore cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure cluster with an active subscription. [Create an cluster for free](https://azure.microsoft.com/free).
 
-## Create an account
+## Create a cluster
 
-Create a single Azure Cosmos DB account using the API for MongoDB (vCore).
+Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
-### [Azure CLI](#tab/azure-cli)
+> [!TIP]
+> For this guide, we recommend using the resource group name ``msdocs-cosmos-howto-rg``.
 
-1. {TODO: Step 1}
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-### [Azure PowerShell](#tab/azure-powershell)
+1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
-1. {TODO: Step 1}
+1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-### [Azure portal](#tab/azure-portal)
+1. On the **Which API best suits your workload?** page, select the **Create** option within the **Azure Cosmos DB for MongoDB** section. For more information, see [API for MongoDB and it's various models](../choose-model.md).
 
-1. {TODO: Step 1}
+   :::image type="content" source="media/how-to-create-account/select-api-option.png" lightbox="media/how-to-create-account/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
+
+1. On the **Which type of resource?** page, select the **Create** option within the **vCore cluster** section. For more information, see [API for MongoDB vCore overview](introduction.md).
+
+    :::image type="content" source="media/how-to-create-account/select-resource-type.png" alt-text="Screenshot of the select resource type option page for Azure Cosmos DB for MongoDB.":::
+
+1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
+
+    :::image type="content" source="media/how-to-create-account/select-cluster-option.png" alt-text="Screenshot of the configure cluster option for a new Azure Cosmos DB for MongoDB cluster.":::
+
+1. On the **Scale** page, leave the options set to their default values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Node count** | Single node |
+    | **Cluster tier** | M40 Tier, 4 vCores, 16-GiB RAM |
+    | **Storage per node** | 128 GiB |
+
+1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
+
+    :::image type="content" source="media/how-to-create-account/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
+
+1. Back on the cluster page, enter the following information:
+
+    | Setting | Value | Description |
+    | --- | --- | --- |
+    | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
+    | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
+    | cluster Name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
+    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster. Use the location that is closest to your users to give them the fastest access to the data. |
+    | MongoDB version | Version of MongoDB to run in your cluster |  This value is set to a default of **5.0** |
+    | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
+    | Password | Use a unique password to pair with the username | Password must be at least eight characters and at most 128 characters. |
+
+    :::image type="content" source="media/how-to-create-account/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
+
+1. Select **Next: Networking**.
+
+1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster.
+
+    :::image type="content" source="media/how-to-create-account/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
+
+1. Select **Review + create**.
+
+1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the cluster. Wait for the portal page to display **Your deployment is complete** before moving on.
+
+1. Select **Go to resource** to go to the Azure Cosmos DB for MongoDB cluster page.
+
+   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
 ---
 
-## Get account credentials
+## Get cluster credentials
 
-{TODO: Explain in a brief sentence or two what will happen in this section.}
+Get the connection string you need to connect to this cluster using your application code.
 
-### [Azure CLI](#tab/azure-cli)
+1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **---** navigation menu option.
 
-1. {TODO: Step 1}
+   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of the --- option on the page for a cluster.":::
 
-### [Azure PowerShell](#tab/azure-powershell)
+1. Record the value from the **---** field.
 
-1. {TODO: Step 1}
-
-### [Azure portal](#tab/azure-portal)
-
-1. {TODO: Step 1}
-
----
+   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of various credentials for a cluster.":::
 
 ## Next steps
 
-In this guide, you learned how to create an Azure Cosmos DB for MongoDB (vCore) account. You can now migrate data to your account.
+In this guide, you learned how to create an Azure Cosmos DB for MongoDB (vCore) cluster. You can now migrate data to your cluster.
 
 > [!div class="nextstepaction"]
 > [Migrate data to Azure Cosmos DB for MongoDB (vCore)](how-to-migrate-data.md)
