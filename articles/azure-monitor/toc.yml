@@ -568,137 +568,133 @@ items:
       href: /azure/azure-monitor/faq#application-insights
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
-    - name: Auto-instrumentation
+    - name: Enable Application Insights
       items:
-      - name: Overview
-        href: app/codeless-overview.md
-      - name: Azure VM and Virtual Machine Scale Set
-        href: app/azure-vm-vmss-apps.md
-      - name: Azure App Service
+      - name: Auto-instrumentation
         items:
         - name: Overview
-          href: app/azure-web-apps.md
-        - name: ASP.NET Core
-          href: app/azure-web-apps-net-core.md
-        - name: ASP.NET
-          href: app/azure-web-apps-net.md
-        - name: Java
-          href: app/azure-web-apps-java.md
-        - name: Node.js
-          href: app/azure-web-apps-nodejs.md
-      - name: Azure Functions
-        displayName: functions, monitor functions, automation
-        href: app/monitor-functions.md
-      - name: Azure Kubernetes Service
-        href: app/kubernetes-codeless.md
-      - name: ASP.NET on-premises
-        items:
-          - name: Overview
-            displayName: IIS monitoring, on premises monitoring, on prem
-            href: app/status-monitor-v2-overview.md
-          - name: Getting started
-            href: app/status-monitor-v2-get-started.md
-          - name: Detailed instructions
-            href: app/status-monitor-v2-detailed-instructions.md
-          - name: API reference
-            href: app/status-monitor-v2-api-reference.md
-    - name: Application Insights SDKs
-      items:
-      - name: .NET
-        items:
-          - name: ASP.NET Core
-            items:
-            - name: ASP.NET Core App Monitoring
-              displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
-              href: app/asp-net-core.md
-            - name: ILogger
-              displayName: ilogger, logging, log
-              href: app/ilogger.md
-          - name: ASP.NET
-            items:
-            - name: ASP.NET App Monitoring
-              displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
-              href: app/asp-net.md
-          - name: Non-HTTP/Background apps
-            displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
-            href: app/worker-service.md
-          - name: .NET Console
-            displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
-            href: app/console.md
-      - name: Node.js
-        href: app/nodejs.md
-      - name: Python
-        items:
-        - name: Overview
-          displayName: python, Python, OpenCenus, OpenTelemetry, py
-          href: app/opencensus-python.md
-        - name: Dependencies
-          href: app/opencensus-python-dependency.md
-        - name: Requests
-          href: app/opencensus-python-request.md
-      - name: JavaScript
-        items:
-        - name: Client-side JavaScript
-          displayName: SPA, Single Page Applications, React, JS, Angular
-          href: app/javascript.md
-        - name: Source map for JavaScript
-          href: app/source-map-support.md
-        - name: Framework Extensions
-          href: app/javascript-framework-extensions.md
-        - name: Feature Extensions (Click Analytics)
-          href: app/javascript-feature-extensions.md
-        - name: Upgrade
-          href: app/javascript-sdk-upgrade.md
-        - name: Troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-      - name: Application Insights API summary
-        displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-        href: app/api-custom-events-metrics.md
-      - name: Remove Application Insights
-        href: app/remove-application-insights.md
-      - name: SDK support policy
-        href: app/sdk-support-guidance.md
-    - name: OpenTelemetry-based instrumentation
-      items:
-      - name: Overview
-        href: app/opentelemetry-overview.md
-      - name: Get started (.NET, Node.js, Python and Java)
-        href: app/opentelemetry-enable.md
-      - name: Java (supplemental)
-        items:
-        - name: Spring Boot
-          href: app/java-spring-boot.md
-        - name: Profiler
-          href: app/java-standalone-profiler.md
-        - name: Configuration
+          href: app/codeless-overview.md
+        - name: Azure VM and Virtual Machine Scale Set
+          href: app/azure-vm-vmss-apps.md
+        - name: Azure App Service
           items:
-          - name: General
-            href: app/java-standalone-config.md
-          - name: JMX metrics
-            href: app/java-jmx-metrics-configuration.md
-          - name: Sampling overrides
-            href: app/java-standalone-sampling-overrides.md
-          - name: Telemetry processors
+          - name: Overview
+            href: app/azure-web-apps.md
+          - name: ASP.NET Core
+            href: app/azure-web-apps-net-core.md
+          - name: ASP.NET
+            href: app/azure-web-apps-net.md
+          - name: Java
+            href: app/azure-web-apps-java.md
+          - name: Node.js
+            href: app/azure-web-apps-nodejs.md
+        - name: Azure Functions
+          displayName: functions, monitor functions, automation
+          href: app/monitor-functions.md
+        - name: Azure Kubernetes Service
+          href: app/kubernetes-codeless.md
+        - name: ASP.NET on-premises
+          items:
+            - name: Overview
+              displayName: IIS monitoring, on premises monitoring, on prem
+              href: app/status-monitor-v2-overview.md
+            - name: Getting started
+              href: app/status-monitor-v2-get-started.md
+            - name: Detailed instructions
+              href: app/status-monitor-v2-detailed-instructions.md
+            - name: API reference
+              href: app/status-monitor-v2-api-reference.md
+      - name: Application Insights SDKs
+        items:
+        - name: .NET
+          items:
+            - name: ASP.NET Core
+              items:
+              - name: ASP.NET Core App Monitoring
+                displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
+                href: app/asp-net-core.md
+              - name: ILogger
+                displayName: ilogger, logging, log
+                href: app/ilogger.md
+            - name: ASP.NET
+              items:
+              - name: ASP.NET App Monitoring
+                displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
+                href: app/asp-net.md
+            - name: Non-HTTP/Background apps
+              displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
+              href: app/worker-service.md
+            - name: .NET Console
+              displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
+              href: app/console.md
+        - name: Node.js
+          href: app/nodejs.md
+        - name: Python
+          items:
+          - name: Overview
+            displayName: python, Python, OpenCenus, OpenTelemetry, py
+            href: app/opencensus-python.md
+          - name: Dependencies
+            href: app/opencensus-python-dependency.md
+          - name: Requests
+            href: app/opencensus-python-request.md
+        - name: JavaScript
+          items:
+          - name: Client-side JavaScript
+            displayName: SPA, Single Page Applications, React, JS, Angular
+            href: app/javascript.md
+          - name: Source map for JavaScript
+            href: app/source-map-support.md
+          - name: Framework Extensions
+            href: app/javascript-framework-extensions.md
+          - name: Feature Extensions (Click Analytics)
+            href: app/javascript-feature-extensions.md
+          - name: Upgrade
+            href: app/javascript-sdk-upgrade.md
+          - name: Troubleshooting
+            href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
+        - name: Application Insights API summary
+          displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+          href: app/api-custom-events-metrics.md
+        - name: Remove Application Insights
+          href: app/remove-application-insights.md
+        - name: SDK support policy
+          href: app/sdk-support-guidance.md
+      - name: OpenTelemetry-based instrumentation
+        items:
+        - name: Overview
+          href: app/opentelemetry-overview.md
+        - name: Get started (.NET, Node.js, Python and Java)
+          href: app/opentelemetry-enable.md
+        - name: Java (supplemental)
+          items:
+          - name: Spring Boot
+            href: app/java-spring-boot.md
+          - name: Profiler
+            href: app/java-standalone-profiler.md
+          - name: Configuration
             items:
-              - name: Overview
-                href: app/java-standalone-telemetry-processors.md
-              - name: Examples
-                href: app/java-standalone-telemetry-processors-examples.md
-        - name: JVM arguments setup
-          href: app/java-standalone-arguments.md
-        - name: Upgrade from 2.x
-          href: app/java-standalone-upgrade-from-2x.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#opentelemetry
+            - name: General
+              href: app/java-standalone-config.md
+            - name: JMX metrics
+              href: app/java-jmx-metrics-configuration.md
+            - name: Sampling overrides
+              href: app/java-standalone-sampling-overrides.md
+            - name: Telemetry processors
+              items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
+          - name: JVM arguments setup
+            href: app/java-standalone-arguments.md
+          - name: Upgrade from 2.x
+            href: app/java-standalone-upgrade-from-2x.md
+        - name: FAQ
+          href: /azure/azure-monitor/faq#opentelemetry
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
-    - name: Application Map
-      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
-      href: app/app-map.md
-    - name: Transaction diagnostics
-      href: app/transaction-diagnostics.md
-      displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
       - name: Overview
@@ -715,6 +711,12 @@ items:
         href: app/availability-alerts.md
       - name: SLA Report
         href: app/sla-report.md
+    - name: Application Map
+      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
+      href: app/app-map.md
+    - name: Transaction diagnostics
+      href: app/transaction-diagnostics.md
+      displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Distributed tracing
       items:
       - name: Overview
@@ -725,8 +727,6 @@ items:
     - name: Live Metric stream
       displayName: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
-    - name: Work Item integration
-      href: app/work-item-integration.md
     - name: Metrics
       items:
       - name: Log-based & pre-aggregated metrics
@@ -777,8 +777,10 @@ items:
         href: app/usage-flows.md
       - name: HEART Framework
         href: app/usage-heart.md
-    - name: Azure DevOps
+    - name: GitHub and Azure DevOps Integration
       items:
+      - name: Work Item integration
+        href: app/work-item-integration.md
       - name: Release annotations
         href: app/annotations.md
       - name: Continuous monitoring
