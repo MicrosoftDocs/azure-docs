@@ -193,13 +193,13 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 1. Restart the Device Update system daemon to make sure that the configurations were applied. Use the following command within the terminal logged in to the `raspberrypi`:
 
    ```bash
-   systemctl start adu-agent
+   systemctl start deviceupdate-agent
    ```
 
 1. Check that the agent is live by using the following command:
   
    ```bash
-   systemctl status adu-agent
+   systemctl status deviceupdate-agent
    ```
 
    You should see the status appear as alive and green.
