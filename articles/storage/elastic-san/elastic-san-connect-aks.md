@@ -33,6 +33,10 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 - Either the [latest Azure CLI](/cli/azure/install-azure-cli) or use the following command to install the Azure PowerShell preview module: `Install-Module -Name Az.ElasticSan -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion 0.1.0`
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver.
 
+## Limitations
+
+- Dynamic allocation isn't currently supported.
+
 ## Get started
 
 ### Driver installation
@@ -45,7 +49,7 @@ First, clone the driver repo:
 git clone https://github.com/kubernetes-csi/csi-driver-iscsi.git 
 ```
 
-Since Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
+Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
 
 Make the following modifications to pkg/lib/iscsi/iscsi/iscsi.go:
 
@@ -233,3 +237,4 @@ You've now successfully connected an Elastic SAN volume to your AKS cluster.
 
 ## Next steps
 
+[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
