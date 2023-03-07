@@ -16,9 +16,9 @@ ms.custom: it-pro
 ---
 <!--   The content is based on https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/domains-manage and tested in a CIAM tenant.  -->
 
-# Customize the domain name in your CIAM app login
+# Customize the domain name in your CIAM app sign-in
 
-A domain name is an important part of the identifier for resources in many Azure Active Directory (Azure AD) deployments. It is part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure AD can include a domain name that's owned by the Azure AD organization (sometimes called a tenant) that contains the resource. Only a Global Administrator can manage domains in Azure AD.
+A domain name is an important part of the identifier for resources in many Azure Active Directory (Azure AD) deployments. It's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. The domain name of a resource in Azure AD can be owned by the Azure AD organization, also known as a tenant, that holds the resource. Only a Global Administrator can manage domains in Azure AD.
 
 ## Set the primary domain name for your Azure AD organization
 
