@@ -35,7 +35,7 @@ A virtual network is the fundamental building block for private networks in Azur
 1. On the **Basics** tab of the **Create virtual network** screen, enter or select the following information:
 
    - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *VNetTest*.
+   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
    - **Virtual network name**: Enter *VNet1*.
    - **Region**: Keep the default or select a different region for the network and all its resources.
 
@@ -43,23 +43,27 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Select **Next**.
 
-1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**. Accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**, and then select **Next**.
+1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**. Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
 
    :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
 
-1. On the **IP Addresses** tab, select the **Add Azure Bastion subnet** link near the bottom of the page.
+1. On the **IP Addresses** tab, select **Add Azure Bastion subnet** near the bottom of the page.
 
    :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the IP Addresses tab of the Create virtual network screen.":::
 
-1. Accept the defaults to add an IPv4 address space **10.1.0.0/16** that has a subnet named **default** with address range **10.1.0.0/24**, and another **AzureBastionSubnet** with address space **10.1.1.0/24**.
+1. Select **Review + create** to accept the following defaults:
+
+   - A virtual network IPv4 address space of **10.1.0.0/16**.
+   - A resource subnet named **default** with address range **10.1.0.0/24**.
+   - Another subnet named **AzureBastionSubnet** with address space **10.1.1.0/24**.
 
    :::image type="content" source="./media/quick-create-portal/example-review-create.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
 
-1. Select **Review + create**, and after validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
+1. After validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
 
 ## Create virtual machines
 
-Create two VMs in the virtual network by using the following steps. Name one VM *VM1* and the other VM *VM2*.
+Create two VMs named *VM1* and *VM2* in the virtual network.
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -67,8 +71,8 @@ Create two VMs in the virtual network by using the following steps. Name one VM 
 
 1. On the **Basics** tab of the **Create a virtual machine** screen, enter or select the following values:
 
-   - **Resource group**: Select **VNetTest** if not already selected.
-   - **Virtual machine name**: Enter *VM1* or *VM2*.
+   - **Resource group**: Select **TestRG** if not already selected.
+   - **Virtual machine name**: Enter *VM1*.
    - **Region**: Select the same region as your resource group and virtual network if not already selected.
    - **Availability options**: Select **No infrastructure redundancy required**.
    - **Image**: Select **Windows Server 2019 Datacenter - x64 Gen2**.
@@ -91,7 +95,7 @@ Create two VMs in the virtual network by using the following steps. Name one VM 
 1. After the VM is created, select **Create another VM** to create a second VM named *VM2* with the same settings.
 
 >[!NOTE]
->VMs in a virtual network protected by Bastion don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in your Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+>VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Connect to a VM
 
@@ -165,11 +169,11 @@ When you're done using the virtual network and VMs, you can delete the resource 
 
 1. In the Azure portal, search for and select **Resource groups**.
 
-1. On the **Resource groups** page, select the **VNetTest** resource group.
+1. On the **Resource groups** page, select the **TestRG** resource group.
 
-1. On the **VNetTest** page, note all the resources the resource group contains. At the top of the page, select **Delete resource group**.
+1. On the **TestRG** page, note all the resources the resource group contains. At the top of the page, select **Delete resource group**.
 
-1. On the **Delete a resource group** page, under **Enter resource group name to confirm deletion**, enter *VNetTest*, and then select **Delete**.
+1. On the **Delete a resource group** page, under **Enter resource group name to confirm deletion**, enter *TestRG*, and then select **Delete**.
 
 1. Select **Delete** again.
 

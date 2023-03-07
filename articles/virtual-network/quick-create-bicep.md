@@ -24,9 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file this quickstart uses is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets)
-
-The Bicep template defines the following Azure resources:
+The Bicep file this quickstart uses is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets). The Bicep template defines the following Azure resources:
 
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet.

@@ -37,7 +37,7 @@ You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run th
        --location eastus
    ```
 
-1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network named *VNet1* with one subnet named `default` in the `TestRG` resource group.
+1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network named `VNet1` with one subnet named `default` in the `TestRG` resource group.
 
    ```azurecli-interactive
    az network vnet create \
