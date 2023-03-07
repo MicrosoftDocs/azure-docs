@@ -3858,6 +3858,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-definitions.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
             "redirect_document_id": false
