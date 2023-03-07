@@ -39,7 +39,7 @@ For this tutorial you'll need:
 >* [Create custom type definitions](#create-definitions)
 >* [Initialize assets of custom types](#initialize-assets-of-custom-types)
 
-## What is an *asset* and *type* in Microsoft Purview
+## What is *asset* and *type* in Microsoft Purview
 An *asset* is a metadata element that describes a digital or physical resource. The digital or physical resources that are expected to be cataloged as assets include:
 
 * Data sources such as databases, files, and data feed.
@@ -231,7 +231,26 @@ Below you can see a simplified JSON result:
 
 ## Schema tab
 
-As we understood before, the information that shows up in the Schema tab of an Azure SQL Table comes from the Azure SQL Column themselves.
+### What is **Schema** in Microsoft Purview?
+Schema is an important concept which reflects how data is stored and organized in the data store. It reflects the structure of the data as well as the data restrictions of the elements that construct the structure. 
+
+Elements on the same schema can be classified differently (due to their content). Also, different transformation (lineage) can happen to only a subset of elements. Due to these aspects, Purview allows to model schema and schema elements **as entities**, hence schema is usually a relationship attribute to the data asset entity. Examples of schema elements are: **columns** of a table, **json properties** of json schema, **xml elements** of xml schema etc.
+
+There are two types of schemas:
+* Intrinsic Schema:
+
+Some systems are intrinsic to schema. For example, when you create a SQL Table, the system will require you to define the columns that construct the table; in this sense, schema of a table is reflected by its columns.
+
+For data store with predefined schema, Purview uses the corresponding relationship between the data asset and the schema elements to reflect the schema. This relationship attribute is specified by the keyword **schemaElementsAttribute** in **options** property of the entity type definition.
+
+* Non Intrinsic Schema:
+
+Some systems don't enforce such schema restrictions, but users can use it to store structural data by applying some schema protocols to the data. For example, Azure Blobs store binary data and does not care about the data in the binary stream. Therefore, it is unaware of any schema, but the user can serialize their data with schema protocols like json before storing it in the blob. In this sense, schema is maintained by some extra protocols and corresponding validation enforced by the user. 
+
+For data store without inherent schema, schema model is independent of this data store. For such cases, Purview defines an interface for schema and a relationship between DataSet and schema, called **dataset_attached_schemas** - this extends any entity type that inherits form DataSet to have an **attachedSchema** relationship attribute to link to their schema representation.
+
+### Example of **Schema tab**
+The Azure SQL Table example from above has an intrinsic schema. The information that shows up in the Schema tab of the Azure SQL Table comes from the Azure SQL Column themselves.
 
 Selecting one column item, we would see the following:
 
