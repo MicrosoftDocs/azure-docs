@@ -61,11 +61,11 @@ Metric category|Metric name|Metric description|
 
 ## Use the MedTech service health checks tab
 
-1. Select the **Health checks** tab within your MedTech service to display the health checks. In the example, the MedTech service is passing all health checks as indicated by the **Status** row and the **Connected** states.
+1. Select the **Health checks** tab within your MedTech service to display the health checks. In the example, the MedTech service is passing all health checks as indicated by the **Status** row and the **Connected** status.
 
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png" alt-text="Screenshot of the MedTech service health checks tab without errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png":::
 
-2. In this example, we can see that the MedTech service is showing that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you may select the **Accessing the MedTech service from the event hub** link under **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
+2. In this example, we can see that the MedTech service is indicating that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you may select the **Accessing the MedTech service from the event hub** link under the **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
  
     :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png" alt-text="Screenshot of the MedTech service health checks tab with errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png":::
 
