@@ -89,7 +89,14 @@ After enabling the pipeline submission wizard, select **Configure & Submit** but
 
 Then you will see a step-by-step wizard, which allows you to edit pipeline inputs & outputs, and change runtime settings before submit the pipeline job. Follow the wizard to submit the pipeline job.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/submission-wizard.png" alt-text="Screenshot showing submission wizard." lightbox= "./media/how-to-use-pipeline-ui/submission-wizard.png":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/submission-wizard.png" alt-text="Screenshot showing the inputs & outputs tab of the submission wizard." lightbox= "./media/how-to-use-pipeline-ui/submission-wizard.png":::
+
+
+
+
+
+
+
 
 ## Debug your pipeline in job detail page
 
