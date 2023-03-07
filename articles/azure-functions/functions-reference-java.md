@@ -320,9 +320,9 @@ public class Function {
         private String RowKey;
     }
     public static class Person {
-        public String PartitionKey;
-        public String RowKey;
-        public String Name;
+        public String partitionKey;
+        public String rowKey;
+        public String name;
 
         public Person(String p, String r, String n) {
             this.PartitionKey = p;
