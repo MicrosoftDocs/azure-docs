@@ -36,7 +36,7 @@ In this tutorial, you'll:
 
 ## Tools you'll use
 
-|Tool source| Tool | Description |
+|Source| Tool | Description |
 |---| --- | --- |
 |Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 ||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace. |
@@ -122,7 +122,7 @@ In this tutorial, to shorten the process, we'll:
 
 To train a machine learning model on data in your Log Analytics workspace:
 
-1. Retrieve hourly usage data for the selected data types over the last three weeks. 
+1. Retrieve hourly usage data for the selected data types for the three weeks prior to the last week. 
   
 
     This query generates a DataFrame that shows the hourly ingestion in each of the six tables, as retrieved from the Log Analytics workspace:
@@ -178,6 +178,21 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 
 ## Score new data using the trained model
+
+1. Query data ingestion information for the six data types we selected over the past week.
+
+    This query generates a DataFrame that shows the hourly ingestion over the last week for each of the six tables, as retrieved from the Log Analytics workspace:
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-new-ingestion.png" alt-text="Screenshot that shows a DataFrame with information about new log ingestion over seven days in the six tables we're exploring in this tutorial." 
+
+1. Present the data from the DataFrame in a graph.
+
+    ```python
+    showGraph(new_data, "New data usage (1 week) - selected data types")
+    ```
+    The resulting graph looks like this:
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-new-ingestion-graph.png" alt-text="A graph that shows hourly usage data for six data types over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-new-ingestion-graph.png":::
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
 
