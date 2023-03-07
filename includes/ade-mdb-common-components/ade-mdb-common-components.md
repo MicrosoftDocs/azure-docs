@@ -28,17 +28,17 @@ As you work with Dev Box or Deployments Environments in the Azure portal, you ca
 
 In the dev center overview, you can access options to:
 
-- Configure your dev boxes.
+(1) Configure your dev boxes.
 
-- Configure your environments.
+(2) Configure your environments.
 
 :::image type="content" source="media/dev-center-overview.png" alt-text="Screenshot showing Dev Box and Deployment Environments components in a dev center.":::
 
 In the projects overview, you can access options to:
 
-- Configure environment types for a specific project.
+(1) Configure environment types for a specific project.
 
-- Manage dev box pools and environments.
+(2) Manage dev box pools and environments.
 
 :::image type="content" source="media/project-overview.png" alt-text="Screenshot showing Dev Box and Deployment Environments components in a project.":::
 

@@ -78,88 +78,88 @@ az devcenter admin <command> --help
 az devcenter dev <command> --help
 ```
 
-### Dev centers
+**Dev centers**
 
-#### Create a dev center by using a user-assigned identity
+### Create a dev center by using a user-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --identity-type "UserAssigned" --user-assigned-identity
     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1" --location <location-name> -g <resource-group-name> - <name>
 ```
 
-#### Create a dev center by using a system-assigned identity
+### Create a dev center by using a system-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --location <location-name> -g <resource-group-name> -n <name> \
     --identity-type "SystemAssigned"
 ```
 
-#### List dev centers (in the specified resource group)
+### List dev centers (in the specified resource group)
 
 ```azurecli
 az devcenter admin devcenter list -g <resource-group-name>
 ```
 
-#### List dev centers (in the selected subscription if resource group isn't specified or configured in defaults)
+### List dev centers (in the selected subscription if resource group isn't specified or configured in defaults)
 
 ```azurecli
 az devcenter admin devcenter list --output table
 ```
 
-#### Get a specific dev center
+### Get a specific dev center
 
 ```azurecli
 az devcenter admin devcenter show -g <resource-group-name> --name <name>
 ```
 
-#### Delete a dev center
+### Delete a dev center
 
 ```azurecli
 az devcenter admin devcenter delete -g <resource-group-name> --name <name>
 ```
 
-#### Force-delete a dev center
+### Force-delete a dev center
 
 ```azurecli
 az devcenter admin devcenter delete -g <resource-group-name> --name <name> --yes
 ```
 
-### Environment types
+**Environment types**
 
-#### Create an environment type
+### Create an environment type
 
 ```azurecli
 az devcenter admin environment-type create --dev-center-name <devcenter-name> -g <resource-group-name> --name <name>
 ```
 
-#### List environment types by dev center
+### List environment types by dev center
 
 ```azurecli
 az devcenter admin environment-type list --dev-center-name <devcenter-name> --resource-group <resource-group-name>
 ```
 
-#### List environment types by project
+### List environment types by project
 
 ```azurecli
 az devcenter admin environment-type list --project-name <devcenter-name> --resource-group <resource-group-name>
 ```
 
-#### Delete an environment type
+### Delete an environment type
 
 ```azurecli
 az devcenter admin environment-type delete --dev-center-name <devcenter-name> --name "{environmentTypeName}" \
     --resource-group <resource-group-name>
 ```
 
-#### List environment types by dev center and project for developers
+### List environment types by dev center and project for developers
 
 ```azurecli
 az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
 ```
 
-### Project environment types
+**Project environment types**
 
-#### Create project environment types
+### Create project environment types
 
 ```azurecli
 az devcenter admin project-environment-type create --description "Developer/Testing environment" --dev-center-name \
@@ -168,20 +168,20 @@ az devcenter admin project-environment-type create --description "Developer/Test
     --status Enabled --type SystemAssigned
 ```
 
-#### List project environment types by dev center
+### List project environment types by dev center
 
 ```azurecli
 az devcenter admin project-environment-type list --dev-center-name <devcenter-name> \
     --resource-group <resource-group-name>
 ```
 
-#### List project environment types by project
+### List project environment types by project
 
 ```azurecli
 az devcenter admin project-environment-type list --project-name <project-name> --resource-group <resource-group-name>
 ```
 
-#### Delete project environment types
+### Delete project environment types
 
 ```azurecli
 az devcenter admin project-environment-type delete --project-name <project-name> \
@@ -195,75 +195,75 @@ az devcenter admin project-allowed-environment-type list --project-name <project
     --resource-group <resource-group-name>
 ```
 
-### Catalogs
+**Catalogs**
 
-#### Create a catalog that uses a GitHub repository
+### Create a catalog that uses a GitHub repository
 
 ```azurecli
 az devcenter admin catalog create --git-hub secret-identifier="https://<key-vault-name>.azure-int.net/secrets/<secret-name>" uri=<git-clone-uri> branch=<git-branch> -g <resource-group-name> --name <name> --dev-center-name <devcenter-name>
 ```
 
-#### Create a catalog that uses an Azure DevOps repository
+### Create a catalog that uses an Azure DevOps repository
 
 ```azurecli
 az devcenter admin catalog create --ado-git secret-identifier="https://<key-vault-name>.azure-int.net/secrets/<secret-name>" uri=<git-clone-uri> branch=<git-branch> -g <resource-group-name> --name <name> --dev-center-name <devcenter-name>
 ```
 
-#### Sync a catalog
+### Sync a catalog
 
 ```azurecli
 az devcenter admin catalog sync  --name <name> --dev-center-name <devcenter-name> -g <resource-group-name>
 ```
 
-#### List catalogs in a dev center
+### List catalogs in a dev center
 
 ```azurecli
 az devcenter admin catalog list -g <resource-group-name> --dev-center-name <devcenter-name>
 ```
 
-#### Delete a catalog
+### Delete a catalog
 
 ```azurecli
 az devcenter admin catalog delete -g <resource-group-name> --dev-center-name <devcenter-name> -n <name>
 ```
 
-### Catalog items
+**Catalog items**
 
-#### List catalog items that are available in a project
+### List catalog items that are available in a project
 
 ```azurecli
 az devcenter dev catalog-item list --dev-center-name <devcenter-name> --project-name <name>
 ```
 
-### Project
+**Projects**
 
-#### Create a project
+### Create a project
 
 ```azurecli
 az devcenter admin project create -g <resource-group-name> -n <project-name> --dev-center-id <devcenter-resource-id>
 ```
 
-#### List projects (in the specified resource group)
+### List projects (in the specified resource group)
 
 ```azurecli
 az devcenter admin project list -g <resource-group-name>
 ```
 
-#### List projects (in the selected subscription if resource group isn't specified or configured in defaults)
+### List projects (in the selected subscription if resource group isn't specified or configured in defaults)
 
 ```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects' | project id, name"
 ```
 
-#### Delete a project
+### Delete a project
 
 ```azurecli
 az devcenter admin project delete -g <resource-group-name> --name <project-name>
 ```
 
-### Environments
+**Environments**
 
-#### Create an environment
+### Create an environment
 
 ```azurecli
 az devcenter dev environment create --dev-center-name <devcenter-name> \
@@ -272,7 +272,7 @@ az devcenter dev environment create --dev-center-name <devcenter-name> \
     --parameters <deployment-parameters-json-string>
 ```
 
-#### Deploy an environment
+### Deploy an environment
 
 ```azurecli
 az devcenter environment deploy-action --action-id "deploy" --dev-center <devcenter-name> \

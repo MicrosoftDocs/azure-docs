@@ -132,5 +132,5 @@ az devcenter dev environment delete --dev-center-name <devcenter-name>  --projec
 
 ## Next steps
 
-- Learn how to configure Azure Deployment Environments: [Quickstart: Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
-- Learn more about managing your environments by using the CLI: [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md).
+- Learn how to configure Azure Deployment Environments in [Quickstart: Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
+- Learn more about managing your environments by using the CLI in [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md).

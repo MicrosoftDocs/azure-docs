@@ -151,7 +151,7 @@ An invalid catalog item error might occur for various reasons:
 
   - Ensure that the manifest's engine type is correctly configured as `ARM`.
   - Ensure that the catalog item name is between 3 and 63 characters.
-  - Ensure that the catalog item name includes only characters that are valid for a URL: alphanumeric characters and the symbols `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `)` `(` `*` `&` `$` `@`.
+  - Ensure that the catalog item name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   
 - **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
 

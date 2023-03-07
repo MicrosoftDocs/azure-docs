@@ -26,23 +26,23 @@ This article shows you how to create and access an [environment](concept-environ
   1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
   1. Install the Azure Deployment Environments AZ CLI extension:
 
-     **Automated installation**
+     - **Automated installation**
   
-     In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
+       In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
 
-     ```powershell
-     iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-     ```
+       ```powershell
+       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
+       ```
   
-     The script uninstalls any existing dev center extension and installs the latest version.
+       The script uninstalls any existing dev center extension and installs the latest version.
 
-     **Manual installation**
+     - **Manual installation**
   
-     Run the following command in the Azure CLI:
+       Run the following command in the Azure CLI:
 
-     ```azurecli
-     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-     ```
+       ```azurecli
+       az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
+       ```
 
 ## Create an environment
 
@@ -87,7 +87,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
    ```
 
-1. Create an environment by using a *catalog-item* (an infrastructure-as-code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
+1. Create an environment by using a *catalog-item* (an infrastructure as code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name> 
