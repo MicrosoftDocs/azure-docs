@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 09/28/2020 
+ms.date: 03/04/2023 
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -16,7 +16,7 @@ author: mamccrea
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Several performance tests have been run on [HBv2-series](../../hbv2-series.md) size VMs. The following are some of the results of this performance testing.
+Several performance tests have been run on [HBv2-series](hbv2-series.md) size VMs. The following are some of the results of this performance testing.
 
 
 | Workload                                        | HBv2                                                              |
@@ -36,7 +36,7 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
 ```
 
-:::image type="content" source="./media/latency-hbv2.png" alt-text="MPI latency on Azure HB.":::
+![Screenshot of MPI latency.](./media/hpc/latency-hbv2.png)
 
 ## MPI bandwidth
 
@@ -46,7 +46,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hbv2.png" alt-text="MPI bandwidth on Azure HB.":::
+![Screenshot of MPI bandwidth.](./media/hpc/bandwidth-hbv2.png)
 
 ## Mellanox Perftest
 

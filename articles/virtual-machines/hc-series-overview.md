@@ -4,10 +4,10 @@ description: Learn about the preview support for the HC-series VM size in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 08/19/2020
-ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.date: 03/04/2023
+ms.reviewer: wwilliams
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HC-series virtual machine overview
@@ -16,7 +16,7 @@ author: mamccrea
 
 Maximizing HPC application performance on Intel Xeon Scalable Processors requires a thoughtful approach to process placement on this new architecture. Here, we outline our implementation of it on Azure HC-series VMs for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain. Similarly, we will use the term “pCore” to refer to physical CPU cores, and “vCore” to refer to virtualized CPU cores.
 
-Physically, an [HC-series](../../hc-series.md) server is 2 * 24-core Intel Xeon Platinum 8168 CPUs for a total of 48 physical cores. Each CPU is a single pNUMA domain, and has unified access to six channels of DRAM. Intel Xeon Platinum CPUs feature a 4x larger L2 cache than in prior generations (256 KB/core -> 1 MB/core), while also reducing the L3 cache compared to prior Intel CPUs (2.5 MB/core -> 1.375 MB/core).
+Physically, an [HC-series](hc-series.md) server is 2 * 24-core Intel Xeon Platinum 8168 CPUs for a total of 48 physical cores. Each CPU is a single pNUMA domain, and has unified access to six channels of DRAM. Intel Xeon Platinum CPUs feature a 4x larger L2 cache than in prior generations (256 KB/core -> 1 MB/core), while also reducing the L3 cache compared to prior Intel CPUs (2.5 MB/core -> 1.375 MB/core).
 
 The above topology carries over to the HC-series hypervisor configuration as well. To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve pCores 0-1 and 24-25 (that is, the first 2 pCores on each socket). We then assign pNUMA domains all remaining cores to the VM. Thus, the VM will see:
 
@@ -28,7 +28,7 @@ Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh netw
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HC-series VM.
 
-![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/architecture/hc-segregation-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/hpc/architecture/hc-segregation-cores.png)
 
 ## Hardware specifications
 
@@ -51,7 +51,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
-| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)  |
+| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
 ## Next steps
 

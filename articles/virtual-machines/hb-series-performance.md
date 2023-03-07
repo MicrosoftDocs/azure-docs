@@ -1,28 +1,29 @@
 ---
-title: HC-series VM size performance
-description: Learn about performance testing results for HC-series VM sizes in Azure. 
+title: HB-series VM size performance
+description: Learn about performance testing results for HB-series VM sizes in Azure. 
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
 ---
 
-# HC-series virtual machine sizes
+# HB-series virtual machine sizes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Several performance tests have been run on HC-series sizes. The following are some of the results of this performance testing.
+Several performance tests have been run on HB-series sizes. The following are some of the results of this performance testing.
 
 | Workload                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| STREAM Triad                                    | 190 GB/s (Intel MLC AVX-512)  |
-| High-Performance Linpack (HPL)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (Rmax) |
-| RDMA latency & bandwidth                        | 1.05 microseconds, 96.8 Gb/s   |
-| FIO on local NVMe SSD                           | 1.3 GB/s reads, 900 MB/s writes |  
-| IOR on 4 Azure Premium SSD (P30 Managed Disks, RAID0)**  | 780 MB/s reads, 780 MB/writes |
+| STREAM Triad                                    | 260 GB/s (32-33 GB/s per CCX)  |
+| High-Performance Linpack (HPL)                  | 1,000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rmax) |
+| RDMA latency & bandwidth                        | 1.27 microseconds, 99.1 Gb/s   |
+| FIO on local NVMe SSD                           | 1.7 GB/s reads, 1.0 GB/s writes      |  
+| IOR on 4 * Azure Premium SSD (P30 Managed Disks, RAID0)**  | 725 MB/s reads,  780 MB/writes   |
+
 
 ## MPI latency
 
@@ -32,7 +33,7 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-:::image type="content" source="./media/latency-hc.png" alt-text="MPI latency on Azure HC.":::
+![Screenshot of MPI latency.](./media/hpc/latency-hb.png)
 
 ## MPI bandwidth
 
@@ -42,7 +43,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hc.png" alt-text="MPI bandwidth on Azure HC.":::
+![Screenshot of MPI bandwidth.](./media/hpc/bandwidth-hb.png)
 
 
 ## Mellanox Perftest
