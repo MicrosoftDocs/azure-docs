@@ -250,6 +250,23 @@ To deploy directly from an existing container image, use the following pipeline 
     ContainerImage: '<your image tag>'
 ```
 
+### Deploy using Tanzu Build Service (Enterprise tier)
+
+If you are using Azure Spring Apps Enterprise tier, you can also use the Tanzu Build Service in the pipeline using the `builder` option. You can find more details in [Use Tanzu Build Service](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-build-service?tabs=azure-portal).
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your Azure Spring Apps service>'
+    AppName: '<app-name>'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: './target/your-result-jar.jar'
+    Builder: '<your Tanzu Build Service Builder resource>'
+```
+
 ::: zone-end
 
 ## Next steps
