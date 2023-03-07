@@ -12,9 +12,9 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-## Sample code
+<!-- ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/link.
+You can download the sample app from [GitHub](https://github.com/link. -->
 
 ## Prerequisites
 
@@ -36,22 +36,19 @@ Run npm `init -y` to create a package.json file with default settings.
 ``` console
    npm init -y
 ```
-
 Create a file called direct-routing-quickstart.js in the root of the directory you just created. Add the following snippet to it:
 
 ``` javascript
-
 async function main() {
     // quickstart code will go here
 }
 
 main();
-
 ```
 
 ## Install the package
 
-Use the `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript.
+Use `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript.
 
 ``` console
 	npm install @azure/communication-phone-numbers@1.2.0-alpha.20230214.1 --save
@@ -59,15 +56,13 @@ Use the `npm install` command to install the Azure Communication Services Phone 
 
 The `--save` option adds the library as a dependency in your package.json file.
 
-
 ## Authenticate the client
 
 Import the `SipRoutingClient` from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource#store-your-connection-string).
 
-Add the following code to the top of `direct-routing-quickstart.js`:
+Add the following code to the `direct-routing-quickstart.js`:
 
 ```javascript
-
 const { SipRoutingClient } = require('@azure/communication-phone-numbers');
 
 // This code demonstrates how to fetch your connection string
@@ -76,17 +71,19 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 
 // Instantiate the phone numbers client
 const sipRoutingClient = new SipRoutingClient(connectionString);
-
 ```
 
 ## Setup direct routing configuration
 
-### Create or Update Trunks
+1. Domain ownership verification - see [prerequisites](#prerequisites)
+1. Creating trunks (adding SBCs)
+1. Creating voice routes
 
-Register your SBCs by providing their fully qualified domain names and port numbers.
+### Create or update Trunks
+
+Azure Communication Services direct routing allows communication with registered SBCs only. To register an SBC you need its FQDN and port.
 
 ```javascript
-
   await client.setTrunks([
     {
       fqdn: 'sbc.us.contoso.com',
@@ -96,18 +93,16 @@ Register your SBCs by providing their fully qualified domain names and port numb
       sipSignalingPort: 5061
     }
   ]);
-
 ```
 
-### Create or Update Routes
+### Create or update Routes
 
 > [!NOTE]
 > Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
-For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match destination phone number, and FQDN of registered trunk where call will be routed to when matched.
+For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match dialed phone number and FQDN of a registered trunk where call is routed. In this example, we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`.
 
 ```javascript
-
    await client.setRoutes([
     {
       name: "UsRoute",
@@ -121,36 +116,40 @@ For outbound calling routing rules should be provided. Each rule consists of two
       trunks: [ 'sbc.us.contoso.com', 'sbc.eu.contoso.com']
     }
   ]);
-
 ```
 
 ### Updating existing configuration
 
-Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+Properties of specific Trunk can be updated by overwriting the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` javascript
-
   await client.setTrunk({
     fqdn: 'sbc.us.contoso.com',
-    sipSignalingPort: 1235
+    sipSignalingPort: 5063
   });
-
 ```
+> [!IMPORTANT]
+>The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
 
 Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
 Therefore the same method is used to Create and update routing rules.
 
 ### Removing a direct routing configuration
 
-You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
 
 ``` javascript
 
-   await client.deleteTrunk('sbc.us.contoso.com');
 
+``` 
+
+You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
+
+``` javascript
+   await client.deleteTrunk('sbc.us.contoso.com');
 ```
 
-All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+<!-- All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections. -->
 
 ### Run the code
 
@@ -160,4 +159,5 @@ Use the node command to run the code you added to the `direct-routing-quickstart
 	node direct-routing-quickstart.js
 ```
 
-More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
+> [!NOTE]
+> More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).

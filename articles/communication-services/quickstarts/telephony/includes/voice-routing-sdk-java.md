@@ -123,7 +123,7 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
 
 Direct routing configuration consists of:
 
-1. Domain ownership verification
+1. Domain ownership verification - see [prerequisites](#prerequisites)
 1. Creating trunks (adding SBCs)
 1. Creating voice routes
 
@@ -158,10 +158,10 @@ sipRoutingAsyncClient.setRoutes(asList(
 
 ### Updating existing configuration
 
-Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+Properties of specific Trunk can be updated by overwriting the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` java
-sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 1235));
+sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 5063));
 ```
 
 > [!IMPORTANT]
@@ -176,13 +176,11 @@ You can't edit or remove single voice route. Entire voice routing configuration 
 
 ``` 
 
-You can delete single, if it isn't used in any voice route. If it is, route should be deleted first.
+You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ``` java
 sipRoutingClient.deleteTrunk("sbc.us.contoso.com");
 ```
-
-You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ### Run the code
 

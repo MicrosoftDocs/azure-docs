@@ -67,7 +67,7 @@ var client = new SipRoutingClient(connectionString);
 
 Direct routing configuration consists of:
 
-1. Domain ownership verification
+1. Domain ownership verification - see [prerequisites](#prerequisites)
 1. Creating trunks (adding SBCs)
 1. Creating voice routes
 
@@ -107,7 +107,7 @@ await client.SetRoutesAsync(new List<SipTrunkRoute> { usRoute, defaultRoute });
 
 ### Updating existing configuration
 
-Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
+Properties of specific Trunk can be updated by overwriting the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` csharp
 var usTrunk = new SipTrunk("sbc.us.contoso.com", 5063);
