@@ -273,7 +273,7 @@ An [indexing policy update](../index-policy.md#modifying-the-indexing-policy) tr
 > [!NOTE]
 > When you update indexing policy, writes to Azure Cosmos DB are uninterrupted. Learn more about [indexing transformations](../index-policy.md#modifying-the-indexing-policy)
 
-## Use the Azure portal
+### Use the Azure portal
 
 Azure Cosmos DB containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
 
@@ -291,15 +291,15 @@ Azure Cosmos DB containers store their indexing policy as a JSON document that t
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
-## Use the Azure CLI
+### Use the Azure CLI
 
 To create a container with a custom indexing policy, see [Create a container with a custom index policy using CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy).
 
-## Use PowerShell
+### Use PowerShell
 
 To create a container with a custom indexing policy, see [Create a container with a custom index policy using PowerShell](manage-with-powershell.md#create-container-custom-index).
 
-## <a id="dotnet-sdk"></a> Use the .NET SDK
+### <a id="dotnet-sdk"></a> Use the .NET SDK
 
 # [.NET SDK V3](#tab/dotnetv3)
 
@@ -390,7 +390,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ---
 
-## Use the Java SDK
+### Use the Java SDK
 
 The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) exposes the `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](quickstart-java.md).
 
@@ -472,23 +472,23 @@ containerResponse.subscribe(result -> {
 });
 ```
 
-## Use the Node.js SDK
+### Use the Node.js SDK
 
 The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`. For more information, see [Quickstart - Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md).
 
-Retrieve the container's details
+Retrieve the container's details:
 
 ```javascript
 const containerResponse = await client.database('database').container('container').read();
 ```
 
-Set the indexing mode to consistent
+Set the indexing mode to consistent:
 
 ```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
 ```
 
-Add included path including a spatial index
+Add included path including a spatial index:
 
 ```javascript
 containerResponse.body.indexingPolicy.includedPaths.push({
@@ -542,7 +542,7 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## Use the Python SDK
+### Use the Python SDK
 
 # [Python SDK V3](#tab/pythonv3)
 
@@ -620,7 +620,7 @@ container_client = database_client.get_container_client('container')
 container = container_client.read()
 ```
 
-Set the indexing mode to consistent
+Set the indexing mode to consistent:
 
 ```python
 indexingPolicy = {
