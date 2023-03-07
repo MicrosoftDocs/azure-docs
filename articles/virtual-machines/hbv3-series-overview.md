@@ -96,7 +96,7 @@ HBv3 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-
 HBv3 VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, along with standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is recommended.
 
 ## Temporary storage
-HBv3 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it appeard within your VM as a generic "SSD" device.
+HBv3 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it appeared within your VM as a generic "SSD" device.
 
 Two other, larger SSDs are provided as unformatted block NVMe devices via NVMeDirect. As the block NVMe device bypasses the hypervisor, it has higher bandwidth, higher IOPS, and lower latency per IOP.
 
@@ -118,7 +118,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 | Software specifications        | HBv3-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
-| Max MPI Job Size               | 36,000 cores (300 VMs in a single VM scale set with singlePlacementGroup=true) |
+| Max MPI Job Size               | 36,000 cores (300 VMs in a single VMScaleSet with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
