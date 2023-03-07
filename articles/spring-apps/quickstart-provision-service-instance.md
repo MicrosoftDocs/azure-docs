@@ -107,9 +107,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
-1. In the search box, search for **Azure Spring Apps**.
-
-1. Select **Azure Spring Apps** from the results.
+1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
 
    :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
 
@@ -122,11 +120,11 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    - **Project Details**
 
      - **Subscription**: Select the subscription you want to be billed for this resource.
-     - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as \<*ResourceGroupName*\>.
+     - **Resource group**: Select an existing resource group or create a new one.
 
    - **Service Details**
 
-     - **Name**: Create the \<*ServiceInstanceName*\>. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+     - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
      - **Location**: Select the location of your service instance.
    - **Plan**: Select **Standard** for the **Pricing tier** option.
 
@@ -155,9 +153,9 @@ The following procedure uses the Azure CLI extension to provision an instance of
    az account set --subscription <Subscription ID or name>
    ```
 
-1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for the Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group to contain your Azure Spring Apps service. Create in instance of the Azure Spring Apps service.
+1. Create a resource group to contain the Azure Spring Apps service instance. Create in instance of the Azure Spring Apps service.
 
    ```azurecli
    az group create --name <resource group name>
