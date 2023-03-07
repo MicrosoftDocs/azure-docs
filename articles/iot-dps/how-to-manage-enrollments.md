@@ -137,73 +137,6 @@ Enrollment groups do not support TPM attestation.
 
 ---
 
-## Create an enrollment group -- test
-
-An enrollment group is an entry for a group of devices that share a common attestation mechanism. We recommend that you use an enrollment group for a large number of devices that share an initial configuration, or for devices that go to the same tenant. Enrollment groups support devices that use either [symmetric key](concepts-symmetric-key-attestation.md) or [X.509 certificates](concepts-x509-attestation.md) attestation.
-
-For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see the [Provision devices with symmetric keys](how-to-legacy-device-symm-key.md) tutorial.
-
-To create an enrollment group:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
-
-1. At the top of the page, select **Add enrollment group**.
-# [Symmetric key](#tab/key)
-1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** |Select **Symmetric key**.|
-   | **Symmetric key settings** |Check the **Generate symmetric keys automatically** box if you want to use randomly generated keys. Uncheck this box if you want to provide your own. |
-   | **Group name** | Provide a name for the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
-   | **Provisioning status** | Check the **Enable this enrollment** if you want this enrollment group to be available to provision devices. Uncheck this box if you want the group to be disabled. You can change this setting later. |
-   | **Reprovision policy** | For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies)] |
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-enrollment-group-symm-key.png" alt-text="Screenshot that shows adding an enrollment group for symmetric key attestation.":::
-# [X.509 certificate](#tab/x509)
-1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** |Select **X.509 intermediate certificates** if you want to upload intermediate certificates to be used for just this enrollment group, or select **X.509 certificates uploaded to this Device Provisioning Service** if you already have uploaded intermediate certificates.|
-   | **X.509 certificate settings** |Depending on the attestation method that you chose, either upload or select the primary and secondary intermediate certificates for this enrollment group. |
-   | **Group name** | Provide a name for the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
-   | **Provisioning status** | Check the **Enable this enrollment** if you want this enrollment group to be available to provision devices. Uncheck this box if you want the group to be disabled. You can change this setting later. |
-   | **Reprovision policy** | For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies)] |
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-enrollment-group-cert.png" alt-text="Screenshot that shows adding an enrollment group for X.509 certificate attestation.":::
-# [TPM](#tab/tpm)
-1. Enrollment groups do not support TPM attestation. Please choose a different attestation type.
----
-1. Select **Next: IoT hubs**.
-
-1. On the **IoT hubs** tab of the **Add enrollment group** page, provide the following information to determine which IoT hubs the enrollment group can provision devices to:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hub. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-enrollment-group-key-linked-hub.png" alt-text="Screenshot that shows connecting IoT hubs to the new enrollment group.":::
-
-1. Select **Next: Device settings**
-
-1. On the **Device settings** tab of the **Add enrollment group** page, provide the following information to define how newly provisioned devices will be configured:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if all the devices provisioned through this group will run [Azure IoT Edge](../iot-edge/about-iot-edge.md). Uncheck this box if this group is for non-IoT Edge-enabled devices only. Either all devices in a group will be IoT Edge-enabled or none can be. |
-   | **Device tags** | Use this text box to provide any tags that you want to apply to the device twins of provisioned devices. |
-   | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twins of provisioned devices. |
-
-   For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-1. Select **Next: Review + create**.
-
-1. On the **Review + create** tab, verify all of your values then select **Create**.
-
 ## Create an individual enrollment
 
 An individual enrollment is an entry for a single device that may be assigned to an IoT hub. Devices using [symmetric key](concepts-symmetric-key-attestation.md), [X.509 certificates](concepts-x509-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
@@ -290,6 +223,8 @@ To create a TPM individual enrollment:
     :::image type="content" source="./media/how-to-manage-enrollments/add-individual-enrollment-tpm.png" alt-text="Add individual enrollment for TPM attestation.":::
 
 1. Select **Save**.
+
+---
 
 ## Update an enrollment entry
 
