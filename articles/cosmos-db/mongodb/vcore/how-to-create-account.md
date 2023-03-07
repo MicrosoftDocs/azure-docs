@@ -1,7 +1,7 @@
 ---
 title: Create a new cluster
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Learn how to create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents.
+description: Create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to

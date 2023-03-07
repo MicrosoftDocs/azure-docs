@@ -36,7 +36,7 @@ To change the configuration of your cluster, use the **Scale** section of the Az
 
    :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of the Scale option on the page for an Azure Cosmos DB for MongoDB vCore cluster.":::
 
-1. 
+1. TODO
 
 ## Change the cluster tier
 
@@ -44,18 +44,19 @@ The cluster tier you select influences the amount of vCores and RAM assigned to 
 
 1. To change the cluster tier, select the new tier from the drop-down menu and select Save. The change is performed live to the cluster without downtime.
 
+1. TODO
 
 ## Increase disk size
 
 You can increase the storage size to give your database more room to grow. For example, you can increase the storage from 128 GB to 256 GB. It's important to note that storage size can only be increased, not decreased. To increase the storage size, select the new size from the drop-down menu and select Save. The change is performed live to the cluster without downtime.
 
-1. 
+1. TODO
 
 ## Enable or disable high availability
 
 You can enable or disable high availability (HA) to suit your needs. HA avoids database downtime by maintaining replica nodes of every primary node in a cluster. If a primary node goes down, incoming connections are automatically redirected to its replica node, ensuring that there's minimal downtime. To enable or disable HA, toggle the switch in the Scale section of the portal.
 
-1. 
+1. TODO
 
 ## Next steps
 
