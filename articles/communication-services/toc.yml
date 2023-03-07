@@ -704,6 +704,82 @@ items:
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules
     href: resources/learn-modules.md
+  - name: Using the Calling SDK
+    items:
+      - name: Manage calls
+        href: how-tos/calling-sdk/manage-calls.md
+      - name: Manage video
+        href: how-tos/calling-sdk/manage-video.md
+      - name: Manage Teams calling
+        href: how-tos/cte-calling-sdk/manage-calls.md
+      - name: Record calls
+        href: how-tos/calling-sdk/record-calls.md
+      - name: Raise Hand State
+        href: how-tos/calling-sdk/raise-hand.md
+      - name: Enable push notifications
+        href: how-tos/calling-sdk/push-notifications.md
+      - name: Show transcription state
+        href: how-tos/calling-sdk/call-transcription.md
+      - name: Show active speakers
+        href: how-tos/calling-sdk/dominant-speaker.md
+      - name: Transfer calls
+        href: how-tos/calling-sdk/transfer-calls.md
+      - name: Join a Teams meeting
+        href: how-tos/calling-sdk/teams-interoperability.md
+      - name: Subscribe to SDK events
+        href: how-tos/calling-sdk/events.md
+      - name: Check if user is running supported browser
+        href: how-tos/calling-sdk/browser-support.md
+      - name: Verify if an application is active in multiple tabs of a browser
+        href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Integrate with CallKit in iOS
+        href: how-tos/calling-sdk/callkit-integration.md
+  - name: Using the UI Library
+    items: 
+    - name: Setup Localization
+      href: how-tos/ui-library-sdk/localization.md
+    - name: Setup Theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Participant View Data Injection
+      href: how-tos/ui-library-sdk/data-model.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
+  - name: Using the Call Automation library
+    items: 
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Customize voice prompts to users with Play action 
+      href: how-tos/call-automation/play-action.md
+    - name: Gather user input with Recognize action 
+      href: how-tos/call-automation/recognize-action.md
+    - name: Record every call in the resource
+      href: how-tos/call-automation/record-every-call.md
+  - name: Using the Chat SDK
+    items: 
+    - name: Integrate with Data Loss Prevention policies
+      href: how-tos/chat-sdk/data-loss-prevention.md
+  - name: Using Azure Event Grid
+    items:
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Local testing events
+      href: how-tos/event-grid/local-testing-event-grid.md
+- name: Samples
+  items:
+  - name: Overview
+    href: samples/overview.md
+  - name: Calling hero sample
+    href: samples/calling-hero-sample.md
+  - name: Chat hero sample
+    href: samples/chat-hero-sample.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
+  - name: Web calling sample
+    href: samples/web-calling-sample.md
+  - name: UI Library cross platform samples
+    href: samples/ui-library-cross-platform.md
+  - name: Call Automation appointment reminder sample
+    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview
