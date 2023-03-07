@@ -14,13 +14,10 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
 The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
-- You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+- You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
 Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
@@ -29,14 +26,11 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
-
 ## Synthesize to speaker output
 
 Follow these steps to create a new console application.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
+1. Open a command prompt where you want the new project, and create a new file named `speech_synthesis.py`.
 1. Run this command to install the Speech SDK:  
     ```console
     pip install azure-cognitiveservices-speech
@@ -47,6 +41,7 @@ Follow these steps to create a new console application.
     import os
     import azure.cognitiveservices.speech as speechsdk
 
+    # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
@@ -90,15 +85,15 @@ Enter some text that you want to speak >
 I'm excited to try text to speech
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
+> [!WARNING]
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
-- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
-- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/cognitive-services/speech-service/batch-synthesis.md). 
 
 ## Clean up resources
 

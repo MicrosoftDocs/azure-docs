@@ -2,7 +2,7 @@
 title: Deploy updates and track results in update management center (preview).
 description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 12/27/2022
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -41,14 +41,16 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select **Install now** to proceed with the one-time updates.
 
-1. In **Install one-time updates**, select **+Add machine** to add the machine for deploying one-time.
+   - In **Install one-time updates**, select **+Add machine** to add the machine for deploying one-time.
 
-1. In **Select resources**, choose the machine and select **Add**. 
+   - In **Select resources**, choose the machine and select **Add**. 
 
 1. In **Updates**, specify the updates to include in the deployment. For each product, select or deselect all supported update classifications and specify the ones to include in your update deployment. If your deployment is meant to apply only for a select set of updates, its necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates described below. This ensures only the updates you've specified to include in this deployment are installed on the target machine.
 
    > [!NOTE]
-   > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
+   > - Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
+   > - Update management center (preview) doesn't support driver updates. 
+
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
    
@@ -58,7 +60,9 @@ To install one time updates on a single VM, follow these steps:
 
    - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend checking this option because updates that are not displayed here might be installed, as newer updates might be available.
    
-   - To ensure that the updates published are on or before a specific date, choose the date and select**Add** and **Next**.
+   - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date** and in the Include by maximum patch publish date , choose the date and select **Add** and **Next**.
+   
+      :::image type="content" source="./media/deploy-updates/include-patch-publish-date-inline.png" alt-text="Screenshot on including patch publish date." lightbox="./media/deploy-updates/include-patch-publish-date-expanded.png":::
 
 1. In **Properties**, specify the reboot and maintenance window.
    - Use the **Reboot** option to specify the way to handle reboots during deployment. The following options are available:
@@ -83,7 +87,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select to **Install now** to proceed with installing updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
 
    A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
@@ -93,7 +97,7 @@ To install one time updates on a single VM, follow these steps:
 1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Go to Updates using Update Center**.
 1. In **Updates (Preview)**, select **One-time update** to install the updates.
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
  
 ---
 

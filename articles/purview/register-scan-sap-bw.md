@@ -6,15 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 11/01/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP Business Warehouse in Microsoft Purview (Preview)
+# Connect to and manage SAP Business Warehouse in Microsoft Purview
 
 This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -63,12 +61,16 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
         > [!Note]
         > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
-* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. The user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
+    * Self-hosted integration runtime communicates with the SAP server over dispatcher port 32NN and gateway port 33NN, where NN is your SAP instance number from 00 to 99. Make sure the outbound traffic is allowed on your firewall.
+
+* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. For scan execution, the user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
 
     * STFC_CONNECTION (check connectivity)
     * RFC_SYSTEM_INFO (check system information)
     * OCS_GET_INSTALLED_COMPS (check software versions)
-    * Z_MITI_BW_DOWNLOAD (main metadata import)
+    * Z_MITI_BW_DOWNLOAD (main metadata import, the function module you create following the Purview guide)
+    
+    The underlying SAP Java Connector (JCo) libraries may call additional RFC function modules e.g. RFC_PING, RFC_METADATA_GET, etc., refer to [SAP support note 460089](https://launchpad.support.sap.com/#/notes/460089) for details.
 
 ## Register
 

@@ -4,30 +4,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/15/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)
+[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
 
 Use this quickstart to create a sentiment analysis application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
-
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Node.js](https://nodejs.org/) v14 LTS or later
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
+
+[!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Create a new Node.js application
 
@@ -50,7 +59,7 @@ npm init
 Install the npm packages:
 
 ```console
-npm install @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-language-text
 ```
 
 > [!div class="nextstepaction"]
@@ -58,36 +67,39 @@ npm install @azure/ai-text-analytics@5.1.0
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
-
-[!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
+Open the file and copy the below code. Then run the code.
 
 ```javascript
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
-const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint.
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for detecting sentiment and opinions in text.
-async function sentimentAnalysisWithOpinionMining(client){
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const key = process.env.LANGUAGE_KEY;
+const endpoint = process.env.LANGUAGE_ENDPOINT;
 
-  const sentimentInput = [
-    {
-      text: "The food and service were unacceptable. The concierge was nice, however.",
-      id: "0",
-      language: "en"
-    }
-  ];
-  const results = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
+
+//an example document for sentiment analysis and opinion mining
+const documents = [{
+    text: "The food and service were unacceptable. The concierge was nice, however.",
+    id: "0",
+    language: "en"
+  }];
+  
+async function main() {
+  console.log("=== Sentiment analysis and opinion mining sample ===");
+
+  const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+
+  const results = await client.analyze("SentimentAnalysis", documents, {
+    includeOpinionMining: true,
+  });
 
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
     console.log(`- Document ${result.id}`);
     if (!result.error) {
-      console.log(`\tDocument text: ${sentimentInput[i].text}`);
+      console.log(`\tDocument text: ${documents[i].text}`);
       console.log(`\tOverall Sentiment: ${result.sentiment}`);
       console.log("\tSentiment confidence scores:", result.confidenceScores);
       console.log("\tSentences");
@@ -111,7 +123,10 @@ async function sentimentAnalysisWithOpinionMining(client){
     }
   }
 }
-sentimentAnalysisWithOpinionMining(textAnalyticsClient);
+  
+main().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
 ```
 
 > [!div class="nextstepaction"]
@@ -120,38 +135,41 @@ sentimentAnalysisWithOpinionMining(textAnalyticsClient);
 ## Output
 
 ```console
+=== Sentiment analysis and opinion mining sample ===
 - Document 0
-  Document text: The food and service were unacceptable. The concierge was nice, however.
-  Overall Sentiment: mixed
-  Sentiment confidence scores: { positive: 0.47, neutral: 0, negative: 0.52 }
-  Sentences
-  - Sentence sentiment: negative
-    Confidence scores: { positive: 0, neutral: 0, negative: 0.99 }
-    Mined opinions
-          - Target text: food
-            Target sentiment: negative
-            Target confidence scores: { positive: 0, negative: 1 }
-            Target assessments
-                  - Text: unacceptable
-                    Sentiment: negative
-          - Target text: service
-            Target sentiment: negative
-            Target confidence scores: { positive: 0, negative: 1 }
-            Target assessments
-                  - Text: unacceptable
-                    Sentiment: negative
-  - Sentence sentiment: positive
-    Confidence scores: { positive: 0.94, neutral: 0.01, negative: 0.05 }
-    Mined opinions
-          - Target text: concierge
-            Target sentiment: positive
-            Target confidence scores: { positive: 1, negative: 0 }
-            Target assessments
-                  - Text: nice
-                    Sentiment: positive
+    Document text: The food and service were unacceptable. The concierge was nice, however.
+    Overall Sentiment: mixed
+    Sentiment confidence scores: { positive: 0.49, neutral: 0, negative: 0.5 }
+    Sentences
+    - Sentence sentiment: negative
+      Confidence scores: { positive: 0, neutral: 0, negative: 1 }
+      Mined opinions
+            - Target text: food
+              Target sentiment: negative
+              Target confidence scores: { positive: 0.01, negative: 0.99 }
+              Target assessments
+                    - Text: unacceptable
+                      Sentiment: negative
+            - Target text: service
+              Target sentiment: negative
+              Target confidence scores: { positive: 0.01, negative: 0.99 }
+              Target assessments
+                    - Text: unacceptable
+                      Sentiment: negative
+    - Sentence sentiment: positive
+      Confidence scores: { positive: 0.98, neutral: 0.01, negative: 0.01 }
+      Mined opinions
+            - Target text: concierge
+              Target sentiment: positive
+              Target confidence scores: { positive: 1, negative: 0 }
+              Target assessments
+                    - Text: nice
+                      Sentiment: positive
 ```
 
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+[!INCLUDE [clean up environment variables](../../../includes/clean-up-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>

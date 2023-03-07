@@ -3,11 +3,11 @@ title: Azure Government isolation guidelines for Impact Level 5
 description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 ms.service: azure-government
 ms.topic: article
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 07/14/2022
+ms.date: 02/09/2023
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -201,7 +201,7 @@ For Containers services availability in Azure Government, see [Products availabl
 
 ### [Container Registry](../container-registry/index.yml) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/container-registry-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
 
 ## Databases
 
@@ -209,7 +209,7 @@ For Databases services availability in Azure Government, see [Products available
 
 ### [Azure Cosmos DB](../cosmos-db/index.yml)
 
-- Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
+- Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
 
 ### [Azure Database for MySQL](../mysql/index.yml) 
 
@@ -269,7 +269,7 @@ For Management and governance services availability in Azure Government, see [Pr
 
 ### [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml) 
 
-- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-app.md#bring-your-own-storage-for-the-managed-application-definition).
+- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
 ### [Azure Monitor](../azure-monitor/index.yml)
 
@@ -288,6 +288,15 @@ Log Analytics may also be used to ingest extra customer-provided logs. These log
 ### [Microsoft Intune](/mem/intune/fundamentals/)
 
 - Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it doesn't support customer-managed keys.
+
+
+## Media
+
+For Media services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Media Services](/azure/media-services/latest/)
+
+- Configure encryption at rest of content in Media Services by [using customer-managed keys in Azure Key Vault](/azure/media-services/latest/concept-use-customer-managed-keys-byok).
 
 
 ## Migration

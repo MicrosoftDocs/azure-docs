@@ -9,32 +9,29 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy your first container app
-      expanded: true
-      items:
-      - name: With a sample container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: quickstart-portal.md
-        - name: Command line
-          href: get-started.md
-      - name: With an existing container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: get-started-existing-container-image-portal.md
-        - name: Command line
-          href: get-started-existing-container-image.md
-      - name: With code on your local machine
-        expanded: true
-        items:
-        - name: Command line
-          href: quickstart-code-to-cloud.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
+  - name: With a sample container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal.md
+    - name: Command line
+      href: get-started.md
+  - name: With an existing container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: get-started-existing-container-image-portal.md
+    - name: Command line
+      href: get-started-existing-container-image.md
+  - name: With code on your local machine
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -57,10 +54,16 @@
         href: vnet-custom-internal.md
       - name: Securing a custom VNET
         href: firewall-integration.md
+      - name: Network proxying
+        href: network-proxy.md
     - name: Observability
       items:
       - name: Overview
         href: observability.md
+      - name: Application logging 
+        href: logging.md
+      - name: Logging options
+        href: log-options.md
       - name: Log streaming
         href: log-streaming.md
       - name: Container console
@@ -75,8 +78,12 @@
       href: authentication.md
     - name: Dapr integration
       href: dapr-overview.md
+    - name: Azure Arc-enabled Kubernetes clusters
+      href: azure-arc-overview.md
 - name: How-to guides
   items:
+    - name: Deploy an app with containerapp up
+      href: containerapp-up.md
     - name: Scale an app
       href: scale-app.md
     - name: Manage secrets
@@ -87,14 +94,16 @@
         href: managed-identity.md
       - name: Azure Container Registry image pull with managed identity
         href: managed-identity-image-pull.md
-    - name: Monitor an app
-      href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
     - name: Set up HTTPS or TCP ingress
       href: ingress.md
-    - name: Set up custom domains and certificates
-      href: custom-domains-certificates.md
+    - name: Custom domains and certificates
+      items:
+      - name: Set up container app custom domain
+        href: custom-domains-certificates.md
+      - name: Set up environment custom DNS suffix
+        href: environment-custom-dns-suffix.md
     - name: Connect to a cloud service using Service Connector
       items:
         - name: .NET app with Blob Storage
@@ -103,8 +112,15 @@
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Connect multiple apps
       href: connect-apps.md
-    - name: Publish revisions with GitHub Actions
-      href: github-actions-cli.md
+    - name: Set up continuous deployment
+      items:
+        - name: Azure Pipelines
+          href: azure-pipelines.md
+          displayName: Azure DevOps
+        - name: GitHub Actions
+          href: github-actions.md
+        - name: GitHub Actions with Azure CLI
+          href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
     - name: Use health probes
@@ -141,6 +157,12 @@
       href: background-processing.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
+    - name: Azure Arc
+      items:
+      - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+        href: azure-arc-enable-cluster.md
+      - name: 2 - Create container app
+        href: azure-arc-create-container-app.md
 - name: Reference
   items:
     - name: ARM and YAML specifications

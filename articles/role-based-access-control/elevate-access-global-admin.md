@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/10/2021
+ms.date: 10/19/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -196,6 +196,16 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 ## REST API
 
+### Prerequisites
+
+You must use the following versions:
+
+- `2015-07-01` or later to list and remove role assignments
+- `2016-07-01` or later to elevate access
+- `2018-07-01-preview` or later to list deny assignments
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ### Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.
@@ -216,10 +226,10 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 You can list all of the role assignments for a user at root scope (`/`).
 
-- Call [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
+- Call [Role Assignments - List For Scope](/rest/api/authorization/role-assignments/list-for-scope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
 
    ```http
-   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
 ### List deny assignments at root scope (/)
@@ -229,17 +239,17 @@ You can list all of the deny assignments for a user at root scope (`/`).
 - Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
 
    ```http
-   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
    ```
 
 ### Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the User Access Administrator role assignment for yourself at root scope (`/`).
 
-1. Call [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
+1. Call [Role Definitions - Get](/rest/api/authorization/role-definitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter=roleName+eq+'User Access Administrator'
     ```
 
     ```json
@@ -282,12 +292,12 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 1. You also need to list the role assignment for the directory administrator at directory scope. List all assignments at directory scope for the `principalId` of the directory administrator who made the elevate access call. This will list all assignments in the directory for the objectid.
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectid}'
     ```
     	
     >[!NOTE] 
     >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results: 
-    > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()`
     		
 1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
 	
@@ -320,7 +330,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 1. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
 
     ```http
-    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2022-04-01
     ```
 
 ## View elevate access logs

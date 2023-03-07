@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 12/13/2022
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
@@ -35,6 +35,8 @@ The following list summarizes manual backup behaviors:
 * You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
 
 * Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots will be cleaned up. You can't delete the snapshot generated for the latest manual backup. 
+
+* [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
 ## Enable backup functionality
 

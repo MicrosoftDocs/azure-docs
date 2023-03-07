@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 09/20/2022
+ms.date: 02/14/2023
 ---
 
 # Application Insights overview
@@ -20,11 +20,11 @@ Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
 - [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](https://learn.microsoft.com/training/paths/github-administration-products/) or [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in context of Application Insights data
 - [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
-In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices).
+In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
 
 The [Application Map](app-map.md) allows a high level top-down view of the application architecture and at-a-glance visual references to component health and responsiveness. 
 
@@ -74,7 +74,7 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also av
 
 Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](opentelemetry-enable.md?tabs=java).
 
 ### [Node.js](#tab/nodejs)
 
@@ -96,25 +96,92 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 
 ---
 
-## Next steps
+---------------------------
+## Supported languages
 
-- [Create a resource](create-workspace-resource.md)
-- [Application Map](app-map.md)
-- [Transaction search](diagnostic-search.md)
+This section outlines supported scenarios.
+
+* [C#|VB (.NET)](./asp-net.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
+* [JavaScript](./javascript.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+
+### Supported platforms and frameworks
+
+This section lists all supported platforms and frameworks.
+
+#### Azure service integration (portal enablement, Azure Resource Manager deployments)
+* [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
+* [Azure App Service](./azure-web-apps.md)
+* [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
+
+#### Auto-instrumentation (enable without code changes)
+* [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
+
+#### Manual instrumentation / SDK (some code changes required)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+* [JavaScript - web](./javascript.md)
+  * [React](./javascript-framework-extensions.md)
+  * [React Native](./javascript-framework-extensions.md)
+  * [Angular](./javascript-framework-extensions.md)
+* [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
+* [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
+* [Android](https://github.com/Microsoft/appcenter) (App Center)
+* [iOS](https://github.com/Microsoft/appcenter) (App Center)
+
+> [!NOTE]
+> OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
+
+### Logging frameworks
+* [ILogger](./ilogger.md)
+* [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md?tabs=java#logs)
+* [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
+
+### Export and data analysis
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
+* [Power BI for workspace-based resources](../logs/log-powerbi.md)
+
+### Unsupported SDKs
+Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when you use the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
+
+---------------------------
+
+## Frequently asked questions
+
+Review [frequently asked questions](../faq.yml).
 
 ## Troubleshooting
 
-### FAQ
+Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
 
-Review [frequently asked questions](../faq.yml).
+## Help and support
+
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) using an Application Insights tag.
 
 ### User Voice
 
 Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+
+## Next steps
+
+- [Create a resource](create-workspace-resource.md)
+- [Auto-instrumentation overview](codeless-overview.md)
+- [Overview dashboard](overview-dashboard.md)
+- [Availability overview](availability-overview.md)
+- [Application Map](app-map.md)

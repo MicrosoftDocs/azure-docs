@@ -6,15 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage MySQL in Microsoft Purview (Preview)
+# Connect to and manage MySQL in Microsoft Purview
 
 This article outlines how to register MySQL, and how to authenticate and interact with MySQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 

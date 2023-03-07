@@ -68,7 +68,7 @@ After you configure the ASE subnet to ignore all BGP routes, your apps will no l
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
-1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses or use the AppServiceManagement service tag with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
 

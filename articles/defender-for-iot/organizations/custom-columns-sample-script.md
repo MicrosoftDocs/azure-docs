@@ -1,7 +1,7 @@
 ---
 title: Sample automation script for custom columns on on-premises management consoles - Microsoft Defender for IoT
-description: Learn how to view and manage OT devices (assets) from the Device inventory page on an on-premises management console.
-ms.topic: how-to
+description: Use a sample script when adding custom columns to your on-premises management console Device inventory page.
+ms.topic: sample
 ms.date: 07/12/2022
 
 ---

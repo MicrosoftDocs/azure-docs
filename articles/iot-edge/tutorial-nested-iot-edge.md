@@ -4,16 +4,15 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/31/2022
+ms.date: 08/31/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. This setup is also known as "nested edge".
 
@@ -47,6 +46,9 @@ In this tutorial, the following network layers are defined:
 This tutorial uses a two device hierarchy for simplicity, pictured below. One device, the **top layer device**, represents a device at the top layer of the hierarchy, which can connect directly to the cloud. This device will also be referred to as the **parent device**. The other device, the **lower layer device**, represents a device at the lower layer of the hierarchy, which cannot connect directly to the cloud. You can add more lower layer devices to represent your production environment, as needed. Devices at lower layers will also be referred to as **child devices**.
 
 ![Structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Prerequisites
 
@@ -91,7 +93,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 
 ## Configure your IoT Edge device hierarchy
 
-IoT Edge devices make up the layers of your hierarchy. This tutorial will create a hierarchy of two IoT Edge devices: the **top layer device** and its child, the **lower layer device**. You can create additional child devices as needed.
+IoT Edge devices make up the layers of your hierarchy. This tutorial will create a hierarchy of two IoT Edge devices: the **top layer device** and its downstream, the **lower layer device**. You can create additional downstream devices as needed.
 
 To create and configure your hierarchy of IoT Edge devices, you'll use the `iotedge-config` tool. This tool simplifies the configuration of the hierarchy by automating and condensing several steps into two:
 
@@ -315,7 +317,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
 
 Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
-You can run `iotedge check` in a nested hierarchy, even if the child machines don't have direct internet access.
+You can run `iotedge check` in a nested hierarchy, even if the downstream machines don't have direct internet access.
 
 When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
 
@@ -345,7 +347,7 @@ To delete the resources:
 
 ## Next steps
 
-In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway using the IoT Edge API Proxy module. See [the how-to guide on the proxy module's use](how-to-configure-api-proxy-module.md) if you want to learn more.
+In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the downstream device through a gateway using the IoT Edge API Proxy module. See [the how-to guide on the proxy module's use](how-to-configure-api-proxy-module.md) if you want to learn more.
 
 To learn more about using gateways to create hierarchical layers of IoT Edge devices, see [the how-to guide on connecting downstream IoT Edge devices](how-to-connect-downstream-iot-edge-device.md).
 

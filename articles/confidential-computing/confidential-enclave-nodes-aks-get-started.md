@@ -2,10 +2,10 @@
 title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
 author: agowdamsft
-ms.service: container-service
+ms.service: virtual-machines 
 ms.subservice: confidential-computing
 ms.topic: quickstart
-ms.date: 11/1/2021
+ms.date: 3/1/2023
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api
 ---
@@ -31,10 +31,6 @@ Features of confidential computing nodes include:
 
 This quickstart requires:
 
-- An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Azure CLI version 2.0.64 or later installed and configured on your deployment machine.
-
-  Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 - A minimum of eight DCsv2/DCSv3/DCdsv3 cores available in your subscription.
 
   By default, there is no pre-assigned quota for Intel SGX VM sizes for your Azure subscriptions. You should follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to request for VM core quota for your subscriptions.
@@ -43,10 +39,12 @@ This quickstart requires:
 
 Use the following instructions to create an AKS cluster with the Intel SGX add-on enabled, add a node pool to the cluster, and verify what you created with hello world enclave application.
 
-### Create an AKS cluster with a system node pool
+### Create an AKS cluster with a system node pool and AKS Intel SGX Addon
 
 > [!NOTE]
 > If you already have an AKS cluster that meets the prerequisite criteria listed earlier, [skip to the next section](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) to add a confidential computing node pool.
+
+Intel SGX AKS Addon "confcom" exposes the Intel SGX device drivers to your containers to avoid added changes to your pod yaml.
 
 First, create a resource group for the cluster by using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus2* region:
 
@@ -61,7 +59,7 @@ az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enabl
 ```
 The above command will deploy a new AKS cluster with system node pool of non confidential computing node. Confidential computing Intel SGX nodes are not recommended for system node pools.
 
-### Add an user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
+### Add a user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
 
 Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](../virtual-machines/dcv3-series.md).
 

@@ -6,7 +6,7 @@ keywords: azure app service, web app, security, msi, managed service identity, m
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: "mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli, ignite-2022
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -17,7 +17,7 @@ ms.custom: "mvc, devx-track-azurecli"
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -43,7 +43,7 @@ What you will learn:
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Grant database access to Azure AD user
 
@@ -57,7 +57,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
     ```
 
 # [Azure SQL Database](#tab/sqldatabase)

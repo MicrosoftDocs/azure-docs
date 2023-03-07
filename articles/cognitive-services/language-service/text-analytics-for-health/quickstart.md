@@ -3,13 +3,13 @@ title: "Quickstart: Use the Text Analytics for health REST API and client librar
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Text Analytics for health.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 08/15/2022
-ms.author: aahi
+ms.date: 02/17/2023
+ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-health, ignite-fall-2021, mode-api
 keywords: text mining, health, text analytics for health
@@ -18,9 +18,9 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: Using Text Analytics for health client library and REST API
 
-> [!IMPORTANT]
-> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported.
+This article contains Text Analytics for health quickstarts that help with using the supported client libraries, C#, Java, NodeJS, and Python as well as with using the REST API.
 
+[!INCLUDE [Use Language Studio](../includes/use-language-studio.md)]
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
@@ -63,4 +63,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Text Analytics for health overview](overview.md)
+* [How to call the hosted API](./how-to/call-api.md)
+* [How to use the service with Docker containers](./how-to/use-containers.md) 

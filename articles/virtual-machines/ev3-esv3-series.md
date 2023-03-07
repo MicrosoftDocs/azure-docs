@@ -4,7 +4,7 @@ description: Specifications for the Ev3 and Esv3-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/19/2022
 author: andysports8
 ms.author: shuji
 ---

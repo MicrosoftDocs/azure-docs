@@ -3,6 +3,7 @@ title: Auditing the point in time restore action for continuous backup mode in A
 description: This article provides details available to audit Azure Cosmos DB's point in time restore feature in continuous backup mode.
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 04/18/2022
 ms.author: govindk
@@ -10,9 +11,9 @@ ms.reviewer: mjbrown
 ---
 
 # Audit the point in time restore action for continuous backup mode in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-Azure Cosmos DB provides you the list of all the point in time restores for continuous mode that were performed on a Cosmos DB account using [Activity Logs](../azure-monitor/essentials/activity-log.md). Activity logs can be viewed for any Cosmos DB account from the **Activity Logs** page in the Azure portal. The Activity Log shows all the operations that were triggered on the specific account. When a point in time restore is triggered, it shows up as `Restore Database Account` operation on the source account as well as the target account. The Activity Log for the source account can be used to audit restore events, and the activity logs on the target account can be used to get the updates about the progress of the restore. 
+Azure Cosmos DB provides you the list of all the point in time restores for continuous mode that were performed on an Azure Cosmos DB account using [Activity Logs](../azure-monitor/essentials/activity-log.md). Activity logs can be viewed for any Azure Cosmos DB account from the **Activity Logs** page in the Azure portal. The Activity Log shows all the operations that were triggered on the specific account. When a point in time restore is triggered, it shows up as `Restore Database Account` operation on the source account as well as the target account. The Activity Log for the source account can be used to audit restore events, and the activity logs on the target account can be used to get the updates about the progress of the restore. 
 
 ## Audit the restores that were triggered on a live database account
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -72,3 +72,35 @@ You can swap deployments after you've tested a model assigned to one deployment,
 [!INCLUDE [Delete deployment](../includes/rest-api/delete-deployment.md)]
 
 ---
+
+## Assign deployment resources
+
+You can [deploy your project to multiple regions](../../concepts/custom-features/multi-region-deployment.md) by assigning different Language resources that exist in different regions.
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Assign resource](../../conversational-language-understanding/includes/language-studio/assign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Assign resource](../includes/rest-api/assign-resources.md)]
+
+---
+
+## Unassign deployment resources
+
+When you unassign or remove a deployment resource from a project, you will also delete all the deployments that have been deployed to that resource's region.
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Unassign resource](../../conversational-language-understanding/includes/language-studio/unassign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Unassign resource](../includes/rest-api/unassign-resources.md)]
+
+---
+
+## Next steps
+
+* Use [prediction API to query your model](call-api.md)

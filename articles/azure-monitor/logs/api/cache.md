@@ -19,7 +19,7 @@ The API supports the standard `max-age`, `no-cache`, and `no-store` directives.
 For example, the following request allows a maximum cache age of 30 seconds
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     Authorization: Bearer <access token>
     Cache-Control: max-age=30
     

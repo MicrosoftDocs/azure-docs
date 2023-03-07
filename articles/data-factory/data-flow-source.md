@@ -7,8 +7,8 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/23/2022
+ms.custom: seo-lt-2019, ignite-2022
+ms.date: 10/26/2022
 ---
 
 # Source transformation in mapping data flow
@@ -46,7 +46,7 @@ Because an inline dataset is defined inside the data flow, there is not a define
 
 ## Workspace DB (Synapse workspaces only)
 
-In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This will allow you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets.
+In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This will allow you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets. The databases created through the [Azure Synapse database templates](../synapse-analytics/database-designer/overview-database-templates.md) are also accessible when you select Workspace DB.
 
 :::image type="content" source="media/data-flow/syms-source.png" alt-text="Screenshot that shows workspacedb selected.":::
 
@@ -60,7 +60,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 |[Appfigures (Preview)](connector-appfigures.md#mapping-data-flow-properties) |  | -/✓ |
 |[Asana (Preview)](connector-asana.md#mapping-data-flow-properties) | | -/✓ |
 |[Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓ |
-| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Cosmos DB for NoSQL](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Common Data Model](format-common-data-model.md#source-properties)<br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br/>-/✓<br>✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br/>✓/✓<br>✓/✓ |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |

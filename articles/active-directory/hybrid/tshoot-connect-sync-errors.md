@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/21/2022
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: contperf-fy21q3-portal
@@ -289,7 +289,7 @@ To resolve this issue:
 
 1. Remove the Azure AD account (owner) from all admin roles.
 1. Hard delete the quarantined object in the cloud.
-1. The next sync cycle will take care of soft-matching the on-premises user to the cloud account because the cloud user is now no longer a global admin.
+1. The next sync cycle will take care of soft-matching the on-premises user to the cloud account because the cloud user is now no longer a Hybrid Identity Administrator.
 1. Restore the role memberships for the owner.
 
 >[!NOTE]

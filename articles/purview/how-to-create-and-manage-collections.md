@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 02/01/2023
 ms.custom: template-how-to
 ---
 
@@ -101,11 +101,15 @@ You'll need to be a collection admin in order to delete a collection. If you are
    
    :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collections.png" alt-text="Screenshot of Microsoft Purview governance portal window to delete a collection" border="true":::
 
-2. Select **Confirm** when prompted, **Are you sure you want to delete this collection?**
+1. Select **Confirm** when prompted, **Are you sure you want to delete this collection?**
 
    :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collection-confirmation.png" alt-text="Screenshot of Microsoft Purview governance portal window showing confirmation message to delete a collection" border="true":::
 
-3. Verify deletion of the collection from your Microsoft Purview Data Map.
+1. Verify deletion of the collection from your Microsoft Purview Data Map.
+
+### Move registered sources between collections
+
+You can move registered sources from one collection to another you have access to. For steps, see the [manage data sources article](manage-data-sources.md#move-sources-between-collections).
 
 ## Add roles and restrict access through collections
 

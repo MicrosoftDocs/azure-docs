@@ -355,7 +355,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database matches with your code.
 
-1. Run `az webpp ssh` to open an SSH session for the web app in the browser:
+1. Run `az webapp ssh` to open an SSH session for the web app in the browser:
 
     ```azurecli
     az webapp ssh

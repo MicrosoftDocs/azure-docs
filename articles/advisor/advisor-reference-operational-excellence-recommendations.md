@@ -2,6 +2,7 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/02/2022
 ---
 
@@ -21,19 +22,19 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 1. On the **Advisor** dashboard, select the **Operational Excellence** tab.
 
 
-## Spring Cloud
+## Azure Spring Apps
 
 ### Update your outdated Azure Spring Apps SDK to the latest version
 
 We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Azure Spring Apps API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ## Automation
 
@@ -115,7 +116,7 @@ Learn more about [Virtual machine - IncreaseQuotaExperiment (Increase the number
 
 ### Add Azure Monitor to your virtual machine (VM) labeled as production
 
-Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Azure Monitor for VMs monitors your Azure virtual machines (VM) and Virtual Machine Scale Sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 Learn more about [Virtual machine - AddMonitorProdVM (Add Azure Monitor to your virtual machine (VM) labeled as production)](/azure/azure-monitor/insights/vminsights-overview).
 
@@ -193,11 +194,11 @@ This cluster is not using ephemeral OS disks which can provide lower read/write 
 
 Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
 
-### Use Uptime SLA
+### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
+Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -233,19 +234,19 @@ We have determined that too many of your host pools have Validation Environment 
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
-We noticed that your Azure Cosmos collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
+We noticed that your Azure Cosmos DB collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
+Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
 ## Monitor
 

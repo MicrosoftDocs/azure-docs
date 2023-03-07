@@ -40,21 +40,29 @@ Choose **Single View App**.
 ![New Single View App](./media/ios/xcode-single-view-app.png)
 
 ## Get the SDK CocoaPod
-The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
-1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) - Follow the getting started guide to install Cocoapods.
-2. Create a Podfile by running `pod init` in your Xcode project's root directory.
-3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Your Podfile should look like the following, with your target's name replacing picture-to-immersive-reader-swift:
- ```ruby
-  platform :ios, '9.0'
 
-  target 'picture-to-immersive-reader-swift' do
-  use_frameworks!
-  # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
-  end
-```
+The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
+
+1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) - Follow the getting started guide to install Cocoapods.
+
+2. Create a Podfile by running `pod init` in your Xcode project's root directory.
+
+3. Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Your Podfile should look like the following, with your target's name replacing picture-to-immersive-reader-swift:
+
+   ```ruby
+   platform :ios, '9.0'
+
+   target 'picture-to-immersive-reader-swift' do
+   use_frameworks!
+   # Pods for picture-to-immersive-reader-swift
+   pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
+   end
+   ```
+
 4. In the terminal, in the directory of your Xcode project, run the command `pod install` to install the Immersive Reader SDK pod.
+
 5. Add `import immersive_reader_sdk` to all files that need to reference the SDK.
+
 6. Ensure to open the project by opening the `.xcworkspace` file and not the `.xcodeproj` file.
 
 ## Acquire an Azure AD authentication token

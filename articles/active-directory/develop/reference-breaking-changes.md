@@ -220,9 +220,9 @@ Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`. Wit
 
 **Effective date**: July 26, 2019
 
-**Endpoints impacted**: Both [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
+**Endpoints impacted**: Both v1.0 and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocol impacted**: [Client Credentials (app-only tokens)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+**Protocol impacted**: Client Credentials (app-only tokens)
 
 A security change took effect on July 26, 2019 changing the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application. This behavior has been updated so that for resources (sometimes called web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant. Existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks to ensure that a `roles` claim is present and contains the expected value for the API.
 

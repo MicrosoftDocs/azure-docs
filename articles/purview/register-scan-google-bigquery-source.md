@@ -6,15 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Google BigQuery projects in Microsoft Purview (Preview)
+# Connect to and manage Google BigQuery projects in Microsoft Purview
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 

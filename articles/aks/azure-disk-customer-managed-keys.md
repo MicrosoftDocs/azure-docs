@@ -1,7 +1,6 @@
 ---
 title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
-services: container-service
 ms.topic: article
 ms.date: 07/18/2022
 
@@ -41,7 +40,7 @@ az account list-locations
 az group create -l myAzureRegionName -n myResourceGroup
 
 # Create an Azure Key Vault resource in a supported Azure region
-az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
+az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true
 ```
 
 ## Create an instance of a DiskEncryptionSet
@@ -50,10 +49,10 @@ Replace *myKeyVaultName* with the name of your key vault.  You will also need a 
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-$keyVaultId=az keyvault show --name myKeyVaultName --query "[id]" -o tsv
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-$keyVaultKeyUrl=az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName --name myKeyName --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -68,7 +67,7 @@ Use the DiskEncryptionSet and resource groups you created on the prior steps, an
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-$desIdentity=az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
@@ -83,7 +82,7 @@ Create a **new resource group** and AKS cluster, then use your key to encrypt th
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-$diskEncryptionSetId=az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

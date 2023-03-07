@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 **See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)

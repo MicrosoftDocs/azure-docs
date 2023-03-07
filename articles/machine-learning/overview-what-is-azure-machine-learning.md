@@ -9,7 +9,7 @@ author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 09/22/2022
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 adobe-target: true
 ---
 
@@ -47,9 +47,9 @@ Machine learning projects often require a team with varied skill set to build an
 Anyone on an ML team can use their preferred tools to get the job done. Whether you're running rapid experiments, hyperparameter-tuning, building pipelines, or managing inferences, you can use familiar interfaces including:
 
 * [Azure Machine Learning studio](https://ml.azure.com)
-* [Python SDK](https://aka.ms/sdk-v2-install)
-* [CLI v2 ](how-to-configure-cli.md))
-* [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
+* [Python SDK (v2)](https://aka.ms/sdk-v2-install)
+* [CLI (v2)](how-to-configure-cli.md))
+* [Azure Resource Manager REST APIs ](/rest/api/azureml/)
 
 As you're refining the model and collaborating with others throughout the rest of Machine Learning development cycle, you can share and find assets, resources, and metrics for your projects on the Azure Machine Learning studio UI.
 
@@ -149,13 +149,18 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
 
-Supported via Azure ML Kubernetes and Azure ML compute clusters:
+Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compute clusters:
 
 * PyTorch
 * TensorFlow
 * MPI
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
+
+> [!IMPORTANT]
+> Using Apache Spark via Azure Synapse Analytics Spark clusters is in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
 
@@ -174,8 +179,8 @@ To bring a model into production, it's deployed. Azure Machine Learning's manage
 *Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
 
 See:
- * [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
- * [Use batch endpoints for scoring](how-to-use-batch-endpoint.md) 
+ * [Deploy a model with a real-time managed endpoint](how-to-deploy-online-endpoints.md)
+ * [Use batch endpoints for scoring](batch-inference/how-to-use-batch-endpoint.md) 
 
 
 ## MLOps: DevOps for machine learning 
@@ -209,4 +214,4 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 Start using Azure Machine Learning:
 - [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
-- [How to run training jobs(how-to-train-model.md)
+- [How to run training jobs](how-to-train-model.md)

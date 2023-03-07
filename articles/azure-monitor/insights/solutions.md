@@ -12,7 +12,7 @@ ms.reviewer: shijain
 # Monitoring solutions in Azure Monitor
 
 > [!CAUTION]
-> Many monitoring solutions are no longer in active development.  We suggest you check each solution to see if it has a replacement. We suggest you not deploy new instances of solutions that have other options, even if those solutions are still available. Many have been replaced by a [newer curated visualization or insight](../monitor-reference.md#insights-and-curated-visualizations).  
+> Many monitoring solutions are no longer in active development.  We suggest you check each solution to see if it has a replacement. We suggest you not deploy new instances of solutions that have other options, even if those solutions are still available. Many have been replaced by a [newer curated visualization or insight](insights-overview.md).  
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 
@@ -20,7 +20,7 @@ You can add monitoring solutions to Azure Monitor for any applications and servi
 
 ## Use monitoring solutions
 
-The **Overview** page displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Log Analytics workspaces** in the [Azure portal](https://portal.azure.com) and select your workspace. In the **General** section of the menu, select **Workspace Summary**.
+The **Overview** page displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Log Analytics workspaces** in the [Azure portal](https://portal.azure.com) and select your workspace. In the **Classic** section of the menu, select **Workspace Summary (deprecated)**.
 
 
 :::image type="content" source="media/solutions/insights-hub.png" lightbox="media/solutions/insights-hub.png" alt-text="Screenshot that shows selections for opening Insights Hub.":::

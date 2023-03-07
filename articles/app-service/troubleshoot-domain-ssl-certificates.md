@@ -116,7 +116,7 @@ Your configured custom domain is missing a "CNAME record" or an "A record".
 
 **Solution for cause 1**
 
-- If you added an "A record", make sure that a TXT record is also added. For more information, see [Create the "A record"](./app-service-web-tutorial-custom-domain.md#3-create-the-dns-records).
+- If you added an "A record", make sure that a TXT record is also added. For more information, see [Create the DNS records](./app-service-web-tutorial-custom-domain.md#2-create-the-dns-records).
 
 - If you don't have to use the root domain for your app, the recommendation is that you use a "CNAME record", rather than an "A record".
 

@@ -17,7 +17,7 @@ ms.author: antonsamson
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../../identity/access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 
 ## Sample code
@@ -48,6 +48,7 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 ```console
 dotnet add package Azure.Communication.Rooms
 ```
+You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.1) or above. 
 
 ### Initialize a room client
 

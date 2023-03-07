@@ -2,7 +2,11 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 06/18/2019
+ms.date: 12/28/2022
+ms.service: backup
+ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -17,7 +21,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 ## Troubleshoot discover and configure issues
 
-After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
+When the creation and configuration of a Recovery Services vault is complete, discovering databases and configuring backup is a two-step process.<br>
 
 ![Backup Goal - SQL Server in Azure VM](./media/backup-azure-sql-database/sql.png)
 
@@ -104,7 +108,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Operation cancelled as a conflicting operation was already running on the same database. | You may get this error when the triggered on-demand, or the scheduled backup job has conflicts with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the scenarios when this error code might display:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
+| Operation canceled as a conflicting operation was already running on the same database. | You may get this error when the triggered on-demand, or the scheduled backup job has conflicts with an already running backup operation triggered by Azure Backup extension on the same database.<br> The following are the scenarios when this error code might display:<br><ul><li>Full backup is running on the database and another Full backup is triggered.</li><li>Diff backup is running on the database and another Diff backup is triggered.</li><li>Log backup is running on the database and another Log backup is triggered.</li></ul>| After the conflicting operation fails, restart the operation.
 
 
 ### UserErrorFileManipulationIsNotAllowedDuringBackup

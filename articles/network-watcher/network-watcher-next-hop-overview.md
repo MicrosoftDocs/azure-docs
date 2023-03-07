@@ -1,19 +1,18 @@
 ---
-title: Introduction to next hop in Azure Network Watcher | Microsoft Docs
-description: This article provides an overview of the Network Watcher next hop capability.
+title: Introduction to Azure Network Watcher next hop
+description: Learn about Azure Network Watcher next hop capability that you can use to diagnose virtual machine routing problems.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 01/29/2020
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
-# Use next hop to diagnose virtual machine routing problems
+# Introduction to Azure Network Watcher next hop
 
 Traffic from a virtual machine (VM) is sent to a destination based on the effective routes associated with a network interface (NIC). Next hop gets the next hop type and IP address of a packet from a specific VM and NIC. Knowing the next hop helps you determine if traffic is being directed to the intended destination, or whether the traffic is being sent nowhere. An improper configuration of routes,  where traffic is directed to an on-premises location, or a virtual appliance, can lead to connectivity issues. Next hop also returns the route table associated with the next hop. If the route is defined as a user-defined route, that route is returned. Otherwise, next hop returns **System Route**.
 

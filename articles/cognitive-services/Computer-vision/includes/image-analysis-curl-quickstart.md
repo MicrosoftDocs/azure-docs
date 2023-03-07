@@ -9,12 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 09/12/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 Use the Image Analysis REST API to analyze an image for tags.
+
+> [!TIP]
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../how-to/call-analyze-image.md) for examples that showcase all of the available features.
 
 > [!NOTE]
 > This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).
@@ -39,13 +42,13 @@ To analyze an image for various visual features, do the following steps:
     1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
+    1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
-```
+    ```bash
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    ```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Analyze-image" target="_target">I ran into an issue</a>
@@ -55,60 +58,43 @@ curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: applica
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
-{
-  "categories": [
-    {
-      "name": "outdoor_water",
-      "score": 0.9921875,
-      "detail": {
-        "landmarks": []
-      }
-    }
-  ],
-  "description": {
-    "tags": [
-      "nature",
-      "water",
-      "waterfall",
-      "outdoor",
-      "rock",
-      "mountain",
-      "rocky",
-      "grass",
-      "hill",
-      "covered",
-      "hillside",
-      "standing",
-      "side",
-      "group",
-      "walking",
-      "white",
-      "man",
-      "large",
-      "snow",
-      "grazing",
-      "forest",
-      "slope",
-      "herd",
-      "river",
-      "giraffe",
-      "field"
-    ],
-    "captions": [
+{{
+   "tags":[
       {
-        "text": "a large waterfall over a rocky cliff",
-        "confidence": 0.916458423253597
+         "name":"text",
+         "confidence":0.9992657899856567
+      },
+      {
+         "name":"post-it note",
+         "confidence":0.9879657626152039
+      },
+      {
+         "name":"handwriting",
+         "confidence":0.9730165004730225
+      },
+      {
+         "name":"rectangle",
+         "confidence":0.8658561706542969
+      },
+      {
+         "name":"paper product",
+         "confidence":0.8561884760856628
+      },
+      {
+         "name":"purple",
+         "confidence":0.5961999297142029
       }
-    ]
-  },
-  "requestId": "b6e33879-abb2-43a0-a96e-02cb5ae0b795",
-  "metadata": {
-    "height": 959,
-    "width": 1280,
-    "format": "Jpeg"
-  }
+   ],
+   "requestId":"2788adfc-8cfb-43a5-8fd6-b3a9ced35db2",
+   "metadata":{
+      "height":945,
+      "width":1000,
+      "format":"Jpeg"
+   },
+   "modelVersion":"2021-05-01"
 }
 ```
+
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>

@@ -8,7 +8,7 @@ ms.author: wenxwei
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -26,7 +26,7 @@ In this article, you learn how to train natural language processing (NLP) models
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
-You can seamlessly integrate with the [Azure Machine Learning data labeling](../how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure ML’s MLOps capabilities. 
+You can seamlessly integrate with the [Azure Machine Learning data labeling](../how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning’s MLOps capabilities. 
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md) for more information. 
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
     [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
     
@@ -203,7 +203,7 @@ automl_config = AutomlConfig("featurization": featurization_config)
 
 ## Distributed training
 
-You can also run your NLP experiments with distributed training on an Azure ML compute cluster. This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
+You can also run your NLP experiments with distributed training on an Azure Machine Learning compute cluster. This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
 
 ```python
 max_concurrent_iterations = number_of_vms
@@ -215,11 +215,11 @@ Doing so, schedules distributed training of the NLP models and automatically sca
 ## Example notebooks
 
 See the sample notebooks for detailed code examples for each NLP task. 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multiclass/automl-nlp-text-classification-multiclass.ipynb)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multiclass/automl-nlp-text-classification-multiclass.ipynb)
 * [Multi-label text classification](
-https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multilabel/automl-nlp-text-classification-multilabel.ipynb)
-* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
+https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multilabel/automl-nlp-text-classification-multilabel.ipynb)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
 
 ## Next steps
-+ Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 + [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 

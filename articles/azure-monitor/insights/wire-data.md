@@ -162,9 +162,9 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## Using the Wire Data 2.0 solution
 
-In the **Overview** page for your Log Analytics workspace in the Azure portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the blades in the following table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
+In the **Overview** page for your Log Analytics workspace in the Azure portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the sections in the following table. Each section lists up to 10 items matching that section's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the section or by clicking the section header.
 
-| **Blade** | **Description** |
+| **Section** | **Description** |
 | --- | --- |
 | Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Click a computer in the list to run a log search returning the total number of bytes captured. |
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
@@ -172,17 +172,17 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 ![Wire Data dashboard](./media/wire-data/wire-data-dash.png)
 
-You can use the **Agents capturing network traffic** blade to determine how much network bandwidth is being consumed by computers. This blade can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
+You can use the **Agents capturing network traffic** section to determine how much network bandwidth is being consumed by computers. This section can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
 
-![Screenshot of the Agents capturing network traffic blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
+![Screenshot of the Agents capturing network traffic section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
 
-Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
+Similarly, you can use the **Local Subnets** section to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This section offers a view into those areas.
 
-![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each LocalSubnet.](./media/wire-data/log-search-example02.png)
+![Screenshot of the Local Subnets section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each LocalSubnet.](./media/wire-data/log-search-example02.png)
 
-The **Application-level Protocols** blade is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the blade can quickly confirm or disprove your expectation.
+The **Application-level Protocols** section is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the section can quickly confirm or disprove your expectation.
 
-![Screenshot of the Application-level Protocols blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
+![Screenshot of the Application-level Protocols section in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
 
 It's also useful to know if protocol traffic is increasing or decreasing over time. For example, if the amount of data being transmitted by an application is increasing, that might be something you should be aware of, or that you might find noteworthy.
 

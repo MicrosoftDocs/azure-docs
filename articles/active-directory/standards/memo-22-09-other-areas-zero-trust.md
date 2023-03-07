@@ -73,7 +73,7 @@ You can use analytics in the following tools to aggregate information from Azure
 
 Automation is an important aspect of Zero Trust, particularly in remediation of alerts that occur because of threats or security changes in your environment. In Azure AD, automation integrations are possible to help remediate alerts or perform actions that can improve your security posture. Automations are based on information received from monitoring and analytics. 
 
-[Microsoft Graph API](../develop/microsoft-graph-intro.md) REST calls are the most common way to programmatically access Azure AD. This API-based access requires an Azure AD identity with the necessary authorizations and scope. With the Graph API, you can integrate Microsoft's and other tools. Follow the principles outlined in this article when you're performing the integration. 
+[Microsoft Graph API](/graph/overview) REST calls are the most common way to programmatically access Azure AD. This API-based access requires an Azure AD identity with the necessary authorizations and scope. With the Graph API, you can integrate Microsoft's and other tools. Follow the principles outlined in this article when you're performing the integration. 
 
 We recommend that you set up an Azure function or an Azure logic app to use a [system-assigned managed identity](../managed-identities-azure-resources/overview.md). Your logic app or function contains the steps or code necessary to automate the desired actions. You assign permissions to the managed identity to grant the service principal the necessary directory permissions to perform the required actions. Grant managed identities only the minimum rights necessary. 
 

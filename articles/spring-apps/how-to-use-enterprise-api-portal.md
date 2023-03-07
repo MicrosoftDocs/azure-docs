@@ -148,7 +148,7 @@ This section describes how to view and try out APIs with schema definitions in A
 
 Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
 
-:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
+:::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
 
 ## Try out APIs in API portal
 
@@ -157,7 +157,38 @@ Use the following steps to try out APIs:
 1. Select the API you would like to try.
 1. Select **EXECUTE**, and the response will be shown.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of A P I portal.":::
+   :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
+
+## Enable/disable API portal after service creation
+
+You can enable and disable API portal after service creation using the Azure portal or Azure CLI. Before disabling API portal, you're required to unassign its endpoint.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable API portal using the Azure portal:
+
+1. Navigate to your service resource, and then select **API portal**.
+1. Select **Manage**.
+1. Select or unselect the **Enable API portal**, and then select **Save**.
+1. You can now view the state of API portal on the **API portal** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable API portal:
+
+```azurecli
+az spring api-portal create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring api-portal delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

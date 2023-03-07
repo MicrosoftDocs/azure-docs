@@ -61,7 +61,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 
    ```shell
-   git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
+   git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git
    ```
    
 1. Get the `Connection String` from the Azure portal or by using the Azure CLI. 

@@ -5,17 +5,17 @@ description: Learn how to set up AutoML training jobs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: larryfr
-author: blackmist
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 11/15/2021
 ms.topic: how-to
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up no-code AutoML training with the studio UI 
 
-In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio).
 
 Automated machine learning, AutoML, is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about how Azure Machine Learning implements automated machine learning](concept-automated-ml.md).
  
@@ -101,7 +101,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AzureML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an Azure Machine Learning Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
@@ -214,7 +214,7 @@ If you specified a test dataset or opted for a train/test split during your expe
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML jobs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
@@ -243,7 +243,7 @@ The model test job generates the predictions.csv file that's stored in the defau
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)

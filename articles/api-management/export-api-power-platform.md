@@ -37,7 +37,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
 
     :::image type="content" source="media/export-api-power-platform/create-custom-connector.png" alt-text="Create custom connector to API in API Management":::
 
-Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://flow.microsoft.com) environment. You will see the API listed under **Data > Custom Connectors**.
+Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://make.powerautomate.com) environment. You will see the API listed under **Data > Custom Connectors**.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
 
@@ -49,7 +49,9 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 1. Select the pencil (Edit) icon to edit and test the custom connector. 
 
 > [!NOTE]
-> To call the API from the Power Apps test console, you need to add the `https://flow.microsoft.com` URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
+> To call the API from the Power Apps test console, you need to add the `https://make.powerautomate.com` URL as an origin to the [CORS policy](cors-policy.md) in your API Management instance.
+> 
+> Depending on how the custom connector gets used when running Power Apps, you might need to configure additional origins in the CORS policy. You can use developer tools in your browser, tracing in API Management, or Application Insights to investigate CORS issues when running Power Apps.
 
 ## Update a custom connector
 

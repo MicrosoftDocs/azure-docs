@@ -2,8 +2,8 @@
 title: Azure Maps Web SDK best practices
 titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,7 +26,7 @@ For security best practices, see [Authentication and authorization best practice
 
 The Azure Maps SDKs go through regular security testing along with any external dependency libraries that may be used by the SDKs. Any known security issue is fixed in a timely manner and released to production. If your application points to the latest major version of the hosted version of the Azure Maps Web SDK, it will automatically receive all minor version updates that will include security related fixes.
 
-If self-hosting the Azure Maps Web SDK via the NPM module, be sure to use the caret (^) symbol to in combination with the Azure Maps NPM package version number in your `package.json` file so that it will always point to the latest minor version.
+If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the caret (^) symbol to in combination with the Azure Maps npm package version number in your `package.json` file so that it will always point to the latest minor version.
 
 ```json
 "dependencies": {

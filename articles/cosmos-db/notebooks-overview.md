@@ -1,19 +1,18 @@
 ---
-title: |
-  Jupyter Notebooks in Azure Cosmos DB (preview)
-description: |
-  Create and use built-in Jupyter Notebooks in Azure Cosmos DB to interactively run queries.
+title: Jupyter Notebooks in Azure Cosmos DB (preview)
+description: Create and use built-in Jupyter Notebooks in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
 ms.topic: overview 
 ms.date: 09/29/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
+ms.custom: ignite-2022
 ---
 
 # Jupyter Notebooks in Azure Cosmos DB (preview)
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 > [!IMPORTANT]
 > The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
@@ -32,7 +31,7 @@ Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azur
 
 :::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Screenshot of various Jupyter Notebooks visualizations in Azure Cosmos DB.":::
 
-Azure Cosmos DB supports both C# and Python notebooks for the APIs for SQL, Cassandra, Gremlin, Table, and MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources. You can also use the built-in commands to upload, query, and visualize your data in Azure Cosmos DB.
+Azure Cosmos DB supports both C# and Python notebooks for the APIs for NoSQL, Apache Cassandra, Apache Gremlin, Table, and MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources. You can also use the built-in commands to upload, query, and visualize your data in Azure Cosmos DB.
 
 :::image type="content" source="./media/notebooks/jupyter-notebooks-portal.png" alt-text="Screenshot of Jupyter Notebooks integrated developer environment (IDE) in Azure Cosmos DB.":::
 
@@ -104,5 +103,6 @@ You can import the data from Azure Cosmos containers or the results of queries i
 
 To get started with built-in Jupyter Notebooks in Azure Cosmos DB, see the following articles:
 
-- [Create your first notebook in an Azure Cosmos DB SQL API account](sql/tutorial-create-notebook.md)
+- [Create your first notebook in an Azure Cosmos DB for NoSQL account](nosql/tutorial-create-notebook.md)
+- [Import notebooks from GitHub into an Azure Cosmos DB for NoSQL account](nosql/tutorial-import-notebooks.md)
 - [Review the FAQ on Jupyter Notebook support](notebooks-faq.yml)

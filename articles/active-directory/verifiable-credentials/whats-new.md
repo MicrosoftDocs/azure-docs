@@ -20,6 +20,12 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## September 2022
+
+- The Request Service API now have [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
+- [IDV Partner Gallery](partner-gallery.md) now available in the documentation guiding you how to integrate with Microsoft's Identity Verification partners.
+- How-to guide for implementing the [presentation attestation flow](how-to-use-quickstart-presentation.md) that requires presenting a verifiable credential during issuance.
+
 ## August 2022
 
 Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portfolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
@@ -116,7 +122,7 @@ To confirm which endpoint you should use, we recommend checking your Azure AD te
 
 ### Credential Revocation with Enhanced Privacy
 
-The Azure AD Verifiable Credential service supports the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. Each Issuer tenant now has an [Identity Hub](https://identity.foundation/identity-hub/spec/) endpoint used by verifiers to check on the status of a credential using a privacy-respecting mechanism. The identity hub endpoint for the tenant is also published in the DID document. This feature replaces the current status endpoint.
+The Azure AD Verifiable Credential service supports the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. Each Issuer tenant now has an Identity Hub endpoint used by verifiers to check on the status of a credential using a privacy-respecting mechanism. The identity hub endpoint for the tenant is also published in the DID document. This feature replaces the current status endpoint.
 
 To uptake this feature follow the next steps:
 

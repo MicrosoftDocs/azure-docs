@@ -108,7 +108,7 @@ az redis identity assign \--mi-system-assigned \--name MyCacheName \--resource-g
 
 ## Enable managed identity using Azure PowerShell
 
-Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache?view=azps-7.1.0&preserve-view=true) or [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache?view=azps-7.1.0&preserve-view=true).
+Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) or [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache).
 
 For example, to update a cache to use system-managed identity, use the following PowerShell command:
 

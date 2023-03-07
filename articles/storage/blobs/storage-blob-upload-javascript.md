@@ -1,5 +1,6 @@
 ---
-title: Upload a blob using JavaScript - Azure Storage
+title: Upload a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
@@ -9,14 +10,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
-# Upload a blob to Azure Storage by using the JavaScript client library
+# Upload a blob with JavaScript
 
-You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
-
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
 
 > [!NOTE]
 > The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
@@ -120,9 +119,29 @@ The following example uploads a string to blob storage with the [BlockBlobClient
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js" id="Snippet_UploadBlob" highlight="14":::
 
-## See also
+## Resources
+
+To learn more about uploading blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for uploading blobs use the following REST API operations:
+
+- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
+- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+
+### Code samples
+
+View code samples from this article (GitHub):
+
+- [Upload from local file path](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js)
+- [Upload from buffer](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js)
+- [Upload from stream](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js)
+- [Upload from string](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+### See also
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
-- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)

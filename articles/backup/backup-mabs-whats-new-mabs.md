@@ -3,6 +3,8 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.topic: conceptual
 ms.date: 07/27/2021
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)

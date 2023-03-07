@@ -42,7 +42,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
- Repositories content needs to be stored as [ARM templates](/azure/azure-resource-manager/templates/overview). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
+ Repositories content needs to be stored as [ARM templates](../azure-resource-manager/templates/overview.md). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
 
 The first step to validate your content is to test it within Microsoft Sentinel. You can also apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 

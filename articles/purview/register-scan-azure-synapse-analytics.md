@@ -1,12 +1,12 @@
 ---
 title: 'Connect to and manage dedicated SQL pools (formerly SQL DW)'
 description: This guide describes how to connect to dedicated SQL pools (formerly SQL DW) in Microsoft Purview, and use Microsoft Purview's features to scan and manage your dedicated SQL pools source.
-author: viseshag
-ms.author: viseshag
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
@@ -21,13 +21,23 @@ This article outlines how to register dedicated SQL pools (formerly SQL DW), and
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| No | Limited** | No |
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| No | Limited* | No |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Lineage is supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
+
+When scanning dedicated SQL pool (formerly SQL DW) source, Microsoft Purview supports extracting technical metadata including:
+
+- Server
+- Dedicated SQL pools
+- Schemas
+- Tables including columns
+- Views including columns
+
+When setting up the scan, you can further scope it after providing the dedicated SQL pool name by selecting tables and views as needed. 
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated".
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated".
 
 ## Prerequisites
 

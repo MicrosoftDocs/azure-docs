@@ -107,19 +107,20 @@ When downloading data, cost analysis includes summarized data as it's shown in t
 
 If you need more advanced summaries or you're interested in raw data that hasn't been summarized, schedule an export to publish raw data to a storage account on a recurring basis.
 
-## Subscribe to cost alerts
+## Subscribe to scheduled alerts
 
 In addition to saving and opening views repeatedly or sharing them with others manually, you can also subscribe to updates or a recurring schedule to get alerted as costs change. You can also set up alerts to be shared with others who may not have direct access to costs in the portal. 
 
-### To subscribe to cost alerts
+### To subscribe to scheduled alerts
 
-1. In cost analysis, select a private or shared view you want to subscribe to alerts for or create and save a new chart view.
+1. In Cost analysis, select any chart view you want to subscribe to or create and save a new chart view.
+    - Note that built-in views (i.e., Accumulated costs, Daily costs, or Cost by service) cannot be changed, so if you need to change the date range, currency, amortization, or any other setting, you will need to save that as a private or shared view.
 1. Select **Subscribe** at the top of the page.
 1. Select **+ Add** at the top of the list of alerts.
 1. Specify the desired email settings and select **Save**.
     - The **Name** helps you distinguish the different emails setup for the current view. Use it to indicate audience or purpose of this specific email.
     - The **Subject** is what people will see when they receive the email.
-   - You can include up to 20 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
+    - You can include up to 20 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
     - The **Message** is shown in the email to give people some additional context about why they're receiving the email. You may want to include what it covers, who requested it, or who to contact to make changes.
     - If you want to include an unauthenticated link to the data (for people who don't have access to the scope/view), select **CSV** in the **Include link to data** list.
     - If you want to allow people who have write access to the scope to change the email configuration settings, check the **Allow contributors to change these settings** option. For example, you might to allow billing account admins or Cost Management Contributors. By default it is unselected and only you can see or edit the scheduled email.

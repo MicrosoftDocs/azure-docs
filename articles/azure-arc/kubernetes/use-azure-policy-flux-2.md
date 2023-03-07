@@ -1,17 +1,16 @@
 ---
-title: "Apply Flux v2 configurations at-scale using Azure Policy"
-services: azure-arc, container-service
+title: "Deploy applications consistently at scale using Flux v2 configurations and Azure Policy"
 ms.date: 8/23/2022
 ms.topic: how-to
-description: "Apply Flux v2 configurations at-scale using Azure Policy"
-keywords: "Kubernetes, K8s, Arc, AKS, Azure, containers, GitOps, Flux v2, policy"
+description: "Use Azure Policy to apply Flux v2 configurations at scale on Azure Arc-enabled Kubernetes or AKS clusters."
 ---
 
-# Apply Flux v2 configurations at-scale using Azure Policy
+# Deploy applications consistently at scale using Flux v2 configurations and Azure Policy
 
 You can use Azure Policy to apply Flux v2 configurations (`Microsoft.KubernetesConfiguration/fluxConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes (`Microsoft.Kubernetes/connectedClusters`) or AKS (`Microsoft.ContainerService/managedClusters`) clusters.
 
 To use Azure Policy, select a built-in policy definition and create a policy assignment. You can search for **flux** to find all of the Flux v2 policy definitions. When creating the policy assignment:
+
 1. Set the scope for the assignment.
     * The scope will be all resource groups in a subscription or management group or specific resource groups.
 2. Set the parameters for the Flux v2 configuration that will be created. 
@@ -22,6 +21,7 @@ To enable separation of concerns, you can create multiple policy assignments, ea
 
 > [!TIP]
 > There are built-in policy definitions for these scenarios:
+>
 > * Flux extension install (required for all scenarios): `Configure installation of Flux extension on Kubernetes cluster`
 > * Flux configuration using public Git repository (generally a test scenario): `Configure Kubernetes clusters with Flux v2 configuration using public Git repository`
 > * Flux configuration using private Git repository with SSH auth: `Configure Kubernetes clusters with Flux v2 configuration using Git repository and SSH secrets`
@@ -31,7 +31,7 @@ To enable separation of concerns, you can create multiple policy assignments, ea
 > * Flux configuration using private Bucket source and KeyVault secrets: `Configure Kubernetes clusters with Flux v2 configuration using Bucket source and secrets in KeyVault`
 > * Flux configuration using private Bucket source and local K8s secret: `Configure Kubernetes clusters with specified Flux v2 Bucket source using local secrets`
 
-## Prerequisite
+## Prerequisites
 
 Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on the scope (subscription or resource group) where you'll create this policy assignment.
 

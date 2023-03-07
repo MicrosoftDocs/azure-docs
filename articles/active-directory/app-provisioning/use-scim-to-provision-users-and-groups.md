@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2022
+ms.date: 03/07/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +34,7 @@ To automate provisioning to an application, it requires building and integrating
 1. [Build a SCIM endpoint](#build-a-scim-endpoint) - An endpoint must be SCIM 2.0-compatible to integrate with the Azure AD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
 
-1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. If your organization uses a third-party application to implement a profile of SCIM 2.0 that Azure AD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
+1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. Azure AD supports several third-party applications that implement SCIM 2.0. If you use one of these apps, then you can quickly automate both provisioning and deprovisioning of users and groups.
 
 
 1. [Optional] [Publish your application to the Azure AD application gallery](#publish-your-application-to-the-azure-ad-application-gallery) - Make it easy for customers to discover your application and easily configure provisioning. 
@@ -61,9 +61,9 @@ To design your schema, follow these steps:
 
 1. List the attributes your application requires, then categorize as attributes needed for authentication (for example, loginName and email). Attributes are needed to manage the user lifecycle (for example, status / active), and all other attributes needed for the application to work (for example, manager, tag).
 
-1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example below for an extension to the user to allow provisioning a user `tag`.
+1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example for an extension to the user to allow provisioning a user `tag`.
 
-1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown below for the `tags` property.
+1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown in the example for the `tags` property.
 
 The following table lists an example of required attributes:
 
@@ -74,7 +74,7 @@ The following table lists an example of required attributes:
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
+|tag|`urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag`|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
 The following JSON payload shows an example SCIM schema:
@@ -117,7 +117,7 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 
 The following table lists an example of user attributes:
 
-| Azure AD user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure AD user | `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` |
 | --- | --- |
 | IsSoftDeleted |active |
 |department| `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department`|
@@ -140,7 +140,7 @@ The following table lists an example of user attributes:
 
 The following table lists an example of group attributes:
 
-| Azure AD group | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Azure AD group | `urn:ietf:params:scim:schemas:core:2.0:Group` |
 | --- | --- |
 | displayName |displayName |
 | members |members |
@@ -166,7 +166,7 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 
 ## Understand the Azure AD SCIM implementation
 
-To support a SCIM 2.0 user management API, this section describes how the Azure AD Provisioning Service is implemented and shows how to model your SCIM protocol request handling and responses.
+The Azure AD Provisioning Services is designed to support a SCIM 2.0 user management API.
 
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
@@ -178,11 +178,11 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Create users, and optionally also groups|[Section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
 |Modify users or groups with PATCH requests|[Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
 |Retrieve a known resource for a user or group created earlier|[Section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
-|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
+|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved with their `id` and queried with their `username` and `externalId`, and groups are queried with `displayName`.|
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|Section [3.4.2.2](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2)|
 |Support listing users and paginating|[Section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user shouldn't be returned is when it's hard deleted from the application.|
-|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover more attributes.|
+|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint is used to discover more attributes.|
 |Accept a single bearer token for authentication and authorization of Azure AD to your application.||
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
@@ -190,12 +190,12 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 ### General:
 
 * `id` is a required property for all resources. Every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero elements.
-* Values sent should be stored in the same format as what they were sent in. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data shouldn't happen between data being sent by Azure AD and data being stored in the SCIM application. (for example. A phone number sent as 55555555555 shouldn't be saved/returned as +5 (555) 555-5555)
+* Values sent should be stored in the same format they were sent. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data shouldn't happen between data from Azure AD and data stored in the SCIM application. (for example. A phone number sent as 55555555555 shouldn't be saved/returned as +5 (555) 555-5555)
 * It isn't necessary to include the entire resource in the **PATCH** response.
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Azure AD emits the values of `op` as **Add**, **Replace**, and **Remove**.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * Support HTTPS on your SCIM endpoint.
-* Custom complex and multivalued attributes are supported but Azure AD doesn't have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes aren't well supported at this time.
+* Custom complex and multivalued attributes are supported but Azure AD doesn't have many complex data structures to pull data from in these cases. Name/value attributes can be mapped to easily, but flowing data to complex attributes with three or more sub-attributes isn't supported.
 * The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype.
 * The header for all the responses should be of content-Type: application/scim+json 
 
@@ -218,11 +218,11 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 ### /Schemas (Schema discovery):
 
 * [Sample request/response](#schema-discovery)
-* Schema discovery isn't currently supported on the custom non-gallery SCIM application, but it's being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add more attributes to the schema of an existing gallery SCIM application. 
+* Schema discovery is being used on certain gallery applications. Schema discovery is the sole method to add more attributes to the schema of an existing gallery SCIM application. Schema discovery isn't currently supported on custom non-gallery SCIM application.
 * If a value isn't present, don't send null values.
 * Property values should be camel cased (for example, readWrite).
 * Must return a list response.
-* The /schemas request will be made by the Azure AD Provisioning Service every time someone saves the provisioning configuration in the Azure portal or every time a user lands on the edit provisioning page in the Azure portal. Other attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. It will not result in attributes being removed. 
+* The Azure AD Provisioning Service makes the /schemas request every time someone saves the provisioning configuration in the Azure portal or every time a user lands on the edit provisioning page in the Azure portal. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
 
 ### User provisioning and deprovisioning
 
@@ -246,7 +246,7 @@ The following diagram shows the group deprovisioning sequence:
 This article provides example SCIM requests emitted by the Azure Active Directory (Azure AD) Provisioning Service and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Azure AD user provisioning service emits the operations described in the example, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
 
@@ -899,7 +899,7 @@ All services must use X.509 certificates generated using cryptographic keys of s
 
 **Cipher Suites**
 
-All services must be configured to use the following cipher suites, in the exact order specified below. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
+All services must be configured to use the following cipher suites, in the exact order specified in the example. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
 
 TLS 1.2 Cipher Suites minimum bar:
 
@@ -914,7 +914,7 @@ TLS 1.2 Cipher Suites minimum bar:
 
 ### IP Ranges
 
-The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. You'll need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
+The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. You need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
 Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening any inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
 
@@ -1308,23 +1308,14 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). You can get access a free trial for Azure AD with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
+1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). You can get access a free trial for Azure AD with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/microsoft-365/dev-program))
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **+ Create your own application**.
 1. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
     
     The following screenshot shows the Azure AD application gallery:
 
-   ![Screenshot shows the Azure AD application gallery.](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
-   
-
-   > [!NOTE]
-   > If you are using the old app gallery experience, follow the screen guide below.
-   
-   The following screenshot shows the Azure AD old app gallery experience:
-
-   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
-   
+   ![Screenshot shows the Azure AD application gallery.](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png) 
 
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.
@@ -1369,7 +1360,7 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
-> * Support the OAuth authorization code grant or a long lived token as described below (Required)
+> * Support the OAuth authorization code grant or a long lived token as described in the example (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
 > * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
@@ -1382,8 +1373,8 @@ The SCIM spec doesn't define a SCIM-specific scheme for authentication and autho
 |--|--|--|--|
 |Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Not supported for new gallery or non-gallery apps.|
 |Long-lived bearer token|Long-lived tokens don't require a user to be present. They're easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
-|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid, and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog, in addition to support for configurable auth / token URLs on the gallery app.|
-|OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be automated, and new tokens can be silently requested without user interaction. ||Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth client credentials grant on non-gallery is in our backlog.|
+|OAuth authorization code grant|Access tokens have a shorter life than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid, and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog, in addition to support for configurable auth / token URLs on the gallery app.|
+|OAuth client credentials grant|Access tokens have a shorter life than passwords, and have an automated refresh mechanism that long-lived bearer tokens don't have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be automated, and new tokens can be silently requested without user interaction. ||Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth client credentials grant on non-gallery is in our backlog.|
 
 > [!NOTE]
 > It's not recommended to leave the token field blank in the Azure AD provisioning configuration custom app UI. The token generated is primarily available for testing purposes.

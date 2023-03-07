@@ -11,21 +11,21 @@ ms.custom: mvc
 ---
 # Create a WordPress site
 
-[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks), [Virtual Machines](/azure/virtual-machines/linux/tutorial-lamp-stack#install-wordpress), and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=wordpress&page=1).
+[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md), [Virtual Machines](../virtual-machines/linux/tutorial-lamp-stack.md#install-wordpress), and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=wordpress&page=1).
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) with [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Basic** tier for your app and a **Burstable, B1ms** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) with [Azure Database for MySQL - Flexible Server](../mysql/flexible-server/index.yml) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Basic** tier for your app and a **Burstable, B1ms** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
 To complete this quickstart, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
 
 > [!IMPORTANT]
 > After November 28, 2022, [PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
-> Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice/tree/main/WordPress).
+> Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice).
 >
 
 ## Create WordPress site using Azure portal
 
-1. To start creating the WordPress site, browse to [https://ms.portal.azure.com/#create/WordPress.WordPress](https://ms.portal.azure.com/#create/WordPress.WordPress).
+1. To start creating the WordPress site, browse to [https://portal.azure.com/#create/WordPress.WordPress](https://portal.azure.com/#create/WordPress.WordPress).
 
     :::image type="content" source="./media/quickstart-wordpress/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site.":::
 
@@ -75,13 +75,13 @@ When no longer needed, you can delete the resource group, App service, and all r
 
 ## Manage the MySQL flexible server, username, or password
 
-- The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
+- The MySQL Flexible Server is created behind a private [Virtual Network](../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
     - Navigate to the URL: https://`<sitename>`.azurewebsites.net/phpmyadmin
     - Login with the flexible server's username and password
 
 - Database username and password of the MySQL Flexible Server are generated automatically. To retrieve these values after the deployment go to Application Settings section of the Configuration page in Azure App Service. The WordPress configuration is modified to use these [Application Settings](reference-app-settings.md#wordpress) to connect to the MySQL database.
 
-- To change the MySQL database password, see [Reset admin password](/azure/mysql/flexible-server/how-to-manage-server-portal#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](reference-app-settings.md#wordpress) need to be updated. The [Application Settings for MySQL database](reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
+- To change the MySQL database password, see [Reset admin password](../mysql/flexible-server/how-to-manage-server-portal.md#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](reference-app-settings.md#wordpress) need to be updated. The [Application Settings for MySQL database](reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
 
 ## Change WordPress admin password
 
@@ -96,7 +96,7 @@ There's a couple approaches when migrating your WordPress app to App Service on 
 Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map a custom domain name](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)

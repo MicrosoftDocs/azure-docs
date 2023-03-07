@@ -1,10 +1,8 @@
 ---
-title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
-services: azure-arc
-ms.service: azure-arc
-ms.date: 08/30/2022
+title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
+ms.date: 01/18/2023
 ms.topic: how-to
-description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
+description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
 ---
 
 # Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters
@@ -16,7 +14,7 @@ Access to the `apiserver` of the Azure Arc-enabled Kubernetes cluster enables th
 - Interactive debugging and troubleshooting.
 - Cluster access to Azure services for [custom locations](custom-locations.md) and other resources created on top of it.
 
-A conceptual overview of this feature is available in [Cluster connect - Azure Arc-enabled Kubernetes](conceptual-cluster-connect.md).
+Before you begin, review the [conceptual overview of the cluster connect feature](conceptual-cluster-connect.md).
 
 ## Prerequisites
 
@@ -24,9 +22,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) Azure CLI to version >= 2.16.0.
+- [Install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) Azure CLI to the latest version.
 
-- Install the `connectedk8s` Azure CLI extension of version >= 1.2.5:
+- Install the latest version of the `connectedk8s` Azure CLI extension:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -40,9 +38,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
-- Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
+- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
 
   | Endpoint | Port |
   |----------------|-------|
@@ -68,9 +66,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
-- Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
+- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
 
   | Endpoint | Port |
   |----------------|-------|
@@ -90,11 +88,13 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ---
 
+[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
+
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Get the `objectId` associated with your Azure AD entity.
+1. Get the `objectId` associated with your Azure Active Directory (Azure AD) entity.
 
    - For an Azure AD user account:
 
@@ -125,7 +125,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the `objectId` associated with your Azure AD entity.
+1. Get the `objectId` associated with your Azure Active Directory (Azure AD) entity.
 
    - For an Azure AD user account:
 
@@ -188,6 +188,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```console
     TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\n/g')
     ```
+
 1. Get the token to output to console
   
      ```console
@@ -208,13 +209,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
 
-1. Create a service account token by:
-
-    ```console
-    kubectl apply -f demo-user-secret.yaml
-    ```
-    
-    Contents of `demo-user-secret.yaml`:
+1. Create a service account token. Create a `demo-user-secret.yaml` file with the following content:
 
     ```yaml
     apiVersion: v1
@@ -224,6 +219,12 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
       annotations:
         kubernetes.io/service-account.name: demo-user
     type: kubernetes.io/service-account-token
+    ```
+
+   Then run these commands:
+
+    ```console
+    kubectl apply -f demo-user-secret.yaml
     ```
 
     ```console

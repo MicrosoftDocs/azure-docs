@@ -3,18 +3,11 @@ title: Use customizable anomalies to detect threats in Microsoft Sentinel | Micr
 description: This article explains how to use the new customizable anomaly detection capabilities in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Use customizable anomalies to detect threats in Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - Customizable anomalies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## What are customizable anomalies?
 

@@ -2,11 +2,11 @@
 title: Move Azure VMs to a different Azure region with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure VMs from one Azure region to another.
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.custom: MVC 
 ---
 

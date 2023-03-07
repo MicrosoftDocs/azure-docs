@@ -5,12 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/31/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

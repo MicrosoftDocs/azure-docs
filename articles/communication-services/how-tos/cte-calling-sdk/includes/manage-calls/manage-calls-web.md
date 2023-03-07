@@ -285,7 +285,9 @@ const localVideoStreams = call.localVideoStreams;
 ```
 
 ## Manage chat thread
-Providing a chat ID is mandatory for making group calls and adding participants to an existing call. Microsoft encourages developers to keep chat and call participant lists in sync to provide the best user experience. Consider the following scenario, where Alice makes a call to Bob, then Alice adds Charlie, and 3 minutes later, Alice removes Charlie from the call.
+Providing a chat ID is mandatory for making group calls and adding participants to existing calls. Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
+
+Consider the following scenario, where Alice makes a call to Bob, then Alice adds Charlie, and 3 minutes later, Alice removes Charlie from the call.
 
 1. Create a chat thread between Alice, Bob and Charlie. Keep chat's `threadId` for later.
 1. Alice calls Bob and Charlie using `startCall` method on `TeamsCallAgent` instance.

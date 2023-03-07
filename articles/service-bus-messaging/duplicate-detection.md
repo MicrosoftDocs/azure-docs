@@ -2,6 +2,7 @@
 title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 05/31/2022
 ---
 
@@ -29,8 +30,6 @@ The *MessageId* can always be some GUID, but anchoring the identifier to the bus
 >- When **partitioning** is **enabled**, `MessageId+PartitionKey` is used to determine uniqueness. When sessions are enabled, partition key and session ID must be the same. 
 >- When **partitioning** is **disabled** (default), only `MessageId` is used to determine uniqueness.
 >- For information about SessionId, PartitionKey, and MessageId, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
->- The [premier tier](service-bus-premium-messaging.md) doesn't support partitioning, so we recommend that you use unique message IDs in your applications and not rely on partition keys for duplicate detection. 
-
 
 ## Duplicate detection window size
 
@@ -57,4 +56,3 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 Find samples for the older .NET and Java client libraries below:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
-

@@ -10,7 +10,7 @@ ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Cassandra in Microsoft Purview (Preview)
+# Connect to and manage Cassandra in Microsoft Purview
 
 This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

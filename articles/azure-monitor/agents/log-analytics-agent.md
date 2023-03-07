@@ -27,7 +27,7 @@ Use the Log Analytics agent if you need to:
 * Use [VM insights](../vm/vminsights-overview.md), which allows you to monitor your machines at scale and monitor their processes and dependencies on other resources and external processes.  
 * Manage the security of your machines by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
+* Use different [solutions](../insights/solutions.md) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent:
 
@@ -58,7 +58,7 @@ This section explains how to install the Log Analytics agent on different types 
 - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) can be installed with the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 - [Microsoft Defender for Cloud can provision the Log Analytics agent](../../security-center/security-center-enable-data-collection.md) on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats.
 - Install for individual Azure virtual machines [manually from the Azure portal](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
-- Connect the machine to a workspace from the **Virtual machines** option in the **Log Analytics workspaces** menu in the Azure portal.
+- Connect the machine to a workspace from the **Virtual machines (deprecated)** option in the **Log Analytics workspaces** menu in the Azure portal.
 
 ### Windows virtual machine on-premises or in another cloud
 
@@ -70,7 +70,7 @@ This section explains how to install the Log Analytics agent on different types 
 ### Linux virtual machine on-premises or in another cloud
 
 - Use [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension. Review the [deployment options](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) to understand the different deployment methods available for the extension on machines registered with Azure Arc-enabled servers.
-- [Manually install](../vm/monitor-virtual-machine.md) the agent calling a wrapper-script hosted on GitHub.
+- [Manually install](../agents/agent-linux.md#install-the-agent) the agent calling a wrapper-script hosted on GitHub.
 - Integrate [System Center Operations Manager](./om-agents.md) with Azure Monitor to forward collected data from Windows computers reporting to a management group.
 
 ## Data collected

@@ -1,5 +1,5 @@
 ---
-title: azcopy login status | Microsoft Docs
+title: azcopy login status
 description: This article provides reference information for the azcopy login status command.
 author: normesta
 ms.service: storage

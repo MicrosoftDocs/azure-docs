@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/21/2022
 ms.author: jasteppe
 ---
 
-# Disable Events and delete workspaces
+# How to disable Events and delete workspaces
 
 In this article, you'll learn how to disable the Events feature and delete workspaces in the Azure Health Data Services.
 
@@ -47,7 +47,7 @@ As an example:
 
 For more information about troubleshooting Events, see the Events troubleshooting guide:
 
->[!div class="nextstepaction"]
->[Troubleshoot Events](./events-troubleshooting-guide.md)
+> [!div class="nextstepaction"]
+> [Troubleshoot Events](events-troubleshooting-guide.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

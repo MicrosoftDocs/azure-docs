@@ -2,7 +2,8 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.custom: ignite-2022
+ms.date: 11/17/2022
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -16,7 +17,7 @@ To deploy the template spec, you use standard Azure tools like PowerShell, Azure
 > [!NOTE]
 > To use template specs in Bicep with Azure PowerShell, you must install [version 6.3.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.27.0 or later](/cli/azure/install-azure-cli).
 
-When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For instance, your deployments include multiple instances of Cosmos DB with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your Bicep along with copy loops to create multiple instances of these resources.
+When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For instance, your deployments include multiple instances of Azure Cosmos DB with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your Bicep along with copy loops to create multiple instances of these resources.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -31,9 +32,12 @@ To learn more about template specs, and for hands-on guidance, see [Publish libr
 
 ## Required permissions
 
-To create a template spec, you need **write** access to `Microsoft.Resources/templateSpecs` and `Microsoft.Resources/templateSpecs/versions`.
+There are two Azure build-in roles defined for template spec:
 
-To deploy a template spec, you need **read** access to `Microsoft.Resources/templateSpecs` and `Microsoft.Resources/templateSpecs/versions`. You also need **write** access to any resources deployed by the template spec, and access to `Microsoft.Resources/deployments/*`.
+- [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
+- [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
+
+In addition, you also need the permissions for deploying a Bicep file. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 ## Why use template specs?
 
@@ -199,7 +203,7 @@ az ts show \
 
 ## Deploy template spec
 
-After you've created the template spec, users with **read** access to the template spec can deploy it. For information about granting access, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+After you've created the template spec, users with the [Template Specs Reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a Bicep module in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 

@@ -4,7 +4,7 @@ description: Learn to use triggers and bindings to connect your Azure Function t
 
 ms.topic: conceptual
 ms.date: 05/25/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, ignite-2022
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -24,8 +24,8 @@ Consider the following examples of how you could implement different functions.
 | Example scenario | Trigger | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
 | A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
-|A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Blob Storage | Cosmos DB |
-|The Event Grid is used to read an image from Blob Storage and a document from Cosmos DB to send an email. | Event Grid | Blob Storage and  Cosmos DB | SendGrid |
+|A scheduled job reads Blob Storage contents and creates a new Azure Cosmos DB document. | Timer | Blob Storage | Azure Cosmos DB |
+|The Event Grid is used to read an image from Blob Storage and a document from Azure Cosmos DB to send an email. | Event Grid | Blob Storage and Azure Cosmos DB | SendGrid |
 | A webhook that uses Microsoft Graph to update an Excel sheet. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> Represents different queues
@@ -79,7 +79,9 @@ You can connect your function to other services by using input or output binding
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md). 
+
+Specific binding extension versions are only supported while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
 ## Bindings code examples
 

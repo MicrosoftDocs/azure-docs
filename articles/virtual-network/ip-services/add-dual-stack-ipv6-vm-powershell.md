@@ -9,7 +9,6 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2022
 ms.custom: template-how-to
-ms.devlang:
 ---
 
 # Add a dual-stack network to an existing virtual machine using Azure PowerShell
@@ -24,7 +23,7 @@ In this article, you'll add IPv6 support to an existing virtual network. You'll 
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](/azure/virtual-machines/linux/quick-create-powershell).
+- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -154,5 +153,3 @@ For more information about IPv6 and IP addresses in Azure, see:
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
 - [What is Azure Virtual Network IP Services?](ip-services-overview.md)
-
-

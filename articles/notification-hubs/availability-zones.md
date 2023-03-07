@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 01/17/2023
 ms.custom: template-concept
 ---
 
@@ -15,10 +15,10 @@ Azure Notification Hubs now supports [availability zones](../availability-zones/
 
 ## Feature availability
 
-Availability zones support will be included as part of an upcoming Azure Notification Hubs Premium SKU. It will only be available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
+Availability zones support will be included as part of an upcoming Azure Notification Hubs Premium SKU and as an add-on feature to the other SKUs. It will only be available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
 > [!NOTE]
-> Until Azure Notification Hubs Premium is released, availability zones is by invitation only. If you are interested in using this feature, contact your customer success manager at Microsoft, or create an Azure support ticket which will be triaged by the support team.
+> Until the feature is broadly released, availability zones is by invitation only. If you are interested in using this feature, contact your customer success manager at Microsoft, or create an Azure support ticket which will be triaged by the support team.
 
 ## Enable availability zones
 

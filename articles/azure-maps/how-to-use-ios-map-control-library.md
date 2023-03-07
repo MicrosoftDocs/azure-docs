@@ -1,8 +1,8 @@
 ---
 title: Get started with iOS map control | Microsoft Azure Maps
 description: Become familiar with the Azure Maps iOS SDK. See how to install the SDK and create an interactive map.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -41,8 +41,8 @@ The Azure Maps iOS SDK provides three ways of setting the language and regional 
 
     ```swift
     MapControl(options: [
-        StyleOptions.language("fr-FR"),
-        StyleOptions.view("Auto")
+        StyleOption.language("fr-FR"),
+        StyleOption.view("Auto")
     ])
     ```
 
@@ -50,9 +50,9 @@ The Azure Maps iOS SDK provides three ways of setting the language and regional 
 
     ```swift
     mapControl.getMapAsync { map in
-        map.setStyle([
-            StyleOptions.language("fr-FR"),
-            StyleOptions.view("Auto")
+        map.setStyleOptions([
+            StyleOption.language("fr-FR"),
+            StyleOption.view("Auto")
         ])
     }
     ```

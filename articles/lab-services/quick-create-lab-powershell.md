@@ -13,8 +13,8 @@ In this quickstart, you, as the educator, create a lab using PowerShell and the 
 
 ## Prerequisites
 
-- Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2&preserve-view=true).
+- Azure subscription.  If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 - [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az). Must be version 7.2 or higher.
 
     ```powershell
@@ -53,7 +53,15 @@ We'll choose the Windows 11 image.
 $image = $plan | Get-AzLabServicesPlanImage | Where-Object { $_.EnabledState.ToString() -eq "enabled" -and $_.DisplayName -eq "Windows 11 Pro (Gen2)" }
 ```
 
-We're now ready to create a lab based of our lab plan with the Window 11 Pro image.  The following command will create a lab using the lab plan created above.
+When you create a lab by using PowerShell, you also need to provide the resource SKU information. The following command uses the [REST API to retrieve the list of SKUs](/rest/api/labservices/skus/list) and selects the `Classic_Fsv2_4_8GB_128_S_SSD` SKU:
+
+```powershell
+$subscriptionId = (Get-AzContext).Subscription.ID
+$skus = (Invoke-AzRestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.LabServices/skus?api-version=2022-08-01 | Select-Object -Property "Content" -ExpandProperty Content | ConvertFrom-Json).value
+$sku = $skus | Where-Object -Property "name" -eq "Classic_Fsv2_4_8GB_128_S_SSD" | select-object -First 1
+```
+
+We're now ready to create a lab based of our lab plan with the Window 11 Pro image and the `Classic_Fsv2_4_8GB_128_S_SSD` resource SKU. The following command will create a lab using the lab plan created above.
 
 ``` powershell
 # $plan and $image are from the Create LabPlan QuickStart.
@@ -84,7 +92,7 @@ $lab = New-AzLabServicesLab -Name "ContosoLab" `
     -ImageReferenceSku $image.Sku `
     -ImageReferenceVersion $image.Version `
     -SkuCapacity 1 `
-    -SkuName "Classic_Fsv2_4_8GB_128_S_SSD" `
+    -SkuName $sku.size `
     `
     -Title "Contoso Lab" `
     -Description "The Contoso lab" `

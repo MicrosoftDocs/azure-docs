@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use the OpenAI Service via the Azure OpenAI Studio'
+title: 'Quickstart: Use Azure OpenAI Service via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
@@ -7,67 +7,65 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 02/02/2023
 keywords: 
 ---
 
 ## Prerequisites
 
-- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
+- Access granted to Azure OpenAI in the desired Azure subscription.
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model, the process is documented in our [resource deployment guide](../how-to/create-resource.md)
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
+Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-## Landing page
+From the Azure OpenAI Studio landing page navigate further to explore examples for prompt completion, manage your deployments and models, and find learning resources such as documentation and community forums. 
 
-You'll first land on our main page for the Azure OpenAI Studio and from here you can navigate to several different features highlighted in the picture below.
+:::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
 
-:::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/studio-start.png":::
-
-- Resources without a deployment will be prompted to create one. A deployment is required to be able to inference with your models
-- Get started with a few simple examples that demonstrate the capabilities of the service
-- Navigate to different parts of the Studio including the **Playground** for experimentation and our fine-tuning workflow
-- Find quick links to other helpful resources like documentation and community forums
-
-From here, select the **create new deployment** button in the banner at the top. If you don't see this button, you already have a deployment and can proceed to the [Playground](#playground) step.
-
-## Deployments
-
-Before you can generate text or inference, you need to deploy a model by clicking the **create new deployment** button on the deployments page. From here you can select from one of our many available models. For getting started we recommend selecting the `text-davinci-002` model.
-
-Once this is complete, select the 'Playground' button on the left nav to start experimenting.
+Go to the [Playground](#playground) for experimentation and fine-tuning workflow. 
 
 ## Playground
 
-The best way to start exploring completions is through our Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can easily iterate and experiment with the capabilities. The following list is an overview of the features available to you on this page:
+Start exploring OpenAI capabilities with a no-code approach through the GPT-3 Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
 
 :::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
-- Choose from a few pre-loaded examples to get started
-- Select a deployment to use
-- Enter the text you want to send to the completions API here. Generations will also be appended to this text.
-- Selecting the Generate button will send the entered text to the completions API and stream the results back to the text box.
-- Select the 'undo' button to undo the prior generation call
-- Select the 'regenerate' button to do an undo & generation call together.
-- View the code you could use to make the same call with our Python SDK, curl or other REST API client
-- Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
+You can select a deployment and choose from a few pre-loaded examples to get started. If your resource doesn't have a deployment, select **Create a deployment** and follow the instructions provided by the wizard. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-1. Now that you've familiarized yourself with the playground, get started generating text by loading the **Summarize Text** example.
+You can experiment with the configuration settings such as temperature and pre-response text to improve the performance of your task. You can read more about each parameter in the [REST API](../reference.md).
+
+- Selecting the **Generate** button will send the entered text to the completions API and stream the results back to the text box.
+- Select the **Undo** button to undo the prior generation call.
+- Select the **Regenerate** button to complete an undo and generation call together.
+
+Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
+
+In the GPT-3 playground you can also view Python and curl code samples pre-filled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
+
+## Try text summarization
+
+To use the OpenAI service for text summarization in the GPT-3 Playground, follow these steps:
+
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
+1. Select the subscription and OpenAI resource to work with. 
+1. Select **GPT-3 Playground** at the top of the landing page.
+1. Select your deployment from the **Deployments** dropdown. If your resource doesn't have a deployment, select **Create a deployment** and then revisit this step.
+1. Select **Summarize Text** from the **Examples** dropdown. 
 
     :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
 
-2. Then select `Generate`. You should get a result that looks like:
+1. Select `Generate`. OpenAI will grasp the context of text and rephrase it succinctly. You should get a result that resembles the following text:
 
     ```
-    Tl;dr A neutron star is the collapsed core of a massive supergiant star. These ultra-dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
+    Tl;dr A neutron star is the collapsed core of a supergiant star. These incredibly dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
     ```
 
-Keep in mind the accuracy of the response will vary depending on what model you've selected under **Deployments**. The response above was generated from a davinci based model, which is well-suited to this type of summarization whereas a Codex based model wouldn't perform as well at this particular task.
+The accuracy of the response can vary per model. The Davinci based model in this example is well-suited to this type of summarization, whereas a Codex based model wouldn't perform as well at this particular task.
 
 ## Clean up resources
 

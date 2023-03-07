@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy a connected registry to an IoT Edge hierarchy'
 description: In this tutorial, use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge devices and deploy a connected registry as a module at each layer.
 ms.topic: tutorial
-ms.date: 06/07/2022
+ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
@@ -14,7 +14,7 @@ In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of 
 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
 
-[!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Azure IoT Hub. For deployment steps, see [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * Two connected registry resources in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal].
@@ -92,7 +92,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "$upstream:8000/acr/connected-registry:0.7.0",
+                            "image": "$upstream:8000/acr/connected-registry:0.8.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"]}}"
                         },
                         "type": "docker",

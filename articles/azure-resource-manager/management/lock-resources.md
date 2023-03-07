@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 12/12/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -40,8 +40,6 @@ When you [cancel an Azure subscription](../../cost-management-billing/manage/can
 * Azure preserves your resources by deactivating them instead of immediately deleting them.
 * Azure only deletes your resources permanently after a waiting period.
 
-
-
 ## Understand scope of locks
 
 > [!NOTE]
@@ -59,11 +57,15 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
-- A cannot-delete lock on a **storage account** doesn't protect account data from deletion or modification. It only protects the storage account from deletion. If a request uses [data plane operations](control-plane-and-data-plane.md#data-plane), the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. If the request uses [control plane operations](control-plane-and-data-plane.md#control-plane), however, the lock protects those resources.
+- A read-only lock on a **storage account** prevents the creation of a blob container.
 
-  If a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), for example, which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
+- A read-only lock or cannot-delete lock on a **storage account** doesn't prevent its data from deletion or modification. It also doesn't protect the data in a blob, queue, table, or file.
 
-- A read-only lock on a **storage account** doesn't prevent its data from deletion or modification. It also doesn't protect its blob, queue, table, or file data.
+- The Storage Account API exposes [data plane](control-plane-and-data-plane.md#data-plane) and [control plane](control-plane-and-data-plane.md#control-plane) operations. If a request uses **data plane** operations, the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. If the request uses **control plane** operations, however, the lock protects those resources.
+
+  For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
+  
+- A read-only lock or cannot-delete lock on a **network security group (NSG)** prevents the creation of a traffic flow log for the NSG.
 
 - A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
@@ -81,7 +83,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
 
-- A cannot-delete lock on a **Log Analytics workspace** does not prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user instead. 
+- A cannot-delete lock on a **Log Analytics workspace** doesn't prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user instead. 
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
@@ -89,7 +91,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
-- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to re-protect the VM later, you need to remove the lock prior to disabling protection. In case you miss to remove the lock, you need to follow certain steps to clean up the stale links before you can re-protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to protect the VM again later, you need to remove the lock prior to disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
 
 ## Who can create or delete locks
 

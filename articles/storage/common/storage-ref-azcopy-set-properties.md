@@ -1,5 +1,5 @@
 ---
-title: azcopy set-properties | Microsoft Docs
+title: azcopy set-properties
 description: This article provides reference information for the azcopy set-properties command.
 author: normesta
 ms.service: storage

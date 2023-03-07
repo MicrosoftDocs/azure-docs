@@ -2,9 +2,9 @@
 title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
-author: blackmist
-ms.author: larryfr
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -135,7 +135,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](v1/how-to-auto-train-forecast-v1.md#customize-featurization).
 
 Supported customizations include:
 
@@ -344,7 +344,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 Automated ML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 

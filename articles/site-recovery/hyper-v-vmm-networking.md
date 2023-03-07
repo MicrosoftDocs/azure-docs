@@ -4,7 +4,8 @@ description: Describes how to set up IP addressing for connecting to VMs in a se
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Set up IP addressing to connect to a secondary on-premises site after failover
 

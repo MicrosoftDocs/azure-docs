@@ -56,6 +56,8 @@
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Nested virtualization on a template VM
+    href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
@@ -115,7 +117,7 @@
     - name: SolidWorks computer-aided design (CAD)
       displayName: SolidWorks CAD
       href: class-type-solidworks.md
-    - name: Sql database management and development
+    - name: SQL database management and development
       href: class-type-sql-server.md
 - name: How-tos
   items:
@@ -125,10 +127,14 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
+  - name: Transition to August 2022 Update
+    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md  
+      href: how-to-request-capacity-increase.md?tabs=Labplans
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -173,7 +179,7 @@
     items:        
     - name: Create and manage labs
       href: how-to-manage-labs.md
-    - name: Use a shared image gallery
+    - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
       href: how-to-enable-remote-desktop-linux.md
@@ -190,13 +196,7 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
-      items:
-      - name: Enable nested virtualization on a template VM overview
-        href: how-to-enable-nested-virtualization-template-vm.md
-      - name: Enable nested virtualization on a template VM using the UI
-        href: how-to-enable-nested-virtualization-template-vm-ui.md 
-      - name: Enable nested virtualization on a template VM using a script
-        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+      href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
     - name: Create and manage schedules
@@ -211,8 +211,6 @@
       href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
-    - name: Troubleshooting lab creation
-      href: troubleshoot.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -227,7 +225,7 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: How to troubleshoot a VM
+    - name: Troubleshoot a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
@@ -235,31 +233,19 @@
       href: lab-user-support-information.md
   - name: Use labs within Canvas
     items:
-      - name: Create a lab from Canvas
-        href: how-to-get-started-create-lab-within-canvas.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-canvas.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-canvas.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-canvas.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-canvas.md
-      - name: Access a VM (student view)
+      - name: Configure Canvas to use the service
+        href: how-to-configure-canvas-for-lab-plans.md
+      - name: Create & manage labs
+        href: how-to-manage-labs-within-canvas.md
+      - name: Access a lab VM
         href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
     items:
-      - name: Create a lab from Teams
-        href: how-to-get-started-create-lab-within-teams.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-teams.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-teams.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-teams.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-teams.md
-      - name: Access a VM (student view)
+      - name: Configure Teams to use the service
+        href: how-to-configure-teams-for-lab-plans.md
+      - name: Create & manage labs
+        href: how-to-manage-labs-within-teams.md
+      - name: Access a lab VM
         href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
@@ -297,16 +283,25 @@
       href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
+- name: Troubleshoot & debug
+  items:
+    - name: Troubleshoot lab creation
+      href: troubleshoot-lab-creation.md
+    - name: Troubleshoot lab VM Access
+      href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
-  - name: Built-in policies
-    href: /azure/governance/policy/samples/built-in-policies#lab-services
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: Microsoft Azure SDK for Python
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
@@ -315,6 +310,8 @@
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A

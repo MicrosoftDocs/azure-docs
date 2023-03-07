@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=stt-tts) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
@@ -22,7 +22,7 @@ speech_config.speech_synthesis_language = "en-US"
 speech_config.speech_synthesis_voice_name ="en-US-JennyNeural"
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=stt-tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
 
 > [!NOTE]
 > The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -49,8 +49,8 @@ audio_config = speechsdk.audio.AudioOutputConfig(filename="path/to/write/file.wa
 Next, instantiate `SpeechSynthesizer` by passing your `speech_config` object and the `audio_config` object as parameters. Then, executing speech synthesis and writing to a file is as simple as running `speak_text_async()` with a string of text.
 
 ```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-synthesizer.speak_text_async("I'm excited to try text-to-speech")
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+speech_synthesizer.speak_text_async("I'm excited to try text-to-speech")
 ```
 
 Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
@@ -79,8 +79,8 @@ It's simple to make this change from the previous example. First, remove `AudioC
 This time, you save the result to a [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) variable. The `audio_data` property contains a `bytes` object of the output data. You can work with this object manually, or you can use the [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example, you use the `AudioDataStream` constructor to get a stream from the result:
 
 ```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-result = synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+result = speech_synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
 stream = AudioDataStream(result)
 ```
 
@@ -106,9 +106,9 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 
 ```python
 speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
-result = synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
+result = speech_synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
 stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```
@@ -121,7 +121,7 @@ You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, a
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=stt-tts) of supported *neural* voices.
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -137,10 +137,10 @@ Next, you need to change the speech synthesis request to reference your XML file
 > If your `ssml_string` contains `ï»¿` at the beginning of the string, you need to strip off the BOM format or the service will return an error. You do this by setting the `encoding` parameter as follows: `open("ssml.xml", "r", encoding="utf-8-sig")`.
 
 ```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
 ssml_string = open("ssml.xml", "r").read()
-result = synthesizer.speak_ssml_async(ssml_string).get()
+result = speech_synthesizer.speak_ssml_async(ssml_string).get()
 
 stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
@@ -197,6 +197,7 @@ def speech_synthesizer_word_boundary_cb(evt: speechsdk.SessionEventArgs):
     print('\tTextOffset: {}'.format(evt.text_offset))
     print('\tWordLength: {}'.format(evt.word_length))
 
+# This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
 speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
 
 # Required for WordBoundary event sentences.

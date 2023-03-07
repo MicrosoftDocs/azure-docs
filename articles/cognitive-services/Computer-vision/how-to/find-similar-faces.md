@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 11/07/2022
 ms.author: pafarley
 ms.custom: 
 ---
@@ -27,7 +27,7 @@ This guide demonstrates how to use the Find Similar feature in the different lan
 This guide uses remote images that are accessed by URL. Save a reference to the following URL string. All of the images accessed in this guide are located at this URL path.
 
 ```
-"https://csdx.blob.core.windows.net/resources/Face/media/"
+https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/
 ```
 
 ## Detect faces for comparison

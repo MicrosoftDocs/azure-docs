@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/30/2022
+ms.date: 12/09/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -19,13 +19,17 @@ Azure Cognitive Service for Language is a cloud-based service that provides Natu
 
 ## Available features
 
-This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well. These features can either be:
+This Language service unifies the following previously available Cognitive Services: Text Analytics, QnA Maker, and LUIS. If you need to migrate from these services, see [the migration section](#migrate-from-text-analytics-qna-maker-or-language-understanding-luis) below.
+
+The Language service also provides several new features as well, which can either be:
 
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
 
 > [!TIP]
-> [**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
+> Unsure which feature to use? See [Which Language service feature should I use?](#which-language-service-feature-should-i-use) to help you decide.
+
+[**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
 
 ### Named Entity Recognition (NER)
 
@@ -34,7 +38,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/named-entity-recognition.png" alt-text="A screenshot of a named entity recognition example."  lightbox="media/studio-examples/named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that identifies entities in unstructured text across several pre-defined categories. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
+      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that categorizes entities (words or phrases) in unstructured text across several pre-defined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
 
    :::column-end:::
 :::row-end:::
@@ -104,7 +108,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="media/studio-examples/entity-linking.png":::
    :::column-end:::
    :::column span="":::
-      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities found in unstructured text and returns links to Wikipedia. 
+      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. 
    :::column-end:::
 :::row-end:::
 
@@ -126,7 +130,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/single-classification.png" alt-text="A screenshot of a custom text classification example." lightbox="media/studio-examples/single-classification.png":::
    :::column-end:::
    :::column span="":::
-      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify text into custom classes you define.
+      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify unstructured text documents into custom classes you define.
    :::column-end:::
 :::row-end:::
 
@@ -138,7 +142,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/custom-named-entity-recognition.png" alt-text="A screenshot of a custom NER example." lightbox="media/studio-examples/custom-named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories, using unstructured text that you provide. 
+      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. 
    :::column-end:::
 :::row-end:::
 
@@ -177,6 +181,28 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 
    :::column-end:::
 :::row-end:::
+
+## Which Language service feature should I use?
+
+This section will help you decide which Language service feature you should use for your application:
+
+|What do you want to do?  |Document format  |Your best solution  | Is this solution customizable?* |
+|---------|---------|---------|---------|
+| Detect and/or redact sensitive information such as PII and PHI. | Unstructured text, <br> transcribed conversations | [PII detection](./personally-identifiable-information/overview.md) | |
+| Extract categories of information without creating a custom model.     | Unstructured text         | The [pre-configured NER feature](./named-entity-recognition/overview.md) |       |
+| Extract categories of information using a model specific to your data. | Unstructured text | [Custom NER](./custom-named-entity-recognition/overview.md) | ✓ |
+|Extract main topics and important phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
+| Determine the sentiment and opinions expressed in text. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | |
+| Summarize long chunks of text or conversations. | Unstructured text, <br> transcribed conversations. | [Summarization](./summarization/overview.md) | | 
+| Disambiguate entities and get links to Wikipedia. | Unstructured text | [Entity linking](./entity-linking/overview.md) | | 
+| Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
+| Extract medical information from clinical/medical documents. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
+| Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
+| Detect the language that a text was written in. | Unstructured text | [Language detection](./language-detection/overview.md) | | 
+| Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) | ✓ |
+| Connect apps from conversational language understanding, LUIS, and question answering. | Unstructured user inputs | [Orchestration workflow](./orchestration-workflow/overview.md) | ✓ | 
+
+\* If a feature is customizable, you can train an AI model using our tools to fit your data specifically. Otherwise a feature is pre-configured, meaning the AI models it uses cannot be changed. You just send your data, and use the feature's output in your applications.
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 

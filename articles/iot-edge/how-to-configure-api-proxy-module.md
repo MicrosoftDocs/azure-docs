@@ -4,25 +4,27 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/10/2020
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
 
-The API proxy module simplifies communication for IoT Edge devices when multiple services are deployed that all support HTTPS protocol and bind to port 443. This is especially relevant in hierarchical deployments of IoT Edge devices in ISA-95-based network-isolated architectures like those described in [Network isolate downstream devices](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices) because the clients on the child devices can't connect directly to the cloud.
+The API proxy module simplifies communication for IoT Edge devices when multiple services are deployed that all support HTTPS protocol and bind to port 443. This is especially relevant in hierarchical deployments of IoT Edge devices in ISA-95-based network-isolated architectures like those described in [Network isolate downstream devices](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices) because the clients on the downstream devices can't connect directly to the cloud.
 
-For example, to allow child IoT Edge devices to pull Docker images requires deploying a Docker registry module. To allow uploading blobs requires deploying an Azure Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API proxy enables such deployments on an IoT Edge device. Instead of each service, the API proxy module binds to port 443 on the host device and routes the request to the correct service module running on that device per user-configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorizing the clients.
+For example, to allow downstream IoT Edge devices to pull Docker images requires deploying a Docker registry module. To allow uploading blobs requires deploying an Azure Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API proxy enables such deployments on an IoT Edge device. Instead of each service, the API proxy module binds to port 443 on the host device and routes the request to the correct service module running on that device per user-configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorizing the clients.
 
 Without the API proxy, each service module would have to bind to a separate port on the host device, requiring a tedious and error-prone configuration change on each child device that connects to the parent IoT Edge device.
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Deploy the proxy module
 
@@ -176,7 +178,7 @@ Configure the following modules at the **top layer**:
 
     | Name | Value |
     | ---- | ----- |
-    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:1102`. |
+    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:11002`. |
     | `NGINX_DEFAULT_PORT` | The port that the nginx proxy listens on for requests from downstream devices. For example, `8000`. |
 
   * Configure the following createOptions:
@@ -262,7 +264,7 @@ To update the proxy configuration dynamically, use the following steps:
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 
-   ![Paste encoded config file as value of proxy_config property](./media/how-to-configure-api-proxy-module/change-config.png)
+   :::image type="content" source="./media/how-to-configure-api-proxy-module/change-config.png" alt-text="Screenshot that shows how to paste encoded config file as value of proxy_config property.":::
 
 ## Next steps
 

@@ -11,37 +11,47 @@ items:
   - name: Set up DPS
     items:
     - name: Azure portal
+      displayName: Set up DPS
       href: quick-setup-auto-provision.md
     - name: Azure CLI
+      displayName: Set up DPS
       href: quick-setup-auto-provision-cli.md
     - name: Bicep
-      displayName: Resource Manager,ARM,template
+      displayName: Resource Manager, ARM, template, Set up DPS
       href: quick-setup-auto-provision-bicep.md
+    - name: Terraform
+      displayName: Resource Manager, ARM, template, Set up DPS
+      href: quick-setup-auto-provision-terraform.md
     - name: ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager, Set up DPS
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a simulated symmetric key device
-    href: quick-create-simulated-device-symm-key.md
-  - name: Provision a simulated X.509 certificate device
-    href: quick-create-simulated-device-x509.md
-  - name: Simulated TPM device attestation sample
-    href: quick-create-simulated-device-tpm.md
+  - name: Provision a simulated device
+    items:
+    - name: Symmetric key sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-symm-key.md
+    - name: X.509 certificate sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-x509.md
+    - name: TPM device sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
-  - name: 1 - Provision sets of devices with enrollment groups
+  - name: Provision sets of devices with enrollment groups
     items:
      - name: Provision devices with symmetric keys
        href: how-to-legacy-device-symm-key.md
      - name: Provision multiple X.509 devices
        href: tutorial-custom-hsm-enrollment-group-x509.md
+  - name: Provision devices to multiple hubs
+    items:
      - name: Use custom allocation policies
        href: tutorial-custom-allocation-policies.md
-  - name: 2 - Provision devices to multiple hubs
-    items:
-     - name: Link multiple hubs to DPS
-       href: tutorial-provision-multiple-hubs.md
      - name: Provision for geolatency
        href: how-to-provision-multitenant.md
+  - name: Automate provisioning with GitHub Actions
+    href: tutorial-automation-github-actions.md
 - name: Concepts
   items:
   - name: DPS terminology
@@ -90,10 +100,20 @@ items:
       href: quick-enroll-device-tpm.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md
+    - name: Provision devices using HTTPS protocol
+      items:
+      - name: Use HTTPS protocol with symmetric keys
+        href: iot-dps-https-sym-key-support.md
+      - name: Use HTTPS protocol with X.509 certificates
+        href: iot-dps-https-x509-support.md
   - name: Manage
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
+    - name: Manage linked IoT hubs
+      href: how-to-manage-linked-iot-hubs.md
+    - name: Manage allocation policies
+      href: how-to-use-allocation-policies.md
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
     - name: Roll device certificates
@@ -141,7 +161,7 @@ items:
   - name: .NET (Service)
     href: /dotnet/api/microsoft.azure.devices.provisioning.service
   - name: .NET (Management)
-    href: /dotnet/api/overview/azure/deviceprovisioningservice/management
+    href: /dotnet/api/overview/azure/resourcemanager.deviceprovisioningservices-readme
   - name: Java (Device)
     href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
   - name: Java (Service)
@@ -157,7 +177,7 @@ items:
   - name: Python (Management)
     href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
-    href: /azure/iot-hub/iot-c-sdk-ref
+    href: https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template
@@ -187,15 +207,32 @@ items:
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure/azure-iot-sdk-csharp#samples
     - name: Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure/azure-iot-sdk-java#samples
     - name: Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+  - name: Terraform modules
+    items:
+    - name: DPS instance resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps
+    - name: DPS instance data source
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps
+    - name: DPS certificate resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps_certificate
+    - name: DPS shared access policy resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps_shared_access_policy
+    - name: DPS shared access policy data source
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps_shared_access_policy
   - name: Azure Certified for IoT device catalog
     href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center

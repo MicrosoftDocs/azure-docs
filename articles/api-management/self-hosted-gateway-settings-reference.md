@@ -1,5 +1,5 @@
 ---
-title: Reference - Self-hosted gateway settings - Azure API Management
+title: Reference - Self-hosted gateway container settings - Azure API Management
 description: Reference for the required and optional settings to configure the Azure API Management self-hosted gateway.
 services: api-management
 author: dlepow
@@ -10,9 +10,9 @@ ms.date: 06/28/2022
 ms.author: danlep
 ---
 
-# Reference: Self-hosted gateway configuration settings
+# Reference: Self-hosted gateway container configuration settings
 
-This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). 
+This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway container](self-hosted-gateway-overview.md). 
 
 > [!IMPORTANT]
 > This reference applies only to the self-hosted gateway v2.

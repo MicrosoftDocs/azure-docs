@@ -3,13 +3,13 @@ title: How to perform language detection
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to detect the language of written text using language detection.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 03/01/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
@@ -21,8 +21,9 @@ Language detection is useful for content stores that collect arbitrary text, whe
 
 The Language Detection feature can detect a wide range of languages, variants, dialects, and some regional or cultural languages.
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
@@ -56,7 +57,7 @@ Language detection will return one predominant language for each document you su
 
 In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify an [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country/region code. By default the API uses "US" as the default country hint. To remove this behavior, you can reset this parameter by setting this value to empty string `countryHint = ""` .
 
-For example, "Impossible" is common to both English and French and if given with limited context the response will be based on the "US" country/region hint. If the origin of the text is known to be coming from France that can be given as a hint.
+For example, "communication" is common to both English and French and if given with limited context the response will be based on the "US" country/region hint. If the origin of the text is known to be coming from France that can be given as a hint.
 
 **Input**
 
@@ -65,11 +66,11 @@ For example, "Impossible" is common to both English and French and if given with
     "documents": [
         {
             "id": "1",
-            "text": "impossible"
+            "text": "communication"
         },
         {
             "id": "2",
-            "text": "impossible",
+            "text": "communication",
             "countryHint": "fr"
         }
     ]
@@ -109,7 +110,7 @@ The language detection model now has additional context to make a better judgmen
     "errors":[
         
     ],
-    "modelVersion":"2020-09-01"
+    "modelVersion":"2022-10-01"
 }
 ```
 

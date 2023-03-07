@@ -61,13 +61,13 @@
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
     items:
-    - name: Build real-time apps with Azure Functions
+    - name: Real-time apps with Azure Functions
       href: signalr-concept-azure-functions.md
     - name: Develop and configure SignalR Service apps
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
-    - name: Upstream settings
+    - name: Configure upstream endpoints
       href: concept-upstream.md
   - name: High availability
     items:
@@ -171,6 +171,8 @@
       items:
       - name: Versions
         items:
+          - name: v20220601
+            href: swagger/signalr-data-plane-rest-v20220601.md
           - name: v1
             href: swagger/signalr-data-plane-rest-v1.md
           - name: v1-preview

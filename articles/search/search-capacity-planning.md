@@ -74,7 +74,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you should use REST and [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
++ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you could use [REST and Postman](search-get-started-rest.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
 + Collect information about the index, such as size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
 
   Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
@@ -99,7 +99,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. Add replicas if you need high availability or if you experience slow query performance.
 
-   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput. For guidance in estimating QPS for your solution, see [Scale for performance](search-performance-optimization.md)and [Monitor queries](search-monitor-queries.md).
+   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
 
 > [!NOTE]
 > Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual search document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
@@ -111,7 +111,7 @@ Queries per second (QPS) is an important metric during performance tuning, but i
 
 The Standard tiers can provide a balance of replicas and partitions. You can increase query turnaround by adding replicas for load balancing or add partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
-If you expect high sustained query volumes from the outset, you should consider higher Standard tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower-tier service, if those query volumes don't occur. For more information on how to calculate query throughput, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
+If you expect high sustained query volumes from the outset, you should consider higher Standard tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower-tier service, if those query volumes don't occur. For more information on how to calculate query throughput, see [Monitor queries](search-monitor-queries.md).
 
 The Storage Optimized tiers are useful for large data workloads, supporting more overall available index storage for when query latency requirements are less important. You should still use additional replicas for load balancing and additional partitions for parallel processing. You can then tune for performance after the service is provisioned.
 

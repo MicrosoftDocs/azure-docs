@@ -31,7 +31,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/create-resource-azcli.md)]
+[!INCLUDE [Azure CLI](./includes/create-resource-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
@@ -131,7 +131,7 @@ az communication delete --name "acsResourceName" --resource-group "resourceGroup
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 
 > [!Note]
-> Resource deletion is **permanent** and no data, including event gird filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 ## Next steps
 
@@ -144,4 +144,4 @@ In this quickstart you learned how to:
 > * Delete the resource
 
 > [!div class="nextstepaction"]
-> [Create your first user access tokens](access-tokens.md)
+> [Create your first user access tokens](identity/access-tokens.md)

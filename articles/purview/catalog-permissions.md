@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 12/19/2022
 ---
 
 # Access control in the Microsoft Purview governance portal
@@ -28,7 +28,6 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
     A collection administrator on the [root collection](reference-azure-purview-glossary.md#root-collection) also automatically has permission to the Microsoft Purview governance portal. If your **root collection administrator** ever needs to be changed, you can [follow the steps in the section below](#administrator-change).
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data share contributor** - A role that can share data within an organization and with other organizations using data sharing capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
@@ -42,8 +41,9 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |User Scenario|Appropriate Role(s)|
 |-------------|-----------------|
 |I just need to find assets, I don't want to edit anything|Data reader|
-|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data curator|
-|I need to edit the glossary or set up new classification definitions|Data curator|
+|I need to edit and manage information about assets|Data curator|
+|I want to create custom classifications | Data curator **or** data source administrator |
+|I need to edit the business glossary |Data curator|
 |I need to view Data Estate Insights to understand the governance posture of my data estate|Data curator|
 |My application's Service Principal needs to push data to the Microsoft Purview Data Map|Data curator|
 |I need to set up scans via the Microsoft Purview governance portal|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
@@ -51,8 +51,11 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |I need to put users into roles in the Microsoft Purview governance portal| Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to create workflows for my Microsoft Purview account in the governance portal| Workflow administrator |
-|I need to share data from sources registered in Microsoft Purview | Data share contributor|
+|I need to share data from sources registered in Microsoft Purview | Data reader |
+|I need to receive shared data in Microsoft Purview | Data reader |
 |I need to view insights for collections I'm a part of | Insights reader **or** data curator |
+|I need to create or manage our [self-hosted integration runtime (SHIR)](manage-integration-runtimes.md) | Data source administrator |
+|I need to create managed private endpoints | Data source administrator |
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview governance portal roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
 >[!NOTE]

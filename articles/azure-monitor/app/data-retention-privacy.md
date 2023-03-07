@@ -49,8 +49,8 @@ There are three sources of data:
   
   * Each SDK has many [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./java-in-process-agent.md) can have such agents.
-* [Availability tests](./monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./opentelemetry-enable.md?tabs=java) can have such agents.
+* [Availability overview](availability-overview.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
 
 ### What kind of data is collected?
 
@@ -62,7 +62,7 @@ The main categories are:
 * Client and server context: OS, locale, device type, browser, and screen resolution.
 * [Exceptions](./asp-net-exceptions.md) and crashes: Stack dumps, `build id`, and CPU type.
 * [Dependencies](./asp-net-dependencies.md): Calls to external services such as REST, SQL, and AJAX. URI or connection string, duration, success, and command.
-* [Availability tests](./monitor-web-app-availability.md): Duration of test and steps, and responses.
+* [Availability tests](availability-overview.md): Duration of test and steps, and responses.
 * [Trace logs](./asp-net-trace-logs.md) and [custom telemetry](./api-custom-events-metrics.md): Anything you code into your logs or telemetry.
 
 For more information, see the section [Data sent by Application Insights](#data-sent-by-application-insights).
@@ -232,7 +232,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2, unl
 | Azure App Services  | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Azure Function Apps | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supported, Long Term Support (LTS). | For detailed configuration information, refer to [these instructions](/dotnet/framework/network-programming/tls). |
-|Status Monitor | Supported, configuration required. | Status Monitor relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
+|Application Insights Agent| Supported, configuration required. | Application Insights Agent relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration might be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
@@ -277,7 +277,7 @@ The SDKs vary between platforms, and there are several components that you can i
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
-| [Install Status Monitor on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Install Application Insights Agent on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Add Application Insights SDK to a Java web app][java] |ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users |
 | [Add JavaScript SDK to webpage][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Define default properties][apiproperties] |**Properties** on all standard and custom events |
@@ -304,7 +304,7 @@ For [SDKs for other platforms][platforms], see their documents.
 | Client perf |URL/page name, browser load time |
 | Ajax |HTTP calls from webpage to server |
 | Requests |URL, duration, response code |
-| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Status Monitor) |
+| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Application Insights Agent) |
 | Exceptions |Type, message, call stacks, source file, line number, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; application patch, `id`, build; exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type |
 | Trace |Message and severity level |
@@ -321,10 +321,6 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
-## Credits
-
-This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com).
-
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
@@ -332,8 +328,8 @@ This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com
 [client]: ./javascript.md
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
-[java]: ./java-in-process-agent.md
-[platforms]: ./platforms.md
+[java]: ./opentelemetry-enable.md?tabs=java
+[platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md

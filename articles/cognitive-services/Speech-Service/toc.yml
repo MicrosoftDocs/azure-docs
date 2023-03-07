@@ -6,6 +6,9 @@ items:
   items:
   - name: Speech service overview
     href: overview.md
+  - name: What's new
+    href: releasenotes.md
+    displayName: reference, new, change, update
   - name: Language and voice support
     displayName: language,locale,voice,gender,neural
     href: language-support.md
@@ -118,13 +121,21 @@ items:
       href: get-started-text-to-speech.md
     - name: How to synthesize speech
       href: how-to-speech-synthesis.md
-    - name: Synthesize from long-form text
-      href: long-audio-api.md
+    - name: Batch synthesis API
+      href: batch-synthesis.md
     - name: Improve synthesis with SSML
-      href: speech-synthesis-markup.md
-    - name: SSML phonetic sets
-      href: speech-ssml-phonetic-sets.md
-      displayName: ipa, phoneme, phonetic, prosody
+      items:
+      - name: SSML overview
+        href: speech-synthesis-markup.md
+      - name: SSML document structure and events
+        href: speech-synthesis-markup-structure.md
+      - name: Voice and sound with SSML
+        href: speech-synthesis-markup-voice.md
+      - name: Pronunciation with SSML
+        href: speech-synthesis-markup-pronunciation.md
+      - name: SSML phonetic sets
+        href: speech-ssml-phonetic-sets.md
+        displayName: ipa, phoneme, phonetic, prosody
     - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
     - name: Get facial position with viseme
@@ -132,21 +143,32 @@ items:
       displayName: viseme, phoneme, phonetic
     - name: Custom Neural Voice
       items:
-        - name: What is custom neural voice?
+        - name: What is Custom Neural Voice?
           href: custom-neural-voice.md
-        - name: Create a Project
-          displayName: 'custom voice, neural voice'
-          href: how-to-custom-voice.md
-        - name: Prepare data for training
-          href: how-to-custom-voice-prepare-data.md
+          displayName: cnv
+        - name: Custom Neural Voice Lite
+          href: custom-neural-voice-lite.md
+          displayName: cnv
+        - name: Create a Custom Neural Voice 
+          items:
+          - name: Create a project
+            displayName: custom voice, neural voice, cnv
+            href: how-to-custom-voice.md
+          - name: Set up voice talent
+            href: how-to-custom-voice-talent.md
+          - name: Prepare training data
+            href: how-to-custom-voice-prepare-data.md
+          - name: Train your voice model
+            href: how-to-custom-voice-create-voice.md
+          - name: Deploy and use your voice model
+            href: how-to-deploy-and-use-endpoint.md
+        - name: Training data types
+          href: how-to-custom-voice-training-data.md
         - name: How to record voice samples
           href: record-custom-voice-samples.md
-        - name: Train your voice model
-          href: how-to-custom-voice-create-voice.md
-        - name: Deploy and use your voice model
-          href: how-to-deploy-and-use-endpoint.md
     - name: Audio Content Creation
-      href: how-to-audio-content-creation.md 
+      href: how-to-audio-content-creation.md
+      displayName: acc
 - name: Speech translation
   items:
     - name: Speech translation overview
@@ -157,22 +179,18 @@ items:
       href: how-to-translate-speech.md
 - name: Intent recognition
   items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
-    - name: Pattern matching overview
+    - name: Pattern matching concepts
       href: pattern-matching-overview.md
-    - name: Recognize speech intents with LUIS
-      href: get-started-intent-recognition.md
-    - name: Recognize speech intents with simple pattern matching
+    - name: Intent recognition with simple pattern matching quickstart
       href: how-to-use-simple-language-pattern-matching.md
-    - name: Recognize speech intents with custom entity pattern matching
+    - name: Intent recognition with custom entity pattern matching
       href: how-to-use-custom-entity-pattern-matching.md
-    - name: LUIS developer resources
-      href: ../luis/developer-reference-resource.md
-    - name: Language support
-      href: ../luis/luis-language-support.md
+    - name: Intent recognition with CLU quickstart
+      href: get-started-intent-recognition-clu.md
+    - name: Recognize speech intents with LUIS (deprecated)
+      href: get-started-intent-recognition.md
 - name: Speaker recognition
   items:
     - name: Speaker recognition overview
@@ -206,14 +224,20 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+    - name: Gaming integration
+      href: gaming-concepts.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment with speech to text
-          items:
-            - name: Pronunciation Assessment in Speech Studio
-              href: pronunciation-assessment-tool.md
-            - name: How to use Pronunciation Assessment
-              href: how-to-pronunciation-assessment.md
+      - name: Overview
+        href: language-learning-overview.md
+      - name: Pronunciation Assessment with speech to text
+        items:
+        - name: Pronunciation Assessment in Speech Studio
+          href: pronunciation-assessment-tool.md
+          displayName: pronounce, learn language, assess pron
+        - name: How to use Pronunciation Assessment
+          href: how-to-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -343,6 +367,7 @@ items:
           href: how-to-use-logging.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
+          displayName: help, faq, tsg, error
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
@@ -352,7 +377,9 @@ items:
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
-      displayName: rest
+      displayName: rest, swagger
+    - name: Embedded Speech
+      href: embedded-speech.md
     - name: Speech containers
       items:
         - name: Cognitive Services containers documentation
@@ -393,6 +420,8 @@ items:
           - name: From Speech-to-text v2.0 to v3.0
             href: migrate-v2-to-v3.md
             displayName: migrate,migration,deprecate,retire,sunset
+        - name: From Long Audio API to Batch synthesis API
+          href: migrate-to-batch-synthesis.md
 - name: Devices
   items:
     - name: Devices overview
@@ -407,9 +436,6 @@ items:
       href: devices-sdk-release-notes.md
 - name: Reference
   items:
-    - name: Release notes
-      href: releasenotes.md
-      displayName: reference 
     - name: SDK reference
       items:
         - name: C++

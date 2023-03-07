@@ -10,7 +10,7 @@ author: rayoef
 # Deployment Center for Azure Kubernetes
 
 > [!IMPORTANT]
-> Deployment Center for Azure Kubernetes Service will be retired on March 31, 2023. [Learn more](/azure/aks/deployment-center-launcher#retirement)
+> Deployment Center for Azure Kubernetes Service will be retired on March 31, 2023. [Learn more](#retirement)
 
 Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: the ability to gain approval before deploying, provision additional Azure resources, run scripts, upgrade your application, and even run more validation tests.
 
@@ -141,11 +141,11 @@ You can modify these build and release pipelines to meet the needs of your team.
 
 ## Retirement
 
-Deployment Center for Azure Kubernetes will be retired on March 31, 2023 in favor of [Automated deployments](/azure/aks/automated-deployments). We encourage you to switch for enjoy similar capabilities.
+Deployment Center for Azure Kubernetes will be retired on March 31, 2023 in favor of [Automated deployments](./automated-deployments.md). We encourage you to switch for enjoy similar capabilities.
 
 #### Migration Steps
 
-There is no migration required as AKS Deployment center experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure. Moving forward, the recommended way for users to get started on CI/CD for AKS will be using [Automated deployments](/azure/aks/automated-deployments) feature. 
+There is no migration required as AKS Deployment center experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure. Moving forward, the recommended way for users to get started on CI/CD for AKS will be using [Automated deployments](./automated-deployments.md) feature. 
 
 For existing pipelines, users will still be able to perform all operations from GitHub Actions or Azure DevOps after the retirement of this experience. Only the ability to create and view pipelines from Azure portal will be removed. See [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how to get started. 
 

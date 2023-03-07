@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
-ms.author: prasantp
-author: prasanthpul
-ms.date: 10/21/2021
+ms.author: osomorog
+author: abeomor
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.custom: seodec18
 ---
 

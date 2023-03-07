@@ -4,7 +4,8 @@ description: This article describes how to troubleshoot issues with the Azure Si
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Troubleshoot the process server
