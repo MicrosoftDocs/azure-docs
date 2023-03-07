@@ -21,16 +21,18 @@ This provides you with a number of advantages:
 
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at big scales without have to export data to external services.  
-- Running custom code on using your web browser lets you get started quickly without having to install Python or other tools on your local computer.
+- Running custom code on your web browser lets you get started quickly without having to install Python or other tools on your local computer.
 
 ## Process overview
 
 In this tutorial, you'll: 
-
-1. Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/). 
-1. Run KQL queries and custom code on data in the Log Analytics workspace from the notebook.
-1. Explore and visualize log data in your notebook. 
-1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
+> [!div class="checklist"]
+> * Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/). 
+> * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook.
+> * Prepare data for model training. 
+> * Train and test regression models on historical data.
+> * Score new data using the trained model.
+> * Ingest anomalies into a custom table in your Log Analytics workspace. 
 
 ## Tools you'll use
 
@@ -150,7 +152,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     Let's use the `scikit-learn` library's [TimeSeriesSplit() time series cross-validator](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) to split the dataset into a training set and a test set.
     
  
-## Train the model
+## Train and test regression models on historical data
 
 1. Train and evaluate a [linear regression model](https://scikit-learn.org/stable/modules/linear_model.html).
 
@@ -170,11 +172,19 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-gradient-boosting-regression-score.png" alt-text="Printout of the scoring results of the gradient boosting regression model."::: 
 
-    Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - let's use this model to score new data in our Log Analytics workspace.
+    Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - we'll use this model to score new data in our Log Analytics workspace.
 
 1. Save the trained gradient boosting regression model as a [pickle file](https://docs.python.org/library/pickle.html).
 
 
-
 ## Score new data using the trained model
 
+## Ingest anomalies into a custom table in your Log Analytics workspace
+
+## Next steps
+
+Learn more about: 
+
+- [Log queries in Azure Monitor](log-query-overview.md).
+- [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
