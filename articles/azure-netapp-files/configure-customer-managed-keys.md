@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions 
-ms.date: 02/21/2023
+ms.date: 03/07/2023
 ms.author: anfdocs
 ---
 
@@ -56,9 +56,39 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 Azure NetApp Files customer-managed keys is supported for the following regions: 
 
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central 
+* Central US
 * East Asia
+* East US
 * East US 2
+* France Central 
+* Germany North
+* Germany West Central
+* Japan East
+* Japan West
+* Korea Central
+* North Central US
+* North Europe
+* Norway East
+* Norway West
+* South Africa North
+* South Central US
+* South India
+* Southeast Asia
+* Sweden Central
+* Switzerland North
+* UAE Central
+* UAE North
+* UK South
 * West Europe
+* West US
+* West US 2
+* West US 3
 
 ## Requirements
 
