@@ -17,12 +17,12 @@ Web categories lets administrators allow or deny user access to web site categor
 For more information, see [Azure Firewall Premium features](premium-features.md#web-categories).
 
 > [!IMPORTANT]
-> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
+> Microsoft is transitioning to an updated and new Web Content Filtering category feed. This will contain more granularity and additional subcategorizations.
 >
 >As a result, the following web categories are are no longer available:
 > - Child inappropriate, Greeting cards, and School Cheating.
 > 
-> In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these features return.
+> In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months.
 >
 > To mitigate, we recommend configuring critical websites (FQDNs and URLs) directly in application rules through the Azure portal/Azure PowerShell/CLI as a backup. For more information, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 >
