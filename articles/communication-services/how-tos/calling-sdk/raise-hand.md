@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 09/09/2022
 ms.custom: template-how-to
-zone_pivot_groups: acs-web-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to learn how to send and receive Raise Hand state using SDK.
 ---
