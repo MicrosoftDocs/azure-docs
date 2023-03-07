@@ -27,7 +27,7 @@ In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. 
 Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 > [!TIP]
-> For this guide, we recommend using the resource group name ``msdocs-cosmos-howto-rg``.
+> For this guide, we recommend using the resource group name ``msdocs-cosmos-quickstart-rg``.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -122,7 +122,7 @@ When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete 
 
 ## Next steps
 
-In this guide, you learned how to create an Azure Cosmos DB for MongoDB (vCore) cluster. You can now migrate data to your cluster.
+In this guide, you learned how to create an Azure Cosmos DB for MongoDB vCore cluster. You can now migrate data to your cluster.
 
 > [!div class="nextstepaction"]
-> [Migrate data to Azure Cosmos DB for MongoDB (vCore)](how-to-migrate-data.md)
+> [Migrate data to Azure Cosmos DB for MongoDB vCore](how-to-migrate-data.md)
