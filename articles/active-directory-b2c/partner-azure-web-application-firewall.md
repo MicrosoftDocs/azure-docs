@@ -1,12 +1,11 @@
 ---
 title: Tutorial to configure Azure Active Directory B2C with Azure Web Application Firewall
 titleSuffix: Azure AD B2C
-description: Tutorial to configure Azure Active Directory B2C with Azure Web application firewall to protect your applications from malicious attacks 
+description: Learn to configure Azure AD B2C with Azure Web application firewall to protect applications from malicious attacks 
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -15,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Azure Web Application Firewall with Azure Active Directory B2C
+# Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall
 
 In this sample tutorial, learn how to enable [Azure Web Application Firewall (WAF)](https://azure.microsoft.com/services/web-application-firewall/#overview) solution for Azure Active Directory (AD) B2C tenant with custom domain. Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
 
