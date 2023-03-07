@@ -36,7 +36,7 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
 ```
 
-![MPI latency on Azure HB](./media/hpc/latency-hbv2.png)
+![Screenshot of MPI latency](./media/hpc/latency-hbv2.png)
 
 ## MPI bandwidth
 
@@ -46,7 +46,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-![MPI bandwidth on Azure HB](./media/hpc/bandwidth-hbv2.png)
+![Screenshot of MPI bandwidth](./media/hpc/bandwidth-hbv2.png)
 
 ## Mellanox Perftest
 
