@@ -37,80 +37,77 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Set up application
-
-First, install the client library. You can install the client library with:
-
-```console
-python -m pip install azure-ai-vision
-```
-
-Next create a new Python file &mdash; *quickstart-file.py*, for example. 
-
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Analyze Image
 
-Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
+1. Open a command prompt where you want the new project, and create a new file named *quickstart.py*.
+1. Run this command to install the Azure AI Vision client library:
 
-<!--[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]-->
+    ```console
+    python -m pip install azure-ai-vision
+    ```
 
-```python
-import os
-import azure.ai.vision as sdk
+1. Copy the following code into *quickstart.py*:
 
-service_options = sdk.VisionServiceOptions(
-     os.environ["VISION_ENDPOINT"],
-     os.environ["VISION_KEY"])
+    <!--[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]-->
+    
+    ```python
+    import os
+    import azure.ai.vision as sdk
+    
+    service_options = sdk.VisionServiceOptions(
+         os.environ["VISION_ENDPOINT"],
+         os.environ["VISION_KEY"])
+    
+    vision_source = sdk.VisionSource(
+        url="https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png")
+    
+    analysis_options = sdk.ImageAnalysisOptions()
+    
+    analysis_options.features = (
+        sdk.ImageAnalysisFeature.CAPTION |
+        sdk.ImageAnalysisFeature.TEXT
+    )
+    
+    analysis_options.language = "en"
+    
+    analysis_options.gender_neutral_caption = True
+    
+    image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
+    
+    result = image_analyzer.analyze()
+    
+    if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
+    
+        if result.caption is not None:
+            print(" Caption:")
+            print("   '{}', Confidence {:.4f}".format(result.caption.content, result.caption.confidence))
+    
+        if result.text is not None:
+            print(" Text:")
+            for line in result.text.lines:
+                points_string = "{" + ", ".join([str(int(point)) for point in line.bounding_polygon]) + "}"
+                print("   Line: '{}', Bounding polygon {}".format(line.content, points_string))
+                for word in line.words:
+                    points_string = "{" + ", ".join([str(int(point)) for point in word.bounding_polygon]) + "}"
+                    print("     Word: '{}', Bounding polygon {}, Confidence {:.4f}"
+                            .format(word.content, points_string, word.confidence))
+    
+    elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
+    
+        error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
+        print(" Analysis failed.")
+        print("   Error reason: {}".format(error_details.reason))
+        print("   Error code: {}".format(error_details.error_code))
+        print("   Error message: {}".format(error_details.message))
+    ```
 
-vision_source = sdk.VisionSource(
-    url="https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png")
+1. Then run the application with the `python` command on your quickstart file.
 
-analysis_options = sdk.ImageAnalysisOptions()
-
-analysis_options.features = (
-    sdk.ImageAnalysisFeature.CAPTION |
-    sdk.ImageAnalysisFeature.TEXT
-)
-
-analysis_options.language = "en"
-
-analysis_options.gender_neutral_caption = True
-
-image_analyzer = sdk.ImageAnalyzer(service_options, vision_source, analysis_options)
-
-result = image_analyzer.analyze()
-
-if result.reason == sdk.ImageAnalysisResultReason.ANALYZED:
-
-    if result.caption is not None:
-        print(" Caption:")
-        print("   '{}', Confidence {:.4f}".format(result.caption.content, result.caption.confidence))
-
-    if result.text is not None:
-        print(" Text:")
-        for line in result.text.lines:
-            points_string = "{" + ", ".join([str(int(point)) for point in line.bounding_polygon]) + "}"
-            print("   Line: '{}', Bounding polygon {}".format(line.content, points_string))
-            for word in line.words:
-                points_string = "{" + ", ".join([str(int(point)) for point in word.bounding_polygon]) + "}"
-                print("     Word: '{}', Bounding polygon {}, Confidence {:.4f}"
-                        .format(word.content, points_string, word.confidence))
-
-elif result.reason == sdk.ImageAnalysisResultReason.ERROR:
-
-    error_details = sdk.ImageAnalysisErrorDetails.from_result(result)
-    print(" Analysis failed.")
-    print("   Error reason: {}".format(error_details.reason))
-    print("   Error code: {}".format(error_details.error_code))
-    print("   Error message: {}".format(error_details.message))
-```
-
-Then run the application with the `python` command on your quickstart file.
-
-```console
-python quickstart-file.py
-```
+    ```console
+    python quickstart-file.py
+    ```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
