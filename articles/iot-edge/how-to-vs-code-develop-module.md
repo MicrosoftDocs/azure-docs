@@ -260,6 +260,30 @@ For example:
 
 ::: zone-end
 
+::: zone pivot="iotedge-dev-cli"
+
+### Set IoT Edge runtime version
+
+The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
+
+1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+        "edgeAgent": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+        ...
+        "edgeHub": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+        ...
+    ```
+
+::: zone-end
+
 ## Add more modules
 
 To add more modules to your solution, change to the *modules* directory and add them there.
