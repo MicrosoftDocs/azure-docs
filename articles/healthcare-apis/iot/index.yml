@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use the monitoring and health check tabs
+          - text: Use the monitoring and health checks tabs
             url: how-to-use-monitoring-and-health-checks-tabs.md
           - text: Configure metrics
             url: how-to-configure-metrics.md
