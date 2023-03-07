@@ -44,7 +44,7 @@
 - name: Concepts
   items:
   - name: Azure Virtual Desktop terminology
-    href: environment-setup.md
+    href: terminology.md
   - name: Deploy
     items:
     - name: Session hosts
@@ -367,7 +367,7 @@
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
     - name: Customize feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Set up multimedia redirection (preview)
+    - name: Set up multimedia redirection
       href: multimedia-redirection.md
   - name: Monitor
     items:

@@ -339,36 +339,36 @@
         href: hb-series.md
         items:
         - name: Overview
-          href: ./workloads/hpc/hb-series-overview.md
+          href: hb-series-overview.md
         - name: Performance
-          href: ./workloads/hpc/hb-series-performance.md
+          href: hb-series-performance.md
         - name: HB-series retirement
           href: hb-series-retirement.md
       - name: HBv2-series
         href: hbv2-series.md
         items:
         - name: Overview
-          href: ./workloads/hpc/hbv2-series-overview.md
+          href: hbv2-series-overview.md
         - name: Performance
-          href: ./workloads/hpc/hbv2-performance.md
+          href: hbv2-performance.md
       - name: HBv3-series
         items:
         - name: Overview
-          href: ./workloads/hpc/hbv3-series-overview.md
+          href: hbv3-series-overview.md
         - name: HBv3-series
           href: hbv3-series.md
         - name: Performance
-          href: ./workloads/hpc/hbv3-performance.md
+          href: hbv3-performance.md
       - name: HBv4-series
         href: hbv4-series.md
       - name: HC-series
         items:
         - name: Overview
-          href: ./workloads/hpc/hc-series-overview.md
+          href: hc-series-overview.md
         - name: HC-series
           href: hc-series.md
         - name: Performance
-          href: ./workloads/hpc/hc-series-performance.md
+          href: hc-series-performance.md
       - name: HX-series
         href: hx-series.md
     - name: Previous generations
