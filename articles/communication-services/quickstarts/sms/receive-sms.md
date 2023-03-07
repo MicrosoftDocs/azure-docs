@@ -44,7 +44,8 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
 
 To start generating the events, we must configure Azure Event Grid for our Azure Communication Services resource.
 
-> [!NOTE] Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+> [!NOTE] 
+> Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Pre-requisites
 
