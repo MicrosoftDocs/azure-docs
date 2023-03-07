@@ -30,14 +30,14 @@ sections:
           
           SREs hate toil. They work to eliminate it whenever possible and appropriate. This is one of the places automation comes into play in SRE. If these requests can be handled automatically, that frees up the team to work on more rewarding and impactful things.
           
-          *Coding expertise*: automation requires some coding expertise, but it does not have to require full software engineering skills. If you can write small scripts (perhaps in PowerShell or Bourne shell) or even if you create an [https://docs.microsoft.com/azure/logic-apps/logic-apps-overview](Azure Logic app) with barely any code, this app can still help eliminate toil.
+          *Coding expertise*: automation requires some coding expertise, but it does not have to require full software engineering skills. If you can write small scripts (perhaps in PowerShell or Bourne shell) or even if you create an [Azure logic app](../../logic-apps/logic-apps-overview.md) with barely any code, this app can still help eliminate toil.
           
       - question: |
           Scenario 2: Control through APIs/domain specific languages (DSLs)/templates
         answer: |
           Though not strictly necessary for SRE work, being able to control environments through APIs, DSLs, and Templates (especially cloud environments) allow SREs to scale up their work. Provisioning/De-provisioning infrastructure, configuring monitoring, and integrating several services all becomes much more efficient via coding.
           
-          *Coding expertise*: like the previous scenario, this requires some coding expertise, but it does not have to require full software engineering skills. In addition to the scripts and Logic apps mentioned before, [https://docs.microsoft.com/azure/azure-resource-manager/templates/overview](Azure Resource Manager Templates) can also be used with minimal coding experience.
+          *Coding expertise*: like the previous scenario, this requires some coding expertise, but it does not have to require full software engineering skills. In addition to the scripts and logic apps mentioned before, [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) can also be used with minimal coding experience.
           
       - question: |
           Scenario 3: Fixing the code
@@ -50,4 +50,4 @@ sections:
 additionalContent: |
 
   ## Next steps
-     Interested in learning more about site reliability engineering and low-code work? Check out our [site reliability engineering hub](../index.yml), the product documentation linked above.         
+     Interested in learning more about site reliability engineering and low-code work? Check out our [site reliability engineering hub](../index.yml), the product documentation linked above.

@@ -5,15 +5,16 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 08/10/2022
 ---
 
 # Migrate normalized database schema from Azure SQL Database to Azure Cosmos DB denormalized container
 
 This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure Cosmos DB denormalized schema for loading into Azure Cosmos DB.
 
-SQL schemas are typically modeled using third normal form, resulting in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. Cosmos DB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
+SQL schemas are typically modeled using third normal form, resulting in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. Azure Cosmos DB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
 
 Using Azure Data Factory, we'll build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure Cosmos DB container.
 
@@ -34,7 +35,7 @@ The representative SQL query for this guide is:
 FROM SalesLT.SalesOrderHeader o;
 ```
 
-The resulting Cosmos DB container will embed the inner query into a single document and look like this:
+The resulting Azure Cosmos DB container will embed the inner query into a single document and look like this:
 
 :::image type="content" source="media/data-flow/cosmosb3.png" alt-text="Collection":::
 
@@ -54,7 +55,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 6. Define the source for "SourceOrderHeader". For dataset, create a new Azure SQL Database dataset that points to the ```SalesOrderHeader``` table.
 
-7. On the top source, add a Derived Column transformation after "SourceOrderDetails". Call the new transformation "TypeCast". We need to round the ```UnitPrice``` column and cast it to a double data type for Cosmos DB. Set the formula to: ```toDouble(round(UnitPrice,2))```.
+7. On the top source, add a Derived Column transformation after "SourceOrderDetails". Call the new transformation "TypeCast". We need to round the ```UnitPrice``` column and cast it to a double data type for Azure Cosmos DB. Set the formula to: ```toDouble(round(UnitPrice,2))```.
 
 8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure ```orderdetailsstruct``` and create the hierarchy in this way, setting each subcolumn to the incoming column name:
 
@@ -66,7 +67,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
     :::image type="content" source="media/data-flow/cosmosb4.png" alt-text="Join":::
 
-11. Before we can create the arrays to denormalize these rows, we first need to remove unwanted columns and make sure the data values will match Cosmos DB data types.
+11. Before we can create the arrays to denormalize these rows, we first need to remove unwanted columns and make sure the data values match Azure Cosmos DB data types.
 
 12. Add a Select transformation next and set the field mapping to look like this:
 
@@ -86,7 +87,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
     :::image type="content" source="media/data-flow/cosmosb6.png" alt-text="Aggregate":::
 
-18. We're ready to finish the migration flow by adding a sink transformation. Click "new" next to dataset and add a Cosmos DB dataset that points to your Cosmos DB database. For the collection, we'll call it "orders" and it will have no schema and no documents because it will be created on the fly.
+18. We're ready to finish the migration flow by adding a sink transformation. Click "new" next to dataset and add an Azure Cosmos DB dataset that points to your Azure Cosmos DB database. For the collection, we'll call it "orders" and it will have no schema and no documents because it will be created on the fly.
 
 19. In Sink Settings, Partition Key to ```/SalesOrderID``` and collection action to "recreate". Make sure your mapping tab looks like this:
 
@@ -96,7 +97,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
     :::image type="content" source="media/data-flow/cosmosb8.png" alt-text="Screenshot shows the Data preview tab.":::
 
-If everything looks good, you are now ready to create a new pipeline, add this data flow activity to that pipeline and execute it. You can execute from debug or a triggered run. After a few minutes, you should have a new denormalized container of orders called "orders" in your Cosmos DB database.
+If everything looks good, you are now ready to create a new pipeline, add this data flow activity to that pipeline and execute it. You can execute from debug or a triggered run. After a few minutes, you should have a new denormalized container of orders called "orders" in your Azure Cosmos DB database.
 
 ## Next steps
 

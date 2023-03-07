@@ -3,7 +3,7 @@ title: Assign a user as an administrator of an Azure subscription - Azure RBAC
 description: Learn how to make a user an administrator of an Azure subscription using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
@@ -99,5 +99,5 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 ## Next steps
 
 - [Assign Azure roles using the Azure portal](role-assignments-portal.md)
-- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [Alert on privileged Azure role assignments](role-assignments-alert.md)

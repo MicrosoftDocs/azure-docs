@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 03/14/2021
+ms.date: 06/24/2022
 ---
 
 # Infrastructure double encryption for Azure Database for PostgreSQL
@@ -59,4 +59,3 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 ## Next steps
 
 To learn more about data encryption, see [Azure Database for PostgreSQL data Infrastructure double encryption](concepts-Infrastructure-double-encryption.md).
-

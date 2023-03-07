@@ -1,13 +1,14 @@
 ---
 title: Manage Azure Service Fabric app load using metrics 
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Managing resource consumption and load in Service Fabric with metrics
 *Metrics* are the resources that your services care about and which are provided by the nodes in the cluster. A metric is anything that you want to manage in order to improve or monitor the performance of your services. For example, you might watch memory consumption to know if your service is overloaded. Another use is to figure out whether the service could move elsewhere where memory is less constrained in order to get better performance.
 
@@ -54,6 +55,11 @@ Metrics are configured on a per-named-service-instance basis when you’re creat
 Any metric has some properties that describe it: a name, a weight, and a default load.
 
 * Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+
+> [!NOTE]
+> Custom metric Name should not be any of the system metric names i.e servicefabric:/_CpuCores or servicefabric:/_MemoryInMB as it can lead to undefined behavior. Starting with Service Fabric version 9.1, for existing services with these custom metric names, a health warning is issued to indicate that the metric name is incorrect.
+>
+
 * Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
 * Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
   * For stateless services, each metric has a single property named DefaultLoad
@@ -142,7 +148,7 @@ The whole point of defining metrics is to represent some load. *Load* is how muc
 All of these strategies can be used within the same service over its lifetime.
 
 ## Default load
-*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads works great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
+*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads work great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
 
 > [!NOTE]
 > For more information on capacity management and defining capacities for the nodes in your cluster, please see [this article](service-fabric-cluster-resource-manager-cluster-description.md#capacity).

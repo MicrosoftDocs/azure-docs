@@ -36,7 +36,9 @@
             href: data-box-deploy-copy-data-via-copy-service.md
           - name: To managed disks
             href: data-box-deploy-copy-data-from-vhds.md
-        - name: 4 - Return, upload, verify
+        - name: 4 - Prepare to ship
+          href: data-box-deploy-prepare-to-ship.md
+        - name: 5 - Return, upload, verify
           href: data-box-deploy-picked-up.md
       - name: Export data from Azure
         items: 
@@ -159,6 +161,8 @@
         href: data-box-disk-limits.md
       - name: Review security 
         href: data-box-disk-security.md 
+      - name: Transfer ACLs and metadata
+        href: data-box-disk-file-acls-preservation.md 
       - name: FAQ
         href: data-box-disk-faq.yml  
     - name: How to
@@ -252,7 +256,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.databox
     - name: .NET APIs
-      href: /dotnet/api/overview/azure/databox/management
+      href: /dotnet/api/overview/azure/databox#management-apis
     - name: .NET SDK
       href: https://www.nuget.org/packages/Microsoft.Azure.Management.DataBox/
     - name: Azure Policy built-ins
@@ -268,3 +272,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/disk/
     - name: Data Box partners
       href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
+    - name: Data Box hardware additional terms
+      href: data-box-hardware-additional-terms.md

@@ -42,7 +42,7 @@ Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScri
         <td><h1 style="font-weight:500;">Microsoft Cognitive Services Speech SDK JavaScript Quickstart</h1></td>
       </tr>
       <tr>
-        <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+        <td align="right"><a href="https://learn.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
         <td><input id="subscriptionKey" type="text" size="40" value="subscription"></td>
       </tr>
       <tr>

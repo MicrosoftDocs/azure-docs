@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Use data history with Azure Data Explorer (preview)
+title: Use data history with Azure Data Explorer
 titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/23/2022
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -16,9 +16,9 @@ ms.custom: event-tier1-build-2022
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins data history (preview)
+# Use Azure Digital Twins data history
 
-[Data history (preview)](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
@@ -28,7 +28,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs.
+>Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the rest APIs.
 
 ## Prerequisites
 
@@ -72,34 +72,11 @@ databasename="<name-for-your-database>"
 
 ## Create an Azure Digital Twins instance with a managed identity
 
-If you already have an Azure Digital Twins instance, ensure that you've enabled a [system-managed identity](how-to-route-with-managed-identity.md#add-a-system-managed-identity-to-an-existing-instance) for it.
+If you already have an Azure Digital Twins instance, ensure that you've enabled a [system-assigned managed identity](how-to-set-up-instance-cli.md#system-assigned-identity-commands) for it.
 
-If you don't have an Azure Digital Twins instance, set one up using the instructions in this section.
+If you don't have an Azure Digital Twins instance, follow the instructions in [Create the instance with a managed identity](how-to-set-up-instance-cli.md#system-assigned-identity-command) to create an Azure Digital Twins instance with a system-assigned managed identity for the first time.
 
-# [CLI](#tab/cli) 
-
-Use the following command to create a new instance with a system-managed identity. The command uses three local variables (`$dtname`, `$resourcegroup`, and `$location`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
-
-```azurecli-interactive
-az dt create --dt-name $dtname --resource-group $resourcegroup --location $location --assign-identity
-```
-
-Next, use the following command to grant yourself the *Azure Digital Twins Data Owner* role on the instance. The command has one placeholder, `<owneruser@microsoft.com>`, that you should replace with your own Azure account information, and uses a local variable (`$dtname`) that was created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
-
-```azurecli-interactive
-az dt role-assignment create --dt-name $dtname --assignee "<owneruser@microsoft.com>" --role "Azure Digital Twins Data Owner"
-```
-
->[!NOTE]
->It may take up to five minutes for this RBAC change to apply. 
-
-# [Portal](#tab/portal)
-
-Follow the instructions in [Set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md) to create an instance, making sure to enable a **system-managed identity** in the [Advanced](how-to-set-up-instance-portal.md#additional-setup-options) tab during setup. Then, continue through the article's instructions to set up user access permissions so that you have the Azure Digital Twins Data Owner role on the instance.
-
-Remember the name you give to your instance so you can use it later.
-
----
+Then, make sure you have *Azure Digital Twins Data Owner* role on the instance. You can find instructions in [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ## Create an Event Hubs namespace and event hub
 
@@ -175,8 +152,11 @@ Now that you've created the required resources, use the command below to create 
 
 # [CLI](#tab/cli) 
 
-Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`.
-The command uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Use the command in this section to create a data history connection. 
+
+By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`. You can also see the full list of optional parameters, including how to specify a table name and more, in its reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
+
+The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace

@@ -2,7 +2,7 @@
 title: What is Azure Relay? | Microsoft Docs
 description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
 ms.topic: overview
-ms.date: 09/02/2021
+ms.date: 12/08/2022
 ms.custom: contperf-fy22q1
 ---
 
@@ -74,9 +74,9 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **RPC programming models** | |x |
 
 ## Architecture: Processing of incoming relay requests
-The following diagram shows you how incoming relay requests are handled by the Azure Relay service:
+The following diagram shows you how incoming relay requests are handled by the Azure Relay service when both sending and receiving clients are outside a corporate network.
 
-![Processing of Incoming WCF Relay Requests](./media/relay-what-is-it/ic690645.png)
+![Processing of Incoming WCF Relay Requests](./media/relay-what-is-it/process-flow.svg)
 
 1. Listening client sends a listening request to the Azure Relay service. The Azure load balancer routes the request to one of the gateway nodes. 
 2. The Azure Relay service creates a relay in the gateway store. 

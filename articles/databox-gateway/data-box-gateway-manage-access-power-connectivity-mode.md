@@ -65,7 +65,7 @@ When generating the activation key for the device, or performing any operations 
 
 You should have `User` access on the Active Directory tenant so you can `Read all directory objects`. A Guest user doesn't have permissions to `Read all directory objects`. If you're a guest, operations like generating an activation key, creating a share on your device, and creating a user will fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Overview of Microsoft Graph permissions](/graph/permissions-overview).
 
 ### Register resource providers
 

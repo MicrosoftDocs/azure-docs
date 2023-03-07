@@ -36,6 +36,9 @@ In this quick start, you'll learn about how to connect a verified domain in Azur
     - Verified Domain
     
     :::image type="content" source="./media/email-domains-connect-select.png" alt-text="Screenshot that shows how to filter and select one of the verified email domains to connect." lightbox="media/email-domains-connect-select-expanded.png":::
+> [!Note]
+> We allow only connecting the domains in the same geography. Please ensure that Data location for Communication Resource and Email Communication Resource that was selected during resource creation are the same.
+
 5. Click Connect
  
     :::image type="content" source="./media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domain is now connected." lightbox="media/email-domains-connected-expanded.png":::

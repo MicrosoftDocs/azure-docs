@@ -1,6 +1,6 @@
 ---
 title: Enable and configure SAP auditing for Microsoft Sentinel | Microsoft Docs
-description: This article shows you how to enable and configure auditing for the Microsoft Sentinel Continuous Threat Monitoring solution for SAP, so that you can have complete visibility into your SAP solution.
+description: This article shows you how to enable and configure auditing for the Microsoft Sentinel Solution for SAP, so that you can have complete visibility into your SAP solution.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
@@ -9,18 +9,14 @@ ms.date: 04/27/2022
 
 # Enable and configure SAP auditing for Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-This article shows you how to enable and configure auditing for the Microsoft Sentinel Continuous Threat Monitoring solution for SAP, so that you can have complete visibility into your SAP solution.
+This article shows you how to enable and configure auditing for the Microsoft Sentinel Solution for SAP, so that you can have complete visibility into your SAP solution.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
 > We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 >
 > The steps in this article may vary, depending on your SAP sytem's version, and should be considered as a sample only.
 
-Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel Continuous Threat Monitoring solution for SAP, enable auditing of your SAP system and configure the audit parameters.
+Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel Solution for SAP, enable auditing of your SAP system and configure the audit parameters.
 
 ## Check if auditing is enabled
 
@@ -73,7 +69,7 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 ### Recommended audit categories
 
-The following table lists Message IDs used by the Continuous Threat Monitoring for SAP solution. In order for analytics rules to detect events properly, we strongly recommend configuring an audit policy that includes the message IDs listed below as a minimum.
+The following table lists Message IDs used by the Microsoft Sentinel Solution for SAP. In order for analytics rules to detect events properly, we strongly recommend configuring an audit policy that includes the message IDs listed below as a minimum.
 
 | Message ID | Message text | Category name | Event Weighting | Class Used in Rules |
 | - | - | - | - | - |
@@ -90,6 +86,7 @@ The following table lists Message IDs used by the Continuous Threat Monitoring f
 | AUD | User master record &A changed. | User Master Record Change | Severe | Used |
 | AUE | Audit configuration changed | System | Critical | Used |
 | AUF | Audit: Slot &A: Class &B, Severity &C, User &D, Client &E, &F | System | Critical | Used |
+| AUG | Application server started | System | Critical | Used |
 | AUI | Audit: Slot &A Inactive | System | Critical | Used |
 | AUJ | Audit: Active status set to &1 | System | Critical with Monitor Alert | Used |
 | AUK | Successful RFC call &C (function group = &A) | RFC Start | Non-Critical | Used |
@@ -129,25 +126,25 @@ The following table lists Message IDs used by the Continuous Threat Monitoring f
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel SAP solutions:
+Learn more about the Microsoft Sentinel Solution for SAP:
 
-- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Deploy the SAP data connector with SNC](configure-snc.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

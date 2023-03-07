@@ -12,14 +12,14 @@ ms.custom: include file
 <!-- this tells how to get the connection string for your hub -->
 <!-- This assumes the user is looking at his hub in the portal. -->
 
-After your hub has been created, retrieve the connection string for the hub. This is used to connect devices and applications to your hub. 
+After your hub has been created, retrieve the connection string. This string is used to connect devices and applications to your hub. 
 
 1. Click on your hub to see the IoT Hub pane with Settings, and so on. Click **Shared access policies**.
    
 2. In **Shared access policies**, select the **iothubowner** policy. 
 
-3. Under **Shared access keys**, copy the **Connection string -- primary key** to be used later.
+3. Under the new pane that opens from the right, copy the **Primary connection string** and save it to be used later.
 
-    ![Show how to retrieve the connection string](./media/iot-hub-include-find-connection-string/iot-hub-get-connection-string.png)
+   :::image type="content" source="./media/iot-hub-include-find-connection-string/iot-hub-get-connection-string.png" alt-text="Screenshot that shows how to get the 'Primary connection string' from your IoT Hub." lightbox="./media/iot-hub-include-find-connection-string/iot-hub-get-connection-string.png":::
 
-    For more information, see [Access control](../articles/iot-hub/iot-hub-devguide-security.md) in the "IoT Hub developer guide."
+   For more information, see [Access control](../articles/iot-hub/iot-hub-devguide-security.md) in the **IoT Hub developer guide**.

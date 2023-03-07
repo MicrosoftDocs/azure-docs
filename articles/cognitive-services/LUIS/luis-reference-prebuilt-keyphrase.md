@@ -14,6 +14,9 @@ ms.date: 10/28/2021
 ---
 
 # keyPhrase prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The keyPhrase entity extracts a variety of key phrases from an utterance. You don't need to add example utterances containing keyPhrase to the application. The keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [Language service](../language-service/overview.md) features.
 
 ## Resolution for prebuilt keyPhrase entity

@@ -3,7 +3,7 @@ title: About the move process in Azure Resource Mover
 description: Learn about the process for moving resources across regions with Azure Resource Mover
 author: rayne-wiselman
 manager: evansma
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: overview
 ms.date: 02/01/2021
 ms.author: raynew
@@ -19,13 +19,12 @@ ms.author: raynew
 
 These components are used during region move.
 
-**Component** | **Details**
---- | ---
-**Resource Mover** |  Resource Mover coordinates with [Azure resource providers](../azure-resource-manager/management/resource-providers-and-types.md) to orchestrate the move of resources between regions. Resource Mover analyzes resource dependencies, and maintains and manages the state of resources during the move process. 
-**Move collection** |  A move collection is an [Azure Resource Manager](../azure-resource-manager/management/overview.md) object.<br/><br/> The move collection is created during the region move process, for each paired combination of source and target regions in a subscription. The collection contains metadata and configuration information about the resources you want to move.<br/><br/>Resources added to a move collection must be in the same subscription, but can be in different resource groups. 
-**Move resource** | When you add a resource to a move collection, it's tracked by Resource Mover as a move resource.<br/><br/> Resource Mover maintains information for all of the move resources in the move collection, and maintains a one-to-one relationship between the source and target resource. 
-**Dependencies** | Resource Mover validates resources that you add to a collection, and checks whether resources have any dependencies that aren't in the move collection.<br/><br/> After identifying dependencies for a resource, you can either add them dependencies to the move collection and move them too, or you can select alternate existing resources in the target region. All dependencies must be resolved before you start the move. 
-
+| **Component** | **Details** |
+| --- | --- |
+| **Resource Mover** |  Resource Mover coordinates with [Azure resource providers](../azure-resource-manager/management/resource-providers-and-types.md) to orchestrate the move of resources between regions. Resource Mover analyzes resource dependencies, and maintains and manages the state of resources during the move process. |
+| **Move collection** |  A move collection is an [Azure Resource Manager](../azure-resource-manager/management/overview.md) object.<br/><br/> The move collection is created during the region move process, for each paired combination of source and target regions in a subscription. The collection contains metadata and configuration information about the resources you want to move.<br/><br/>Resources added to a move collection must be in the same subscription, but can be in different resource groups. |
+| **Move resource** | When you add a resource to a move collection, it's tracked by Resource Mover as a move resource.<br/><br/> Resource Mover maintains information for all of the move resources in the move collection, and maintains a one-to-one relationship between the source and target resource. | 
+| **Dependencies** | Resource Mover validates resources that you add to a collection, and checks whether resources have any dependencies that aren't in the move collection.<br/><br/> After identifying dependencies for a resource, you can either add them dependencies to the move collection and move them too, or you can select alternate existing resources in the target region. All dependencies must be resolved before you start the move. |
 
 
 ## Move region process 
@@ -68,15 +67,13 @@ If you don’t want to move a resource, you can remove it from the move collecti
 
 The table summarizes what's impacted when you're moving across regions.
 
-**Behavior** | **Across regions**
---- | --- | --- 
-**Data** | Resource data and metadata are moved.<br/><br/> Metadata is stored temporarily to track status of resource dependencies and operations.
-**Resource** | The source resource stays intact to ensure that apps continue to work, and can optionally be removed after the move.<br/><br/> A resource is created in the target region.
-**Move process** | Multi-step process requiring manual intervention and monitoring.
-**Testing** | Testing the move is important, since the apps should continue to work as expected in the target region, after the move.
-**Downtime** |  No data loss expected, but some downtime to move resources.
-
-
+| **Behavior** | **Across regions** |
+| --- | --- | --- |
+| **Data** | Resource data and metadata are moved.<br/><br/> Metadata is stored temporarily to track status of resource dependencies and operations. |
+| **Resource** | The source resource stays intact to ensure that apps continue to work, and can optionally be removed after the move.<br/><br/> A resource is created in the target region. |
+| **Move process** | Multi-step process requiring manual intervention and monitoring. |
+| **Testing** | Testing the move is important, since the apps should continue to work as expected in the target region, after the move. |
+| **Downtime** |  No data loss expected, but some downtime to move resources. |
 
 ## Next steps
 

@@ -19,6 +19,7 @@ When an Azure VM is in the `Stopped` (deallocated) state, you will not be charge
 
 > [!WARNING]
 > In order to preserve any deallocated VMs, you must set Scale-down Mode to Deallocate. That includes VMs that have been deallocated using IaaS APIs (Virtual Machine Scale Set APIs). Setting Scale-down Mode to Delete will remove any deallocate VMs.
+> Once applied the deallocated mode and scale down operation occured, those nodes keep registered in APIserver and appear as NotReady state.
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 

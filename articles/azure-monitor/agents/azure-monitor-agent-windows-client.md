@@ -1,30 +1,31 @@
 ---
-title: Set up the Azure Monitor agent on Windows client devices (Preview)
+title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/20/2022
+ms.date: 10/18/2022
 ms.custom: references_region
+ms.reviewer: shseth
 
 ---
 
-# Azure Monitor agent on Windows client devices (Preview)
+# Azure Monitor agent on Windows client devices
 This article provides instructions and guidance for using the client installer for Azure Monitor Agent. It also explains how to leverage Data Collection Rules on Windows client devices.
 
-With the new client installer available in this preview, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
-Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
+Using the new client installer described here, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
+Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 ### Comparison with virtual machine extension
-Here is a comparison between client installer and VM extension for Azure Monitor agent. It also highlights which parts are in preview:
+Here is a comparison between client installer and VM extension for Azure Monitor agent:
 
 | Functional component | For VMs/servers via extension | For clients via installer|
 |:---|:---|:---|
-| Agent installation method | Via VM extension | Via client installer <sup>preview</sup> |
+| Agent installation method | Via VM extension | Via client installer |
 | Agent installed | Azure Monitor Agent | Same |
-| Authentication | Using Managed Identity | Using AAD device token <sup>preview</sup> |
+| Authentication | Using Managed Identity | Using AAD device token |
 | Central configuration | Via Data collection rules | Same |
-| Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant <sup>preview</sup> |
+| Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant |
 | Data upload to Log Analytics	| Via Log Analytics endpoints | Same |
 | Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
 | [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
@@ -35,8 +36,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 | Device type | Supported? | Installation method | Additional information |
 |:---|:---|:---|:---|
-| Windows 10, 11 desktops, workstations | Yes | Client installer (preview) | Installs the agent using a Windows MSI installer |
-| Windows 10, 11 laptops | Yes |  Client installer (preview) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
+| Windows 10, 11 desktops, workstations | Yes | Client installer | Installs the agent using a Windows MSI installer |
+| Windows 10, 11 laptops | Yes |  Client installer | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
 | Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
@@ -49,9 +50,9 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 5. The device must have access to the following HTTPS endpoints:
 	-	global.handler.control.monitor.azure.com
 	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
-	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)
+	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
-6. Existing data collection rule(s) you wish to associate with the devices. If it doesn't exist already, [follow the guidance here to create data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-associationusingrestapi). **Do not associate the rule to any resources yet**.
+6. A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
@@ -94,12 +95,14 @@ The image below demonstrates how this works:
 
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
+### Permissions required
+Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Azure AD admin 'owner' permissions at the root scope. This is needed for all methods described below in this section.
+
 ### Using REST APIs
 
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
 This step grants the ability to create and link a monitored object to a user.
-**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Azure AD admin 'owner' permissions at the root scope.
 
 **Request URI**
 ```HTTP
@@ -171,7 +174,8 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 
 #### 3. Associate DCR to Monitored Object
-Now we associate the Data Collection Rules (DCR) to the Monitored Object by creating a Data Collection Rule Associations. If you haven't already, [follow instructions here](./data-collection-rule-azure-monitor-agent.md#create-rule-and-associationusingrestapi) to create data collection rule(s) first.
+Now we associate the Data Collection Rules (DCR) to the Monitored Object by creating Data Collection Rule Associations. 
+
 **Permissions required**: Anyone who has ‘Monitored Object Contributor’ at an appropriate scope can perform this operation, as assigned in step 1.
 
 **Request URI**
@@ -258,6 +262,8 @@ Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body
 
 #2. Create Monitored Object
 
+# "location" property value under the "body" section should be the Azure region where the MO object would be stored. It should be the "same region" where you created the Data Collection Rule. This is the location of the region from where agent communications would happen.
+
 $request = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
 $body = @'
 {
@@ -270,7 +276,7 @@ $body = @'
 $Respond = Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body -Verbose
 $RespondID = $Respond.id
 
-#########
+##########################
 
 #3. Associate DCR to Monitored Object
 
@@ -347,4 +353,4 @@ Make sure to start the installer on administrator command prompt. Silent install
 
 
 ## Questions and feedback
-Take this [quick survey](https://forms.microsoft.com/r/CBhWuT1rmM) or share your feedback/questions regarding the preview on the [Azure Monitor Agent User Community](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).
+Take this [quick survey](https://forms.microsoft.com/r/CBhWuT1rmM) or share your feedback/questions regarding the client installer.

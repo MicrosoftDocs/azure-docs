@@ -3,8 +3,8 @@ title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure SignalR Service resources.
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: how-to
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 

@@ -15,8 +15,6 @@ ms.custom: devx-track-js
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript for use with a webpage.
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## Create a folder
 
 Create a new, empty folder. If you want to host the sample on a web server, make sure that the web server can access the folder.
@@ -34,6 +32,12 @@ Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpac
 
 Create a new file named *index.html* in the folder, and open this file with a text editor.
 
-## Next steps
 
-[!INCLUDE [windows](../quickstart-list.md)]
+## HTML script tag
+
+Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>` element, relying on the [JSDelivr NPM syndicate](https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk).
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
+</script>
+```

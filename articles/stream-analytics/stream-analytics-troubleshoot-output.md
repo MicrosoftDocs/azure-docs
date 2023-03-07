@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot Azure Stream Analytics outputs
 description: This article describes techniques to troubleshoot your output connections in Azure Stream Analytics jobs.
-author: sidramadoss
-ms.author: sidram
-
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
@@ -17,7 +16,7 @@ This article describes common issues with Azure Stream Analytics output connecti
 ## The job doesn't produce output
 
 1. Verify connectivity to outputs by using the **Test Connection** button for each output.
-1. Look at [Monitoring metrics](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
+1. Look at [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
 
    * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information. If your job has reference data input, apply splitting by logical name when looking at **Input Events** metric. If there are no input events from your reference data alone, then it likely means that this input source has not be configured properly to fetch the right reference dataset.
    * If the **Data Conversion Errors** value is greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/27/2022
+ms.date: 08/20/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
 
@@ -68,7 +68,7 @@ Follow the option that you want to use for deploying the quickstart template:
    | **Resource group** | <*Azure-resource-group-name*> | The name for a new or existing Azure resource group. This example uses **Check-Azure-Status-RG**. |
    | **Region** | <*Azure-region*> | The Azure datacenter region to use your logic app. This example uses **West US**. |
    | **Logic App Name** | <*logic-app-name*> | The name to use for your logic app. This example uses **Check-Azure-Status-LA**. |
-   | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses **https://status.azure.com/en-us/status/**, which is the Azure status page. |
+   | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses **https://azure.status.microsoft/en-us/status/**, which is the Azure status page. |
    | **Location** |  <*Azure-region-for-all-resources*> | The Azure region to use for all resources, if different from the default value. This example uses the default value, **[resourceGroup().location]**, which is the resource group location. |
    ||||
 

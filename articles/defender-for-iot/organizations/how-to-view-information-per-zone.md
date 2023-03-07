@@ -6,7 +6,6 @@ manager: rkarlin
 ms.author: rkarlin
 ms.date: 06/12/2022 
 ms.topic: how-to
-ms.service: azure
 ---
 
 
@@ -65,7 +64,11 @@ To view the device inventory associated with a specific zone:
 
   :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="The device inventory screen will appear.":::
 
-For more information, see [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+For more information, see:
+
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 ## View additional zone information
 

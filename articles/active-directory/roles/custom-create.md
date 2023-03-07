@@ -3,12 +3,12 @@ title: Create custom roles in Azure AD role-based access control | Microsoft Doc
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -104,14 +104,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 ## Create a role with the Microsoft Graph API
 
-1. Create the role definition.
-
-    HTTP request to create a custom role definition.
-
-    POST
+1. Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role.
 
     ``` HTTP
-    https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
     ```
 
     Body
@@ -136,14 +132,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     > [!Note]
     > The `"templateId": "GUID"` is an optional parameter that's sent in the body depending on the requirement. If you have a requirement to create multiple different custom roles with common parameters, it's best to create a template and define a `templateId` value. You can generate a `templateId` value beforehand by using the PowerShell cmdlet `(New-Guid).Guid`. 
 
-1. Create the role assignment.
-
-    HTTP request to create a custom role definition.
-
-    POST
+1. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role.
 
     ```http
-    https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
     ```
 
     Body

@@ -2,7 +2,10 @@
 title: "Log Analytics tutorial"
 description: Learn how to use Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
 ms.topic: tutorial
-ms.date: 06/28/2021
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 06/22/2022
 
 ---
 

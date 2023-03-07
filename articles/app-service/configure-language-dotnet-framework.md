@@ -12,7 +12,7 @@ ms.date: 06/02/2020
 # Configure an ASP.NET app for Azure App Service
 
 > [!NOTE]
-> For ASP.NET Core, see [Configure an ASP.NET Core app for Azure App Service](configure-language-dotnetcore.md)
+> For ASP.NET Core, see [Configure an ASP.NET Core app for Azure App Service](configure-language-dotnetcore.md). If your ASP.NET app runs in a custom Windows or Linux container, see [Configure a custom container for Azure App Service](configure-custom-container.md).
 
 ASP.NET apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 

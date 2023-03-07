@@ -7,7 +7,7 @@ metadata:
   title: Cloud Foundry on Azure documentation
   description: Cloud Foundry is an open-source PaaS for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
   services: multiple
-  ms.service: multiple
+  ms.service: cloud-services
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace

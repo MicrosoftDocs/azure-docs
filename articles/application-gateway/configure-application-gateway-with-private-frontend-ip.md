@@ -3,7 +3,7 @@ title: Configure an internal load balancer (ILB) endpoint
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway Standard v1 with a private frontend IP address
 services: application-gateway
-author: abshamsft
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/11/2022
@@ -26,7 +26,7 @@ This article guides you through the steps to configure a Standard v1 Application
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an application gateway
 
@@ -80,7 +80,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 
 ## Add backend pool
 
-The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
+The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
 
 To do this, you:
 
@@ -152,4 +152,4 @@ The client virtual machine is used to connect to the application gateway backend
 
 ## Next steps
 
-If you want to monitor the health of your backend pool, see [Back-end health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md).
+If you want to monitor the health of your backend pool, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md).

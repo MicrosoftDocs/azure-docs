@@ -1,7 +1,9 @@
 ---
 title: Azure Data Lake Storage Gen2 Hierarchical Namespace
+titleSuffix: Azure Storage
 description: Describes the concept of a hierarchical namespace for Azure Data Lake Storage Gen2
 author: normesta
+
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/22/2021

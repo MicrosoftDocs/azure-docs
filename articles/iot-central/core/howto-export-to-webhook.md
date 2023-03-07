@@ -2,8 +2,8 @@
 title: Export data to Webhook IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Webhook
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -49,3 +49,5 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 [!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]

@@ -81,7 +81,7 @@ Real Madrid uses the Power BI module to view their telemetry.
 ![Power BI view of Application Insights telemetry](./media/devops/080.png)
 
 ## Smart detection
-[Proactive diagnostics](./proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
+[Proactive diagnostics](../alerts/proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
 Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
 
@@ -150,6 +150,6 @@ When an alert is raised, Application Insights can automatically create a work it
 Getting started with Application Insights is easy. The main options are:
 
 * [IIS servers](./status-monitor-v2-overview.md)
-* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./app-insights-overview.md#supported-languages). 
 * Instrument [any web page](./javascript.md) by adding a short code snippet.
 

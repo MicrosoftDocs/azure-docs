@@ -16,6 +16,9 @@ ms.date: 01/19/2022
 
 # Batch testing with a set of example utterances
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Batch testing validates your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent or labeling entities within the utterance.
 
 ## Group data for batch test

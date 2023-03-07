@@ -36,6 +36,10 @@ To configure the application properties:
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. Configure the properties based on the needs of your application. 
 
+## Use Microsoft Graph to configure application properties
+
+You can also configure properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These can include basic properties, permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
+
 ## Next steps
 
 Learn more about how to manage enterprise applications.

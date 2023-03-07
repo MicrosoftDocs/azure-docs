@@ -4,10 +4,9 @@ title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/15/2022
 ms.author: cherylmc
 
 ---
@@ -42,9 +41,9 @@ In this tutorial, you learn how to:
 
 ## <a name="p2sconfig"></a>Create a User VPN configuration
 
-The User VPN (P2S) configuration defines the parameters for remote clients to connect. The instructions you follow depend on the authentication method you want to use.
+The User VPN (P2S) configuration defines the parameters for remote clients to connect. You create User VPN configurations before you create the P2S gateway in the hub. You can create multiple User VPN configurations. When you create the P2S gateway, you select the User VPN configuration that you want to use.
 
-In the following steps, when selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
+The instructions you follow depend on the authentication method you want to use. For this exercise, we select **OpenVpn and IKEv2** and certificate authentication. However, other configurations are available. Each authentication method has specific requirements.
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
@@ -68,13 +67,15 @@ In the following steps, when selecting the authentication method, you have three
 
 ## <a name="download"></a>Generate client configuration files
 
-When you connect to VNet using User VPN (P2S), you use the VPN client that is natively installed on the operating system from which you're connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
+When you connect to VNet using User VPN (P2S), you can use the VPN client that is natively installed on the operating system from which you're connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
+
+There are two different types of configuration profiles that you can download: global and hub. The global profile is a WAN-level configuration profile. When you download the WAN-level configuration profile, you get a built-in Traffic Manager-based User VPN profile. When you use a global profile, if for some reason a hub is unavailable, the built-in traffic management provided by the service ensures connectivity (via a different hub) to Azure resources for point-to-site users. For more information, or to download a hub-level profile VPN client configuration package, see [Global and hub profiles](global-hub-profile.md).
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
 ## <a name="configure-client"></a>Configure VPN clients
 
-Use the downloaded profile package to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
+Use the downloaded profile package to configure the native VPN client on your computer. The procedure for each operating system is different. Follow the instructions that apply to your system.
 Once you have finished configuring your client, you can connect.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]

@@ -5,7 +5,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.topic: tutorial 
-ms.date: 05/20/2021													 
+ms.date: 05/20/2021
 ---
 
 # Tutorial: Enable anomaly notification in Metrics Advisor 
@@ -250,13 +250,11 @@ There are several options to send email, both Microsoft hosted and 3rd-party off
 Fill in the content that you'd like to include to 'Body', 'Subject' in the email and fill in an email address in 'To'. 
 
 ![Screenshot of send an email](../media/tutorial/logic-apps-send-email.png)
-																   
-#### [Teams Channel](#tab/teams)
-										   
-### Send anomaly notification through a Microsoft Teams channel							   
-This section will walk through the practice of sending anomaly notifications through a Microsoft Teams channel. This can help enable scenarios where team members are collaborating on analyzing anomalies that are detected by Metrics Advisor. The workflow is easy to configure and doesn't have a large number of prerequisites. 
-											   
 
+#### [Teams Channel](#tab/teams)
+
+### Send anomaly notification through a Microsoft Teams channel
+This section will walk through the practice of sending anomaly notifications through a Microsoft Teams channel. This can help enable scenarios where team members are collaborating on analyzing anomalies that are detected by Metrics Advisor. The workflow is easy to configure and doesn't have a large number of prerequisites. 
 
 **Step 1.** Add a 'Incoming Webhook' connector to your Teams channel
 

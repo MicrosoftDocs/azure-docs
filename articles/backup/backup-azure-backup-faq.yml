@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 11/02/2021
+  ms.date: 08/09/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -124,7 +124,8 @@ sections:
           Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
           Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
           Server | |
-          Windows Server 2019 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
+          Windows Server 2022 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
+          Windows Server 2019 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
           Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
           Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
           Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.

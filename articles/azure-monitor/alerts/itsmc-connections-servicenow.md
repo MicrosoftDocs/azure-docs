@@ -16,7 +16,7 @@ Ensure that you meet the following prerequisites for the connection.
 
 ### ITSMC installation
 
-For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#add-it-service-management-connector).
+For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#install-it-service-management-connector).
 
 > [!NOTE]
 > ITSMC supports only the official software as a service (SaaS) offering from ServiceNow. Private deployments of ServiceNow are not supported.
@@ -28,12 +28,11 @@ ServiceNow supported versions include San Diego, Rome, Quebec,  Paris, Orlando, 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
 
+- [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Rome](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Paris](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Set up OAuth for Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 
 As a part of setting up OAuth, we recommend:
 
@@ -133,6 +132,20 @@ When you're successfully connected and synced:
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
+
+## Payload structure
+
+The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
+
+The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+
+For Log Search Alerts, the structure is:
+
+- Alert  (alert rule name) : \<value>
+- Search Query : \<value>
+- Search Start Time(UTC) : \<value>
+- Search End Time(UTC) : \<value>
+- AffectedConfigurationItems : [\<list of impacted configuration items>]
 
 ## Next steps
 

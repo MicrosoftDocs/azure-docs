@@ -106,7 +106,9 @@ items:
   - name: Coarse relocalization
     href: concepts/coarse-reloc.md
   - name: Anchor locate strategy
-    href: concepts/anchor-locate-strategy.md    
+    href: concepts/anchor-locate-strategy.md
+  - name: Reliability in Spatial Anchors
+    href: concepts/reliability-spatial-anchors.md
 - name: References
   items:
   - name: SDK for Unity

@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 12/06/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -28,7 +28,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 --- | --- | --- | ---
 Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.yml).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
-Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
+Back up Azure VM to the backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
 Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
 
@@ -41,7 +41,7 @@ Back up disks after migrating to managed disks | Supported.<br/><br/> Backup wil
 Back up managed disks after enabling resource group lock | Not supported.<br/><br/> Azure Backup can't delete the older restore points, and backups will start to fail when the maximum limit of restore points is reached.
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up by using the schedule and retention settings in new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
 Cancel a backup job| Supported during snapshot process.<br/><br/> Not supported when the snapshot is being transferred to the vault.
-Back up the VM to a different region or subscription |Not supported.<br><br>To successfully back up, virtual machines must be in the same subscription as the vault for backup.
+Back up the VM to a different region or subscription |Not supported.<br><br>For successful backup, virtual machines must be in the same subscription as the vault for backup.
 Backups per day (via the Azure VM extension) | Four backups per day - one scheduled backup as per the Backup policy, and three on-demand backups.    <br><br>    However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.
 Backups per day (via the MARS agent) | Three scheduled backups per day.
 Backups per day (via DPM/MABS) | Two scheduled backups per day.
@@ -49,7 +49,8 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
-Multiple Backups Per Day    |  Supported (in preview), using *Enhanced policy* (in preview). <br><br>   For hourly backup, the minimum RPO is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively. Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Multiple Backups Per Day    |  Supported (in preview), using *Enhanced policy* (in preview). <br><br>   For hourly backup, the minimum RPO is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively. Learn how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Back up a VM with deprecated plan when publisher has removed it from Azure Marketplace | Not supported. <br><br> Backup is possible. However, restore will fail. <br><br> If you've already configured backup for VM with deprecated virtual machine offer and encounter restore error, see [Troubleshoot backup errors with Azure VMs](backup-azure-vms-troubleshoot.md#usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present).
 
 ## Operating system support (Windows)
 
@@ -57,7 +58,7 @@ The following table summarizes the supported operating systems when backing up A
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
+Back up with Azure VM agent extension | - Windows 11 Client (64 bit only) <br/><br/> - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix).
 
@@ -72,7 +73,7 @@ Here's what's supported if you want to back up Linux machines.
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk, and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
-Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
+Back up Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
 
 ## Operating system support (Linux)
 
@@ -99,9 +100,9 @@ Azure Backup provides support for customers to author their own pre-post scripts
 --- | ---
 Maximum recovery points per protected instance (machine/workload) | 9999.
 Maximum expiry time for a recovery point | No limit (99 years).
-Maximum backup frequency to vault (Azure VM extension) | Once a day.
-Maximum backup frequency to vault (MARS agent) | Three backups per day.
-Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
+Maximum backup-frequency to vault (Azure VM extension) | Once a day.
+Maximum backup-frequency to vault (MARS agent) | Three backups per day.
+Maximum backup-frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
 Recovery point retention | Daily, weekly, monthly, and yearly.
 Maximum retention period | Depends on backup frequency.
 Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.<br/><br/> Tape recovery points are unlimited for on-premises DPM.
@@ -113,7 +114,10 @@ Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM, select the resource group and virtual network (VNet) in which it will be placed, and specify a storage account for the restored VM. The new VM must be created in the same region as the source VM.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the Resource Group you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
 **Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk, and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point.<br/><br/> The snapshot is copied to the vault, and retained in accordance with the retention policy. <br/><br/> After the replace disk operation, the original disk is retained in the resource group. You can choose to manually delete the original disks if they aren't needed. <br/><br/>Replace existing is supported for unencrypted managed VMs and for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). It's not supported for unmanaged disks and VMs, classic VMs, and [generalized VMs](../virtual-machines/windows/capture-image-resource.md).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br><br> Replace existing is also supported for VMs with linked resources, like [user-assigned managed-identity](../active-directory/managed-identities-azure-resources/overview.md) and [Key Vault](../key-vault/general/overview.md).
-**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> This feature is available for the options below:<br> <li> [Create a VM](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [Restore Disks](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> We don't currently support the [Replace existing disks](./backup-azure-arm-restore-vms.md#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
+**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> This feature is available for the following options:<br> - [Create a VM](./backup-azure-arm-restore-vms.md#create-a-vm) <br> - [Restore Disks](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> We don't currently support the [Replace existing disks](./backup-azure-arm-restore-vms.md#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
+**Cross Subscription (preview)** | Cross Subscription restore can be used to restore Azure managed VMs in different subscriptions.<br><br> You can restore Azure VMs or disks to any subscription (as per the Azure RBAC capabilities) from restore points. <br><br> This feature is available for the following options:<br> - [Create a VM](./backup-azure-arm-restore-vms.md#create-a-vm) <br> - [Restore Disks](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Cross Subscription Restore is unsupported for [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores. It's unsupported for [unmanaged VMs](backup-azure-arm-restore-vms.md#restoring-unmanaged-vms-and-disks-as-managed), [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+**Cross Zonal Restore** | Cross Zonal restore can be used to restore Azure zone pinned VMs in available zones.<br><br> You can restore Azure VMs or disks to different zones (as per the Azure RBAC capabilities) from restore points. <br><br> This feature is available for the following options:<br> - [Create a VM](./backup-azure-arm-restore-vms.md#create-a-vm) <br> - [Restore Disks](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Cross Zonal Restore is unsupported for [snapshots](backup-azure-vms-introduction.md#snapshot-creation) restore points. It's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+
 
 ## Support for file-level restore
 
@@ -133,7 +137,9 @@ The following table summarizes support for backup during VM management tasks, su
 
 **Restore** | **Supported**
 --- | ---
-Restore across subscription/region/zone. | Not supported.
+<a name="backup-azure-cross-subscription-restore">Restore across subscription</a> | [Cross Subscription Restore (preview)](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
+[Restore across region](backup-azure-arm-restore-vms.md#cross-region-restore) | Supported.
+<a name="backup-azure-cross-zonal-restore">Restore across zone</a> | [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
 Restore to an existing VM | Use replace disk option.
 Restore disk with storage account enabled for Azure Storage Service Encryption (SSE) | Not supported.<br/><br/> Restore to an account that doesn't have SSE enabled.
 Restore to mixed storage accounts |Not supported.<br/><br/> Based on the storage account type, all restored disks will be either premium or standard, and not mixed.
@@ -156,7 +162,7 @@ Back up VMs that are deployed from a custom image (third-party) |Supported.<br/>
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
 Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using the [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
-Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable due to an outage, the restore will fail.
+Restore of Zone-pinned VMs | Supported (where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>Azure Backup now supports [restoring Azure VMs to a any available zones](backup-azure-arm-restore-vms.md#restore-options) other that the zone that's pinned in VMs. This enables you to restore VMs when the primary zone is unavailable.d
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
@@ -164,8 +170,8 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for flexible orchestration model to back up and restore Single Azure VM.
 Restore with Managed identities | Yes, supported for managed Azure VMs, and not supported for classic and unmanaged Azure VMs.  <br><br> Cross Region Restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions.   <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
-<a name="tvm-backup">Trusted Launch VM</a>    |  Backup supported.    <br><br>    Backup of Trusted Launch VM is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup through [Recovery Services vault](./backup-azure-arm-vms-prepare.md), [VM Manage blade](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and [Create VM blade](backup-during-vm-creation.md#create-a-vm-with-backup-configured).    <br><br>   **Feature details**   <br>  <ul><li> Backup is supported in all regions where Trusted Launch VM is available. </li><li> Configurations of Backup, Alerts, and Monitoring for Trusted Launch VM are currently not supported through Backup center. </li><li> Migration of an existing [Generation 2](../virtual-machines/generation-2.md) VM (protected with Azure Backup) to Trusted Launch VM is currently not supported. Learn about how to [create a Trusted Launch VM](../virtual-machines/trusted-launch-portal.md?tabs=portal#deploy-a-trusted-launch-vm).  </li></ul>   
-
+<a name="tvm-backup">Trusted Launch VM</a>    |  Backup supported.    <br><br>    Backup of Trusted Launch VM is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup through [Recovery Services vault](./backup-azure-arm-vms-prepare.md), [VM Manage blade](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and [Create VM blade](backup-during-vm-creation.md#create-a-vm-with-backup-configured).    <br><br>   **Feature details**   <br><br> - Backup is supported in all regions where Trusted Launch VM is available. <br><br> - Configurations of Backup, Alerts, and Monitoring for Trusted Launch VM are currently not supported through Backup center. <br><br> - Migration of an existing [Generation 2](../virtual-machines/generation-2.md) VM (protected with Azure Backup) to Trusted Launch VM is currently not supported. Learn how to [create a Trusted Launch VM](../virtual-machines/trusted-launch-portal.md?tabs=portal#deploy-a-trusted-launch-vm).  <br><br> - Item-level restore is not supported.    
+[Confidential VM](../confidential-computing/confidential-vm-overview.md) | The backup support is in Limited Preview. <br><br> Backup is supported only for those Confidential VMs with no confidential disk encryption and for Confidential VMs with confidential OS disk encryption using Platform Managed Key (PMK). <br><br> Backup is currently not supported for Confidential VMs with confidential OS disk encryption using Customer Managed Key (CMK). <br><br> **Feature details** <br><br> - Backup is supported in [all regions where Confidential VM is available](../confidential-computing/confidential-vm-overview.md#regions). <br><br> - Backup is supported using [Enhanced Policy](backup-azure-vms-enhanced-policy.md) only. You can configure backup through [Create VM blade](backup-azure-arm-vms-prepare.md), [VM Manage blade](backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and [Recovery Services vault](backup-azure-arm-vms-prepare.md). <br><br> - [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and File Recovery (Item level Restore) for Confidential VM are currently not supported.
 
 ## VM storage support
 
@@ -175,8 +181,9 @@ Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><b
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [ZRS disks](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
-Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Azure VM with WA disk backup is available in all Azure public regions starting from May 18, 2020. If WA disk backup is not required as part of VM backup, you can choose to remove with [**Selective disk** feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup. <br><br> You can back up and restore disks encrypted using platform-managed keys (PMKs) or customer-managed keys (CMKs). You can also assign a disk-encryption set while restoring in the same region (that is providing disk-encryption set while performing cross-region restore is currently not supported, however, you can assign the DES to the restored disk after the restore is complete).
+Disks with Write Accelerator enabled | Azure VM with WA disk backup is available in all Azure public regions starting from May 18, 2022. If WA disk backup is not required as part of VM backup, you can choose to remove with [**Selective disk** feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks enabled for access with private EndPoint | Unsupported.
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
@@ -212,7 +219,7 @@ Azure Backup supports encryption for in-transit and at-rest data:
 
 Network traffic to Azure:
 
-- Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
+- Backup-traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
 - Backup data is sent over a secure HTTPS link.
 - The backup data is stored in the Recovery Services vault in encrypted form.
 - Only you have the encryption key to unlock this data. Microsoft can't decrypt the backup data at any point.

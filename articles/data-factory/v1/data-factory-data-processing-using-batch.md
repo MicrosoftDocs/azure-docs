@@ -956,12 +956,12 @@ After you process data, you can consume it with online tools such as Power BI. H
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## References
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](../index.yml)
 
   * [Introduction to the Data Factory service](data-factory-introduction.md)
   * [Get started with Data Factory](data-factory-build-your-first-pipeline.md)
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
-* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Azure Batch](../../batch/index.yml)
 
   * [Basics of Batch](/azure/azure-sql/database/sql-database-paas-overview)
   * [Overview of Batch features](../../batch/batch-service-workflow-features.md))

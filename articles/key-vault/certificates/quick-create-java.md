@@ -4,7 +4,7 @@ description: Learn about the the Azure Key Vault Certificate client library for 
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
-ms.date: 12/18/2020
+ms.date: 11/14/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart

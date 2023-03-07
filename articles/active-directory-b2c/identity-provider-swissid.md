@@ -44,8 +44,8 @@ To enable sign-in for users with a SwissID account in Azure AD B2C, you need to 
 
     |Key  |Note  |
     |---------|---------|
-    | Environment| The SwissID OpenId well-known configuration endpoint. For example, <https://login.sandbox.pre.swissid.ch/idp/oauth2/.well-known/openid-configuration>. |
-    | Client ID | The SwissID client ID. For example, 11111111-2222-3333-4444-555555555555. |
+    | Environment| The SwissID OpenId well-known configuration endpoint. For example, `https://login.sandbox.pre.swissid.ch/idp/oauth2/.well-known/openid-configuration`. |
+    | Client ID | The SwissID client ID. For example, `11111111-2222-3333-4444-555555555555`. |
     | Password| The SwissID client secret.| 
 
 

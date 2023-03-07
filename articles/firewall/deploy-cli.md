@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 08/29/2019
+ms.date: 10/31/2022
 ms.author: victorh
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -27,7 +27,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 * **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
 
-![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+:::image type="content" source="media/tutorial-firewall-rules-portal/Tutorial_network.png" alt-text="Diagram of network infrastructure." lightbox="media/tutorial-firewall-rules-portal/Tutorial_network.png":::
 
 In this article, you learn how to:
 
@@ -167,7 +167,7 @@ Note the private IP address. You'll use it later when you create the default rou
 
 ## Create a default route
 
-Create a table, with BGP route propagation disabled
+Create a route table, with BGP route propagation disabled
 
 ```azurecli-interactive
 az network route-table create \

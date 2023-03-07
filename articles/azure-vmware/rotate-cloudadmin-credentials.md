@@ -3,7 +3,7 @@ title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 12/22/2022
 
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
 
@@ -12,7 +12,7 @@ ms.date: 04/11/2022
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
 >[!IMPORTANT]
->Currently, rotating your NSX-T Manager *admin* credentials isn't supported.  To rotate your NSX-T Manager password, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support). This process might impact running HCX services.
+>Currently, rotating your NSX-T Manager *cloudadmin* credentials isn't supported.  To rotate your NSX-T Manager password, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support). This process might impact running HCX services.
 
 In this article, you'll rotate the cloudadmin credentials (vCenter Server *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this account doesn't expire, you can generate a new one at any time.
 
@@ -25,7 +25,7 @@ Consider and determine which services connect to vCenter Server as *cloudadmin@v
 
 One way to determine which services authenticate to vCenter Server with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You'll also experience temporary locks on your vCenter Server CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
 
-Instead of using the cloudadmin user to connect services to vCenter, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+Instead of using the cloudadmin user to connect services to vCenter Server, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 ## Reset your vCenter Server credentials
 
@@ -48,7 +48,7 @@ To begin using Azure CLI:
 
 1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 
-2. Update your vCenter *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
+2. Update your vCenter Server *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"

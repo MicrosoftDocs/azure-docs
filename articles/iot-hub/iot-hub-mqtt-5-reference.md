@@ -3,7 +3,7 @@
  description: Learn about IoT Hub's MQTT 5 API reference
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: reference
  ms.date: 11/19/2020
  ms.author: kgremban

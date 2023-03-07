@@ -25,7 +25,6 @@ The sample app is written using JavaScript and the React Native framework. It ca
 * An Azure subscription – [Create one for free](https://azure.microsoft.com/free/cognitive-services/).  
 * Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.  
   * You'll need the key and endpoint from the resource you created to connect your application to Face API.  
-  * For local development and testing only, the API key and endpoint are environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables.  
 
 ### Important Security Considerations
 * For local development and initial limited testing, it is acceptable (although not best practice) to use environment variables to hold the API key and endpoint. For pilot and final deployments, the API key should be stored securely - which likely involves using an intermediate service to validate a user token generated during login. 
@@ -40,6 +39,10 @@ The sample app is written using JavaScript and the React Native framework. It ca
 1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Select **React Native CLI Quickstart**. Select your development OS and **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
 1. Download your preferred text editor such as [Visual Studio Code](https://code.visualstudio.com/).
 1. Retrieve your FaceAPI endpoint and key in the Azure portal under the **Overview** tab of your resource. Don't check in your Face API key to your remote repository.
+
+   > [!WARNING]
+   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Cognitive Services Authentication guide](/azure/cognitive-services/authentication) for other ways to authenticate the service.
+
 1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 #### [iOS](#tab/ios)
@@ -47,7 +50,11 @@ The sample app is written using JavaScript and the React Native framework. It ca
 1. Clone the git repository for the [sample app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
 1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Select **React Native CLI Quickstart**. Select **macOS** as your development OS and **iOS** as the target OS. Complete the section **Installing dependencies**.
 1. Download your preferred text editor such as [Visual Studio Code](https://code.visualstudio.com/). You will also need to download Xcode. 
-1. Retrieve your FaceAPI endpoint and key in the Azure portal under the **Overview** tab of your resource. Don't check in your Face API key to your remote repository.
+1. Retrieve your FaceAPI endpoint and key in the Azure portal under the **Overview** tab of your resource.
+
+   > [!WARNING]
+   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Cognitive Services Authentication guide](/azure/cognitive-services/authentication) for other ways to authenticate the service.
+
 1. Run the app using either a simulated device from Xcode, or your own iOS device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---

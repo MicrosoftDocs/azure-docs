@@ -9,6 +9,9 @@ ms.date: 02/24/2022
 
 # What's new in Language Understanding
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes

@@ -24,7 +24,7 @@ The following table contrasts the differences between using managed and existing
 | Feature | Managed Functions | Bring your own Functions |
 |---|---|---|
 | Access to Azure Functions [triggers](../azure-functions/functions-triggers-bindings.md#supported-bindings) | HTTP only | All |
-| Supported Azure Functions [runtimes](../azure-functions/supported-languages.md#languages-by-runtime-version)<sup>1</sup> | Node.js 12<br>Node.js 14<br>Node.js 16<br>.NET Core 3.1<br>.NET 6.0<br>Python 3.8<br>Python 3.9 | All |
+| Supported Azure Functions [runtimes](../azure-functions/supported-languages.md#languages-by-runtime-version)<sup>1</sup> | Node.js 12<br>Node.js 14<br>Node.js 16<br>.NET Core 3.1<br>.NET 6.0<br>.NET 7.0<br>Python 3.8<br>Python 3.9 | All |
 | Supported Azure Functions [hosting plans](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>Dedicated |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the `/api` route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
@@ -56,8 +56,7 @@ Logs are only available if you add [Application Insights](monitor.md).
 
 ## Constraints
 
-- The API route prefix must be `/api`.
-- Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
+In addition to the Static Web Apps API [constraints](apis-overview.md#constraints), the following restrictions are also applicable to Azure Functions APIs:
 
 | Managed functions | Bring your own functions |
 |---|---|

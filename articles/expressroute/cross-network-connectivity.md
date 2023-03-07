@@ -105,7 +105,7 @@ The following table shows the route table of the private peering of the ExpressR
 
 The following table shows the route table of the private peering of the ExpressRoute of Fabrikam Inc., after configuring Global Reach. See that the route table has routes belonging to both the on-premises networks.
 
-![Fabrikam ExpressRoute route table after Global Reach]( ./media/cross-network-connectivity/fabrikamexr-rt-gr.png )
+![Fabrikam ExpressRoute route table after Global Reach](./media/cross-network-connectivity/fabrikamexr-rt-gr.png)
 
 ## Next steps
 

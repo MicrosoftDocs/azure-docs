@@ -1,10 +1,10 @@
 ---
-title: Complete an access review of groups & applications - Azure AD
-description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
+title: Complete an access review of groups & applications
+description: Learn how to complete an access review of group members or application access in Microsoft Entra access reviews.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 02/18/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
  
-# Complete an access review of groups and applications in Azure AD access reviews
+# Complete an access review of groups and applications in access reviews
  
 As an administrator, you [create an access review of groups or applications](create-access-review.md) and reviewers [perform the access review](perform-access-review.md). This article describes how to see the results of the access review and apply them.
  

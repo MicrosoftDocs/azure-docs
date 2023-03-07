@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 09/29/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -65,7 +65,7 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 That project can be reimported as a new project. If you import a project with the exact same name, it replaces the project's data with the newly imported project's data.
 
-If you have an existing LUIS application, you can _import_ the LUIS application JSON to Conversational Language Understanding directly, and it will create a Conversation project with all the pieces that are currently available: Intents, ML entities, and utterances. See [backwards compatibility with LUIS](../concepts/backwards-compatibility.md) for more information.
+If you have an existing LUIS application, you can _import_ the LUIS application JSON to Conversational Language Understanding directly, and it will create a Conversation project with all the pieces that are currently available: Intents, ML entities, and utterances. See [the LUIS migration article](../how-to/migrate-from-luis.md) for more information.
 
 To import a project, click on the arrow button next to **Create a new project** and select **Import**, then select the LUIS or Conversational Language Understanding JSON file.
 
@@ -99,9 +99,9 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
 
 ---
 

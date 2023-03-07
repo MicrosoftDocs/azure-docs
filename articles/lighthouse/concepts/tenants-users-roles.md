@@ -1,7 +1,7 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand how Azure Active Directory tenants, users, and roles can be used in Azure Lighthouse scenarios.
-ms.date: 06/09/2022
+ms.date: 08/02/2022
 ms.topic: conceptual
 ---
 
@@ -40,8 +40,10 @@ All [built-in roles](../../role-based-access-control/built-in-roles.md) are curr
 - Any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported.
 - The [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
 
+In some cases, a role that had previously been supported with Azure Lighthouse may become unavailable. For example, if the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission is added to a role that previously didn't have that permission, that role can no longer be used when onboarding new delegations. Users who had already been assigned the role will still be able to work on previously delegated resources, but they won't be able to perform tasks that use the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission.
+
 > [!NOTE]
-> Once a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly-added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md).
+> As soon as a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly-added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md). Similarly, if a role becomes unavailable, you may still see it in Partner Center for a period of time; however, you won't be able to publish new offers using such roles.
 
 ## Transferring delegated subscriptions between Azure AD tenants
 

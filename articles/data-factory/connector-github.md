@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 ms.author: jianleishen
 ---
 
@@ -23,14 +23,14 @@ Use the following steps to create a linked service to GitHub in the Azure portal
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
-    # [Azure Data Factory](#tab/data-factory)
+   # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+   :::image type="content" source="media/connector-github/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Azure Synapse](#tab/synapse-analytics)
+   # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
-
+   :::image type="content" source="media/connector-github/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+  
 2. Search for GitHub and select the GitHub connector.
 
    :::image type="content" source="media/connector-github/github-connector.png" alt-text="Screenshot of the GitHub connector.":::    

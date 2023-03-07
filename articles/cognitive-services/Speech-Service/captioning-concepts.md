@@ -32,6 +32,8 @@ The following are aspects to consider when using captioning:
 * Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
+> Try the [Speech Studio](https://aka.ms/speechstudio/captioning) and choose a sample video clip to see real-time or offline processed captioning results. 
+> 
 > Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
 Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
@@ -39,6 +41,9 @@ Captioning can accompany real time or pre-recorded speech. Whether you're showin
 ## Caption output format
 
 The Speech service supports output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+
+> [!TIP]
+> The Speech service provides [profanity filter](display-text-format.md#profanity-filter) options. You can specify whether to mask, remove, or show profanity. 
 
 The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. 
 
@@ -161,71 +166,9 @@ RECOGNIZING: Text=welcome to applied mathematics
 RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 ```
 
-## Profanity filter 
-
-You can specify whether to mask, remove, or show profanity in recognition results. 
-
-> [!NOTE]
-> Microsoft also reserves the right to mask or remove any word that is deemed inappropriate. Such words will not be returned by the Speech service, whether or not you enabled profanity filtering.
-
-The profanity filter options are:
-- `Masked`: Replaces letters in profane words with asterisk (*) characters. This is the default option.
-- `Raw`: Include the profane words verbatim.
-- `Removed`: Removes profane words.
-
-For example, to remove profane words from the speech recognition result, set the profanity filter to `Removed` as shown here:
-
-::: zone pivot="programming-language-csharp"
-```csharp
-speechConfig.SetProfanity(ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-cpp"
-```cpp
-speechConfig->SetProfanity(ProfanityOption::Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-go"
-```go
-speechConfig.SetProfanity(common.Removed)
-```
-::: zone-end
-::: zone pivot="programming-language-java"
-```java
-speechConfig.setProfanity(ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-javascript"
-```javascript
-speechConfig.setProfanity(sdk.ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-objectivec"
-```objective-c
-[self.speechConfig setProfanityOptionTo:SPXSpeechConfigProfanityOption.SPXSpeechConfigProfanityOption_ProfanityRemoved];
-```
-::: zone-end
-::: zone pivot="programming-language-swift"
-```swift
-self.speechConfig!.setProfanityOptionTo(SPXSpeechConfigProfanityOption_ProfanityRemoved)
-```
-::: zone-end
-::: zone pivot="programming-language-python"
-```python
-speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
-```
-::: zone-end
-::: zone pivot="programming-language-cli"
-```console
-spx recognize --file caption.this.mp4 --format any --profanity masked --output vtt file - --output srt file -
-```
-::: zone-end
-
-Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
-
 ## Language identification
 
-If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
+If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
 
 ## Customizations to improve accuracy
 

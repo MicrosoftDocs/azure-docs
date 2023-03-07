@@ -131,7 +131,7 @@ helm install ingress-nginx/ingress-nginx --generate-name \
 The ingress controller’s deployment will reference the Secrets Store CSI Driver's Azure Key Vault provider.
 
 > [!NOTE]
-> If not using Azure Active Directory (AAD) pod identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
+> If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
 
 ```bash
 helm install ingress-nginx/ingress-nginx --generate-name \

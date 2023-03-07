@@ -122,7 +122,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{Your-Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     In the URL path, the `geojson` value against the `dataFormat` parameter represents the format of the data being uploaded.
@@ -138,7 +138,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
    ```
 
 6. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Copy the `udid` for later use in this tutorial.

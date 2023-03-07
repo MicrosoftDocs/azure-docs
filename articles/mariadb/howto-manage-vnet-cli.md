@@ -1,13 +1,13 @@
 ---
 title: Manage VNet endpoints - Azure CLI - Azure Database for MariaDB
 description: This article describes how to create and manage Azure Database for MariaDB VNet service endpoints and rules using Azure CLI command line.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 01/26/2022 
 ms.custom: devx-track-azurecli
+ms.date: 06/24/2022
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints using Azure CLI
 

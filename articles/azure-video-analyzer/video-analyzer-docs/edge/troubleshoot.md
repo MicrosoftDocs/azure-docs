@@ -92,9 +92,9 @@ If you've run all the preceding checks and are still encountering issues, gather
 
 Video Analyzer edge module works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with its deployment are caused by issues with the underlying IoT infrastructure. The errors include:
 
-- [The IoT Edge agent stops after about a minute](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
+- [IoT Edge agent stops after a minute](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-a-minute).
 - [The IoT Edge agent can't access a module's image (403)](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
-- [The IoT Edge agent module reports "empty config file" and no modules start on the device](../../../iot-edge/troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
+- [Edge Agent module reports 'empty config file' and no modules start on the device](../../../iot-edge/troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
 - [The IoT Edge hub fails to start](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-hub-fails-to-start).
 - [The IoT Edge security daemon fails with an invalid hostname](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-security-daemon-fails-with-an-invalid-hostname).
 - [The Video Analyzer or any other custom IoT Edge module fails to send a message to the edge hub with 404 error](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
@@ -131,7 +131,7 @@ Using pipeline extension processors you can extend the pipeline to send and rece
   > [!TIP]
   > Use **[Docker inspect command](https://docs.docker.com/engine/reference/commandline/inspect/)** to find the IP address of the machine.
 
-- If you're running one or more live pipelines that uses the pipeline extension processor, you should use the `samplingOptions` field to manage the frames per second (fps) rate of the video feed.
+- If you're running one or more live pipelines that use the pipeline extension processor, you should use the `samplingOptions` field to manage the frames per second (fps) rate of the video feed.
 
   - In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the `maximumSamplesPerSecond` property on the `samplingOptions` field. You can set it to 0.5 ("maximumSamplesPerSecond": "0.5") on each instance of the pipeline and then re-run the instance to check for inference events on the hub.
 
@@ -156,14 +156,14 @@ To gather the relevant logs that should be added to the ticket, follow the instr
 1. [Turn on Debug Logs](#video-analyzer-edge-module-debug-logs)
 1. Reproduce the issue
 1. Restart the Video Analyzer edge module. 
-	> [!NOTE]
-	> This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events. 	
-	
-	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module:
-	
-	```cmd
-	sudo iotedge restart <avaedge>
-	```
+    > [!NOTE]
+    > This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events.     
+    
+    On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module:
+    
+    ```cmd
+    sudo iotedge restart <avaedge>
+    ```
 
    You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
@@ -250,7 +250,7 @@ To configure the Video Analyzer edge module to generate debug logs, do the follo
 
 [Monitoring and logging](monitor-log-edge.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with Video Analyzer.
 
-As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.
+As gRPC server implementation differs across languages, there is no standard way of adding logging inside in the server.
 
 As an example, if you build a gRPC server using .NET core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging:
 

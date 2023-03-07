@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2022
+ms.date: 08/22/2022
 ---
 
 # Configure pricing and availability for a virtual machine offer
@@ -59,9 +59,9 @@ These steps assume you have already selected either the _Flat rate_, _Per core_,
 1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
 1. To see the discounted prices, select **Price per core size**. A table with the 1-year and 3-year prices for each core size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
 
-    > [!TIP]
-    > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
-
+1. > [!TIP]
+   > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
+   
 1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
 ## Free trial
@@ -79,17 +79,20 @@ You can design each plan to be visible to everyone or only to a preselected priv
 > [!NOTE]
 > A private audience is different from the preview audience that you defined on the **Preview audience** pane. A preview audience can access and view all private and public plans for validation purposes before it's published live to Azure Marketplace. A private audience can only access the specific plans that they are authorized to have access to once the offer is live.
 
+> [!IMPORTANT]
+> Private plans are still visible to everyone in the CLI, but only deployable to customers configured in the private audience.
+
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
 ## Hide plan
 
-If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
+A hidden plan is not visible on Azure Marketplace and can only be deployed through another Solution Template, Managed Application, Azure CLI or Azure PowerShell. Hiding a plan is useful when trying to limit exposure to customers that would normally be searching or browsing for it directly via Azure Marketplace. By selecting this checkbox all virtual machine images associated to your plan will be hidden from Azure Marketplace storefront.
 
-Any Azure customer can deploy the offer using either PowerShell or CLI. If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
+> [!NOTE]
+> A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private in which case only the customers configured in the private audience can deploy via these methods. If you wish to make the plan available to a limited set of customers, then set the plan to **Private**.
 
-Hidden plans don't generate preview links. However, you can test them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
-
-Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
+> [!IMPORTANT]
+> Hidden plans don't generate preview links. However, you can test them by [following these steps](./azure-vm-faq.yml).
 
 ## Next steps
 

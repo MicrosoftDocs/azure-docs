@@ -16,7 +16,7 @@ A container app has access to different types of storage. A single app can take 
 
 | Storage type | Description | Usage examples |
 |--|--|--|
-| [Container file system](#container-file-system) | Temporary storage scoped to the environment | Writing a local app cache.  |
+| [Container file system](#container-file-system) | Temporary storage scoped to the local container | Writing a local app cache.  |
 | [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
@@ -165,6 +165,8 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume inside a container.
 
+For a step-by-step tutorial, refer to [Create an Azure Files storage mount in Azure Container Apps](storage-mounts-azure-files.md).
+
 Azure Files storage has the following characteristics:
 
 * Files written under the mount location are persisted to the file share.
@@ -245,7 +247,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 
     ```azure-cli
     az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> \
-        --yaml my-app.yaml
+        --yaml app.yaml
     ```
 
 ::: zone-end

@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 ms.custom: references_regions
 ---
@@ -42,13 +42,17 @@ Azure Attestation provides a regional shared provider in every available region.
 | West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Central US | `https://sharedcus.cus.attest.azure.net` |
-| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
 | North Central US | `https://sharedncus.ncus.attest.azure.net` | 
 | South Central US | `https://sharedscus.scus.attest.azure.net` | 
 | Australia East | `https://sharedeau.eau.attest.azure.net` | 
-| Australia SouthEast | `https://sharedsau.sau.attest.azure.net` | 
+| Australia SouthEast | `https://sharedsau.sau.attest.azure.net` |
+| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
+| Japan East | `https://sharedjpe.jpe.attest.azure.net` |
+| Switzerland North | `https://sharedswn.swn.attest.azure.net` |
 | US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
 | US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
+| Central US EUAP | `https://sharedcuse.cuse.attest.azure.net` |
+| East US2 EUAP | `https://sharedeus2e.eus2e.attest.azure.net` |
 
 ## Attestation request
 

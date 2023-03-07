@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Table Storage with Service Connector
 description: Integrate Azure Table Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Table Storage with Service Connector
@@ -17,9 +17,9 @@ This page shows the supported authentication types and client types of Azure Tab
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
-## Supported authentication types and client types
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |-------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
@@ -30,11 +30,13 @@ This page shows the supported authentication types and client types of Azure Tab
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Azure Table Storage. For each example below, replace the placeholder texts `<account-name>` and `<account-key>` with your own account name and account key.
+
 ### .NET, Java, Node.JS and Python secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| Default environment variable name   | Description                     | Example value                                                                                                        |
+|-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 ## Next steps
 

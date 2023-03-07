@@ -1,17 +1,19 @@
 ---
 title: Connectivity architecture - Azure Database for MySQL
 description: Describes the connectivity architecture for your Azure Database for MySQL server.
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: single-server
+author: Bashar-MSFT
+ms.author: bahusse
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 06/20/2022
 ---
 
 # Connectivity architecture in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains the Azure Database for MySQL connectivity architecture and how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 

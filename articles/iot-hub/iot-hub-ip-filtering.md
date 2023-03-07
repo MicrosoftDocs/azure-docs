@@ -44,7 +44,7 @@ After filling in the fields, select **Save** to save the rule. You see an alert 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Screenshot that shows notification about saving an IP filter rule.":::
 
-The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
+The **Add** option is disabled when you reach the maximum of 100 IP filter rules.
 
 To edit an existing rule, select the data you want to change, make the change, then select **Save** to save your edit.
 

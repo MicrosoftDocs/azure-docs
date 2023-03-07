@@ -6,10 +6,10 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 03/02/2022
+ms.date: 10/30/2022
 ---
 
-# Public safety and justice in Azure Government
+# Azure for public safety and justice
 
 ## Overview
 
@@ -29,7 +29,7 @@ Microsoft treats Criminal Justice Information Services (CJIS) compliance as a co
 
 The [Criminal Justice Information Services](https://www.fbi.gov/services/cjis) (CJIS) Division of the US Federal Bureau of Investigation (FBI) gives state, local, and federal law enforcement and criminal justice agencies access to criminal justice information (CJI), for example, fingerprint records and criminal histories. Law enforcement and other government agencies in the United States must ensure that their use of cloud services for the transmission, storage, or processing of CJI complies with the [CJIS Security Policy](https://www.fbi.gov/services/cjis/cjis-security-policy-resource-center/view), which establishes minimum security requirements and controls to safeguard CJI.
 
-### Azure Government and CJIS Security Policy
+### Azure and CJIS Security Policy
 
 Microsoft's commitment to meeting the applicable CJIS regulatory controls help criminal justice organizations be compliant with the CJIS Security Policy when implementing cloud-based solutions. For more information about Azure support for CJIS, see [Azure CJIS compliance offering](/azure/compliance/offerings/offering-cjis).
 
@@ -77,7 +77,7 @@ While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 val
 
 Proper protection and management of encryption keys is essential for data security. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
-With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents do not see or extract your cryptographic keys.**
+With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For more information, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys) Therefore, if you use CMK stored in Azure Key Vault HSMs, you effectively maintain sole ownership of encryption keys.
 
 ### Data encryption in transit
 
@@ -98,8 +98,6 @@ Technologies like [Intel Software Guard Extensions](https://software.intel.com/s
 ## Restrictions on insider access
 
 Insider threat is characterized as potential for providing back-door connections and cloud service provider (CSP) privileged administrator access to your systems and data. For more information on how Microsoft restricts insider access to your data, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access).
-
-All Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [Screening](./documentation-government-plan-security.md#screening). Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to screened US persons that have completed fingerprint background checks and criminal records checks to address CJIS requirements.
 
 ## Monitoring your Azure resources
 

@@ -2,7 +2,9 @@
 title: Move Azure container registry to another region
 description: Manually move Azure container registry settings and data to another Azure region.
 ms.topic: article
-ms.date: 06/08/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Manually move a container registry to another region
@@ -27,8 +29,10 @@ Azure CLI
 
 * Use steps in this article to move the registry to a different region in the same subscription. More configuration may be needed to move a registry to a different Azure subscription in the same Active Directory tenant.
 * Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure more settings, or update the target registry after creation.
-* Currently, Azure Container Registry doesn't support a registry move to a different Active Directory tenant. This limitation applies to both registries encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) and unencrypted registries.
+* Currently, Azure Container Registry doesn't support a registry move to a different Active Directory tenant. This limitation applies to both registries encrypted with a [customer-managed key](tutorial-enable-customer-managed-keys.md) and unencrypted registries.
 * If you are unable to move a registry is outlined in this article, create a new registry, manually recreate settings, and [Import registry content in the target registry](#import-registry-content-in-target-registry).
+* You can find the steps to move resources of registry to a new resource group in the same subscription or move resources to a [new subscription.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 
 ## Export template from source registry 
 
@@ -73,7 +77,7 @@ For more information, see [Use exported template from the Azure portal](../azure
 > [!IMPORTANT]
 > If you want to encrypt the target registry using a customer-managed key, make sure to update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
 > 
-> For more information, see [Encrypt registry using customer-managed key](./container-registry-customer-managed-keys.md#enable-customer-managed-key---template).
+> For more information, see [Encrypt registry using customer-managed key](./tutorial-enable-customer-managed-keys.md## Enable a customer-managed key by using a Resource Manager template).
 
 ### Create resource group 
 

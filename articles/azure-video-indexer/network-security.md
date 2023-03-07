@@ -2,13 +2,18 @@
 title: How to enable network security
 description: This article gives an overview of the Azure Video Indexer  network security options.
 ms.topic: article
-ms.date: 04/11/2022
+ms.date: 12/19/2022
 ms.author: juliako
 ---
 
 # NSG service tags for Azure Video Indexer
 
-Azure Video Indexer is a service hosted on Azure. In some architecture cases the service needs to interact with other services in order to index video files (that is, a Storage Account) or when a customer orchestrates indexing jobs against our API endpoint using their own service hosted on Azure (i.e AKS, Web Apps, Logic Apps, Functions). Customers who would like to limit access to their resources on a network level can use [Network Security Groups with Service Tags](../virtual-network/service-tags-overview.md). A service tag represents a group of IP address prefixes from a given Azure service, in this case Azure Video Indexer. Microsoft manages the address prefixes grouped by the service tag and automatically updates the service tag as addresses change in our backend, minimizing the complexity of frequent updates to network security rules by the customer.
+Azure Video Indexer is a service hosted on Azure. In some cases the service needs to interact with other services in order to index video files (for example, a Storage account) or when you orchestrate indexing jobs against Azure Video Indexer API endpoint using your own service hosted on Azure (for example, AKS, Web Apps, Logic Apps, Functions). 
+
+Use [Network Security Groups with Service Tags](../virtual-network/service-tags-overview.md) to limit access to your resources on a network level. A service tag represents a group of IP address prefixes from a given Azure service, in this case Azure Video Indexer. Microsoft manages the address prefixes grouped by the service tag and automatically updates the service tag as addresses change in our backend, minimizing the complexity of frequent updates to network security rules by the customer.
+
+> [!NOTE]
+> The NSG service tags feature is not available for trial and classic accounts. To update to an ARM account, see [Connect a classic account to ARM](connect-classic-account-to-arm.md) or [Import content from a trial account](import-content-from-trial.md).
 
 ## Get started with service tags
 

@@ -183,6 +183,14 @@ val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
 logger.info("info message")
 logger.warn("warn message")
 logger.error("error message")
+//log exception
+try {
+      1/0
+ } catch {
+      case e:Exception =>logger.warn("Exception", e)
+}
+// run job for task level metrics
+val data = sc.parallelize(Seq(1,2,3,4)).toDF().count()
 ```
 
 Example for PySpark:

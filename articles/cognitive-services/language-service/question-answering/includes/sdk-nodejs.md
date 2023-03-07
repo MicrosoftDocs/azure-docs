@@ -44,7 +44,7 @@ npm init -y
 
 ### Install the client library
 
-Install the following NPM packages:
+Install the following npm packages:
 
 ```console
 npm install @azure/cognitiveservices-qnamaker

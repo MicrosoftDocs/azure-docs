@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Launch the Migrate to Azure SQL wizard in Azure Data Studio.
 > * Run an assessment of your source SQL Server database(s)
 > * Collect performance data from your source SQL Server
-> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
+> * Get a recommendation of the SQL Server on Azure Virtual Machine SKU best suited for your workload
 > * Specify details of your source SQL Server, backup location and your target SQL Server on Azure Virtual Machine
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration.
@@ -41,8 +41,8 @@ To complete this tutorial, you need to:
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 * [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
-    - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
-    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
+    - Contributor for the target SQL Server on Azure Virtual Machine (and Storage Account to upload your database backup files from SMB network share).
+    - Reader role for the Azure Resource Groups containing the target SQL Server on Azure Virtual Machine or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
     - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](resource-custom-roles-sql-db-virtual-machine-ads.md)
     > [!IMPORTANT]
@@ -77,7 +77,7 @@ To complete this tutorial, you need to:
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* Runtime is installed on the machine using self-hosted integration runtime. The machine will connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share. Also see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
+* Runtime is installed on the machine using self-hosted integration runtime. The machine will connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share. Also see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-a-self-hosted-integration-runtime-for-database-migrations)
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
 ## Launch the Migrate to Azure SQL wizard in Azure Data Studio
@@ -166,8 +166,8 @@ Resource group, Azure storage account, Blob container from the corresponding dro
     | Arrived | Backup file arrived in the source backup location and validated |
     | Uploading | Integration runtime is currently uploading the backup file to Azure storage|
     | Uploaded | Backup file is uploaded to Azure storage |
-    | Restoring | Azure Database Migration Service is currently restoring the backup file to Azure SQL Managed Instance|
-    | Restored | Backup file is successfully restored on Azure SQL Managed Instance |
+    | Restoring | Azure Database Migration Service is currently restoring the backup file to SQL Server on Azure Virtual Machine|
+    | Restored | Backup file is successfully restored on SQL Server on Azure Virtual Machine |
     | Canceled | Migration process was canceled |
     | Ignored | Backup file was ignored as it doesn't belong to a valid database backup chain |
 

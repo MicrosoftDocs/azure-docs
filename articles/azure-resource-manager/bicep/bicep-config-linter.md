@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/01/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -22,15 +22,41 @@ The following example shows the rules that are available for configuration.
   "analyzers": {
     "core": {
       "enabled": true,
-      "verbose": false,
       "rules": {
         "adminusername-should-not-be-literal": {
+          "level": "warning"
+        },
+        "artifacts-parameters": {
+          "level": "warning"
+        },
+        "decompiler-cleanup": {
+          "level": "warning"
+        },
+        "max-outputs": {
+          "level": "warning"
+        },
+        "max-params": {
+          "level": "warning"
+        },
+        "max-resources": {
+          "level": "warning"
+        },
+        "max-variables": {
           "level": "warning"
         },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },
+        "no-hardcoded-location": {
+          "level": "warning"
+        },
+        "no-loc-expr-outside-params": {
+          "level": "warning"
+        },
         "no-unnecessary-dependson": {
+          "level": "warning"
+        },
+        "no-unused-existing-resources": {
           "level": "warning"
         },
         "no-unused-params": {
@@ -45,13 +71,34 @@ The following example shows the rules that are available for configuration.
         "prefer-interpolation": {
           "level": "warning"
         },
+        "prefer-unquoted-property-names": {
+          "level": "warning"
+        },
+        "protect-commandtoexecute-secrets": {
+          "level": "warning"
+        },
         "secure-parameter-default": {
+          "level": "warning"
+        },
+        "secure-params-in-nested-deploy": {
+          "level": "warning"
+        },
+        "secure-secrets-in-params": {
           "level": "warning"
         },
         "simplify-interpolation": {
           "level": "warning"
         },
         "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "use-recent-api-versions": {
+          "level": "warning"
+        },
+        "use-resource-id-functions": {
+          "level": "warning"
+        },
+        "use-stable-resource-identifiers": {
           "level": "warning"
         },
         "use-stable-vm-image": {
@@ -86,7 +133,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 {
   "analyzers": {
     "core": {
-      "verbose": false,
       "enabled": true,
       "rules": {
         "no-hardcoded-env-urls": {

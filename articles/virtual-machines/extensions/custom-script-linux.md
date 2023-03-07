@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
+ms.custom: GGAL-freshness822
 author: MsGabsta
 ms.collection: linux
 ms.date: 04/25/2018
@@ -249,7 +250,7 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 > The `managedIdentity` property *must not* be used in conjunction with the `storageAccountName` or `storageAccountKey` property.
 
 ## Template deployment
-You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
 
 ```json
@@ -501,6 +502,10 @@ The output looks like the following text:
   }
 ]
 ```
+
+#### Azure CLI syntax issues
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 To see the code, current issues, and versions, go to the [custom-script-extension-linux repo on GitHub](https://github.com/Azure/custom-script-extension-linux).

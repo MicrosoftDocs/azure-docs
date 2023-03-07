@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Create an Azure Database for MySQL flexible server - Azure portal'
 description: This article walks you through using the Azure portal to create an Azure Database for MySQL flexible server in minutes.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: mvc, mode-ui
 ms.topic: quickstart
+author: shreyaaithal
+ms.author: shaithal
+ms.custom: mvc, mode-ui
 ms.date: 06/13/2022
 ---
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL flexible server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.

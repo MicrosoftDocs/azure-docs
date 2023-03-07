@@ -7,13 +7,21 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 10/10/2022
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
-ms.custom: ignite-fall-2021
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
 # Use table tags to train your custom template model
+
+>[!TIP]
+>
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with version v3.0.
 
 In this article, you'll learn how to train your custom template model with table tags (labels). Some scenarios require more complex labeling than simply aligning key-value pairs. Such scenarios include extracting information from forms with complex hierarchical structures or encountering items that not automatically detected and extracted by the service. In these cases, you can use table tags to train your custom template model.
 
@@ -22,7 +30,7 @@ In this article, you'll learn how to train your custom template model with table
 Here are some examples of when using table tags would be appropriate:
 
 - There's data that you wish to extract presented as tables in your forms, and the structure of the tables are meaningful. For instance, each row of the table represents one item and each column of the row represents a specific feature of that item. In this case, you could use a table tag where a column represents features and a row represents information about each feature.
-- There's data you wish to extract that is not presented in specific form fields but semantically, the data could fit in a two-dimensional grid. For instance, your form has a list of people, and includes, a first name, a last name, and an email address. You would like to extract this information. In this case, you could use a table tag with first name, last name, and email address as columns and each row is populated with information about a person from your list.
+- There's data you wish to extract that isn't presented in specific form fields but semantically, the data could fit in a two-dimensional grid. For instance, your form has a list of people, and includes, a first name, a last name, and an email address. You would like to extract this information. In this case, you could use a table tag with first name, last name, and email address as columns and each row is populated with information about a person from your list.
 
 > [!NOTE]
 > Form Recognizer automatically finds and extracts all tables in your documents whether the tables are tagged or not. Therefore, you don't have to label every table from your form with a table tag and your table tags don't have to replicate the structure of very table found in your form. Tables extracted automatically by Form Recognizer will be included in the pageResults section of the JSON output.
@@ -36,7 +44,7 @@ Here are some examples of when using table tags would be appropriate:
 
 ## Label your table tag data
 
-* If your project has a table tag, you can open the labeling panel and populate the tag as you would label key-value fields.
+* If your project has a table tag, you can open the labeling panel, and populate the tag as you would label key-value fields.
 :::image type="content" source="media/table-labeling.png" alt-text="Label with table tags":::
 
 ## Next steps

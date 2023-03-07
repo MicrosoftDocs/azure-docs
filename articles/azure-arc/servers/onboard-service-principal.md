@@ -2,7 +2,7 @@
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using a service principal.
 ms.date: 05/23/2022
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 You can enable Azure Arc-enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to execute this script manually with an account that has elevated permissions on the target machine and in Azure.
 
-One method to connect the machines to Azure Arc-enabled servers is to use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md). This service principal method can be used instead of your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that has only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This method is safer than using a higher privileged account like a Tenant Administrator and follows our access control security best practices. **The service principal is used only during onboarding; it is not used for any other purpose.**  
+One method to connect the machines to Azure Arc-enabled servers is to use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md). This service principal method can be used instead of your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that has only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This method is safer than using a higher privileged account like a Tenant Administrator and follows our access control security best practices. **The service principal is used only during onboarding; it is not used for any other purpose.**
 
 Before you start connecting your machines, review the following requirements:
 
@@ -23,7 +23,7 @@ Before you start connecting your machines, review the following requirements:
 
 <!--The installation methods to install and configure the Connected Machine agent requires that the automated method you use has administrator permissions on the machines: on Linux by using the root account, and on Windows as a member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.--> 
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.-->
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -87,7 +87,7 @@ The values from the following properties are used with parameters passed to the 
 > [!TIP]
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
 
-4. Assign the **Azure Connected Machine Onboarding** role to the service principal for the designated resource group or subscription. This role contains only the permissions required to onboard a machine. Note that your account must be a member of the **Owner** or **User Access Administrator** role for the subscription to which the service principal will have access. For information on how to add role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+4. Assign the **Azure Connected Machine Onboarding** role to the service principal for the designated resource group or subscription. This role contains only the permissions required to onboard a machine. Note that your account must be a member of the **Owner** or **User Access Administrator** role for the subscription to which the service principal will have access. For information on how to add role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Generate the installation script from the Azure portal
 
@@ -148,4 +148,4 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 - Learn how to [troubleshoot agent connection issues](troubleshoot-agent-onboard.md).
-- Learn how to manage your machines using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying that machines are reporting to the expected Log Analytics workspace, monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and more.
+- Learn how to manage your machines using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying that machines are reporting to the expected Log Analytics workspace, monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and more.

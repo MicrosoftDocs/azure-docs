@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) helper functions (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Advanced Security Information Model (ASIM) helper functions extend the KQL language providing functionality that helps interact with normalized data and in writing parsers. The following is a list of ASIM help functions:
 
 ## Scalar functions

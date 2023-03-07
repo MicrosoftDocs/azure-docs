@@ -2,7 +2,11 @@
 title: 'Application upgrade: data serialization' 
 description: Best practices for data serialization and how it affects rolling application upgrades.
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # How data serialization affects an application upgrade

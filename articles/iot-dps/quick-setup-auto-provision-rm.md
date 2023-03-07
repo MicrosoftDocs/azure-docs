@@ -48,7 +48,7 @@ Two Azure resources are defined in the template above:
 
     [![Deploy to Azure in Portal Steps](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
-2. Select or enter the following values and click **Review + Create**.
+2. Select or enter the following values and select **Review + Create**.
 
     ![ARM template deployment parameters on the portal](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
 
@@ -57,12 +57,12 @@ Two Azure resources are defined in the template above:
     | Field | Description |
     | :---- | :---------- |
     | **Subscription** | Select your Azure subscription. |
-    | **Resource group** | Click **Create new**, and enter a unique name for the resource group, and then click **OK**. |
+    | **Resource group** | Select **Create new**, and enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region for your resources. For example, **East US**.  For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
     | **Iot Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **Provisioning Service Name** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
-3. On the next screen, read the terms. If you agree to all terms, click **Create**. 
+3. On the next screen, read the terms. If you agree to all terms, select **Create**. 
 
     The deployment will take a few moments to complete. 
 
@@ -71,11 +71,11 @@ Two Azure resources are defined in the template above:
 
 #### Deploy with the Azure CLI
 
-Using the Azure CLI requires version 2.6 or later. If you are running the Azure CLI locally, verify your version by running: `az --version`
+Using the Azure CLI requires version 2.6 or later. If you're running the Azure CLI locally, verify your version by running: `az --version`
 
 Sign in to your Azure account and select your subscription.
 
-1. If you are running the Azure CLI locally instead of running it in the portal, you will need to log in. To log in at the command prompt, run the [login command](/cli/azure/get-started-with-az-cli2):
+1. If you're running the Azure CLI locally instead of running it in the portal, you need to sign in. To sign in at the command prompt, run the [login command](/cli/azure/get-started-with-az-cli2):
     
     ```azurecli
     az login
@@ -147,9 +147,9 @@ Sign in to your Azure account and select your subscription.
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, you can use the Azure portal or Azure CLI to delete the resource group and all of its resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the Azure portal or Azure CLI to delete the resource group and all of its resources.
 
-To delete a resource group and all its resources from the Azure portal, just open the resource group and click **Delete resource group** and the top.
+To delete a resource group and all its resources from the Azure portal, just open the resource group and select **Delete resource group** and the top.
 
 To delete the resource group deployed using the Azure CLI:
 
@@ -161,7 +161,7 @@ You can also delete resource groups and individual resources using the Azure por
 
 ## Next steps
 
-In this quickstart, you've deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

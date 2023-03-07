@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/27/2021
+ms.date: 11/21/2022
 ms.author: celested
 ---
 
@@ -27,7 +27,7 @@ This tutorial describes the steps you need to perform in both Facebook Work Acco
 > * Create users in Facebook Work Accounts
 > * Remove users in Facebook Work Accounts when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Facebook Work Accounts
-> * [Single sign-on](facebook-work-accounts-tutorial.md) to Facebook Work Accounts (recommended)
+> * Single sign-on to Facebook Work Accounts (recommended)
 
 ## Prerequisites
 

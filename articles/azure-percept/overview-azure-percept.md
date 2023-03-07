@@ -1,15 +1,17 @@
 ---
 title: Azure Percept overview
 description: Learn more about the Azure Percept platform
-author: nkhuyent
+author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 03/23/2021
+ms.date: 10/06/2022
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
 # Azure Percept overview
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Percept is a family of hardware, software, and services designed to accelerate business transformation using IoT and AI at the edge. Azure Percept covers the full stack from silicon to services to solve the integration challenges of edge AI at scale.  
 
@@ -26,9 +28,6 @@ The main components of Azure Percept are:
 - [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders, and customers.
-
-        > [!div class="nextstepaction"]
-        > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 - Services and workflows that accelerate edge AI model and solution development.
 

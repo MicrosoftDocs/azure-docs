@@ -46,7 +46,7 @@ async void CastRay(RenderingSession session)
         var hitObject = hits[0].HitObject;
         var hitPosition = hits[0].HitPosition;
         var hitNormal = hits[0].HitNormal;
-
+        var hitType = hits[0].HitType;
         // do something with the hit information
     }
 }
@@ -75,6 +75,7 @@ void CastRay(ApiHandle<RenderingSession> session)
                 auto hitObject = hits[0].HitObject;
                 auto hitPosition = hits[0].HitPosition;
                 auto hitNormal = hits[0].HitNormal;
+                auto hitType = hits[0].HitType;
 
                 // do something with the hit information
             }
@@ -105,10 +106,59 @@ The result of a ray cast query is an array of hits. The array is empty, if no ob
 A Hit has the following properties:
 
 * **`HitEntity`:** Which [entity](../../concepts/entities.md) was hit.
-* **`SubPartId`:** Which *submesh* was hit in a [MeshComponent](../../concepts/meshes.md). Can be used to index into `MeshComponent.UsedMaterials` and look up the [material](../../concepts/materials.md) at that point.
+* **`SubPartId`:** Which *submesh* was hit in a [MeshComponent](../../concepts/meshes.md#meshcomponent). Can be used to index into `MeshComponent.UsedMaterials` and look up the [material](../../concepts/materials.md) at that point.
 * **`HitPosition`:** The world space position where the ray intersected the object.
 * **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
+* **`HitType`:** What was hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees are not necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
+
+## Spatial queries
+
+A *spatial query* allows for the runtime to check which [MeshComponent](../../concepts/meshes.md#meshcomponent) are intersected by a world-space axis-aligned bounding box (AABB). This check is very performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
+While such a query can be run manually on the client side, for large scenes it will be much faster for the server to compute this.
+
+```cs
+async void QueryAABB(RenderingSession session)
+{
+    // Query all mesh components in a 2x2x2m cube.
+    SpatialQuery query = new SpatialQuery();
+    query.Bounds = new Microsoft.Azure.RemoteRendering.Bounds(new Double3(-1, -1, -1), new Double3(1, 1, 1));
+    query.MaxResults = 100;
+
+    SpatialQueryResult result = await session.Connection.SpatialQueryAsync(query);
+    foreach (MeshComponent meshComponent in result.Overlaps)
+    {
+        Entity owner = meshComponent.Owner;
+        // do something with the hit MeshComponent / Entity
+    }
+}
+```
+
+```cpp
+void QueryAABB(ApiHandle<RenderingSession> session)
+{
+    // Query all mesh components in a 2x2x2m cube.
+    SpatialQuery query;
+    query.Bounds.Min = {-1, -1, -1};
+    query.Bounds.Max = {1, 1, 1};
+    query.MaxResults = 100;
+
+    session->Connection()->SpatialQueryAsync(query, [](Status status, ApiHandle<SpatialQueryResult> result)
+        {
+            if (status == Status::OK)
+            {
+                std::vector<ApiHandle<MeshComponent>> overlaps;
+                result->GetOverlaps(overlaps);
+
+                for (ApiHandle<MeshComponent> meshComponent : overlaps)
+                {
+                    ApiHandle<Entity> owner = meshComponent->GetOwner();
+                    // do something with the hit MeshComponent / Entity
+                }
+            }
+        });
+}
+```
 
 ## API documentation
 
@@ -119,3 +169,4 @@ A Hit has the following properties:
 
 * [Object bounds](../../concepts/object-bounds.md)
 * [Overriding hierarchical states](override-hierarchical-state.md)
+* [Single sided rendering](single-sided-rendering.md)

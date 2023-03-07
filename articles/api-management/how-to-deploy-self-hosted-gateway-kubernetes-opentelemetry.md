@@ -87,10 +87,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
 1. Create a local configuration file called `opentelemetry-collector-config.yml` with the following configuration:
 
     ```yaml
-    agentCollector:
-      enabled: false
-    standaloneCollector:
-      enabled: true
+    mode: deployment
     config:
       exporters:
         prometheus:
@@ -114,7 +111,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
         protocol: TCP
     ```
 
-This allows us to use a standalone collector with the Prometheus exporter being exposed on port `8889`. To expose the Prometheus metrics, we are asking the Helm chart to configure a ´LoadBalancer` service.
+This allows us to use a standalone collector with the Prometheus exporter being exposed on port `8889`. To expose the Prometheus metrics, we are asking the Helm chart to configure a `LoadBalancer` service.
 
 > [!NOTE]
 > We are disabling the compact Jaeger port given it uses UDP and `LoadBalancer` service does not allow you to have multiple protocols at the same time.

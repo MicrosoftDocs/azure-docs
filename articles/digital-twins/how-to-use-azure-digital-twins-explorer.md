@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins Explorer
+title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use all the features of Azure Digital Twins Explorer
+description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 12/2/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -18,10 +18,7 @@ ms.custom: event-tier1-build-2022
 
 # Use Azure Digital Twins Explorer (preview)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
-
->[!NOTE]
->This tool is currently in public preview.
+[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 ## How to access
 
@@ -144,13 +141,7 @@ There are two possible error scenarios that each give their own error message:
 
 Both of these error messages are shown in the screenshot below:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
 
 #### View a twin's relationships
 
@@ -239,13 +230,7 @@ You can create a new digital twin from its model definition in the **Models** pa
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin-large.png":::
 
 To add property values to your twin, see [Edit twin and relationship properties](#edit-twin-and-relationship-properties).
 
@@ -311,13 +296,7 @@ You can use the **Model Graph** panel to view a graphical representation of the 
 
 To see the full definition of a model, find that model in the **Models** pane and select the menu dots next to the model name. Then, select **View Model**. Doing so will display a **Model Information** modal showing the raw DTDL definition of the model.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view-large.png":::
 
 You can also view a model's full definition by selecting it in the **Model Graph**, and using the **Toggle model details** button to expand the **Model Detail** panel. This panel will also display the full DTDL code for the model.
 
@@ -354,13 +333,7 @@ You can upload custom images to represent different models in the Model Graph an
 
 To upload an image for a single model, find that model in the **Models** panel and select the menu dots next to the model name. Then, select **Upload Model Image**. In the file selector box that appears, navigate on your machine to the image file you want to upload for that model. Choose **Open** to upload it.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image-large.png":::
 
 You can also upload model images in bulk.
 
@@ -375,13 +348,7 @@ First, use the following instructions to set the image file names before uploadi
 
 Then, to upload the images at the same time, use the **Upload Model Images** icon at the top of the Models panel. In the file selector box, choose which image files to upload. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted.":::
 
 ## Manage models
 
@@ -398,34 +365,33 @@ For information about the viewing experience for models, see [Explore models and
 
 ### Upload models
 
-You can upload models from your machine by selecting them individually, or by uploading an entire folder of models at once.
+You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted.":::
 
 In the file selector box that appears, navigate on your machine to the model(s) you want to upload. You can select one or more JSON model files and select **Open** to upload them.
 
 To upload a folder of models, including everything that's inside it, select the **Upload a directory of Models** icon showing a file folder.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted.":::
 
 In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
 >[!IMPORTANT]
->If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
+>If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them all in the same import and Azure Digital Twins will infer the order to upload them in. However, if you're uploading more than 50 models in the same file, see the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
+#### Limitations of bulk model upload
+
+The limitations in this section apply to models that are contained within a single JSON file, being uploaded to Azure Digital Twins Explorer at the same time.
+
+While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
+* If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.
+* If there are any models that reference other models defined in the same file as components, place them near the end of the list.
+* Verify that wherever a model references another model that's defined in the same file (either through inheritance or as a component), the model that contains the reference comes later in the list than the referenced model definition.
+
+This will help make sure that model dependencies are resolved correctly during the upload process.
 
 ### Delete models
 
@@ -433,23 +399,11 @@ You can use the Models panel to delete individual models, or all of the models i
 
 To delete a single model, find that model in the list and select the menu dots next to the model name. Then, select **Delete Model**.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one-large.png":::
 
 To delete all of the models in your instance at once, choose the **Delete All Models** icon at the top of the Models panel.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Delete All Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Delete All Models icon is highlighted.":::
 
 ### Refresh models
 
@@ -457,13 +411,7 @@ When you open Azure Digital Twins Explorer, the Models panel should automaticall
 
 However, you can manually refresh the panel at any time to reload the list of all models in your Azure Digital Twins instance. To do so, select the **Refresh models** icon. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Refresh models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Refresh models icon is highlighted.":::
 
 ## Import/export graph
 
@@ -473,22 +421,27 @@ From the **Twin Graph** panel, you have the options to [import](#import-graph) a
 
 You can use the import feature to add twins, relationships, and models to your instance. This feature can be useful for creating many twins, relationships, and/or models at once.
 
+>[!NOTE]
+> If your graph import file includes models, they'll be subject to the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
 #### Create import file
 
 The first step in importing a graph is creating a file representing the twins and relationships you want to add.
 
 The import file can be in either of these two formats:
-* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 * The *JSON-based format* generated on [graph export](#export-graph-and-models). This format can contain twins, relationships, and/or models.
+* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 
-To create a custom graph in Excel, use the following format.
+##### Create import file in Excel
+
+To create a custom graph in Excel that can upload twins and relationships to Azure Digital Twins Explorer, use the following format.
 
 Each row represents an element to create: either a twin, a relationship, or a combination of twin and corresponding relationship.
 Use the following columns to structure the twin or relationship data. The column names can be customized, but they should remain in this order.
 
 | ModelID | ID | Relationship (source) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
-| (Optional)<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
+| (Optional)<br>The DTMI ID of the model to use for the new twin. This model definition should already exist in the instance.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
 
 Here's an example .xlsx file creating a small graph of two floors and two rooms.
 
@@ -533,39 +486,35 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 
 ## Link to your environment and specific query
 
-You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
+You can share a link to your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to generate a link to your Azure Digital Twins Explorer environment, which can optionally include a specific query to run when the link is opened. This section also describes what permissions the recipient needs to have in order to interact with your twin data.
 
-To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
+### Recipient access requirements
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
+For the recipient to open the link and view the instance in Azure Digital Twins Explorer, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). 
 
->[!NOTE]
-> The value for the host name placeholder is not preceded by the `https://` prefix here.
+For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-Here's an example of a URL with the placeholder values filled in:
+### Generate link to environment with specific query
 
-`https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
+To generate a link to your Azure Digital Twins Explorer environment that includes a specific query, enter the query you want to capture in the **Query Explorer**, then select the **Share** button to copy the full link.
 
-For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-with-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. The query text and the Send button are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-with-query.png":::
 
-### Link to a specific query
+For the example and query in the screenshot above, the **Share** button produces this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins%20T%20WHERE%20T.InFlow%20%3E%2070&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. The link contains the tenant ID and host name of the Azure Digital Twins instance, as well as formatted query text.
 
-You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
+You can share this URL to allow someone to access your instance and this query. When they open Azure Digital Twins Explorer with the link, the results of the query will automatically populate in the **Twin Graph** panel.
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>&query=<query-text>`
+### Generate link to environment without specific query
 
-The query text should be URL encoded. 
+To share a link to your Azure Digital Twins Explorer environment with no specific query attached, start by using the **Share** button to copy the link to your instance.
 
->[!TIP]
->You can copy the query text from the **Query Explorer** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
->
-> You can also use an independent URL encoder to convert the query text.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-without-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. Only the Send button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-without-query.png":::
 
-Here's an example of the parameter for a query to `SELECT * FROM digitaltwins`:
+Then, manually remove the query parameter from the result.
 
-`...&query=SELECT%20*%20FROM%20digitaltwins`
+For example, the **Share** button in the screenshot above would produce this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. You can remove the `query=SELECT%20*%20FROM%20digitaltwins&` portion to produce the URL `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`.
 
-You can then share the completed URL.
+Then, share this URL to allow someone to access your instance. When they open Azure Digital Twins Explorer with the link, they'll be connected to your instance and won't see any pre-populated query results.
 
 ## Accessibility and advanced settings
 

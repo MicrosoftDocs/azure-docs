@@ -7,10 +7,10 @@ manager: mariusu
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 01/26/2022
+ms.date: 09/08/2022
 ms.topic: include
 ms.custom: include file
-ms.author: radubulboaca
+ms.author: antonsamson
 ---
 
 ## Prerequisites
@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-java) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
+
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
 
 ## Setting up
 
@@ -32,6 +36,9 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 ```
 
 ### Include the package
+
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+
 #### Include the BOM file
 
 Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
@@ -69,7 +76,7 @@ If you want to take dependency on a particular version of the library that isn't
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-rooms</artifactId>
-  <version>1.0.0-alpha.1</version>
+  <version>1.0.0-beta.1</version>
 </dependency>
 ```
 
@@ -81,6 +88,11 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 // Find your Communication Services resource in the Azure portal
 String connectionString = "<connection string>";
 RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionString).buildClient();
+
+// Set communication user id
+static String USER_ID_1 = "<communication-user-id-1>";
+static String USER_ID_2 = "<communication-user-id-2>";
+static String USER_ID_3 = "<communication-user-id-3>";
 ```
 
 ### Create a room
@@ -88,12 +100,24 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 Create a new `room` with default properties using the code snippet below:
 
 ```java
-RoomRequest request = new RoomRequest();
-CommunicationRoom createCommunicationRoom = roomsClient.createRoom(request);
-String roomId = createCommunicationRoom.getRoomId()
+OffsetDateTime validFrom = OffsetDateTime.now();
+OffsetDateTime validUntil = validFrom.plusDays(30);
+RoomJoinPolicy roomJoinPolicy = RoomJoinPolicy.INVITE_ONLY;
+
+List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
+
+roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1)).setRole(RoleType.CONSUMER));
+roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_2)).setRole(RoleType.ATTENDEE));
+
+return roomsClient.createRoom(
+    validFrom,
+    validUntil,
+    roomJoinPolicy,
+    roomParticipants
+);
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
+Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
 ### Get properties of an existing room
 
@@ -105,68 +129,56 @@ CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
 ```java
-OffsetDateTime validFrom = OffsetDateTime.of(2022, 2, 1, 5, 30, 20, 10, ZoneOffset.UTC);
-OffsetDateTime validUntil = OffsetDateTime.of(2022, 5, 2, 5, 30, 20, 10, ZoneOffset.UTC);
+OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
+OffsetDateTime validUntil = validFrom.plusDays(1);
 
-RoomRequest request = new RoomRequest();
-request.setValidFrom(validFrom);
-request.setValidUntil(validUntil);
-
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, validFrom, validUntil);
 ```
 
-### Add new participants 
+### Add new participants
 
-To add new participants to a `room`, issue an update request on the room's `Participants`:
+To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
 ```java
-Map<String, Object> participants = new HashMap<>();
-participants.put("<CommunicationUserIdentifier.Id1>", new RoomParticipant());  
-participants.put("<CommunicationUserIdentifier.Id2>", new RoomParticipant());  
-participants.put("<CommunicationUserIdentifier.Id3>", new RoomParticipant());  
-
-RoomRequest request = new RoomRequest();
-request.setParticipants(participants);
-            
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
+RoomParticipant newParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_3)).setRole(RoleType.CONSUMER);
+ParticipantsCollection updatedParticipants = roomsClient.addParticipants(roomId, List.of(newParticipant));
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
 
-### Remove participants
+### Get list of participants
 
-To remove a participant from a `room` and revoke their access, update the `Participants` list:
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```java
-Map<String, Object> participants = new HashMap<>();
-participants.put("<CommunicationUserIdentifier.Id1>", null);  
-participants.put("<CommunicationUserIdentifier.Id2>", null);  
-participants.put("<CommunicationUserIdentifier.Id3>", null);  
-
-RoomRequest request = new RoomRequest();
-request.setParticipants(participants);
-            
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
+try {
+     ParticipantsCollection participants = roomsClient.getParticipants(roomId);
+     System.out.println("Participants: \n" + listParticipantsAsString(participants.getParticipants()));
+} catch (Exception ex) {
+    System.out.println(ex);
+}
 ```
 
-### Join a room call
+### Remove participants
 
-To join a room call, set up your web application using the [Add voice calling to your client app](../../voice-video-calling/getting-started-with-calling.md) guide. Once you have an initialized and authenticated `callAgent`, you may specify a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
-```js
-
-const context = { roomId: '<RoomId>' }
-
-const call = callAgent.join(context);
-
+```java
+RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1));
+ParticipantsCollection updatedParticipants = roomsClient.removeParticipants(roomId, List.of(existingParticipant));
 ```
 
 ### Delete room
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
+
+If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```java
 roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

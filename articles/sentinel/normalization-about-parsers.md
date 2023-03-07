@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Using the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Use Advanced Security Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
 
 > [!IMPORTANT]
@@ -63,11 +61,11 @@ When invoking the parser, always use available filtering parameters by adding on
 
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
 - [Authentication](authentication-normalization-schema.md)
-- [DNS](dns-normalization-schema.md#filtering-parser-parameters)
+- [DNS](normalization-schema-dns.md#filtering-parser-parameters)
 - [Network Session](network-normalization-schema.md#filtering-parser-parameters)
 - [Web Session](web-normalization-schema.md#filtering-parser-parameters)
 
-Every schema that supports filtering parameters supports at least the `starttime` and `enttime` parameters and using them is often critical for optimizing performance.
+Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
 
 For an example of using filtering parsers see [Unifying parsers](#unifying-parsers) above. 
 

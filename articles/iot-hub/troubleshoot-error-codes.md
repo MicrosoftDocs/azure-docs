@@ -61,6 +61,11 @@ In general, the error message presented should explain how to fix the error. If 
 * The authorization rule used has the permission for the operation requested.
 * For the last error messages beginning with "principal...", this error can be resolved by assigning the correct level of Azure RBAC permission to the user. For example, an Owner on the IoT Hub can assign the "IoT Hub Data Owner" role, which gives all permissions. Try this role to resolve the lack of permission issue.
 
+> [!NOTE]
+> Some devices may experience a time drift issue when the device time has a greater than five minute difference from the server. This error can occur when a device has been connecting to an IoT hub without issues for weeks or even months but then starts to continually have its connection refused. The error can also be specific to a subset of devices connected to the IoT hub, since the time drift can happen at different rates depending upon when a device is first connected or turned on.
+>
+> Often, performing a time sync using NTP or rebooting the device (which can automatically perform a time sync during the boot sequence) fixes the issue and allows the device to connect again. To avoid this error, configure the device to perform a periodic time sync using NTP. You can schedule the sync for daily, weekly or monthly depending on the amount of drift the device experiences. If you can't configure a periodic NTP sync on your device, then schedule a periodic reboot.
+
 ## 403002 IoTHubQuotaExceeded
 
 You may see requests to IoT Hub fail with the error  **403002 IoTHubQuotaExceeded**. And in Azure portal, the IoT hub device list doesn't load.
@@ -196,7 +201,7 @@ There can be a number of causes for a 500xxx error response. In all cases, the i
 
 To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) and [Azure Status](https://status.azure.com/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
+If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health) and [Azure Status](https://azure.status.microsoft/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
 
 If there are no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation.
 

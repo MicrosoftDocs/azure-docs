@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 11/04/2020
+ms.date: 06/13/2022
 ms.author: alkohli
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
@@ -211,7 +211,7 @@ This operation takes about 15-20 minutes to complete.
 
 1. Remove the cables and return them to the tray at the back of the device.
 2. Schedule a pickup with your regional carrier.
-3. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+3. Reach out to [Data Box Operations](mailto:adbops@microsoft.com) to inform regarding the pickup and to get the return shipping label.
 4. The return shipping label should be visible on the front clear panel of the device.
 
 ## Verify data

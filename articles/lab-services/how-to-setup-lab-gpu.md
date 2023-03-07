@@ -4,7 +4,7 @@ description: Learn how to set up a lab with graphics processing unit (GPU) virtu
 author: nicolela
 ms.topic: how-to
 ms.date: 06/09/2022
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up a lab with GPU virtual machines
@@ -24,7 +24,7 @@ On the first page of the lab creation wizard, in the **Virtual machine size** dr
 
 In this process, you have the option of selecting either **Visualization** or **Compute** GPUs.  It's important to choose the type of GPU that's based on the software that your students will use.  
 
-As described in the following table, the *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because students use deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) to train deep learning models with large sets of data.
+As described in the following table, the *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because students use deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) to train deep learning models with large sets of data.
 
 | Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
@@ -115,7 +115,7 @@ This section describes how to validate that your GPU drivers are properly instal
 
 #### Small GPU (Visualization) Windows images
 
-To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](/virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 
 #### Small GPU (Compute) and Medium GPU (Visualization) Windows images
 

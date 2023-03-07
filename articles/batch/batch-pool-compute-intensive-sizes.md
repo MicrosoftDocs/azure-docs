@@ -107,9 +107,8 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 
 To run CUDA applications on a pool of Linux NC nodes, you need to install necessary NVIDIA Tesla GPU drivers from the CUDA Toolkit. The following sample steps create and deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
-1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. 
-2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md
-) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md) manually.
+1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region.
+2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md) manually.
 3. Follow the steps to create an [Azure Compute Gallery image](batch-sig-images.md) for Batch.
 4. Create a Batch account in a region that supports NC VMs.
 5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-sig-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:

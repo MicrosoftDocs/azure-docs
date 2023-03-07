@@ -75,8 +75,8 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingsOverrides.json
-    chown root:msawb ExtensionSettingsOverrides.json
+    chmod 750 ExtensionSettingOverrides.json
+    chown root:msawb ExtensionSettingOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.

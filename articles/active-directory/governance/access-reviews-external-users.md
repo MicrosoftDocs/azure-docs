@@ -3,15 +3,15 @@ title: Use Azure AD Identity Governance to review and remove external users who 
 description: Use Access Reviews to extend of remove access from members of partner organizations
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: ajburnle
+ms.author: amsliu
 ---
 
 # Use Azure Active Directory (Azure AD) Identity Governance to review and remove external users who no longer have resource access

@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop (classic) Windows 10 or 7 - Azure
 description: How to connect to Azure Virtual Desktop (classic) using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,7 @@ manager: femila
 > Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-windows-7-10.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-windows.md).
 
 You can access Azure Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Windows 8 or Windows 8.1.
 
@@ -20,10 +20,11 @@ You can access Azure Virtual Desktop resources on devices with Windows 7, Window
 >The Windows client automatically defaults to Azure Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
 
 > [!IMPORTANT]
-> Azure Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
-
-> [!IMPORTANT]
-> Azure Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store.
+> - Azure Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+>
+> - Azure Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store.
+>
+> - Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
 
 ## Install the Windows Desktop client
 

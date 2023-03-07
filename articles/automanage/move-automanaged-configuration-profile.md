@@ -13,7 +13,7 @@ ms.custom: subject-moving-resources
 This article describes how to migrate an Automanage Configuration Profile to a different region. You might want to move your Configuration Profiles to another region for many reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. You may want to deploy Azure Automanage to some VMs that are in a new region.  Some regions may require that you use Automanage Configuration Profiles  that are local to that region.
 
 ## Prerequisites
-* Ensure that your target region is [supported by Automanage](./automanage-virtual-machines.md#prerequisites).
+* Ensure that your target region is [supported by Automanage](./overview-about.md#prerequisites).
 * Ensure that your Log Analytics workspace region, Automation account region, and your target region are all regions supported by the region mappings [here](../automation/how-to/region-mappings.md).
 
 ## Download your desired Automanage configuration profile
@@ -21,12 +21,12 @@ This article describes how to migrate an Automanage Configuration Profile to a d
 We'll begin by downloading our previous Configuration Profile using PowerShell.  First, perform a `GET` using `Invoke-RestMethod` against the Automanage Resource Provider, substituting the values for your subscription.
 
 ```url
-https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2021-04-30-preview
+https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2022-05-04
 ```
 
 The GET command will display a list of Automanage Configuration Profile information, including the settings and the ConfigurationProfile ID
 ```azurepowershell-interactive
-$listConfigurationProfilesURI = "https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2021-04-30-preview"
+$listConfigurationProfilesURI = "https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2022-05-04"
 
 Invoke-RestMethod `
     -URI $listConfigurationProfilesURI
@@ -66,7 +66,7 @@ Here are the results, edited for brevity.
 The next step is to do another `GET`, this time to retrieve the specific profile we would like to create in a new region.  For this example, we'll retrieve 'testProfile1'.  We'll perform a `GET` against the `id` value for the desired profile.
 
 ```azurepowershell-interactive
-$profileId = "https://management.azure.com/subscriptions/yourSubscription/resourceGroups/yourResourceGroup/providers/Microsoft.Automanage/configurationProfiles/testProfile1?api-version=2021-04-30-preview"
+$profileId = "https://management.azure.com/subscriptions/yourSubscription/resourceGroups/yourResourceGroup/providers/Microsoft.Automanage/configurationProfiles/testProfile1?api-version=2022-05-04"
 
 $profile = Invoke-RestMethod `
     -URI $listConfigurationProfilesURI
@@ -99,8 +99,8 @@ $profile = Invoke-RestMethod `
 ## Enable Automanage on your VMs
 For details on how to move your VMs, see this [article](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-Once you've moved your profile to a new region, you may use it as a custom profile for any VM.  Details are available [here](./automanage-virtual-machines.md#enabling-automanage-for-vms-in-azure-portal).
+Once you've moved your profile to a new region, you may use it as a custom profile for any VM.  Details are available [here](./quick-create-virtual-machines-portal.md).
 
 ## Next steps
-* [Learn more about Azure Automanage](./automanage-virtual-machines.md)
+* [Learn more about Azure Automanage](./overview-about.md)
 * [View frequently asked questions about Azure Automanage](./faq.yml)

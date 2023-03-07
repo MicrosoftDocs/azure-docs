@@ -19,7 +19,7 @@ To add a server endpoint, go to the newly created sync group and then select **A
 The **Add server endpoint** blade opens, enter the following information to create a server endpoint:
 
 - **Registered server**: The name of the server or cluster where you want to create the server endpoint.
-- **Path**: The Windows Server path to be synced as part of the sync group.
+- **Path**: The path on the Windows Server to be synced to the Azure file share. The path can be a folder (for example, D:\Data), volume root (for example, D:\\\) or volume mount point (for example, D:\Mount).
 - **Cloud Tiering**: A switch to enable or disable cloud tiering. With cloud tiering, infrequently used or accessed files can be tiered to Azure Files. When you enable cloud tiering, there are two policies that you can set to inform Azure File Sync when to tier cool files: the **Volume Free Space Policy** and the **Date Policy**.
     - **Volume Free Space**: The amount of free space to reserve on the volume on which the server endpoint is located. For example, if volume free space is set to 50% on a volume that has only one server endpoint, roughly half the amount of data is tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the sync group.
     - **Date Policy**: Files are tiered to the cloud if they haven't been accessed (that is, read or written to) for the specified number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days.

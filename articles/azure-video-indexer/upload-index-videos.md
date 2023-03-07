@@ -8,22 +8,9 @@ ms.custom: ignite-fall-2021
 
 # Upload and index your videos
 
-This article shows how to upload and index videos by using the Azure Video Indexer website and the Upload Video API.
+This article shows how to upload and index videos by using the Azure Video Indexer website (see [get started with the website](video-indexer-get-started.md)) and the Upload Video API (see [get started with API](video-indexer-use-apis.md)).
 
-When you're creating an Azure Video Indexer account, you choose between:
-
-- A free trial account. Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users.
-- A paid option where you're not limited by a quota. You create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes.
-
-For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
-
-After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
-
-When you're uploading videos by using the API, you have the following options:
-
-* Upload your video from a URL (preferred).
-* Send the video file as a byte array in the request body.
-* Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md).
 
 ## Supported file formats
 
@@ -55,13 +42,16 @@ After Azure Video Indexer is done analyzing, you get an email with a link to you
 
 You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array.
 
+> [!NOTE]
+> Before you proceed, make sure to review [API recommendations](video-indexer-use-apis.md#recommendations).
+
 ### Configurations and parameters
 
-This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
+This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
 #### externalID
 
-Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer portal can be searched via the specified external ID.
+Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer website can be searched via the specified external ID.
 
 #### callbackUrl
 
@@ -128,7 +118,7 @@ After you copy the following code into your development platform, you'll need to
 
   To get your API key:
 
-  1. Go to the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.

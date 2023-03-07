@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/24/2022
+ms.date: 12/07/2022
 ms.author: radeltch
 
 ---
@@ -141,21 +141,21 @@ To deploy the template, follow these steps:
       1. Select **OK**.
       1. After the new front-end IP pool is created, note the pool IP address.
    
-   1. Next, create a back-end pool:
-   
-      1. Open the load balancer, select **backend pools**, and select **Add**.
+   1. Create a single back-end pool: 
+ 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **Virtual Network**.
+      2. Select **NIC** for Backend Pool Configuration. 
       1. Select **Add a virtual machine**.
-      1. Select ** Virtual machine**.
-      1. Select the virtual machines of the SAP HANA cluster and their IP addresses.
-      1. Select **Add**.
+      1. Select the virtual machines of the HANA cluster.
+      1. Select **Add**.     
+      2. Select **Save**.
    
    1. Next, create a health probe:
    
       1. Open the load balancer, select **health probes**, and select **Add**.
       1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5.
       1. Select **OK**.
    
    1. Next, create the load-balancing rules:
@@ -163,67 +163,10 @@ To deploy the template, follow these steps:
       1. Open the load balancer, select **load balancing rules**, and select **Add**.
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+      2. Increase idle timeout to 30 minutes
       1. Select **HA Ports**.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
-
-1. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
-   1. First, create a front-end IP pool:
-   
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-      1. Select **OK**.
-      1. After the new front-end IP pool is created, note the pool IP address.
-   
-   1. Next, create a back-end pool:
-   
-      1. Open the load balancer, select **backend pools**, and select **Add**.
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **Add a virtual machine**.
-      1. Select the availability set created in step 3.
-      1. Select the virtual machines of the SAP HANA cluster.
-      1. Select **OK**.
-   
-   1. Next, create a health probe:
-   
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-      1. Select **OK**.
-   
-   1. For SAP HANA 1.0, create the load-balancing rules:
-   
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for port 3**03**17.
-   
-   1. For SAP HANA 2.0, create the load-balancing rules for the system database:
-   
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for port 3**03**14.
-   
-   1. For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
-   
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-      1. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for ports 3**03**41 and 3**03**42.
 
    For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
@@ -490,51 +433,58 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## Implement the Python system replication hook SAPHanaSR
+## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  For HANA 2.0 SP5 and above,  implementing SAPHanaSR, along with susChkSrv hook is recommended.  
+
+SusChkSrv extends the functionality of  the main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database is not responsive.
+
+With susChkSrv implemented, an immediate and configurable action is executed, which triggers a failover in the configured timeout period,  instead of waiting on hdbindexserver process to restart on the same node. 
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
-   > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
-   > The python hook can only be implemented for HANA 2.0.        
+   > SAPHanaSR Python hook can only be implemented for HANA 2.0. Package SAPHanaSR must be at least version 0.153.   
+   > susChkSrv Python hook  requires SAP HANA 2.0 SP5 and SAPHanaSR version 0.161.1_BF or higher must be installed.  
 
-   1. Prepare the hook as `root`.  
-
-    ```bash
-     mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
-     chown -R hn1adm:sapsys /hana/shared/myHooks
-    ```
-
-   2. Stop HANA on both nodes. Execute as <sid\>adm:  
+   1. Stop HANA on both nodes. Execute as <sid\>adm:  
    
     ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
-   3. Adjust `global.ini` on each cluster node.  
+   2. Adjust `global.ini` on each cluster node. If the requirements for susChkSrv hook are not met, remove the entire block [ha_dr_provider_suschksrv] from below parameters.  
+   You can adjust the behavior of susChkSrv with parameter action_on_lost.  
+   Valid values are [ ignore | stop | kill | fence ].
  
     ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
     provider = SAPHanaSR
-    path = /hana/shared/myHooks
+    path = /usr/share/SAPHanaSR
     execution_order = 1
     
+    [ha_dr_provider_suschksrv]
+    provider = susChkSrv
+    path = /usr/share/SAPHanaSR
+    execution_order = 3
+    action_on_lost = fence
+
     [trace]
     ha_dr_saphanasr = info
-    ```
+    ```      
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
-    ```bash
+Configuration pointing to the standard location /usr/share/SAPHanaSR, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
+
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the bold values of hn1/HN1 with correct SID.    
+    <pre><code>
     cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    # Needed for SAPHanaSR and susChkSrv Python hooks
+    <b>hn1</b>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<b>hn1</b>_site_srHook_*
+    <b>hni</b>adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=<b>HN1</b> --case=fenceMe
     EOF
-    ```
-For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+    </code></pre>
+For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
 
 3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
 
@@ -552,7 +502,16 @@ For more details on the implementation of the SAP HANA system replication hook s
      # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
      # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
      # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
-
+    ```
+   
+   Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
+    ```bash
+     cdtrace
+     egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+     # Example output
+     # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+     # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
+     # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
     ```
 
 ## Create SAP HANA cluster resources
@@ -612,6 +571,7 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   params ip="<b>10.0.0.13</b>"
 
 sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+  op monitor timeout=20s interval=10 \
   meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
@@ -629,6 +589,9 @@ sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 </code></pre>
+
+> [!IMPORTANT]
+> We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically.
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
@@ -713,6 +676,7 @@ crm configure primitive rsc_secip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
  params ip="10.0.0.14"
 
 crm configure primitive rsc_secnc_HN1_HDB03 azure-lb port=62603 \
+ op monitor timeout=20s interval=10 \
  meta resource-stickiness=0
 
 crm configure group g_secip_HN1_HDB03 rsc_secip_HN1_HDB03 rsc_secnc_HN1_HDB03

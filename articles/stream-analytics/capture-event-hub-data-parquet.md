@@ -1,8 +1,8 @@
 ---
-title: Capture data from Azure Data Lake Storage Gen2 in Parquet format
+title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Parquet format
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
@@ -66,4 +66,4 @@ Here's an example screenshot of metrics showing input and output events.
 Now you know how to use the Stream Analytics no code editor to create a job that captures Event Hubs data to Azure Data Lake Storage Gen2 in Parquet format. Next, you can learn more about Azure Stream Analytics and how to monitor the job that you created.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)
+* [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)

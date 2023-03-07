@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -108,7 +108,7 @@ Use the URL output by the script to navigate to the IoT Central application it c
     | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the earlier script  |
     | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the earlier script  |
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination." lightbox="media/howto-create-custom-analytics/data-export-1.png":::
 
 1. Select **Save**.
 
@@ -127,7 +127,7 @@ To create the export definition:
 
 1. Select **Save**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition." lightbox="media/howto-create-custom-analytics/data-export-2.png":::
 
 Wait until the export status is **Healthy** on the **Data export** page before you continue.
 
@@ -206,7 +206,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
     :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
 
-1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. To import the notebook, choose **Import**.
 

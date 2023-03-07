@@ -43,7 +43,17 @@ The price change feature supports the following scenarios:
 
 ### Supported offer types
 
-The ability to change prices is available for both public and private plans of all offers transacted through Microsoft: Azure application (Managed App), Software as a service, and Virtual Machine.
+The ability to change prices is available for both public and private plans of offers transacted through Microsoft.
+
+Supported offer types:
+- Azure application (Managed App)
+- Software as a service (SaaS)
+- Azure virtual machine.
+
+Price changes for the following offer types are not yet supported:
+- Dynamics 365 apps on Dataverse and Power Apps
+- Power BI visual
+- Azure container
 
 ### Unsupported scenarios and limitations
 
@@ -52,7 +62,6 @@ The price change feature does not support the following scenarios:
 - Price changes on hidden plans.
 - Price changes on plans available in Azure Government cloud.
 - Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan-a-price-change) below.
-- Canceling and modifying a price change through Partner Center. To cancel a price update, contact [support](https://go.microsoft.com/fwlink/?linkid=2056405).
 - Changing prices from free or $0 to paid.
 - Changing prices via APIs.
 
@@ -86,11 +95,11 @@ To update the monthly or yearly price of a SaaS or Azure app offer:
     1. Export the prices using **Export pricing data**.
     2. Update the prices for each market in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
-7. To change prices across all markets, edit the desired **billing term price** box.
+1. 7. To change prices across all markets, edit the desired **billing term price** box.
 
-    > [!NOTE]
-    > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    ```
+    If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
+    ```
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -119,11 +128,11 @@ To update the per user monthly or yearly fee of a SaaS offer:
     1. Export the prices using **Export pricing data**.
     2. Update the prices for each market in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
-7. To change prices across all markets, edit the desired **billing term price** box.
+1. 7. To change prices across all markets, edit the desired **billing term price** box.
 
     > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -155,11 +164,10 @@ To update the price per unit of a meter dimension of a SaaS or Azure app offer:
     4. Import the spreadsheet using **Import pricing data**.
 1. To change prices across all markets:
     1. Locate the dimension to update.
-    1. Edit the **Price per unit in USD** box.
-
-    > [!NOTE]
+    1- Edit the **Price per unit in USD** box.
+1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -195,12 +203,12 @@ To update the price per core or per core size of a VM offer.
     2. Update the market and core size prices in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
 
-7. To change prices across all markets:
+1. 7. To change prices across all markets:
 
     > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
-    1. **Per core**: Edit the price per core in the **USD/hour** box.
+    
+1. **Per core**: Edit the price per core in the **USD/hour** box.
     2. **Per core size**: Edit each core size in the **Price per hour in USD** box.
 
 8. Select **Save draft**.
@@ -218,12 +226,13 @@ Customers are billed the new price for consumption of the resource that happens 
 
 ## Canceling or modifying a price change
 
-To modify an already scheduled price change, request the cancellation by submitting a [support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market-specific).
-
-If the price change was an increase, we will email customers a second time to inform them the price increase has been canceled.
-
-After the price change is canceled, follow the steps in the appropriate part of this document to schedule a new price change with the needed modifications.
-
+If the price change was configured within the last 2 days, it can be cancelled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken affect, [submit a support request](https://partner.microsoft.com/support/?stage=1), that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
+If the price change was an increase and the cancelation was after the 2-day period, we will email the customers a second time to inform them of the cancelation.
+After the price change is canceled, follow the steps in the appropriate part of this article to schedule a new price change with the needed modifications. 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+
+
+

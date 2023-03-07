@@ -56,9 +56,9 @@ productDirectory:
      - title: SRE online courses
        imageSrc: ./media/index/learn.svg
        links:
-         - url: /learn/modules/intro-to-site-reliability-engineering/
+         - url: /training/modules/intro-to-site-reliability-engineering/
            text: Introduction to site reliability engineering
-         - url: /learn/paths/improve-reliability-modern-operations/
+         - url: /training/paths/improve-reliability-modern-operations/
            text: Improve your reliability with modern operations practices  
      # Card
      - title: SRE resources

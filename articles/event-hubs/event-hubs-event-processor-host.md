@@ -2,7 +2,7 @@
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 10/25/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -197,7 +197,6 @@ Now that you're familiar with the Event Processor Host, see the following articl
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
-* [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

@@ -1,5 +1,5 @@
 ---
-title: Configure key auto-rotation in Azure Key Vault
+title: Configure cryptographic key auto-rotation in Azure Key Vault
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -8,17 +8,19 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 10/17/2022
 ms.author: mbaldwin
 ---
-# Configure key auto-rotation in Azure Key Vault
+# Configure cryptographic key auto-rotation in Azure Key Vault
 
 ## Overview
+Automated cryptographic key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. To configure rotation you can use key rotation policy, which can be defined on each individual key. 
 
-Automated key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. For more information about how keys are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
+Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
 
-You can use rotation policy to configure rotation for each individual key. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
+For more information about objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
+## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
 
 For more information about data encryption in Azure, see:
@@ -33,8 +35,7 @@ There's an additional cost per scheduled key rotation. For more information, see
 
 Key Vault key rotation feature requires key management permissions. You can assign a "Key Vault Crypto Officer" role to manage rotation policy and on-demand rotation.
 
-For more information on how to use Key Vault RBAC permission model and assign Azure roles, see:
-[Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
+For more information on how to use Key Vault RBAC permission model and assign Azure roles, see [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
 
 > [!NOTE]
 > If you use an access policies permission model, it is required to set 'Rotate', 'Set Rotation Policy', and 'Get Rotation Policy' key permissions to manage rotation policy on keys. 
@@ -241,3 +242,4 @@ Key rotation policy can also be configured using ARM templates.
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
 - [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

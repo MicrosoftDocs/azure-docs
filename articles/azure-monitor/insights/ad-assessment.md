@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
+ms.reviewer: shijain
 
 ---
 
@@ -107,7 +108,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 1. On the **Overview** page, click the **Active Directory Health Check** tile.
 
-2. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+2. On the **Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 
 3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.
 

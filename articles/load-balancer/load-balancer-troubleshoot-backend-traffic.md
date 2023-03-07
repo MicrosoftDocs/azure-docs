@@ -80,9 +80,9 @@ For the public load balancer, the IP address of the Internet clients will be use
 
 4. Test if the VM has now started to respond to the health probes.
 
-## Cause 3: Access of the load balancer from the same VM and network interface 
+## Cause 3: Access of the internal load balancer from the same VM and network interface 
 
-If your application hosted in the backend VM of a load balancer is trying to access another application hosted in the same backend VM over the same network interface, it's an unsupported scenario and will fail. 
+If your application hosted in the backend VM of an internal load balancer is trying to access another application hosted in the same backend VM over the same network interface, it's an unsupported scenario and will fail. 
 
 **Resolution**
 

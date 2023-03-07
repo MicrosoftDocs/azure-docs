@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/09/2022
 ms.author: ryanwi
-ms.reviewer: marsma, ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ---

@@ -1,6 +1,6 @@
 ---
 title: Download SAP software for automation framework
-description: Download the SAP software to your Azure environment using Ansible playbooks to use the SAP deployment automation framework on Azure.
+description: Download the SAP software to your Azure environment using Ansible playbooks to use the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Download SAP software
 
-You need a copy of the SAP software before you can use [the SAP deployment automation framework on Azure](automation-deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so you can put the SAP media in your storage account. Then, [download the SAP software using Ansible playbooks](#download-sap-software).
+You need a copy of the SAP software before you can use [the SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so you can put the SAP media in your storage account. Then, [download the SAP software using Ansible playbooks](#download-sap-software).
 
 ## Prerequisites
 

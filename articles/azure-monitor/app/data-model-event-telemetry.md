@@ -30,5 +30,5 @@ Max length: 512 characters
 
 - See [data model](data-model.md) for Application Insights types and data model.
 - [Write custom event telemetry](./api-custom-events-metrics.md#trackevent)
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

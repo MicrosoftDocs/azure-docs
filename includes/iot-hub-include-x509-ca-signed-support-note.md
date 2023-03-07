@@ -15,5 +15,5 @@
 > - HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 > - File uploads (all protocols).
 >
-> It is generally available on devices that use X.509 thumbprint authentication. To learn more about X.509 authentication with IoT Hub, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-dev-guide-sas.md#supported-x509-certificates).  
+> These features are generally available on devices that use X.509 thumbprint authentication. To learn more about X.509 authentication with IoT Hub, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-dev-guide-sas.md#supported-x509-certificates).  
 >

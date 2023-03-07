@@ -7,10 +7,13 @@ author: dereklee
 ms.author: deli
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.custom: engagement-fy23
+ms.date: 09/07/2022
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 The way that any integration architecture appropriately handles downtime or issues caused by dependent systems can pose a challenge. To help you create robust and resilient integrations that gracefully handle problems and failures, Azure Logic Apps provides a first-class experience for handling errors and exceptions.
 
@@ -20,29 +23,28 @@ The way that any integration architecture appropriately handles downtime or issu
 
 For the most basic exception and error handling, you can use the *retry policy* when supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
 
-### Retry policy types
-
-By default, the retry policy is set to the **Default** type.
-
-| Retry policy | Description |
-|--------------|-------------|
-| **Default** | This policy sends up to 4 retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. For more information, review the [Default](#default) policy type. |
-| **None** | Don't resend the request. For more information, review the [None](#none) policy type. |
-| **Exponential Interval**  | This policy waits a random interval, which is selected from an exponentially growing range before sending the next request. For more information, review the [Exponential Interval](#exponential-interval) policy type. |
-| **Fixed Interval**  | This policy waits the specified interval before sending the next request. For more information, review the [Fixed Interval](#fixed-interval) policy type. |
-|||
-
 <a name="retry-policy-limits"></a>
 
 ### Retry policy limits
 
 For more information about retry policies, settings, limits, and other options, review [Retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits).
 
+### Retry policy types
+
+Connector operations that support retry policies use the **Default** policy unless you select a different retry policy.
+
+| Retry policy | Description |
+|--------------|-------------|
+| **Default** | For most operations, the **Default** retry policy is an [exponential interval policy](#exponential-interval) that sends up to 4 retries at *exponentially increasing* intervals. These intervals scale by 7.5 seconds but are capped between 5 and 45 seconds. Several operations use a different **Default** retry policy, such as a [fixed interval policy](#fixed-interval). For more information, review the [Default retry policy type](#default). |
+| **None** | Don't resend the request. For more information, review [None - No retry policy](#none). |
+| **Exponential Interval** | This policy waits a random interval, which is selected from an exponentially growing range before sending the next request. For more information, review the [exponential interval policy type](#exponential-interval). |
+| **Fixed Interval** | This policy waits the specified interval before sending the next request. For more information, review the [fixed interval policy type](#fixed-interval). |
+
 ### Change retry policy type in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Based on your [logic app type](logic-apps-overview.md#resource-environment-differences), open the trigger or action's **Settings**.
+1. Based on whether you're working on a Consumption or Standard workflow, open the trigger or action's **Settings**.
 
    * **Consumption**: On the action shape, open the ellipses menu (**...**), and select **Settings**.
 
@@ -81,7 +83,6 @@ For more information about retry policies, settings, limits, and other options, 
    | `type` | <*retry-policy-type*> | String | The retry policy type to use: `default`, `none`, `fixed`, or `exponential` |
    | `count` | <*retry-attempts*> | Integer | For `fixed` and `exponential` policy types, the number of retry attempts, which is a value from 1 - 90. For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). |
    | `interval`| <*retry-interval*> | String | For `fixed` and `exponential` policy types, the retry interval value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). For the `exponential` policy, you can also specify [optional maximum and minimum intervals](#optional-max-min-intervals). For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). <br><br>**Consumption**: 5 seconds (`PT5S`) to 1 day (`P1D`). <br>**Standard**: For stateful workflows, 5 seconds (`PT5S`) to 1 day (`P1D`). For stateless workflows, 1 second (`PT1S`) to 1 minute (`PT1M`). |
-   |||||
 
    <a name="optional-max-min-intervals"></a>
 
@@ -91,15 +92,14 @@ For more information about retry policies, settings, limits, and other options, 
    |----------|-------|------|-------------|
    | `maximumInterval` | <*maximum-interval*> | String | For the `exponential` policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 1 day (`P1D`). For more information, review [Exponential Interval](#exponential-interval). |
    | `minimumInterval` | <*minimum-interval*> | String | For the `exponential` policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 5 seconds (`PT5S`). For more information, review [Exponential Interval](#exponential-interval). |
-   |||||
 
 <a name="default"></a>
 
 #### Default retry policy
 
-If you don't specify a retry policy, the action uses the default policy. The default is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds.
+Connector operations that support retry policies use the **Default** policy unless you select a different retry policy. For most operations, the **Default** retry policy is an exponential interval policy that sends up to 4 retries at *exponentially increasing* intervals. These intervals scale by 7.5 seconds but are capped between 5 and 45 seconds. Several operations use a different **Default** retry policy, such as a fixed interval policy.
 
-Though not explicitly defined in your action or trigger, the following example shows how the default policy behaves in an example HTTP action:
+In your workflow definition, the trigger or action definition doesn't explicitly define the default policy, but the following example shows how the default retry policy behaves for the HTTP action:
 
 ```json
 "HTTP": {
@@ -160,7 +160,6 @@ The exponential interval retry policy specifies that the trigger or action waits
 |------|-------------------|----------------|-------|
 | Maximum delay | Default: 1 day | Default: 1 hour | To change the default limit in a Consumption logic app workflow, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in a Standard logic app workflow, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Minimum delay | Default: 5 sec | Default: 5 sec | To change the default limit in a Consumption logic app workflow, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in a Standard logic app workflow, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-|||||
 
 **Random variable ranges**
 

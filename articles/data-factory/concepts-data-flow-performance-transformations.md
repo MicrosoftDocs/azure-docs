@@ -52,6 +52,10 @@ If your data is not evenly partitioned after a transformation, you can use the [
 > [!TIP]
 > If you repartition your data, but have downstream transformations that reshuffle your data, use hash partitioning on a column used as a join key.
 
+> [!NOTE]
+> Transformations inside your data flow (with the exception of the Sink transformation) do not modify the file and folder partitioning of data at rest. Partitioning in each transformation repartitions data inside the data frames of the temporary serverless Spark cluster that ADF manages for each of your data flow executions.
+
+
 ## Next steps
 
 - [Data flow performance overview](concepts-data-flow-performance.md)

@@ -79,8 +79,8 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. Follow the steps to [handle the flow for "Forgot your password?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) within the sign-up or sign-in policy.
 
 
-### Re-order the sign up form
-Learn [how to re-order user flow input fields for local accounts](customize-ui.md#re-order-input-fields-in-the-sign-up-form)
+### Rearrange the sign up form
+Learn [how to rearrange user flow input fields for local accounts](customize-ui.md#rearrange-input-fields-in-the-sign-up-form)
 
 ### Test the user flow
 

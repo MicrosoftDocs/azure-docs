@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You'll need a Spark table for this tutorial.
 
-1. Download the [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv) file, which contains a dataset for text analytics. 
+1. Download the [FabrikamComments.csv](https://github.com/aghonaim/datasets/blob/master/FabrikamComments.csv) file, which contains a dataset for text analytics. 
 
 1. Upload the file to your Azure Synapse storage account in Data Lake Storage Gen2.
   

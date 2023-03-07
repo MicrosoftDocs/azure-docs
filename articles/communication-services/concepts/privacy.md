@@ -38,9 +38,6 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
-> [!NOTE]
-> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
-
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
@@ -61,7 +58,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 

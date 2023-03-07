@@ -1,7 +1,7 @@
 ---
 title: "Create a C# function from the command line - Azure Functions"
 description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
-ms.date: 09/14/2021
+ms.date: 11/08/2022
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
@@ -15,9 +15,11 @@ adobe-target-content: ./create-first-function-cli-csharp-ieux
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
+This article supports creating both types of compiled C# functions: 
+
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
-This article creates an HTTP triggered function that runs on .NET 6.0. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+This article creates an HTTP triggered function that runs on .NET in-process or isolated worker process with an example of .NET 6. There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -25,7 +27,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you begin, you must have the following:
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 
@@ -39,7 +41,7 @@ You also need an Azure account with an active subscription. [Create an account f
 
 ### Prerequisite check
 
-Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
+Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -78,9 +80,10 @@ In Azure Functions, a function project is a container for one or more individual
     # [Isolated process](#tab/isolated-process)
 
     ```console
-    func init LocalFunctionProj --worker-runtime dotnet-isolated
+    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net6.0
     ```
     ---
+ 
 
 1. Navigate into the project folder:
 
@@ -96,7 +99,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    `func new` creates a HttpExample.cs code file.
+    `func new` creates an HttpExample.cs code file.
 
 ### (Optional) Examine the file contents
 
@@ -116,7 +119,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 
 # [Isolated process](#tab/isolated-process)
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated worker process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
 
@@ -173,14 +176,14 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure CLI](#tab/azure-cli/in-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure CLI](#tab/azure-cli/isolated-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
@@ -188,7 +191,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure PowerShell](#tab/azure-powershell/in-process)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
@@ -196,19 +199,16 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure PowerShell](#tab/azure-powershell/isolated-process)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
 
     ---
 
-    > [!NOTE]
-    > This command creates a function app using the 3.x version of the Azure Functions runtime. The `func azure functionapp publish` command that you'll run later updates the app to version 4.x.
-
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

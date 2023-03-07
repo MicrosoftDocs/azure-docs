@@ -1,13 +1,13 @@
 ---
 title: Manage read replicas in Azure Database for MySQL Flexible Server using Azure CLI.
 description: Learn how to set up and manage read replicas in Azure Database for MySQL flexible server using the Azure CLI.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 10/23/2021
+author: VandhanaMehta
+ms.author: vamehta
 ms.custom: devx-track-azurecli
+ms.date: 10/23/2021
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL flexible server using the Azure CLI
@@ -16,9 +16,7 @@ ms.custom: devx-track-azurecli
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure CLI. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
-> [!Note]
->
-> * Replica is not supported on high availability enabled server.
+[!Note]
 >
 > * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 

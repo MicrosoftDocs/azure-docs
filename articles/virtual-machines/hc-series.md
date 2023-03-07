@@ -4,7 +4,7 @@ description: Specifications for the HC-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 12/19/2022
 ms.reviewer: jushiman
 ---
 

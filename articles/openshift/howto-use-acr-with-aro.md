@@ -1,8 +1,8 @@
 ---
 title: Use Azure Container Registry with Azure Red Hat OpenShift
 description:  Learn how to pull and run a container from Azure Container Registry in your Azure Red Hat OpenShift cluster.
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 01/10/2021

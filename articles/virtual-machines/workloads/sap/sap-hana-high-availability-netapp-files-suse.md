@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 12/07/2022
 ms.author: ampatel
 
 ---
@@ -206,73 +206,30 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
 		1.	Select **OK**.
 		1.	After the new front-end IP pool is created, note the pool IP address.
-	1.	Next, create a back-end pool:
-		1.	Open the load balancer, select **backend pools**, and select **Add**.
-		1.	Enter the name of the new back-end pool (for example, **hana-backend**).
-		1.	Select **Add a virtual machine**.
-		1.	Select **Virtual machine**.
-		1.	Select the virtual machines of the SAP HANA cluster and their IP addresses.
-		1.	Select **Add**.
+
+   1. Create a single back-end pool: 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. Enter the name of the new back-end pool (for example, **hana-backend**).
+      2. Select **NIC** for Backend Pool Configuration. 
+      1. Select **Add a virtual machine**.
+      1. Select the virtual machines of the HANA cluster.
+      1. Select **Add**.     
+      2. Select **Save**.
+      
 	1.	Next, create a health probe:
 		1.	Open the load balancer, select **health probes**, and select **Add**.
 		1.	Enter the name of the new health probe (for example, **hana-hp**).
-		1.	Select TCP as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+		1.	Select TCP as the protocol and port 625**03**. Keep the **Interval** value set to 5.
 		1.	Select **OK**.
+		
 	1.	Next, create the load-balancing rules:
 		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
 		1.	Enter the name of the new load balancer rule (for example, **hana-lb**).
 		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+        2. Increase idle timeout to 30 minutes
 		1.	Select **HA Ports**.
 		1.	Make sure to **enable Floating IP**.
 		1.	Select **OK**.
-
-
-9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
-	1.	Configure the load balancer. First, create a front-end IP pool:
-		1.	Open the load balancer, select **frontend IP Configuration**, and select **Add**.
-		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
-		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
-		1.	Select **OK**.
-		1.	After the new front-end IP pool is created, note the pool IP address.
-	1.	Next, create a back-end pool:
-		1.	Open the load balancer, select **backend pools**, and select **Add**.
-		1.	Enter the name of the new back-end pool (for example, **hana-backend**).
-		1.	Select **Add a virtual machine**.
-		1.	Select the availability set created in step 3.
-		1.	Select the virtual machines of the SAP HANA cluster.
-		1.	Select **OK**.
-	1.	Next, create a health probe:
-		1.	Open the load balancer, select **health probes**, and select **Add**.
-		1.	Enter the name of the new health probe (for example, **hana-hp**).
-		1.	Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-		1.	Select **OK**.
-	1.	For SAP HANA 1.0, create the load-balancing rules:
-		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
-		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-		1.	Increase the **idle timeout** to 30 minutes.
-		1.	Make sure to **enable Floating IP**.
-		1.	Select **OK**.
-		1.	Repeat these steps for port 3**03**17.
-	1.	For SAP HANA 2.0, create the load-balancing rules for the system database:
-		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
-		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-		1.	Increase the **idle timeout** to 30 minutes.
-		1.	Make sure to **enable Floating IP**.
-		1.	Select **OK**.
-		1.	Repeat these steps for port 3**03**14.
-	1.	For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
-		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
-		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-		1.	Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-		1.	Increase the **idle timeout** to 30 minutes.
-		1.	Make sure to **enable Floating IP**.
-		1.	Select **OK**.
-		1.	Repeat these steps for ports 3**03**41 and 3**03**42.
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -324,6 +281,8 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    # Mount all volumes
    sudo mount -a
    ```
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
+
 
 4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 
@@ -367,10 +326,10 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.3.0.5   hanadb2
    ```
 
-2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
    ```
-   vi /etc/sysctl.d/netapp-hana.conf
+   vi /etc/sysctl.d/91-NetApp-HANA.conf
    # Add the following entries in the configuration file
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
@@ -477,9 +436,9 @@ This section describes necessary steps required for cluster to operate seamlessl
 
 Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-availability-guide-suse-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
 
-### Implement the Python system replication hook SAPHanaSR
+## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure both SAPHanaSR and susChkSrv Python hooks.  Follow the steps mentioned in, [Implement the Python System Replication hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv)
 
 
 ## Configure SAP HANA cluster resources

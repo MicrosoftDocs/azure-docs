@@ -3,7 +3,7 @@ title: 'What is inter-directory provisioning with Azure Active Directory? | Micr
 description: Describes overview of identity inter-directory provisioning.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

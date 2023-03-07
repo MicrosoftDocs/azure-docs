@@ -17,13 +17,13 @@ You can view your Azure Arc-enabled data services in the Azure portal or in your
 
 ## View resources in Azure portal
 
-After you upload your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your Azure Arc-enabled SQL managed instances or Azure Arc-enabled PostgreSQL Hyperscale server groups in the Azure portal. To view your resource in the [Azure portal](https://portal.azure.com), follow these steps:
+After you upload your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your Azure Arc-enabled SQL managed instances or Azure Arc-enabled PostgreSQL servers in the Azure portal. To view your resource in the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Go to **All services**.
 1. Search for your database instance type.
 1. Add the type to your favorites.
 1. In the left menu, select the instance type.
-1. View your instances in the same view as your other Azure SQL or Azure PostgreSQL Hyperscale resources (use filters for a granular view).
+1. View your instances in the same view as your other Azure SQL or Azure PostgreSQL server resources (use filters for a granular view).
 
 ## View resources in your Kubernetes cluster
 

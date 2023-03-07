@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
 
-ms.author: ajburnle
-author: ajburnle
-manager: karenhoran
+ms.author: barclayn
+author: barclayn
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

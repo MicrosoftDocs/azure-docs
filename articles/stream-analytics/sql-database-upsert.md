@@ -1,10 +1,8 @@
 ---
 title: Update or merge records in Azure SQL Database with Azure Functions
 description: This article describes how to use Azure Functions to update or merge records from Azure Stream Analytics to Azure SQL Database
-author: fleid
-
-ms.author: fleide
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/03/2021
 ---
@@ -407,11 +405,11 @@ For Synapse SQL, ASA can insert into a [staging table](../synapse-analytics/sql/
 
 ### Pre-processing in Azure Cosmos DB
 
-Azure Cosmos DB [supports UPSERT natively](./stream-analytics-documentdb-output.md#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Cosmos DB.
+Azure Cosmos DB [supports UPSERT natively](./stream-analytics-documentdb-output.md#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Azure Cosmos DB.
 
 If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
-For Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md). Synapse Link can be used to create an [analytical store](../cosmos-db/analytical-store-introduction.md). This data store can then be queried directly in Synapse SQL.
+For Synapse SQL, Azure Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md). Synapse Link can be used to create an [analytical store](../cosmos-db/analytical-store-introduction.md). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 
@@ -424,8 +422,8 @@ Each approach offers different value proposition and capabilities:
 ||Staging|Replace, Accumulate|+|+|
 |Pre-Processing|||||
 ||Azure Functions|Replace, Accumulate|+|- (row-by-row performance)|
-||Cosmos DB replacement|Replace|N/A|N/A|
-||Cosmos DB Synapse Link|Replace|N/A|+|
+||Azure Cosmos DB replacement|Replace|N/A|N/A|
+||Azure Cosmos DB Synapse Link|Replace|N/A|+|
 
 ## Get support
 

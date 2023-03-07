@@ -7,18 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 09/02/2021
+ms.date: 11/29/2022
 ms.author: lajanuar
-keywords: Docker, container, images
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
 # Form Recognizer container image tags and release notes
 
-> [!IMPORTANT]
->
-> * **Form Recognizer v2.1 containers** are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. 
->
-> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 ## Feature containers
 
@@ -48,17 +45,17 @@ The following tags are available for Form Recognizer:
 
 ### [Latest version](#tab/current)
 
-Release notes for `v2.1` (gated preview):
+Release notes for `v2.1`:
 
-| Container | Tags |
-|------------|:------|
-| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.0.016140001-08108749-amd64-preview`|
-| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.016190001-amd64-preview`  </br> &bullet; `2.1.016320001-amd64-preview`  |
-| **ID Document** | &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **Receipt**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **Invoice**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
-| **Custom API** | &bullet; `latest` </br> &bullet;`2.1-distroless-20210622013115034-0cc5fcf6`</br>&bullet; `2.1-preview`|
-| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1-distroless-20210622013149174-0cc5fcf6`</br>&bullet; `2.1-preview`|
+| Container | Tags | Retrieve image |
+|------------|:------|------------|
+| **Layout**| &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout)`|
+| **Business Card** | &bullet; `latest` </br> &bullet; `2.1` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
+| **ID Document** | &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document`|
+| **Receipt**| &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
+| **Invoice**| &bullet; `latest` </br> &bullet; `2.1`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+| **Custom API** | &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api`|
+| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised` |
 
 ### [Previous versions](#tab/previous)
 
@@ -72,3 +69,5 @@ Release notes for `v2.1` (gated preview):
 > [!div class="nextstepaction"]
 > [Install and run Form Recognizer containers](form-recognizer-container-install-run.md)
 >
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)

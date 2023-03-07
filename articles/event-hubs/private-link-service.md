@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
-ms.date: 05/10/2021
+ms.date: 08/26/2022
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -60,34 +60,26 @@ If you already have an Event Hubs namespace, you can create a private link conne
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
-    6. Select **Next: Resource >** button at the bottom of the page.
+    1. Enter a **name for the network interface**. 
+    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
+    1. Select **Next: Resource >** button at the bottom of the page.
 
-        ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. On the **Resource** page, follow these steps:
-    1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps: 
-        1. Select the **Azure subscription** in which your **Event Hubs namespace** exists. 
-        2. For **Resource type**, Select **Microsoft.EventHub/namespaces** for the **Resource type**.
-        3. For **Resource**, select an Event Hubs namespace from the drop-down list. 
-        4. Confirm that the **Target subresource** is set to **namespace**.
-        5. Select **Next: Configuration >** button at the bottom of the page. 
-        
-            ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Event Hubs namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. See the following image for an example. 
-        2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access.
-        3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection.
-        4. Then, select **Next: Configuration >** button at the bottom of the page.
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
+8. On the **Resource** page, review settings, and select **Next: Virtual Network**.  
 
-            ![Create Private Endpoint - Connect using resource ID](./media/private-link-service/connect-resource-id.png)
-9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create private endpoint wizard.":::        
+9. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
-    3. Select **Next: Tags >** button at the bottom of the page. 
+    1. Notice that the **network policy for private endpoints** is disabled. If you want to enable it, select **edit**, update the setting, and select **Save**. 
+    1. For **Private IP configuration**, by default, **Dynamically allocate IP address** option is selected. If you want to assign a static IP address, select **Statically allocate IP address***.  
+    1. For **Application security group**, select an existing application security group or create one that's to be associated with the private endpoint. 
+    1. Select **Next: DNS >** button at the bottom of the page. 
 
-        ![Create Private Endpoint - Configuration page](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
-11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-configuration-page.png" alt-text="Screenshot showing the Virtual Network page of the Create private endpoint wizard.":::        
+10. On the **DNS** page, select whether you want the private endpoint to be integrated with a private DNS zone, and then select **Next: Tags**. 
+1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
+1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
 12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
@@ -229,7 +221,7 @@ There are four provisioning states:
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
-3. You should see the status changed to **Disconnected**. Then, you'll see the endpoint disappear from the list.
+3. You should see the status changed to **Disconnected**. Then, the endpoint will disappear from the list.
 
 ## Validate that the private link connection works
 

@@ -2,7 +2,7 @@
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: include 
+ms.topic: include
 ms.date: 08/06/2021
 ---
 
@@ -19,6 +19,9 @@ Follow the tutorials listed below to start building your own application.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: How to configure event listener](./../howto-develop-event-listener.md)
 
 > [!div class="nextstepaction"]
 > [Play with Live Demos](https://aka.ms/awps/livedemos)

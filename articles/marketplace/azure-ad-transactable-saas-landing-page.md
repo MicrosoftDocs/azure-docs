@@ -3,7 +3,6 @@ title: Build the landing page for your transactable SaaS offer in the commercial
 description: Learn how to build a landing page for your transactable SaaS offer.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -53,7 +52,7 @@ To get started, follow the instructions for [registering a new application](../a
 
 If you intend to query the Microsoft Graph API, [configure your new application to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md). When you select the API permissions for this application, the default of **User.Read** is enough to gather basic information about the buyer to make the onboarding process smooth and automatic. Do not request any API permissions labeled **needs admin consent**, as this will block all non-administrator users from visiting your landing page.
 
-If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
+If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](../active-directory/develop/permissions-consent-overview.md#consent) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
 
 ## Use a code sample as a starting point
 

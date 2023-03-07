@@ -25,7 +25,7 @@ The AD FS application activity report in the Azure portal lets you quickly ident
 * **Prioritize applications for migration.** Get the number of unique users who have signed in to the application in the past 1, 7, or 30 days to help determine the criticality or risk of migrating the application.
 * **Run migration tests and fix issues.** The reporting service automatically runs tests to determine if an application is ready to migrate. The results are displayed in the AD FS application activity report as a migration status. If the AD FS configuration is not compatible with an Azure AD configuration, you get specific guidance on how to address the configuration in Azure AD.
 
-The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, report reader, security reader, application administrator, or cloud application administrator.
+The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, reports reader, security reader, application administrator, or cloud application administrator.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The AD FS application activity data is available to users who are assigned any o
 
 The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an admin role that has access to AD FS application activity data (global administrator, report reader, security reader, application administrator, or cloud application administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) with an admin role that has access to AD FS application activity data (global administrator, reports reader, security reader, application administrator, or cloud application administrator).
 
 2. Select **Azure Active Directory**, and then select **Enterprise applications**.
 

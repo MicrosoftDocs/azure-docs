@@ -3,7 +3,7 @@ title: 'Disable pass-through authentication by using Azure AD Connect or PowerSh
 description: This article describes how to disable pass-through authentication by using the Azure AD Connect Do Not Configure feature or by using PowerShell.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
@@ -19,15 +19,15 @@ In this article, you learn how to disable pass-through authentication by using A
 
 ## Prerequisites
 
-Before you begin, ensure that you have the following:
+Before you begin, ensure that you have the following prerequisite.
 
 - A Windows machine with pass-through authentication agent version 1.5.1742.0 or later installed. Any earlier version might not have the requisite cmdlets for completing this operation.
 
-   If you don't already have an agent, you can install it by doing the following:
+   If you don't already have an agent, you can install it.
 
    1. Go to the [Azure portal](https://portal.azure.com).
    1. Download the latest Auth Agent.
-   1. Install the feature by running either of the following: 
+   1. Install the feature by running either of the following commands.
       * `.\AADConnectAuthAgentSetup.exe`  
       * `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
         > [!IMPORTANT]
@@ -37,7 +37,7 @@ Before you begin, ensure that you have the following:
         >| - | - |
         >| AzureUSGovernment | US Gov |
 
-- An Azure global administrator account for running the PowerShell cmdlets.
+- An Azure Hybrid Identity Administrator account for running the PowerShell cmdlets.
 
 ## Use Azure AD Connect
 

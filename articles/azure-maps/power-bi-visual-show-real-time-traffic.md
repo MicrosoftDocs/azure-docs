@@ -5,7 +5,7 @@ description: In this article, you will learn how to show real-time traffic on an
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 11/29/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---

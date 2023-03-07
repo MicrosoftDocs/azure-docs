@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 01/28/2022
+ms.date: 08/23/2022
 ---
 
 # Manage logic apps with Visual Studio

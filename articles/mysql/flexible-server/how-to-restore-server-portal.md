@@ -1,12 +1,12 @@
 ---
 title: Restore an Azure Database for MySQL Flexible Server with Azure portal.
 description: This article describes how to perform restore operations in Azure Database for MySQL Flexible server through the Azure portal
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 04/01/2021
+author: Bashar-MSFT
+ms.author: bahusse
+ms.date: 07/26/2022
 ---
 
 # Point-in-time restore of a Azure Database for MySQL Flexible Server using Azure portal
@@ -76,7 +76,7 @@ Follow these steps to restore your flexible server using an existing full backup
 
 2. Click **Backup and Restore** from the left panel. 
 
-3. View Available Backups page will be shown with the option to restore from all full automated backups taken for the server within the retention period.  
+3. View Available Backups page will be shown with the option to restore from available full automated backups and on-demand backups taken for the server within the retention period.  
 
 4. Select the desired full backup from the list by clicking on corresponding **Restore** action. 
  

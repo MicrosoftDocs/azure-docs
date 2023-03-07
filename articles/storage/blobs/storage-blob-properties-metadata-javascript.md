@@ -1,16 +1,16 @@
 ---
-title: Manage properties and metadata for a blob with JavaScript - Azure Storage
+title: Manage properties and metadata for a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
-ms.date: 03/28/2022
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 11/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Manage blob properties and metadata with JavaScript
@@ -25,6 +25,8 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
+- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
+
 > [!NOTE]
 > Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
 >
@@ -34,7 +36,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 The following code example sets blob HTTP  system properties on a blob.
 
-To set the HTTP properties for a blob, call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
+To set the HTTP properties for a blob, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
 
 ```javascript
 /*
@@ -53,16 +55,11 @@ async function setHTTPHeaders(blobClient, headers) {
 }
 ```
 
-
 ## Set metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs with
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then send a JSON object of name-value pairs with
 
 - [BlobClient.setMetadata](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-setmetadata) returns a [BlobGetPropertiesResponse object](/javascript/api/@azure/storage-blob/blobgetpropertiesresponse).
-
-Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Either [Base64-encode](/dotnet/api/system.convert.tobase64string) or [URL-encode](/dotnet/api/system.web.httputility.urlencode) your metadata values containing non-ASCII characters.
-
-Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a blob. 
 

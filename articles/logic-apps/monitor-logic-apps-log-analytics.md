@@ -10,6 +10,8 @@ ms.date: 03/14/2022
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
 > [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).

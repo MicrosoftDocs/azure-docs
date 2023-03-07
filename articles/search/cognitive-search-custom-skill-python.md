@@ -1,29 +1,29 @@
 ---
 title: 'Custom skill example (Python)'
 titleSuffix: Azure Cognitive Search
-description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio. Custom skills contain user-defined models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
+description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio Code. Custom skills contain user-defined models or logic that you can add to a skillset for AI-enriched indexing in Azure Cognitive Search.
 
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.custom: devx-track-python
+ms.date: 08/22/2022
+ms.custom: vscode-azure-extension-update-completed
 ---
 
 # Example: Create a custom skill using Python
 
-In this Azure Cognitive Search skillset example, you will learn how to create a web API custom skill using Python and Visual Studio Code. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) that implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
+In this Azure Cognitive Search skillset example, you'll learn how to create a web API custom skill using Python and Visual Studio Code. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) that implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
 
-The custom skill is simple by design (it concatenates two strings) so that you can focus on the tools and technologies used for custom skill development in Python. Once you succeed with a simple skill, you can branch out with more complex scenarios.
+The custom skill is simple by design (it concatenates two strings) so that you can focus on the pattern. Once you succeed with a simple skill, you can branch out with more complex scenarios.
 
 ## Prerequisites
 
-+ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
++ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) to review the inputs and outputs that a custom skill should implement.
 
-+ Set up your environment. We followed [this tutorial end-to-end](/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The tutorial leads you through installation of the following tools and components: 
++ Set up your environment. We followed [Quickstart: Create a function in Azure with Python using Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The quickstart leads you through installation of the following tools and components: 
 
-  + [Python 3.75](https://www.python.org/downloads/release/python-375/)
+  + [Python 3.75 or later](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
@@ -33,23 +33,18 @@ The custom skill is simple by design (it concatenates two strings) so that you c
 
 This example uses an Azure Function to demonstrate the concept of hosting a web API, but other approaches are possible. As long as you meet the [interface requirements for a cognitive skill](cognitive-search-custom-skill-interface.md), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
 
-### Create a function app
+### Create a project for the function
 
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
+The Azure Functions project template in Visual Studio Code creates a local project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 
 1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Create new project...`.
-
-1. Choose a directory location for your project workspace and choose **Select**.
-
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. For this reason, do not select a project folder that is part of a workspace.
-
+1. Choose a directory location for your project workspace and choose **Select**. Don't use a project folder that is already part of another workspace.
 1. Select a language for your function app project. For this tutorial, select **Python**.
-1. Select the Python version, (version 3.7.5 is supported by Azure Functions)
+1. Select the Python version (version 3.7.5 is supported by Azure Functions).
 1. Select a template for your project's first function. Select **HTTP trigger** to create an HTTP triggered function in the new function app.
 1. Provide a function name. In this case, let's use **Concatenator** 
-1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) to call the function's HTTP endpoint. 
-1. Select how you would like to open your project. For this step, select **Add to workspace** to create the function app in the current workspace.
+1. Select **Function** as the Authorization level. You'll use a [function access key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) to call the function's HTTP endpoint. 
+1. Specify how you would like to open your project. For this step, select **Add to workspace** to create the function app in the current workspace.
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../azure-functions/functions-host-json.md) and [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) configuration files, plus any language-specific project files. 
 
@@ -83,7 +78,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ```
 
-Now let's modify that code to follow the [custom skill interface](cognitive-search-custom-skill-interface.md)). Modify the code with the following content:
+Now let's modify that code to follow the [custom skill interface](cognitive-search-custom-skill-interface.md)). Replace the default code with the following content:
 
 ```py
 import logging
@@ -163,7 +158,7 @@ def transform_value(value):
             })
 ```
 
-The **transform_value** method performs an operation on a single record. You may modify the method to meet your specific needs. Remember to do any necessary input validation and to return any errors and warnings produced if the operation could not be completed for the record.
+The **transform_value** method performs an operation on a single record. You can modify the method to meet your specific needs. Remember to do any necessary input validation and to return any errors and warnings if the operation can't be completed.
 
 ### Debug your code locally
 
@@ -173,67 +168,88 @@ You can set any breakpoints on the code by hitting 'F9' on the line of interest.
 
 Once you started debugging, your function will run locally. You can use a tool like Postman or Fiddler to issue the request to localhost. Note the location of your local endpoint on the Terminal window. 
 
-## Publish your function
+## Create a function app in Azure
 
-When you're satisfied with the function behavior, you can publish it.
+When you're satisfied with the function behavior, you can publish it. So far you've been working locally. In this section, you'll create a function app in Azure and then deploy the local project to the app you created.
 
-1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select **Deploy to Function App...**. 
+### Create the app from Visual Studio Code
 
-1. Select the Azure Subscription where you would like to deploy your application.
+1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select **Create Function App in Azure**.
 
-1. Select **+ Create New Function App in Azure**
+1. If you have multiple active subscriptions, select the subscription for this app.
 
-1. Enter a globally unique name for your function app.
+1. Enter a globally unique name for the function app. Type a name that is valid for a URL.
 
-1. Select Python version (Python 3.7.x works for this function).
+1. Select a runtime stack and choose the language version on which you've been running locally.
 
-1. Select a location for the new resource (for example, West US 2).
+1. Select a location for your app. If possible, choose the same region that also hosts your search service.
 
-At this point, the necessary resources will be created in your Azure subscription to host the new Azure Function on Azure. Wait for the deployment to complete. The output window will show you the status of the deployment process.
+It takes a few minutes to create the app. When it's ready, you'll see the new app under **Resources** and **Function App** of the active subscription.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All Resources** and look for the function you published by its name. If you named it **Concatenator**, select the resource.
+### Deploy to Azure
 
-1. Click the **</> Get Function URL** button. This will allow you to copy the URL to call the function.
+1. Still in Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select **Deploy to Function App...**.
+
+1. Select the function app you created. 
+
+1. Confirm that you want to continue, and then select **Deploy**. You can monitor the deployment status in the output window.
+
+1. Switch to the [Azure portal](https://portal.azure.com), navigate to **All Resources**. Search for the function app you deployed using the globally unique name you provided in a previous step.
+
+   > [!TIP]
+   > You can also right-click the function app in Visual Studio Code and select **Open in Portal**.
+
+1. In the portal, on the left, select **Functions**, and then select the function you created.
+
+1. In the function's overview page, select **Get Function URL** in the command bar the top. This will allow you to copy the URL to call the function.
+
+   :::image type="content" source="media/cognitive-search-custom-skill-python/get-function-url.png" alt-text="Screenshot of the Get Function URL command in Azure portal." border="true":::
 
 ## Test the function in Azure
 
-Now that you have the default host key, test your function as follows:
+Using the default host key and URL that you copied, test your function from within Azure portal.
 
-```http
-POST [Function URL you copied above]
-```
+1. On the left, under Developer, select **Code + Test**.
 
-### Request Body
-```json
-{
-    "values": [
-        {
-            "recordId": "e1",
-            "data":
+1. Select **Test/Run** in the command bar.
+
+1. For input, use **Post**, the default key, and then paste in the request body:
+
+    ```json
+    {
+        "values": [
             {
-                "text1":  "Hello",
-                "text2":  "World"
+                "recordId": "e1",
+                "data":
+                {
+                    "text1":  "Hello",
+                    "text2":  "World"
+                }
+            },
+            {
+                "recordId": "e2",
+                "data": "This is an invalid input"
             }
-        },
-        {
-            "recordId": "e2",
-            "data": "This is an invalid input"
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
+
+1. Select **Run**.
+
+   :::image type="content" source="media/cognitive-search-custom-skill-python/test-run-function.png" alt-text="Screenshot of the input specification." border="true":::
 
 This example should produce the same result you saw previously when running the function in the local environment.
 
-## Connect to your pipeline
+## Add to a skillset
 
-Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill to
-concatenate the Title and the Author of the document into a single field which we call merged_title_author. Replace `[your-function-url-here]` with the URL of your new Azure Function.
+Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill to concatenate the Title and the Author of the document into a single field, which we call merged_title_author. 
+
+Replace `[your-function-url-here]` with the URL of your new Azure Function.
 
 ```json
 {
     "skills": [
-      "[... your existing skills remain here]",  
+      "[... other existing skills in the skillset are here]",  
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new search custom skill",
@@ -260,8 +276,20 @@ concatenate the Title and the Author of the document into a single field which w
 }
 ```
 
+Remember to add an "outputFieldMapping" in the indexer definition to send "merged_title_author" to a "fullname" field in the search index.
+
+```json
+"outputFieldMappings": [
+    {
+        "sourceFieldName": "/document/content/merged_title_author",
+        "targetFieldName": "fullname"
+    }
+]
+```
+
 ## Next steps
-Congratulations! You've created your first custom skill. Now you can follow the same pattern to add your own custom functionality. Click the following links to learn more.
+
+Congratulations! You've created your first custom skill. Now you can follow the same pattern to add your own custom functionality. Select the following links to learn more.
 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)

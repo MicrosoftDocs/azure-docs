@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/09/2022
+ms.date: 10/03/2022
 ms.author: lajanuar
 ---
 
@@ -38,15 +38,12 @@ Request parameters passed on the query string are:
 
 ### Optional parameters
 
-
-
 | Query parameter | Description |
 | --- | --- |
 
-
 | Query parameter | Description |
 | --- | --- |
-| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. |
+| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to-create-project.md#view-project-details) to this parameter to use your deployed customized system. Default value is: `general`. |
 | profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
@@ -56,7 +53,7 @@ Request parameters passed on the query string are:
 | suggestedFrom | _Optional parameter_.  <br>Specifies a fallback language if the language of the input text can't be identified. Language autodetection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed. |
 | fromScript | _Optional parameter_.  <br>Specifies the script of the input text. |
 | toScript | _Optional parameter_.  <br>Specifies the script of the translated text. |
-| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. |
+| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. |
 
 Request headers include:
 
@@ -77,10 +74,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 ]
 ```
 
-The following limitations apply:
-
-* The array can have at most 100 elements.
-* The entire text included in the request can't exceed 10,000 characters including spaces.
+For information on character and array limits, _see_ [Request limits](../request-limits.md#character-and-array-limits-per-request).
 
 ## Response body
 
@@ -92,7 +86,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+    The `detectedLanguage` property is only present in the result object when language auto-detection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -126,8 +120,9 @@ Examples of JSON responses are provided in the [examples](#examples) section.
 
 | Headers | Description |
 | --- | --- |
-| X-RequestId | Value generated by the service to identify the request. It's used for troubleshooting purposes. |
-| X-MT-System | Specifies the system type that was used for translation for each 'to' language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:  <br><br>* Custom - Request includes a custom system and at least one custom system was used during translation.<br>* Team - All other requests |
+| X-requestid | Value generated by the service to identify the request. It's used for troubleshooting purposes. |
+| X-mt-system | Specifies the system type that was used for translation for each 'to' language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:  <br><br>* Custom - Request includes a custom system and at least one custom system was used during translation.<br>* Team - All other requests |
+| X-metered-usage |Specifies consumption (the number of characters for which the user will be charged) for the translation job request. For example, if the word "Hello" is translated from English (en) to French (fr), this field will return the value '5'.|
 
 ## Response status codes
 
@@ -276,7 +271,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 | ProfanityAction | Action |
 | --- | --- |
 | `NoAction` | NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a jack---. |
-| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a. |
+| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a** |
 | `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a &lt;profanity&gt;jack---&lt;/profanity&gt;. |
 
 For example:
@@ -377,14 +372,15 @@ The response is:
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
 #### Limitations
+
 Obtaining alignment information is an experimental feature that we've enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this feature in the future. Here are some of the notable restrictions where alignments aren't supported:
 
 * Alignment isn't available for text in HTML format that is, textType=html
 * Alignment is only returned for a subset of the language pairs:
-  - English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
-  - from Japanese to Korean or from Korean to Japanese.
-  - from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
-  - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
+  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
+  * from Japanese to Korean or from Korean to Japanese.
+  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
+  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
 * You won't receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
 * Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
@@ -398,7 +394,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 The response is:
 
-```
+```json
 [
     {
         "translations":[
@@ -414,7 +410,7 @@ The response is:
 
 ### Translate with dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names.
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names. **Note**: the dynamic dictionary feature is case-sensitive.
 
 The markup to supply uses the following syntax.
 
@@ -425,7 +421,7 @@ The markup to supply uses the following syntax.
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">wordomatic</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -440,4 +436,9 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
+This dynamic-dictionary feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you can create training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../customization.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the Translator quickstart](../quickstart-translator.md)

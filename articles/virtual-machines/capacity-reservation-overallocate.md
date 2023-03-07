@@ -5,12 +5,14 @@ author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
 # Overallocating Capacity Reservation
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 Azure permits association of extra VMs beyond the reserved count of a Capacity Reservation to facilitate burst and other scale-out scenarios, without the overhead of managing around the limits of reserved capacity. The only difference is that the count of VMs beyond the quantity reserved does not receive the capacity availability SLA benefit. As long as Azure has available capacity that meets the virtual machine requirements, the extra allocations will succeed. 
 

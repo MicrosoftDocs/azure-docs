@@ -3,7 +3,7 @@ title: Complex applications for Azure Active Directory Application Proxy
 description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -66,7 +66,6 @@ If successful, this method returns a `204 No Content` response code and does not
 
 ##### Request
 Here is an example of the request.
-
 
 ```http
 PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app-under-APP-Registrations}

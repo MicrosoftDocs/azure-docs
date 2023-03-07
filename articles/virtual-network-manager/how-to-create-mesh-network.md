@@ -22,35 +22,54 @@ In this article, you'll learn how to create a mesh network topology using Azure 
 * Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-virtual-network-manager).
 * Identify virtual networks you want to use in the mesh configuration or create new [virtual networks](../virtual-network/quick-create-portal.md).
 
-## Create a network group
+## <a name="group"></a> Create a network group
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
 1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network groups** under *Settings*, and then select **+ Create** to create a new network group.
+1. Select **Network Groups** under *Settings*, then select **+ Create**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of Create a network group button.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Create a network group* page, enter a **Name** and a **Description** for the network group. Then select **Add** to create the network group.
+1. On the *Create a network group* page, enter a **Name** for the network group. This example will use the name **myNetworkGroup**. Select **Add** to create the network group.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
 
 1. You'll see the new network group added to the *Network Groups* page.
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-1. From the list of network groups, select **myNetworkGroup** to manage the network group memberships.
+1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Manually add membership](concept-network-groups.md#static-membership)* or *[Create policy to dynamically add members](concept-network-groups.md#dynamic-membership)*.
 
-    :::image type="content" source="media/how-to-create-mesh-network/manage-group-membership.png" alt-text="Screenshot of manage group memberships page.":::
+## Define network group members
+Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
 
-1. To add a virtual network manually, select the **Add** button under *Static membership*, and select the virtual networks to add. Then select **Add** to save the static membership. For more information, see [static members](concept-network-groups.md#static-membership).
+### Manually adding members
+To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
+
+1. From the list of network groups, select your network group and select **Add virtual networks** under *Manually add members* on the network group page.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network.":::
+
+1. On the *Manually add members* page, select all the virtual networks and select **Add**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
-1. To add virtual networks dynamically, select the **Define** button under *Define dynamic membership*, and then enter the conditional statements for membership. Select **Save** to save the dynamic membership conditions. For more information, see [dynamic membership](concept-network-groups.md#dynamic-membership).
+1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
-    :::image type="content" source="media/how-to-create-mesh-network/define-dynamic-members.png" alt-text="Screenshot of Define dynamic membership page.":::
+### Dynamic membership with Azure Policy
+To dynamically add members using [Azure Policy](concept-azure-policy-integration.md), follow the steps below:
 
+1. From the list of network groups, select your network group and select **Create Azure Policy** under *Create policy to dynamically add members*.
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
+
+1. On the **Create Azure Policy** page, create a conditional statement to populate your network group. You can choose different conditional parameters including *Name* and *Tags*.
+    
+    :::image type="content" source="media/how-to-create-hub-and-spoke/create-azure-policy.png" alt-text="Screenshot of Create Azure Policy page with conditional parameters displayed.":::
+
+1. To review the network group membership based on the conditions defined in Azure Policy, select **Group Members** on the *Network Group* page under **Settings**
 ## Create a mesh connectivity configuration
 
 This section will guide you through how to create a mesh configuration with the network group you created in the previous section.
@@ -76,7 +95,7 @@ This section will guide you through how to create a mesh configuration with the 
 
     :::image type="content" source="media/how-to-create-mesh-network/add-connectivity-config.png" alt-text="Screenshot of Add a connectivity configuration page and options.":::
 
-1. On the *Add network groups* page, select the network groups you want to add to this configuration. Then click **Select** to save.
+1. On the *Add network groups* page, select the network groups you want to add to this configuration. Then select **Select** to save.
 
 1. Select **Review + create** and then **Create** to create the mesh connectivity configuration.
 

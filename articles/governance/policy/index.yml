@@ -98,8 +98,8 @@ landingContent:
             url: ./concepts/regulatory-compliance.md
           - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Azure Policy for VMs
-            url: ./concepts/guest-configuration.md
+          - text: Azure Automanage Machine Configuration
+            url: ../machine-configuration/overview.md
 
   - title: Review & Remediate resources
     linkLists:

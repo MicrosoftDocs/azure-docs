@@ -18,9 +18,10 @@ To associate an Azure Storage account with your IoT hub:
 
 1. Under **Hub settings**, select **File upload** on the left-pane of your IoT hub.
 
-    :::image type="content" source="./media/iot-hub-include-associate-storage/select-storage.png" alt-text="Screen capture showing select file upload settings from the portal." border="true":::
+    :::image type="content" source="./media/iot-hub-include-associate-storage/select-storage.png" alt-text="Screen capture showing select file upload settings from the portal." border="true" lightbox="./media/iot-hub-include-associate-storage/select-storage.png":::
 
 1. On the **File upload** pane, select **Azure Storage Container**. For this article, it's recommended that your storage account and IoT Hub be located in the same region.
+
     * If you already have a storage account you want to use, select it from the list.
 
     * To create a new storage account, select **+Storage account**. Provide a name for the storage account and make sure the **Location** is set to the same region as your IoT hub, then select **OK**. The new account is created in the same resource group as your IoT hub. When the deployment completes, select the storage account from the list.
@@ -34,6 +35,6 @@ To associate an Azure Storage account with your IoT hub:
 
 1. Back on the **File upload** pane, make sure that file notifications are set to **On**. You can leave all other settings at their defaults. Select **Save** and wait for the settings to complete before moving on to the next section.
 
-    :::image type="content" source="./media/iot-hub-include-associate-storage/file-upload-settings-small.png" alt-text="Screen capture showing confirm file upload settings in the portal." border="true":::
+    :::image type="content" source="./media/iot-hub-include-associate-storage/file-upload-settings-small.png" alt-text="Screen capture showing confirm file upload settings in the portal." border="true" lightbox="./media/iot-hub-include-associate-storage/file-upload-settings-small.png":::
 
 For more detailed instructions on how to create an Azure Storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md). For more detailed instructions on how to associate a storage account and blob container with an IoT hub, see [Configure file uploads using the Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md).

@@ -29,7 +29,7 @@ There are a few key points to be aware of with this approach:
 
 ### Use a lab's template VM to save a custom image
 
-You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save an image a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery)
+You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save an image to a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery)
 
 ## Bring a custom image from an Azure VM
 

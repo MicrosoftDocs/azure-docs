@@ -2,11 +2,11 @@
 title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
 description: Learn how to move VMs to an availability zone in a different region with Site Recovery
 services: site-recovery
-author: sideeksh
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: sideeksh
+ms.author: ankitadutta
 ms.custom: MVC
 ---
 

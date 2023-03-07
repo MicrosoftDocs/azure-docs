@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions about changing the prices of offers in the commercial marketplace (Partner Center)
-  description: Frequently asked questions about changing the prices of offers in the commercial marketplace using Partner Center.
+  description: Frequently asked questions about changing the prices of offers and switching between public and private offers in the commercial marketplace using Partner Center.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: faq
@@ -37,7 +37,7 @@ sections:
       - question: |
           Can I change the price of a hidden plan?
         answer: |
-          No.. To make a price change to a hidden plan, move customers to a new plan with the new price.
+          No. To make a price change to a hidden plan, move customers to a new plan with the new price.
 
   - name: General
     questions:

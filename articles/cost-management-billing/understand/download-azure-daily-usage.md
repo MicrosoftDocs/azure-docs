@@ -1,6 +1,6 @@
 ---
 title: View and download Azure usage and charges
-description: Learn how to download or view your Azure daily usage and charges, and see additional available resources.
+description: Learn how to download or view your Azure daily usage and charges, and see other available resources.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
@@ -10,16 +10,18 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 11/18/2021
+ms.date: 08/08/2022
 ---
 
 # View and download your Azure usage and charges
 
-You can download a daily breakdown of your Azure usage and charges in the Azure portal. You can also get your usage data using Azure CLI. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
+You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
 
-If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
+If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges. If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
 
 Based on the type of subscription that you use, options to download your usage and charges vary.
+
+If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 
 ## Download usage from the Azure portal (.csv)
 
@@ -36,6 +38,13 @@ Based on the type of subscription that you use, options to download your usage a
 ## Download usage for EA customers
 
 To view and download usage data as a EA customer, you must be an Enterprise Administrator, Account Owner, or Department Admin with the view charges policy enabled.
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](../manage/ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
@@ -64,15 +73,15 @@ To view and download usage data for a billing profile, you must be a billing pro
 
 ### Download usage for open charges
 
-You can also download month-to-date usage for the current billing period, meaning the charges have not been billed yet.
+You can also download month-to-date usage for the current billing period, meaning the charges haven't been billed yet.
 
 1. Search for **Cost Management + Billing**.
 2. Select a billing profile.
-3. In the **Overview** blade, select **Download Azure usage and charges**.
+3. In the **Overview** area, select **Download Azure usage and charges**.
 
 ### Download usage for pending charges
 
-If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
+If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that haven't been billed yet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.

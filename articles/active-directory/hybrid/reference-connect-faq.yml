@@ -5,7 +5,7 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: billmath
-  manager: karenhoran
+  manager: amycolannino
   ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
   ms.service: active-directory
   ms.workload: identity
@@ -143,7 +143,7 @@ sections:
       - question: |
           Are single label domains (SLDs) supported?  
         answer: |
-          While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly.
+          While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly. In SLD scenarios where the Active Directory NetBIOS domain name differs from the FQDN domain name, it's unsupported to install Azure AD Connect.
           
       - question: |
           Are Forests with disjoint AD domains supported?  

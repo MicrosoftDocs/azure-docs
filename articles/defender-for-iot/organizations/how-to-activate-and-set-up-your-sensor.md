@@ -33,7 +33,10 @@ Before signing in to the sensor console, administrator users should have access 
 
 - The activation file associated with this sensor. The file was generated and downloaded during sensor onboarding by Defender for IoT.
 
+
 - An SSL/TLS CA-signed certificate that your company requires.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ### About activation files
 
@@ -132,8 +135,8 @@ After activating a sensor, you'll need to apply new activation files as follows:
 
 |Location  |Activation process  |
 |---------|---------|
-|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](how-to-manage-individual-sensors.md#download-a-new-activation-file-for-version-221x-or-higher) from a legacy version to version 22.2.x.        |
-|  **Locally-managed**   |   Apply a new activation file to locally-managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](update-ot-software.md#download-and-apply-a-new-activation-file) from a legacy version to version 22.2.x.        |
+|  **Locally managed**   |   Apply a new activation file to locally managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
@@ -228,7 +231,7 @@ You can access console tools from the side menu.  Tools help you:
 | -----------|--|
 | Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. |
 | Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate sensor detections in the Device Map](how-to-work-with-the-sensor-device-map.md#investigate-sensor-detections-in-the-device-map). |
-| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#investigate-sensor-detections-in-an-inventory).|
+| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md).|
 | Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
 
 ### Analyze
@@ -238,8 +241,8 @@ You can access console tools from the side menu.  Tools help you:
 | Event timeline | View a timeline with information about alerts, network events, and user operations. For more information, see [Track sensor activity](how-to-track-sensor-activity.md).|
 | Data mining | Generate comprehensive and granular information about your network's devices at various layers. For more information, see [Sensor data mining queries](how-to-create-data-mining-queries.md).|
 | Trends and Statistics |  View trends and statistics about an extensive range of network traffic and activity.  As a small example, display charts and graphs showing top traffic by port, connectivity drops by hours, S7 traffic by control function, number of devices per VLAN, SRTP errors by day, or Modbus traffic by function. For more information, see [Sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md).
-| Risk Assessment | Proactively address vulnerabilities,  identify risks such as missing patches or unauthorized applications. Detect changes to device configurations, controller logic, and firmware. Prioritize fixes based on risk scoring and automated threat modeling.  For more information, see [Risk assessment reporting](how-to-create-risk-assessment-reports.md#risk-assessment-reporting).|
-| Attack Vector |  Display a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target. For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md#attack-vector-reporting).|
+| Risk Assessment | Proactively address vulnerabilities,  identify risks such as missing patches or unauthorized applications. Detect changes to device configurations, controller logic, and firmware. Prioritize fixes based on risk scoring and automated threat modeling.  For more information, see [Risk assessment reporting](how-to-create-risk-assessment-reports.md#create-risk-assessment-reports).|
+| Attack Vector |  Display a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target. For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md#create-attack-vector-reports).|
 
 ### Manage
 
@@ -247,7 +250,7 @@ You can access console tools from the side menu.  Tools help you:
 |---|---|
 | System settings | Configure the system settings. For example, define DHCP settings, provide mail server details, or create port aliases.   |
 | Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules). |
-| Users |  Define users and roles with various access levels. For more information, see [About Defender for IoT console users](how-to-create-and-manage-users.md#about-defender-for-iot-console-users).  |
+| Users |  Define users and roles with various access levels. For more information, see [Create and manage users on an OT network sensor](manage-users-sensor.md).  |
 | Forwarding |  Forward alert information to partners that integrate with Defender for IoT, for example, Microsoft Sentinel, Splunk, ServiceNow. You can also send to email addresses, webhook servers, and more. <br /> See [Forward alert information](how-to-forward-alert-information-to-partners.md) for details. |
 
 

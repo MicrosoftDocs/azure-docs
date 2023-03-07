@@ -28,7 +28,7 @@ Azure SignalR Service is more suitable if:
 Azure Web PubSub service is more suitable for situations where:  
 
 - You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.
-- You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
+- You want to build your own subprotocol or use existing advanced sub-protocols over WebSocket (for example, [GraphQL subscriptions over WebSocket](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-graphql-subscribe)). 
 - You're looking for a lightweight server, for example, sending messages to client without going through the configured backend.  
 
 ##  Where does my data reside?

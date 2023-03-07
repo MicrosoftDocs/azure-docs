@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
@@ -47,7 +47,7 @@ If the application persistently fails to connect to Azure Database for PostgreSQ
 * Client firewall configuration: The firewall on your client must allow connections to your database server. IP addresses and ports of the server that you can't connect to must be allowed and the application names such as PostgreSQL in some firewalls.
 * User error: You might have mistyped connection parameters, such as the server name in the connection string or a missing *\@servername* suffix in the user name.
 * If you see the error _Server isn't configured to allow ipv6 connections_, note that the Basic tier doesn't support VNet service endpoints. You have to remove the Microsoft.Sql endpoint from the subnet that is attempting to connect to the Basic server.
-* If you see the connection error _sslmode value "***" invalid when SSL support is not compiled in_ error, it means your PostgreSQL client doesn't support SSL. Most probably, the client-side libpq hasn't been compiled with the "--with-openssl" flag. Try connecting with a PostgreSQL client that has SSL support. 
+* If you see the connection error _sslmode value "***" invalid when SSL support is not compiled in_ error, it means your PostgreSQL client doesn't support SSL. Most probably, the client-side libpq hasn't been compiled with the "--with-openssl" flag. Try connecting with a PostgreSQL client that has SSL support.
 
 ### Steps to resolve persistent connectivity issues
 

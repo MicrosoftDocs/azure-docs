@@ -2,9 +2,11 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 04/06/2022
+ms.date: 09/06/2022
 ms.author: larryfr
 ---
 
 > [!IMPORTANT]
-> The Azure CLI commands in this article __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. We recommend you select **v2 (current)** for the enhanced v2 CLI using the `ml` extension. For more information, see [Machine Learning CLI (v1)](../articles/machine-learning/v1/introduction.md).
+> The Azure CLI commands in this article __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. Support for the v1 extension will end on September 30, 2025. You will be able to install and use the v1 extension until that date.
+>
+> We recommend that you transition to the `ml`, or v2, extension before September 30, 2025. For more information on the v2 extension, see [Azure ML CLI extension and Python SDK v2](../articles/machine-learning/concept-v2.md).

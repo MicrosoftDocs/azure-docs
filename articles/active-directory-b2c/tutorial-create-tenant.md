@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 07/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -40,17 +40,20 @@ You learn how to register an application in the next tutorial.
 - An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
 ## Create an Azure AD B2C tenant
+>[!NOTE]
+>If you're unable to create Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. Switch to the directory that contains your subscription:
+1. Make sure you're using the directory that contains your subscription:
+
     1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
     
         ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
-    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal.
+    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal. If the directory that contains your subscription has the **Current** label next to it, you don't need to do anything. 
 
-        ![Directories + subscriptions with Switch button](media/tutorial-create-tenant/switch-directory.png)
+        ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 

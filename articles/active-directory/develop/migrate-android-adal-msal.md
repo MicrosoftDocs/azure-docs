@@ -2,7 +2,7 @@
 title: ADAL to MSAL migration guide for Android
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Android app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
 ms.date: 10/14/2020
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: shoatman
 ms.custom: aaddev, has-adal-ref
 # Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.

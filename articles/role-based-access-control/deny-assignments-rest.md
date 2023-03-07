@@ -4,7 +4,7 @@ description: Learn how to list Azure deny assignments for users, groups, and app
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 10/19/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -30,12 +30,21 @@ To get information about a deny assignment, you must have:
 
 - `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md).
 
+You must use the following version:
+
+- `2018-07-01-preview` or later
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ## List a single deny assignment
+
+To list a single deny assignment, use the [Deny Assignments - Get](/rest/api/authorization/deny-assignments/get) REST API.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments/{deny-assignment-id}?api-version=2018-07-01-preview
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments/{deny-assignment-id}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
@@ -51,16 +60,18 @@ To get information about a deny assignment, you must have:
 
 ## List multiple deny assignments
 
+To list multiple deny assignments, use the [Deny Assignments - List](/rest/api/authorization/deny-assignments/list) REST API.
+
 1. Start with one of the following requests:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01
     ```
 
     With optional parameters:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
@@ -91,7 +102,7 @@ To get information about a deny assignment, you must have:
 1. Use the following request:
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
+    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter={filter}
     ```
 
 1. Replace *{filter}* with the condition that you want to apply to filter the deny assignment list. A filter is required.

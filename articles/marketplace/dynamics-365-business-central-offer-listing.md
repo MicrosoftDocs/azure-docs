@@ -4,8 +4,8 @@ description: Configure Dynamics 365 Business Central offer listing details on Mi
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: trkeya
+ms.author: trkeya
 ms.date: 03/15/2022
 ---
 

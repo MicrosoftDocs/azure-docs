@@ -1,10 +1,10 @@
 ---
-title: Trigger custom Logic Apps with Azure AD entitlement management
-description: Learn how to configure and use custom Logic Apps in Azure Active Directory entitlement management.
+title: Trigger custom Logic Apps with entitlement management
+description: Learn how to configure and use custom Logic Apps in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 11/02/2020
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 #Customer intent: As an administrator, I want detailed information about how I can configure and add custom Logic Apps to my catalogs and access packages in entitlement management.
 
 ---
-# Trigger custom Logic Apps with Azure AD entitlement management
+# Trigger custom Logic Apps with entitlement management
 
 
 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) can be used to automate custom workflows and connect apps and services in one place. Users can integrate Logic Apps with entitlement management to broaden their governance workflows beyond the core entitlement management use cases.
@@ -111,7 +111,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policy-of-request-settings). 
+    > For more information about how to create an access package see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 

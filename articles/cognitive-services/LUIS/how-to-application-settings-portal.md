@@ -10,6 +10,9 @@ ms.date: 11/30/2020
 
 # Application and version settings
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Configure your application settings in the LUIS portal such as utterance normalization and app privacy.
 
 ## View application name, description, and ID

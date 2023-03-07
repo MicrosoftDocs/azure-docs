@@ -63,10 +63,10 @@ You can use the [Stop-AzAksCluster][stop-azakscluster] cmdlet to stop a running 
 Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
-You can verify your cluster is stopped using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Stopped` as shown in the following output:
+You can verify your cluster is stopped using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Succeeded` as shown in the following output:
 
 ```Output
-ProvisioningState       : Stopped
+ProvisioningState       : Succeeded
 MaxAgentPools           : 100
 KubernetesVersion       : 1.20.7
 ...

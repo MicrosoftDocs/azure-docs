@@ -5,7 +5,7 @@ description: This quickstart shows how to create an internal load balancer using
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/24/2022
+ms.date: 09/02/2022
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
@@ -37,11 +37,46 @@ New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
-Create a virtual network for the backend virtual machines
+- Create a public IP for the NAT gateway
 
-Create a network security group to define inbound connections to your virtual network
+- Create a virtual network for the backend virtual machines
 
-Create an Azure Bastion host to securely manage the virtual machines in the backend pool
+- Create a network security group to define inbound connections to your virtual network
+
+- Create an Azure Bastion host to securely manage the virtual machines in the backend pool
+
+## Create a public IP address
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address for the NAT gateway.
+
+```azurepowershell-interactive
+## Create public IP address for NAT gateway and place IP in variable ##
+$gwpublicip = @{
+    Name = 'myNATgatewayIP'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'static'
+    Zone = 1,2,3
+}
+$gwpublicip = New-AzPublicIpAddress @gwpublicip
+```
+
+To create a zonal public IP address in zone 1, use the following command:
+
+```azurepowershell-interactive
+## Create a zonal public IP address for NAT gateway and place IP in variable ##
+$gwpublicip = @{
+    Name = 'myNATgatewayIP'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'static'
+    Zone = 1
+}
+$gwpublicip = New-AzPublicIpAddress @gwpublicip
+
+```
 
 ### Create virtual network, network security group, bastion host, and NAT gateway
 
@@ -56,15 +91,6 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
 ```azurepowershell-interactive
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'myNATgatewayIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicIP = New-AzPublicIpAddress @ip
 
 ## Create NAT gateway resource ##
 $nat = @{
@@ -73,7 +99,7 @@ $nat = @{
     IdleTimeoutInMinutes = '10'
     Sku = 'Standard'
     Location = 'eastus'
-    PublicIpAddress = $publicIP
+    PublicIpAddress = $gwpublicip
 }
 $natGateway = New-AzNatGateway @nat
 
@@ -103,20 +129,20 @@ $net = @{
 $vnet = New-AzVirtualNetwork @net
 
 ## Create public IP address for bastion host. ##
-$ip = @{
+$bastionip = @{
     Name = 'myBastionIP'
     ResourceGroupName = 'CreateIntLBQS-rg'
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
-$publicip = New-AzPublicIpAddress @ip
+$bastionip = New-AzPublicIpAddress @bastionip
 
 ## Create bastion host ##
 $bastion = @{
     ResourceGroupName = 'CreateIntLBQS-rg'
     Name = 'myBastion'
-    PublicIpAddress = $publicip
+    PublicIpAddress = $bastionip
     VirtualNetwork = $vnet
 }
 New-AzBastion @bastion -AsJob

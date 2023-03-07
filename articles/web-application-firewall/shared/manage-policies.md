@@ -20,7 +20,7 @@ To navigate to WAF policies, select the **Web Application Firewall Policies** ta
 
 :::image type="content" source="../media/manage-policies/policies.png" alt-text="Screenshot showing Web Application Firewall policies in Firewall Manager." lightbox="../media/manage-policies/policies.png":::
 
-## Associate of dissociate WAF policies
+## Associate or dissociate WAF policies
 
 In Azure Firewall Manager, you can create and view all WAF policies in your subscriptions. These policies can be associated or dissociated with an application delivery platform. Select the service and then select **Manage Security**.
 

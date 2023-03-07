@@ -1,25 +1,20 @@
 ---
-title: FAQ for Azure role assignment conditions (preview)
-description: Frequently asked questions for Azure role assignment conditions (preview)
+title: FAQ for Azure role assignment conditions - Azure ABAC
+description: Frequently asked questions for Azure role assignment conditions
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 10/24/2022
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# FAQ for Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# FAQ for Azure role assignment conditions
 
 ## Frequently asked questions
 
@@ -31,9 +26,9 @@ You must write the storage container name, blob path, tag name, or values in the
 
 If you add three or more expressions for a targeted action, you must define the logical grouping of those expressions in the code editor, Azure PowerShell, or Azure CLI. A logical grouping of `a AND b OR c` can be either `(a AND b) OR c` or `a AND (b OR c )`.
 
-**Are conditions supported via Privileged Identity Management (PIM) for Azure resources in preview?**
+**Are conditions supported via Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources?**
 
-Yes. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+Yes, for specific roles. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **Are conditions supported for classic administrators?**
 
@@ -80,5 +75,5 @@ No, conditions in role assignments do not have an explicit deny effect. Conditio
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)

@@ -106,20 +106,20 @@ To test the integration of API Management with the cluster, add the correspondin
     
     :::image type="content" source="media/backends/configure-get-operation.png" alt-text="Add GET operation to API":::
 
-### Configure `set-backend` policy
+### Configure `set-backend-service` policy
 
 Add the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to the test API.
 
 1. On the **Design** tab, in the **Inbound processing** section, select the code editor (**</>**) icon. 
 1. Position the cursor inside the **&lt;inbound&gt;** element
 1. Add the `set-service-backend` policy statement. 
-      * In `backend-id`, substitute the name of your Service Fabric backend.
+    * In `backend-id`, substitute the name of your Service Fabric backend.
 
-      * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. For example:
+    * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. For example:
 
       ```xml
       <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"/>
-    ```
+      ```
 1. Select **Save**.
 
     :::image type="content" source="media/backends/set-backend-service.png" alt-text="Configure set-backend-service policy":::

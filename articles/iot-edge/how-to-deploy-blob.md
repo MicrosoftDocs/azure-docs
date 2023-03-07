@@ -10,7 +10,7 @@ ms.reviewer: arduppal
 ---
 # Deploy the Azure Blob Storage on IoT Edge module to your device
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Blob Storage on IoT Edge modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates.
 
@@ -30,8 +30,8 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 ### Select your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. Select **Devices** under the **Device management** menu.
+1. Select the target IoT Edge device from the list.
 1. Select **Set Modules**.
 
 ### Configure a deployment manifest
@@ -131,6 +131,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
+   > [!NOTE]
+   > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md?view=iotedge-2020-11&preserve-view=true#devicetoclouduploadproperties).
+
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 6. Select **Add**.
@@ -149,7 +152,7 @@ Review your deployment information, then select **Create**.
 
 ### Verify your deployment
 
-After you create the deployment, you return to the **IoT Edge** page of your IoT hub.
+After you create the deployment, you return to the **Devices** page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 1. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**.
@@ -278,7 +281,7 @@ This process is described in [Configure an IoT Edge device to communicate throug
 
 In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
-1. Navigate to your Iot hub in the Azure portal and select **IoT Edge** from the left pane menu.
+1. Navigate to your IoT Hub in the Azure portal and select **Devices** under the **Device management** menu
 
 1. Select the device with the module to configure.
 

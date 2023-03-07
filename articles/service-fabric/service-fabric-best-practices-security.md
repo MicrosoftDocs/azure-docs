@@ -1,10 +1,13 @@
 ---
 title: Azure Service Fabric security best practices
 description: Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
-author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: ignite-2022
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric security 
@@ -138,7 +141,25 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 After encrypting your protected values, [specify encrypted secrets in Service Fabric Application](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code).
 
-## Include certificate in Service Fabric applications
+## Include endpoint certificate in Service Fabric applications
+
+To configure your application endpoint certificate, include the certificate by adding a **EndpointCertificate** element along with the **User** element for the principal account to the application manifest. By default the principal account is NetworkService. This will provide management of the application certificate private key ACL for the provided principal.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Principals>
+    <Users>
+      <User Name="Service1" AccountType="NetworkService" />
+    </Users>
+  </Principals>
+  <Certificates>
+    <EndpointCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+## Include secret certificate in Service Fabric applications
 
 To give your application access to secrets, include the certificate by adding a **SecretsCertificate** element to the application manifest.
 
@@ -146,7 +167,7 @@ To give your application access to secrets, include the certificate by adding a 
 <ApplicationManifest … >
   ...
   <Certificates>
-    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
   </Certificates>
 </ApplicationManifest>
 ```
@@ -194,7 +215,7 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```
 
 Your Service Fabric app can then use the access token to authenticate to Azure Resources that support Active Directory.
-The following example shows how to do this for Cosmos DB resource:
+The following example shows how to do this for a Azure Cosmos DB resource:
 
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")

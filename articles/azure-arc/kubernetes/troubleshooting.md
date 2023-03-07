@@ -1,12 +1,8 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-services: azure-arc
-ms.service: azure-arc
-#ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 06/13/2022
-ms.topic: article
+ms.date: 11/04/2022
+ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
-keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
 ---
 
 # Azure Arc-enabled Kubernetes and GitOps troubleshooting
@@ -70,6 +66,25 @@ All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the 
 ## Connecting Kubernetes clusters to Azure Arc
 
 Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you can't reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you've met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).
+
+> [!TIP]
+> For a visual guide to troubleshooting these issues, see [Diagnose connection issues for Arc-enabled Kubernetes clusters](diagnose-connection-issues.md).
+
+### DNS resolution issues
+
+If you see an error message about an issue with the DNS resolution on your cluster, there are a few things you can try in order to diagnose and resolve the problem.
+
+For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/).
+
+### Outbound network connectivity issues
+
+Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+
+If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you have passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+
+### Unable to retrieve MSI certificate
+
+Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met, then try again.
 
 ### Azure CLI is unable to download Helm chart for Azure Arc agents
 
@@ -155,7 +170,7 @@ To resolve this issue, try the following steps.
     cluster-metadata-operator-664bc5f4d-chgkl   2/2     Running            0          4m14s
     clusterconnect-agent-7cb8b565c7-wklsh       2/3     CrashLoopBackOff   0          1m15s
     clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
-     config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
+    config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
      ```
 
 3. If the certificate below isn't present, the system assigned managed identity hasn't been installed.
@@ -168,9 +183,21 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
+
+5. If the `kube-aad-proxy` pod is stuck in `ContainerCreating` state, check whether the kube-aad-proxy certificate has been downloaded onto the cluster.
+
+   ```console
+   kubectl get secret -n azure-arc -o yaml | grep name:
+   ```
+
+   ```output
+   name: kube-aad-proxy-certificate
+   ```
+
+   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, please contact support.
 
 ### Helm validation error
 
@@ -235,7 +262,7 @@ az extension add --name k8s-configuration
 > [!NOTE]
 > Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
 
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -292,7 +319,7 @@ metadata:
 
 ### Flux v2 - General
 
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -410,6 +437,14 @@ spec:
     app.kubernetes.io/name: flux-extension
 ```
 
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Kubelet Identity enabled
+
+When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+
+```console
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
+```
+
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
 The controllers installed in your Kubernetes cluster with the Microsoft.Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
@@ -457,7 +492,7 @@ If your cluster is behind an outbound proxy or firewall, verify that websocket c
 
 ### Cluster Connect feature disabled
 
-If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
+If the `clusterconnect-agent` and `kube-aad-proxy` pods are missing, then the cluster connect feature is likely disabled on the cluster, and `az connectedk8s proxy` will fail to establish a session with the cluster.
 
 ```azurecli
 az connectedk8s proxy -n AzureArcTest -g AzureArcTest
@@ -467,7 +502,11 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
 ```
 
-To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#enable-cluster-connect-feature) on your cluster.
+To resolve this error, enable the Cluster Connect feature on your cluster.
+
+```azurecli
+az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
+```
 
 ## Enable custom locations using service principal
 

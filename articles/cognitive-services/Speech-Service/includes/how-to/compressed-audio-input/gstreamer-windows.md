@@ -20,9 +20,9 @@ Make sure that packages of the same platform (x64 or x86) are installed. For exa
     msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
     ```
 
-1. Add the system variables GST_PLUGIN_PATH with the value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.
-1. Add the system variables GSTREAMER_ROOT_X86_64 with the value C:\gstreamer\1.0\msvc_x86_64.
-1. Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin.
+1. Add the system variable `GST_PLUGIN_PATH` with "C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0" as the variable value.
+1. Add the system variable `GSTREAMER_ROOT_X86_64` with "C:\gstreamer\1.0\msvc_x86_64" as the variable value.
+1. Edit the system `PATH` variable to add "C:\gstreamer\1.0\msvc_x86_64\bin" as a new entry.
 1. Reboot the machine.
 
 For more information about GStreamer, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c).

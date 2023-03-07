@@ -27,7 +27,7 @@ $WC = New-Object System.Net.WebClient
 $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
 C:\Downloads\MARSAgentInstaller.EXE /q
 
-MARSAgentInstaller.exe /q # Please note the commandline install options available here: https://docs.microsoft.com/azure/backup/backup-client-automation#installation-options
+MARSAgentInstaller.exe /q # Please note the commandline install options available here: https://learn.microsoft.com/azure/backup/backup-client-automation#installation-options
 
 # Registering Windows Server or Windows client machine to a Recovery Services Vault
 $CredsPath = "C:\downloads"
@@ -47,8 +47,8 @@ Set-OBMachineSetting -NoThrottle
 # Encryption settings
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>" #NOTE: You must generate a security pin by selecting Generate, under Settings > Properties > Security PIN in the Recovery Services vault section of the Azure portal. 
-# See: https://docs.microsoft.com/rest/api/backup/securitypins/get 
-# See: https://docs.microsoft.com/powershell/module/azurerm.keyvault/Add-AzureKeyVaultKey?view=azurermps-6.13.0 
+# See: https://learn.microsoft.com/rest/api/backup/securitypins/get 
+# See: https://learn.microsoft.com/powershell/module/azurerm.keyvault/Add-AzureKeyVaultKey?view=azurermps-6.13.0 
 
 # Back up files and folders
 $NewPolicy = New-OBPolicy

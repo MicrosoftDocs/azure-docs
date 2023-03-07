@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 12/07/2022
 
 ---
 
@@ -18,7 +18,34 @@ This article shows you how to control access using Kubernetes RBAC in an AKS clu
 
 This article assumes that you have an existing AKS cluster enabled with Azure AD integration. If you need an AKS cluster, see [Integrate Azure Active Directory with AKS][azure-ad-aks-cli].
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+Kubernetes RBAC is enabled by default during AKS cluster creation. If Kubernetes RBAC wasn't enabled when you originally deployed your cluster, you'll need to delete and recreate your cluster.
+
+Consider the following basic requirements before continuing:
+
+- The Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
+
+To verify if Kubernetes RBAC is enabled, you can check from Azure portal or Azure CLI.
+
+#### [Azure portal](#tab/portal)
+
+From your browser, sign in to the [Azure portal](https://portal.azure.com).
+
+Navigate to Kubernetes services, and from the left-hand pane select **Cluster configuration**. On the page, under the section **Authentication and Authorization**, verify the option **Local accounts with Kubernetes RBAC** is shown.
+
+:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify RBAC is enabled, you can use the `az aks show` command.
+
+```azuecli
+az aks show --resource-group myResourceGroup --name myAKSCluster` 
+```
+
+The output will show that the value for `enableRbac` is `true`.
+
+---
 
 ## Create demo groups in Azure AD
 
@@ -43,7 +70,7 @@ AKS_ID=$(az aks show \
 Create the first example group in Azure AD for the application developers using the [az ad group create][az-ad-group-create] command. The following example creates a group named *appdev*:
 
 ```azurecli-interactive
-APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
+APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query Id -o tsv)
 ```
 
 Now, create an Azure role assignment for the *appdev* group using the [az role assignment create][az-role-assignment-create] command. This assignment lets any member of the group use `kubectl` to interact with an AKS cluster by granting them the *Azure Kubernetes Service Cluster User Role*.
@@ -181,7 +208,7 @@ kubectl apply -f role-dev-namespace.yaml
 Next, get the resource ID for the *appdev* group using the [az ad group show][az-ad-group-show] command. This group is set as the subject of a RoleBinding in the next step.
 
 ```azurecli-interactive
-az ad group show --group appdev --query objectId -o tsv
+az ad group show --group appdev --query id -o tsv
 ```
 
 Now, create a RoleBinding for the *appdev* group to use the previously created Role for namespace access. Create a file named `rolebinding-dev-namespace.yaml` and paste the following YAML manifest. On the last line, replace *groupObjectId*  with the group object ID output from the previous command:
@@ -249,7 +276,7 @@ kubectl apply -f role-sre-namespace.yaml
 Get the resource ID for the *opssre* group using the [az ad group show][az-ad-group-show] command:
 
 ```azurecli-interactive
-az ad group show --group opssre --query objectId -o tsv
+az ad group show --group opssre --query id -o tsv
 ```
 
 Create a RoleBinding for the *opssre* group to use the previously created Role for namespace access. Create a file named `rolebinding-sre-namespace.yaml` and paste the following YAML manifest. On the last line, replace *groupObjectId*  with the group object ID output from the previous command:
@@ -280,7 +307,7 @@ kubectl apply -f rolebinding-sre-namespace.yaml
 
 Now, let's test the expected permissions work when you create and manage resources in an AKS cluster. In these examples, you schedule and view pods in the user's assigned namespace. Then, you try to schedule and view pods outside of the assigned namespace.
 
-First, reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
+First, reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign-in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
@@ -292,7 +319,7 @@ Schedule a basic NGINX pod using the [kubectl run][kubectl-run] command in the *
 kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 ```
 
-As the sign in prompt, enter the credentials for your own `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
+As the sign-in prompt, enter the credentials for your own `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
 
 ```console
 $ kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
@@ -435,3 +462,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-ad-group-show]: /cli/azure/ad/group#az_ad_group_show
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
+[terraform-on-azure]: /azure/developer/terraform/overview

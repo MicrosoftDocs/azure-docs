@@ -4,9 +4,9 @@ description: Manage a commercial marketplace account in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: varsha-sarah
-ms.author: vavargh
-ms.date: 1/20/2022
+author: sharath-satish-msft
+ms.author: shsatish
+ms.date: 7/27/2022
 ---
 
 # Manage a commercial marketplace account in Partner Center
@@ -78,8 +78,8 @@ You can also select the **Update** link to change your contact info, such as pub
 
 In the left-menu, under **Organization profile**, select **Identifiers** to see the following information:
 
-- **MPN IDs**: Any MPN IDs associated with your account
-- **CSP**: MPN IDs associated with the CSP program for this account.
+- **MPN IDs**: Any PartnerIDs associated with your account
+- **CSP**: PartnerIDs associated with the CSP program for this account.
 - **Publisher**: Seller IDs associated with your account
 - **Tracking GUIDs**: Any tracking GUIDs associated with your account
 
@@ -96,7 +96,7 @@ If you deploy a product by using a template and it is available on both Azure Ma
 - Product A in Azure Marketplace
 - Product A on GitHub
 
-Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
+Reporting is done by the partner value (Microsoft PartnerID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
 
 For more information, see the [Tracking Azure customer usage with GUIDs FAQ](azure-partner-customer-usage-attribution.md#faq)).
 
@@ -197,6 +197,16 @@ The billing address is pre-populated from your legal entity, and you can update 
 ## Multi-user account management
 
 Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
+
+## Delete a commercial marketplace account
+
+You may want to delete a commercial marketplace account if the account was created by mistake or is no longer needed. You can’t delete a commercial marketplace account yourself. To have an account deleted, create a support request. See [Get help and contact support](/partner-center/report-problems-with-partner-center).
+
+Before creating a support request, ensure that:
+
+- You’re the owner/manager of the account and you specifically provide your consent to delete the account.
+- There are no offers or applications (live or unpublished) associated with the account.
+- There are no pending payments associated with the account.
 
 ## Next steps
 

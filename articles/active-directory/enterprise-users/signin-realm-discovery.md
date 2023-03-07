@@ -2,14 +2,14 @@
 title: Username lookup during sign-in - Azure Active Directory | Microsoft Docs
 description: How on-screen messaging reflects username lookup during sign-in in Azure Active Directory
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Home realm discovery for Azure Active Directory sign-in pages
 
-We are changing our Azure Active Directory (Azure AD) sign-in behavior to make room for new authentication methods and improve usability. During sign-in, Azure AD determines where a user needs to authenticate. Azure AD makes intelligent decisions by reading organization and user settings for the username entered on the sign-in page. This is a step towards a password-free future that enables additional credentials like FIDO 2.0.
+We are changing sign-in behavior in Azure Active Directory (Azure AD), part of Microsoft Entra, to make room for new authentication methods and improve usability. During sign-in, Azure AD determines where a user needs to authenticate. Azure AD makes intelligent decisions by reading organization and user settings for the username entered on the sign-in page. This is a step towards a password-free future that enables additional credentials like FIDO 2.0.
 
 ## Home realm discovery behavior
 

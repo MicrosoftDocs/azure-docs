@@ -71,6 +71,7 @@ Synapse notebooks support four Apache Spark languages:
 * Spark (Scala)
 * Spark SQL
 * .NET Spark (C#)
+* SparkR (R)
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
@@ -87,6 +88,7 @@ You can use multiple languages in one notebook by specifying the correct languag
 |%%spark| Scala | Execute a **Scala** query against Spark Context.  |  
 |%%sql| SparkSQL | Execute a **SparkSQL** query against Spark Context.  |
 |%%csharp | .NET for Spark C# | Execute a **.NET for Spark C#** query against Spark Context. |
+|%%sparkr | R | Execute a **R** query against Spark Context. |
 
 The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to pySpark.
 
@@ -448,7 +450,7 @@ You can access data in the primary storage account directly. There's no need to 
 
 ## IPython Widgets
 
-Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
+Widgets are eventful Python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
 
 ### To use IPython Widget
 1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.

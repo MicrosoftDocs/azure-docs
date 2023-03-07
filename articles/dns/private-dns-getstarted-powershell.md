@@ -2,9 +2,9 @@
 title: Quickstart - Create an Azure private DNS zone using Azure PowerShell
 description: In this quickstart, you learn how to create and manage your first private DNS zone and record using Azure PowerShell.
 services: dns
-author: rohinkoul
-ms.author: rohink
-ms.date: 05/23/2022
+author: greg-lindsay
+ms.author: greglin
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api

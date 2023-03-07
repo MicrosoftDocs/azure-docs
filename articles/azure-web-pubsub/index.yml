@@ -54,6 +54,10 @@ landingContent:
             url: quickstart-serverless.md
           - text: Client streaming using subprotocol
             url: tutorial-subprotocol.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Web PubSub
+            url: /training/modules/introduction-to-azure-web-pubsub/
 
   # Card
   - title: Live Demos

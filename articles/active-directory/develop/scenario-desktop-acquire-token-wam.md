@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/07/2022
+ms.date: 12/14/2022
 ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
@@ -21,11 +21,9 @@ MSAL is able to call Web Account Manager, a Windows 10 component that ships with
 
 ## Availability
 
-MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.1, and .NET 5.
+MSAL 4.25+ supports WAM on UWP, and .NET 5.
 
-For .NET Classic and .NET Core 3.1, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
-
-For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM isn't available.
+For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the *.csproj* file. MSAL will use a browser when WAM isn't available.
 
 ## WAM value proposition
 
@@ -53,7 +51,7 @@ var pca = PublicClientApplicationBuilder.Create("client_id")
               .WithBroker()
               .Build();
 
-// Add a token cache, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
+// Add a token cache, see https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
 // 2. GetAccounts
 var accounts = await pca.GetAccountsAsync();
@@ -78,7 +76,7 @@ catch (MsalUiRequiredException) // no change in the pattern
 }
 ```
 
-Call `.WithBroker(true)`. If a broker isn't present (for example, Win8.1, Mac, or Linux), then MSAL will fall back to a browser. Redirect URI rules apply to the browser.
+Call `.WithBroker(true)`. If a broker isn't present (for example, Win8.1, Mac, or Linux), then MSAL will fall back to a browser, where redirect URI rules apply.
 
 ## Redirect URI
 
@@ -131,7 +129,7 @@ Applications cannot remove accounts from Windows!
 - Removes app-only (not OS-wide) accounts.
 
 >[!NOTE]
-> Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
+> Ony users can remove OS accounts, whereas apps themselves cannot. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled, the same OS accounts will still be returned.
 
 ## Other considerations
 

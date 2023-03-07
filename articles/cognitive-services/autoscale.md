@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/27/2022
 ---
 
+
 # Cognitive Services Autoscale Feature
 
 This article provides guidance on how to access higher rate limits on Azure Cognitive Service resources.
@@ -16,15 +17,16 @@ This article provides guidance on how to access higher rate limits on Azure Cogn
 
 Each Azure Cognitive Service resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that can be made to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a user's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. 
 
+
 ## Get started with the autoscale feature
 
 This feature is disabled by default for every new resource. Follow these instructions to enable it.
 
 #### [Azure portal](#tab/portal)
 
-Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. Under the  The **Essentials** section, find the **Autoscale** line and select the link to view the **Autoscale Settings** pane and enable the feature.
+Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. Under the **Essentials** section, find the **Autoscale** line and select the link to view the **Autoscale Settings** pane and enable the feature.
 
-:::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right.":::
+:::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right." lightbox="media/cognitive-services-autoscale/portal-autoscale.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -37,7 +39,7 @@ az resource update --namespace Microsoft.CognitiveServices --resource-type accou
 
 ---
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Does enabling the autoscale feature mean my resource will never be throttled again?
 
@@ -65,9 +67,18 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
-* [Face](computer-vision/overview-identity.md)
+* [Cognitive Services multi-key](./cognitive-services-apis-create-account.md?tabs=multiservice%2canomaly-detector%2clanguage-service%2ccomputer-vision%2cwindows)
 * [Computer Vision](computer-vision/index.yml)
-* [Language](language-service/overview.md)
+* [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
+* [Anomaly Detector](./anomaly-detector/overview.md)
+* [Content Moderator](./content-moderator/overview.md)
+* [Custom Vision (Prediction)](./custom-vision-service/overview.md)
+* [Immersive Reader](../applied-ai-services/immersive-reader/overview.md)
+* [LUIS](./luis/what-is-luis.md)
+* [Metrics Advisor](../applied-ai-services/metrics-advisor/overview.md)
+* [Personalizer](./personalizer/what-is-personalizer.md)
+* [QnAMaker](./qnamaker/overview/overview.md)
+* [Form Recognizer](../applied-ai-services/form-recognizer/overview.md?tabs=v3-0)
 
 ### Can I test this feature using a free subscription?
 
@@ -78,4 +89,6 @@ No, the autoscale feature is not available to free tier subscriptions.
 - [Plan and Manage costs for Azure Cognitive Services](./plan-manage-costs.md).
 - [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+

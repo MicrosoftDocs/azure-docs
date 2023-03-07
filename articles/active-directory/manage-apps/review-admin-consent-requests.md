@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 07/21/2022
 ms.author: ergreenl
 ms.reviewer: ergreenl
 
@@ -17,7 +17,7 @@ ms.reviewer: ergreenl
 ---
 # Review admin consent requests
 
-In this article, you learn how to review and take action on admin consent requests. To review and act on consent requests, you must be designated as a reviewer. As a reviewer, you can view all admin consent requests but you can only act on those requests that were created after you were designated as a reviewer.
+In this article, you learn how to review and take action on admin consent requests. To review and act on consent requests, you must be designated as a reviewer. For more information, check out the [Configure the admin consent workflow](configure-admin-consent-workflow.md) article. As a reviewer, you can view all admin consent requests but you can only act on those requests that were created after you were designated as a reviewer.
 
 ## Prerequisites
 
@@ -48,6 +48,10 @@ To review the admin consent requests and take action:
    - **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access. Approving a request allows all users in your tenant to access the application unless otherwise restricted with user assignment. 
    - **Deny the request**. To deny a request, you must provide a justification that will be provided to all requestors. Once a request is denied, all requestors are notified that they have been denied access to the application. Denying a request won't prevent users from requesting admin consent to the application again in the future.  
    - **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant in a disabled state. Users won't be able to request admin consent to the application in the future.
+
+## Review admin consent requests using Microsoft Graph
+
+To review the admin consent requests programmatically, use the [appConsentRequest resource type](/graph/api/resources/appconsentrequest) and [userConsentRequest resource type](/graph/api/resources/userconsentrequest) and their associated methods in Microsoft Graph. You cannot approve or deny consent requests using Microsoft Graph.
 
 ## Next steps
 - [Review permissions granted to apps](manage-application-permissions.md)

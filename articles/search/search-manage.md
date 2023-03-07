@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 12/21/2022
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
 
@@ -34,7 +34,7 @@ Each search service is managed as a standalone resource. The following image sho
 
 ## Overview (home) page
 
-The overview page is the "home" page of each service. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
+The overview page is the "home" page of each service. In the following screenshot, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
@@ -43,7 +43,7 @@ The overview page is the "home" page of each service. Below, the areas on the sc
 | 1  | The **Essentials** section lists service properties, such as the service endpoint, service tier, and replica and partition counts. |
 | 2 | A command bar at the top of the page includes [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md), used for prototyping and exploration. |
 | 3 | Tabbed pages in the center provide quick access to usage statistics, service health metrics, and access to all of the existing indexes, indexers, data sources, and skillsets.|
-| 4 | Navigation links are to the left. |
+| 4 | Navigation links to other pages. |
 
 ### Read-only service properties
 
@@ -55,7 +55,7 @@ Several aspects of a search service are determined when the service is provision
 
 <sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual job.
 
-<sup>2</sup> Switching tiers requires creating a new service or filing a support ticket to request a tier upgrade.
+<sup>2</sup> Switching a tier requires creating a new service or filing a support ticket to request a tier upgrade.
 
 ## Management tasks
 
@@ -68,7 +68,7 @@ Service administration includes the following tasks:
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
 
-There is feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
+There's feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
 
 * [Management REST API reference](/rest/api/searchmanagement/)
 * [Az.Search PowerShell module](search-manage-powershell.md)
@@ -78,15 +78,27 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search uses other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is placed in Azure Storage.
+Because Azure Cognitive Search is a [monitored resource](/azure/azure-monitor/monitor-reference), you can review the built-in [**activity logs**](/azure/azure-monitor/essentials/activity-log) and [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
 
-Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+If you opt in for [**resource logging**](/azure/azure-monitor/essentials/resource-logs), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+
+Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
+
+| Monitoring data | Retention |
+|-----------------|-----------|
+| Activity logs | 90 days on a rolling schedule |
+| Platform metrics | 93 days on a rolling schedule, except that portal visualization is limited to a 30 day window |
+| Resource logs | User-managed |
+| Telemetry | One and a half years |
+
+> [!NOTE]
+> This section is about monitoring data. For questions about customer data and privacy, see the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article.
 
 ## Administrator permissions
 
 When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
 
-Control plane roles include the following:
+Control plane roles include the following items:
 
 * Owner
 * Contributor (same as Owner, minus the ability to assign roles)
@@ -102,4 +114,4 @@ If you want a combination of control plane and data plane permissions, consider 
 * Review [monitoring capabilities](monitor-azure-cognitive-search.md) available in the portal
 * Automate with [PowerShell](search-manage-powershell.md) or [Azure CLI](search-manage-azure-cli.md)
 * Review [security features](search-security-overview.md) to protect content and operations
-* Enable [diagnostic logging](monitor-azure-cognitive-search.md) to monitor query and indexing workloads
+* Enable [resource logging](monitor-azure-cognitive-search.md) to monitor query and indexing workloads

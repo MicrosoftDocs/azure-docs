@@ -24,10 +24,6 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - Use least privilege access principal to assign roles.
 - Create custom role definition with precise set of permissions.
 
-## Choose regions that support availability zones
-
-- To ensure best high-availability and zone-resiliency, choose Azure regions where [Availability Zones](../../availability-zones/az-overview.md) are supported. These regions appear as "Recommended regions" in the Azure portal.
-
 ## Backup
 
 - Make sure you take regular backups of your HSM. Backups can be done at the HSM level and for specific keys.
@@ -40,13 +36,6 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 - [Soft Delete](soft-delete-overview.md) is on by default. You can choose a retention period between 7 and 90 days.
 - Turn on purge protection to prevent immediate permanent deletion of HSM or keys. When purge protection is on HSM or keys will remain in deleted state until the retention days have passed.
-
-## Generate and import keys from on-premise HSM
-
-> [!NOTE]
-> Keys created or imported into Managed HSM are not exportable.
-
-- To ensure long term portability and key durability, generate keys in your on-premise HSM and [import them to Managed HSM](hsm-protected-keys-byok.md). You will have a copy of your key securely stored in your on-premises HSM for future use.
 
 ## Next steps
 

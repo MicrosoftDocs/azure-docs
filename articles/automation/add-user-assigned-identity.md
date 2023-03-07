@@ -18,11 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
-
-- A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account](enable-managed-identity-for-automation.md).
-
-- A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
 - The user-assigned managed identity and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
 

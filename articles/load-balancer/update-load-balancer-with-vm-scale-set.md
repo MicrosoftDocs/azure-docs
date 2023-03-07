@@ -1,43 +1,44 @@
 ---
-title: Update or delete an existing load balancer used by virtual machine scale sets
-titleSuffix: Update or delete an existing load balancer used by virtual machine scale sets
-description: With this how-to article, get started with Azure Standard Load Balancer and virtual machine scale sets.
+title: Update or delete an existing load balancer used by Virtual Machine Scale Sets
+titleSuffix: Azure Load Balancer
+description: With this how-to article, get started with Azure Standard Load Balancer and Virtual Machine Scale Sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
-ms.author: irenehua
+ms.date: 12/06/2022
+ms.author: mbender
+ROBOTS: NOINDEX
 ---
-# Update or delete a load balancer used by virtual machine scale sets
+# Update or delete a load balancer used by Virtual Machine Scale Sets
 
-When you work with virtual machine scale sets and an instance of Azure Load Balancer, you can:
+When you work with Virtual Machine Scale Sets and an instance of Azure Load Balancer, you can:
 
 - Add, update, and delete rules.
 - Add configurations.
 - Delete the load balancer.
 
-## Set up a load balancer for scaling out virtual machine scale sets
+## Set up a load balancer for scaling out Virtual Machine Scale Sets
 
-Make sure that the instance of Azure Load Balancer has an [inbound NAT pool](/cli/azure/network/lb/inbound-nat-pool) set up and that the virtual machine scale set is put in the backend pool of the load balancer. Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new virtual machine instances are added to the virtual machine scale set.
+Make sure that the instance of Azure Load Balancer has an [inbound NAT pool](/cli/azure/network/lb/inbound-nat-pool) set up and that the Virtual Machine Scale Set is put in the backend pool of the load balancer. Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new virtual machine instances are added to the Virtual Machine Scale Set.
 
 To check whether the inbound NAT pool is properly set up:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left menu, select **All resources**. Then select **MyLoadBalancer** from the resource list.
-1. Under **Settings**, select **Inbound NAT rules**. In the right pane, if you see a list of rules created for each individual instance in the virtual machine scale set, you're all set to go for scaling up at any time.
+1. Under **Settings**, select **Inbound NAT rules**. In the right pane, if you see a list of rules created for each individual instance in the Virtual Machine Scale Set, you're all set to go for scaling up at any time.
 
 ## Add inbound NAT rules
 
-Individual inbound NAT rules can't be added. But you can add a set of inbound NAT rules with defined front-end port range and back-end port for all instances in the virtual machine scale set.
+Individual inbound NAT rules can't be added. But you can add a set of inbound NAT rules with defined front-end port range and back-end port for all instances in the Virtual Machine Scale Set.
 
-To add a whole set of inbound NAT rules for the virtual machine scale sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the virtual machine scale set. A full example using the CLI is shown.
+To add a whole set of inbound NAT rules for the Virtual Machine Scale Sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the Virtual Machine Scale Set. A full example using the CLI is shown.
 
-The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az-network-lb-inbound-nat-pool-list):
+The new inbound NAT pool shouldn't have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az-network-lb-inbound-nat-pool-list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
@@ -61,9 +62,9 @@ The new inbound NAT pool should not have an overlapping front-end port range wit
 ```
 ## Update inbound NAT rules
 
-Individual inbound NAT rules can't be updated. But you can update a set of inbound NAT rules with a defined front-end port range and a back-end port for all instances in the virtual machine scale set.
+Individual inbound NAT rules can't be updated. But you can update a set of inbound NAT rules with a defined front-end port range and a back-end port for all instances in the Virtual Machine Scale Set.
 
-To update a whole set of inbound NAT rules for virtual machine scale sets, update the inbound NAT pool in the load balancer.
+To update a whole set of inbound NAT rules for Virtual Machine Scale Sets, update the inbound NAT pool in the load balancer.
     
 ```azurecli-interactive
 az network lb inbound-nat-pool update 
@@ -151,7 +152,7 @@ Make sure to create separate inbound NAT pools with non-overlapping frontend por
           --name MyVMSS2
 ```
 
-## Delete the front-end IP configuration used by the virtual machine scale set
+## Delete the front-end IP configuration used by the Virtual Machine Scale Set
 
 To delete the front-end IP configuration in use by the scale set:
 
@@ -159,13 +160,13 @@ To delete the front-end IP configuration in use by the scale set:
  1. Delete the load-balancing rule that references the front-end IP configuration.
  1. Delete the front-end IP configuration.
 
-## Delete a load balancer used by a virtual machine scale set
+## Delete a load balancer used by a Virtual Machine Scale Set
 
 To delete the front-end IP configuration in use by the scale set:
 
  1. First delete the inbound NAT pool (the set of inbound NAT rules) that references the front-end IP configuration. Instructions on how to delete the inbound rules are found in the previous section.
- 1. Delete the load-balancing rule that references the back-end pool that contains the virtual machine scale set.
- 1. Remove the `loadBalancerBackendAddressPool` reference from the network profile of the virtual machine scale set.
+ 1. Delete the load-balancing rule that references the back-end pool that contains the Virtual Machine Scale Set.
+ 1. Remove the `loadBalancerBackendAddressPool` reference from the network profile of the Virtual Machine Scale Set.
  
  A full example using the CLI is shown here:
 
@@ -183,6 +184,6 @@ Finally, delete the load balancer resource.
  
 ## Next steps
 
-To learn more about Azure Load Balancer and virtual machine scale sets, read more about the concepts.
+To learn more about Azure Load Balancer and Virtual Machine Scale Sets, read more about the concepts.
 
 > [Azure Load Balancer with virtual machine scale sets](load-balancer-standard-virtual-machine-scale-sets.md)

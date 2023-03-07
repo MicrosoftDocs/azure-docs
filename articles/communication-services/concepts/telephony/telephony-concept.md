@@ -81,5 +81,6 @@ This option requires:
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony/get-phone-number.md)
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)

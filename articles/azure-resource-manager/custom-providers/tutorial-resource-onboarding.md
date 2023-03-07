@@ -1,26 +1,26 @@
 ---
-title: Extend resources with custom providers
-description: Resource onboarding through custom providers allows you to manipulate and extend existing Azure resources.
+title: Extend resources with custom resource providers
+description: Resource onboarding through custom resource providers allows you to manipulate and extend existing Azure resources.
 ms.topic: tutorial
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/06/2022
 ---
 
-# Extend resources with custom providers
+# Extend resources with custom resource providers
 
-In this tutorial, you deploy a custom resource provider to Azure that extends the Azure Resource Manager API with the Microsoft.CustomProviders/associations resource type. The tutorial shows how to extend existing resources that are outside the resource group where the custom provider instance is located. In this tutorial, the custom resource provider is powered by an Azure logic app, but you can use any public API endpoint.
+In this tutorial, you deploy a custom resource provider to Azure that extends the Azure Resource Manager API with the Microsoft.CustomProviders/associations resource type. The tutorial shows how to extend existing resources that are outside the resource group where the custom resource provider instance is located. In this tutorial, the custom resource provider is powered by an Azure logic app, but you can use any public API endpoint.
 
 ## Prerequisites
 
 To complete this tutorial, make sure you review the following:
 
-* The capabilities of [Azure Custom Providers](overview.md).
-* Basic information about [resource onboarding with custom providers](concepts-resource-onboarding.md).
+* The capabilities of [Azure Custom Resource Providers](overview.md).
+* Basic information about [resource onboarding with custom resource providers](concepts-resource-onboarding.md).
 
 ## Get started with resource onboarding
 
-In this tutorial, there are two pieces that need to be deployed: **the custom provider** and **the association**. To make the process easier, you can optionally use a single template that deploys both.
+In this tutorial, there are two pieces that need to be deployed: **the custom resource provider** and **the association**. To make the process easier, you can optionally use a single template that deploys both.
 
 The template will use these resources:
 
@@ -55,14 +55,14 @@ The template will use these resources:
             "type": "string",
             "defaultValue": "[uniqueString(resourceGroup().id)]",
             "metadata": {
-                "description": "Name of the custom provider to be created."
+                "description": "Name of the custom resource provider to be created."
             }
         },
         "customResourceProviderId": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The resource ID of an existing custom provider. Provide this to skip deployment of new logic app and custom provider."
+                "description": "The resource ID of an existing custom resource provider. Provide this to skip deployment of new logic app and custom resource provider."
             }
         },
         "associationName": {
@@ -198,11 +198,11 @@ The template will use these resources:
 }
 ```
 
-### Deploy the custom provider infrastructure
+### Deploy the custom resource provider infrastructure
 
-The first part of the template deploys the custom provider infrastructure. This infrastructure defines the effect of the associations resource. If you're not familiar with custom providers, see [Custom provider basics](overview.md).
+The first part of the template deploys the custom resource provider infrastructure. This infrastructure defines the effect of the associations resource. If you're not familiar with custom resource providers, see [Azure Custom Resource Providers Overview](overview.md).
 
-Let's deploy the custom provider infrastructure. Either copy, save, and deploy the preceding template, or follow along and deploy the infrastructure using the Azure portal.
+Let's deploy the custom resource provider infrastructure. Either copy, save, and deploy the preceding template, or follow along and deploy the infrastructure using the Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -235,7 +235,7 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
    | Location | Yes | The location for the resources in the template. |
    | Logic App Name | No | The name of the logic app. |
    | Custom Resource Provider Name | No | The custom resource provider name. |
-   | Custom Resource Provider Id | No | An existing custom resource provider that supports the association resource. If you specify a value here, the logic app and custom provider deployment will be skipped. |
+   | Custom Resource Provider Id | No | An existing custom resource provider that supports the association resource. If you specify a value here, the logic app and custom resource provider deployment will be skipped. |
    | Association Name | No | The name of the association resource. |
 
    Sample parameters:
@@ -248,7 +248,7 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
    Here's the resource group, with **Show hidden types** selected:
 
-   ![Custom provider deployment](media/tutorial-resource-onboarding/showhidden.png)
+   ![Custom resource provider deployment](media/tutorial-resource-onboarding/showhidden.png)
 
 10. Explore the logic app **Runs history** tab to see the calls for the association create:
 
@@ -256,13 +256,13 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
 ## Deploy additional associations
 
-After you have the custom provider infrastructure set up, you can easily deploy more associations. The resource group for additional associations doesn't have to be the same as the resource group where you deployed the custom provider infrastructure. To create an association, you need to have Microsoft.CustomProviders/resourceproviders/write permissions on the specified Custom Resource Provider ID.
+After you have the custom resource provider infrastructure set up, you can easily deploy more associations. The resource group for additional associations doesn't have to be the same as the resource group where you deployed the custom resource provider infrastructure. To create an association, you need to have Microsoft.CustomProviders/resourceproviders/write permissions on the specified Custom Resource Provider ID.
 
-1. Go to the custom provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You need to select the **Show hidden types** check box:
+1. Go to the custom resource provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You need to select the **Show hidden types** check box:
 
    ![Go to the resource](media/tutorial-resource-onboarding/showhidden.png)
 
-2. Copy the Resource ID property of the custom provider.
+2. Copy the Resource ID property of the custom resource provider.
 
 3. Search for *templates* in **All Services** or by using the main search box:
 
@@ -272,7 +272,7 @@ After you have the custom provider infrastructure set up, you can easily deploy 
 
    ![Select the previously created template and then select Deploy](media/tutorial-resource-onboarding/templateselectspecific.png)
 
-5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom provider that you deployed earlier.
+5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom resource provider that you deployed earlier.
 
 6. Go to the deployment and wait for it to finish. It should now deploy only the new associations resource:
 
@@ -282,7 +282,7 @@ You can go back to the logic app **Run history** and see that another call was m
 
 ## Next steps
 
-In this article, you deployed a custom resource provider to Azure that extends the Azure Resource Manager API with the Microsoft.CustomProviders/associates resource type. To continue learning about custom providers, see:
+In this article, you deployed a custom resource provider to Azure that extends the Azure Resource Manager API with the Microsoft.CustomProviders/associates resource type. To continue learning about custom resource providers, see:
 
-* [Deploy associations for a custom provider using Azure Policy](./concepts-built-in-policy.md)
-* [Azure Custom Providers resource onboarding overview](./concepts-resource-onboarding.md)
+* [Deploy associations for a custom resource provider using Azure Policy](./concepts-built-in-policy.md)
+* [Azure Custom Resource Providers resource onboarding overview](./concepts-resource-onboarding.md)

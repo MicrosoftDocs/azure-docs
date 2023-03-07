@@ -1,19 +1,19 @@
 ---
 title: Configure SSL - Azure Database for MariaDB
 description: Instructions for how to properly configure Azure Database for MariaDB and associated applications to correctly use SSL connections
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 06/24/2022
 ms.devlang: csharp, golang, java, php, python, ruby
 ms.custom: devx-track-csharp
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
+
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Obtain SSL certificate
-
 
 Download the certificate needed to communicate over SSL with your Azure Database for MariaDB server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
@@ -23,20 +23,22 @@ See the following links for certificates for servers in sovereign clouds: [Azure
 ## Bind SSL
 
 ### Connecting to server using MySQL Workbench over SSL
-Configure MySQL Workbench to connect securely over SSL. 
 
-1. From the Setup New Connection dialogue, navigate to the **SSL** tab. 
+Configure MySQL Workbench to connect securely over SSL.
+
+1. From the Setup New Connection dialogue, navigate to the **SSL** tab.
 
 1. Update the **Use SSL** field to "Require".
 
-1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
-    
+1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
+
     ![Save SSL configuration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
-Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands. 
+
+Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands.
 
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
@@ -45,29 +47,34 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 > [!NOTE]
 > When using the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-mode=REQUIRED --ssl-ca={filepath}` parameters with `--ssl`.
 
-## Enforcing SSL connections in Azure 
+## Enforcing SSL connections in Azure
 
 ### Using the Azure portal
-Using the Azure portal, visit your Azure Database for MariaDB server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
+
+Using the Azure portal, visit your Azure Database for MariaDB server, and then select **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then select **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
 ![enable-ssl for MariaDB server](./media/howto-configure-ssl/enable-ssl.png)
 
 ### Using Azure CLI
+
 You can enable or disable the **ssl-enforcement** parameter by using Enabled or Disabled values respectively in Azure CLI.
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## Verify the SSL connection
+
 Execute the mysql **status** command to verify that you have connected to your MariaDB server using SSL:
 ```sql
 status
 ```
-Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA** 
+Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA**
 
 ## Sample code
+
 To establish a secure connection to Azure Database for MariaDB over SSL from your application, refer to the following code samples:
 
 ### PHP
+
 ```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
@@ -77,6 +84,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
 ### Python (MySQLConnector Python)
+
 ```python
 try:
     conn = mysql.connector.connect(user='myadmin@mydemoserver',
@@ -88,6 +96,7 @@ except mysql.connector.Error as err:
     print(err)
 ```
 ### Python (PyMySQL)
+
 ```python
 conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',
@@ -97,6 +106,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
 ```
 
 ### Ruby
+
 ```ruby
 client = Mysql2::Client.new(
         :host     => 'mydemoserver.mariadb.database.azure.com', 
@@ -108,6 +118,7 @@ client = Mysql2::Client.new(
     )
 ```
 #### Ruby on Rails
+
 ```ruby
 default: &default
   adapter: mysql2
@@ -119,6 +130,7 @@ default: &default
 ```
 
 ### Golang
+
 ```go
 rootCertPool := x509.NewCertPool()
 pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
@@ -131,8 +143,10 @@ connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&
 db, _ := sql.Open("mysql", connectionString)
 ```
 ### Java (JDBC)
+
 ```java
 # generate truststore and keystore in code
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -147,6 +161,7 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore 
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -158,8 +173,10 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 ### Java (MariaDB)
+
 ```java
 # generate truststore and keystore in code
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -174,6 +191,7 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore 
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -186,6 +204,7 @@ conn = DriverManager.getConnection(url, properties);
 ```
 
 ### .NET (MySqlConnector)
+
 ```csharp
 var builder = new MySqlConnectionStringBuilder
 {
@@ -202,6 +221,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-
 ## Next steps
+
 To learn about certificate expiry and rotation, refer [certificate rotation documentation](concepts-certificate-rotation.md)

@@ -1,13 +1,13 @@
 ---
-title: Install the Microsoft Defender for IoT micro agent (Preview)
+title: Install the Microsoft Defender for IoT micro agent
 description: Learn how to install and authenticate the Defender for IoT micro agent.
-ms.date: 02/20/2022
+ms.date: 04/26/2022
 ms.topic: tutorial
 ms.custom: mode-other
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
 ---
 
-# Tutorial: Install the Defender for IoT micro agent (Preview)
+# Tutorial: Install the Defender for IoT micro agent
 
 This tutorial will help you learn how to install and authenticate the Defender for IoT micro agent.
 
@@ -26,13 +26,13 @@ In this tutorial you'll learn how to:
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
-- Verify you're running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
+- Verify you're running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
 ## Download and install the micro agent
 
@@ -84,6 +84,78 @@ Depending on your setup, the appropriate Microsoft package will need to be insta
     ```bash
     sudo apt-get install defender-iot-micro-agent 
     ```
+
+## Connect via a proxy
+
+This procedure describes how you can connect the Defender for IoT micro-agent to the IoT Hub via a proxy.
+
+**To configure connections via a proxy**:
+
+1. On your micro-agent machine, create a `/etc/defender_iot_micro_agent/conf.json` file with the following content:
+
+    ```json
+    {
+        "IothubModule_ProxyConfig": "<proxy_ipv4>,<port>,<username>,<password>",
+        "IothubModule_TransportProtocol": "MQTT_WebSocket_Protocol"
+    }
+    ```
+
+    User and password fields are optional. If you don't need them, use the following syntax instead:
+
+    ```json
+    {
+        "IothubModule_ProxyConfig": "<proxy_ipv4>,<port>",
+        "IothubModule_TransportProtocol": "MQTT_WebSocket_Protocol"
+    }
+
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
+
+1. Restart the micro-agent. Run:
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service
+    ```
+
+## Add AMQP protocol support
+
+This procedure describes additional steps required to support the AMQP protocol.
+
+**To add AMQP protocol support**:
+
+1. On your micro-agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
+
+    ```json
+    {
+    "IothubModule_TransportProtocol": "AMQP_Protocol"
+    }
+    ```
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
+
+1. Restart the micro-agent. Run
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service
+    ```
+
+**To add AMQP over web socket protocol support**:
+
+1. On your micro-agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
+
+    ```json
+    {
+    "IothubModule_TransportProtocol": "AMQP_WebSocket_Protocol"
+    }
+    ```
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
+
+1. Restart the micro-agent. Run
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service
+    ```
+
+The agent will use this protocol, and communicate with the IoT Hub on port 443.
+Http Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
 
 ## Authenticate the micro agent
 

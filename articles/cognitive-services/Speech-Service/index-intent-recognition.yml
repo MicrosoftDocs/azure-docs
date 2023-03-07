@@ -24,8 +24,14 @@ landingContent:
   linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Recognize speech intents with LUIS and C#
-          url: how-to-recognize-intents-from-speech-csharp.md
+        - text: Overview
+          url: intent-recognition.md
+        - text: Recognize speech intents with LUIS
+          url: get-started-intent-recognition.md
+        - text: Recognize speech intents with simple pattern matching
+          url: how-to-use-simple-language-pattern-matching.md
+        - text: Recognize speech intents with custom entity matching
+          url: how-to-use-custom-entity-pattern-matching.md
 - title: Reference
   linkLists:
     - linkListType: reference
@@ -35,7 +41,7 @@ landingContent:
         - text: LUIS developer resources
           url: ../luis/developer-reference-resource.md
         - text: Language support
-          url: ../luis/luis-language-support.md#languages-supported
+          url: ../luis/luis-language-support.md
         - text: Intent recognition pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
 - title: Help and feedback

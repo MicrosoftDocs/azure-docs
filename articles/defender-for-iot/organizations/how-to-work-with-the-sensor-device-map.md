@@ -29,7 +29,7 @@ A variety of map tools help you gain insight into devices and connections of int
 - [Group highlight and filters tools](#group-highlight-and-filters-tools)
 - [Map display tools](#map-display-tools)
 
-Your user role determines which tools are available in the Device Map window. See [Create and manage users](how-to-create-and-manage-users.md) for details about user roles.
+Your user role determines which tools are available in the Device Map window. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md) and [Create and manage users on an OT network sensor](manage-users-sensor.md).
 
 ### Basic search tools
 
@@ -80,6 +80,16 @@ The following predefined groups are available:
 
 For information about creating custom groups, see [Define custom groups](#define-custom-groups).
 
+### View filtered information as a map group
+
+You can display devices from saved filters in the Device map. For more information, see [View the device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory).
+
+**To view devices in the map:**
+
+1. After creating and saving an Inventory filter, navigate to the Device map.
+1. In the map page, open the Groups pane on the left.
+1. Scroll down to the **Asset Inventory Filters** group.  The groups you saved from the Inventory appear.
+
 ### Map display tools
 
 | Icon | Description |
@@ -93,9 +103,7 @@ For information about creating custom groups, see [Define custom groups](#define
 
 ### Map zoom views
 
-Working with map views helps expedite forensics when analyzing large networks.
-
-Three device detail views can be displayed:
+Working with map views helps expedite forensics when analyzing large networks. Map views include the following options:
 
   - [Bird’s-eye view](#birds-eye-view)
 

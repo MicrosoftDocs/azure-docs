@@ -47,7 +47,7 @@ The Azure Maps account resource is defined in this template:
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location. For example, **West US 2**.
+    * **Location**: select a location.
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
     * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
 

@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 08/26/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: jricketts
+author: janicericketts
 manager: martinco
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
-For staged rollout, you need to be a global administrator on your tenant. 
+For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
 To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
 
@@ -76,7 +76,7 @@ Although this deployment changes no other relying parties in your AD FS farm, yo
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -86,13 +86,16 @@ Proactively communicate with your users how their experience will change, when i
 
 ### Plan the maintenance window
 
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for [legacy applications authentication](../fundamentals/concept-fundamentals-block-legacy-authentication.md) can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
+After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
 
-During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user’s issued token because that federation trust is now removed.
+During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
 
-Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn’t have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren’t expected to receive any password prompts as a result of the domain conversion process.
+Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
 
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
+
+>[!NOTE] 
+>When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
 
 ### Plan for rollback
 
@@ -124,7 +127,7 @@ You can [customize the Azure AD sign-in page](../fundamentals/customize-branding
 
 ### Plan for conditional access policies
 
-Evaluate if you’re currently using conditional access for authentication, or if you use access control policies in AD FS. 
+Evaluate if you're currently using conditional access for authentication, or if you use access control policies in AD FS. 
 
 Consider replacing AD FS access control policies with the equivalent Azure AD [Conditional Access policies](../conditional-access/overview.md) and [Exchange Online Client Access Rules](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). You can use either Azure AD or on-premises groups for conditional access.
 
@@ -189,6 +192,8 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 - **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) and [Azure AD registered devices](../devices/concept-azure-ad-register.md). 
 
+- **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
+
 - **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
 
 ### Pre-work for PHS and PTA
@@ -217,7 +222,7 @@ You have two options for enabling this change:
 
 - **Option B:** Switch using Azure AD Connect and PowerShell
  
-  *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services*.
+  *Available if you didn't initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services*.
 
 To choose one of these options, you must know what your current settings are.
 
@@ -240,7 +245,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 
     ![View AD FS configuration](media/deploy-cloud-user-authentication/federation-configuration.png)
 
-    If AD FS isn’t listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell.
+    If AD FS isn't listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell.
 
 #### Option A
 
@@ -268,7 +273,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 
     Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions:
       - A computer account named AZUREADSSO (which represents Azure AD) is created in your on-premises Active Directory instance.
-      - The computer account’s Kerberos decryption key is securely shared with Azure AD.
+      - The computer account's Kerberos decryption key is securely shared with Azure AD.
       - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
     The domain administrator credentials are not stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
@@ -295,7 +300,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 ##### Deploy more authentication agents for PTA
 
 >[!NOTE]
-> PTA requires deploying lightweight agents on the Azure AD Connect server and on your on-premises computer that’s running Windows server. To reduce latency, install the agents as close as possible to your Active Directory domain controllers.
+> PTA requires deploying lightweight agents on the Azure AD Connect server and on your on-premises computer that's running Windows server. To reduce latency, install the agents as close as possible to your Active Directory domain controllers.
 
 For most customers, two or three authentication agents are sufficient to provide high availability and the required capacity. A tenant can have a maximum of 12 agents registered. The first agent is always installed on the Azure AD Connect server itself. To learn about agent limitations and agent deployment options, see [Azure AD pass-through authentication: Current limitations](how-to-connect-pta-current-limitations.md).
 
@@ -315,7 +320,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 **Switch from federation to the new sign-in method by using Azure AD Connect and PowerShell**
 
-*Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
+*Available if you didn't initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
 On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
@@ -339,7 +344,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
     ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
-   If the authentication agent isn’t active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
+   If the authentication agent isn't active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
 3. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
 
@@ -348,7 +353,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 **At this point, federated authentication is still active and operational for your domains**. To continue with the deployment, you must convert each domain from federated identity to managed identity.
 
 >[!IMPORTANT]
-> You don’t have to convert all domains at the same time. You might choose to start with a test domain on your production tenant or start with your domain that has the lowest number of users.
+> You don't have to convert all domains at the same time. You might choose to start with a test domain on your production tenant or start with your domain that has the lowest number of users.
 
 **Complete the conversion by using the Azure AD PowerShell module:**
 
@@ -372,7 +377,7 @@ Complete the following tasks to verify the sign-up method and to finish the conv
 
 ### Test the new sign-in method
 
-When your tenant used federated identity, users were redirected from the Azure AD sign-in page to your AD FS environment. Now that the tenant is configured to use the new sign-in method instead of federated authentication, users aren’t redirected to AD FS. 
+When your tenant used federated identity, users were redirected from the Azure AD sign-in page to your AD FS environment. Now that the tenant is configured to use the new sign-in method instead of federated authentication, users aren't redirected to AD FS. 
 
 **Instead, users sign in directly on the Azure AD sign-in page.**
 
@@ -389,7 +394,7 @@ If you used staged rollout, you should remember to turn off the staged rollout f
 Historically, updates to the **UserPrincipalName** attribute, which uses the sync service from the on-premises environment, are blocked unless both of these conditions are true:
 
    - The user is in a managed (non-federated) identity domain.
-   - The user hasn’t been assigned a license.
+   - The user hasn't been assigned a license.
 
 To learn how to verify or turn on this feature, see [Sync userPrincipalName updates](how-to-connect-syncservice-features.md).
 
@@ -399,7 +404,7 @@ To learn how to verify or turn on this feature, see [Sync userPrincipalName upda
 
 We recommend that you roll over the Kerberos decryption key at least every 30 days to align with the way that Active Directory domain members submit password changes. There is no associated device attached to the AZUREADSSO computer account object, so you must perform the rollover manually.
 
-See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso.md).
+See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso-faq.yml#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-).
 
 ### Monitoring and logging
 
@@ -423,7 +428,7 @@ Your support team should understand how to troubleshoot any authentication issue
 
 Migration requires assessing how the application is configured on-premises, and then mapping that configuration to Azure AD.
 
-If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you’ll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
+If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you'll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
 
 You can move SaaS applications that are currently federated with ADFS to Azure AD. Reconfigure to authenticate with Azure AD either via a built-in connector from the [Azure App gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), or by [registering the application in Azure AD](../develop/quickstart-register-app.md).
 
@@ -434,9 +439,9 @@ For more information, see –
 
 ### Remove relying party trust
 
-If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it’s safe to remove the Microsoft 365 relying party trust.
+If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
-If you don’t use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
+If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
 
 ## Next steps
 

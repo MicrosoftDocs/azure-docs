@@ -88,6 +88,7 @@ See [Key types, algorithms, and operations](about-keys-details.md) for details a
 | Keyless TLS | - Use key [Client Libraries](../general/client-libraries.md#client-libraries-per-language-and-object) |
 
 ## Next steps
+- [Key management in Azure](../../security/fundamentals/key-management.md)
 - [About Key Vault](../general/overview.md)
 - [About Managed HSM](../managed-hsm/overview.md)
 - [About secrets](../secrets/about-secrets.md)

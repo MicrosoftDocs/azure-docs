@@ -1,14 +1,14 @@
 ---
 title: Develop application enclaves with open-source solutions in Azure Confidential Computing
 description: Learn how to use tools to develop Intel SGX applications for Azure confidential computing.
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: stempesta
-ms.custom: ignite-fall-2021
+ms.author: mamccrea #, raginjup, ananyagarg
+ms.custom: ignite-fall-2021, Inspire 2022
 ---
 
 
@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 This article goes over open-source solutions for building applications that use application enclaves. Before reading, make sure you read the [enclave applications](application-development.md) conceptual page. 
 
 ## Intel SGX-Compatible Tools
-Azure offers application enclaves via  [confidential virtual machines with Intel Software Guard Extensions (SGX) enabled](virtual-machine-solutions-sgx.md). After deploying an Intel SGX virtual machine, you'll need specialized tools to make your application "enclave aware". This way, you can build applications that have both trusted and untrusted portions of code. 
+Azure offers application enclaves via  [confidential virtual machines with Intel Software Guard Extensions (SGX) enabled](quick-create-portal.md). After deploying an Intel SGX virtual machine, you'll need specialized tools to make your application "enclave aware". This way, you can build applications that have both trusted and untrusted portions of code. 
 
 For example, you can use these open-source frameworks: 
 
@@ -49,4 +49,4 @@ In the CCF, the decentralized ledger is made up of recorded changes to a Key-Val
 
 ## Next steps
 
-- [Deploy a confidential computing Intel SGX virtual machine](quick-create-portal.md)
+- [Attesting application enclaves](attestation.md)

@@ -39,7 +39,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-In all cases matching is case insensitive. Regular expressions aren't allowed as selectors.
+When processing exclusions, the WAF will perform a case sensitive match for all fields other than request header keys. Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive. Regular expressions aren't allowed as selectors.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
@@ -57,11 +57,11 @@ My-Header: 1=1
 The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
 
 > [!NOTE]
-> Request attributes by key and values are only available in CRS 3.2 and newer.
+> Request attributes by key and values are only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
 >
 > Request attributes by names work the same way as request attributes by values, and are included for backward compatibility with CRS 3.1 and earlier versions. We recommend you use request attributes by values instead of attributes by names. For example, use **RequestHeaderValues** instead of **RequestHeaderNames**.
 
-In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
+In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
 
 ## Exclusion scopes
 
@@ -72,9 +72,9 @@ Exclusions can be configured to apply to a specific set of WAF rules, to ruleset
 
 ### Per-rule exclusions
 
-You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation.
+You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation. To exclude a complete group of rules, only provide the `ruleGroupName` parameter, the `rules` parameter is only useful when you want to limit the exclusion to specific rules of a group.
 
-Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later.
+Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later or Bot Manager ruleset version 1.0 or later.
 
 #### Example
 
@@ -168,6 +168,14 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               ruleGroups: [
                 {
                   ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942150'
+                    }
+                    {
+                      ruleId: '942410'
+                    }
+                  ]
                 }
               ]
             }
@@ -206,7 +214,15 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               "ruleSetVersion": "3.2",
               "ruleGroups": [
                 {
-                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942150"
+                    },
+                    {
+                      "ruleId": "942410"
+                    }
+                  ]
                 }
               ]
             }

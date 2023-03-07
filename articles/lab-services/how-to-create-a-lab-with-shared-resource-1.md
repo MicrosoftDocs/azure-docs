@@ -5,7 +5,7 @@ author: emaher
 ms.topic: how-to
 ms.date: 03/03/2022
 ms.custom: devdivchpfy22
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # How to create a lab with a shared resource in Azure Lab Services when using lab accounts

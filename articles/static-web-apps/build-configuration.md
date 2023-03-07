@@ -147,6 +147,7 @@ For Node.js applications, you can take fine-grained control over what commands r
 
 > [!NOTE]
 > Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds.
+> To specify the Node.js version, use the [`engines`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#engines) field in the `package.json` file.
 
 # [GitHub Actions](#tab/github-actions)
 
