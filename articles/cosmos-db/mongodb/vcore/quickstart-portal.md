@@ -85,25 +85,40 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB for MongoDB cluster page.
 
-   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of the deployment page for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
 ## Get cluster credentials
 
 Get the connection string you need to connect to this cluster using your application code.
 
-1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **---** navigation menu option.
+1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Connection strings** navigation menu option.
 
-   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of the --- option on the page for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/select-connection-strings-option.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
 
-1. Record the value from the **---** field.
+1. Record the value from the **Connection string** field.
 
-   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of various credentials for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/connection-string-value.png" alt-text="Screenshot of the connection string credential for a cluster.":::
+
+    > [!IMPORTANT]
+    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you used when you originally created the cluster.
 
 ## Clean up resources
 
 When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete the Azure resources you created so you don't incur more charges.
 
-1. TODO
+1. In the Azure portal search bar, search for and select **Resource groups**.
+
+1. In the list, select the resource group you used for this quickstart.
+
+    :::image type="content" source="media/quickstart-portal/locate-resource-group.png" alt-text="Screenshot of a list of resource groups filtered down to a specific prefix.":::
+
+1. On the resource group page, select **Delete resource group**.
+
+    :::image type="content" source="media/quickstart-portal/select-delete-resource-group-option.png" alt-text="Screenshot of the delete resource group option in the menu for a specific resource group.":::
+
+1. In the deletion confirmation dialog, enter the name of the resource group to confirm that you intend to delete it. Finally, select **Delete** to permanently delete the resource group.
+
+    :::image type="content" source="media/quickstart-portal/delete-resource-group-dialog.png" alt-text="Screenshot of the delete resource group confirmation dialog with the name of the group filled out.":::
 
 ## Next steps
 
