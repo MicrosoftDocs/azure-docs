@@ -361,7 +361,7 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ## Feature Support
 
 - ARM64 and Mariner nodes are supported.
-- HTTP Proxy is supported and will use the same settings as the HTTP Proxy settings when the cluster was created.
+- HTTP Proxy is supported and will use the same settings as the HTTP Proxy settings for the AKS cluster configured with [these instructions](https://learn.microsoft.com/en-us/azure/aks/http-proxy).
 
 ## Limitations
 
