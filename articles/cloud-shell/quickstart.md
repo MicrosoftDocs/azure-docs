@@ -50,7 +50,7 @@ az account set --subscription <Subscription Name or Id>
 az provider register --namespace Microsoft.CloudShell
 ```
 
-### [PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionId <SubscriptionId>
@@ -72,7 +72,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
    az account list
    ```
 
-   ### [PowerShell](#tab/powershell)
+   ### [Azure PowerShell](#tab/powershell)
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -88,7 +88,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
    az account set --subscription 'my-subscription-name'
    ```
 
-   ### [PowerShell](#tab/powershell)
+   ### [Azure PowerShell](#tab/powershell)
 
    ```azurepowershell-interactive
    Set-AzContext -Subscription <SubscriptionId>
@@ -109,7 +109,7 @@ Create a new resource group in CentralUS named `MyRG`.
 az group create --location centralus --name MyRG
 ```
 
-### [PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyRG -Location centralus
@@ -133,7 +133,7 @@ Run the following command to get a list of Azure CLI commands that apply to WebA
 az webapp --help
 ```
 
-### [PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell)
 
 Run the following command to see a list of all Azure PowerShell cmdlets.
 
