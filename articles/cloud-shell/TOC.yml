@@ -19,10 +19,8 @@ items:
             href: /azure/developer/terraform/quickstart-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Concepts
     items:
-      - name: Security
-        items:
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: How-to guides
     items:
       - name: Persist files in storage
