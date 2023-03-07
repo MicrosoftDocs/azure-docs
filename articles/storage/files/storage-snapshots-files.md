@@ -67,7 +67,7 @@ Snapshots don't count towards the share size limit. There is no limit to how muc
 
 ## Limits
 
-The maximum number of share snapshots that Azure Files allows today is 200. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
+The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
 
