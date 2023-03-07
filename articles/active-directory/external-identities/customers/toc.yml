@@ -30,6 +30,8 @@ items:
           href: how-to-user-flow-sign-up-sign-in-customers.md
         - name: Enable password reset
           href: how-to-enable-password-reset-customers.md
+        - name: Add multi-factor authentication (MFA)
+          href: how-to-multi-factor-authentication-customers.md
     - name: Customize branding
       items:
         - name: Default branding
