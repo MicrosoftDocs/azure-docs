@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 This document shows you how to validate that your Azure Communication Services resource sends events using Azure Event Grid viewer or RequestBin. 
 
->[!NOTE] Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+> [!NOTE] Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Pre-requisites
 
