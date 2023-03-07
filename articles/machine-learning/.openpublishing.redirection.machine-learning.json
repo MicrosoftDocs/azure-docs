@@ -2,7 +2,7 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/machine-learning/quickstart-spark-data-wrangling.md",
-        "redirect_url": "/azure/machine-learning/apache-spark-environment-configuration.md",
+        "redirect_url": "/azure/machine-learning/apache-spark-environment-configuration",
         "redirect_document_id": true
     },
     {
