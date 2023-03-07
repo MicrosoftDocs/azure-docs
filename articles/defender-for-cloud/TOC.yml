@@ -150,7 +150,7 @@
       - name: Microsoft cloud security benchmark (MCSB)
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
-      - name: What is the cloud security graph
+      - name: Identify and analyze risks across your environment
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
         href: concept-attack-path.md
       - name: External attack surface management (EASM)
