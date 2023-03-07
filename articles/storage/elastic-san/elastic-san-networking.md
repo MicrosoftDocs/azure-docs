@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Elastic SAN networking (preview)

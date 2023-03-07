@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 08/23/2022
 ---
 

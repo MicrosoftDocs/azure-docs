@@ -8,7 +8,6 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
 ms.date: 02/27/2023 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Virtual Machine Agent overview

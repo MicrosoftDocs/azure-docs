@@ -8,8 +8,6 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
 ms.date: 07/05/2019 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Azure Backup for SQL Server running in Azure VM

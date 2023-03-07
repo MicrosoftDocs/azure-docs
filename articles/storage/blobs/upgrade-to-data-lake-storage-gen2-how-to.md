@@ -3,10 +3,10 @@ title: Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 description: Shows you how to use Resource Manager templates to upgrade from Azure Blob Storage to Data Lake Storage.
 author: normesta
 ms.service: storage
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 09/23/2022
 ms.author: normesta
-
 ---
 
 #  Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities

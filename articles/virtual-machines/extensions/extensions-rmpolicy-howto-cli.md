@@ -4,11 +4,11 @@ description: Use Azure Policy to restrict VM extension deployments.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-azurecli
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 07/05/2022
-
 ---
 
 # Use Azure Policy to restrict extensions installation on Linux VMs

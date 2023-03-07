@@ -9,8 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/09/2022
 ms.author: halkazwini
-ms.custom: fasttrack-edit, devx-track-azurepowershell, engagement-fy23
-
+ms.custom: fasttrack-edit, engagement-fy23
 ---
 
 # Configure NSG Flow Logs from an Azure Resource Manager template

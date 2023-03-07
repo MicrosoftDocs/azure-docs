@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/23/2023
 ms.author: normesta
 ms.devlang: csharp
-ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Blob Storage

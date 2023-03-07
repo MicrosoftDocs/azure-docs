@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 11/14/2022
 ms.author: jammart
 ms.reviewer: nachakra 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 

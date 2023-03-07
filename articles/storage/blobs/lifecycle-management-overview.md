@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell, references_regions, engagement-fy23"
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Optimize costs by automatically managing the data lifecycle

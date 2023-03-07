@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 06/14/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure an application security group (ASG) with a private endpoint
@@ -204,5 +204,3 @@ az network private-endpoint asg add \
 For more information about Azure Private Link, see:
 
 - [What is Azure Private Link?](private-link-overview.md)
-
-

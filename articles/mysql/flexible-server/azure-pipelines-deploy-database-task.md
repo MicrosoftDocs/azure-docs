@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: sumuth
 author: mksuni
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18
 ms.date: 08/09/2021 
 ---
 
@@ -99,4 +99,3 @@ Here are some related tasks to deploy to Azure.
 
 - [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
 - [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)
-
