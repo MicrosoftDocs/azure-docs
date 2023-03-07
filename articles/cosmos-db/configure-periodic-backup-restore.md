@@ -22,7 +22,7 @@ The following steps describe how Azure Cosmos DB performs data backup:
 
 * Azure Cosmos DB stores these backups in Azure Blob storage but the actual data resides locally within Azure Cosmos DB.
 
-* To guarantee low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region, or in one of the write regions if you have a multi-region write configuration. For resiliency against regional disasters, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../availability-zones/cross-region-replication-azure.md). You can't access this backup directly. Azure Cosmos DB team restores your backup when you make a support request.
+* To guarantee low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region, or in *one* of the write regions if you have a multi-region write configuration. For resiliency against regional disasters, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../availability-zones/cross-region-replication-azure.md). You can't access this backup directly. The Azure Cosmos DB support team restores your backup when you make a support request.
 
   The following image shows an Azure Cosmos DB container with all three primary physical partitions in West US, backed up in a remote Azure Blob storage account in West US, and then replicated to East US:
 
@@ -65,13 +65,13 @@ Use the following steps to change the default backup options for an existing Azu
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Update the backup interval and the backup retention period as required.
 
-   - **Backup interval**: It’s the interval at which Azure Cosmos DB attempts to take a backup of your data. Backup takes a non-zero amount of time and in some case it could potentially fail due to downstream dependencies. Azure Cosmos DB tries its best to take a backup at the configured interval, however, it doesn’t guarantee that the backup completes within that time interval. You can configure this value in hours or minutes. Backup Interval can't be less than 1 hour and greater than 24 hours. When you change this interval, the new interval takes into effect starting from the time when the last backup was taken.
+   - **Backup interval**: It’s the interval at which Azure Cosmos DB attempts to take a backup of your data. Backup takes a non-zero amount of time and in some case it could potentially fail due to downstream dependencies. Azure Cosmos DB tries its best to take a backup at the configured interval, however, it doesn’t guarantee that the backup completes within that time interval. You can configure this value in hours or minutes. The interval can't be less than one hour or greater than 24 hours. When you change this interval, the new interval takes effect starting from the time when the last backup was taken.
 
-   - **Backup retention**: It represents the period where each backup is retained. You can configure it in hours or days. The minimum retention period can’t be less than two times the backup interval (in hours) and it can’t be greater than 720 hours.
+   - **Backup retention**: It represents the length of time that each backup is retained. You can configure it in hours or days. The minimum retention period can’t be less than two times the backup interval (in hours) and it can’t be greater than 720 hours.
 
-   * **Copies of data retained**: By default, two backup copies of your data are offered at free of charge. There's an extra charge if you need more than two copies. See the Consumed Storage section in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to know the exact price for extra copies.
+   * **Copies of data retained**: By default, two latest backup copies of your data are stored free of charge. There's an extra charge if you need more than two copies. See the Consumed Storage section in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to know the exact price for extra copies.
 
-   - **Backup storage redundancy**: Choose the required storage redundancy option, see the [Backup storage redundancy](#backup-storage-redundancy) section for available options. By default, your existing periodic backup mode accounts have geo-redundant storage if the region where the account is being provisioned supports it. Otherwise, the account fallback to the highest redundancy option available. You can choose other storage such as locally redundant to ensure the backup isn't replicated to another region. The changes made to an existing account are applied to only future backups. After the backup storage redundancy of an existing account is updated, it may take up to twice the backup interval time for the changes to take effect, and **you will lose access to restore the older backups immediately.**
+   - **Backup storage redundancy**: Choose the required storage redundancy option. See the [Backup storage redundancy](#backup-storage-redundancy) section for available options. By default, your existing periodic backup mode accounts have geo-redundant storage if the region where the account is being provisioned supports it. Otherwise, the account falls back to the highest redundancy option available. You can choose other storage such as locally redundant to ensure the backup isn't replicated to another region. The changes made to an existing account are applied to future backups. After the backup storage redundancy of an existing account is updated, it may take up to twice the backup interval time for the changes to take effect, and **you lose access to restore the older backups immediately.**
 
    > [!NOTE]
    > You must have the [Azure Cosmos DB Operator role](../role-based-access-control/built-in-roles.md#cosmos-db-operator) assigned at the subscription level to configure backup storage redundancy.
@@ -80,7 +80,7 @@ Use the following steps to change the default backup options for an existing Azu
 
 ### Modify backup options using Azure portal: New account
 
-When provisioning a new account, from the **Backup Policy** tab, select **Periodic*** backup policy. The periodic policy allows you to configure the backup interval, backup retention, and backup storage redundancy. For example, you can choose **locally redundant backup storage** or **zone redundant backup storage** options to prevent backup data replication outside your region.
+When provisioning a new account, from the **Backup Policy** tab, select **Periodic** backup policy. The periodic policy allows you to configure the backup interval, backup retention, and backup storage redundancy. For example, you can choose **locally redundant backup storage** or **zone-redundant backup storage** options to prevent backup data replication outside your region.
 
 :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Screenshot of the Backup Policy pane for new Azure Cosmos DB accounts.":::
 
@@ -154,7 +154,7 @@ You might accidentally delete or modify your data in one of the following scenar
 * Delete one or more Azure Cosmos DB databases.
 * Delete one or more Azure Cosmos DB containers.
 * Delete or modify the Azure Cosmos DB items, such as documents, within a container. This specific case is typically referred to as data corruption.
-* A shared offer database or containers within a shared offer database are deleted or corrupted.
+* A shared-offer database or containers within a shared-offer database are deleted or corrupted.
 
 Azure Cosmos DB can restore data in all the above scenarios. When restoring, a new Azure Cosmos DB account is created to hold the restored data. The name of the new account, if it's not specified, has the format `<Azure_Cosmos_account_original_name>-restored1`. The last digit is incremented when multiple restores are attempted. You can't restore data to a pre-created Azure Cosmos DB account.
 
@@ -180,7 +180,7 @@ Principals who are part of the role [CosmosdbBackupOperator](../role-based-acces
 
 ## Understand the costs of extra backups
 
-Two backups are provided for free. Extra backups are charged according to the region-based pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/pricing/details/cosmos-db). For example, if you configure backup interval to 24 hrs and backup retention to 240 hrs (10 days), the result is 10 copies of the backup data. Assuming 1 TB of data in West US 2, the cost is 0.12 * 1000 * 8 for backup storage in a given month.
+Two backups are provided for free. Extra backups are charged according to the region-based pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/pricing/details/cosmos-db). For example, if you configure the backup interval to 24 hrs and backup retention to 240 hrs (10 days), the result is 10 copies of the backup data. Assuming 1 TB of data in West US 2, the cost is 0.12 * 1000 * 8 for backup storage in a given month.
 
 ## Get the restore details from the restored account
 
@@ -190,7 +190,7 @@ After the restore operation completes, you might want to know the source account
 
 Use the following steps to get the restore details from Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the restored account.
+1. Sign into the [Azure portal](https://portal.azure.com) and navigate to the restored account.
 
 1. Open the **Tags** blade. This blade should have the tags **restoredAtTimestamp** and **restoredSourceDatabaseAccountName**. These tags describe the timestamp and the source account name that were used for the periodic restore.
 
