@@ -191,6 +191,9 @@ az network application-gateway start -n <appgw_name> -g <rg_name>
 
    d.  Check your OS firewall settings to make sure that incoming traffic to the port is allowed.
 
+5. If you have multiple IP configuration in the same NIC of the VMs and your application is published using the secondary, during the configuration of the Backend Pool you need to use the specify the IP Address (secondary) without selecting the NIC
+
+
 #### HTTP status code mismatch
 
 **Message:** Status code of the backend's HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
