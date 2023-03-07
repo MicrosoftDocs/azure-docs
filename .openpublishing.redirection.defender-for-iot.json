@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-work-with-device-notifications.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map#manage-device-notifications-from-an-ot-sensor-device-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-view-information-per-zone.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map#view-a-device-map-for-a-specific-zone",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/resources-training-sessions.md",
             "redirect_url": "https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/microsoft-defender-for-iot-ninja-training/ba-p/2428899",
             "redirect_document_id": false
