@@ -124,7 +124,7 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
-  - name: Data Sharing
+  - name: Data sharing
     href: concept-data-share.md
   - name: Data policies
     items:
@@ -284,7 +284,7 @@ items:
     - name: Azure Data Factory lineage
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
-      href: how-to-link-azure-data-share.md
+      href: how-to-lineage-purview-data-sharing.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
     - name: Power BI lineage
