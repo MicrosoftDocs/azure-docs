@@ -736,6 +736,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Automated ML Forecasting command job YAML schema
+      href: reference-automated-ml-forecasting.md
     - name: Kubernetes cluster configuration
       href: reference-kubernetes.md
     - name: Designer component reference
