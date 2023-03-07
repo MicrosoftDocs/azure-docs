@@ -74,6 +74,7 @@ Access is limited to customers that meet the following requirements:
     * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet-authorization-required) 
     * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet-authorization-required)
     * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
     **Speech service**
 
