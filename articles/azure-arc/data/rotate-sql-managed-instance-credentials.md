@@ -27,7 +27,7 @@ Consider the following limitations when you rotate a managed instance service-ma
 
 ## General Purpose tier
 
-During a SQL Managed Instance service-managed credential rotation, the managed instance Kubernetes pod is terminated and reprovisioned when new credentials are generated. This process causes a short amount of downtime as the new pod is created. To handle the interruption, build resiliency into your application such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on how to architect resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+During a SQL Managed Instance service-managed credential rotation, the managed instance Kubernetes pod is terminated and reprovisioned when new credentials are generated. This process causes a short amount of downtime as the new managed instance pod is created. To handle the interruption, build resiliency into your application such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on how to architect resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
 
 ## Prerequisites: 
 
