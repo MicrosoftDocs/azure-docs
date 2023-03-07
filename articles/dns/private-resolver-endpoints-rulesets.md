@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/07/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -109,7 +109,7 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 
 ## Design options
 
-How you deploy forwarding rulesets and inbound endpoints in a hub and spoke architecture ideally depends on your network design. Two configuration options are discussed briefly in the following sections. For a detailed discussion with configuration examples, see [Private resolver architecture](private-resolver-architecture.md). 
+How you deploy forwarding rulesets and inbound endpoints in a hub and spoke architecture ideally depends on your network design. Two configuration options are discussed briefly in the following sections. For a more detailed discussion with configuration examples, see [Private resolver architecture](private-resolver-architecture.md). 
 
 ### Forwarding ruleset links
 
@@ -118,7 +118,7 @@ Linking a **forwarding ruleset** to a VNet enables DNS forwarding capabilities i
 The ruleset link design scenario is best suited to a [distributed DNS architecture](private-resolver-architecture.md#distributed-dns-architecture) where network traffic is spread across your Azure network, and might be unique in some locations. With this design, you can control DNS resolution in all VNets linked to the ruleset by modifying a single ruleset.  
 
 > [!NOTE]
-> If you use the ruleset link option, do not link the forwarding ruleset to the Hub VNet. Linking this type of ruleset to the same VNet where the inbound endpoint is provisioned can result in a DNS resolution loop. 
+> If you use the ruleset link option and there is a forwarding rule with the inbound endpoint as destination, do not link the forwarding ruleset to the Hub VNet. Linking this type of ruleset to the same VNet where the inbound endpoint is provisioned can result in a DNS resolution loop. 
 
 ### Inbound endpoints as custom DNS
 
