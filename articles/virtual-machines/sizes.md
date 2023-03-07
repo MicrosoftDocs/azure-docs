@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/30/2023
+ms.date: 03/06/2023
 ms.author: ladolan
 ---
 
@@ -28,7 +28,7 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Memory optimized](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Epdsv5, Epsv5, Ev4, Esv4, Edv4, Edsv4, Ev5, Esv5, Edv5, Edsv5, Easv5, Eadsv5, Mv2, M, DSv2, Dv2 | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](sizes-storage.md) | Lsv2, Lsv3, Lasv3 | High disk throughput and IO ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases.  |
 | [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3, ND, NDv2, NV, NVv3, NVv4, NDasrA100_v4, NDm_A100_v4 | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs. |
-| [High performance compute](sizes-hpc.md) | HB, HBv2, HBv3, HC | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
+| [High performance compute](sizes-hpc.md) | HB, HBv2, HBv3, HBv4, HC, HX | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
 
 - For information about pricing of the various sizes, see the pricing pages for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) or [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
