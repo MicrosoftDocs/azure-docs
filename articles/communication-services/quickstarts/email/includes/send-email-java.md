@@ -40,13 +40,13 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://learn.microsoft.com/java/openjdk/download) version 8 or above.
+- [Java Development Kit (JDK)](https://www.microsoft.com/openjdk) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../create-communication-resource.mdcreate-communication-resource).
-- Create an [Azure Email Communication Services resource](../create-email-communication-resource) to start sending emails.
-- A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal?pivot="programming-language-java").
+- A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../create-communication-resource.md).
+- Create an [Azure Email Communication Services resource](../create-email-communication-resource.md) to start sending emails.
+- A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal.md?pivot="programming-language-java").
 
-> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains).
+> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
 
 ### Prerequisite check
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
