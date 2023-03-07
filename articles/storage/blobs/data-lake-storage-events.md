@@ -326,7 +326,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    | Name | contoso-order-event-subscription | 
    | Topic type | Storage account |
    | Source Resource | contosoorders |
-   | System topic name | <create any name> |
+   | System topic name | `<create any name>` |
    | Filter to Event Types | Blob Created, and Blob Deleted |
 
 4. Select the **Create** button.

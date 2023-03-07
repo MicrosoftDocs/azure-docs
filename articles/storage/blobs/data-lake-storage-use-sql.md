@@ -15,8 +15,8 @@ ms.custom: devx-track-sql
 
 # Tutorial: Query Azure Data Lake Storage Gen2 using SQL language in Synapse Analytics
 
-This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled.
-This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure storage.
+This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure Storage account that has Azure Data Lake Storage Gen2 enabled.
+This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure Storage.
 
 In this tutorial, you will:
 
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Download the flight data
 
-This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
+This tutorial uses flight data from the Bureau of Transportation Statistics. You must download this data to complete the tutorial.
 
 1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
@@ -55,11 +55,11 @@ This tutorial uses flight data from the Bureau of Transportation Statistics to d
    > [!div class="mx-imgBorder"]
    > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png)
 
-6. In storage browser, upload this file to the **data** folder.
+6. In storage browser, upload the `On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.csv` file to the **data** folder.
 
 ## Create an Azure Synapse workspace
 
-1. Create an Azure Synapse workspace. See [Create a Synapse workspace in the Azure portal](../../synapse-analytics/get-started-create-workspace.md#create-a-synapse-workspace-in-the-azure-portal).
+1. [Create a Synapse workspace in the Azure portal](../../synapse-analytics/get-started-create-workspace.md#create-a-synapse-workspace-in-the-azure-portal).
 
    As you create the workspace, use these values:
 
@@ -70,14 +70,10 @@ This tutorial uses flight data from the Bureau of Transportation Statistics to d
    - **SQL Administrator login**: Enter the administrator username for the SQL Server.
    - **SQL Administrator password**: Enter the administrator password for the SQL Server.
    - **Tag Values**: Accept the default.
-   - **Review and Create**: Select.
-   - **Create**: Select.
 
-When the deployment finishes, you will see Azure Synapse Analytics workspace in the list of the deployed resources. 
+#### Find your Synapse SQL endpoint name (optional) 
 
-## (optional) Find your Synapse SQL endpoint name
-
-The server name for the serverless SQL pool in the following example is: `showdemoweu-ondemand.sql.azuresynapse.net`. This endpoint enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database (For example: [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
+The serverless SQL endpoint name server name enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database (For example: [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
 [Azure Data Studio](../../synapse-analytics/sql/get-started-azure-data-studio.md), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md)). 
 
 To find the fully qualified server name:
@@ -88,9 +84,9 @@ To find the fully qualified server name:
 
    ![Full server name serverless SQL pool](../../synapse-analytics/sql/media/connect-overview/server-connect-example-sqlod.png)
 
-## Use Synapse Studio to explore data
-
 In this tutorial, you'll use Synapse Studio to query data from the CSV file that you uploaded to the storage account.
+
+## Use Synapse Studio to explore data
 
 1. Open Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/quickstart-create-workspace.md#open-synapse-studio)
 
