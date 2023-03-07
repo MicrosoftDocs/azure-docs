@@ -145,6 +145,8 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
+  - name: Query fields
+    href: concept-query-fields.md  
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
