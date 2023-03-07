@@ -200,6 +200,8 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     > ```
     >
 
+1. Wait for the deployment operation to complete before moving on.
+
 ---
 
 ## Review deployed resources
