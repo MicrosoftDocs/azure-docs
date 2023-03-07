@@ -261,7 +261,7 @@ items:
       href: how-to-resource-set-pattern-rules.md
     - name: Monitor data map population
       href: how-to-monitor-data-map-population.md
-    - name: Troubleshoot connection issues
+    - name: Troubleshoot scans & connections
       href: troubleshoot-connections.md
   - name: Data catalog
     items:
