@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Work with well data records by using Wellbore DDMS APIs
-description: Learn how to work with well data records in your Microsoft Energy Data Services Preview instance by using Wellbore Domain Data Management Services (Wellbore DDMS) APIs in Postman.
+description: Learn how to work with well data records in your Azure Data Manager for Energy Preview instance by using Wellbore Domain Data Management Services (Wellbore DDMS) APIs in Postman.
 author: vkamani21
 ms.author: vkamani
 ms.service: energy-data-services
@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Work with well data records by using Wellbore DDMS APIs
 
-Use Wellbore Domain Data Management Services (Wellbore DDMS) APIs in Postman to work with well data in your instance of Microsoft Energy Data Services Preview.
+Use Wellbore Domain Data Management Services (Wellbore DDMS) APIs in Postman to work with well data in your instance of Azure Data Manager for Energy Preview.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -29,11 +29,11 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 ## Prerequisites
 
 - An Azure subscription
-- An instance of [Microsoft Energy Data Services Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
+- An instance of [Azure Data Manager for Energy Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
 
-## Get your Microsoft Energy Data Services instance details
+## Get your Azure Data Manager for Energy Preview instance details
 
-The first step is to get the following information from your [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
+The first step is to get the following information from your [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
@@ -67,17 +67,17 @@ Next, set up Postman:
 
        :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
   
-1. In the Postman environment, update **CURRENT VALUE** with the information from your [Microsoft Energy Data Services instance](#get-your-microsoft-energy-data-services-instance-details):
+1. In the Postman environment, update **CURRENT VALUE** with the information from your [Azure Data Manager for Energy Preview instance details](#get-your-azure-data-manager-for-energy-preview-instance-details).
 
    1. In Postman, in the left menu, select **Environments**, and then select **Wellbore DDMS Environment**.
 
-   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Microsoft Energy Data Services instance details](#get-your-microsoft-energy-data-services-instance-details).
+   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy Preview instance details](#get-your-azure-data-manager-for-energy-preview-instance-details).
 
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Wellbore DDMS environment.":::
 
 ## Send an example Postman request
 
-The Postman collection for Wellbore DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Microsoft Energy Data Services instance.
+The Postman collection for Wellbore DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Azure Data Manager for Energy Preview instance.
 
 1. In Postman, in the left menu, select **Collections**, and then select **Wellbore DDMS**. Under **Setup**, select **Get an SPN Token**.
 
@@ -103,7 +103,7 @@ The Postman collection for Wellbore DDMS contains requests you can use to intera
 
 To generate a token:
 
-1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
+1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Azure Data Manager for Energy Preview instance.
 
       ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
@@ -120,7 +120,7 @@ To generate a token:
 
 ## Use Wellbore DDMS APIs to work with well data records
 
-Successfully completing the Postman requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Microsoft Energy Data Services instance.
+Successfully completing the Postman requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy Preview instance.
 
 ### Create a legal tag
 
@@ -136,7 +136,7 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 ### Create a well
 
-Create a well record in your Microsoft Energy Data Services instance.
+Create a well record in your Azure Data Manager for Energy Preview instance.
 
 API: **Well** > **Create Well**.
 
@@ -146,7 +146,7 @@ Method: POST
 
 ### Get a well record
 
-Get the well record data for your Microsoft Energy Data Services instance.
+Get the well record data for your Azure Data Manager for Energy Preview instance.
 
 API: **Well** > **Well**
 
@@ -156,7 +156,7 @@ Method: GET
 
 ### Get well versions
 
-Get the versions of each ingested well record in your Microsoft Energy Data Services instance.
+Get the versions of each ingested well record in your Azure Data Manager for Energy Preview instance.
 
 API: **Well** > **Well versions**
 
@@ -166,7 +166,7 @@ Method: GET
 
 ### Get a specific well version
 
-Get the details of a specific version for a specific well record in your Microsoft Energy Data Services instance.
+Get the details of a specific version for a specific well record in your Azure Data Manager for Energy Preview instance.
 
 API: **Well** > **Well Specific version**
 
@@ -176,7 +176,7 @@ Method: GET
 
 ### Delete a well record
 
-Delete a specific well record from your Microsoft Energy Data Services instance.
+Delete a specific well record from your Azure Data Manager for Energy Preview instance.
 
 API: **Clean up** > **Well Record**
 

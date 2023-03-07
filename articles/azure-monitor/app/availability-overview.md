@@ -36,7 +36,6 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 ## Next steps
 
 * [Availability alerts](availability-alerts.md)
-* [URL tests](monitor-web-app-availability.md)
 * [Standard tests](availability-standard-tests.md)
 * [Multi-step web tests](availability-multistep.md)
 * [Create and run custom availability tests using Azure Functions](availability-azure-functions.md)

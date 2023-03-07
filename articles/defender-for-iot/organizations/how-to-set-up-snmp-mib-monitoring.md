@@ -17,7 +17,7 @@ Supported SNMP versions are SNMP version 2 and version 3. The SNMP protocol util
 
     For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- To download the SNMP MIB file, make sure you can access the Azure portal as a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user.
+- To download the SNMP MIB file, make sure you can access the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
     If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 

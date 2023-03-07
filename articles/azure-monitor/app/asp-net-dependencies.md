@@ -220,6 +220,10 @@ dependencies
 
 In the Log Analytics query view, `timestamp` represents the moment the TrackDependency() call was initiated, which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
+### Does dependency tracking in Application Insights include logging response bodies?
+
+Dependency tracking in Application Insights does not include logging response bodies as it would generate too much telemetry for most applications.
+
 ## Open-source SDK
 
 Like every Application Insights SDK, the dependency collection module is also open source. Read and contribute to the code or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
@@ -252,7 +256,7 @@ Below is the currently supported list of dependency calls that are automatically
 ### Java
 
 See the list of Application Insights Java's
-[autocollected dependencies](java-in-process-agent.md#autocollected-dependencies).
+[autocollected dependencies](opentelemetry-enable.md?tabs=java#distributed-tracing).
 
 ### Node.js
 
@@ -268,8 +272,8 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
-* [Availability](./monitor-web-app-availability.md)
-* Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans-by-using-the-opentelemetry-annotation).
+* [Availability](./availability-overview.md)
+* Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 * See [data model](./data-model.md) for Application Insights types and data model.

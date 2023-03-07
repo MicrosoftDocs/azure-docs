@@ -4,7 +4,7 @@ description: Learn about VPN Gateway topologies and designs to connect on-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/14/2022
+ms.date: 02/13/2023
 ms.author: cherylmc
 
 ---

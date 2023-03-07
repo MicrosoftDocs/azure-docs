@@ -7,6 +7,7 @@ manager: juergent
 tags: azure-resource-manager
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

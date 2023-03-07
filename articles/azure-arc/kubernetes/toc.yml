@@ -20,6 +20,9 @@
   - name: Implement CI/CD with GitOps
     displayName: flux
     href: tutorial-gitops-flux2-ci-cd.md
+  - name: Multi-cluster workload management with GitOps  
+    displayName: flux
+    href: tutorial-workload-management.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -28,16 +31,22 @@
   items:
   - name: Agent overview
     href: conceptual-agent-overview.md
+  - name: Network requirements
+    href: network-requirements.md
   - name: Connectivity modes
     href: conceptual-connectivity-modes.md
   - name: Data exchange between cluster and Azure
     href: conceptual-data-exchange.md
   - name: Identity and access management
-    displayName: rbac, azure ad, azure active directory
-    href: conceptual-azure-rbac.md
-  - name: Access cluster from anywhere
-    displayName: connect
-    href: conceptual-cluster-connect.md
+    items:
+      - name: Identity and access overview
+        href: identity-access-overview.md
+      - name: Cluster connect access
+        displayName: connect
+        href: conceptual-cluster-connect.md
+      - name: Azure RBAC integration
+        displayName: rbac, azure ad, azure active directory
+        href: conceptual-azure-rbac.md
   - name: Extend Azure capabilities to clusters anywhere
     items:
       - name: Cluster extensions
@@ -68,7 +77,7 @@
             href: tutorial-gitops-ci-cd.md
           - name: Deploy Helm charts using GitOps (Flux v1)
             href: use-gitops-with-helm.md
-          - name: At-scale deployment of Flux v1 configurations using Azure Policy
+          - name: At-scale Flux v1 configurations using Azure Policy
             href: use-azure-policy.md
   - name: Security
     items:
@@ -80,17 +89,19 @@
   items:
   - name: Upgrade agents
     href: agent-upgrade.md
-  - name: Securely connect to cluster from anywhere
-    href: cluster-connect.md
   - name: Use Private Link Scope
     href: private-link.md
   - name: Azure portal Kubernetes resource view
     href: kubernetes-resource-view.md
-  - name: Use Azure AD RBAC for authorization checks
-    href: azure-rbac.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration
     href: use-azure-policy-flux-2.md
+  - name: Manage identity and access
+    items:
+    - name: Securely connect to cluster from anywhere
+      href: cluster-connect.md
+    - name: Use Azure AD RBAC for authorization checks
+      href: azure-rbac.md
   - name: Manage your cluster
     items:
     - name: Deploy and manage cluster extensions

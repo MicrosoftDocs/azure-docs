@@ -6,8 +6,9 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/03/2018
+ms.date: 03/02/2023
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Upgrade Windows Server and System Center VMM 2012 R2 to 2016
@@ -56,7 +57,7 @@ The following steps apply to the user configuration from [Hyper-V hosts to Azure
 > As mentioned in the prerequisites, these steps apply only to a clustered environment scenario and not in a standalone Hyper-V host configuration.
 
 1. Follow the [steps to perform the rolling cluster upgrade](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process).
-2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps](/azure/site-recovery/site-recovery-manage-registration-and-protection). This should be the host that you chose to drain and evict from the cluster.
+2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps](./site-recovery-manage-registration-and-protection.md). This should be the host that you chose to drain and evict from the cluster.
 3. Run the `Update-VMVersion` command for all virtual machines to complete the upgrades.
 4. [Use these steps](./hyper-v-azure-tutorial.md#source-settings) to register the new Windows Server 2016 host to Azure Site Recovery. Note that the Hyper-V site is already active and you just need to register the new host in the cluster.
 5. Go to the Azure portal and verify the replicated health status inside the Recovery Services vault.

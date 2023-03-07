@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 title: update_sas_token.sh
 description: Updates the SAP Library SAS token in Azure Key Vault
 ---

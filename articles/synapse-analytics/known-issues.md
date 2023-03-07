@@ -4,7 +4,7 @@ titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics, and their possible workarounds or resolutions.
 author: charithdilshan
 ms.author: ccaldera
-ms.date: 12/08/2022
+ms.date: 3/6/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -14,21 +14,33 @@ ms.reviewer: wiassaf
 # Azure Synapse Analytics known issues
 
 This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), as well as their resolution date or possible workaround. 
-Before submitting a Support request, please review this list to see if the issue that you are experiencing is already known and being addressed.
+Before submitting a Support request, please review this list to see if the issue that you're experiencing is already known and being addressed.
 
 To learn more about Azure Synapse Analytics, see the [Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md). 
 
 ## Active Known issues
 
-|Issue  |Date discovered  |Status  |Synapse Component|
-|---------|---------|---------|---------|
-|[Query failures from Serverless SQL to Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|June 2022|Has Workaround|Azure Synapse Serverless SQL pool|
-|[Query failures while reading Cosmos Data using OPENROWSET](#query-failures-while-reading-cosmos-data-using-openrowset)|September 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
-|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|October 2022|Has Workaround|Azure Synapse Dedicated SQL Pool|
-|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|October 2022|Has Workaround|Azure Synapse Workspace|
-|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|November 2022|Has Workaround|Azure Synapse Workspace|
+|Issue |Status  |Synapse Component|
+|---------|---------|---------|
+|[Queries using Azure AD authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Query failures from Serverless SQL to Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|Azure Synapse Serverless SQL pool|
+|[Query failures while reading Cosmos Data using OPENROWSET](#query-failures-while-reading-cosmos-data-using-openrowset)|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Cosmos DB analytical store view propagates wrong attributes in the column](#cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|Azure Synapse Dedicated SQL Pool|
+|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|Azure Synapse Workspace|
+|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|Azure Synapse Workspace|
 
 ## Azure Synapse Analytics Serverless SQL Pool known issues summary
+
+### Queries using Azure AD authentication fails after 1 hour
+
+SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. <br>
+Following steps can be followed to work around the problem. 
+
+1) It's recommended switching to Service Principal, Managed Identity or Shared Access Signature instead of using user identity for long running queries. 
+2) Restarting client (SSMS/ADS) acquires new token to establish the connection.
 
 ### Query failures from Serverless SQL pool to Azure Cosmos DB analytical store
 
@@ -54,6 +66,15 @@ Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET 
 `Resolving CosmosDB path has failed with error 'bad allocation'.`
 
 **Workaround**: The engineering team is aware of this behavior and working on a fix. If you encounter this error engage Microsoft Support Team for assistance.
+
+### Cosmos DB analytical store view propagates wrong attributes in the column
+
+While using views in Synapse serverless pool over CosmosDB analytical store, If there is a change on files in the CosmosDB analytical store, the change does not get propagated correctly to the SELECT statements, the customer is using on the view. As a result of that, the attributes get incorrectly mapped to a different column in the results.
+
+**Workaround**: The engineering team is aware of this behavior and following actions can be taken as quick mitigation:
+
+1) Recreate the view by renaming the columns.
+2) Avoid using views if possible. 
 
 ## Azure Synapse Analytics Dedicated SQL pool known issues summary
 

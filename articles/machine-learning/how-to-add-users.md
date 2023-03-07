@@ -4,11 +4,11 @@ title.suffix: Azure Machine Learning
 description: Add users to your data labeling project so that they can label data, but not see the rest of your workspace.
 author: kvijaykannan 
 ms.author: vkann 
-ms.reviewer: franksolomon
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/08/2023
 ---
 
 # Add users to your data labeling project
@@ -39,7 +39,7 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. In the **Description** box, add a description. For example, **Labeler access for data labeling projects**.
 1. Select **Start from JSON**.
 1. At the bottom of the page, select **Next**.
-1. Don't do anything for the **Permissions** tab. You'll add permissions in a later step. Select **Next**.
+1. Don't do anything for the **Permissions** tab. You add permissions in a later step. Select **Next**.
 1. The **Assignable scopes** tab shows your subscription information. Select **Next**.
 1. In the **JSON** tab, above the edit box, select **Edit**.
 1. Select lines starting with **"actions:"** and **"notActions:"**.
@@ -59,7 +59,7 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
 ## Add guest user
 
-If your labelers are outside of your organization, you'll now add them so that they can access your workspace. If labelers are already inside your organization, skip this step. 
+If your labelers are outside of your organization, add them, so they can access your workspace. If labelers are already inside your organization, skip this step.
 
 To add a guest user, your organization's external collaboration settings need the correct configuration to allow you to invite guests.
 

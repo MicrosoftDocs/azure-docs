@@ -270,7 +270,7 @@ sections:
       - question: |
           How do I stop the Log Analytics agent from communicating with Azure Monitor?
         answer: |
-          For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics.
+          For agents connected to Log Analytics directly, open the Control Panel and select **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics.
 
       - question: |
           How much data is sent per agent?
@@ -489,7 +489,7 @@ sections:
         answer: |
           * [Web apps on an IIS server in Azure VM or Azure Virtual Machine Scale Set](app/azure-vm-vmss-apps.md)
           * [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
-          * [Java web apps](app/java-in-process-agent.md)
+          * [Java web apps](app/opentelemetry-enable.md?tabs=java)
           * [Node.js apps](app/nodejs.md)
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/azure-web-apps-net-core.md)
@@ -879,7 +879,7 @@ sections:
       - question: |
           How can I test out OpenTelemetry?
         answer: |
-          Check out our enablement docs for [.NET, JavaScript (Node.js), Python](app/opentelemetry-enable.md) or [Java](app/java-in-process-agent.md), and sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to get notified of major releases.
+          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), Python](app/opentelemetry-enable.md), and sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to get notified of major releases.
 
       - question: |
           What is the current release state of features within each OpenTelemetry offering?
@@ -893,15 +893,15 @@ sections:
           | [Standard Metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-Rate Sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Offline Storage & Automatic Retries](app/opentelemetry-enable.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Exception Reporting](/app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Exception Reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Logs Collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory (AAD) authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Auto-populate cloud role name/role instance on Azure](/app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Auto-populate cloud role name/role instance on Azure](app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Live Metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
           | Autopopulation of User ID, Authenticated User ID, and User IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
           | Manually override/set Operation Name, User ID or Authenticated User ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Adaptive Sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :warning: |
           | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :x:                |
           
           **Key**
@@ -910,11 +910,31 @@ sections:
           - :x: : This feature is not available or not applicable.
 
       - question: |
+          Is OpenTelemetry intended for use in web browsers?
+        answer: |
+          OpenTelemetry isn’t currently intended for use in web browsers. It’s primarily designed for use with Node.JS.
+
+      - question: |
+          When can we expect the OpenTelemetry SDK to be available for use in web browsers?
+        answer: |
+          The availability timeline for the OpenTelemetry SDK hasn’t been determined yet.
+      
+      - question: |
+          Will OpenTelemetry be the preferred SDK for connecting to Application Insights for third parties in the future?
+        answer: |
+          It’s not expected to be the preferred SDK for connecting to Application Insights for third parties in the near future.
+
+      - question: |
+          Can I test OpenTelemetry in a web browser today?
+        answer: |
+          The [OpenTelemetry Web Sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser, but it is not yet possible to send telemetry to Application Insights or 1DS Collector. Additionally, the SDK does not currently have defined general client events.
+
+      - question: |
           How do I determine if OpenTelemetry is right for me?
         answer: |
           The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
           
-          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
+          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/opentelemetry-enable.md?tabs=java) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
           
           If your application is written in C#, JavaScript (Node.js), or Python, the current Application Insights SDKs offer the most feature-rich experience.
           
@@ -949,7 +969,7 @@ sections:
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
-          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/java-in-process-agent.md). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry languages are focused on Manual Instrumentation only.
+          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/opentelemetry-enable.md?tabs=java). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry languages are focused on Manual Instrumentation only.
           
       - question: |
           Can I use the OpenTelemetry-Collector?

@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 02/09/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -39,14 +39,14 @@ If a service doesn't support gMSAs, you can use a standalone managed service acc
 
 If you can't use a gMSA or sMSA supported by your service, configure the service to run as a standard user account. Service and domain administrators are required to observe strong password management processes to help keep the account secure.
 
-## Assess gSMA security posture
+## Assess gMSA security posture
 
 gMSAs are more secure than standard user accounts, which require ongoing password management. However, consider gMSA scope of access in relation to security posture. Potential security issues and mitigations for using gMSAs are shown in the following table:
 
 | Security issue| Mitigation |
 | - | - |
-| gMSA is a member of privileged groups | <li>Review your group memberships. Create a PowerShell script to enumerate group memberships. Filter the resultant CSV file by gMSA file names.<li>Remove the gMSA from privileged groups.<li>Grant the gMSA rights and permissions it requires to run its service. See your service vendor. 
-| gMSA has read/write access to sensitive resources | <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Microsoft Sentinel, for analysis.<li>Remove unnecessary resource permissions if there's an unnecessary access level. |
+| gMSA is a member of privileged groups | - Review your group memberships. Create a PowerShell script to enumerate group memberships. Filter the resultant CSV file by gMSA file names</br> - Remove the gMSA from privileged groups</br> - Grant the gMSA rights and permissions it requires to run its service. See your service vendor. 
+| gMSA has read/write access to sensitive resources | - Audit access to sensitive resources</br> - Archive audit logs to a SIEM, such as Azure Log Analytics or Microsoft Sentinel</br> - Remove unnecessary resource permissions if there's an unnecessary access level |
 
 
 ## Find gMSAs
@@ -110,16 +110,15 @@ To manage gMSAs, use the following Active Directory PowerShell cmdlets:
 ## Move to a gMSA
 
 gMSAs are a secure service account type for on-premises. It's recommended you use gMSAs, if possible. In addition, consider moving your services to Azure and your service accounts to Azure Active Directory. 
+
+   > [!NOTE] 
+   > Before you configure your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
   
 To move to a gMSA:
 
-1. Ensure the [Key Distribution Service (KDS) root key](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key) is deployed in the forest. This is a one-time operation.
-2. [Create a new gMSA](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+1. Ensure the Key Distribution Service (KDS) root key is deployed in the forest. This is a one-time operation. See, [Create the Key Distribution Services KDS Root Key](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key).
+2. Create a new gMSA. See, [Getting Started with Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 3. Install the new gMSA on hosts that run the service.
-   
-   > [!NOTE] 
-   > Before configuring your service to use the gMSA, see [Get started with group managed service accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
-
 4. Change your service identity to gMSA.
 5. Specify a blank password.
 6. Validate your service is working under the new gMSA identity.

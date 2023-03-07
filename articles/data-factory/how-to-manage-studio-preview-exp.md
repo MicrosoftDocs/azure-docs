@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/30/2022
+ms.date: 02/16/2023
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -154,6 +154,9 @@ Find the error icon in the pipeline monitoring page and in the pipeline **Output
 
 #### Container view
 
+> [!NOTE]
+> This feature will now be generally available in the ADF studio.  
+
 When monitoring your pipeline run, you have the option to enable the container view, which will provide a consolidated view of the activities that ran.
 This view is available in the output of your pipeline debug run and in the detailed monitoring view found in the monitoring tab. 
 
@@ -185,7 +188,7 @@ Click the button next to the iteration or conditional activity to collapse the n
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the collapsed container monitoring view.":::
 
-#### Simplified default monitoring view
+#### Simplified default monitoring view 
 
 The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached. 
 

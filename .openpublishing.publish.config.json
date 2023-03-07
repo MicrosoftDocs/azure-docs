@@ -913,6 +913,18 @@
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-ai-vision-sdk",
+      "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cache-redis-samples",
+      "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -987,6 +999,7 @@
   "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+  "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
   "articles/mariadb/.openpublishing.redirection.mariadb.json",
   "articles/marketplace/.openpublishing.redirection.marketplace.json",
