@@ -105,7 +105,7 @@ Use the following steps to manually assign each role.
    | **Assign access to** | Select **Managed Identity**. |
    | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-dev-center). |
 
-You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the gallery that you've added the owner role assignment to.
+You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the gallery that you've added the Owner role assignment to.
 
 ## Attach a gallery to a dev center
 
