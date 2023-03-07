@@ -52,7 +52,7 @@ The Saviynt integration includes the following components:
 
 The following architecture diagram illustrates the implementation.
 
-![Diagram of the Saviynt architecture.](./media/partner-saviynt/saviynt-architecture-diagram.png)
+   ![Diagram of the Saviynt architecture.](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
 1. A delegated administrator starts the Azure AD B2C user operation with Saviynt.
 2. Saviynt verifies the delegated administrator can perform the operation.
@@ -118,7 +118,7 @@ Learn more: [Application and service principal objects in Azure AD](../active-di
 
 1. Install the latest version of MSOnline PowerShell Module on a Windows workstation or server.
 
-For more information, see [Azure Active Directory (MSOnline)](/overview?view=azureadps-1.0&preserve-view=true)
+For more information, see [Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureAD/2.0.2.140)
 
 2. Connect to the AzureAD PowerShell module and execute the following commands:
 
