@@ -182,7 +182,7 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 ## Register session hosts to a host pool
 
-If you created virtual machines using an alternative method outside of Azure Virtual Desktop, such as an automated pipeline, you'll need to register them separately as session hosts to a host pool. To register session hosts to a host pool, you need to install what is referred to as the Azure Virtual Desktop agent on each virtual machine and use the registration key you generated. You can register session hosts to a host pool using the agent installers' graphical user interface (GUI) or using `msiexec` from a command line. Once complete, four applications will be listed as installed applications:
+If you created virtual machines using an alternative method outside of Azure Virtual Desktop, such as an automated pipeline, you'll need to register them separately as session hosts to a host pool. To register session hosts to a host pool, you need to install the Azure Virtual Desktop Agent and the Azure Virtual Desktop Agent Bootloader on each virtual machine and use the registration key you generated. You can register session hosts to a host pool using the agent installers' graphical user interface (GUI) or using `msiexec` from a command line. Once complete, four applications will be listed as installed applications:
 
 - Remote Desktop Agent Boot Loader.
 - Remote Desktop Services Infrastructure Agent.
@@ -198,6 +198,12 @@ Select the relevant tab for your scenario and follow the steps.
 1. If your virtual machines are running a Windows Server OS, you'll need to install the *Remote Desktop Session Host* role, then restart the virtual machine. For more information, see [Install roles, role services, and features by using the add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
 
 1. Sign in to your virtual machine as an administrator.
+
+1. Download the Agent and the Agent Bootloader installation files using the following links You may need to unblock them; right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
+
+   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+
+   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -224,6 +230,30 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
    ```powershell
    Install-WindowsFeature -Name RDS-RD-Server -Restart
+   ```
+
+1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands:
+
+   ```powershell
+   $uris = @(
+       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv"
+       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH"
+   )
+
+   $installers = @()
+   foreach ($uri in $uris) {
+       $download = Invoke-WebRequest -Uri $uri
+
+       $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
+       $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)
+       $output.write($download.Content, 0, $download.RawContentLength)
+       $output.close()
+       $installers += $output.Name
+   }
+
+   foreach ($installer in $installers) {
+       Unblock-File -Path "$installer"
+   }
    ```
 
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
