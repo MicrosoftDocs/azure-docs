@@ -11,20 +11,20 @@ services: iot-edge
 
 # Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
+This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-A template containing all options can be found in the *config.toml.edge.template* file within the `/etc/aziot` directory on an IoT Edge device. You have the option to copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You have the option to copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
 
 ## Global parameters
 
-The `hostname`, `parent_hostname`, `trust_bundle_cert`, and `allow_elevated_docker_permissions` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they are applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The `hostname`, `parent_hostname`, `trust_bundle_cert`, and `allow_elevated_docker_permissions` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
 
 ### Hostname
 
-To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The edgeHub module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname).
+To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname).
 
 > [!NOTE]
-> When the hostname value is not set, IoT Edge attempts to determine it automatically. However, clients in the network may not be able to discover the device.
+> When the hostname value isn't set, IoT Edge attempts to find it automatically. However, clients in the network may not be able to discover the device if it isn't set.
 
 For **hostname**, replace **fqdn-device-name-or-ip-address** with your device name to override the default hostname of the device. The value can be a fully qualified domain name (FQDN) or an IP address. Use this setting as the gateway hostname on a IoT Edge gateway device.
 
@@ -68,7 +68,7 @@ allow_elevated_docker_permissions = false
 
 You can provision a single device or multiple devices at-scale, depending on the needs of your IoT Edge solution. The options available for authenticating communications between your IoT Edge devices and your IoT hubs depend on what provisioning method you choose. 
 
-You can provision with a connection string, symmetric key, [X.509 certificate](how-to-provision-single-device-linux-x509.md), identity certificate private key, or an identity certificate. DPS provisioning is included with various options. Choose one method for your provisioning. Replace the sample values with your own.
+You can provision with a connection string, symmetric key, X.509 certificate, identity certificate private key, or an identity certificate. DPS provisioning is included with various options. Choose one method for your provisioning. Replace the sample values with your own.
 
 ### Manual provisioning with connection string
 
@@ -163,7 +163,7 @@ subject = { L = "AQ", ST = "Antarctica", CN = "my-device" } # with the given DN 
 ```
 #### (Optional) Enable automatic renewal of the device ID certificate
 
-Autorenewal requires a known certificate issuance method. Set **method** to either 'est' or 'local_ca'.
+Autorenewal requires a known certificate issuance method. Set **method** to either `est` or `local_ca`.
 
 >[!IMPORTANT]
 > Only enable autorenewal if this device is configured for CA-based DPS enrollment. Using autorenewal for an individual enrollment causes the device to be unable to reprovision.
@@ -212,7 +212,7 @@ cloud_retries = 1
 
 ### Optional auto reprovisioning mode
 
-The `auto_reprovisioning_mode` property specifies the conditions that determine when a device attempts to automatically reprovision with Device Provisioning Service. It's ignored if the device has been provisioned manually. One of the following values can be set:
+The **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. It's ignored if the device has been provisioned manually. One of the following values can be set:
 
 | Mode | Description |
 |------|-------------|
