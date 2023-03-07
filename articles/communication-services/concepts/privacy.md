@@ -18,7 +18,7 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 ## Data residency
 
-When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data **may** transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest are retained in that geography, in a data center selected internally by Communication Services. Data **may** transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
 
 The list of geographies you can choose from includes:
 - Africa
@@ -44,7 +44,7 @@ Azure Communication Services only collects diagnostic data required to deliver t
 
 ## Data residency and events
 
-Any Event Grid system topic configured with Azure Communication Services will be created in a global location. To support reliable delivery, a global Event Grid system topic may store the event data in any Microsoft data center. When you configure Event Grid with Azure Communication Services, you're delivering your event data to Event Grid, which is an Azure resource under your control. While Azure Communication Services may be configured to utilize Azure Event Grid, you're responsible for managing your Event Grid resource and the data stored within it.
+Any Event Grid system topic configured with Azure Communication Services is created in a global location. To support reliable delivery, a global Event Grid system topic may store the event data in any Microsoft data center. When you configure Event Grid with Azure Communication Services, you're delivering your event data to Event Grid, which is an Azure resource under your control. While Azure Communication Services may be configured to utilize Azure Event Grid, you're responsible for managing your Event Grid resource and the data stored within it.
 
 ## Relating humans to Azure Communication Services identities
 
@@ -52,13 +52,13 @@ Your application manages the relationship between human users and Communication 
 
 There are two categories of Communication Service data:
 - **API Data.** This data is created and managed by Communication Service APIs, a typical example being Chat messages managed through Chat APIs.
-- **Azure Monitor Logs** This data is created by the service and managed through the Azure Monitor data platform. This data includes telemetry and metrics to help you understand your Communication Services usage. This is not managed by Communication Service APIs.
+- **Azure Monitor Logs** This data is created by the service and managed through the Azure Monitor data platform. This data includes telemetry and metrics to help you understand your Communication Services usage.
 
 ## API data
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/identity/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity revokes all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/identity/access-tokens.md).
 
 - DeleteIdentity
 
@@ -104,7 +104,7 @@ Call recordings are stored temporarily in the same geography that was selected f
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
+Azure Communication Services feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Additional resources
 
