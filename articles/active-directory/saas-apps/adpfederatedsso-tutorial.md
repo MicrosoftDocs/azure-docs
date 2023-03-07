@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 03/07/2023
 ms.author: jeedes
 ---
 
@@ -225,7 +225,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     ![Configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png)
 
-    1. In the **Attributes & Claims** section, navigate to the **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
+    1. In the **Attributes & Claims** section, navigate to **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
 
     1. Enable **Override audience claim** checkbox.
 
@@ -241,8 +241,13 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     1. Enable **Append application ID to issuer** checkbox and click **Save**.
 
+    1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
+
+        ![Copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png)
+
     1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
-    ![Adding application value manually in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
+
+        ![Adding application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
     
     1. **Save** the xml file and use in the ADP side.
 
