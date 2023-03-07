@@ -96,7 +96,7 @@ These configuration fields are optional and default to false unless otherwise st
 | onunloadDisableBeacon | boolean | false | Default false. when tab is closed, the SDK sends all remaining telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
 | onunloadDisableFetch | boolean | false | If fetch keepalive is supported don't use it for sending events during unload, it may still fall back to fetch() without keepalive |
 | sdkExtension | string | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
-| isBrowserLinkTrackingEnabled | boolean | false | Default is false. If true, the SDK tracks all [Browser Link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) requests. |
+| isBrowserLinkTrackingEnabled | boolean | false | Default is false. If true, the SDK tracks all [Browser Link](/aspnet/core/client-side/using-browserlink.md) requests. |
 | appId | string | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it can't be used automatically, but can be set manually in the configuration. Default is null |
 | enableCorsCorrelation | boolean | false | If true, the SDK adds two headers ('Request-Id' and 'Request-Context') to all CORS requests to correlate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
 | namePrefix | string | undefined | An optional value that is used as name postfix for localStorage and session cookie name.
@@ -305,7 +305,7 @@ The static classes were changed to const objects that reference the new exported
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting.md).
 
 ## Next steps
 
