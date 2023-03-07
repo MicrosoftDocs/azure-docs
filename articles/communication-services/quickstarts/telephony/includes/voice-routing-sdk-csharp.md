@@ -14,7 +14,7 @@ ms.author: nikuklic
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/link.
+You can download the sample app from [GitHub](https://github.com/link. <<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Prerequisites
 
@@ -50,61 +50,59 @@ While still in the application directory, install the Azure Communication PhoneN
 Add a using directive to the top of **Program.cs** to include the namespaces.
 
 ``` csharp
-
 using Azure.Communication.PhoneNumbers.SipRouting;
-
 ```
 
 ## Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal](https://portal.azure.com/). 
+Phone Number clients can be authenticated using [connection string from an Azure Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). 
 
 ``` csharp
-
 // Get a connection string to our Azure Communication Services resource.
 var connectionString = "<connection_string>";
 var client = new SipRoutingClient(connectionString);
-
 ```
 
 ## Setup direct routing configuration
 
-### Verify Domain Ownership
+Direct routing configuration consists of:
+
+1. Domain ownership verification
+1. Creating trunks (adding SBCs)
+1. Creating voice routes
+
+### Verify domain ownership
 
 [How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
 
-### Create or Update Trunks
+### Create or update Trunks
 
-Azure Communication Services direct routing allows communication only with registered SBC. To register an SBC you need its FQDN and port.
+Azure Communication Services direct routing allows communication with registered SBCs only. To register an SBC you need its FQDN and port.
 
 ``` csharp
-
 // Register your SBCs by providing their fully qualified domain names and port numbers.
 var usSbcFqdn = "sbc.us.contoso.com";
 var euSbcFqdn = "sbc.eu.contoso.com";
-var sbcPort = 1234;
+var sbcPort = 5061;
 
 var usTrunk = new SipTrunk(usSbcFqdn, sbcPort);
 var euTrunk = new SipTrunk(euSbcFqdn, sbcPort);
 
 await client.SetTrunksAsync(new List<SipTrunk> { usTrunk, euTrunk });
-
 ```
 
-### Create or Update Routes
+### Create or update routes
 
 > [!NOTE]
 > Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
-For outbound calling routing rules should be provided. Each rule consists of 2 parts: regex pattern, that should match dialed phone number and FQDN of registered trunk, where call will be routed. In this example we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`
+For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern, that should match dialed phone number and FQDN of a registered trunk, where call will be routed. In this example we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`
 
 ``` csharp
-
 var usRoute = new SipTrunkRoute("UsRoute", "^\\+1(\\d{10})$", trunks: new List<string> { usSbcFqdn });
 var defaultRoute = new SipTrunkRoute("DefaultRoute", "^\\+\\d+$", trunks: new List<string> { usSbcFqdn, euSbcFqdn });
 
 await client.SetRoutesAsync(new List<SipTrunkRoute> { usRoute, defaultRoute });
-
 ```
 
 ### Updating existing configuration
@@ -112,26 +110,22 @@ await client.SetRoutesAsync(new List<SipTrunkRoute> { usRoute, defaultRoute });
 Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` csharp
-
-var usTrunk = new SipTrunk("sbc.us.contoso.com", 1235);
+var usTrunk = new SipTrunk("sbc.us.contoso.com", 5063);
 await client.SetTrunkAsync(usTrunk);
-
 ```
 
-Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
-Therefore the same method is used to Create and update routing rules.
+> [!IMPORTANT]
+>The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
 
 ### Removing a direct routing configuration
 
-You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+You can delete a single trunk (SBC), if it is not used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ``` csharp
-
 await client.DeleteTrunkAsync("sbc.us.contoso.com");
-
 ```
 
-All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+All direct routing configuration can be deleted by overriding routes and trunks configuration with a new configuration or an empty list. Same methods are used in "Create or Update Trunks" and "Create or Update Routes" sections.
 
 
 

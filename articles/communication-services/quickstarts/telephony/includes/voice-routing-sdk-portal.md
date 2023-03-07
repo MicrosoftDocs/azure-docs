@@ -17,7 +17,7 @@ ms.author: nikuklic
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
 - Fully qualified domain name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
-- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC
+- [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN
 
 ## Adding a Session Border controller
 
