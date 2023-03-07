@@ -22,7 +22,7 @@ In this how-to guide, you'll learn how to get the SAP software installation medi
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
-- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the storage account which has the SAP software. 
+- A **User-assigned managed identity** with **Storage Blob Data Reader** or **Reader and Data Access** roles on the storage account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
@@ -37,12 +37,27 @@ Azure Center for SAP solutions supports the following SAP software versions: S/4
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
-| Publisher | Version | Generation SKU | Patch version name | Supported SAP Software Version |
-| --------- | ------- | -------------- | ------------------ | ------------------------------ |
-| Red Hat | RHEL-SAP-HA (8.2 HA Pack) | 82sapha-gen2 | 8.2.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| Red Hat | RHEL-SAP-HA (8.4 HA Pack) | 84sapha-gen2 | 8.4.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-15-sp3 | gen2 | 2022.01.26 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-12-sp4 | gen2 | 2022.02.01 | S/4HANA 1909 SPS 03 |
+| Publisher | Image and Image Version | Supported SAP Software Version |
+| --------- | ----------------------- | ------------------------------ |
+| Red Hat | RHEL 82sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| Red Hat | RHEL 84sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 15sp3-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 12sp4-gen2 latest | S/4HANA 1909 SPS 03 |
+
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+
+
+    ```Powershell
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
+    
+    where, for example
+    $locName="eastus"
+    $pubName="RedHat"
+    $offerName="RHEL-SAP-HA"
+    $skuName="82sapha-gen2"
+    ```
+  
+  Refer more [here]([https://learn.microsoft.com/en-us/azure/virtual-machines/windows/cli-ps-findimage#list-images])
 
 ## Required components
 
