@@ -49,17 +49,17 @@ The following steps configure the allocation policy for a device's enrollment:
 
     ![Screenshot that shows setting the enrollment allocation policy and IoT hubs in the Azure portal.](./media/how-to-reprovision/enrollment-allocation-policy.png)
 
-## Set the reprovisioning policy
+## Set the reprovision policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
 2. Select **Manage enrollments**, and the select the enrollment group or individual enrollment that you want to configure for reprovisioning.
 
-3. Under **Select how you want device data to be handled on re-provision to a different IoT hub**, choose one of the following reprovisioning policies:
+3. Under **Select how you want device data to be handled on reprovision to a different IoT hub**, choose one of the following reprovisioning policies:
 
-    * **Re-provision and migrate data**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
+    * **Reprovision and migrate data**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
 
-    * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
+    * **Reprovision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
 
 4. Select **Save** to enable the reprovisioning of the device based on your changes.
 
