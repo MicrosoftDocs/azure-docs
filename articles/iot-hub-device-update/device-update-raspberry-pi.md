@@ -223,7 +223,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 
 ## Import the update
 
-1. Download the sample tutorial manifest (Tutorial Import Manifest_Pi.json) and sample update (adu-update-image-raspberrypi3-0.6.5073.1.swu) from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) for the latest agent.
+1. Download the sample tutorial manifest and sample update(.swu file) from [Tutorial_RaspberryPi.zip](https://github.com/Azure/iot-hub-device-update/releases/download/1.0.1/Tutorial_RaspberryPi.zip) under [Release Assets] for the latest agent.
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
 1. Select the **Updates** tab.
 1. Select **+ Import New Update**.
