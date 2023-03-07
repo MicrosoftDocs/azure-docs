@@ -29,11 +29,11 @@ The following procedure creates an Azure Container Apps Environment with a virtu
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
+   :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/how-to-create-app-environment-with-existing-virtual-network/spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted.":::
+   :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted.":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -52,11 +52,11 @@ The following procedure creates an Azure Container Apps Environment with a virtu
 
      - Select **Create new** to create a new Azure Container Apps Environment or select an existing environment from the dropdown menu.
 
-   :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps Environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps Environment." lightbox="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png":::
+   :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps Environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps Environment." lightbox="media/how-to-create-app-environment-with-existing-virtual-network/select-app-environment.png":::
 
 1. Fill out the **Basics** form on the **Create Container Apps Environment** page, use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
 
-    :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Basics tab selected.":::
+    :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/create-app-env.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Basics tab selected.":::
 
 1. Select **Networking** and specify the settings using the following guidelines:
 
@@ -64,7 +64,7 @@ The following procedure creates an Azure Container Apps Environment with a virtu
    - Select the names for **Virtual network** and for **Infrastructure subnet** from the dropdown menus or use **Create new** as needed.
    - Set **Virtual IP** to **External**. You can set to **Internal** if you prefer to use use only internal IP addresses available in the virtual network instead of a public static IP.
 
-   :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Networking tab selected.":::
+   :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment page with the Networking tab selected.":::
 
    >[!NOTE]
    > The subnet associated with an Azure Container Apps Environment requires a CIDR prefix of `/23` or larger.
