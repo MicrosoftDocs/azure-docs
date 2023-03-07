@@ -39,7 +39,7 @@ The task of recognizing small text from large-size documents, like engineering d
 The `ocr.formula` capability extracts all identified formulas, such as mathematical equations, in the `formulas` collection as a top level object under `content`. Inside `content`, detected formulas are represented as `:formula:`. Each entry in this collection represents a formula that includes the formula type as `inline` or `display`, and its LaTeX representation as `value` along with its `polygon` coordinates. Initially, formulas appear at the end of each page.
 
    > [!NOTE]
-   > The `confidence` score is hard-coded for the `2023-03-06` public preview release.
+   > The `confidence` score is hard-coded for the `2023-02-28` public preview release.
 
    ```json
    "content": ":formula:",
