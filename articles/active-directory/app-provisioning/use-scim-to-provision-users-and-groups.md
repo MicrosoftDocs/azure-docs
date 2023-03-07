@@ -195,7 +195,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Azure AD emits the values of `op` as **Add**, **Replace**, and **Remove**.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * Support HTTPS on your SCIM endpoint.
-* Custom complex and multivalued attributes are supported but Azure AD doesn't have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes aren't well supported at this time.
+* Custom complex and multivalued attributes are supported but Azure AD doesn't have many complex data structures to pull data from in these cases. Complex paired name/value type attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes isn't supported.
 * The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype.
 * The header for all the responses should be of content-Type: application/scim+json 
 
