@@ -55,7 +55,7 @@ items:
       href: premium-features.md
     - name: Azure Firewall preview features
       href: firewall-preview.md
-    - name: Choose an Azure Firewall
+    - name: Choose an Azure Firewall SKU
       href: choose-firewall-sku.md
     - name: IDPS signature rule categories
       href: idps-signature-categories.md
