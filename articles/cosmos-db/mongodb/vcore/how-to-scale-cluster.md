@@ -13,13 +13,15 @@ ms.date: 03/07/2023
 
 # Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster
 
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+
 Azure Cosmos DB for MongoDB vCore provides seamless scalability and high availability. This document serves as a quick guide for developers who want to learn how to scale and configure their clusters. When changes are made, they're performed live to the cluster without downtime.
 
 ## Prerequisites
 
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
-  - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](how-to-create-account.md?tabs=azure-portal).
+  - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md?tabs=azure-portal).
 
 ## Navigate to the scale section
 

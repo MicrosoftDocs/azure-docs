@@ -1,23 +1,26 @@
 ---
-title: Create a new cluster
+title: |
+  Quickstart: Create a new cluster
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents.
+description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents by using the Azure portal.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: how-to
+ms.topic: quickstart
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
 ms.date: 03/07/2023
 ---
 
-# Create an Azure Cosmos DB for MongoDB vCore cluster
+# Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal
 
-An Azure Cosmos DB for MongoDB vCore cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+
+In this quickstart, you will create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
 ## Prerequisites
 
-- An Azure cluster with an active subscription. [Create an cluster for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Create a cluster
 
@@ -34,15 +37,15 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. On the **Which API best suits your workload?** page, select the **Create** option within the **Azure Cosmos DB for MongoDB** section. For more information, see [API for MongoDB and it's various models](../choose-model.md).
 
-   :::image type="content" source="media/how-to-create-account/select-api-option.png" lightbox="media/how-to-create-account/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
+   :::image type="content" source="media/quickstart-portal/select-api-option.png" lightbox="mediahow-to-create-ac/count/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
 
 1. On the **Which type of resource?** page, select the **Create** option within the **vCore cluster** section. For more information, see [API for MongoDB vCore overview](introduction.md).
 
-    :::image type="content" source="media/how-to-create-account/select-resource-type.png" alt-text="Screenshot of the select resource type option page for Azure Cosmos DB for MongoDB.":::
+    :::image type="content" source="media/quickstart-portal/select-resource-type.png" alt-text="Screenshot of the select resource type option page for Azure Cosmos DB for MongoDB.":::
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
-    :::image type="content" source="media/how-to-create-account/select-cluster-option.png" alt-text="Screenshot of the configure cluster option for a new Azure Cosmos DB for MongoDB cluster.":::
+    :::image type="content" source="media/quickstart-portal/select-cluster-option.png" alt-text="Screenshot of the configure cluster option for a new Azure Cosmos DB for MongoDB cluster.":::
 
 1. On the **Scale** page, leave the options set to their default values:
 
@@ -54,7 +57,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
 
-    :::image type="content" source="media/how-to-create-account/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
+    :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
 
 1. Back on the cluster page, enter the following information:
 
@@ -68,13 +71,13 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
     | Password | Use a unique password to pair with the username | Password must be at least eight characters and at most 128 characters. |
 
-    :::image type="content" source="media/how-to-create-account/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
+    :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
 
 1. Select **Next: Networking**.
 
 1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster.
 
-    :::image type="content" source="media/how-to-create-account/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
+    :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
 
 1. Select **Review + create**.
 
@@ -82,7 +85,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB for MongoDB cluster page.
 
-   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of the deployment page for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
 ---
 
@@ -92,11 +95,11 @@ Get the connection string you need to connect to this cluster using your applica
 
 1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **---** navigation menu option.
 
-   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of the --- option on the page for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of the --- option on the page for a cluster.":::
 
 1. Record the value from the **---** field.
 
-   :::image type="content" source="media/how-to-create-account/---.png" alt-text="Screenshot of various credentials for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of various credentials for a cluster.":::
 
 ## Next steps
 
