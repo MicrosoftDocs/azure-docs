@@ -30,20 +30,20 @@ landingContent:
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Deploy Azure Virtual Desktop with the getting started feature
-            url: getting-started-feature.md
       - linkListType: tutorial
         links:
-          - text: Create a host pool with Azure Marketplace
-            url: create-host-pools-azure-marketplace.md
-          - text: Manage app groups for Azure Virtual Desktop
+          - text: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
+            url: tutorial-create-connect-personal-desktop.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a host pool
+            url: create-host-pool.md
+          - text: Create an application group, a workspace, and assign users
+            url: create-application-group-workspace.md
+          - text: Add session hosts to a host pool
+            url: add-session-hosts-host-pool.md
+          - text: Publish applications
             url: manage-app-groups.md
-          - text: Create a host pool to validate service updates
-            url: create-validation-host-pool.md
-          - text: Set up service alerts
-            url: set-up-service-alerts.md
 
   # Card
   - title: Get started with Azure Virtual Desktop (classic)

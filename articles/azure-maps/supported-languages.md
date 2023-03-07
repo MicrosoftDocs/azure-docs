@@ -111,7 +111,7 @@ Make sure you set up the **View** parameter as required for the REST APIs and th
   
 Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services.
 
-Affected Azure Maps REST Services:
+Affected Azure Maps REST services:
 
 * Get Map Tile
 * Get Map Image
