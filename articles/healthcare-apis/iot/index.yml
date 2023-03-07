@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 02/17/2023
+  ms.date: 03/07/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -64,8 +64,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use the monitoring tab
-            url: how-to-use-monitoring-tab.md
+          - text: Use the monitoring and health check tabs
+            url: how-to-use-monitoring-and-health-checks-tabs.md
           - text: Configure metrics
             url: how-to-configure-metrics.md
           - text: Enable diagnostic settings
