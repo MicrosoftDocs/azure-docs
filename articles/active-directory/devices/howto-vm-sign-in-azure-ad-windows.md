@@ -167,6 +167,9 @@ Now that you've created the VM, you need to configure an Azure RBAC policy to de
 
 To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
 
+> [!NOTE]
+> Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.
+
 An Azure user who has the Owner or Contributor role assigned for a VM does not automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
 
 There are two ways to configure role assignments for a VM:
@@ -399,7 +402,7 @@ Another MFA-related error message is the one described previously: "Your credent
 
 ![Screenshot of the message that says your credentials didn't work.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-If you've configured a legacy per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
+If you've configured a legacy per-user **Enabled/Enforced Azure AD Multifactor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
 
 ```
 # Get StrongAuthenticationRequirements configure on a user

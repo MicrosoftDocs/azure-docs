@@ -2,7 +2,7 @@
 title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
-author: stevemunk
+author: eriklindeman
 ms.author: eriklind
 ms.date: 2/14/2023
 ms.topic: how-to
@@ -12,7 +12,7 @@ services: azure-maps
 
 # How to create data registry (preview)
 
-The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
+The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > - In the URL examples in this article you will need to replace:
 >   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key].
 >   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID](#the-user-data-id).
@@ -221,7 +221,7 @@ To create a data registry:
 1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
 
     ```http
-    https://us.atlas.microsoft.com/dataRegistries/{udid}?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/dataRegistries/{udid}?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
     
     ```
 
@@ -317,12 +317,12 @@ The data returned when running the list request is similar to the data provided 
 
 ## Get content from a data registry
 
-Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register][register or replace] API, you can access the data contained in the files.
+Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register] API, you can access the data contained in the files.
 
 Use the `udid` to get the content of a file registered in an Azure Maps account:
 
  ```http
-https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
+https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 The contents of the file will appear in the body of the response. For example, a text based GeoJSON file will appear similar to the following example:
@@ -363,7 +363,7 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 
 [data registry]: /rest/api/maps/data-registry
 [list]: /rest/api/maps/data-registry/list
-[Register Or Replace]: /rest/api/maps/data-registry/register-or-replace
+[Register]: /rest/api/maps/data-registry/register-or-replace
 [Get operation]: /rest/api/maps/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account

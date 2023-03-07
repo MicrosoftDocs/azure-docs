@@ -9,7 +9,7 @@ author: saachigopal
 ms.author: sagopal
 ms.reviewer: larryfr
 ms.date: 11/11/2022
-ms.custom: seodec18, devx-track-azurecli, cliv1
+ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 ---
 
 # Install & use the CLI (v1)

@@ -52,12 +52,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Files Windows troubleshooting
-            url: storage-troubleshoot-windows-file-connection-problems.md
-          - text: Azure Files Linux troubleshooting
-            url: storage-troubleshoot-linux-file-connection-problems.md
-          - text: Azure Files performance troubleshooting
-            url: storage-troubleshooting-files-performance.md
+          - text: Troubleshoot Azure Files
+            url: files-troubleshoot.md
+          - text: Troubleshoot Azure Files performance
+            url: files-troubleshoot-performance.md
 
   # Card
   - title: Migrate

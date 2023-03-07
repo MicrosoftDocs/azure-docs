@@ -4291,6 +4291,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-intent-recognition.yml",
+            "redirect_url": "/azure/cognitive-services/speech-service/intent-recognition",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/intent.md",
             "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
             "redirect_document_id": false

@@ -114,7 +114,7 @@ You can load models directly from the registry to restore the models objects tha
 MLflow supports model's stages to manage model's lifecycle. Model's version can transition from one stage to another. Stages are assigned to a model's version (instead of models) which means that a given model can have multiple versions on different stages.
 
 > [!IMPORTANT]
-> Stages can only be accessed using the MLflow SDK. They don't show up in the [Azure ML Studio portal](https://ml.azure.com) and can't be retrieved using neither Azure ML SDK, Azure ML CLI, or Azure ML REST API. Creating deployment from a given model's stage is not supported by the moment.
+> Stages can only be accessed using the MLflow SDK. They don't show up in the [Azure Machine Learning Studio portal](https://ml.azure.com) and can't be retrieved using neither Azure Machine Learning SDK, Azure Machine Learning CLI, or Azure Machine Learning REST API. Creating deployment from a given model's stage is not supported by the moment.
 
 ### Querying model stages
 
@@ -162,7 +162,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 ## Editing and deleting models
 
-Editing registered models is supported in both Mlflow and Azure ML. However, there are some differences important to be noticed:
+Editing registered models is supported in both Mlflow and Azure Machine Learning. However, there are some differences important to be noticed:
 
 > [!WARNING]
 > Renaming models is not supported in Azure Machine Learning as model objects are immmutable.
@@ -200,9 +200,9 @@ client.delete_model_version(model_name, version="2")
 
 ## Support matrix for managing models with MLflow
 
-The MLflow client exposes several methods to retrieve and manage models. The following table shows which of those methods are currently supported in MLflow when connected to Azure ML. It also compares it with other models management capabilities in Azure ML.
+The MLflow client exposes several methods to retrieve and manage models. The following table shows which of those methods are currently supported in MLflow when connected to Azure Machine Learning. It also compares it with other models management capabilities in Azure Machine Learning.
 
-| Feature | MLflow | Azure ML with MLflow | Azure ML CLIv2 | Azure ML Studio |
+| Feature | MLflow | Azure Machine Learning with MLflow | Azure Machine Learning CLIv2 | Azure Machine Learning Studio |
 | :- | :-: | :-: | :-: | :-: |
 | Registering models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
@@ -223,8 +223,8 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > [!NOTE]
 > - <sup>1</sup> Use URIs with format `runs:/<ruin-id>/<path>`.
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
-> - <sup>3</sup> Registered models are immutable objects in Azure ML.
-> - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
+> - <sup>3</sup> Registered models are immutable objects in Azure Machine Learning.
+> - <sup>4</sup> Use search box in Azure Machine Learning Studio. Partial match supported.
 > - <sup>5</sup> Use [registries](how-to-manage-registries.md).
 
 ## Next steps
