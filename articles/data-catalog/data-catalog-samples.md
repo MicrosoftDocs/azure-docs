@@ -3,7 +3,7 @@ title: Azure Data Catalog developer samples
 description: This article provides an overview of the available developer samples for the Data Catalog REST API.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 12/14/2022
 ---
 # Azure Data Catalog developer samples
 

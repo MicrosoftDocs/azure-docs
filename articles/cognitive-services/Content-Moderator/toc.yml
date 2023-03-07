@@ -67,13 +67,13 @@
   - name: Content Moderator REST API
     href: api-reference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
+    href: /dotnet/api/overview/azure/content-moderator
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-contentmoderator/
   - name: Python
-    href: /python/api/overview/azure/cognitiveservices/contentmoderator
+    href: /python/api/overview/azure/content-moderator
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
@@ -86,13 +86,13 @@
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-  - name: Learn modules
+  - name: Training modules
     href: /training/browse/?terms=content+moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Azure Government and global Azure
     href: ../../azure-government/compare-azure-government-global-azure.md
   - name: Azure updates
-    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

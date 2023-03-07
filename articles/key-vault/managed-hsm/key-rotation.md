@@ -2,20 +2,22 @@
 title: Configure key auto-rotation in Azure Key Vault Managed HSM
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault Managed HSM
 services: key-vault
-author: dhruviyer
+author: msmbaldwin
 tags: 'rotation'
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 3/18/2021
-ms.author: dhruviyer
+ms.date: 11/04/2022
+ms.author: mbaldwin
 ---
-# Configure key auto-rotation in Azure Managed HSM (preview)
+# Configure key auto-rotation in Azure Managed HSM
 
 ## Overview
 
-Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual
-key and optionally rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
+> [!NOTE]
+> Key auto-rotation requires the [Azure CLI version 2.42.0 or above](/cli/azure/install-azure-cli).
+> 
+Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual key and optionally rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
 
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
@@ -124,14 +126,6 @@ Once a rotation policy is set for the key, you can also rotate the key on-demand
 ```azurecli
 az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 ```
-
-## Known issues
-
-While automatic key rotation is in preview, known issues will be tracked in this section.
-
-### `NoneType is not iterable` exception when Azure CLI receives an empty key rotation policy
-
-When no key rotation policy is configured for a key, or an existing key rotation policy is deleted, AzCLI may report this error. This will be patched in a future version of AzCLI.
 
 ## Resources
 

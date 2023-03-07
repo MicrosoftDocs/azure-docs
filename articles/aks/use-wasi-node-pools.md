@@ -1,7 +1,6 @@
 ---
-title: Create WebAssembly System Interface(WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly(WASM) workload (preview)
-description: Learn how to create a WebAssembly System Interface(WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly(WASM) workload on Kubernetes.
-services: container-service
+title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
+description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
 ms.topic: article
 ms.date: 10/19/2022
 ---
@@ -15,15 +14,25 @@ ms.date: 10/19/2022
 
 ## Before you begin
 
-WASM/WASI node pools are currently in preview.
+You must have the latest version of Azure CLI installed.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Install the aks-preview Azure CLI extension
 
-You must also have the latest version of the Azure CLI and `aks-preview` extension installed.
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-### Register the `WasmNodePoolPreview` preview feature
+To install the aks-preview extension, run the following command:
 
-To use the feature, you must also enable the `WasmNodePoolPreview` feature flag on your subscription.
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'WasmNodePoolPreview' feature flag
 
 Register the `WasmNodePoolPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -31,31 +40,19 @@ Register the `WasmNodePoolPreview` feature flag by using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WasmNodePoolPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.34 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Limitations
+## Limitations
 
 * Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.  
 * You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
@@ -170,9 +167,16 @@ spec:
     spec:
       runtimeClassName: wasmtime-slight-v1
       containers:
-        - name: testwasm
+        - name: hello-slight
           image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:latest
           command: ["/"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
@@ -255,9 +259,9 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [dockerhub-callout]: ../container-registry/buffer-gate-public-content.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-multiple-node-pools]: use-multiple-node-pools.md

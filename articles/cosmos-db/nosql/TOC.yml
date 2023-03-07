@@ -29,32 +29,34 @@
       href: quickstart-terraform.md
 - name: Tutorials
   items:
-    - name: Create and manage data
+    - name: Build web applications
       items:
-        - name: Build a console app
-          items:
-            - name: .NET
-              href: quickstart-dotnet.md
-            - name: Java
-              href: quickstart-java.md?tabs=sync
-            - name: Async Java
-              href: quickstart-java.md?tabs=async
-            - name: Node.js
-              href: quickstart-nodejs.md
-        - name: Build a web app
-          items:
-            - name: .NET
-              href: tutorial-dotnet-web-app.md
-            - name: Java
-              href: tutorial-java-web-app.md
-            - name: Node.js
-              href: tutorial-nodejs-web-app.md
+        - name: .NET
+          href: tutorial-dotnet-web-app.md
+        - name: Java
+          href: tutorial-java-web-app.md
+        - name: Node.js
+          href: tutorial-nodejs-web-app.md
+    - name: Build console applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-console-app.md
+        - name: Java
+          href: quickstart-java.md?tabs=sync
+        - name: Async Java
+          href: quickstart-java.md?tabs=async
+        - name: Node.js
+          href: quickstart-nodejs.md
     - name: Query data
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
-    - name: Create Jupyter notebooks
-      href: tutorial-create-notebook.md
+    - name: Jupyter notebooks
+      items:
+        - name: Create notebook
+          href: tutorial-create-notebook.md
+        - name: Import notebooks from GitHub
+          href: tutorial-import-notebooks.md
     - name: Deploy app on AKS cluster using Bicep
       href: tutorial-deploy-app-bicep-aks.md
 - name: Samples
@@ -142,7 +144,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Modeling and partitioning
       items:
         - name: Model document data
@@ -150,7 +152,7 @@
           href: modeling-data.md
         - name: Modeling and partitioning - a real-world example
           displayName: model, partition, example
-          href: how-to-model-partition-example.md
+          href: model-partition-example.md
         - name: Synthetic partition key
           href: synthetic-partition-keys.md
     - name: Partitioning and horizontal scaling
@@ -186,7 +188,11 @@
             - name: Autoscale FAQ
               href: ../autoscale-faq.yml
         - name: Serverless
-          href: ../serverless.md
+          items: 
+          - name: Serverless overview
+            href: ../serverless.md
+          - name: Serverless 1 TB
+            href: ../serverless-1TB.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless
@@ -354,8 +360,10 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
@@ -388,6 +396,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Jupyter notebooks
       items:
         - name: Overview
@@ -422,6 +432,18 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
@@ -509,12 +531,14 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
-                - name: Run the emulator on Docker for Linux
-                  href: ../linux-emulator.md
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                - name: Run in Docker for Linux
+                  href: ../docker-emulator-linux.md
+                - name: Run in Docker for Windows
+                  href: ../docker-emulator-windows.md
+                - name: Access the REST API
+                  href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -606,8 +630,8 @@
               href: performance-tips-java.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+        - name: Benchmarking framework
+          href: benchmarking-framework.md
         - name: Cost-effective reads and writes
           href: ../key-value-store-cost.md
     - name: Troubleshooting
@@ -690,7 +714,7 @@
         - name: Using Resource Manager templates
           href: manage-with-templates.md
           displayName: ARM
-        - name: Using Terraform 
+        - name: Using Terraform
           href: manage-with-terraform.md
           displayName: Terraform
         - name: Move between regions
@@ -727,19 +751,23 @@
           items:
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
-            - name: Configure customer-managed keys
+            - name: Self-serve minimum TLS version enforcement
+              href: ../self-serve-minimum-tls-enforcement.md
+            - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys with Azure managed HSM key vault
+              href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
+            - name: Cross-tenant CMK troubleshooting guide
+              href: ../troubleshoot-cmk.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
-        - name: Managed Identity
-          items:
-            - name: Use a managed identity
-              href: ../how-to-setup-managed-identity.md
-            - name: Use managed identities to access data
-              href: ../managed-identity-based-authentication.md
-              displayName: msi, managed service identity, aad, azure active directory, identity
+        - name: Use managed identities with Azure services
+          href: ../how-to-setup-managed-identity.md
+        - name: Use managed identities to access data
+          href: ../managed-identity-based-authentication.md
+          displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
             - name: Configure role-based access control to data
@@ -748,8 +776,8 @@
               href: ../how-to-restrict-user-data.md
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Use Azure Key Vault to store master keys
-          href: ../access-secrets-from-keyvault.md
+        - name: Use Azure Key Vault to store keys
+          href: ../store-credentials-key-vault.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md
     - name: Monitor
@@ -776,10 +804,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -816,8 +844,6 @@
           href: ../migration-choices.md
         - name: Using .NET bulk support
           href: tutorial-dotnet-bulk-import.md
-        - name: Using the Data Migration tool
-          href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim

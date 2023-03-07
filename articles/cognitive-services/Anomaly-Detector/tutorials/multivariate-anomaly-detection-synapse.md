@@ -261,7 +261,7 @@ If you have the need to run training code and inference code in separate noteboo
 
 ### About Anomaly Detector
 
-* Learn about [what is Multivariate Anomaly Detector](../overview-multivariate.md).
+* Learn about [what is Multivariate Anomaly Detector](../overview.md).
 * SynapseML documentation with [Multivariate Anomaly Detector feature](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
 * Recipe: [Cognitive Services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Multivariate%20Anomaly%20Detection/).
 * Need support? [Join the Anomaly Detector Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Ci-wb6-iNDoBoNxrnEk9VURjNXUU1VREpOT0U1UEdURkc0OVRLSkZBNC4u).

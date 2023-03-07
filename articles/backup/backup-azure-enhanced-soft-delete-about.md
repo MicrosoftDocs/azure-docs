@@ -3,10 +3,10 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/13/2022
-author: v-amallick
+ms.date: 03/06/2023
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Enhanced soft delete for Azure Backup (preview)
@@ -17,18 +17,6 @@ ms.author: v-amallick
 - Backup data is maliciously deleted by ransomware or bad actors.
 
 *Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
-
-In this article, you'll learn about:
-
->[!div class="checklist"]
->- What's soft delete?
->- What's enhanced soft delete?
->- Supported regions
->- Supported scenarios
->- States of soft delete setting
->- Soft delete retention
->- Soft deleted items reregistration
->- Pricing
 
 ## What's soft delete?
 
@@ -48,19 +36,20 @@ The key benefits of enhanced soft delete are:
 - **Configurable soft delete retention**: You can now specify the retention duration for deleted backup data, ranging from *14* to *180* days. By default, the retention duration is set to *14* days (as per basic soft delete) for the vault, and you can extend it as required.
 
   >[!Note]
-  >The soft delete doesn't cost you for first 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#states-of-soft-delete-settings).
+  >The soft delete doesn't cost you for 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#pricing).
 - **Re-registration of soft deleted items**: You can now register the items in soft deleted state with another vault. However, you can't register the same item with two vaults for active backups. 
 - **Soft delete and reregistration of backup containers**: You can now unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can now register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
 - **Soft delete across workloads**: Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
 ## Supported regions
 
-Enhanced soft delete is currently available in the following regions: West Central US, Australia East, and North Europe.
+Enhanced soft delete is currently available in the following regions: East US, West US, West US 2, West Central US, Japan East, Brazil South, Australia East, and North Europe.
 
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 - All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
+- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
 ## States of soft delete settings
 
@@ -97,6 +86,13 @@ For example, you've deleted backups for one of the instances in the vault that h
 - Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *46* days (*60* days of soft delete retention configured minus *14* days of default soft delete retention).
 
 - No charges for the last *6* days of soft delete retention.
+
+## Soft delete with multi-user authorization
+
+You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+
+>[!Note]
+>MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Next steps
 

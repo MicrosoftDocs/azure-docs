@@ -4,18 +4,18 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments?
+    - name: What is Azure Deployment Environments Preview?
       displayName: ADE Overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a Dev center
+    - name: Create and configure a dev center
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a Project
+    - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
-    - name: Create and access Environments
+    - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
   expanded: true
@@ -24,12 +24,14 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
+    - name: Components common to ADE and Dev Box
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure a catalog
+    - name: Add and configure a catalog
       href: how-to-configure-catalog.md
-    - name: Configure a catalog item
+    - name: Add and configure a catalog item
       href: configure-catalog-item.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
@@ -41,6 +43,10 @@ items:
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
+    - name: Manage environments as a developer
+      href: how-to-manage-environments.md
+    - name: Create environments with the CLI
+      href: how-to-create-access-environments.md  
 - name: Reference
   items:
     - name: REST API
@@ -56,4 +62,4 @@ items:
     - name: Report a problem
       href: https://aka.ms/deployment-environments/reportproblem
     - name: Suggest a feature
-      href: https://aka.ms/deployment-environments/suggestfeature
+      href: https://aka.ms/deployment-environments/suggestfeature 

@@ -89,7 +89,7 @@ func main() {
 	}
 
 	// Establish a connection to the Key Vault client
-	client := azsecrets.NewClient(vaultURI, cred, nil)
+	client, err := azsecrets.NewClient(vaultURI, cred, nil)
 
 	// Create a secret
 	params := azsecrets.SetSecretParameters{Value: &mySecretValue}

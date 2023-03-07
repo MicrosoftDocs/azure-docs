@@ -7,18 +7,19 @@ author: georgewallace
 manager: gwallace
 editor: mlearned
 ms.assetid: 
-ms.service: az-devops-project
+ms.service: azure-devops
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload:
 ms.date: 03/24/2020
 ms.author: gwallace
 #Customer intent: As a developer/devops resource, I want to quickly get started with CI/CD in Azure so I can automate the deployment of my application to an Azure service.
+ms.subservice: azure-devops-starter
 ---
 # Overview of DevOps Starter
 
 >[!IMPORTANT] 
->DevOps Starter will be retired on March 31, 2023. [Learn more](/azure/devops-project/retirement-and-migration).
+>DevOps Starter will be retired on March 31, 2023. [Learn more](./retirement-and-migration.md).
 
  DevOps Starter makes it easy to get started on Azure using either GitHub actions or Azure DevOps. It  helps you launch your favorite app on the Azure service of your choice in just a few quick steps from the Azure portal. 
 

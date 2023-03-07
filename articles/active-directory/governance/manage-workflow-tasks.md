@@ -1,5 +1,5 @@
 ---
-title: Manage workflow versions - Azure Active Directory
+title: Manage workflow versions
 description: This article guides a user on managing workflow versions with Lifecycle Workflows
 author: OWinfreyATL
 ms.author: owinfrey
@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 04/06/2022
+ms.date: 01/31/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---

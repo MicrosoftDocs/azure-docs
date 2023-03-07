@@ -9,7 +9,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 02/17/2023
 ---
 
 # Set up an indexer connection to Azure SQL Managed Instance using a managed identity
@@ -31,7 +31,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
   To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
 
-* [Configure public endpoint and NSG in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search.
+* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. If your Azure SQL Managed Instance is configured for private connections, [create a shared private link](search-indexer-howto-access-private.md#create-a-shared-private-link-for-a-sql-managed-instance) in Cognitive Search to allow the connection.
 
 ## 1 - Assign permissions to read the database
 

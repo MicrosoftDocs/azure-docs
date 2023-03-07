@@ -6,12 +6,12 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 01/25/2023
 ---
 
 # Dapr integration with Azure Container Apps
 
-The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable features that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once Dapr is enabled for a container app, a secondary process will be created alongside your application code that will enable communication with Dapr via HTTP or gRPC.
+The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable features that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once Dapr is enabled for a container app, a secondary process is created alongside your application code that enables communication with Dapr via HTTP or gRPC.
 
 Dapr's APIs are built on best practice industry standards, that:
 
@@ -40,6 +40,9 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 
+> [!NOTE]
+> The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see limitations](#unsupported-dapr-capabilities).
+
 ## Dapr concepts overview
 
 The following example based on the Pub/sub API is used to illustrate core concepts related to Dapr in Azure Container Apps.
@@ -65,7 +68,7 @@ The table below outlines the currently supported list of Dapr sidecar configurat
 | Container Apps CLI        | Template field            | Description                                                                                                                  |
 | ------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `--enable-dapr`           | `dapr.enabled`            | Enables Dapr on the container app.                                                                                           |
-| `--dapr-app-port`         | `dapr.appPort`            | The port your application is listening on which will be used by Dapr for communicating to your application                   |
+| `--dapr-app-port`         | `dapr.appPort`            | The port your application is listening on which is used by Dapr for communicating to your application                   |
 | `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`.                  |
 | `--dapr-app-id`           | `dapr.appId`              | A unique Dapr identifier for your container app used for service discovery, state encapsulation and the pub/sub consumer ID. |
 | `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default is 4 MB.                    |
@@ -99,7 +102,7 @@ When using an IaC template, specify the following arguments in the `properties.c
 
 ---
 
-The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple revision mode, changes to these settings won't create a new revision. Instead, all existing revisions will be restarted to ensure they're configured with the most up-to-date values.
+The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple-revision mode, changes to these settings won't create a new revision. Instead, all existing revisions are restarted to ensure they're configured with the most up-to-date values.
 
 ## Dapr components
 
@@ -145,7 +148,7 @@ metadata:
 
 ### Component scopes
 
-By default, all Dapr-enabled container apps within the same environment will load the full set of deployed components. To ensure components are loaded at runtime by only the appropriate container apps, application scopes should be used. In the example below, the component will only be loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`:
+By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure components are loaded at runtime by only the appropriate container apps, application scopes should be used. In the example below, the component is only loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`:
 
 > [!NOTE]
 > Dapr component scopes correspond to the Dapr application ID of a container app, not the container app name.
@@ -175,6 +178,9 @@ There are a few approaches supported in container apps to securely establish con
 
 For Azure-hosted services, Dapr can use the managed identity of the scoped container apps to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
+> [!NOTE]
+> The `azureClientId` metadata field (the client ID of the managed identity) is **required** for any component authenticating with user-assigned managed identity.
+
 #### Using a Dapr secret store component reference
 
 When you create Dapr components for non-AD enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
@@ -189,7 +195,7 @@ When creating a secret store component in container apps, you can provide sensit
 - For an **Azure Key Vault secret store**, use managed identity to establish the connection.
 - For **non-Azure secret stores**, use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
-The following component showcases the simplest possible secret store configuration. This example publisher and subscriber applications configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
+The following component showcases the simplest possible secret store configuration. In this example, publisher and subscriber applications are configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
 
 ```yaml
 componentType: secretstores.azure.keyvault
@@ -199,7 +205,7 @@ metadata:
     value: [your_keyvault_name]
   - name: azureEnvironment
     value: "AZUREPUBLICCLOUD"
-  - name: azureClientId
+  - name: azureClientId # Only required for authenticating user-assigned managed identity
     value: [your_managed_identity_client_id]
 scopes:
   - publisher-app
@@ -207,7 +213,7 @@ scopes:
 ```
 
 > [!NOTE]
-> Kubernetes secrets, Local environment variables and Local file Dapr secret stores are not supported in Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, container apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
+> Kubernetes secrets, Local environment variables and Local file Dapr secret stores aren't supported in Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, container apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
 
 #### Using Platform-managed Kubernetes secrets
 
@@ -223,7 +229,7 @@ metadata:
     value: "AZUREPUBLICCLOUD"
   - name: azureTenantId
     value: "[your_tenant_id]"
-  - name: azureClientId
+  - name: azureClientId 
     value: "[your_client_id]"
   - name: azureClientSecret
     secretRef: azClientSecret
@@ -240,7 +246,7 @@ scopes:
 Once you've created a Dapr secret store using one of the above approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified above, where the `sb-root-connectionstring` is stored.
 
 ```yaml
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -263,7 +269,7 @@ az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group 
 
 ```yaml
 # pubsub.yaml for Azure Service Bus component
-componentType: pubsub.azure.servicebus
+componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
@@ -282,7 +288,7 @@ This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr 
 resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
-    componentType: 'pubsub.azure.servicebus'
+    componentType: 'pubsub.azure.servicebus.queue'
     version: 'v1'
     secretStoreComponent: 'my-secret-store'
     metadata: [
@@ -310,7 +316,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
       "type": "daprComponents",
       "name": "dapr-pubsub",
       "properties": {
-        "componentType": "pubsub.azure.servicebus",
+        "componentType": "pubsub.azure.servicebus.queue",
         "version": "v1",
         "secretScoreComponent": "my-secret-store",
         "metadata": [
@@ -328,6 +334,10 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ---
 
+## Release cadence for Dapr
+
+The latest version of Dapr in Azure Container Apps will be available within six weeks after [the Dapr OSS release][dapr-release].
+
 ## Limitations
 
 ### Unsupported Dapr capabilities
@@ -336,10 +346,11 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
+- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. If available to use, they are on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components aren't covered by customer support.
 
 ### Known limitations
 
-- **Actor reminders**: Require a minReplicas of 1+ to ensure reminders will always be active and fire correctly.
+- **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
 
 ## Next Steps
 
@@ -367,3 +378,4 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions

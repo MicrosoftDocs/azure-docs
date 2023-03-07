@@ -42,7 +42,7 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 
 1. Create data services.
 
-   For example, [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md).
+   For example, [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md).
 
 1. Connect with Azure Data Studio.
 
@@ -88,12 +88,12 @@ You can deploy Azure Arc-enabled data services on various types of Kubernetes cl
 - Google Kubernetes Engine (GKE)
 - Open source, upstream Kubernetes (typically deployed by using kubeadm)
 - OpenShift Container Platform (OCP)
+- K3s
 - Additional [partner-validated Kubernetes distributions](./validation-program.md)
 
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.21. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
 > * The minimum supported version of OCP is 4.8.
->     * OCP 4.11 is not supported.
 > * If you're using Azure Kubernetes Service, your cluster's worker node virtual machine (VM) size should be at least Standard_D8s_v3 and use Premium Disks. 
 > * The cluster should not span multiple availability zones. 
 > * For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).

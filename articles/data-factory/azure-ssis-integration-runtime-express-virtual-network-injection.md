@@ -4,15 +4,21 @@ description: Learn how to configure a virtual network for express injection of A
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 12/16/2022
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Express virtual network injection method (Preview)
+# Express virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+> [!NOTE]
+> Express virtual network injection feature is not supported for SSIS integration runtime in below regions yet:
+>
+>- Jio India West or Switzerland West
+>- US Gov Texas or US Gov Arizona
+>- China North 2 or China East 2
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the express method, you need to configure your virtual network to meet these requirements: 
 

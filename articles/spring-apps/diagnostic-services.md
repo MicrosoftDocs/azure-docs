@@ -22,7 +22,7 @@ This article shows you how to analyze diagnostics data in Azure Spring Apps.
 
 Using the diagnostics functionality of Azure Spring Apps, you can analyze logs and metrics with any of the following services:
 
-* Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
+* Use Azure Log Analytics. There is a delay when exporting logs to Log Analytics.
 * Save logs to a storage account for auditing or manual inspection. You can specify the retention time (in days).
 * Stream logs to your event hub for ingestion by a third-party service or custom analytics solution.
 
@@ -33,12 +33,12 @@ Choose the log category and metric category you want to monitor.
 
 ## Logs
 
-|Log | Description |
-|----|----|
-| **ApplicationConsole** | Console log of all customer applications. |
-| **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
-| **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs. |
-| **BuildLogs** | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage. |
+| Log                    | Description                                                                                                                                                                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ApplicationConsole** | Console log of all customer applications.                                                                                                                                                                                                                                                                   |
+| **SystemLogs**         | The available `LogType` values are `ConfigServer`(Basic/Standard tier only), `ServiceRegistry`(all tiers), `ApiPortal`(Enterprise tier only), `ApplicationConfigurationService`(Enterprise tier only), `SpringCloudGateway` (Enterprise tier only), and `SpringCloudGatewayOperator` (Enterprise tier only) |
+| **IngressLogs**        | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs.                                                                                                                                                                                      |
+| **BuildLogs**          | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage.                                                                                                                                                                                               |
 
 ## Metrics
 
@@ -225,6 +225,59 @@ To review log entries for a specific app in a specific build stage, run the foll
 AppPlatformBuildLogs
 | where TimeGenerated > ago(1h) and PodName contains "<app-name>" and ContainerName == "<build-stage>"
 | sort by TimeGenerated
+```
+
+### Show VMware Spring Cloud Gateway logs in Enterprise tier
+
+To review log entries for VMware Spring Cloud Gateway logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "SpringCloudGateway"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+Another component, named Spring Cloud Gateway Operator, controls the lifecycle of Spring Cloud Gateway and routes. If you encounter any issues with the route not taking effect, check the logs for this component. To review log entries for VMware Spring Cloud Gateway Operator in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "SpringCloudGatewayOperator"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show Application Configuration Service for Tanzu logs in Enterprise tier
+
+To review log entries for Application Configuration Service for Tanzu logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ApplicationConfigurationService"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show Tanzu Service Registry logs in Enterprise tier
+
+To review log entries for Tanzu Service Registry logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ServiceRegistry"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
+```
+
+### Show API portal for VMware Tanzu logs in Enterprise tier
+
+To review log entries for API portal for VMware Tanzu logs in Enterprise tier, run the following query:
+
+```sql
+AppPlatformSystemLogs 
+| where LogType == "ApiPortal"
+| project TimeGenerated , LogType, Level , ServiceName , Thread , Stack , Log , _ResourceId 
+| limit 100
 ```
 
 ### Learn more about querying application logs

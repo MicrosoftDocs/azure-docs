@@ -1,22 +1,17 @@
 ---
-title: Subnet extension in Azure | Microsoft Docs
+title: Subnet extension in Azure
 description: Learn about subnet extension in Azure.
 services: virtual-network
-documentationcenter: na
-author: anupam-p
+author: asudbring
 manager: narayan
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
-ms.author: anupand
-
+ms.author: allensu
 ---
+
 # Subnet extension
 Workload migration to the public cloud requires careful planning and coordination. One of the key considerations can be the ability to retain your IP addresses. Which can be important especially if your applications have IP address dependency or you have compliance requirements to use specific IP addresses. Azure Virtual Network solves this problem for you by allowing you to create VNet and Subnets using an IP address range of your choice.
 

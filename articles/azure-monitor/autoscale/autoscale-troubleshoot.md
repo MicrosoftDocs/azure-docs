@@ -1,10 +1,12 @@
 ---
 title: Troubleshooting Azure Monitor autoscale
 description: Tracking down problems with Azure Monitor autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.reviewer: riroloff
+ms.reviewer: akkumari
 ---
 
 

@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2.
 author: PhaniShekhar
 ms.author: phmantri
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -133,7 +134,7 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).
+* Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).
 * For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
 * [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).

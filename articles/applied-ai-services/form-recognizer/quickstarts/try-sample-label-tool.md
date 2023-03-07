@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
@@ -20,11 +19,11 @@ recommendations: false
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
@@ -43,7 +42,7 @@ You'll need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
@@ -65,11 +64,11 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page, select **Use prebuilt model to get data**.
+1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
-1. Select the **Form Type**  to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown menu.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -86,7 +85,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot of the 'select-form-type' dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -119,7 +118,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown menu.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -164,8 +163,6 @@ Train a custom model to analyze and extract data from forms and documents specif
     1. Set the **Max Age** to 120 seconds or any acceptable value.
 
     1. Select the save button at the top of the page to save the changes.
-
-    CORS should now be configured to use the storage account from Form Recognizer Studio.
 
 ### Use the Sample Labeling tool
 
@@ -233,7 +230,7 @@ The labeling tool will also show which tables have been automatically extracted.
 
 ##### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we'll add another field.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the Sample Label data set includes already labeled fields; we'll add another field.
 
 Use the tags editor pane to create a new tag you'd like to identify:
 
@@ -245,7 +242,7 @@ Use the tags editor pane to create a new tag you'd like to identify:
 
 1. In the main editor, select the total value from the highlighted text elements.
 
-1. Select the Total tag to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+1. Select the Total tag to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane. Follow these steps to label all five forms in the sample dataset:
 
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms:
@@ -261,8 +258,6 @@ Use the tags editor pane to create a new tag you'd like to identify:
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
 
-1. Continue to follow the steps above to label all five forms in the sample dataset.
-
   :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Label the samples.":::
 
 #### Train a custom model
@@ -271,14 +266,14 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./get-started-sdks-rest-api.md?pivots=programming-language-rest-api) or [client library](./get-started-sdks-rest-api.md).
 
-* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
+* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling more forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).
 
     :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
 
 #### Analyze a custom form
 
-1. Select the **Analyze** (light bulb) icon on the left to test your model.
+1. Select the **Analyze** icon from the navigation bar to test your model.
 
 1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder.
 

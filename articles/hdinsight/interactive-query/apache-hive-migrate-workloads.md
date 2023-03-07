@@ -166,4 +166,3 @@ Refer to [HDInsight 4.0 Announcement](../hdinsight-version-release.md) for other
 
 * [HDInsight 4.0 Announcement](../hdinsight-version-release.md)
 * [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
-* [Hive 3 ACID Tables](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)

@@ -57,7 +57,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | HTTPS port | 443 (default) |
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
-    | Resource | If you select **In my directory**, specify the ILB resource in your subscription. |
+    | Resource | If you select **In my directory**, specify the Private Link Service resource for the ILB in your subscription. |
     | ID/alias | If you select **By ID or alias**, specify the resource ID of the Private Link Service resource you want to enable private link to. |
     | Region | Select the region that is the same or closest to your origin. |
     | Request message | Customize message or choose the default. |

@@ -5,6 +5,8 @@ manager: evansma
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Cleanup script on a VMM server

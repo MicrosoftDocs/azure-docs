@@ -1,22 +1,22 @@
 ---
 title: 'Share outside your org (Azure portal) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share in this quickstart.
-author: joannapea
-ms.author: joanpo
+author: sidontha 
+ms.author: sidontha
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 01/03/2022
+ms.date: 11/30/2022
 ms.custom: mode-ui
 ---
 # Quickstart: Share data using Azure Data Share in the Azure portal
 
-In this quickstart, you will learn how to set up a new Azure Data Share to share data from storage account using the Azure portal.
+In this quickstart, you'll learn how to set up a new Azure Data Share to share data from storage account using the Azure portal.
 
 ## Prerequisites
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Your recipient's Azure login e-mail address (using their e-mail alias won't work).
-* If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
+* Your recipient's Azure sign in e-mail address (using their e-mail alias won't work).
+* If the source Azure data store is in a different Azure subscription than the one you'll use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
 ### Share from a storage account
 
@@ -45,7 +45,7 @@ Create an Azure Data Share resource in an Azure resource group.
    | Location | *East US 2* | Select a region for your data share account.
    | Name | *datashareaccount* | Specify a name for your data share account. |
 
-1. Select **Review + create**, then **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less.
+1. Select **Review + create**, then **Create** to create your data share account. Creating a new data share account typically takes about 2 minutes or less.
 
 1. When the deployment is complete, select **Go to resource**.
 
@@ -69,9 +69,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
    ![Add Datasets to your share](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. 
+1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. 
 
-   ![AddDatasets](./media/add-datasets-updated.png "Add Datasets")    
+   ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 
 1. Navigate to the object you would like to share and select 'Add Datasets'. 
 
@@ -97,7 +97,7 @@ Your Azure Data Share has now been created and the recipient of your Data Share 
 
 ## Clean up resources
 
-When the resource is no longer needed, go to the **Data Share Overview** page and select **Delete** to remove it.
+When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
 ## Next steps
 

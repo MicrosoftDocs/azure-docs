@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 10/17/2022
 
 ms.author: mimart
 author: msmimart
@@ -29,7 +29,7 @@ This article describes how to set up [SAML/WS-Fed IdP federation](direct-federat
 
 Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. To illustrate the SAML configuration steps, this section shows how to set up AD FS for SAML 2.0.
 
-To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
+To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
 
 |Attribute  |Value  |
 |---------|---------|
@@ -60,7 +60,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 1. In the **Add a Claim Description** window, specify the following values:
 
    - **Display Name**: Persistent Identifier
-   - **Claim identifier**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` 
+   - **Claim identifier**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
    - Select the check box for **Publish this claim description in federation metadata as a claim type that this federation service can accept**.
    - Select the check box for **Publish this claim description in federation metadata as a claim type that this federation service can send**.
 
@@ -79,7 +79,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 9. In the **Identifiers** tab, enter ``https://login.microsoftonline.com/<tenant ID>/`` in the **Relying party identifier** text box using the tenant ID of the service partner’s Azure AD tenant. Select **Add**.
 
 > [!NOTE]
-> Be sure to include a slash (/) after the tenant ID. For example, https://login.microsoftonline.com/094a6247-27d4-489f-a23b-b9672900084d/.
+> Be sure to include a slash (/) after the tenant ID, for example: `https://login.microsoftonline.com/00000000-27d4-489f-a23b-00000000084d/`.
 
 10. Select **OK**.
 
@@ -150,7 +150,7 @@ An AD FS server must already be set up and functioning before you begin this pro
       - `https://login.microsoftonline.com/<tenant ID>/` 
 
    > [!NOTE]
-   > Be sure to include a slash (/) after the tenant ID, for example: https://login.microsoftonline.com/094a6247-27d4-489f-a23b-b9672900084d/.
+   > Be sure to include a slash (/) after the tenant ID, for example: `https://login.microsoftonline.com/00000000-27d4-489f-a23b-00000000084d/`.
 
 11. Select **Next**.
 12. In the **Choose Access Control Policy** page, select a policy, and then select **Next**.

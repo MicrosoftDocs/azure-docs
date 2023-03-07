@@ -14,6 +14,8 @@ ms.topic: how-to
 
 Team members must have access to a specific Microsoft Dev Box Preview project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory Users or Groups at the project level. 
 
+[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
+
 A DevCenter Dev Box User can:
 
 - View pools within a project.
@@ -34,25 +36,17 @@ A DevCenter Dev Box User can:
 
 1. Select **Access Control (IAM)** from the left menu.
  
-   :::image type="content" source="./media/how-to-dev-box-user/access-control-tab.png " alt-text="Screenshot showing the Project Access control page with the Access Control link highlighted.":::
-
 1. Select **Add** > **Add role assignment**.
- 
-   :::image type="content" source="./media/how-to-dev-box-user/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
 
-1. On the Add role assignment page, on the Role tab, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
- 
-   :::image type="content" source="./media/how-to-dev-box-user/dev-box-user-role.png" alt-text="Screenshot showing the search box.":::
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **DevCenter Dev Box User**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
-1. On the Members tab, select **+ Select Members**.
- 
-   :::image type="content" source="./media/how-to-dev-box-user/dev-box-user-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
-
-1. In **Select members**, select the Active Directory Users or Groups you want to add, and then select **Select**.
- 
-   :::image type="content" source="./media/how-to-dev-box-user/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
-
-1. On the Members tab, select **Review + assign**.
+    :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
 The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 

@@ -3,8 +3,8 @@ title: Troubleshoot Azure VM Image Builder
 description: This article helps you troubleshoot common problems and errors you might encounter when you're using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 10/02/2020
+ms.reviewer: erd
+ms.date: 02/10/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -87,6 +87,38 @@ The template already exists.
 #### Solution
 
 If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
+
+### Reassigning MSI on image templates
+
+#### Error
+
+```text
+The assigned managed identity cannot be used. Please remove the existing one and re-assign a new identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts.
+```
+
+#### Cause
+
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+
+1. The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](/azure/virtual-machines/linux/image-builder-json?#properties-stagingresourcegroup) scenario)
+1. The identity is deleted and attempted to recreate the identity with the same name, but without re-assigning the MSI. Though the resource ids are the same, the underlying service principal has been changed.
+
+
+#### Solution
+
+Use Azure CLI to reset identity on the image template. Ensure you [update](/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
+
+Remove the managed identity from the target image builder template
+
+```azurecli-interactive
+az image builder identity remove -g <template resource group> -n <template name> --user-assigned <identity resource id>
+```
+
+Re-assign identity to the target image builder template
+
+```azurecli-interactive
+az image builder identity assign -g <template rg> -n <template name> --user-assigned <identity resource id>
+```
 
 ### The resource operation finished with a terminal provisioning state of "Failed"
 
@@ -200,15 +232,15 @@ Then, to implement this solution using CLI, use the following command:
 az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
 ```
 
-To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current).
+To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
 
-For [Step 1: Identify the needed scope](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-1-identify-the-needed-scope): The needed scope is your resource group. 
+For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group. 
 
-For [Step 3: Select the appropriate role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-3-select-the-appropriate-role): The role is Contributor. 
+For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor. 
 
-For [Step 4: Select who needs access](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder” 
+For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.md#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder” 
 
-Then proceed to [Step 6: Assign role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current#step-6-assign-role) to assign the role.
+Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.md#step-6-assign-role) to assign the role.
 
 ## Troubleshoot build failures
 

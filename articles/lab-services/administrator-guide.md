@@ -224,6 +224,8 @@ When you're assigning roles, it helps to follow these tips:
 - Ordinarily, only administrators should be members of a lab plan Owner or Contributor role. The lab plan might have more than one Owner or Contributor.
 - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
 - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab.
+- 
+For more detail about the permissions assigned to each role, see [Azure built-in roles](../role-based-access-control/built-in-roles.md#lab-assistant)
 
 ## Content filtering
 
@@ -240,7 +242,7 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
 
 With Lab Services, if you create a lab with a template, the lab VMs will have the same SID. Even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 

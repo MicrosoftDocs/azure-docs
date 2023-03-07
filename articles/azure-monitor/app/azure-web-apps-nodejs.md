@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 11/15/2022
 ms.devlang: javascript
 ms.custom: "devx-track-js"
 ms.reviewer: abinetabate
@@ -151,4 +151,4 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
-* [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
+* [Availability overview](availability-overview.md)

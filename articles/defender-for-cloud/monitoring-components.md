@@ -5,14 +5,14 @@ author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/12/2022
+ms.date: 11/27/2022
 ---
 
 # How does Defender for Cloud collect data?
 
-Defender for Cloud collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) machines to monitor for security vulnerabilities and threats. Some Defender plans require monitoring components to collect data from your workloads.
+Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual Machine Scale Sets, IaaS containers, and non-Azure (including on-premises) machines to monitor for security vulnerabilities and threats. Some Defender plans require monitoring components to collect data from your workloads.
 
-Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources such as VMs, virtual machine scale sets, IaaS containers, and non-Azure computers. 
+Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources such as VMs, Virtual Machine Scale Sets, IaaS containers, and non-Azure computers. 
 
 You can benefit from Microsoft Defender for Cloud even if you don’t provision agents. However, you'll have limited security and the capabilities listed above aren't supported.  
 
@@ -25,7 +25,7 @@ Data is collected using:
 
 ## Why use Defender for Cloud to deploy monitoring components?
 
-The security of your workloads depends on the data that the monitoring components collect. The components ensure security coverage for all supported resources.
+Visibility into the security of your workloads depends on the data that the monitoring components collect. The components ensure security coverage for all supported resources.
 
 To save you the process of manually installing the extensions, Defender for Cloud reduces management overhead by installing all required extensions on existing and new machines. Defender for Cloud assigns the appropriate **Deploy if not exists** policy to the workloads in the subscription. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
@@ -61,14 +61,23 @@ Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-de
 
 ### Log Analytics agent
 
-| Aspect                                               | Azure virtual machines                                                                                                                                                              | Azure Arc-enabled machines                                                                                                                                                         |
-|------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                                       | Generally available (GA)                                                                                                                                                            | Preview                                                                                                                                                                            |
-| Relevant Defender plan:                              | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md)                                            | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md)                                           |
-| Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin)                        | [Owner](../role-based-access-control/built-in-roles.md#owner)                                                                                                                      |
-| Supported destinations:                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines                                                                                                  | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines                                                                                             |
-| Policy-based:                                        | :::image type="icon" source="./media/icons/no-icon.png"::: No                                                                                                                       | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                                                                                                                    |
-| Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
+| Aspect | Azure virtual machines | Azure Arc-enabled machines |
+|---|:--|:--|
+| Release state: | Generally available (GA) | Generally available (GA) |
+| Relevant Defender plan: | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
+| Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines |
+| Policy-based: | :::image type="icon" source="./media/icons/no-icon.png"::: No | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
+
+#### Supported operating systems for the Log Analytics agent
+
+Defender for Cloud depends on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+
+Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent)
 
 <a name="preexisting"></a>
 
@@ -89,7 +98,7 @@ The following use cases explain how deployment of the Log Analytics agent works 
 - **A pre-existing VM extension is present**:
     - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud doesn't override existing connections to user workspaces. Defender for Cloud will store security data from the VM in the workspace already connected, if the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
     - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Microsoft Defender for Cloud](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection.
-    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
+    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported.
 
 Learn more about [working with the Log Analytics agent](working-with-log-analytics-agent.md).
 
@@ -144,6 +153,8 @@ By default, the required extensions are enabled when you enable Defender for Con
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 
+Learn more about the [roles used to provision Defender for Containers extensions](permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
+
 ## Troubleshooting
 
 - To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](troubleshooting-guide.md#mon-network-req).
@@ -156,4 +167,4 @@ This page explained what monitoring components are and how to enable them.
 Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
-- Protecting workloads with [enhanced security features](enhanced-security-features-overview.md)
+- Protecting workloads with [the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads)

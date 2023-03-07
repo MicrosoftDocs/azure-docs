@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: landing-page
 ms.workload: identity
-ms.date: 06/23/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested

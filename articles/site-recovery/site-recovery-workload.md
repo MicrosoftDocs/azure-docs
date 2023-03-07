@@ -2,7 +2,10 @@
 title: About disaster recovery for on-premises apps with Azure Site Recovery
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service.
 ms.topic: conceptual
+ms.service: site-recovery
 ms.date: 03/18/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About disaster recovery for on-premises apps

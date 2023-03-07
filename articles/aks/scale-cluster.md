@@ -1,7 +1,6 @@
 ---
 title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
 ms.date: 06/29/2022
 ---

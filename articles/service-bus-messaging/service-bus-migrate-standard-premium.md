@@ -42,7 +42,7 @@ Some conditions are associated with the migration process. Familiarize yourself 
 
 To migrate your Service Bus standard namespace to premium by using the Azure CLI or PowerShell tool, follow these steps.
 
-1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select **premium** for the **serviceBusSku** parameter.
+1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal). Be sure to select **premium** for the **serviceBusSku** parameter.
 
 1. Set the following environment variables to simplify the migration commands.
 
@@ -145,6 +145,8 @@ After the migration is committed, the connection string that pointed to the stan
 
 The sender and receiver applications will disconnect from the standard Namespace and reconnect to the premium namespace automatically.
 
+If your are using the ARM Id for configuration rather a connection string (e.g. as a destination for an Event Grid Subscription), then you need to update the ARM Id to be that of the Premium namespace.
+
 ### What do I do after the standard to premium migration is complete?
 
 The standard to premium migration ensures that the entity metadata such as topics, subscriptions, and filters are copied from the standard namespace to the premium namespace. The message data that was committed to the standard namespace isn't copied from the standard namespace to the premium namespace.
@@ -217,4 +219,4 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 ## Next steps
 
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
-* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters---premium-tier).

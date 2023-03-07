@@ -15,9 +15,9 @@ items:
     - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
     - name: Create an account - .NET SDK
-      href: create-azure-purview-dotnet.md
+      href: create-microsoft-purview-dotnet.md
     - name: Create an account - Python
-      href: create-azure-purview-python.md
+      href: create-microsoft-purview-python.md
     - name: Create an account - Bicep
       href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
@@ -30,6 +30,10 @@ items:
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
+  - name: Data Policy
+    items:
+    - name: Create a simple DevOps policy
+      href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -100,16 +104,18 @@ items:
     href: catalog-permissions.md
   - name: Data map
     items:
+    - name: Classification
+      href: concept-classification.md
+    - name: Data lineage
+      href: concept-data-lineage.md
     - name: Elastic data map
       href: concept-elastic-data-map.md
+    - name: Metamodel
+      href: concept-metamodel.md
     - name: Resource sets
       href: concept-resource-sets.md
     - name: Scans and ingestion
       href: concept-scans-and-ingestion.md
-    - name: Data lineage
-      href: concept-data-lineage.md
-    - name: Classification
-      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Business glossary
@@ -118,14 +124,20 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
-  - name: Data Sharing
+  - name: Data sharing
     href: concept-data-share.md
   - name: Data policies
     items:
     - name: Data owner policies
       href: concept-policies-data-owner.md
+    - name: DevOps policies
+      href: concept-policies-devops.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
+    - name: Impact of deleting Microsoft Purview account on access policies
+      href: concept-policies-purview-account-delete.md
+    - name: Update on Data owner policies actions
+      href: concept-policies-data-owner-action-update.md
   - name: Data Estate Insights
     items:
     - name: Data Estate Insights
@@ -134,10 +146,6 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
-  - name: Master Data Management
-    items:
-    - name: Profisee
-      href: how-to-deploy-profisee-purview-integration.md
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
@@ -150,7 +158,13 @@ items:
       href: manage-credentials.md
       displayName: Create and manage credentials
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+      items:
+        - name: Create and manage a self-hosted integration runtime
+          href: manage-integration-runtimes.md
+        - name: Self-hosted integration runtime auto-update and expiration
+          href: self-hosted-integration-runtime-version.md
+    - name: Manage assets with Metamodel
+      href: how-to-metamodel.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
     - name: Request access to data asset
@@ -161,36 +175,30 @@ items:
       href: register-scan-azure-multiple-sources.md
     - name: Azure Synapse Analytics workspaces
       href: register-scan-synapse-workspace.md
+    - name: Azure Arc-enabled SQL Server
+      href: register-scan-azure-arc-enabled-sql-server.md
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan Azure Blob Storage
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
-      displayName: Register and scan Azure Files
     - name: Azure Cosmos DB
       href: register-scan-azure-cosmos-database.md
-      displayName: Register and scan Azure Cosmos DB
-    - name: Azure Database for MySQL
-      href: register-scan-azure-mysql-database.md
-      displayName: Register and scan an Azure database for MySQL
-    - name: Azure Database for PostgreSQL
-      href: register-scan-azure-postgresql.md
-      displayName: Register and scan an Azure database for PostgreSQL
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
-      displayName: Register and scan Azure Data Explorer Kusto
     - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
-      displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
-      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+    - name: Azure Database for MySQL
+      href: register-scan-azure-mysql-database.md
+    - name: Azure Database for PostgreSQL
+      href: register-scan-azure-postgresql.md
+    - name: Azure Databricks
+      href: register-scan-azure-databricks.md
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
-      displayName: Register and scan Azure SQL DB
     - name: Azure SQL Managed Instance
       href: register-scan-azure-sql-managed-instance.md
-      displayName: Register and scan Azure SQL DB Managed Instance
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
@@ -245,12 +253,14 @@ items:
       href: register-scan-amazon-s3.md
   - name: Scan
     items:
+    - name: Scan a registered source
+      href: scan-data-sources.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Monitor scan runs
-      href: how-to-monitor-scan-runs.md
+    - name: Monitor data map population
+      href: how-to-monitor-data-map-population.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Data catalog
@@ -274,7 +284,7 @@ items:
     - name: Azure Data Factory lineage
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
-      href: how-to-link-azure-data-share.md
+      href: how-to-lineage-purview-data-sharing.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
     - name: Power BI lineage
@@ -285,16 +295,24 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
+    - name: Create & manage glossaries
+      href: how-to-create-manage-glossary.md
     - name: Create & manage terms
-      href: how-to-create-import-export-glossary.md
+      href: how-to-create-manage-glossary-term.md
+    - name: Import & export terms
+      href: how-to-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
   - name: Classify
     items:
+    - name: Automatically apply classifications
+      href: apply-classifications.md
+    - name: Manually apply classifications
+      href: manually-apply-classifications.md
+    - name: System classifications
+      href: supported-classifications.md
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
   - name: Label
     items:
     - name: Labeling in Microsoft Purview
@@ -313,8 +331,10 @@ items:
       href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
-    - name: Disable or enable Data Estate Insights
-      href: enable-disable-data-estate-insights.md
+    - name: Disable Data Estate Insights
+      href: disable-data-estate-insights.md
+    - name: Schedule report refresh
+      href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
@@ -331,6 +351,8 @@ items:
       items:
       - name: Private endpoints overview
         href: catalog-private-link.md
+      - name: Network firewall settings
+        href: catalog-firewall.md        
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
       - name: Isolate network for account and portal
@@ -349,44 +371,74 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Register data sources for Data Use Management
+    - name: Register data sources for "Data use management"
       href: how-to-enable-data-use-management.md
-    - name: Author and publish data owner access policies
-      href: how-to-policies-data-owner-authoring-generic.md
-    - name: Data owner policies - Azure Storage
-      href: how-to-policies-data-owner-storage.md
-    - name: Data owner policies - Azure SQL DB
-      href: how-to-policies-data-owner-azure-sql-db.md
-    - name: Data owner policies - Azure Arc enabled SQL Servers
-      href: how-to-policies-data-owner-arc-sql-server.md
-    - name: Data owner policies - resource groups or subscriptions
-      href: how-to-policies-data-owner-resource-group.md
-    - name: View self-service data access policy
-      href: how-to-view-self-service-data-access-policy.md
-    - name: Delete self-service data access policy
-      href: how-to-delete-self-service-data-access-policy.md
+    - name: DevOps policies
+      items:
+      - name: DevOps policies - Create, list, update and delete policies
+        href: how-to-policies-devops-authoring-generic.md
+      - name: DevOps policies - Azure SQL Database 
+        href: how-to-policies-devops-azure-sql-db.md
+      - name: DevOps policies - Azure Arc enabled SQL Servers
+        href: how-to-policies-devops-arc-sql-server.md
+      - name: DevOps policies - Resource groups or Subscriptions
+        href: how-to-policies-devops-resource-group.md
+    - name: Data owner policies
+      items:
+      - name: Data owner policies - Author and publish policies
+        href: how-to-policies-data-owner-authoring-generic.md
+      - name: Data owner policies - Azure Storage
+        href: how-to-policies-data-owner-storage.md
+      - name: Data owner policies - Azure SQL Database
+        href: how-to-policies-data-owner-azure-sql-db.md
+      - name: Data owner policies - Azure Arc enabled SQL Servers
+        href: how-to-policies-data-owner-arc-sql-server.md
+      - name: Data owner policies - Resource groups or Subscriptions
+        href: how-to-policies-data-owner-resource-group.md
+    - name: Self-service access policies
+      items:
+      - name: View self-service data access policy
+        href: how-to-view-self-service-data-access-policy.md
+      - name: Delete self-service data access policy
+        href: how-to-delete-self-service-data-access-policy.md
+      - name: Self-service policies Azure SQL DB
+        href: how-to-policies-self-service-azure-sql-db.md
+      - name: Self-service policies Azure Storage
+        href: how-to-policies-self-service-storage.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access
       href: how-to-workflow-self-service-data-access-hybrid.md
     - name: Approval for business terms
       href: how-to-workflow-business-terms-approval.md
+    - name: Approval for data asset curation
+      href: how-to-workflow-asset-curation.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
     - name: Workflow connectors
-      href: how-to-use-workflow-connectors.md      
+      href: how-to-use-workflow-connectors.md    
+    - name: Workflow dynamic content
+      href: how-to-use-workflow-dynamic-content.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
-  - name: Manage Kafka notifications - .NET
-    href: manage-kafka-dotnet.md
+  - name: Kafka notifications
+    items:
+    - name: Configure for Kafka notifications
+      href: configure-event-hubs-for-kafka.md
+    - name: Publish and receive Kafka notifications - .NET
+      href: manage-kafka-dotnet.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
+  - name: Master Data Management
+    items:
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
 - name: Reference
   items:
     - name: Product glossary reference
@@ -395,14 +447,12 @@ items:
       href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported classifications
-      href: supported-classifications.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
-      href: /dotnet/api/overview/azure/purviewresourceprovider
+      href: /dotnet/api/overview/azure/purview
     - name: PowerShell
       href: /powershell/module/az.purview/
     - name: Python
@@ -415,6 +465,8 @@ items:
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
+    - name: Troubleshooting access policies
+      href: troubleshoot-policy-distribution.md
     - name: Frequently asked questions (FAQ)
       href: ./frequently-asked-questions.yml
 - name: Resources

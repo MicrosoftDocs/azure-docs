@@ -252,7 +252,7 @@ def main(msg: func.QueueMessage):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
 
 
 # [In-process](#tab/in-process)
@@ -371,7 +371,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
 # [C# script](#tab/csharp-script)
 
@@ -409,11 +409,11 @@ When binding to an object, the Functions runtime tries to deserialize the JSON p
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 5.x+](#tab/extensionv5/csharp-script)
 

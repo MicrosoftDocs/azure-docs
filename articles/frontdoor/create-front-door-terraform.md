@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Azure Front Door Standard/Premium profile using Terraform'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium profile - Terraform'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Terraform.
 services: front-door
 author: johndowns
@@ -8,7 +8,6 @@ ms.date: 10/25/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ---
 
 # Create a Front Door Standard/Premium profile using Terraform
@@ -33,205 +32,27 @@ The steps in this article were tested with the following Terraform and Terraform
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    ```terraform
-    # Configure the Azure provider
-    terraform {
-      required_providers {
-        azurerm = {
-          source  = "hashicorp/azurerm"
-          version = "~> 3.27.0"
-        }
-    
-        random = {
-          source = "hashicorp/random"
-        }
-      }
-    
-      required_version = ">= 1.1.0"
-    }
-    
-    provider "azurerm" {
-      features {}
-    }
-    ```
+    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/providers.tf)]
 
 1. Create a file named `resource-group.tf` and insert the following code:
 
-   ```terraform
-    resource "azurerm_resource_group" "my_resource_group" {
-      name     = var.resource_group_name
-      location = var.location
-    }
-   ```
+   [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/resource-group.tf)]
 
 1. Create a file named `app-service.tf` and insert the following code:
 
-    ```terraform
-    locals {
-      app_name = "myapp-${lower(random_id.app_name.hex)}"
-      app_service_plan_name = "AppServicePlan"
-    }
-    
-    resource "azurerm_service_plan" "app_service_plan" {
-      name                = local.app_service_plan_name
-      location            = var.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-    
-      sku_name = var.app_service_plan_sku_name
-      os_type = "Windows"
-      worker_count = var.app_service_plan_capacity
-    }
-    
-    resource "azurerm_windows_web_app" "app" {
-      name                = local.app_name
-      location            = var.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-      service_plan_id = azurerm_service_plan.app_service_plan.id
-    
-      https_only = true
-    
-      site_config {
-        ftps_state = "Disabled"
-        minimum_tls_version = "1.2"
-        ip_restriction = [ {
-          service_tag = "AzureFrontDoor.Backend"
-          ip_address = null
-          virtual_network_subnet_id = null
-          action = "Allow"
-          priority = 100
-          headers = [ {
-            x_azure_fdid = [ azurerm_cdn_frontdoor_profile.my_front_door.resource_guid ]
-            x_fd_health_probe = []
-            x_forwarded_for   = []
-            x_forwarded_host  = []
-          } ]
-          name = "Allow traffic from Front Door"  
-        } ]
-      }
-    }
-    ```
+    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/app-service.tf)]
 
 1. Create a file named `front-door.tf` and insert the following code:
 
-    ```terraform
-    locals {
-      front_door_profile_name = "MyFrontDoor"
-      front_door_endpoint_name = "afd-${lower(random_id.front_door_endpoint_name.hex)}"
-      front_door_origin_group_name = "MyOriginGroup"
-      front_door_origin_name = "MyAppServiceOrigin"
-      front_door_route_name = "MyRoute"
-    }
-    
-    resource "azurerm_cdn_frontdoor_profile" "my_front_door" {
-      name                = local.front_door_profile_name
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-      sku_name            = var.front_door_sku_name
-    }
-    
-    resource "azurerm_cdn_frontdoor_endpoint" "my_endpoint" {
-      name                     = local.front_door_endpoint_name
-      cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.my_front_door.id
-    }
-    
-    resource "azurerm_cdn_frontdoor_origin_group" "my_origin_group" {
-      name                     = local.front_door_origin_group_name
-      cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.my_front_door.id
-      session_affinity_enabled = true
-    
-      load_balancing {
-        sample_size                 = 4
-        successful_samples_required = 3
-      }
-    
-      health_probe {
-        path                = "/"
-        request_type        = "HEAD"
-        protocol            = "Https"
-        interval_in_seconds = 100
-      }
-    }
-    
-    resource "azurerm_cdn_frontdoor_origin" "my_app_service_origin" {
-      name                          = local.front_door_origin_name
-      cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
-    
-      enabled            = true
-      host_name          = azurerm_windows_web_app.app.default_hostname
-      http_port          = 80
-      https_port         = 443
-      origin_host_header = azurerm_windows_web_app.app.default_hostname
-      priority           = 1
-      weight             = 1000
-      certificate_name_check_enabled = true
-    }
-    
-    resource "azurerm_cdn_frontdoor_route" "my_route" {
-      name                          = local.front_door_route_name
-      cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.my_endpoint.id
-      cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
-      cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.my_app_service_origin.id]
-    
-      supported_protocols    = ["Http", "Https"]
-      patterns_to_match      = ["/*"]
-      forwarding_protocol    = "HttpsOnly"
-      link_to_default_domain = true
-      https_redirect_enabled = true
-    }
-    ```
+    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/front-door.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    ```terraform
-    variable "location" {
-      type = string
-      default = "westus2"
-    }
-    
-    variable "resource_group_name" {
-      type = string
-      default = "FrontDoor"
-    }
-    
-    variable "app_service_plan_sku_name" {
-      type = string
-      default = "S1"
-    }
-    
-    variable "app_service_plan_capacity" {
-      type = number
-      default = 1
-    }
-    
-    variable "app_service_plan_sku_tier_name" {
-      type = string
-      default = "Standard"
-    }
-    
-    variable "front_door_sku_name" {
-      type        = string
-      default     = "Standard_AzureFrontDoor"
-      validation {
-        condition     = contains(["Standard_AzureFrontDoor", "Premium_AzureFrontDoor"], var.front_door_sku_name)
-        error_message = "The SKU value must be Standard_AzureFrontDoor or Premium_AzureFrontDoor."
-      }
-    }
-    
-    resource "random_id" "app_name" {
-      byte_length = 8
-    }
-    
-    resource "random_id" "front_door_endpoint_name" {
-      byte_length = 8
-    }
-    ```
+    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    ```terraform
-    output "frontDoorEndpointHostName" {
-      value = azurerm_cdn_frontdoor_endpoint.my_endpoint.host_name
-    }
-    ```
+    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/outputs.tf)]
 
 ## Initialize Terraform
 

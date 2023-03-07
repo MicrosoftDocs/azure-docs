@@ -21,9 +21,9 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-ti
 > * [v1](v1/how-to-manage-workspace.md)
 > * [v2 (current)](how-to-manage-workspace.md)
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](/python/api/overview/azure/ml/).  
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
 
-As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](how-to-manage-workspace-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
+As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -55,6 +55,8 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+* If you're using Azure Container Registry (ACR), Storage Account, Key Vault, or Application Insights in the different subscription than the workspace, you cannot use network isolation with managed online endpoints. If you want to use network isolation with managed online endpoints, you must have ACR, Storage Account, Key Vault, and Application Insights in the same subscription with the workspace. For limitations that apply to network isolation with managed online endpoints, see [How to secure online endpoint](how-to-secure-online-endpoint.md#limitations).
+
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
 * Azure Machine Learning doesn't support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
@@ -79,7 +81,7 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 
 For more information, see [Workspace SDK reference](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace).
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 # [Portal](#tab/azure-portal)
 
@@ -241,7 +243,7 @@ When running machine learning tasks using the SDK, you require a MLClient object
     
     [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws)]
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 ## Find a workspace
 
@@ -338,7 +340,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Examples
 
-Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/resources/workspace/workspace.ipynb).
+Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb).
 
 ## Next steps
 
@@ -350,4 +352,4 @@ To learn more about planning a workspace for your organization's requirements, s
 
 
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

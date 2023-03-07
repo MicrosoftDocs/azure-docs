@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 11/29/2022
 ms.author: victorh
 ---
 
@@ -36,4 +36,5 @@ The following features are in public preview:
 
 ## Next steps
 
-To create a secured virtual hub and use it  to secure and govern a hub and spoke network, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).
+- Review Firewall Manager architecture options: [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
+- To create a secured virtual hub and use it  to secure and govern a hub and spoke network, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).

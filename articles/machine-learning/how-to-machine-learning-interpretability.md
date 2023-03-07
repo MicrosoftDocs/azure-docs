@@ -1,5 +1,5 @@
 ---
-title: Model interpretability (preview)
+title: Model interpretability
 titleSuffix: Azure Machine Learning
 description: Learn how your machine learning model makes predictions during training and inferencing by using the Azure Machine Learning CLI and Python SDK.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lgayhardt
 ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 08/17/2022
+ms.date: 11/04/2022
 ---
 
-# Model interpretability (preview)
+# Model interpretability
 
 This article describes methods you can use for model interpretability in Azure Machine Learning.
 

@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/24/2022
+ms.date: 01/19/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -20,7 +20,7 @@ Attribute-based access control (ABAC) is an authorization system that defines ac
 
 ## What are role assignment conditions?
 
-[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fined-grained access management or simplify the management of hundreds of role assignments.
+[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fine-grained access management or simplify the management of hundreds of role assignments.
 
 Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A *role assignment condition* is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. A condition filters down permissions granted as a part of the role definition and role assignment. For example, you can add a condition that requires an object to have a specific tag to read the object. You cannot explicitly deny access to specific resources using conditions.
 
@@ -107,7 +107,6 @@ Some features of conditions are still in preview. The following table lists the 
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
-| Use resource and request attributes in a condition | Preview | May 2021 |
 
 ## Conditions and Azure AD PIM
 

@@ -9,8 +9,10 @@
       href: try-free.md
     - name: Choose an API
       href: choose-api.md
-    - name: NoSQL vs. relational databases
-      href: relational-nosql.md
+    - name: Distributed NoSQL
+      href: distributed-nosql.md
+    - name: Distributed relational
+      href: distributed-relational.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB

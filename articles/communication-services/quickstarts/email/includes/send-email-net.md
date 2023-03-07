@@ -114,7 +114,7 @@ To authenticate using Azure Active Directory, install the Azure.Identity library
 dotnet add package Azure.Identity
 ```
 
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal-from-cli.md).
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using
@@ -212,7 +212,7 @@ var bccRecipients = new List<EmailAddress>
     new EmailAddress("<bccemailalias@emaildomain.com>"),
 };
 
-EmailRecipient emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
+EmailRecipients emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients)
@@ -228,11 +228,11 @@ string attachmentFileInBytes = Convert.ToBase64String(bytes);
 
 var emailAttachment = new EmailAttachment(
     "<your-attachment-name>",
-    "<your-attachment-name>",
+    <EmailAttachmentType>,
     attachmentFileInBytes
 );
 
-emailMessage.Add(emailAttachment);
+emailMessage.Attachments.Add(emailAttachment);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)

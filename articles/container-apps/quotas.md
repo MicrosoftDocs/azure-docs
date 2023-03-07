@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 02/17/2023
 ms.author: cshoe
 ---
 
@@ -14,21 +14,26 @@ ms.author: cshoe
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 
-| Feature | Quantity | Scope | Limit can be extended | Remarks |
+To request an increase in quota amounts for your container app, learn [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-) and [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+
+| Feature | Scope | Default | Is Configurable<sup>1</sup> | Remarks |
 |--|--|--|--|--|
-| Environments | 5 | For a subscription per region | Yes | |
-| Container Apps | 20 | Environment | Yes |
-| Revisions | 100 | Container app | No |
-| Replicas | 30 | Revision | No |
-| Cores | 2 | Replica | No | Maximum number of cores that can be requested by a revision replica. |
-| Memory | 4 GiB | Replica | No | Maximum amount of memory that can be requested by a revision replica. |
-| Cores | 20 | Environment | Yes| Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions in an environment. |
+| Environments | Region |  Up to 15 | Yes | Limit up to 15 environments per subscription, per region.<br><br>For example, if you deploy to three regions you can get up to 45 environments for a single subscription. |
+| Container Apps | Environment | Unlimited | Yes | |
+| Revisions | Container app | 100 | No | |
+| Replicas | Revision | 30 | Yes | |
+| Cores | Replica | 2 | No | Maximum number of cores that can be requested by a revision replica. |
+| Cores | Environment | 40 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
+
+For more information regarding quotas, see the [Quotas Roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
+
+> [!NOTE]
+> [Free trial](https://azure.microsoft.com/offers/ms-azr-0044p) and [Azure for Students](https://azure.microsoft.com/free/students/) subscriptions are limited to one environment per subscription  globally.
+
+<sup>1</sup> The **Is Configurable** column denotes that a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/). For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
 
 ## Considerations
 
-* Pay-as-you-go and trial subscriptions are limited to 1 environment per region per subscription.
 * If an environment runs out of allowed cores:
   * Provisioning times out with a failure
-  * The app silently refuses to scale out
-
-To request an increase in quota amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+  * The app may be restricted from scaling out

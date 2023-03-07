@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/01/2022
+ms.date: 01/25/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -252,6 +252,8 @@ To configure the network for a 2-node device, follow these steps on the first no
     * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
     * Serial number for any port corresponds to the node serial number.
 
+      > [!IMPORTANT]
+      > For a two node cluster, only the network interfaces with a set IP address are supported by the network topology.
 
     Once you apply the network settings, select **Next: Advanced networking >** to configure your network topology.
 

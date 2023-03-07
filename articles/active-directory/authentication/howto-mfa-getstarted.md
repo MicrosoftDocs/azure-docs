@@ -4,10 +4,10 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/01/2022
-ms.author: mtillman
-author: mtillman
-manager: martinco
+ms.date: 03/06/2023
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
@@ -187,7 +187,7 @@ If the user does not have a backup method available, you can:
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
 - Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
-User communications
+
 
 ## Plan integration with on-premises systems
 
@@ -246,7 +246,7 @@ You can monitor authentication method registration and usage across your organiz
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**. Inclusion of this activity in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md) is currently in Preview.
+NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to **Security** > **MFA** > **Activity report**.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 

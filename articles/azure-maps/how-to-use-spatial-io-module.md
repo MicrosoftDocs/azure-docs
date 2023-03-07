@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.service: azure-maps
@@ -53,10 +53,10 @@ You can load the Azure Maps spatial IO module using one of the two options:
     npm install azure-maps-spatial-io
     ```
 
-    Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
+    Then, use an import declaration to add the module into a source file:
 
-    ```html
-    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+    ```js
+    import * as spatial from "azure-maps-spatial-io";
     ```
 
 ## Using the Spatial IO module

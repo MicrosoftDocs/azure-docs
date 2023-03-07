@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -30,7 +30,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 > [!NOTE]
 > There needs to be a space between the country/region code and the phone number.
 >
-> Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
+> Password reset and Azure AD Multi-Factor Authentication don't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
 ## Mobile phone verification
 
@@ -52,7 +52,7 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
+With office phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 

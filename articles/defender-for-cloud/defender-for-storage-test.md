@@ -9,13 +9,13 @@ ms.topic: how-to
 
 # Trigger a test alert for Microsoft Defender for Storage
 
-After you enable Defender for Storage, you can create a test alert to demonstrate how Defender for Storage recognizes and alerts on security risks.
+After you enable Defender for Storage, you can create a test alert to demonstrate how Defender for Storage recognizes and triggers alerts on security risks.
 
 ## Demonstrate Defender for Storage alerts
 
 To test the security alerts from Microsoft Defender for Storage in your environment, generate the alert "Access from a Tor exit node to a storage account" with the following steps:
 
-1. Open a storage account with [Microsoft Defender for Storage enabled](../storage/common/azure-defender-storage-configure.md#set-up-microsoft-defender-for-cloud).
+1. Open a storage account with [Microsoft Defender for Storage enabled](../storage/common/azure-defender-storage-configure.md).
 1. From the sidebar, select “Containers” and open an existing container or create a new one.
 
     :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Opening a blob container from an Azure Storage account." lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::

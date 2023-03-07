@@ -38,7 +38,7 @@ Across the Azure platform, Cognitive Search can integrate with other Azure servi
 
 On the search service itself, the two primary workloads are *indexing* and *querying*. 
 
-+ [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload JSON documents, or use an indexer to serialize your data into JSON.
++ [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload JSON documents, or use an indexer to serialize your data into JSON.
 
   [AI enrichment](cognitive-search-concept-intro.md) through [cognitive skills](cognitive-search-working-with-skillsets.md) is an extension of indexing. If your content needs image or language analysis before it can be indexed, AI enrichment can extract text embedded in application files, translate text, and also infer text and structure from non-text files by analyzing the content. 
 
@@ -111,8 +111,8 @@ Key strengths include:
 
 Among our customers, those able to apply the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
 
-## Watch this video
+<!-- ## Watch this video
 
 In this 15-minute video, review the main capabilities of Azure Cognitive Search.
 
->[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3] -->

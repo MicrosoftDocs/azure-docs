@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-docs-snippets-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-dev-docs-pr",
       "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
       "branch": "main",
@@ -153,6 +159,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-azure-product",
+      "url": "https://github.com/Azure/Azure-Functions",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-pytorch",
       "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
       "branch": "master",
@@ -162,6 +174,12 @@
       "path_to_root": "functions-quickstart-templates",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-templates-v1",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v1.x",
       "branch_mapping": {}
     },
     {
@@ -209,6 +227,12 @@
     {
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -366,6 +390,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-mavaisma-r-azureml",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "mavaisma-r-azureml",
       "branch_mapping": {}
     },
     {
@@ -731,7 +761,7 @@
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
-      "branch": "main",
+      "branch": "reference-architecture",
       "branch_mapping": {}
     },
     {
@@ -849,9 +879,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmos-dotnet-v3",
-      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
-      "branch": "v3",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -867,8 +903,26 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "reusable-content",
+      "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-mongodb-python-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-ai-vision-sdk",
+      "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cache-redis-samples",
+      "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
       "branch": "main",
       "branch_mapping": {}
     }
@@ -887,70 +941,81 @@
     "name": "docfx_v3"
   },
   "redirection_files": [
-    ".openpublishing.redirection.json",
-    ".openpublishing.redirection.azure-arc-data.json",
-    ".openpublishing.redirection.active-directory.json",
-    ".openpublishing.redirection.azure-attestation.json",
-    ".openpublishing.redirection.azure-blob.json",
-    "articles/data-factory/.openpublishing.redirection.data-factory.json",
-    ".openpublishing.redirection.defender-for-cloud.json",
-    ".openpublishing.redirection.defender-for-iot.json",
-    ".openpublishing.redirection.healthcare-apis.json",
-    "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
-    ".openpublishing.redirection.app-service.json",
-    ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.sql-database.json",
-    ".openpublishing.redirection.machine-configuration.json",
-    ".openpublishing.redirection.security-benchmark.json",
-    "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
-    ".openpublishing.redirection.azure-web-pubsub.json",
-    ".openpublishing.redirection.azure-monitor.json",
-    ".openpublishing.redirection.azure-percept.json",
-    ".openpublishing.redirection.azure-productivity.json",
-    ".openpublishing.redirection.azure-australia.json",
-    "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
-    "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
-    "articles/azure-relay/.openpublishing.redirection.relay.json",
-    "articles/communication-services/.openpublishing.redirection.communication-services.json",
-    "articles/confidential-computing/.openpublishing.redirection.json",
-    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
-    "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
-    "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
-    "articles/data-lake-analytics/.openpublishing.redirection.data-lake-analytics.json",
-    "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
-    "articles/event-grid/.openpublishing.redirection.event-grid.json",
-    "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
-    "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
-    "articles/iot-central/.openpublishing.redirection.iot-central.json",
-    "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
-    "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
-    "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
-    "articles/mariadb/.openpublishing.redirection.mariadb.json",
-    "articles/marketplace/.openpublishing.redirection.marketplace.json",
-    "articles/mysql/.openpublishing.redirection.mysql.json",
-    "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
-    "articles/postgresql/.openpublishing.redirection.postgresql.json",
-    "articles/purview/.openpublishing.redirection.purview.json",
-    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
-    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
-    "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
-    "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
-    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
-    "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-    "articles/mysql/.openpublishing.redirection.mysql.json",
-    "articles/container-apps/.openpublishing.redirection.container-apps.json",
-    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
-    "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
-    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
-    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
-    "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
-    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
-    ".openpublishing.redirection.virtual-desktop.json",
-    ".openpublishing.redirection.deployment-environments.json",
-    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
-    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
-    ".openpublishing.redirection.baremetal-infrastructure.json",
-    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
-  ]
+  ".openpublishing.redirection.active-directory.json",
+  ".openpublishing.redirection.api-management.json",
+  ".openpublishing.redirection.app-service.json",
+  ".openpublishing.redirection.azure-arc-data.json",
+  ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-australia.json",
+  ".openpublishing.redirection.azure-databricks.json",
+  ".openpublishing.redirection.azure-hpc.json",
+  ".openpublishing.redirection.azure-monitor.json",
+  ".openpublishing.redirection.azure-percept.json",
+  ".openpublishing.redirection.azure-productivity.json",
+  ".openpublishing.redirection.azure-resource-manager.json",
+  ".openpublishing.redirection.azure-stack.json",
+  ".openpublishing.redirection.azure-vmware.json",
+  ".openpublishing.redirection.azure-web-pubsub.json",
+  ".openpublishing.redirection.baremetal-infrastructure.json",
+  ".openpublishing.redirection.defender-for-cloud.json",
+  ".openpublishing.redirection.defender-for-iot.json",
+  ".openpublishing.redirection.deployment-environments.json",
+  ".openpublishing.redirection.dev-box.json",
+  ".openpublishing.redirection.healthcare-apis.json",
+  ".openpublishing.redirection.iot-hub-device-update.json",
+  ".openpublishing.redirection.json",
+  ".openpublishing.redirection.key-vault.json",
+  ".openpublishing.redirection.machine-configuration.json",
+  ".openpublishing.redirection.openshift.json",
+  ".openpublishing.redirection.security-benchmark.json",
+  ".openpublishing.redirection.sql-database.json",
+  ".openpublishing.redirection.virtual-desktop.json",
+  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
+  "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
+  "articles/azure-relay/.openpublishing.redirection.relay.json",
+  "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
+  "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
+  "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
+  "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
+  "articles/communication-services/.openpublishing.redirection.communication-services.json",
+  "articles/confidential-computing/.openpublishing.redirection.json",
+  "articles/container-apps/.openpublishing.redirection.container-apps.json",
+  "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
+  "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
+  "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
+  "articles/data-factory/.openpublishing.redirection.data-factory.json",
+  "articles/data-lake-analytics/.openpublishing.redirection.data-lake-analytics.json",
+  "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
+  "articles/event-grid/.openpublishing.redirection.event-grid.json",
+  "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
+  "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
+  "articles/iot-central/.openpublishing.redirection.iot-central.json",
+  "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
+  "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
+  "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+  "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
+  "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
+  "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+  "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
+  "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
+  "articles/mariadb/.openpublishing.redirection.mariadb.json",
+  "articles/marketplace/.openpublishing.redirection.marketplace.json",
+  "articles/mysql/.openpublishing.redirection.mysql.json",
+  "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+  "articles/postgresql/.openpublishing.redirection.postgresql.json",
+  "articles/purview/.openpublishing.redirection.purview.json",
+  "articles/sap/.openpublishing.redirection.sap.json",
+  "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
+  "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
+  "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
+  "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+  "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
+  "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+  "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
+  "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+]
 }

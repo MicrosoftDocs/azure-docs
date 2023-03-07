@@ -1,7 +1,6 @@
 ---
 title: Blob rehydration from the Archive tier
 description: While a blob is in the Archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the Hot or Cool tier.
-services: storage
 author: normesta
 
 ms.author: normesta
@@ -45,7 +44,7 @@ For more information on pricing differences between standard-priority and high-p
 
 ## Copy an archived blob to an online tier
 
-The first option for moving a blob from the Archive tier to an online tier is to copy the archived blob to a new destination blob that is in either the Hot or Cool tier. You can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy the blob. When you copy an archived blob to a new blob an online tier, the source blob remains unmodified in the Archive tier.
+The first option for moving a blob from the Archive tier to an online tier is to copy the archived blob to a new destination blob that is in either the Hot or Cool tier. You can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy the blob. When you copy an archived blob to a new blob in an online tier, the source blob remains unmodified in the Archive tier.
 
 You must copy the archived blob to a new blob with a different name or to a different container. You can't overwrite the source blob by copying to the same blob.
 
@@ -78,7 +77,7 @@ The following table shows the behavior of a blob copy operation, depending on th
 
 If you've configured your storage account to use read-access geo-redundant storage (RA-GRS), then you can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to rehydrate blobs in the secondary region to another storage account that is located in that same secondary region. See [Rehydrate from a secondary region](archive-rehydrate-to-online-tier.md#rehydrate-from-a-secondary-region).
 
-To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
+To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json#read-access-to-data-in-the-secondary-region).
 
 ## Change a blob's access tier to an online tier
 

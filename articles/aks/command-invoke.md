@@ -1,14 +1,13 @@
 ---
 title: Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
-services: container-service
 ms.topic: article
 ms.date: 1/14/2022
 ---
 
 # Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 
-Accessing a private AKS cluster requires that you connect to that cluster either from the cluster virtual network, from a peered network, or via a configured private endpoint. These approaches require configuring a VPN, Express Route, deploying a *jumpbox* within the cluster virtual network, or creating a private endpoint inside of another virtual network. Alternatively, you can use `command invoke` to access private clusters without having to configure a VPN or Express Route. Using `command invoke` allows you to remotely invoke commands like `kubectl` and `helm` on your private cluster through the Azure API without directly connecting to the cluster. Permissions for using `command invoke` are controlled through the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` roles.
+Accessing a private AKS cluster requires that you connect to that cluster either from the cluster virtual network, from a peered network, or via a configured private endpoint. These approaches require configuring a VPN, Express Route, deploying a *jumpbox* within the cluster virtual network, or creating a private endpoint inside of another virtual network. Alternatively, you can use `command invoke` to access private clusters without having to configure a VPN or Express Route. Using `command invoke` allows you to remotely invoke commands like `kubectl` and `helm` on your private cluster through the Azure API without directly connecting to the cluster. Permissions for using `command invoke` are controlled through the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` actions.
 
 ## Prerequisites
 
@@ -76,3 +75,11 @@ az aks command invoke \
 ```
 
 The above runs `kubectl apply -f deployment.yaml configmap.yaml -n default` on the *myAKSCluster* cluster in *myResourceGroup*. The `deployment.yaml` and `configmap.yaml` files used by that command are part of the current directory on the development computer where `az aks command invoke` was run.
+
+
+## Troubleshooting
+
+The following link describes the most common issues with `az aks command invoke` and how to fix them:
+
+https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures
+

@@ -18,6 +18,8 @@
         href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
         href: quick-create-confidential-vm-portal-amd.md
+      - name: Create an AMD confidential VM with Azure CLI
+        href: quick-create-confidential-vm-azure-cli-amd.md
       - name: Create Azure Compute Gallery Image for confidential VM
         href: create-confidential-vm-from-compute-gallery.md
   - name: Virtual machines with app enclaves
@@ -40,7 +42,7 @@
       items:
         - name: Create Intel SGX enclaves on AKS with CLI
           href: confidential-enclave-nodes-aks-get-started.md
-    - name: Confidential node pools in AKS
+    - name: Confidential VM node pools in AKS
       items:
         - name: Add a confidential VM node pool to your AKS cluster
           href: confidential-node-pool-aks.md
@@ -70,9 +72,9 @@
       - name: ECasv5 and ECadsv5-series
         href: ../virtual-machines/ecasv5-ecadsv5-series.md
       - name: Pricing
-        href: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+        href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
-        href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machine
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
   - name: Virtual Machines with App Enclaves
     items:
     - name: App enclaves overview
@@ -109,13 +111,13 @@
       items:
       - name: Confidential containers overview
         href: confidential-containers.md
+      - name: Confidential containers with Azure Container Instances (ACI)
+        href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
-      - name: VM isolated confidential containers on Azure Container Instance 
-        href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
     - name: Confidential node pools on AKS
       items: 
-      - name: Confidential node pools in AKS (preview)
+      - name: Confidential VM node pools in AKS
         href: confidential-node-pool-aks.md
 - name: How To
   expanded: true

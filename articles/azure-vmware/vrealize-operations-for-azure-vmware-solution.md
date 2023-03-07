@@ -3,7 +3,7 @@ title: Configure vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/18/2022
+ms.date: 11/18/2022
 ---
 
 # Configure vRealize Operations for Azure VMware Solution
@@ -71,6 +71,9 @@ The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware
 :::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot showing the adapter instance to collect data.":::
 
 For more information, see [Privileges Required for Configuring a vCenter Server Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
+
+> [!NOTE]
+> VMware vRealize Automation(vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
 
 <!-- LINKS - external -->
 

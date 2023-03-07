@@ -60,9 +60,9 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
-|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
+|Azure Automation Hybrid Runbook Worker extension |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
 |Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure. |
-|Windows Admin Center (preview) |Microsoft.AdminCenter |Admin Center |[Manage Azure Arc-enabled Servers using Windows Admin Center in Azure](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines) |
+|Windows Admin Center (preview) |Microsoft.AdminCenter |AdminCenter |[Manage Azure Arc-enabled Servers using Windows Admin Center in Azure](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines) |
 
 ### Linux extensions
 
@@ -74,7 +74,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
-|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally.|
+|Azure Automation Hybrid Runbook Worker extension  |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally.|
 
 ## Prerequisites
 
@@ -169,10 +169,10 @@ The following extensions are available for Windows and Linux machines:
 |SUSE Linux Enterprise Server 15 |X |X |X |X |X |X |X |X |
 |SUSE Linux Enterprise Server 15 SP5 |X |X |X |X |X | |X |X |
 |SUSE Linux Enterprise Server 12 SP5 |X |X |X |X |X | |X |X |
-|Unbuntu 20.04 LTS |X |X |X |X |X | |X |X |
-|Unbuntu 18.04 LTS |X |X |X |X |X |X |X |X |
-|Unbuntu 16.04 LTS |X |X |X |X | | |X |X |
-|Unbuntu 140.04 LTS | |X | |X | | |X | |
+|Ubuntu 20.04 LTS |X |X |X |X |X | |X |X |
+|Ubuntu 18.04 LTS |X |X |X |X |X |X |X |X |
+|Ubuntu 16.04 LTS |X |X |X |X | | |X |X |
+|Ubuntu 14.04 LTS | |X | |X | | |X | |
 
 For the regional availabilities of different Azure services and VM extensions available for Azure Arc-enabled servers, [refer to Azure Global's Product Availability Roadmap](https://global.azure.com/product-availability/roadmap).
 

@@ -107,7 +107,7 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
     }
     ```
 
-    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme-pre)
+    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme)
 
 ## Complete sample
 

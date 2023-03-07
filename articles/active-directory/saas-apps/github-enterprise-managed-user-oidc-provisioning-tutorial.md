@@ -12,7 +12,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/19/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

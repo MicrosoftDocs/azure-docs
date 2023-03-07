@@ -35,7 +35,13 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
-|[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant SBC VE|7.40A
+|[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant Virtual Edition SBC|7.40A|
+||Mediant 500 SBC|7.40A|
+||Mediant 800 SBC|7.40A|
+||Mediant 2600 SBC|7.40A|
+||Mediant 4000 SBC|7.40A|
+||Mediant 1000B SBC|7.40A|
+||Mediant 9000 SBC|7.40A|
 |[Metaswitch](https://manuals.metaswitch.com/Perimeta/V4.9/AzureCommunicationServicesIntegrationGuide/Source/notices.html)|Perimeta SBC|4.9|
 |[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8.4|
 |Ribbon Communications|[SBC SWe / SBC 5400 / SBC 7000](https://support.sonus.net/display/ALLDOC/Ribbon+Configurations+with+Azure+Communication+Services+Direct+Routing)|9.02|
@@ -55,4 +61,5 @@ Note the certification granted to a major version. That means that firmware with
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)

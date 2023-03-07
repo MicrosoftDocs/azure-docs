@@ -2,11 +2,11 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 04/29/2022
+ms.date: 01/31/2023
 ms.author: mbaldwin
 ---
 
-This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](../articles/governance/policy/index.yml).
+This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](../articles/governance/policy/index.yml). For a complete example of a secure key release policy, see the [confidential VM key release policy](https://raw.githubusercontent.com/Azure/confidential-computing-cvm/main/cvm_deployment/key/skr-policy.json).
 
 ```json
 (* string and number from JSON *)
@@ -18,7 +18,13 @@ value =
 
 (* The operators supported for claim value comparison *)
 operator =
-  "equals:";
+  "equals:" |
+  "notEquals:" |
+  "less:" |
+  "lessOrEquals:" |
+  "greater:" |
+  "greaterOrEquals:" |
+  "exists:";
 
 (* A JSON condition that evaluates the value of a claim *)
 claim_condition =

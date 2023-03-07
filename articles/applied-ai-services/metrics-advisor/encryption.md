@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor service encryption
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Metrics Advisor service encryption of data at rest.
 author: mrbullwinkle
 manager: nitinme

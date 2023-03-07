@@ -4,7 +4,7 @@ description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell
@@ -17,6 +17,9 @@ Azure DDoS Protection is designed [for services that are deployed in a virtual n
 
 > [!NOTE]
 > Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric, IaaS based Network Virtual Appliance (NVA) or Azure API Management (Premium tier only), connected to a virtual network (VNet) in the external mode. Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN are not supported at present.
+
+> [!NOTE]
+> Protected resources that include public IPs created from public IP address prefix are not supported at present.
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -34,7 +37,7 @@ The load balancer distributes incoming internet requests to the VM instances. Vi
 
  DDoS Network Protection is enabled on the virtual network of the Azure (internet) load balancer that has the public IP associated with it.
 
-#### DDoS IP Protection virtual machine architecture
+#### DDoS IP Protection Preview virtual machine architecture
 
 :::image type="content" source="./media/reference-architectures/ddos-ip-protection-virtual-machine.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on load-balanced virtual machines.":::
 
@@ -50,7 +53,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
 
  In this architecture diagram DDoS Network Protection is enabled on the virtual network. All public IPs in the virtual network get DDoS protection for Layer 3 and 4. For Layer 7 protection, deploy Application Gateway in the WAF SKU. For more information on this reference architecture, see
 [Windows N-tier application on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
-#### DDoS IP Protection Windows N-tier architecture
+#### DDoS IP Protection Preview Windows N-tier architecture
 
 :::image type="content" source="./media/reference-architectures/ddos-ip-protection-n-tier.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on Windows N-tier." lightbox="./media/reference-architectures/ddos-ip-protection-n-tier.png":::
 
@@ -78,7 +81,7 @@ For more information about this reference architecture, see [Highly available mu
 
  In this architecture diagram DDoS Network Protection is enabled on the web app gateway virtual network.
 
-#### DDoS IP Protection with PaaS web application architecture
+#### DDoS IP Protection Preview with PaaS web application architecture
 
 :::image type="content" source="./media/reference-architectures/ddos-ip-protection-paas-web-app.png" alt-text="Diagram of DDoS IP Protection reference architecture for a PaaS web application." lightbox="./media/reference-architectures/ddos-ip-protection-paas-web-app.png":::
 
@@ -113,7 +116,7 @@ DDoS Protection is designed for services that are deployed in a virtual network.
 
  In this architecture diagram Azure DDoS Network Protection is enabled on the hub virtual network.
 
-#### DDoS IP Protection hub-and-spoke network
+#### DDoS IP Protection Preview hub-and-spoke network
 
 :::image type="content" source="./media/reference-architectures/ddos-ip-protection-azure-firewall-bastion.png" alt-text="Diagram showing DDoS IP Protection Hub-and-spoke architecture with firewall, bastion, and DDoS Protection." lightbox="./media/reference-architectures/ddos-ip-protection-azure-firewall-bastion.png":::
 

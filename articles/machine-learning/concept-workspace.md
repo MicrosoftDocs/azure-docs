@@ -86,9 +86,9 @@ There are multiple ways to create a workspace:
 
 ## Sub resources
 
-These sub resources are the main resources that are made in the AzureML workspace.
+These sub resources are the main resources that are made in the Azure Machine Learning workspace.
 
-* VMs: provide computing power for your AzureML workspace and are an integral part in deploying and training models.
+* VMs: provide computing power for your Azure Machine Learning workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
 * Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
 * Bandwidth: encapsulates all outbound data transfers across regions.
@@ -133,6 +133,7 @@ To get started with Azure Machine Learning, see:
 
 + [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
++ [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

@@ -3,14 +3,14 @@ title: "Example: Add faces to a PersonGroup - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
 services: cognitive-services
-author: SteveMSFT
+author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
 ms.date: 04/10/2019
-ms.author: sbowles
+ms.author: nitinme
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

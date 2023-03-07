@@ -9,7 +9,7 @@ ms.custom: "has-adal-ref, devx-track-csharp"
 
 # Authenticate Batch Management solutions with Active Directory
 
-Applications that call the Azure Batch Management service authenticate with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD). Azure AD is Microsoft's multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
+Applications that call the Azure Batch Management service authenticate with [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (Azure AD). Azure AD is Microsoft's multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager](../azure-resource-manager/management/overview.md) to manage these resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through Azure Resource Manager.
 
@@ -19,7 +19,7 @@ To learn more about using the Batch Management .NET library and the AccountManag
 
 ## Register your application with Azure AD
 
-The [Azure Active Directory Authentication Library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+The [Microsoft Authentication Library](../active-directory/develop/msal-authentication-flows.md) (MSAL) provides a programmatic interface to Azure AD for use within your applications. To call MSAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md). Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint.
 
@@ -46,7 +46,7 @@ Follow these steps in the Azure portal:
 6. In step 2, select the check box next to **Access Azure classic deployment model as organization users**, and click the **Select** button.
 7. Click the **Done** button.
 
-The **Required Permissions** blade now shows that permissions to your application are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL by default when you first register your app with Azure AD.
+The **Required Permissions** blade now shows that permissions to your application are granted to both the MSAL and Resource Manager APIs. Permissions are granted to MSAL by default when you first register your app with Azure AD.
 
 ![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
@@ -93,7 +93,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## Acquire an Azure AD authentication token
 
-After you register the AccountManagement sample in the Azure AD tenant and update the sample source code with your values, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials:
+After you register the AccountManagement sample in the Azure AD tenant and update the sample source code with your values, the sample is ready to authenticate using Azure AD. When you run the sample, the MSAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials:
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -112,5 +112,5 @@ After you provide your credentials, the sample application can proceed to issue 
 
 - For more information on running the [AccountManagement sample application](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement), see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 - To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml).
-- In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+- In-depth examples showing how to use MSAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 - To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).

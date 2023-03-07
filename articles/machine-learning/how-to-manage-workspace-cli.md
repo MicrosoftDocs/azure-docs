@@ -23,6 +23,8 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
+You can also manage workspaces the [Azure portal and Python SDK](how-to-manage-workspace.md), [Azure PowerShell](how-to-manage-workspace-powershell.md), or [via the VS Code extension](how-to-setup-vs-code.md).
+
 ## Prerequisites
 
 * An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -273,7 +275,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
@@ -362,4 +364,4 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

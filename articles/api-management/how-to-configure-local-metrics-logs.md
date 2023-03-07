@@ -20,6 +20,8 @@ ms.author: danlep
 
 This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md) deployed on a Kubernetes cluster. For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md).
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Metrics
 
 The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), which has become a unifying protocol for metrics collection and aggregation. This section walks through the steps for deploying StatsD to Kubernetes, configuring the gateway to emit metrics via StatsD, and using [Prometheus](https://prometheus.io/) to monitor the metrics.

@@ -189,7 +189,7 @@ Once the index and data source have been created, you're ready to create the ind
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-blob-indexer,
+      "name" : "my-blob-indexer",
       "dataSourceName" : "my-blob-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -197,7 +197,7 @@ Once the index and data source have been created, you're ready to create the ind
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
           "base64EncodeKeys": null,
-          "configuration:" {
+          "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
               "dataToExtract": "contentAndMetadata",

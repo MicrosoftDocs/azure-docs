@@ -24,7 +24,7 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 > * Restore and recover the database from a recovery point
 > * Restore the VM from from a recovery point
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or higher.
 
@@ -1083,7 +1083,7 @@ Now the database has been restored you must recover the database. Please follow 
 
 1. Unmount the restore point.
 
-   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
+   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the Python script again with the **-clean** option.
 
    In the VM using unmount:
    ```bash

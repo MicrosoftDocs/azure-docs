@@ -168,6 +168,8 @@
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
     href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Trusted Hardware Identity Management
+    href: trusted-hardware-identity-management.md
 
 - name: Application
   items:

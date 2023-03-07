@@ -2,7 +2,7 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 02/14/2023
 ms.devlang: csharp
 ms.custom: contperf-fy21q1
 ---
@@ -71,8 +71,8 @@ This section will guide you through manually adding Application Insights to a te
 
 3. Copy the following XML configuration into your newly created file:
 
-     ```xml
-     <?xml version="1.0" encoding="utf-8"?>
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
       <TelemetryInitializers>
         <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector" />
@@ -195,7 +195,7 @@ This section will guide you through manually adding Application Insights to a te
             <Add Type="Microsoft.ApplicationInsights.Extensibility.AutocollectedMetricsExtractor, Microsoft.ApplicationInsights" />
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-              <ExcludedTypes>Trace</ExcludedTypes>
+              <ExcludedTypes>Event</ExcludedTypes>
             </Add>
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
@@ -214,7 +214,7 @@ This section will guide you through manually adding Application Insights to a te
       -->
       <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     </ApplicationInsights>
-     ```
+    ```
 
 4. Before the closing `</ApplicationInsights>` tag, add the connection string for your Application Insights resource. You can find your connection string on the overview pane of the newly created Application Insights resource.
 
@@ -249,7 +249,6 @@ This section will guide you through manually adding Application Insights to a te
             }
         }
     }
-    
     ```
 
 6. In the *App_Start* folder, open the *FilterConfig.cs* file and change it to match the sample:
@@ -380,5 +379,5 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 ## Next steps
 
-* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
+* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](availability-overview.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.

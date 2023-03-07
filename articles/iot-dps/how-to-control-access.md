@@ -217,7 +217,7 @@ As a comparison, the equivalent Python code to generate a security token is:
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
-from urllib import quote_plus, urlencode
+from urllib.parse import quote_plus, urlencode
 from hmac import HMAC
 
 def generate_sas_token(uri, key, policy_name, expiry=3600):

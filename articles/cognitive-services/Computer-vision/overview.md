@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
 keywords: computer vision, computer vision applications, computer vision service
@@ -59,4 +59,5 @@ Follow a quickstart to implement and run a service in your preferred development
 
 * [Quickstart: Optical character recognition (OCR)](quickstarts-sdk/client-library.md)
 * [Quickstart: Image Analysis](quickstarts-sdk/image-analysis-client-library.md)
+* [Quickstart: Face](quickstarts-sdk/identity-client-library.md)
 * [Quickstart: Spatial Analysis container](spatial-analysis-container.md)

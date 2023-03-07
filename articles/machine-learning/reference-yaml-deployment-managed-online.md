@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
 author: dem108
 ms.author: sehan
-ms.date: 04/26/2022
-ms.reviewer: larryfr
+ms.date: 01/24/2023
+ms.reviewer: mopeakande
+
 ---
 
 # CLI (v2) managed online deployment YAML schema
@@ -60,10 +60,10 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `period` | integer | How often (in seconds) to perform the probe. | `10` |
 | `initial_delay` | integer | The number of seconds after the container has started before the probe is initiated. Minimum value is `1`. | `10` |
+| `period` | integer | How often (in seconds) to perform the probe. | `10` |
 | `timeout` | integer | The number of seconds after which the probe times out. Minimum value is `1`. | `2` |
-| `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1`. | `1` |
+| `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1` for readiness probe. The value for liveness probe is fixed as `1`. | `1` |
 | `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in the case of a liveness probe means the container will be restarted. In the case of a readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
 ## Remarks

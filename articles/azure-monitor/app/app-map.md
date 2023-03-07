@@ -2,13 +2,15 @@
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with Application Map and Intelligent view.
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly 
 ---
 
 # Application Map: Triage distributed applications
+
+Application maps represent the logical structure of a distributed application. Individual components of the application are determined by their "roleName" or "name" property in recorded telemetry. These components are represented as circles on the map and are referred to as "nodes." HTTP calls between nodes are represented as arrows connecting these nodes, referred to as "connectors" or "edges." The node that makes the call is the "source" of the call, and the receiving node is the "target" of the call.
 
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies and has health KPI and alerts status. You can select any component to get more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also select Azure diagnostics, such as SQL Database Advisor recommendations.
 
@@ -146,7 +148,7 @@ An alternate method for ASP.NET Web apps is to instantiate the initializer in co
 
 **ASP.NET Core apps: Load an initializer to TelemetryConfiguration**
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, to add a new `TelemetryInitializer` instance, you add it to the Dependency Injection container, as shown. You do this step in the `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, to add a new `TelemetryInitializer` instance, you add it to the Dependency Injection container, as shown. You do this step in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -244,9 +246,186 @@ For the [official definitions](https://github.com/Microsoft/ApplicationInsights-
 
 Alternatively, *cloud role instance* can be helpful for scenarios where a cloud role name tells you the problem is somewhere in your web front end. But you might be running multiple load-balanced servers across your web front end. Being able to drill in a layer deeper via Kusto queries and knowing if the issue is affecting all web front-end servers or instances or just one can be important.
 
-A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
+Intelligent view A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+
+---------------------------------------------------------------------------------
+## Application Map Filters
+
+Application Map filters allow the user to reduce the number of nodes and edges shown by applying one or more filters. These filters can be used to reduce the scope of the map, showing a smaller and more focused map.
+
+### Creating Application Map filters
+
+To create a filter, select the "Add filter" button in the application map's toolbar.
+
+:::image type="content" source="media/app-map/image-1.png" alt-text="A screenshot of the Add Filter button.":::
+
+This pops up a dialog with three sections: 1) Select filter type, 2)
+Choose filter parameters, and 3) Review.
+
+:::image type="content" source="media/app-map/image-2.png" alt-text="A screenshot with the Node Filter radio button selected.":::
+
+:::image type="content" source="media/app-map/image-3.png" alt-text="A screenshot with the Connector Edge Filter radio button selected.":::
+
+The first section has two options:
+
+1. Node filter
+1. Connector (edge) filter
+ 
+The contents in the other sections change based on the option selected.
+
+#### Node filters
+
+Node filters allow the user to leave only selected nodes on the map and hide the rest. A node filter checks each node if it contains a property (its name, for example) with a value that matches a search value through a given operator. If a node is removed by a node filter, all of its connectors (edges) are also removed.
+
+There are three parameters available for nodes:
+
+-   "**Nodes included**" allows the user to select only nodes with
+    matching properties or to also include source nodes, target nodes,
+    or both in the resulting map.
+
+    -   "Nodes and sources, targets"--This means nodes that match the search parameters will be included in the resulting map, and nodes that are sources or targets for the matching node will also be included, even if they don't have property values that
+        match the search. Source and target nodes are collectively referred to as "Connected" nodes.
+
+    -   "Nodes and sources"--Same as above, but target nodes aren't automatically included in the results.
+
+    -   "Nodes and targets"--Same as above, but source nodes aren't automatically included.
+
+    -   "Nodes only"--All nodes in the resulting map must have a property value that matches.
+
+-   "**Operator**" is the type of check that will be performed on each
+    node's property values:
+
+    -   contains
+
+    -   !contains (not contains)
+
+    -   == (equals)
+
+    -   != (not equals)
+
+-   "**Search value**" is the text that has to be contained, not
+    contained, equal, or not equal to a node property value. Some of the
+    values found in nodes that are on the map are shown in a drop-down.
+    Any arbitrary value can be entered by clicking "Create option ..."
+    in the drop-down.
+
+For example, in the screenshot below, the filter is being configured to
+select **Node(s)** that **contain(s)** the text **"-west".** **Source**
+and t**arget** nodes will also be included in the resulting map. In the
+same screenshot, the user is able to select one of the values found in
+the map or to create an option that isn't an exact match to one found
+in the map.
+
+:::image type="content" source="media/app-map/image-4.png" alt-text="A screenshot with the filter configured to select nodes that contain the text west.":::
+
+#### Connector (edge) filters
+
+Connector filters examine the properties of a connector to match a value. Connectors that don't match the filter are removed from the map. The same happens to nodes with no connectors left.
+
+Connector filters require three parameters:
+
+-   "**Filter connectors by**" allows the user to choose which property
+    of a connector to use:
+
+    -   "**Error connector (highlighted red)**" selects connectors based
+        on their color (red or not). A value can't be entered for this
+        type of filter, only an operator that is "==" or "!=" meaning
+        "connector with errors" and "connector without errors."
+
+    -   "**Error rate**" uses the average error rate for the
+        connector---the number of failed calls divided by the number of
+        all calls---expressed as a percentage. For example, a value of
+        "1" would refer to 1% failed calls.
+
+    -   "**Average call duration (****ms)**" uses just that: the average
+        duration of all calls represented by the connector, in
+        milliseconds. For example, a value of "1000" would refer to
+        calls that averaged 1 second.
+
+    -   "**Calls count**" uses the total number of calls represented by
+        the connector.
+
+-   **"Operator"** is the comparison that will be applied between the
+    connector property and the value entered below. The options change:
+    "Error connector" has equals/not equals options; all others have
+    greater/less than.
+
+-   **"Value"** is the comparison value for the filter. There's only
+    one option for the "Error connector" filter: "Errors." Other filter
+    types require a numeric value and offer a drop-down with some
+    pre-populated entries relevant to the map.
+
+    -   Some of these entries have a designation "(Pxx)" which are
+        percentile levels. For example, "Average call duration" filter
+        may have the value "200 (P90)" which indicates 90% of all
+        connectors (regardless of the number of calls they represent)
+        have less than 200 ms call duration..
+
+    -   When a specific number isn't shown in the drop-down, it can be
+        typed, and created by clicking on "Create option." Typing "P"
+        shows all the percentile values in the drop-down.
+
+### Review section
+
+The Review section contains textual and visual descriptions of what the filter will do, which should be helpful when learning how filters work:
+
+:::image type="content" source="media/app-map/image-5.png" alt-text="A screenshot of the Review section with node in focus.":::
+
+:::image type="content" source="media/app-map/image-6.png" alt-text="A screenshot of the Review section depicting an average call duration greater than 42 milliseconds.":::
+
+### Using filters in Application Map
+
+#### Filter interactivity
+
+After configuring a filter in the "Add filter" pop-up, select "Apply" to create the filter. Several filters can be applied, and they work sequentially, from left to right. Each filter can remove further nodes and connectors, but can't add them back to the map.
+
+The filters show up as rounded buttons above the application map:
+
+:::image type="content" source="media/app-map/image-7.png" alt-text="A screenshot displaying the rounded filter buttons above the application map.":::
+
+Clicking the :::image type="content" source="media/app-map/image-8.png" alt-text="A screenshot of a rounded X button."::: on a filter will remove that filter. Clicking elsewhere on the button allows the user to edit the filter's values. As the user changes values in the filter, the new values are applied so that the map is a preview of the change. Clicking "Cancel" restores the filter as it was before editing.
+
+:::image type="content" source="media/app-map/image-9.png" alt-text="A screenshot displaying the Configure Connector Filter section with a Cancel button.":::
+
+### Reusing filters
+
+Filters can be reused in two ways:
+
+-   The "Copy link" button on the toolbar above the map encodes the
+    filter information in the copied URL. This link can be saved in the
+    browser's bookmarks or shared with others. "Copy link" preserves the
+    duration value, but not the absolute time, so the map shown at a
+    later time may be different from the one observed when the link was
+    created.
+
+-   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map pane. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
+
+#### Filter usage scenarios
+
+There are many filter combinations. Here are some suggestions that apply to most maps and may be useful to pin on a dashboard:
+
+-   Show only errors that appear significant by using the "Error connector" filter along with "Intelligent view":\
+    :::image type="content" source="media/app-map/image-11.png" alt-text="A screenshot displaying the Last 24 hours and Highlighted Errors filters.":::
+    :::image type="content" source="media/app-map/image-12.png" alt-text="A screenshot displaying the Intelligent Overview toggle.":::
+
+-   Hide low-traffic connectors with no errors to quickly focus on issues that have higher impact:
+     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlighted errors filters.":::
+    
+-   Show high-traffic connectors with high average duration to focus on potential performance issues:
+     :::image type="content" source="media/app-map/image-14.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 3057, and average time greater than 467 filters.":::
+    
+-   Show a specific portion of a distributed application (requires suitable roleName naming convention):
+     :::image type="content" source="media/app-map/image-15.png" alt-text="A screenshot displaying the Last 24 hours and Connected Contains West filters.":::
+
+-   Hide a dependency type that is too noisy:
+     :::image type="content" source="media/app-map/image-16.png" alt-text="A screenshot displaying the Last 24 hours and Nodes Contains Storage Accounts filters.":::
+
+-   Show only connectors that have higher error rates than a specific value
+     :::image type="content" source="media/app-map/image-17.png" alt-text="A screenshot displaying the Last 24 hours and Errors greater than 0.01 filters.":::  
+
+---------------------------------------------------------------------------------
 
 ## Application Map Intelligent view (public preview)
 
@@ -314,6 +493,8 @@ Intelligent view has some limitations:
 
 To provide feedback, see [Portal feedback](#portal-feedback).
 
+---------------------------------------------------------------------------------
+
 ## Troubleshooting
 
 If you're having trouble getting Application Map to work as expected, try these steps.
@@ -322,7 +503,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Make sure you're using an officially supported SDK. Unsupported or community SDKs might not support correlation.
 
-    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./platforms.md).
+    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./app-insights-overview.md#supported-languages).
 
 1. Upgrade all components to the latest SDK version.
 
@@ -330,7 +511,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Confirm the [cloud role name](#set-or-override-cloud-role-name) is correctly configured.
 
-1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](./auto-collect-dependencies.md). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](asp-net-dependencies.md#dependency-auto-collection). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ### Too many nodes on the map
 
@@ -358,7 +539,7 @@ Common troubleshooting questions about Intelligent view.
 
 A dependency might appear to be failing but the model doesn't indicate it's a potential incident:
 
-* If this dependency has been failing for a while, the model might believe it's a regular state and not highlight the edge for you. It focuses on problem-solving in RT.
+* If this dependency has been failing for a while, the model might believe it's a regular state, and not highlight the edge for you. It focuses on problem-solving in RT.
 * If this dependency has a minimal effect on the overall performance of the app, that can also make the model ignore it.
 * If none of the above is correct, use the **Feedback** option and describe your experience. You can help us improve future model versions.
 

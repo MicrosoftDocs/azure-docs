@@ -225,7 +225,7 @@ In the following example, *mysourceregistry* is in a different subscription from
 ```azurecli
 az acr import \
   --name myregistry \
-  --source samples/aci-helloworld:latest \
+  --source aci-helloworld:latest \
   --image aci-hello-world:latest \
   --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
@@ -266,7 +266,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ## Import from an Azure container registry in a different AD tenant
 
-To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry.
+To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
 
 ### Cross-tenant import with username and password
 
@@ -334,7 +334,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ---
 
 > [!NOTE]
-> Cross-tenant doesn't work across the clouds.
+> Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
 
 
 ## Import from a non-Azure private container registry

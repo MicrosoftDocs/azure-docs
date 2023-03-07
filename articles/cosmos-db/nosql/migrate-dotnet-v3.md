@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 11/09/2022
 ms.devlang: csharp
 ---
 
@@ -84,11 +84,7 @@ The following classes have been replaced on the 3.0 SDK:
 
 * `Microsoft.Azure.Documents.UriFactory`
 
-* `Microsoft.Azure.Documents.Document`
-
-* `Microsoft.Azure.Documents.Resource`
-
-The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. 
+The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design.
 
 # [.NET SDK v3](#tab/dotnet-v3)
 
@@ -112,7 +108,17 @@ await client.CreateDocumentAsync(
 
 ---
 
+* `Microsoft.Azure.Documents.Document`
+
 Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+
+* `Microsoft.Azure.Documents.Resource`
+
+There is no direct replacement for `Resource`, in cases where it was used for documents, follow the guidance for `Document`.
+
+* `Microsoft.Azure.Documents.AccessCondition`
+
+`IfNoneMatch` or `IfMatch` are now available on the `Microsoft.Azure.Cosmos.ItemRequestOptions` directly.
 
 ### Changes to item ID generation
 
@@ -125,31 +131,22 @@ public Guid Id { get; set; }
 
 ### Changed default behavior for connection mode
 
-The SDK v3 now defaults to Direct + TCP connection modes compared to the previous v2 SDK, which defaulted to Gateway + HTTPS connections modes. This change provides enhanced performance and scalability.
+The SDK v3 now defaults to [Direct + TCP connection modes](sdk-connection-modes.md) compared to the previous v2 SDK, which defaulted to Gateway + HTTPS connections modes. This change provides enhanced performance and scalability.
 
 ### Changes to FeedOptions (QueryRequestOptions in v3.0 SDK)
 
 The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` in the SDK v3 and within the class, several properties have had changes in name and/or default value or been removed completely.  
 
-`FeedOptions.MaxDegreeOfParallelism` has been renamed to `QueryRequestOptions.MaxConcurrency` and default value and associated behavior remains the same, operations run client side during parallel query execution will be executed serially with no-parallelism.
-
-`FeedOptions.EnableCrossPartitionQuery` has been removed and the default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically.
-
-`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the `FeedResponse.Diagnostics` property of the response.
-
-`FeedOptions.RequestContinuation` has now been promoted to the query methods themselves.
-
-The following properties have been removed:
-
-* `FeedOptions.DisableRUPerMinuteUsage`
-
-* `FeedOptions.EnableCrossPartitionQuery`
-
-* `FeedOptions.JsonSerializerSettings`
-
-* `FeedOptions.PartitionKeyRangeId`
-
-* `FeedOptions.PopulateQueryMetrics`
+| .NET v2 SDK | .NET v3 SDK |
+|-------------|-------------|
+|`FeedOptions.MaxDegreeOfParallelism`|`QueryRequestOptions.MaxConcurrency` - Default value and associated behavior remains the same, operations run client side during parallel query execution will be executed serially with no-parallelism.|
+|`FeedOptions.PartitionKey`|`QueryRequestOptions.PartitionKey` - Behavior maintained. |
+|`FeedOptions.EnableCrossPartitionQuery`|Removed. Default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically. |
+|`FeedOptions.PopulateQueryMetrics`|Removed. It is now enabled by default and part of the [diagnostics](troubleshoot-dotnet-sdk.md#capture-diagnostics).|
+|`FeedOptions.RequestContinuation`|Removed. It is now promoted to the query methods themselves. |
+|`FeedOptions.JsonSerializerSettings`|Removed. Serialization can be customized through a [custom serializer](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) or [serializer options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions).|
+|`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization) as input to the query method.|
+|`FeedOptions.DisableRUPerMinuteUsage`|Removed.|
 
 ### Constructing a client
 
@@ -213,7 +210,7 @@ catch (CosmosException cosmosException) {
 
 ### ConnectionPolicy
 
-Some settings in `ConnectionPolicy` have been renamed or replaced:
+Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClientOptions`:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
@@ -222,6 +219,7 @@ Some settings in `ConnectionPolicy` have been renamed or replaced:
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
 |`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
+|`UserAgentSuffix`|`CosmosClientBuilder.ApplicationName` can be used to achieve the same effect.|
 
 ### Indexing policy
 
@@ -240,7 +238,7 @@ Where the v2 SDK exposed the session token of a response as `ResourceResponse.Se
 
 ### Timestamp
 
-Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../account-databases-containers-items.md#properties-of-an-item) to a property in their model.
+Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../resource-model.md#properties-of-an-item) to a property in their model.
 
 ### OpenAsync
 

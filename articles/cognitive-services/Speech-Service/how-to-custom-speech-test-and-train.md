@@ -30,12 +30,12 @@ Text and audio that you use to test and train a custom model should include samp
 
 The following table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended for testing | Used for training | Recommended for training |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
-| [Structured text](#structured-text-data-for-training) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
+| [Structured text](#structured-text-data-for-training) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
 
 Training with plain text or structured text usually finishes within a few minutes. 
@@ -45,7 +45,7 @@ Training with plain text or structured text usually finishes within a few minute
 > 
 > Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
-If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST API.
+If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST API.
 
 ## Consider datasets by scenario
 
@@ -73,7 +73,7 @@ You can use audio + human-labeled transcript data for both [training](how-to-cus
 - To improve the acoustic aspects like slight accents, speaking styles, and background noises.
 - To measure the accuracy of Microsoft's speech-to-text accuracy when it's processing your audio files. 
 
-For a list of base models that support training with audio data, see [Language support](language-support.md?tabs=stt-tts). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
+For a list of base models that support training with audio data, see [Language support](language-support.md?tabs=stt). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
 > [!IMPORTANT]
 > If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-service) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
@@ -95,6 +95,9 @@ A large training dataset is required to improve recognition. Generally, we recom
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
+> [!IMPORTANT]
+> For more information about the best practices of preparing human-labeled transcripts, see [Human-labeled transcripts with audio](how-to-custom-speech-human-labeled-transcriptions.md). 
+
 Custom Speech projects require audio files with these properties:
 
 | Property                 | Value                               |
@@ -102,7 +105,7 @@ Custom Speech projects require audio files with these properties:
 | File format              | RIFF (WAV)                          |
 | Sample rate              | 8,000 Hz or 16,000 Hz               |
 | Channels                 | 1 (mono)                            |
-| Maximum length per audio | 2 hours (testing) / 60 s (training) |
+| Maximum length per audio | 2 hours (testing) / 60 s (training)<br/><br/>Training with audio has a maximum audio length of 60 seconds per file. For audio files longer than 60 seconds, only the corresponding transcription files will be used for training. If all audio files are longer than 60 seconds, the training will fail.|
 | Sample format            | PCM, 16-bit                         |
 | Archive format           | .zip                                |
 | Maximum zip size         | 2 GB or 10,000 files                |
@@ -143,7 +146,7 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
 
-For a list of supported base models and locales for training with structured text, see [Language support](language-support.md?tabs=stt-tts). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md?tabs=stt). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
 
 The structured-text file should have an .md extension. The maximum file size is 200 MB, and the text encoding must be UTF-8 BOM. The syntax of the Markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete Markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding Markdown</a>. 
 
@@ -202,7 +205,7 @@ Here's an example structured text file:
 
 Specialized or made up words might have unique pronunciations. These words can be recognized if they can be broken down into smaller words to pronounce them. For example, to recognize "Xbox", pronounce it as "X box". This approach won't increase overall accuracy, but can improve recognition of this and other keywords.
 
-You can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see [language support](language-support.md?tabs=stt-tts).
+You can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see [language support](language-support.md?tabs=stt).
 
 > [!NOTE]
 > You can use a pronunciation file alongside any other training dataset except structured text training data. To use pronunciation data with structured text, it must be within a structured text file.

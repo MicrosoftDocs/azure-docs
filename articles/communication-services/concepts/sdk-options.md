@@ -31,6 +31,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
+| Call Automation | [REST](/rest/api/communication/callautomation/server-calling) | Service| Build customized calling workflows for PSTN and VoIP calls|
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
@@ -48,7 +49,7 @@ Publishing locations for individual SDK packages are detailed below.
 | SMS| [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
 | Email| [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
 | Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Calling) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
-|Call Automation||[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallingServer/)||[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callingserver)
+|Call Automation||[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)||[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Reference Documentation | [docs](https://azure.github.io/azure-sdk-for-js/communication.html) | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)| -| [docs](http://azure.github.io/azure-sdk-for-java/communication.html) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| -|
@@ -115,6 +116,7 @@ You may be required to update to the v2.05 version of the Calling SDK within 12 
 For more information, see the following SDK overviews:
 
 - [Calling SDK Overview](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Call Automation SDK Overview](../concepts/call-automation/call-automation.md)
 - [Chat SDK Overview](../concepts/chat/sdk-features.md)
 - [SMS SDK Overview](../concepts/sms/sdk-features.md)
 - [Email SDK Overview](../concepts/email/sdk-features.md)
@@ -122,4 +124,4 @@ For more information, see the following SDK overviews:
 To get started with Azure Communication Services:
 
 - [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md)
-- Generate [User Access Tokens](../quickstarts/access-tokens.md)
+- Generate [User Access Tokens](../quickstarts/identity/access-tokens.md)

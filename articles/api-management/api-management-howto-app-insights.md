@@ -44,11 +44,14 @@ To use Application Insights, [create an instance of the Application Insights ser
     * This setting regularly validates whether the API Management gateway endpoint is responding. 
     * Results appear in the **Availability** pane of the Application Insights instance.
 1. Select **Create**.
-1. Check that the new Application Insights logger with an instrumentation key now appears in the list.  
-    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
+1. Check that the new Application Insights logger now appears in the list.  
+    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger.":::
 
 > [!NOTE]
 > Behind the scenes, a [Logger](/rest/api/apimanagement/current-ga/logger/create-or-update) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
+
+> [!TIP]
+> If you need to update the instrumentation key configured in the Application Insights logger, select the logger's row in the list (not the name of the logger). Enter the instrumentation key, and select **Save**.
 
 ## Enable Application Insights logging for your API
 
@@ -61,7 +64,7 @@ To use Application Insights, [create an instance of the Application Insights ser
 1. Check the **Enable** box.
 1. Select your attached logger in the **Destination** dropdown.
 1. Input **100** as **Sampling (%)** and select the **Always log errors** checkbox.
-1. Leave the rest of the settings as is.
+1. Leave the rest of the settings as is. For details about the settings, see [Diagnostic logs settings reference](diagnostic-logs-reference.md).
 
     > [!WARNING]
     > Overriding the default **Number of payload bytes to log** value **0** may significantly decrease the performance of your APIs.
@@ -73,30 +76,15 @@ To use Application Insights, [create an instance of the Application Insights ser
 > Requests are successful once API Management sends the entire response to the client.
 
 
-| Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
-|-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Enable                              | boolean                           | Specifies whether logging of this API is enabled.                                                                                                                                                                                                                                                                                                |
-| Destination                         | Azure Application Insights logger | Specifies Azure Application Insights logger to be used.                                                                                                                                                                                                                                                                                           |
-| Sampling (%)                        | decimal                           | Values from 0 to 100 (percent). <br/> Specifies the percentage of requests that will be logged to Application Insights. 0% sampling means zero requests logged, while 100% sampling means all requests logged. <br/> Use this setting to reduce effect on performance when logging requests to Application Insights. See [Performance implications and log sampling](#performance-implications-and-log-sampling). |
-| Always log errors                   | boolean                           | If this setting is selected, all failures will be logged to Application Insights, regardless of the **Sampling** setting.   
-| Log client IP address | |  If this setting is selected, the client IP address for API requests will be logged to Application Insights.                                         |
-| Verbosity         |                                   | Specifies the verbosity level. Only custom traces with higher severity level will be logged. Default: Information.      | 
-| Correlation protocol |  |  Select protocol used to correlate telemetry sent by multiple components. Default: Legacy <br/>For information, see [Telemetry correlation in Application Insights](../azure-monitor/app/correlation.md).  |
-| Basic Options: Headers to log              | list                              | Specifies the headers that will be logged to Application Insights for requests and responses.  Default: no headers are logged.                                                                                                                                                                                                             |
-| Basic Options: Number of payload bytes to log | integer                           | Specifies how many first bytes of the body are logged to Application Insights for requests and responses.  Default: 0.                                                                                                                                                                                                    |
-| Advanced Options: Frontend Request  |                                   | Specifies whether and how *frontend requests* will be logged to Application Insights. *Frontend request* is a request incoming to the Azure API Management service.                                                                                                                                                                        |
-| Advanced Options: Frontend Response |                                   | Specifies whether and how *frontend responses* will be logged to Application Insights. *Frontend response* is a response outgoing from the Azure API Management service.                                                                                                                                                                   |
-| Advanced Options: Backend Request   |                                   | Specifies whether and how *backend requests* will be logged to Application Insights. *Backend request* is a request outgoing from the Azure API Management service.                                                                                                                                                                        |
-| Advanced Options: Backend Response  |                                   | Specifies whether and how *backend responses* will be logged to Application Insights. *Backend response* is a response incoming to the Azure API Management service.                                                                                                                                                                       |
+## Loggers for a single API or all APIs
 
-> [!NOTE]
-> You can specify loggers on different levels: 
-> + Single API logger.
-> + A logger for all APIs.
->  
-> Specifying *both*:
-> + if they are different loggers, both of them will be used (multiplexing logs).
-> + if they are the same loggers with different settings, the single API logger (more granular level) will override the one for all APIs.
+You can specify loggers on different levels: 
++ Single API logger
++ A logger for all APIs
+ 
+Specifying *both*:
+- By default, the single API logger (more granular level) will override the one for all APIs.
+- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. 
 
 ## What data is added to Application Insights
 
@@ -107,13 +95,13 @@ Application Insights receives:
 | *Request* | For every incoming request: <ul><li>*frontend request*</li><li>*frontend response*</li></ul> |
 | *Dependency* | For every request forwarded to a backend service: <ul><li>*backend request*</li><li>*backend response*</li></ul> |
 | *Exception* | For every failed request: <ul><li>Failed because of a closed client connection</li><li>Triggered an *on-error* section of the API policies</li><li>Has a response HTTP status code matching 4xx or 5xx</li></ul> |
-| *Trace* | If you configure a [trace](api-management-advanced-policies.md#Trace) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
+| *Trace* | If you configure a [trace](trace-policy.md) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
 ### Emit custom metrics
-You can emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy. 
+You can emit custom metrics by configuring the [`emit-metric`](emit-metric-policy.md) policy. 
 
 To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable custom metrics in the service.
-1. Use the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
+1. Use the [`emit-metric`](emit-metric-policy.md) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
 1. Add `"metrics":true` to the payload, along with any other properties.
 
 > [!NOTE]
@@ -146,4 +134,4 @@ To improve performance issues, skip:
 
 + Learn more about [Azure Application Insights](/azure/application-insights/).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).
-+ - Learn about visualizing data from Application Insights using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)
++ Learn about visualizing data from Application Insights using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)

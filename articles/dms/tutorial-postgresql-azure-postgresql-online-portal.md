@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online via the Azure portal"
+title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 04/11/2020
 ---
 
-# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
+# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS via the Azure portal
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -75,13 +75,13 @@ To complete all the database objects like table schemas, indexes and stored proc
 1. Use pg_dump -s command to create a schema dump file for a database.
 
     ```
-    pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
+    pg_dump -O -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
     For example, to create a schema dump file for the **dvdrental** database:
 
     ```
-    pg_dump -o -h localhost -U postgres -d dvdrental -s -O -x > dvdrentalSchema.sql
+    pg_dump -O -h localhost -U postgres -d dvdrental -s -x > dvdrentalSchema.sql
     ```
 
     For more information about using the pg_dump utility, see the examples in the [pg-dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html#PG-DUMP-EXAMPLES) tutorial.

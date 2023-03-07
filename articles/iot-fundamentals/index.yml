@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: Install VS Code tools for Azure IoT
       itemType: download
-      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     # Card
     - title: Start building with Azure CLI for Azure IoT
       itemType: reference
@@ -54,7 +54,7 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully managed IoT solutions
   items:
     # Card
-    - title: Start with a solution development environment (aPaaS)
+    - title: Evaluate your IoT cloud solution (aPaaS)
       links:
         - url: ../iot-central/core/overview-iot-central.md
           itemType: overview
@@ -62,9 +62,6 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Use your smartphone as a device to connect to IoT Central
-        - url: iot-solution-apaas-paas.md
-          itemType: concept
-          text: What's the difference between PaaS and aPaaS?
       # footerLink
       footerLink:
         url: ../iot-central/index.yml

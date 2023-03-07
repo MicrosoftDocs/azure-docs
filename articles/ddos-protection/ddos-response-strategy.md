@@ -2,11 +2,9 @@
 title: Components of a DDoS response strategy
 description: Learn what how to use Azure DDoS Protection to respond to DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
@@ -45,7 +43,7 @@ It's essential that you understand the normal behavior of an application and pre
 
 ## Customer DDoS response team
 
-Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection Standard service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team.
+Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team.
 
 We recommend that you use simulation exercises as a normal part of your service availability and continuity planning, and these exercises should include scale testing. See [test through simulations](test-through-simulations.md) to learn how to simulate DDoS test traffic against your Azure public endpoints.
 

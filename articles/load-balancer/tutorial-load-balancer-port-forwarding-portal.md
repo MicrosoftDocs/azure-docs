@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Create a single virtual machine inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
+description: In this tutorial, learn how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/18/2022
-ms.custom: template-tutorial
+ms.date: 12/28/2022
+ms.custom: template-tutorial, engagement-fy23, FY23 content-maintenance
 ---
 
 # Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal
@@ -131,7 +131,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter *myFrontend* in **Name**.
 

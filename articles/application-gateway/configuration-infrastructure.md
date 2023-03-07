@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 03/03/2023
 ms.author: greglin
 ---
 
@@ -40,10 +40,10 @@ For example, here's how to calculate the available addressing for a subnet with 
 - Gateway 3: Maximum of 15 instances; utilizes a private frontend IP configuration
 - Subnet Size: /24
 
-Subnet Size /24 = 255 IP addresses - 5 reserved from the platform = 250 available addresses.
-250 - Gateway 1 (10) - 1 private frontend IP configuration = 239
-239 - Gateway 2 (2) = 237
-237 - Gateway 3 (15) - 1 private frontend IP configuration = 221
+Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 available addresses.
+251 - Gateway 1 (10) - 1 private frontend IP configuration = 240
+240 - Gateway 2 (2) = 238
+238 - Gateway 3 (15) - 1 private frontend IP configuration = 222
 
 > [!IMPORTANT]
 > Although a /24 subnet isn't required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades. You should ensure that the Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic. If you specify the maximum instance count, then the subnet should have capacity for at least that many addresses. For capacity planning around instance count, see [instance count details](understanding-pricing.md#instance-count).
@@ -54,13 +54,20 @@ Subnet Size /24 = 255 IP addresses - 5 reserved from the platform = 250 availabl
 > [!TIP]
 > It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
+### DNS Servers for name resolution
+The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, allowing you to choose between Azure-provided default or Custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. Thus, after you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
+
 ### Virtual network permission 
+Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users or service principals that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet.
 
-Since application gateway resources are deployed within a virtual network resource, Application Gateway performs a check to verify the permission on the provided virtual network resource. This is verified during both create and manage operations. 
+You may use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support this permission. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions). You may have to allow sufficient time for [Azure Resource Manager cache refresh](../role-based-access-control/troubleshooting.md?tabs=bicep#symptom---role-assignment-changes-are-not-being-detected) after role assignment changes.
 
-You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that users or Service Principals who operate application gateways have at least **Microsoft.Network/virtualNetworks/subnets/join/action** or some higher permission such as the built-in [Network contributor](../role-based-access-control/built-in-roles.md) role on the virtual network. Visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md) to know more on subnet permissions. 
+#### Identifying affected users or service principals for your subscription
+By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are as follows:
 
-If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose. 
+**Title**: Update VNet permission of Application Gateway users </br>
+**Category**: Reliability </br>
+**Impact**: High </br>
 
 ## Network security groups
 
@@ -74,6 +81,8 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
   - Don't create other outbound rules that deny any outbound connectivity.
 
 - Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
+
+- To use public and private listeners with a common port number (Preview feature), you must have an inbound rule with the **destination IP address** as your gateway's **frontend IPs (public and private)**. When using this feature, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. [Learn more](./configuration-listeners.md#frontend-port).
 
 ### Allow access to a few source IPs
 

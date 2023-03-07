@@ -1,5 +1,5 @@
 ---
-title: azcopy login | Microsoft Docs
+title: azcopy login
 description: This article provides reference information for the azcopy login command.
 author: normesta
 ms.service: storage

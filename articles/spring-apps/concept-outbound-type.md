@@ -30,7 +30,7 @@ By default, Azure Spring Apps provisions a Standard SKU Load Balancer that you c
 
 ## Limitations
 
-- You can only define `OutboundType` when you create a new Azure Spring Apps service instance, and you can't updated it afterwards. `OutboundType` works only with a VNet instance.
+- You can only define `OutboundType` when you create a new Azure Spring Apps service instance, and you can't updated it afterwards. `OutboundType` works only with a virtual network.
 - Setting `outboundType` to `UserDefinedRouting` requires a user-defined route with valid outbound connectivity for your instance.
 - Setting `outboundType` to `UserDefinedRouting` implies that the ingress source IP routed to the load-balancer may not match the instance's outgoing egress destination address.
 
@@ -50,7 +50,7 @@ The default `outboundType` value is `loadBalancer`. If `outboundType` is set to 
 If `outboundType` is set to `userDefinedRouting`, Azure Spring Apps won't automatically configure egress paths. You must set up egress paths yourself. You could still find two load balancers in your resource group. They're only used for internal traffic and won't expose any public IP. You must prepare two route tables associated with two subnets: one to service the runtime and another for the user app.
 
 > [!IMPORTANT]
-> An `outboundType` of `userDefinedRouting` requires a route for `0.0.0.0/0` and the next hop destination of a network virtual appliance in the route table. For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+> An `outboundType` of `userDefinedRouting` requires a route for `0.0.0.0/0` and the next hop destination of a network virtual appliance in the route table. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## See also
 

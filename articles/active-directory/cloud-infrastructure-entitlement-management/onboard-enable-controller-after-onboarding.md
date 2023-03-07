@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 02/13/2023
 ms.author: jfields
 ---
 
@@ -49,14 +49,17 @@ This article also describes how to enable the controller in Amazon Web Services 
 
 ## Enable or disable the controller in Azure
 
+You can enable or disable the controller in Azure at the Subscription level of you Management Group(s).  
 
-1. In Azure, open the **Access control (IAM)** page.
+1. From the Azure **Home** page, select **Management groups**.
+1. Locate the group for which you want to enable or disable the controller, then select the arrow to expand the group menu and view your subscriptions. Alternatively, you can select the **Total Subscriptions** number listed for your group.
+1. Select the subscription for which you want to enable or disable the controller, then click **Access control (IAM)** in the navigation menu.
 1. In the **Check access** section, in the **Find** box, enter **Cloud Infrastructure Entitlement Management**.
 
     The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you.
 
     - If you have read-only permission, the **Role** column displays **Reader**.
-    - If you have administrative permission, the **Role** column displays **User Access Administrative**.
+    - If you have administrative permission, the **Role** column displays **User Access Administrator**.
 
 1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.

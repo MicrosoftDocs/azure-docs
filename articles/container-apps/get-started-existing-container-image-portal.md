@@ -155,4 +155,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

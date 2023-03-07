@@ -3,16 +3,13 @@ title: Azure virtual network service endpoints
 titlesuffix: Azure Virtual Network
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
-documentationcenter: na
-author: sumeetmittal
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2022
-ms.author: sumi
+ms.author: allensu
 ms.custom:
-
 ---
 
 # Virtual Network service endpoints
@@ -59,7 +56,7 @@ Service endpoints provide the following benefits:
 ## Limitations
 
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
-- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints can't be used for traffic from your premises to Azure services. For more information, see [Secure Azure service access from on-premises](#secure-azure-services-to-virtual-networks)
+- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints can't be used for traffic from your on-premise services to Azure services. For more information, see [Secure Azure service access from on-premises](#secure-azure-services-to-virtual-networks)
 - For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, you can [enable access to virtual networks in other regions](../storage/common/storage-network-security.md?tabs=azure-portal) in preview. 
 - For Azure Data Lake Storage (ADLS) Gen 1, the VNet Integration capability is only available for virtual networks within the same region. Also note that virtual network integration for ADLS Gen1 uses the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate extra security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. The *Microsoft.AzureActiveDirectory* tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Azure AD doesn't support service endpoints natively. For more information about Azure Data Lake Store Gen 1 VNet integration, see [Network security in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -124,7 +121,7 @@ Service endpoints can be configured on virtual networks independently by a user 
 
 For more information about built-in roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). For more information about assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtual networks and Azure service resources can be in the same or different subscriptions. Certain Azure Services (not all) such as Azure Storage and Azure Key Vault also support service endpoints across different Active Directory(AD) tenant. This means the virtual network and Azure service resource can be in different Active Directory (AD) tenants. Check individual service documentation for more details.  
+Virtual networks and Azure service resources can be in the same or different subscriptions. Certain Azure Services (not all) such as Azure Storage and Azure Key Vault also support service endpoints across different Active Directory (AD) tenants. This means the virtual network and Azure service resource can be in different Active Directory (AD) tenants. Check individual service documentation for more details.  
 
 ## Pricing and limits
 

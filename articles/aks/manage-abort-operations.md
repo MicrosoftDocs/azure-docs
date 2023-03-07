@@ -1,9 +1,8 @@
 ---
-title: Abort an Azure Kubernetes Service (AKS) long running operation
-description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level. 
-services: container-service
+title: Abort an Azure Kubernetes Service (AKS) long running operation (preview)
+description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level.
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 11/23/2022
 
 ---
 
@@ -11,7 +10,7 @@ ms.date: 09/08/2022
 
 Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. While it's important to allow those processes to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
-AKS now supports aborting a long running operation, allowing you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
+AKS now supports aborting a long running operation, which is currently in public preview. This feature allows you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
 
 The abort operation supports the following scenarios:
 
@@ -21,7 +20,11 @@ The abort operation supports the following scenarios:
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, start with reviewing our guidance on how to design, secure, and operate an AKS cluster to support your production-ready workloads. For more information, see [AKS architecture guidance](/azure/architecture/reference-architectures/containers/aks-start-here).
+- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+- The `aks-preview` extension version 0.5.102 or later.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Abort a long running operation
 

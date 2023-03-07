@@ -164,15 +164,21 @@
         - name: GitLab
           href: gitlab.md
 - name: Samples
-  items:
-    - name: Serverless app with Azure SQL
-      href: https://github.com/Azure-Samples/azure-sql-db-fullstack-serverless-kickstart
+  href: /samples/browse/?terms=static%20web%20apps
 - name: Reference
   items:
     - name: Azure CLI
       href: /cli/azure/staticwebapp
     - name: REST API
       href: /rest/api/appservice/static-sites
+    - name: SWA CLI
+      items:
+        - name: Summary
+          href: static-web-apps-cli.yml
+        - name: Configure SWA CLI
+          href: static-web-apps-cli-configuration.md
+        - name: Deploy static web app with SWA CLI
+          href: static-web-apps-cli-deploy.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

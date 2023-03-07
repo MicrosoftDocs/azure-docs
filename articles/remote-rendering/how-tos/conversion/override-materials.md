@@ -79,7 +79,11 @@ For the full list of texture maps you can ignore, see the [JSON schema](#json-sc
 By default, an entry in the material overrides file applies when its name matches the material name exactly.
 Since it's common that the same override should apply to multiple materials, you can optionally provide a regular expression as the entry name.
 The field `nameMatching` has a default value `exact`, but it can be set to `regex` to state that the entry should apply to every matching material.
-The syntax used is the same syntax used for JavaScript. 
+The syntax of the regex is the same syntax used for JavaScript.
+
+> [!TIP]
+> There are free regex testing websites available to test and debug a regular expression against arbitrary strings.
+
 The following example shows an override that applies to materials with names like `Material2`, `Material01` and `Material999`.
 
 ```json
@@ -97,9 +101,28 @@ The following example shows an override that applies to materials with names lik
 ]
 ```
 
-At most, one entry in a material override file applies to a single material.
-If there's an exact match (that is, `nameMatching` is absent or equals `exact`) for the material name, then that entry is chosen.
-Otherwise, the first regex entry in the file that matches the material name is chosen.
+This example shows an override that is applied to _all_ materials:
+
+```json
+[
+    {
+        "name": ".*",
+        "nameMatching": "regex",
+        "albedoColor": {
+            "r": 0.0,
+            "g": 0.0,
+            "b": 1.0,
+            "a": 1.0
+        }
+    }
+]
+```
+
+The order in which every material finds a matching override is as follows:
+1. First, it tests for exact name match (that is, it checks all overrides where `nameMatching` is absent or equals `exact`).
+1. If no override is found, it tests all overrides with `regex` name matching mode and uses _the first_ override that matches.
+
+A single material never gets more than one override applied, even if multiple `regex` expressions apply to the material name.
 
 ### Getting information about which entries applied
 
@@ -179,6 +202,7 @@ The full JSON schema for materials files is given here. Except for `unlit` and `
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },
             "metalness": { "type": "number" },
+            "normalMapScale": { "type": "number" },
             "transparent": { "type" : "boolean" },
             "alphaClipEnabled": { "type" : "boolean" },
             "alphaClipThreshold": { "type": "number" },

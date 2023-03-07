@@ -17,8 +17,8 @@ items:
     href: active-directory-how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: active-directory-properties-area.md
-  - name: Add company branding
-    href: customize-branding.md
+  - name: Add company branding (preview)
+    href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
   items:
@@ -62,12 +62,10 @@ items:
     href: concept-fundamentals-mfa-get-started.md
   - name: Identity secure score
     href: identity-secure-score.md
-  - name: Secure remote workers
+  - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
     href: five-steps-to-full-application-integration-with-azure-ad.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -87,6 +85,8 @@ items:
     items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
+    - name: What's deprecated in Azure Active Directory?
+      href: whats-deprecated-azure-ad.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
@@ -96,7 +96,13 @@ items:
   - name: Compliance
     expanded: false
     items:
-    - name: Identity data storage for Europe
+    - name: Azure AD and data residency
+      href: azure-ad-data-residency.md
+    - name: Data operational considerations
+      href: data-operational-considerations.md
+    - name: Data protection considerations
+      href: data-protection-considerations.md
+    - name: Customer data storage and processing for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
       href: active-directory-data-storage-australia.md
@@ -119,6 +125,11 @@ items:
       href: custom-security-attributes-troubleshoot.md
   - name: Frontline worker management
     href: frontline-worker-management.md
+  - name: Legacy and deprecated features
+    expanded: false
+    items:
+    - name: Add company branding (legacy)
+      href: customize-branding.md
 - name: Identity architecture and deployment
   expanded: false
   items:
@@ -156,30 +167,36 @@ items:
         href: multi-tenant-common-considerations.md
       - name: Common solutions
         href: multi-tenant-common-solutions.md
-    - name: Authentication and provisioning protocols
+    - name: Authentication protocols
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
+      - name: SAML authentication
+        href: auth-saml.md
+      - name: Open ID Connect authentication
+        href: auth-oidc.md
+      - name: OAuth 2.0 authentication
+        href: auth-oauth2.md
       - name: Header-based authentication
         href: auth-header-based.md
       - name: LDAP authentication
         href: auth-ldap.md
-      - name: OAuth 2.0 authentication
-        href: auth-oauth2.md
-      - name: Open ID Connect authentication
-        href: auth-oidc.md
       - name: Password-based authentication
         href: auth-password-based-sso.md
       - name: RADIUS authentication
         href: auth-radius.md
       - name: Remote desktop gateway authentication
         href: auth-remote-desktop-gateway.md
-      - name: SAML authentication
-        href: auth-saml.md
       - name: SSH authentication
         href: auth-ssh.md
       - name: Windows authentication - KCD
         href: auth-kcd.md
+    - name: Provisioning protocols
+      items:
+      - name: Overview
+        href: auth-prov-overview.md
       - name: Directory synchronization
         href: sync-directory.md
       - name: LDAP synchronization
@@ -318,6 +335,8 @@ items:
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
+      - name: 10 Convert local guest accounts to B2B
+        href: 10-secure-local-guest.md
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts

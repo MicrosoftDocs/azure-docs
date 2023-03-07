@@ -19,7 +19,7 @@ Before you get started, make sure that you have a Defender for IoT Micro Agent.
 
 Configuring PAM requires technical knowledge.
 
-For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
+For more information, see [Tutorial: Install the Defender for IoT micro agent](tutorial-standalone-agent-binary-installation.md).
 
 ## Modify PAM configuration to report sign-in and sign-out events
 
@@ -100,4 +100,4 @@ This procedure describes how to verify that you've configured PAM correctly to a
 
 ## Next steps
 
-For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
+For more information, see [Micro agent event collection](concept-event-aggregation.md).

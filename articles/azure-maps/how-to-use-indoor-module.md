@@ -1,8 +1,8 @@
 ---
 title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (preview)
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/23/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -44,11 +44,11 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       >npm install azure-maps-indoor
       ```
 
-  2. Reference the *Azure Maps Indoor* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+  2. Import the *Azure Maps Indoor* module JavaScript and Style Sheet in a source file:
 
-      ```html
-      <link rel="stylesheet" href="node_modules/azure-maps-indoor/dist/atlas-indoor.min.css" type="text/css" />
-      <script src="node_modules/azure-maps-indoor/dist/atlas-indoor.min.js"></script>
+      ```js
+      import * as indoor from "azure-maps-indoor";
+      import "azure-maps-indoor/dist/atlas-indoor.min.css";
       ```
 
 ## Set the domain and instantiate the Map object

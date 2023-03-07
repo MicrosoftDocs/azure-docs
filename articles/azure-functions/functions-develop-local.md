@@ -18,9 +18,9 @@ The way in which you develop functions on your local computer depends on your [l
 
 |Environment                              |Languages         |Description|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated process)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md). |
-| [Command prompt or terminal](functions-run-local.md) | [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated process)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Version 2.x supports development on Linux, macOS, and Windows. All environments rely on Core Tools for the local Functions runtime. |
-| [Visual Studio](functions-develop-vs.md) | [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated process)](dotnet-isolated-process-guide.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio](https://www.visualstudio.com/vs/), starting with Visual Studio 2019. Lets you compile functions in a class library and publish the .dll to Azure. Includes the Core Tools for local testing. To learn more, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated worker process)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md). |
+| [Command prompt or terminal](functions-run-local.md) | [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated worker process)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Version 2.x supports development on Linux, macOS, and Windows. All environments rely on Core Tools for the local Functions runtime. |
+| [Visual Studio](functions-develop-vs.md) | [C# (in-process)](functions-dotnet-class-library.md)<br/>[C# (isolated worker process)](dotnet-isolated-process-guide.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio](https://www.visualstudio.com/vs/), starting with Visual Studio 2019. Lets you compile functions in a class library and publish the .dll to Azure. Includes the Core Tools for local testing. To learn more, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md). |
 | [Maven](./create-first-function-cli-java.md) (various) | [Java](functions-reference-java.md) | Maven archetype supports Core Tools to enable development of Java functions. Version 2.x supports development on Linux, macOS, and Windows. To learn more, see [Create your first function with Java and Maven](./create-first-function-cli-java.md). Also supports development using [Eclipse](functions-create-maven-eclipse.md) and [IntelliJ IDEA](functions-create-maven-intellij.md). |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
@@ -72,7 +72,7 @@ The following application settings can be included in the **`Values`** array whe
 
 | Setting | Values | Description |
 |-----|-----|-----|
-|**`AzureWebJobsStorage`**| Storage account connection string, or<br/>`UseDevelopmentStorage=true`| Contains the connection string for an Azure storage account. Required when using triggers other than HTTP. For more information, see the [`AzureWebJobsStorage`] reference.<br/>When you have the [Azurite Emulator](../storage/common/storage-use-azurite.md) installed locally and you set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true`, Core Tools uses the emulator. The emulator is useful during development, but you should test with an actual storage connection before deployment.| 
+|**`AzureWebJobsStorage`**| Storage account connection string, or<br/>`UseDevelopmentStorage=true`| Contains the connection string for an Azure storage account. Required when using triggers other than HTTP. For more information, see the [`AzureWebJobsStorage`] reference.<br/>When you have the [Azurite Emulator](../storage/common/storage-use-azurite.md) installed locally and you set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true`, Core Tools uses the emulator. For more information, see [Local storage emulator](#local-storage-emulator).| 
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | To disable a function when running locally, add `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` to the collection, where `<FUNCTION_NAME>` is the name of the function. To learn more, see [How to disable functions in Azure Functions](disable-function.md#localsettingsjson). |
 |**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`dotnet-isolated`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indicates the targeted language of the Functions runtime. Required for version 2.x and higher of the Functions runtime. This setting is generated for your project by Core Tools. To learn more, see the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) reference.|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indicates to use PowerShell 7 when running locally. If not set, then PowerShell Core 6 is used. This setting is only used when running locally. The PowerShell runtime version is determined by the `powerShellVersion` site configuration setting, when it runs in Azure, which can be [set in the portal](functions-reference-powershell.md#changing-the-powershell-version). |
@@ -85,12 +85,28 @@ When you develop your functions locally, any local settings required by your app
 + [Visual Studio](functions-develop-vs.md#function-app-settings)
 + [Azure Functions Core Tools](functions-run-local.md#local-settings)
 
+## Triggers and bindings
+
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to difference services during production. You can also use a local storage emulator.
+
+## Local storage emulator
+
+During local development, you can use the local [Azurite emulator](../storage/common/storage-use-azurite.md) when testing functions with Azure Storage bindings (Queue Storage, Blob Storage, and Table Storage), without having to connect to remote storage services. Azurite integrates with Visual Studio Code and Visual Studio, and you can also run it from the command prompt using npm. For more information, see [Use the Azurite emulator for local Azure Storage development](../storage/common/storage-use-azurite.md).
+
+The following setting in the `Values` collection of the local.settings.json file tells the local Functions host to use Azurite for the default `AzureWebJobsStorage` connection:
+
+  ```json
+  "AzureWebJobsStorage": "UseDevelopmentStorage=true"
+  ```
+
+With this setting in place, any Azure Storage trigger or binding that uses `AzureWebJobsStorage` as its connection connects to Azurite when running locally. During local execution, you must have Azurite installed and running. The emulator is useful during development, but you should test with an actual storage connection before deployment. When you publish your project, don't publish this setting. You need to instead use an Azure Storage connection string in the same settings in your function app in Azure.
+
 ## Next steps
 
-+ To learn more about local development of compiled C# functions (both in-process and isolated process) using Visual Studio, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
++ To learn more about local development of compiled C# functions (both in-process and isolated worker process) using Visual Studio, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
 + To learn more about local development of functions using VS Code on a Mac, Linux, or Windows computer, see the Visual Studio Code getting started article for your preferred language:
     + [C# (in-process)](create-first-function-vs-code-csharp.md)
-    + [C# (isolated process)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
+    + [C# (isolated worker process)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
     + [Java](create-first-function-vs-code-java.md)
     + [JavaScript](create-first-function-vs-code-node.md)
     + [PowerShell](create-first-function-vs-code-powershell.md)

@@ -1,10 +1,10 @@
 ---
-title: Azure OpenAI models
+title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
-description: Learn about the different models that are available in Azure OpenAI. 
+description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/24/2022
+ms.date: 02/13/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
@@ -13,9 +13,9 @@ recommendations: false
 keywords: 
 ---
 
-# Azure OpenAI models
+# Azure OpenAI Service models
 
-The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Please refer to the capability table at the bottom for a full breakdown. 
+Azure OpenAI provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Refer to the [model capability table](#model-capabilities) in this article for a full breakdown. 
 
 | Model family | Description |
 |--|--|
@@ -25,46 +25,46 @@ The service provides access to many different models, grouped by family and capa
 
 ## Model capabilities
 
-Each model family has a series of models that are further distinguished by capability. These capabilities are typically identified by names, and the alphabetical order of these names generally signifies the relative capability and cost of that model within a given model family. For example, GPT-3 models use names such as Ada, Babbage, Curie, and Davinci to indicate relative capability and cost. Davinci is more capable (at a higher cost) than Curie, which in turn is more capable (at a higher cost) than Babbage, and so on.
+Each model family has a series of models that are further distinguished by capability. These capabilities are typically identified by names, and the alphabetical order of these names generally signifies the relative capability and cost of that model within a given model family. For example, GPT-3 models use names such as Ada, Babbage, Curie, and Davinci to indicate relative capability and cost. Davinci is more capable and more expensive than Curie, which in turn is more capable and more expensive than Babbage, and so on.
 
 > [!NOTE]
 > Any task that can be performed by a less capable model like Ada can be performed by a more capable model like Curie or Davinci.
 
 ## Naming convention
 
-Azure OpenAI's model names typically correspond to the following standard naming convention:
+Azure OpenAI model names typically correspond to the following standard naming convention:
 
-`{family}-{capability}[-{input-type}]-{identifier}`
+`{capability}-{family}[-{input-type}]-{identifier}`
 
 | Element | Description |
 | --- | --- |
-| `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
-| `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
+| `{capability}` | The model capability of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
+| `{family}` | The relative family of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
 
-For example, our most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
+For example, our most powerful GPT-3 model is called `text-davinci-003`, while our most powerful Codex model is called `code-davinci-002`.
 
-> Older versions of the GPT-3 models are available, named `ada`, `babbage`, `curie`, and `davinci`. These older models do not follow the standard naming conventions, and they are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
+> The older versions of GPT-3 models named `ada`, `babbage`, `curie`, and `davinci` that don't follow the standard naming convention are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
 
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
+You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
 
 ## Finding the right model
 
-We recommend starting with the most capable model in a model family because it's the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
+We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
 
 ## GPT-3 models
 
-The GPT-3 models can understand and generate natural language. The service offers four model capabilities, each with different levels of power and speed suitable for different tasks. Davinci is the most capable model, while Ada is the fastest. The following list represents the latest versions of GPT-3 models, ordered by increasing capability.
+The GPT-3 models can understand and generate natural language. The service offers four model capabilities, each with different levels of power and speed suitable for different tasks. Davinci is the most capable model, while Ada is the fastest. In the order of greater to lesser capability, the models are:
 
-- `text-ada-001`
-- `text-babbage-001`
+- `text-davinci-003`
 - `text-curie-001`
-- `text-davinci-002`
+- `text-babbage-001`
+- `text-ada-001`
 
-While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting, because it will produce the best results and validate the value our service can provide. Once you have a prototype working, you can then optimize your model choice with the best latency/performance balance for your application.
+While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting, because it produces the best results and validate the value that Azure OpenAI can provide. Once you have a prototype working, you can then optimize your model choice with the best latency/performance balance for your application.
 
 ### <a id="gpt-3-davinci"></a>Davinci
 
@@ -96,14 +96,14 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
 
-They’re most capable in Python and proficient in over a dozen languages, including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. The following list represents the latest versions of Codex models, ordered by increasing capability.
+They’re most capable in Python and proficient in over a dozen languages, including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and Shell. In the order of greater to lesser capability, the Codex models are:
 
-- `code-cushman-001`
 - `code-davinci-002`
+- `code-cushman-001`
 
 ### <a id="codex-davinci"></a>Davinci
 
-Similar to GPT-3, Davinci is the most capable Codex model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, Davinci produces the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as other models.
+Similar to GPT-3, Davinci is the most capable Codex model and can perform any task the other models can perform, often with less instruction. For applications requiring deep understanding of the content, Davinci produces the best results. Greater capabilities require more compute resources, so Davinci costs more and isn't as fast as other models.
 
 ### Cushman
 
@@ -150,43 +150,45 @@ Similar to text search embedding models, there are two input types supported by 
 |---|---|
 | Code search and relevance | `code-search-ada-code-001` <br> `code-search-ada-text-001` <br> `code-search-babbage-code-001` <br> `code-search-babbage-text-001` |
 
-When using our Embeddings models, keep in mind their limitations and risks.
+When using our embeddings models, keep in mind their limitations and risks.
 
 ## Model Summary table and region availability
 
 ### GPT-3 Models
-|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| Ada | 	Yes	| No	|	N/A	| East US, South Central US, West Europe |
-| Text-Ada-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Babbage | Yes | No | N/A | East US, South Central US, West Europe |
-| Text-Babbage-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Curie | Yes | No | N/A | East US, South Central US, West Europe |
-| Text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
-| Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
-| Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
-| Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
+| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe |
+| text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
+| text-babbage-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
+| text-curie-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
+| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
+| text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
+| text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
+| text-davinci-003 | Yes | No | East US | N/A |
+| text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
 
-\*Models available by request only. Please open a support request.
+<sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
+<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Codex Models
-|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| Code-Cushman-001* | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
-| Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
-| Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
+| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe |
+| code-davinci-002 | Yes | No | East US,  West Europe |  N/A |
+| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe |
 
-\*Models available for Fine-tuning by request only. Please open a support request.
-
-
+<sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
+<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Embeddings Models
-|  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
-| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |
@@ -201,7 +203,6 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A |
 | code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A |
  	
-
 ## Next steps
 
-[Learn more about Azure OpenAI](../overview.md).
+[Learn more about Azure OpenAI](../overview.md)

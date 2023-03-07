@@ -2,25 +2,15 @@
 title: Configure and manage enhanced soft delete for Azure Backup (preview)
 description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
 ms.topic: how-to
-ms.date: 10/13/2022
-author: v-amallick
+ms.date: 12/13/2022
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Configure and manage enhanced soft delete in Azure Backup (preview)
 
 This article describes how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
-
-In this article, you'll learn about:
-
->[!div class="checklist"]
->- Before you start
->- Enable soft delete with always-on state
->- Delete a backup item
->- Recover a soft-deleted backup item
->- Unregister containers
->- Disable soft delete
 
 ## Before you start
  
@@ -216,7 +206,9 @@ Follow these steps:
 1. In the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
 
 >[!Note]
->You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.
+>- You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.
+>- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+>- MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Next steps
 

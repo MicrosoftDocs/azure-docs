@@ -2,8 +2,8 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure PowerShell and Azure attribute-based access control (Azure ABAC).
-services: storage
 author: jimmart-dev
+
 ms.service: storage
 ms.topic: tutorial
 ms.author: jammart

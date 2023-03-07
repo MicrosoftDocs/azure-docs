@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 02/14/2023
 ms.author: aahi
 ---
 
@@ -56,9 +56,9 @@ As you use these features in your application, use the following documentation a
 
 | Language → Latest GA version |Reference documentation |Samples  |
 |---------|---------|---------|
-| [C#/.NET → v5.2.0](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
-| [Java → v5.2.0](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
-| [JavaScript → v5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
+| [C#/.NET → v5.2.0](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [C# documentation](/dotnet/api/azure.ai.textanalytics)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
+| [Java → v5.2.0](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
+| [JavaScript → v1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [JavaScript documentation](/javascript/api/overview/azure/ai-language-text-readme)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
 | [Python → v5.2.0](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
 
 
@@ -110,7 +110,7 @@ The conversation analysis authoring API enables you to author custom models and 
 * [Conversational language understanding](../conversational-language-understanding/quickstart.md?pivots=rest-api)
 * [Orchestration workflow](../orchestration-workflow/quickstart.md?pivots=rest-api)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/conversational-analysis-authoring) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/conversational-analysis-authoring) for additional information.
 
 ### Conversation analysis runtime API
 
@@ -122,7 +122,7 @@ It additionally enables you to use the following features, without creating any 
 * [Conversation summarization](../summarization/quickstart.md?pivots=rest-api&tabs=conversation-summarization)
 * [Personally Identifiable Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=rest-api#examples)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/conversation-analysis-runtime) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/conversation-analysis-runtime) for additional information.
 
 
 ### Text analysis authoring API
@@ -131,7 +131,7 @@ The text analysis authoring API enables you to author custom models and create/m
 * [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md?pivots=rest-api)
 * [Custom text classification](../custom-text-classification/quickstart.md?pivots=rest-api)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/text-analysis-authoring) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/text-analysis-authoring) for additional information.
 
 ### Text analysis runtime API
 
@@ -150,7 +150,7 @@ It additionally enables you to use the following features, without creating any 
 * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md?pivots=rest-api)
 * [Text analytics for health](../text-analytics-for-health/quickstart.md?pivots=rest-api)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/text-analysis-runtime) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text) for additional information.
 
 ### Question answering APIs
 

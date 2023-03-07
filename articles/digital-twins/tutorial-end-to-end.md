@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/26/2022
 ms.topic: tutorial
 ms.service: digital-twins
+ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -28,7 +29,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -48,7 +49,7 @@ To work through the scenario, you'll interact with components of the pre-written
 
 Here are the components implemented by the building scenario AdtSampleApp sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
 * SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
@@ -111,7 +112,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet --runtime-version 6 --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
@@ -160,11 +161,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
     A successful deployment will respond with status code 202 and output a JSON object containing details of your new function. You can confirm the deployment succeeded by looking for this field in the result:
 
     ```json
-    {
-      ...
-      "provisioningState": "Succeeded",
-      ...
-    }
+    "provisioningState": "Succeeded",
     ```
 
 The functions should now be published to a function app in Azure. You can use the following CLI commands to verify both functions were published successfully. Each command has placeholders for your resource group and the name of your function app. The commands will print information about the *ProcessDTRoutedData* and *ProcessHubToDTEvents* functions that have been published.
@@ -184,7 +181,7 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
-1. Use the following command to create a system-managed identity for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
+1. Use the following command to create a [system-assigned identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
 
     ```azurecli-interactive	
     az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>
@@ -193,7 +190,7 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
-    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    az dt role-assignment create --resource-group <your-resource-group> --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
     ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access data in your Azure Digital Twins instance.
@@ -259,6 +256,9 @@ The output will show information about the event subscription that has been crea
 "provisioningState": "Succeeded",
 ```
 
+>[!TIP]
+>If the command returns a resource provider error, add *Microsoft.EventGrid* as a resource provider to your subscription. You can do this in the Azure portal by following the instructions in [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
+
 ### Register the simulated device with IoT Hub 
 
 This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this representation, which is how telemetry events will go from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
@@ -292,8 +292,9 @@ Next, plug these values into the device simulator code in your local project to 
 Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
-iotHubConnectionString = <your-hub-connection-string>
-deviceConnectionString = <your-device-connection-string>
+private const string iotHubConnectionString = "<your-hub-connection-string>";
+//...
+private const string deviceConnectionString = "<your-device-connection-string>";
 ```
 
 Save the file.

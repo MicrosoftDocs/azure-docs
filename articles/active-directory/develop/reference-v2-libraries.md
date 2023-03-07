@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/30/2021
+ms.date: 10/28/2022
 ms.author: cwerner
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
+ms.custom: aaddev, engagement-fy23
 # Customer intent: As a developer, I want to know whether there's a Microsoft Authentication Library (MSAL) available for the language/framework I'm using to build my application, and whether the library is GA or in preview.
 ---
 

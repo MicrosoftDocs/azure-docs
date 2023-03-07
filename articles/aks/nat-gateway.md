@@ -1,34 +1,35 @@
 ---
 title: Managed NAT Gateway
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create an AKS cluster with managed NAT integration
-services: container-service
-ms.topic: article
+author: asudbring
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 10/26/2021
-ms.author: juda
+ms.author: allensu
 ---
 
 # Managed NAT Gateway
 
-Whilst AKS customers are able to route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic that is possible. 
+While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
-Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
-
-This article will show you how to create an AKS cluster with a Managed NAT Gateway for egress traffic.
-
+This article shows you how to create an AKS cluster with a Managed NAT Gateway for egress traffic and how to disable OutboundNAT on Windows.
 
 ## Before you begin
 
-To use Managed NAT gateway, you must have the following:
+To use Managed NAT gateway, you must have the following prerequisites:
 
-* The latest version of the Azure CLI
+* The latest version of [Azure CLI][az-cli]
 * Kubernetes version 1.20.x or above
 
 ## Create an AKS cluster with a Managed NAT Gateway
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
+
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location southcentralus
+az group create --name myResourceGroup --location southcentralus
 ```
 
 ```azurecli-interactive
@@ -38,14 +39,15 @@ az aks create \
     --node-count 3 \
     --outbound-type managedNATGateway \
     --nat-gateway-managed-outbound-ip-count 2 \
-    --nat-gateway-idle-timeout 30
+    --nat-gateway-idle-timeout 4
 ```
 
 > [!IMPORTANT]
 > If no value the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
-To update the outbound IP address or idle timeout, use `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` when running `az aks update`. For example:
+
+To update the outbound IP address or idle timeout, use `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` when running `az aks update`.
 
 ```azurecli-interactive
 az aks update \ 
@@ -55,68 +57,76 @@ az aks update \
 ```
 
 ## Create an AKS cluster with a user-assigned NAT Gateway
+
 To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type userAssignedNATGateway` when running `az aks create`. This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT Gateway is preconfigured on the subnet. The following commands create the required resources for this scenario. Make sure to run them all in the same session so that the values stored to variables are still available for the `az aks create` command.
 
-1. Create the resource group:
+1. Create the resource group.
+
     ```azurecli-interactive
-    az group create --name myresourcegroup \
+    az group create --name myResourceGroup \
         --location southcentralus
     ```
 
-2. Create a managed identity for network permissions and store the ID to `$IDENTITY_ID` for later use:
+2. Create a managed identity for network permissions and store the ID to `$IDENTITY_ID` for later use.
+
     ```azurecli-interactive
     IDENTITY_ID=$(az identity create \
-        --resource-group myresourcegroup \
-        --name natclusterid \
+        --resource-group myResourceGroup \
+        --name natClusterId \
         --location southcentralus \
         --query id \
         --output tsv)
     ```
 
-3. Create a public IP for the NAT gateway:
+3. Create a public IP for the NAT gateway.
+
     ```azurecli-interactive
     az network public-ip create \
-        --resource-group myresourcegroup \
-        --name mynatgatewaypip \
+        --resource-group myResourceGroup \
+        --name myNatGatewayPip \
         --location southcentralus \
         --sku standard
     ```
 
-4. Create the NAT gateway:
+4. Create the NAT gateway.
+
     ```azurecli-interactive
     az network nat gateway create \
-        --resource-group myresourcegroup \
-        --name mynatgateway \
+        --resource-group myResourceGroup \
+        --name myNatGateway \
         --location southcentralus \
-        --public-ip-addresses mynatgatewaypip
+        --public-ip-addresses myNatGatewayPip
     ```
 
-5. Create a virtual network:
+5. Create a virtual network.
+
     ```azurecli-interactive
     az network vnet create \
-        --resource-group myresourcegroup \
-        --name myvnet \
+        --resource-group myResourceGroup \
+        --name myVnet \
         --location southcentralus \
         --address-prefixes 172.16.0.0/20 
     ```
 
-6. Create a subnet in the virtual network using the NAT gateway and store the ID to `$SUBNET_ID` for later use:
+6. Create a subnet in the virtual network using the NAT gateway and store the ID to `$SUBNET_ID` for later use.
+
     ```azurecli-interactive
     SUBNET_ID=$(az network vnet subnet create \
-        --resource-group myresourcegroup \
-        --vnet-name myvnet \
-        --name natcluster \
+        --resource-group myResourceGroup \
+        --vnet-name myVnet \
+        --name natCluster \
         --address-prefixes 172.16.0.0/22 \
-        --nat-gateway mynatgateway \
+        --nat-gateway myNatGateway \
         --query id \
         --output tsv)
     ```
 
-7. Create an AKS cluster using the subnet with the NAT gateway and the managed identity:
+7. Create an AKS cluster using the subnet with the NAT gateway and the managed identity.
+
     ```azurecli-interactive
     az aks create \
-        --resource-group myresourcegroup \
-        --name natcluster \
+        --resource-group myResourceGroup \
+        --name natCluster \
         --location southcentralus \
         --network-plugin azure \
         --vnet-subnet-id $SUBNET_ID \
@@ -125,11 +135,79 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
         --assign-identity $IDENTITY_ID
     ```
 
-## Next Steps
-- For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
+## Disable OutboundNAT for Windows (preview)
+
+Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
+
+* **Unhealthy backend status**: When you deploy an AKS cluster with [Application Gateway Ingress Control (AGIC)][agic] and [Application Gateway][app-gw] in different VNets, the backend health status becomes "Unhealthy." The outbound connectivity fails because the peered networked IP isn't present in the CNI config of the Windows nodes.
+* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP, which can cause an unstable connection to the external service due to a port exhaustion issue.
+* **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
+
+Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
+
+> [!NOTE]
+> OutboundNAT can only be disabled on Windows Server 2019 nodepools.
+
+### Prerequisites
+
+* You need to use `aks-preview` and register the feature flag.
+
+  1. Install or update `aks-preview`.
+
+    ```azurecli
+    # Install aks-preview
+
+    az extension add --name aks-preview
+
+    # Update aks-preview
+
+    az extension update --name aks-preview
+    ```
+
+  2. Register the feature flag.
+
+    ```azurecli
+    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+    ```
+
+  3. Check the registration status.
+
+    ```azurecli
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+    ```
+
+  4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
+
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+* Your clusters must have a Managed NAT Gateway (which may increase the overall cost).
+* If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
+* If you need to switch from a load balancer to NAT Gateway, you can either add a NAT Gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
+
+### Manually disable OutboundNAT for Windows
+
+You can manually disable OutboundNAT for Windows when creating new Windows agent pools using `--disable-windows-outbound-nat`.
+
+> [!NOTE]
+> You can use an existing AKS cluster, but you may need to update the outbound type and add a node pool to enable `--disable-windows-outbound-nat`.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup
+    --cluster-name natCluster
+    --name mynodepool
+    --node-count 3
+    --os-type Windows
+    --disable-windows-outbound-nat
+```
+
+## Next steps
+
+For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 
 <!-- LINKS - internal -->
-
 
 <!-- LINKS - external-->
 [nat-docs]: ../virtual-network/nat-gateway/nat-overview.md
@@ -139,3 +217,8 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
 [byo-vnet-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[az-cli]: /cli/azure/install-azure-cli
+[agic]: ../application-gateway/ingress-controller-overview.md
+[app-gw]: ../application-gateway/overview.md
+[upgrade-kubernetes]:tutorial-kubernetes-upgrade-cluster.md
+[aks-upgrade]: /cli/azure/aks#az-aks-update

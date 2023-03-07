@@ -34,7 +34,14 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 
 ## Connection draining
 
-Connection draining helps you gracefully remove backend pool members during planned service updates. You can apply this setting to all members of a backend pool by enabling connection draining on the HTTP setting. It ensures that all deregistering instances of a backend pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances. Connection draining applies to backend instances that are explicitly removed from the backend pool.
+Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool or during scale-in of backend instances. You can apply this setting to all members of a backend pool by enabling connection draining on the Backend Setting. It ensures that all deregistering instances of a backend pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. 
+
+| Configuration Type  | Value |
+| ---------- | ---------- |
+|Default value when Connection Draining is not enabled in Backend Setting| 30 seconds |
+|User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3600 seconds |
+
+The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances.
 
 ## Protocol
 

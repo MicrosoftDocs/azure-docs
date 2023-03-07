@@ -61,7 +61,7 @@ You can manage parallel query execution by tuning the following parameters:
 
 Because of the Azure Cosmos DB's ability to parallelize cross-partition queries, query latency will generally scale well as the system adds [physical partitions](../partitioning-overview.md#physical-partitions). However, RU charge will increase significantly as the total number of physical partitions increases.
 
-When you run a cross-partition query, you are essentially doing a separate query per individual physical partition. While cross-partition queries queries will use the index, if available, they are still not nearly as efficient as in-partition queries.
+When you run a cross-partition query, you are essentially doing a separate query per individual physical partition. While cross-partition queries will use the index, if available, they are still not nearly as efficient as in-partition queries.
 
 ## Useful example
 

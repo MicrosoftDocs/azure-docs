@@ -43,7 +43,7 @@ If you select the **Edit** button immediately under the grid of requested data, 
 
 Select the other **Edit** buttons on the right to see some of the core components that make up workbooks, like:
 
-- Markdown-based [text boxes](../visualize/workbooks-text-visualizations.md).
+- Markdown-based [text boxes](../visualize/workbooks-create-workbook.md#add-text).
 - [Parameter selection](../visualize/workbooks-parameters.md) UI elements.
 - Other [chart/visualization types](workbooks-visualizations.md).
 

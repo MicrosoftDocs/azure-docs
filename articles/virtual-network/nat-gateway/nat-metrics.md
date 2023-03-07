@@ -252,6 +252,8 @@ To create the alert, use the following steps:
 
 8. From the When to evaluate section, select **1 minute** under the **Check every** drop-down menu.
 
+9. For the lookback period, select **5 minutes** from the drop-down menu options. 
+
 9. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
 
 10. Before deploying your action, **test the action group**.
@@ -259,7 +261,7 @@ To create the alert, use the following steps:
 11. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](./troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 ## Network Insights
 

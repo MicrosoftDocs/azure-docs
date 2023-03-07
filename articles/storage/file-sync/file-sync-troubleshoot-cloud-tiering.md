@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure File Sync cloud tiering | Microsoft Docs
+title: Troubleshoot Azure File Sync cloud tiering
 description: Troubleshoot common issues with cloud tiering in an Azure File Sync deployment.
 author: khdownie
 ms.service: storage
@@ -197,7 +197,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 
 This option doesn't require removing the server endpoint but requires sufficient disk space to copy the full files locally.
 
-1. [Mount](../files/storage-how-to-use-files-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) the Azure file share on the Windows Server that has orphaned tiered files.
+1. [Mount](../files/storage-how-to-use-files-windows.md?toc=/azure/storage/filesync/toc.json) the Azure file share on the Windows Server that has orphaned tiered files.
 2. Run the following PowerShell commands to list orphaned tiered files:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -240,5 +240,4 @@ If you're using a proxy, consult your proxy's documentation and ensure it is con
 - [Troubleshoot Azure File Sync sync group management](file-sync-troubleshoot-sync-group-management.md)
 - [Troubleshoot Azure File Sync sync errors](file-sync-troubleshoot-sync-errors.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files](../files/files-troubleshoot.md)

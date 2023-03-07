@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2022
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -24,7 +24,6 @@ Azure Premium SSD v2 is designed for IO-intense enterprise workloads that requir
 
 ## Prerequisites
 
-- [Sign up](https://aka.ms/PremiumSSDv2AccessRequest) for access to Premium SSD v2.
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 ## Determine region availability programmatically
@@ -159,10 +158,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # [Azure portal](#tab/portal)
 
-> [!IMPORTANT]
-> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
-
-1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
 1. Select one of the zones.
@@ -175,7 +171,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-create-data-disk.png" alt-text="Screenshot highlighting create and attach a new disk on the disk page." lightbox="media/disks-deploy-premium-v2/premv2-create-data-disk.png":::
 
-1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
+1. Select the **Disk SKU** and select **Premium SSD v2**.
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
 
@@ -213,3 +209,7 @@ Currently, adjusting disk performance is only supported with Azure CLI or the Az
 ---
 
 ## Next steps
+
+Add a data disk using either the [Azure portal](linux/attach-disk-portal.md), [CLI](linux/add-disk.md), or [PowerShell](windows/attach-disk-ps.md).
+
+Provide feedback on [Premium SSD v2](https://aka.ms/premium-ssd-v2-survey).
