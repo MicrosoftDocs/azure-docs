@@ -573,9 +573,9 @@ items:
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Develop with Blob Storage
       items:
-      - name: How do apps interact with Blob Storage data resources?
+      - name: Blob Storage object model
         items:
-        - name: Understand the Blob Storage object model
+        - name: Understand how apps interact with Blob Storage data resources
           href: storage-blob-object-model.md
         - name: Create and manage client objects
           href: storage-blob-client-management.md
