@@ -82,87 +82,14 @@ In this tutorial, you'll:
     - `execQuery(query, start_time, end_time)` - Executes a query within the given time range on a Log Analytics workspace (`workspace_id`), and stores the response in a pandas DataFrame (`my_data`).  
     - `execQueryDemoWorkspace(query)` - Executes the same query on the Log Analytics demo workspace by calling the Azure Log Analytics POST API directly and stores the response in a pandas DataFrame (`my_data`).
     - `showGraph(df, title)` - Creates a graph that plots the `TimeGenerated` values in the DataFrame on the x-axis and the `ActualUsage` values on the y-axis using Plotly.
-    
-    ```python
-    import os
-    import pandas as pd
-    from datetime import datetime, timezone, timedelta
-    from azure.monitor.query import LogsQueryStatus
-    from azure.core.exceptions import HttpResponseError
-    import requests
-    import json
-    
-    import plotly.express as px
-    
-    workspace_id = '23082c66-9a25-4a30-bded-14fc1ae40afa' ##LADemo-Workspace - under azure monitor direcotry/tenant
-    
-    
-    #executes query on workspace_id in given timespan
-    def execQuery(query, start_time, end_time):
-     try:
-        response = logs_query_client.query_workspace(workspace_id, query, timespan=(start_time, end_time))
-        if response.status == LogsQueryStatus.PARTIAL:
-            error = response.partial_error
-            data = response.partial_data
-            print(error.message)
-        elif response.status == LogsQueryStatus.SUCCESS:
-            data = response.tables
-        for table in data:
-            my_data = pd.DataFrame(data=table.rows, columns=table.columns)        
-     except HttpResponseError as err:
-        print("something fatal happened")
-        print (err)
-     return my_data
-    
-    
-    def execQueryDemoWorkspace(query):
-     workspace_id = 'DEMO_WORKSPACE'
-     api_key = 'DEMO_KEY'
-    	
-     url = f'https://api.loganalytics.azure.com/v1/workspaces/{workspace_id}/query'
-    
-     response = requests.post(url, headers={'X-Api-Key': api_key}, json={'query': query})
-    
-     
-     logs_query_result = response.json()
-     tables = logs_query_result['tables']
-    
-     df = pd.DataFrame(
-       tables[0]['rows'],
-       columns=[col["name"] for col in tables[0]['columns']]
-     )
-    
-    
-     return df
-    
-     
-    def showGraph(df, title):
-     df = df.sort_values(by="TimeGenerated")
-     graph = px.line(df, x='TimeGenerated', y="ActualUsage", color='DataType', title=title)
-     graph.show()
-    ```
    
+    
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some explore data in the workspace by running a query from the notebook:
 
 1. Check how much data you ingested into each of the tables in you Log Analytics workspace each hour over the past week.
     
-    ```python
-    UsageQuery_AllTypes = """
-    Usage 
-    | project TimeGenerated, DataType, Quantity 
-    | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
-    """
-    
-    num_days = 7;  
-    end_time = datetime.now()
-    start_time = end_time - timedelta(days=num_days)
-    
-    
-    df_allTypes = execQuery(UsageQuery_AllTypes, start_time, end_time)
-    ```
-
     This query generates a DataFrame that shows the hourly ingestion in each of the tables in the Log Analytics workspace:  
     
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." 
@@ -193,34 +120,6 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 1. Retrieve hourly usage data for the selected data types over the last three weeks. 
   
-    ```python
-    datatypes = ["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs", "AzureDiagnostics", "Perf"]
-    
-    datatypesStr = ''
-     
-    # using loop to add string followed by delim
-    for ele in datatypes:
-        datatypesStr = datatypesStr + "'" + str(ele) +"'" + ','
-    
-    datatypesStr = datatypesStr[:-1] ##remove last ,
-    #UsageQuery_SelectedDataTypes = "Usage | project TimeGenerated, DataType, Quantity | where DataType in (" + datatypesStr + ") | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType"
-    
-    
-    UsageQuery_SelectedDataTypes = f"""
-    Usage 
-    | project TimeGenerated, DataType, Quantity 
-    | where DataType in ({datatypesStr}) 
-    | summarize ActualUsage=sum(Quantity) by TimeGenerated=bin(TimeGenerated, 1h), DataType
-    """
-    
-    
-    num_days = 21; ##3 weeks period fot training
-    end_time = datetime.now()-timedelta(days=7)
-    start_time = end_time - timedelta(days=num_days)
-    
-    my_data = execQuery(UsageQuery_SelectedDataTypes,start_time,end_time)
-    #showGraph(my_data)
-    ```
 
     This query generates a DataFrame that shows the hourly ingestion in each of the six tables, as retrieved from the Log Analytics workspace:
 
@@ -237,28 +136,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 
 1. Lets expand the timestamp information in `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns [using Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
-
-    ```python
-    my_data['Year'] = pd.DatetimeIndex(my_data['TimeGenerated']).year
-    my_data['Month'] = pd.DatetimeIndex(my_data['TimeGenerated']).month
-    my_data['Day'] = pd.DatetimeIndex(my_data['TimeGenerated']).day
-    my_data['Hour'] = pd.DatetimeIndex(my_data['TimeGenerated']).hour
-    
-    import pandas as pd
-    import numpy as np
-     
-    def display_options():
-         
-        display = pd.options.display
-        display.max_columns = 7
-        display.max_rows = 10
-        display.max_colwidth = 300
-        display.width = None
-        return None
-     
-    display_options()
-    display(my_data)
-    ```
+ 
     The resulting DataFrame looks like this:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-dataframe-split-datetime.png" alt-text="Screenshot that shows a DataFrame with the newly-added Year, Month, Day, and Hour columns.":::
@@ -269,15 +147,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     
     1. Use the [TimeSeriesSplit()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit) time series cross-validator to split the dataset into a training set and a test set.
     
-        ```python
-        from sklearn.model_selection import TimeSeriesSplit
-        
-        ts_cv = TimeSeriesSplit() #we use default values
-            
-        Y = my_data['ActualUsage']
-        X = my_data[['DataType', 'Year', 'Month', 'Day', 'Hour']] 
-        ```
-
+ 
 ## Train the model
 
 1. Train and evaluate a linear regression model.
@@ -287,58 +157,6 @@ To train a machine learning model on data in your Log Analytics workspace:
     - One-hot encoding categorical variables, which in our case are our data types. 
     - Scales numerical features - in our case, hourly usage - to the 0-1 range.
 
-    ```python
-    from sklearn.pipeline import make_pipeline
-    from sklearn.compose import ColumnTransformer
-    from sklearn.model_selection import cross_validate
-    from sklearn.preprocessing import OneHotEncoder
-    from sklearn.preprocessing import MinMaxScaler
-    from sklearn.linear_model import RidgeCV
-    import numpy as np
-    
-    categorical_columns = [
-        "DataType"
-       ]
-    
-    one_hot_encoder = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
-    alphas = np.logspace(-6, 6, 25)
-    naive_linear_pipeline = make_pipeline(
-        ColumnTransformer(
-            transformers=[
-                ("categorical", one_hot_encoder, categorical_columns),
-            ],
-            remainder=MinMaxScaler(),
-        ),
-        RidgeCV(alphas=alphas),
-    )
-    
-    
-    naive_linear_pipeline.fit(X, Y)
-    ##predictions = naive_linear_pipeline.predict(X)
-    
-    ##my_data["PredictedUsage"] = predictions
-    ##my_data["Residual"] = my_data["ActualUsage"] - my_data["PredictedUsage"]
-    ##my_data["Residual %"] = abs(my_data["Residual"]) / my_data["PredictedUsage"]*100
-    
-    def evaluate(model, X, Y, cv):
-        cv_results = cross_validate(
-            model,
-            X,
-            Y,
-            cv=cv,
-            scoring=["neg_mean_absolute_error", "neg_root_mean_squared_error"],
-        )
-        mae = -cv_results["test_neg_mean_absolute_error"]
-        rmse = -cv_results["test_neg_root_mean_squared_error"]
-        print(
-            f"Mean Absolute Error:     {mae.mean():.3f} +/- {mae.std():.3f}\n"
-            f"Root Mean Squared Error: {rmse.mean():.3f} +/- {rmse.std():.3f}"
-        )
-    
-    
-    print("score of linear_pipeline:")
-    evaluate(naive_linear_pipeline, X, Y, cv=ts_cv)
-    ```
     The linear pipeline score for this model is: 
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the scoring results of the linear regression model."::: 
@@ -346,42 +164,6 @@ To train a machine learning model on data in your Log Analytics workspace:
 1. Now, let's train and evaluate a [gradient boosting regression](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html) model.
 
 
-    ```python
-    from sklearn.preprocessing import OrdinalEncoder
-    from sklearn.ensemble import HistGradientBoostingRegressor
-    
-    
-    categories =  [
-      datatypes
-    ##["ContainerLog", "AzureNetworkAnalytics_CL", "AVSSyslog", "StorageBlobLogs"]
-       ## ["ContainerLog", "AVSSyslog"] ##["AzureDiagnostics"] ##, "ContainerLogV2", "Perf", "InsightsMetrics"]
-    ]
-        
-    
-    ordinal_encoder = OrdinalEncoder(categories=categories)
-    
-    gbrt_pipeline = make_pipeline(
-        ColumnTransformer(
-            transformers=[
-                ("categorical", ordinal_encoder, categorical_columns),
-            ],
-            remainder="passthrough",
-        ),
-        HistGradientBoostingRegressor(
-            categorical_features=range(1),      
-        ),
-    )
-    
-    gbrt_pipeline.fit(X, Y)
-    #predictions = gbrt_pipeline.predict(X)
-    ##my_data["PredictedUsage"] = predictions
-    ##my_data["Residual"] = my_data["ActualUsage"] - my_data["PredictedUsage"]
-    ##print(my_data)
-    
-    print("Gradient boosting regression score:")
-    evaluate(gbrt_pipeline, X, Y, cv=ts_cv)
-    
-    ```
 
     The linear pipeline score for this model is: 
 
@@ -391,13 +173,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 1. Save the trained gradient boosting regression model as a pickle file.
 
-    ```python
-    import joblib
 
-    # Save the model as a pickle file
-    filename = './myModel.pkl'
-    joblib.dump(gbrt_pipeline, filename)
-    ```
 
 ## Score new data using the trained model
 
