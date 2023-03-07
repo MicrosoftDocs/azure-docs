@@ -31,7 +31,7 @@ The components involved in the migration of replicated items of a VMware machine
 Ensure the following for a successful movement of replicated item: 
 - A Recovery Services vault using the modernized experience.   
   >[!NOTE] 
-  > Classic experience will be [deprecated](vmware-physical-azure-classic-deprecation.md) in November 2023 and its use is discouraged. Any newly created Recovery Services vaults will always have the modernized experience.
+  > Classic experience will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026 and its use is discouraged. Any newly created Recovery Services vaults will always have the modernized experience.
    
 - An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which has been successfully registered to the vault, and all its components are in a non-critical state.   
 - The version of the appliance must be 9.50 or later. For a detailed version description, check [here](#architecture). 

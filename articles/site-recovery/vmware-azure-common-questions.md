@@ -20,7 +20,7 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-Moving to the classic experience in a newly created Recovery Services is not possible as it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in November 2023. All new Recovery Services vaults will be using the modernized experience. 
+Moving to the classic experience in a newly created Recovery Services is not possible as it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026. All new Recovery Services vaults will be using the modernized experience. 
 
 ### Can I migrate to the modernized experience? 
 
