@@ -14,9 +14,9 @@ ms.author: nikuklic
 
 # Domain validation
 
-This page describes the process of domain name ownership validation. Fully Qualified Domain Name (FQDN) consist of two parts: host name and domain name. For example, if your session border controller (SBC) name is `sbc1.contoso.com`, then `sbc1` would be a host name, while `contoso.com` would be a domain name. In case of SBC's FQDN of `acs.sbc1.testing.contoso.com`, `acs` would be a host name, and `sbc1.testing.contoso.com` would be a domain name. To use direct routing you need to validate that you own a domain part of your FQDN.
+This page describes the process of domain name ownership validation. Fully Qualified Domain Name (FQDN) consists of two parts: host name and domain name. For example, if your session border controller (SBC) name is `sbc1.contoso.com`, then `sbc1` would be a host name, while `contoso.com` would be a domain name. If there's an SBC with FQDN of `acs.sbc1.testing.contoso.com`, `acs` would be a host name, and `sbc1.testing.contoso.com` would be a domain name. To use direct routing, you need to validate that you own a domain part of your FQDN.
 
-Azure Communication Services direct routing configuration consist of the following steps:
+Azure Communication Services direct routing configuration consists of the following steps:
 
 1. Verify domain ownership for your SBC FQDN
 1. Configure SBC FQDN and port number
@@ -40,7 +40,7 @@ Make sure to add and verify domain name portion of the FQDN and keep in mind tha
 :::image type="content" source="./media/add-domain-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
 
 1. Select Verify next to new domain that is now visible in Domain’s list.
-1. Azure portal will generate a value for a TXT record, you need to add that record to your registrars or DNS hosting provider website to set up your domain.
+1. Azure portal generates a value for a TXT record, you need to add that record to your registrars or DNS hosting provider website to set up your domain.
 
 :::image type="content" source="./media/txt-record-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
 
