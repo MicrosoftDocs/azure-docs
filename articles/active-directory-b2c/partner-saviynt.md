@@ -42,65 +42,83 @@ To get started, you need:
 
 The Saviynt integration includes the following components:
 
-* **Azure AD B2C** – The business-to-customer identity as a service that enables custom control of how your customers sign up, sign in, and manage their profiles
+* **Azure AD B2C** – identity as a service for custom control of customer sign-up, sign-in, and profile management
   * See, [Azure AD B2C, Get started](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) 
-* **Saviynt for Azure AD B2C** – The identity governance platform that provides fine grained delegated administration for user life-cycle management and access governance of Azure AD B2C users.  
+* **Saviynt for Azure AD B2C** – identity governance for delegated administration of user life-cycle management and access governance
   * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
-* **Microsoft Graph API** – This API provides the interfaces for Saviynt to manage the Azure AD B2C users and their access in Azure AD B2C
-  * [Microsoft Graph API](/graph/use-the-api)
+* **Microsoft Graph API** – interface for Saviynt to manage Azure AD B2C users and their access
+  * [Use the Microsoft Graph API](/graph/use-the-api)
     
 
-The following architecture diagram shows the implementation.
+The following architecture diagram illustrates the implementation.
 
-![Image showing saviynt architecture diagram](./media/partner-saviynt/saviynt-architecture-diagram.png)
+![Diagram of the Saviynt architecture.](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|Step | Description |
-|:-----| :-----------|
-| 1. | A delegated administrator starts a manage Azure AD B2C user operation through Saviynt.
-| 2. | Saviynt verifies with its authorization engine if the delegated administrator can do the specific operation.
-| 3. | Saviynt’s authorization engine sends an authorization success/failure response.
-| 4. | Saviynt allows the delegated administrator to do the required operation.
-| 5. | Saviynt invokes Microsoft Graph API along with user attributes to manage the user in Azure AD B2C
-| 6. | Microsoft Graph API will in turn create/update/delete the user in Azure AD B2C.
-| 7. | Azure AD B2C will send a success/failure response.
-| 8. | Microsoft Graph API will then return the response to Saviynt.
+1. A delegated administrator starts the Azure AD B2C user operation with Saviynt.
+2. Saviynt verifies the delegated administrator can perform the operation.
+3. Saviynt sends an authorization success or failure response.
+4. Saviynt allows the delegated administrator to perform the operation.
+5. Saviynt invokes Microsoft Graph API, with user attributes, to manage the user in Azure AD B2C.
+6. Microsoft Graph API creates, updates, or deletes the user in Azure AD B2C.
+7. Azure AD B2C sends a success or failure response.
+8. Microsoft Graph API returns the response to Saviynt.
 
-## Onboard with Saviynt
+## Create a Saviynt account and create delegated policies
 
-1. To create a Saviynt account, contact [Saviynt](https://saviynt.com/contact-us/)
-
-2. Create delegated administration policies and assign users as delegated administrators with various roles.
+1. Create a Saviynt account. To get started, go to saviynt.com [Contact Us](https://saviynt.com/contact-us/).
+2. Create delegated administration policies.
+3. Assign users the delegated administrator role.
 
 ## Configure Azure AD B2C with Saviynt
 
-### Create an Azure AD Application for Saviynt
+Use the following instructions to create an application, delete users, and more. 
+
+### Create an Azure AD application for Saviynt
+
+For the following instructions, use the directory with the Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the Azure portal, search and select **Azure AD B2C**.
-1. Select **App registrations** > **New registration**.
-1. Enter a Name for the application. For example, Saviynt and select **Create**.
-1. Go to **API Permissions** and select **+ Add a permission.**
-1. The Request API permissions page appears. Select **Microsoft APIs** tab and select **Microsoft Graph** as commonly used Microsoft APIs.
-1. Go to the next page, and select **Application permissions**.
-1. Select **Directory**, and select **Directory.Read.All** and **Directory.ReadWrite.All** checkboxes.
-1. Select **Add Permissions**. Review the permissions added.
-1. Select **Grant admin consent for Default Directory** > **Save**.
-1. Go to **Certificates and Secrets** and select **+ Add Client Secret**. Enter the client secret description, select the expiry option, and select **Add**.
-1. The Secret key is generated and displayed in the Client secret section. You'll need to use it later.
+2. In the portal toolbar, select **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the Azure portal, search and select **Azure AD B2C**.
+6. Select **App registrations** > **New registration**.
+7. Enter an application name. For example, Saviynt.
+8. Select **Create**.
+9. Go to **API Permissions**.
+10. Select **+ Add a permission.**
+11. The Request API permissions page appears. 
+12. Select **Microsoft APIs** tab.
+13. Select **Microsoft Graph** as commonly used Microsoft APIs.
+14. Go to the next page.
+15. Select **Application permissions**.
+16. Select **Directory**.
+17. Select the **Directory.Read.All** and **Directory.ReadWrite.All** checkboxes.
+18. Select **Add Permissions**. 
+19. Review the permissions.
+20. Select **Grant admin consent for Default Directory**.
+21. Select **Save**.
+22. Go to **Certificates and Secrets**.
+23. Select **+ Add Client Secret**. 
+24. Enter the client secret description.
+25. Select the expiry option.
+26. Select **Add**.
+27. The Secret key appears in the Client Secret section. You'll use it later.
 
-1. Go to **Overview** and get the **Client ID** and **Tenant ID**.
-1. Tenant ID, client ID, and client secret will be needed to  complete the setup in Saviynt.
+1. Go to **Overview**.
+2. Copy the **Client ID** and **Tenant ID**.
 
-### Enable Saviynt to Delete users
+You'll use Tenant ID, Client ID, and Client Secret to complete the setup.
 
-The below steps explain how to enable Saviynt to perform user delete operations in Azure AD B2C.
+### Enable Saviynt to delete users
 
->[!NOTE]
->[Evaluate the risk before granting admin roles access to a service principal.](../active-directory/develop/app-objects-and-service-principals.md)
+Enable Saviynt to perform user delete operations in Azure AD B2C.
+
+Learn more: [Application and service principal objects in Azure AD](../active-directory/develop/app-objects-and-service-principals.md)
 
 1. Install the latest version of MSOnline PowerShell Module on a Windows workstation/server.
+
+See, [Azure Active Directory (MSOnline)](/overview?view=azureadps-1.0&preserve-view=true)
 
 2. Connect to AzureAD PowerShell module and execute the following commands:
 
