@@ -189,9 +189,9 @@ dotnet run
 ## Output
 
 ```console
- Caption:
-   "a man pointing at a screen", Confidence 0.4892
- Text:
+Caption:
+   "a person pointing at a screen", Confidence 0.4892
+Text:
    Line: '9:35 AM', Bounding polygon {{X=130,Y=129},{X=215,Y=130},{X=215,Y=149},{X=130,Y=148}}
      Word: '9:35', Bounding polygon {{X=131,Y=130},{X=171,Y=130},{X=171,Y=149},{X=130,Y=149}}, Confidence 0.9930
      Word: 'AM', Bounding polygon {{X=179,Y=130},{X=204,Y=130},{X=203,Y=149},{X=178,Y=149}}, Confidence 0.9980
@@ -214,7 +214,7 @@ dotnet run
      Word: 'AM', Bounding polygon {{X=586,Y=193},{X=593,Y=194},{X=593,Y=200},{X=586,Y=200}}, Confidence 0.9910
    Line: 'Aaron Buaion', Bounding polygon {{X=543,Y=201},{X=581,Y=201},{X=581,Y=208},{X=543,Y=208}}
      Word: 'Aaron', Bounding polygon {{X=545,Y=202},{X=560,Y=202},{X=559,Y=208},{X=544,Y=208}}, Confidence 0.6020
-     Word: 'Buaion', Bounding polygon {{X=561,Y=202},{X=580,Y=202},{X=579,Y=208},{X=560,Y=208}}, Confidence 0.2910
+     Word: 'Buaion', Bounding polygon {{X=561,Y=202},{X=580,Y=202},{X=579,Y=208},{X=560,Y=208}}, Confidence 0.2910        
    Line: 'Daily SCRUM', Bounding polygon {{X=537,Y=259},{X=575,Y=260},{X=575,Y=266},{X=537,Y=265}}
      Word: 'Daily', Bounding polygon {{X=538,Y=259},{X=551,Y=260},{X=550,Y=266},{X=538,Y=265}}, Confidence 0.1750
      Word: 'SCRUM', Bounding polygon {{X=552,Y=260},{X=570,Y=260},{X=570,Y=266},{X=551,Y=266}}, Confidence 0.1140
@@ -224,34 +224,34 @@ dotnet run
      Word: '11:00', Bounding polygon {{X=564,Y=267},{X=578,Y=267},{X=577,Y=273},{X=563,Y=273}}, Confidence 0.4790
      Word: 'AM', Bounding polygon {{X=579,Y=267},{X=586,Y=267},{X=585,Y=273},{X=578,Y=273}}, Confidence 0.9940
    Line: 'Churlette de Crum', Bounding polygon {{X=538,Y=273},{X=584,Y=273},{X=585,Y=279},{X=538,Y=279}}
-     Word: 'Churlette', Bounding polygon {{X=539,Y=274},{X=562,Y=274},{X=561,Y=279},{X=538,Y=279}}, Confidence 0.4640
+     Word: 'Churlette', Bounding polygon {{X=539,Y=274},{X=562,Y=274},{X=561,Y=279},{X=538,Y=279}}, Confidence 0.4640     
      Word: 'de', Bounding polygon {{X=563,Y=274},{X=569,Y=274},{X=568,Y=279},{X=562,Y=279}}, Confidence 0.8100
      Word: 'Crum', Bounding polygon {{X=570,Y=274},{X=582,Y=273},{X=581,Y=279},{X=569,Y=279}}, Confidence 0.8850
    Line: 'Quarterly NI Hands', Bounding polygon {{X=538,Y=295},{X=588,Y=295},{X=588,Y=301},{X=538,Y=302}}
-     Word: 'Quarterly', Bounding polygon {{X=540,Y=296},{X=562,Y=296},{X=562,Y=302},{X=539,Y=302}}, Confidence 0.5230
+     Word: 'Quarterly', Bounding polygon {{X=540,Y=296},{X=562,Y=296},{X=562,Y=302},{X=539,Y=302}}, Confidence 0.5230     
      Word: 'NI', Bounding polygon {{X=563,Y=296},{X=570,Y=296},{X=570,Y=302},{X=563,Y=302}}, Confidence 0.3030
      Word: 'Hands', Bounding polygon {{X=572,Y=296},{X=588,Y=296},{X=588,Y=302},{X=571,Y=302}}, Confidence 0.6130
    Line: '11.00 AM-12:00 PM', Bounding polygon {{X=536,Y=304},{X=588,Y=303},{X=588,Y=309},{X=536,Y=310}}
      Word: '11.00', Bounding polygon {{X=538,Y=304},{X=552,Y=304},{X=552,Y=310},{X=538,Y=310}}, Confidence 0.6180
-     Word: 'AM-12:00', Bounding polygon {{X=554,Y=304},{X=578,Y=304},{X=577,Y=310},{X=553,Y=310}}, Confidence 0.2700
+     Word: 'AM-12:00', Bounding polygon {{X=554,Y=304},{X=578,Y=304},{X=577,Y=310},{X=553,Y=310}}, Confidence 0.2700      
      Word: 'PM', Bounding polygon {{X=579,Y=304},{X=586,Y=304},{X=586,Y=309},{X=578,Y=310}}, Confidence 0.6620
    Line: 'Bebek Shaman', Bounding polygon {{X=538,Y=310},{X=577,Y=310},{X=577,Y=316},{X=538,Y=316}}
      Word: 'Bebek', Bounding polygon {{X=539,Y=310},{X=554,Y=310},{X=554,Y=317},{X=539,Y=316}}, Confidence 0.6110
-     Word: 'Shaman', Bounding polygon {{X=555,Y=310},{X=576,Y=311},{X=576,Y=317},{X=555,Y=317}}, Confidence 0.6050
+     Word: 'Shaman', Bounding polygon {{X=555,Y=310},{X=576,Y=311},{X=576,Y=317},{X=555,Y=317}}, Confidence 0.6050        
    Line: 'Weekly stand up', Bounding polygon {{X=537,Y=332},{X=582,Y=333},{X=582,Y=339},{X=537,Y=338}}
-     Word: 'Weekly', Bounding polygon {{X=538,Y=332},{X=557,Y=333},{X=556,Y=339},{X=538,Y=338}}, Confidence 0.6060
+     Word: 'Weekly', Bounding polygon {{X=538,Y=332},{X=557,Y=333},{X=556,Y=339},{X=538,Y=338}}, Confidence 0.6060        
      Word: 'stand', Bounding polygon {{X=558,Y=333},{X=572,Y=334},{X=571,Y=340},{X=557,Y=339}}, Confidence 0.4890
      Word: 'up', Bounding polygon {{X=574,Y=334},{X=580,Y=334},{X=580,Y=340},{X=573,Y=340}}, Confidence 0.8150
    Line: '12:00 PM-1:00 PM', Bounding polygon {{X=537,Y=340},{X=583,Y=340},{X=583,Y=347},{X=536,Y=346}}
      Word: '12:00', Bounding polygon {{X=539,Y=341},{X=553,Y=341},{X=552,Y=347},{X=538,Y=347}}, Confidence 0.8260
-     Word: 'PM-1:00', Bounding polygon {{X=554,Y=341},{X=575,Y=341},{X=574,Y=347},{X=553,Y=347}}, Confidence 0.2090
+     Word: 'PM-1:00', Bounding polygon {{X=554,Y=341},{X=575,Y=341},{X=574,Y=347},{X=553,Y=347}}, Confidence 0.2090       
      Word: 'PM', Bounding polygon {{X=576,Y=341},{X=583,Y=341},{X=582,Y=347},{X=575,Y=347}}, Confidence 0.0390
    Line: 'Delle Marckre', Bounding polygon {{X=538,Y=347},{X=582,Y=347},{X=582,Y=352},{X=538,Y=353}}
      Word: 'Delle', Bounding polygon {{X=540,Y=348},{X=559,Y=347},{X=558,Y=353},{X=539,Y=353}}, Confidence 0.5800
-     Word: 'Marckre', Bounding polygon {{X=560,Y=347},{X=582,Y=348},{X=582,Y=353},{X=559,Y=353}}, Confidence 0.2750
+     Word: 'Marckre', Bounding polygon {{X=560,Y=347},{X=582,Y=348},{X=582,Y=353},{X=559,Y=353}}, Confidence 0.2750       
    Line: 'Product review', Bounding polygon {{X=538,Y=370},{X=577,Y=370},{X=577,Y=376},{X=538,Y=375}}
-     Word: 'Product', Bounding polygon {{X=539,Y=370},{X=559,Y=371},{X=558,Y=376},{X=539,Y=376}}, Confidence 0.6150
-     Word: 'review', Bounding polygon {{X=560,Y=371},{X=576,Y=371},{X=575,Y=376},{X=559,Y=376}}, Confidence 0.0400
+     Word: 'Product', Bounding polygon {{X=539,Y=370},{X=559,Y=371},{X=558,Y=376},{X=539,Y=376}}, Confidence 0.6150       
+     Word: 'review', Bounding polygon {{X=560,Y=371},{X=576,Y=371},{X=575,Y=376},{X=559,Y=376}}, Confidence 0.0400 
 ```
 
 > [!div class="nextstepaction"]
