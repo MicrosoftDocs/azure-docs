@@ -86,7 +86,7 @@ Support | Details
 **SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
-**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.
+**Supported SQL configuration** | Discovery of standalone, highly available, and disaster protected SQL deployments is supported. Discovery of HADR SQL deployments powered by Always On Failover Cluster Instances and Always On Availability Groups is also supported.
 **Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) isn't supported.
 
 > [!NOTE]
@@ -102,7 +102,7 @@ After the appliance is connected, it gathers configuration data for ASP.NET web 
 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
-**Stack** | VMware only. | VMware only.
+**Stack** |VMware, Hyper-V, and Physical servers | VMware, Hyper-V, and Physical servers
 **Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
 **Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
 **Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.

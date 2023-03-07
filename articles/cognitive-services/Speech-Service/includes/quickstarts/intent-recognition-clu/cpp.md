@@ -20,7 +20,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ### Set environment variables
 
-[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+This example requires environment variables named `LANGUAGE_KEY`, `LANGUAGE_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
+
+[!INCLUDE [Environment variables](../../common/environment-variables-clu.md)]
 
 ## Create a Conversational Language Understanding project
 
@@ -92,10 +94,6 @@ Follow these steps to create a new console application and install the Speech SD
         {
             std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
             std::cout << "  Intent Id: " << result->IntentId << std::endl;
-    
-            // There is a known issue with the LanguageUnderstandingServiceResponse_JsonResult 
-            // property when used with CLU in the Speech SDK version 1.25. 
-            // The following should return JSON in a future release.
             std::cout << "  Intent Service JSON: " << result->Properties.GetProperty(PropertyId::LanguageUnderstandingServiceResponse_JsonResult) << std::endl;
         }
         else if (result->Reason == ResultReason::RecognizedSpeech)
@@ -150,14 +148,58 @@ Follow these steps to create a new console application and install the Speech SD
 Speak into your microphone when prompted. What you speak should be output as text: 
 
 ```console
-Say something ...
-RECOGNIZED: Text=Go ahead and delete the e-mail.
-    Intent Id: Delete.
-    Language Understanding JSON: 
+Speak into your microphone.
+RECOGNIZED: Text=Turn on the lights.
+    Intent Id: HomeAutomation.TurnOn.
+    Language Understanding JSON: {"kind":"ConversationResult","result":{"query":"turn on the lights","prediction":{"topIntent":"HomeAutomation.TurnOn","projectKind":"Conversation","intents":[{"category":"HomeAutomation.TurnOn","confidenceScore":0.97712576},{"category":"HomeAutomation.TurnOff","confidenceScore":0.8431633},{"category":"None","confidenceScore":0.782861}],"entities":[{"category":"HomeAutomation.DeviceType","text":"lights","offset":12,"length":6,"confidenceScore":1,"extraInformation":[{"extraInformationKind":"ListKey","key":"light"}]}]}}}.
 ```
 
-> [NOTE]
-> There is a known issue with the LanguageUnderstandingServiceResponse_JsonResult property when used with CLU in the Speech SDK version 1.25. You can get detailed JSON output in a future release. Via JSON, the intents are returned in the probability order of most likely to least likely. For example, the `topIntent` might be `Delete` with a confidence score of 0.95413816 (95.41%). The second most likely intent might be `Cancel` with a confidence score of 0.8985081 (89.85%).
+> [!NOTE]
+> Support for the JSON response for CLU via the LanguageUnderstandingServiceResponse_JsonResult property was added in the Speech SDK version 1.26.
+
+The intents are returned in the probability order of most likely to least likely. Here's a formatted version of the JSON output where the `topIntent` is `HomeAutomation.TurnOn` with a confidence score of 0.97712576 (97.71%). The second most likely intent might be `HomeAutomation.TurnOff` with a confidence score of 0.8985081 (84.31%).
+
+```json
+{
+  "kind": "ConversationResult",
+  "result": {
+    "query": "turn on the lights",
+    "prediction": {
+      "topIntent": "HomeAutomation.TurnOn",
+      "projectKind": "Conversation",
+      "intents": [
+        {
+          "category": "HomeAutomation.TurnOn",
+          "confidenceScore": 0.97712576
+        },
+        {
+          "category": "HomeAutomation.TurnOff",
+          "confidenceScore": 0.8431633
+        },
+        {
+          "category": "None",
+          "confidenceScore": 0.782861
+        }
+      ],
+      "entities": [
+        {
+          "category": "HomeAutomation.DeviceType",
+          "text": "lights",
+          "offset": 12,
+          "length": 6,
+          "confidenceScore": 1,
+          "extraInformation": [
+            {
+              "extraInformationKind": "ListKey",
+              "key": "light"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

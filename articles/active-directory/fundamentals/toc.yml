@@ -17,7 +17,7 @@ items:
     href: active-directory-how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: active-directory-properties-area.md
-  - name: Add company branding
+  - name: Add company branding (preview)
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
@@ -171,6 +171,8 @@ items:
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
       - name: Open ID Connect authentication

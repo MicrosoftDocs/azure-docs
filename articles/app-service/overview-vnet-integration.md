@@ -5,6 +5,7 @@ author: madsd
 ms.topic: conceptual
 ms.date: 01/20/2023
 ms.author: madsd
+ms.custom: UpdateFrequency3
 
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network

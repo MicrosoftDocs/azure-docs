@@ -80,9 +80,9 @@ AzureDiagnostics
 
 In some cases, it can be useful to test individual queries to see how they're performing. To do this, it's important to be able to see how long the search service takes to complete the work, as well as how long it takes to make the round-trip request from the client and back to the client. The diagnostics logs could be used to look up individual operations, but it might be easier to do this all from a client tool, such as Postman.
 
-In the example below, a REST-based search query was executed. Cognitive Search includes in every response the number of milliseconds it takes to complete the query, visible in the Headers tab, in "elapsed-time". Next to Status at the top of the response, you'll find the round-trip duration. in this case, 418 milliseconds. In the results section, the “Headers” tab was chosen. Using these two values highlighted with a Red box in the image below, we see the search service took 21 ms to complete the search query and the entire client round-trip request took 125 ms. By subtracting these two numbers we can determine that it took 104-ms additional time to transmit the search query to the search service and to transfer the search results back to the client.
+In the example below, a REST-based search query was executed. Cognitive Search includes in every response the number of milliseconds it takes to complete the query, visible in the Headers tab, in "elapsed-time". Next to Status at the top of the response, you'll find the round-trip duration, in this case, 418 milliseconds (ms). In the results section, the “Headers” tab was chosen. Using these two values, highlighted with a red box in the image below, we see the search service took 21 ms to complete the search query and the entire client round-trip request took 125 ms. By subtracting these two numbers we can determine that it took 104-ms additional time to transmit the search query to the search service and to transfer the search results back to the client.
 
-This can be extremely helpful to determine if there might be network latencies or other factors impacting query performance.
+This technique helps you isolate network latencies from other factors impacting query performance.
 
 :::image type="content" source="media/search-performance/perf-elapsed-time.png" alt-text="Query duration metrics" border="true":::
 

@@ -1,8 +1,8 @@
-- name: Microsoft Energy Data Services Preview Documentation
+- name: Microsoft Azure Data Manager for Energy Preview Documentation
   href: index.yml
 - name: Overview
   items:
-    - name: About Microsoft Energy Data Services Preview
+    - name: About Microsoft Azure Data Manager for Energy Preview
       displayName: Overview
       href: overview-microsoft-energy-data-services.md
     - name: About Domain Data Management Services (DDMS)
@@ -15,7 +15,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Microsoft Energy Data Services Preview instance
+    - name: Create a Microsoft Azure Data Manager for Energy Preview instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
@@ -98,7 +98,5 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
-  - name: Troubleshooting
-    items:
-    - name: Troubleshoot manifest ingestion
-      href: troubleshoot-manifest-ingestion.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/energy-data-services/
