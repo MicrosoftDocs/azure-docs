@@ -45,7 +45,7 @@ To configure the integration of Infinite Campus into Azure AD, you need to add I
 1. In the **Add from the gallery** section, type **Infinite Campus** in the search box.
 1. Select **Infinite Campus** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Infinite Campus
 
@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the Basic SAML Configuration section, perform the following steps (note that the domain will vary with Hosting Model, but the **FULLY-QUALIFIED-DOMAIN** value must match your Infinite Campus installation):
+4. On the Basic SAML Configuration section, perform the following steps (note that the domain varies with Hosting Model, but the **FULLY-QUALIFIED-DOMAIN** value must match your Infinite Campus installation):
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -95,14 +95,14 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Infinite Campus.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Infinite Campus.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Infinite Campus**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Infinite Campus SSO
@@ -123,30 +123,30 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Configure Azure SSO for Non-Production Infinite Campus Environments (Sandbox, Staging)
 
-If your district has additional Infinite Campus environments, this entire setup process must be repeated for each environment. For example, if your district has an Infinite Campus sandbox site, add the Infinite Campus app from the gallery again and complete the process while referencing the SSO Service Provider Configuration screen within your Infinite Campus sandbox site. If your district also has, for example, an Infinite Campus staging site, you will need to complete this process a third time.
+If your district has other Infinite Campus environments, this entire setup process must be repeated for each environment. For example, if your district has an Infinite Campus sandbox site, add the Infinite Campus app from the gallery again and complete the process while referencing the SSO Service Provider Configuration screen within your Infinite Campus sandbox site. If your district also has, for example, an Infinite Campus staging site, you need to complete this process a third time.
 
 See Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#sandbox/staging/non-production-environments) for more information about this process. 
 
 ## Replacing an Expiring SAML Certificate
 
-The SAML certificate of this integration relies on which eventually need to be renewed so users can continue logging into Infinite Campus through single sign-on. For districts with proper Campus Messenger Email Settings established, Infinite Campus will send warning emails as the certificate expiration approaches. (Subject: "Action required: Your certificate is expiring.") 
+The SAML certificate of this integration relies on which eventually need to be renewed so users can continue logging into Infinite Campus through single sign-on. For districts with proper Campus Messenger Email Settings established, Infinite Campus sends warning emails as the certificate expiration approaches. (Subject: "Action required: Your certificate is expiring.") 
 
 These are the steps to take to replace an expiring SAML certificate: 
-1. Have your district's Microsoft Azure Active Directory admin sign in to the Azure portal.
+1. Have your district's Microsoft Azure Active Directory admin sign-in to the Azure portal.
 1.	On the left navigation pane, select the Azure Active Directory service.
-1.	Navigate to Enterprise Applications and select your Infinite Campus application set up previously. (If you have multiple Infinite Campus environments like a sandbox or staging site, you will have multiple Infinite Campus applications set up here. You will need to complete this process in each respective Infinite Campus environment for any with an expiring certificate.)
-1.	Select Single Sign-On.
+1.	Navigate to Enterprise Applications and select your Infinite Campus application set up previously. (If you have multiple Infinite Campus environments like a sandbox or staging site, you have multiple Infinite Campus applications set up here. You need to complete this process in each respective Infinite Campus environment for any with an expiring certificate.)
+1.	Select Single sign-on.
 1.	Navigate to the SAML Certificate and copy the App Federation Metadata URL.
 1.	Within Infinite Campus, navigate to the SSO Service Provider Configuration tool, select the configuration, and paste the App Federation Metadata URL copied in the previous step into the Metadata URL field.
 1.	In a separate window, go back to the Azure portal. Under SAML Certificates, in the Token Signing Certificate area, select Edit.
 1.	Select New Certificate. Modify the expiration date if desired. 
 1.	Select Save. (Leave the Signing Option and Signing Algorithm as-is)
-1.	Return to the Infinite Campus window and click the Sync button next to the Metadata URL. It will say "IDP Synchronization successful". Select OK and Save.
+1.	Return to the Infinite Campus window and click the Sync button next to the Metadata URL. It says "IDP Synchronization successful". Select OK and Save.
 1.	Return to the Azure portal, still on the SAML Signing Certificate edit screen, select the three dots (...) next to the new certificate. Select Make Certificate Active and click Save.
 1.	Select the three dots next to the old certificate. Select Delete Certificate.
-1.	Return to Infinite Campus and hit the Sync button next to the Metadata URL again. It will say "IDP Synchronization successful" again. Hit OK and Save again.
+1.	Return to Infinite Campus and hit the Sync button next to the Metadata URL again. It says "IDP Synchronization successful" again. Hit OK and Save again.
 
-This completes the process of replacing an expiring certificate. For additional details see Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-CertificateExpirationWarnings).
+This completes the process of replacing an expiring certificate. For more information, see Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-CertificateExpirationWarnings).
 
 ## Next steps
 
