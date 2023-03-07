@@ -34,32 +34,31 @@ Select one of the four different authentication options offered by Service Conne
 
 Different authentication options are available for different services:
 
-| Target resource           | System assigned managed identity     | User assigned managed identity       | Connection string                    | Service principal                    |
-|---------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| Postgres single server    | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Postgres, flexible server | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
-| MySQL single server       | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
-| MySQL flexible server           | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Azure SQL                       | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      | 
-| Azure Cache for Redis                     |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Azure Cache for Redis Enterprise          |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Azure Cosmos DB - Cassandra          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | 
-| Azure Cosmos - Gremlin            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Azure Cosmos DB for MongoDB              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Azure Cosmos Table              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Azure Cosmos - SQL                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Blob storage              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Storage Queue             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Storage File              |                                      | ![yes icon](./media/green-check.png) |                                      |                                      |
-| Storage Table             |                                      | ![yes icon](./media/green-check.png) |                                      |                                      |
-| Storage Queue             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Keyvault                  | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |
-| App Configuration         | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Event Hubs                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Service Bus               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| SignalR                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| WebPub Sub                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Confluent Cloud           |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Target resource                  | System assigned managed identity     | User assigned managed identity       | Connection string                    | Service principal                    |
+|----------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| App Configuration                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure SQL                        | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      | 
+| Azure Cache for Redis            |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Azure Cache for Redis Enterprise |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Azure Cosmos DB - Cassandra      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | 
+| Azure Cosmos - Gremlin           | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos DB for MongoDB      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos Table               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos - SQL               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Blob storage                     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Confluent Cloud                  |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Event Hubs                       | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Keyvault                         | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |
+| MySQL single server              | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
+| MySQL flexible server            | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Postgres single server           | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Postgres, flexible server        | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Storage Queue                    | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Storage File                     |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Storage Table                    |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Service Bus                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| SignalR                          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| WebPub Sub                       | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ## Review or update authentication configuration
 
@@ -95,8 +94,6 @@ When using a user-assigned managed identity, review or edit its authentication s
 When using a connection string, review or edit its authentication settings by following these steps:
 
 1. Optionally select **Store Secret in Key Vault** to save your connection credentials in Azure Key Vault. This option lets you select an existing Key Vault connection from a drop-down list or create a new connection to a new or an existing Key Vault.
-1. Under **Subscription**, select the Azure subscription that contains your user-assigned managed identity. 
-1. Under **User assigned managed identity**, select the managed identity you want to use.
 
     :::image type="content" source="./media/manage-authentication/connection-string-basic-with-key-vault.png" alt-text="Screenshot of the Azure portal, showing basic authentication configuration to authenticate with a connection-string.":::
 
