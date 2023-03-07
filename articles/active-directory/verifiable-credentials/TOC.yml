@@ -52,10 +52,10 @@
     href: how-use-vcnetwork.md
   - name: Using the Request Service REST API
     href: get-started-request-api.md
-  - name: Link your domain to your DID
-    href: how-to-dnsbind.md
-  - name: Register your website ID
+  - name: Register decentralized ID
     href: how-to-register-didwebsite.md
+  - name: Verify domain ownership
+    href: how-to-dnsbind.md
   - name: Revoke a verifiable credential
     href: how-to-issuer-revoke.md
   - name: Opt out of Verified ID service
