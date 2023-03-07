@@ -71,6 +71,11 @@ resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10
 }
 ```
 
+Two Azure resources are defined in the Bicep file:
+
+- [`Microsoft.DocumentDB/databaseAccounts`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates an Azure Cosmos DB for MongoDB vCore cluster.
+  - [`Microsoft.DocumentDB/databaseAccounts/sqlDatabases`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates firewall rules for the Azure Cosmos DB for MongoDB vCore cluster.
+
 ## Deploy the Bicep file
 
 Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
@@ -95,7 +100,7 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
         --location $location
     ```
 
-1. TODO
+1. Use [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create) to deploy the bicep template. You're then prompted to enter a value for the `adminUsername` and `adminPassword` parameters.
 
     ```azurecli
     az deployment group create \
@@ -103,10 +108,17 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
         --template-file 'main.bicep'
     ```
 
-1. TODO
-
     > [!TIP]
-    > Alternatively, TODO
+    > Alternatively, use the ``--parameters`` option to pass in a parameters file with pre-defined values.
+    >
+    > ```azurecli
+    > az deployment group create \
+    >     --resource-group $resourceGroupName \
+    >     --template-file 'main.bicep' \
+    >     --parameters @main.parameters.json
+    > ```
+    >
+    > This example JSON file injects `clusteradmin` and `P@ssw.rd` values for the `adminUsername` and `adminPassword` parameters respectively.
     >
     > ```json
     > {
@@ -123,6 +135,8 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     > }
     > ```
     >
+
+1. Wait for the deployment operation to complete before moving on.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -146,7 +160,7 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     New-AzResourceGroup @parameters
     ```
 
-1. TODO
+1. Use [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment) to deploy the bicep template. You're then prompted to enter a value for the `adminUsername` and `adminPassword` parameters.
 
     ```azurepowershell
     $parameters = @{
@@ -156,10 +170,19 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     New-AzResourceGroupDeployment @parameters
     ```
 
-1. TODO
-
     > [!TIP]
-    > Alternatively, TODO
+    > Alternatively, use the ``-TemplateParameterFile`` option to pass in a parameters file with pre-defined values.
+    >
+    > ```azurepowershell
+    > $parameters = @{
+    >     ResourceGroupName = $RESOURCE_GROUP_NAME
+    >     TemplateFile = "main.bicep"
+    >     TemplateParameterFile = "main.parameters.json"
+    > }
+    > New-AzResourceGroupDeployment @parameters
+    > ```
+    >
+    > This example JSON file injects `clusteradmin` and `P@ssw.rd` values for the `adminUsername` and `adminPassword` parameters respectively.
     >
     > ```json
     > {
@@ -185,19 +208,26 @@ List the resources deployed by the Bicep template to your target resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. TODO
+1. Use [`az resource list`](/cli/azure/resource#az-resource-list) to get a list of resources in your resource group.
 
     ```azurecli
-    az resource list
+    az resource list \
         --resource-group $resourceGroupName \
-        --location $location    
+        --location $location \
+        --output tsv
     ```
 
-1. TODO `Microsoft.DocumentDB/mongoClusters`
+1. In the example output, look for resources that have a type of `Microsoft.DocumentDB/mongoClusters`. Here's an example of the type of output to expect:
+
+    ```output
+    Name                  ResourceGroup                Location    Type                                Status
+    --------------------  ---------------------------  ----------  ----------------------------------  --------
+    msdocs-sz2dac3xtwzzu  msdocs-cosmos-quickstart-rg  eastus      Microsoft.DocumentDB/mongoClusters
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. TODO
+1. Use [`Get-AzResource`](/powershell/module/az.resources/get-azresource) to get a list of resources in your resource group.
 
     ```azurepowershell
     $parameters = @{
@@ -206,8 +236,17 @@ List the resources deployed by the Bicep template to your target resource group.
     Get-AzResource @parameters
     ```
 
-1. TODO `Microsoft.DocumentDB/mongoClusters`
+1. In the example output, look for resources that have a type of `Microsoft.DocumentDB/mongoClusters`. Here's an example of the type of output to expect:
 
+    ```output
+    Name              : msdocs-sz2dac3xtwzzu
+    ResourceGroupName : msdocs-cosmos-quickstart-rg
+    ResourceType      : Microsoft.DocumentDB/mongoClusters
+    Location          : eastus
+    ResourceId        : /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/msdocs-cosmos-quickstart-rg/providers/Microsoft.DocumentDB/mongoClusters/msdocs-sz2dac3xtwzzu
+    Tags              : 
+    ```
+    
 ---
 
 ## Clean up resources
