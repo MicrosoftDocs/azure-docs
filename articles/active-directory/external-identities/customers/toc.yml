@@ -6,3 +6,16 @@ items:
   items:   
     - name: What is Azure AD for customers?  
       href: overview-customers-ciam.md 
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Add your app
+      items:
+      - name: Register an app
+        href: register-ciam-app.md
+      - name: Customize your app login
+        href: how-to-app-login-domain.md
+    - name: Customize branding
+      items:
+        - name: Language-specific branding
+          href: how-to-customize-languages-customers.md
