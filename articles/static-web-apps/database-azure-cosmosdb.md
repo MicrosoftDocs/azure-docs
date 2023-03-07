@@ -66,7 +66,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Select **New Container**. Enter the Database ID as `Create new`, and enter `MyTestPersonDatabase` as value.
 
-1. Enter the Container ID of `MyTestPersonTable`.
+1. Enter the Container ID of `MyTestPersonContainer`.
 
 1. Enter a partition key of `Id` (this value is prefixed with `/`).
 
@@ -87,7 +87,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 ## Configure the static web app
 
-The rest this tutorial focuses on editing your static web app's source code to make use of database connections locally.  
+The rest of this tutorial focuses on editing your static web app's source code to make use of database connections locally.  
 
 > [!IMPORTANT]
 > The following steps assume you are working with the static web app created in the [getting started guide](getting-started.md). If you are using a different project, make sure to adjust the following git commands to match your branch names.
@@ -179,11 +179,11 @@ Next, create the configuration file that your static web app uses to interface w
 
 1. Paste in this sample schema into the *staticwebapp.schema.config.json* file you generated.
 
-    Since Cosmos DB for NoSQL is a document database, Azure Static Web Apps database connections can't extract the schema of your database. The *staticwebapp.schema.config.json* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
+    Since Cosmos DB for NoSQL is a schema agnostic database, Azure Static Web Apps database connections can't extract the schema of your database. The *staticwebapp.schema.config.json* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
 
     ```gql
     type Person @model {
-      Id: ID
+      Id: Id
       Name: String
     }
     ```
@@ -197,8 +197,7 @@ Next, create the configuration file that your static web app uses to interface w
     "database-type": "cosmosdb_nosql",
     "options": {
       "database": "MyTestPersonDatabase",
-      "schema": "staticwebapp.database.schema.gql",
-      "set-session-context": false 
+      "schema": "staticwebapp.database.schema.gql"
     },
     "connection-string": "@env('DATABASE_CONNECTION_STRING')"
   },
@@ -604,7 +603,7 @@ Use the following steps to create a connection between the Static Web Apps insta
     |---|---|
     | Database Type | Select your database type from the dropdown list. |
     | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select the database server name that has your desired database. |
+    | Resource Name | Select **Cosmos DB for NoSQL**. |
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
 
@@ -626,7 +625,6 @@ Use the following steps to create a connection between the Static Web Apps insta
     |---|---|
     | Database Type | Select your database type from the dropdown list. |
     | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select the database server name that has your desired database. |
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select **Connection string**. |
 
@@ -642,9 +640,9 @@ Once you've connected your database to your static web app and the site is finis
 
 1. Select the **List** button to list all items.
 
-	    The output should resemble what's shown in this screenshot.
+    The output should resemble what's shown in this screenshot.
 
-	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
 
 ## Clean up resources
 
@@ -652,7 +650,7 @@ If you want to remove the resources created during this tutorial, you need to un
 
 1. **Unlink database**: Open your static web app in the Azure portal. Under the *Settings* section, select **Database connection**. Next to the linked database, select **View details**. In the *Database connection details* window, select the **Unlink** button.
 
-1. **Remove sample data**: In your database, delete the table named `MyTestPersonTable`.
+1. **Remove sample data**: In your database, delete the table named `MyTestPersonContainer`.
 
 ## Next steps
 
