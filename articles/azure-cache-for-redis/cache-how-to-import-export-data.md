@@ -12,7 +12,7 @@ ms.author: franlanglois
 
 Import/Export is an Azure Cache for Redis data management operation. It allows you to import data into Azure Cache for Redis or export data from Azure Cache for Redis by importing and exporting an Azure Cache for Redis Database (RDB) snapshot to or from a blob in an Azure Storage Account.
 
-- **Export** - you can export your Azure Cache for Redis RDB snapshots to a Page Blob.
+- **Export** - you can export your Azure Cache for Redis RDB snapshots to a Page Blob (Premium tier) or Block Blob (Enterprise tiers).
 - **Import** - you can import your Azure Cache for Redis RDB snapshots from either a Page Blob or a Block Blob.
 
 Import/Export enables you to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
@@ -27,6 +27,10 @@ This article provides a guide for importing and exporting data with Azure Cache 
 
 ## Compatibility
 
+- Data is exported as a RDB page blob in the _Premium_ tier. In the _Enterprise_ and _Enterprise Flash_ tiers, data is exported as a .gz block blob.
+- Exported backups from newer versions of Redis (e.g. Redis 6.0) cannot be imported into older versions of Redis (e.g. Redis 4.0)
+- Caches running Redis 4.0 support RDB version 8 and below. Caches running Redis 6.0 support RDB version 9 and below. 
+- It is possible to export data from an _Enterprise_ or _Enterprise Flash_ tier cache and import the data into a _Premium_ tier cache. You must first manually unzip the .gz file. Then you can import the file to a Premium tier cache if it is running the same version (e.g. 6.0) of Redis. 
 
 ## Import
 
