@@ -86,7 +86,7 @@ appInsights.loadAppInsights();
 
 ## Set ConversionScope (HEART workbook)
 
-If you want to use the HEART workbook, keep the following guidance in mind.
+If you're using the HEART workbook with the Click Analytics plugin, keep the following guidance in mind.
 
 Unless you set the authenticated user context, you must select **Anonymous Users** from the **ConversionScope** dropdown in the HEART workbook to see telemetry data.
 
@@ -180,17 +180,24 @@ The following are some of the key properties captured by default when the plugin
 
 ### behaviorValidator
 
-The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. 
+The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. The behaviorValidator functions can help with more accessible practices.
+
+Behaviors show up in the customDimensions field within the CustomEvents table.
+
+#### Callback functions 
 
 There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
 
-Behaviors are stored in the customDimensions field within the CustomEvents table.
 
 | Name                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
 | BehaviorValueValidator | Use this callback function if your behaviors data structure is an array of strings.|
 | BehaviorMapValidator   | Use this callback function if your behaviors data structure is a dictionary.       |
 | BehaviorEnumValidator  | Use this callback function if your behaviors data structure is an Enum.            |
+
+#### Passing in string vs. numerical values
+
+To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
 
@@ -392,5 +399,7 @@ JavaScript correlation is turned off by default in order to minimize the telemet
 - Check out the [documentation on utilizing HEART Workbook](usage-heart.md) for expanded product analytics.
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871).
+- Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.
+- See the [Sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as Name and parentid and custom behavior and content.
+- See the [Sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for where to find click data and [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
