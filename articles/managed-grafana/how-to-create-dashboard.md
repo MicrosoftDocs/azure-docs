@@ -25,7 +25,11 @@ A Grafana dashboard contains panels and rows. You can import a Grafana dashboard
 
 ## Import a Grafana dashboard
 
-To quickly create a dashboard, import a dashboard template from the Grafana Labs website and add it to your Managed Grafana workspace.
+To quickly create a dashboard, import an existing dashboard and add it to your Managed Grafana instance. You can do so by importing a dashboard template from Grafana Labs, uploading a JSON file or pasting JSON code. 
+
+### Import a dashboard from Grafana Labs 
+
+Import a dashboard template from the Grafana Labs website.
 
 1. From the Grafana Labs website, browse through [Grafana dashboards templates](https://grafana.com/grafana/dashboards/?category=azure) and select a dashboard to import.
 1. Select **Copy ID to clipboard**.
@@ -46,8 +50,7 @@ To quickly create a dashboard, import a dashboard template from the Grafana Labs
 
     ### [Azure CLI](#tab/azure-cli)
 
-    1. Open a CLI and run the `az login` command.
-    1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update)command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
+    1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
 
        ```azurecli
        az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
@@ -55,9 +58,32 @@ To quickly create a dashboard, import a dashboard template from the Grafana Labs
 
     ---
 
+### Import a JSON dashboard
+
+Follow these steps to import a JSON dashboard to Grafana:
+
+### [Portal](#tab/azure-portal)
+
+1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
+1. Go to **Dashboard > Import**
+   - Select **Upload JSON file** and then **Load** to import from a JSON file
+   - Paste JSON text in the **Import via panel json** box and select **Load** to use text from your clipboard
+1. Optionally update the dashboard name, folder, unique identifier and data source
+1. Select **Import**
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<local-path-to-file>` with the name of the Azure Managed Grafana instance, its resource group, and the path to the JSON File on your local machine, ending with `.json`.
+
+    ```azurecli
+    az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition @<local-path-to-file>
+    ```
+
+---
+
 ## Create a new Grafana dashboard
 
-If none of the pre-configured dashboards listed on the Grafana Labs website fit your needs, create a new dashboard.
+To create your own new dashboard, follow these steps. 
 
 ### [Portal](#tab/azure-portal)
 
@@ -191,4 +217,4 @@ az grafana dashboard update --name <AMG-name> --resource-group <AMG-resource-gro
 In this how-to guide, you learned how to create a Grafana dashboard. To learn how to manage your data sources, go to:
 
 > [!div class="nextstepaction"]
-> [Configure data sources](how-to-data-source-plugins-managed-identity.md)
+> [Share a dashboard or panel](how-to-share-dashboard.md)
