@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 03/07/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
@@ -70,7 +70,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    cd bindings-dapr-nodejs-cron-postgres/batch
    ```
 
-1. Install the dependencies:
+1. Install the dependencies.
 
    ```bash
    npm install
@@ -84,7 +84,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
-   **Expected output:**
+   #### Expected output
    
    A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
@@ -103,7 +103,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    == APP == Finished processing batch
    ```
 
-1. In the `./db` terminal, stop the PostgreSQL container:
+1. In the `./db` terminal, stop the PostgreSQL container.
 
    ```bash
    docker compose stop
@@ -115,42 +115,39 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) root directory.
+Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) root directory.
 
-   ```bash
-   cd bindings-dapr-nodejs-cron-postgres
-   ```
+```bash
+cd bindings-dapr-nodejs-cron-postgres
+```
 
 ### Provision and deploy using Azure Developer CLI
 
-1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
+1. Run `azd up` to initialize the project, provision the infrastructure, and deploy the Dapr application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
    ```
 
-1. When prompted in the terminal, provide the following parameters:
+1. When prompted in the terminal, provide the following parameters.
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
-   | `Azure Subscription` | The Azure Subscription for your resources. |
+   | Environment Name | Prefix for the resource group created to hold all Azure resources. |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Subscription | The Azure subscription for your resources. |
 
-   This process may take some time to complete, as the `azd up` command:
+   This process may take some time to complete. As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+   - Initializes your project using `azd init`
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory using `azd provision`. Once provisioned by Azure Developer CLI, you can access these resources via the Azure portal. The files that provision the Azure resources include:
      - `main.parameters.json`
      - `main.bicep`
      - An `app` resources directory organized by functionality
      - A `core` reference library that contains the Bicep modules used by the `azd` template
+   - Deploys the code using `azd deploy`
 
-   - Deploys the code (azd deploy)
-   
-   As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
-
-   **Expected output:**
+   #### Expected output
    
    ```azdeveloper
    Initializing a new project (azd init)
@@ -244,7 +241,7 @@ Start by running the PostgreSQL container and Python service with [Docker Compos
    cd bindings-dapr-python-cron-postgres/batch
    ```
 
-1. Install the dependencies:
+1. Install the dependencies.
 
    ```bash
    pip install -r requirements.txt
@@ -258,7 +255,7 @@ Start by running the PostgreSQL container and Python service with [Docker Compos
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
-   **Expected output:**
+   #### Expected output
    
    A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
@@ -277,7 +274,7 @@ Start by running the PostgreSQL container and Python service with [Docker Compos
    == APP == Finished processing batch
    ```
 
-1. In the `./db` terminal, stop the PostgreSQL container:
+1. In the `./db` terminal, stop the PostgreSQL container.
 
    ```bash
    docker compose stop
@@ -289,42 +286,39 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) root directory.
+Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) root directory.
 
-   ```bash
-   cd bindings-dapr-python-cron-postgres
-   ```
+```bash
+cd bindings-dapr-python-cron-postgres
+```
 
 ### Provision and deploy using Azure Developer CLI
 
-1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
+1. Run `azd up` to initialize the project, provision the infrastructure, and deploy the Dapr application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
    ```
 
-1. When prompted in the terminal, provide the following parameters:
+1. When prompted in the terminal, provide the following parameters.
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
-   | `Azure Subscription` | The Azure Subscription for your resources. |
+   | Environment Name | Prefix for the resource group created to hold all Azure resources. |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Subscription | The Azure subscription for your resources. |
 
-   This process may take some time to complete, as the `azd up` command:
+   This process may take some time to complete. As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+   - Initializes your project using `azd init`
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory using `azd provision`. Once provisioned by Azure Developer CLI, you can access these resources via the Azure portal. The files that provision the Azure resources include:
      - `main.parameters.json`
      - `main.bicep`
      - An `app` resources directory organized by functionality
      - A `core` reference library that contains the Bicep modules used by the `azd` template
+   - Deploys the code using `azd deploy`
 
-   - Deploys the code (azd deploy)
-   
-   As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
-
-   **Expected output:**
+   #### Expected output
    
    ```azdeveloper
    Initializing a new project (azd init)
@@ -417,7 +411,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    cd bindings-dapr-csharp-cron-postgres/batch
    ```
 
-1. Install the dependencies:
+1. Install the dependencies.
 
    ```bash
    dotnet restore
@@ -432,7 +426,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
-   **Expected output:**
+   #### Expected output
    
    A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
@@ -451,7 +445,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    == APP == Finished processing batch
    ```
 
-1. In the `./db` terminal, stop the PostgreSQL container:
+1. In the `./db` terminal, stop the PostgreSQL container.
 
    ```bash
    docker compose stop
@@ -463,41 +457,39 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-csharp-cron-postgres) root directory.
+Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-csharp-cron-postgres) root directory.
 
-   ```bash
-   cd bindings-dapr-csharp-cron-postgres
-   ```
+```bash
+cd bindings-dapr-csharp-cron-postgres
+```
 
 ### Provision and deploy using Azure Developer CLI
 
-1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
+1. Run `azd up` to initialize the project, provision the infrastructure, and deploy the Dapr application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
    ```
 
-1. When prompted in the terminal, provide the following parameters:
+1. When prompted in the terminal, provide the following parameters.
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
-   | `Azure Subscription` | The Azure Subscription for your resources. |
+   | Environment Name | Prefix for the resource group created to hold all Azure resources. |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Subscription | The Azure subscription for your resources. |
 
-   This process may take some time to complete, as the `azd up` command:
+   This process may take some time to complete. As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+   - Initializes your project using `azd init`
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory using `azd provision`. Once provisioned by Azure Developer CLI, you can access these resources via the Azure portal. The files that provision the Azure resources include:
      - `main.parameters.json`
      - `main.bicep`
      - An `app` resources directory organized by functionality
      - A `core` reference library that contains the Bicep modules used by the `azd` template
-   - Deploys the code (azd deploy)
-   
-   As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
+   - Deploys the code using `azd deploy`
 
-   **Expected output:**
+   #### Expected output
    
    ```azdeveloper
    Initializing a new project (azd init)
@@ -556,7 +548,7 @@ Upon successful completion of the `azd up` command:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the Azure resources you've provisioned with the following command:
+If you're not going to continue to use this application, delete the Azure resources you've provisioned with the following command.
 
 ```azdeveloper
 azd down
