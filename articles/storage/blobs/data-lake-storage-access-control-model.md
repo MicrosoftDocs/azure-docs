@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 03/07/2023
 ms.author: jammart
 ---
 
