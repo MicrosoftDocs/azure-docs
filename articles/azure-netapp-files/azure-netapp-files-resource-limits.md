@@ -7,7 +7,7 @@ author: b-hchen
 manager: ''
 editor: ''
 
-ms.assetid:dc
+ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
