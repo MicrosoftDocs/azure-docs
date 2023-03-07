@@ -292,6 +292,12 @@ Add the following new method to *MainPage.xaml.cs*:
 
 In this method, you're using the custom access token provider `TokenProvider` to connect the `SignInUserAndGetTokenUsingMSAL` method to the Microsoft Graph .NET SDK and create an authenticated client.
 
+To use the `BaseBearerTokenAuthenticationProvider`, in the *MainPage.xaml.cs* file, add the following reference:
+
+```cs
+using Microsoft.Kiota.Abstractions.Authentication;
+```
+
 #### More information on making a REST call against a protected API
 
 In this sample application, the `GetGraphServiceClient` method instantiates `GraphServiceClient` by using an access token. Then, `GraphServiceClient` is used to get the user's profile information from the **me** endpoint.
