@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 All Azure services set default limits and quotas for resources and features. Azure Spring Apps offers two pricing tiers: Basic and Standard. This article describes the limits for both tiers.
 
