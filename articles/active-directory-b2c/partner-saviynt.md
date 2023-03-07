@@ -103,12 +103,12 @@ For the following instructions, use the directory with the Azure AD B2C tenant.
 24. Enter the client secret description.
 25. Select the expiry option.
 26. Select **Add**.
-27. The Secret key appears in the Client Secret section. You'll use it later.
+27. The Secret Key appears in the Client Secret section. Save the Client Secret to use later.
 
 1. Go to **Overview**.
 2. Copy the **Client ID** and **Tenant ID**.
 
-You'll use Tenant ID, Client ID, and Client Secret to complete the setup.
+Save the Tenant ID, Client ID, and Client Secret to complete the setup.
 
 ### Enable Saviynt to delete users
 
