@@ -34,13 +34,15 @@ In this tutorial, you'll:
 
 ## Tools you'll use
 
-| Tool | Description |
-| --- | --- |
-|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  |
-|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
-|[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
-|[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
-|[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Needed to ingest data you process in Jupyter Notebook back to the Log Analytics workspace. |
+|Tool source| Tool | Description |
+|---| --- | --- |
+|Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
+||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace. |
+|Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
+||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
+||[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
+||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|
+
 
 ## Limitations 
 
