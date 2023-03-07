@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2023
 ms.author: ryanwi
-ms.reviewer: udayh, ilanas
+ms.reviewer: udayh, ilanas, naha
 ms.custom: aaddev 
 #Customer intent: As a developer, I want workload identities so I can authenticate with Azure AD and access Azure AD protected resources.
 ---
 
 # What are workload identities?
 
-A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  For example, a workload identity could be a user account that your client authenticates as to access a MongoDB database.  A workload identity could also be an AWS service role attached to an EC2 instance with read-only access to an Amazon S3 bucket.
+A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  For example, in order for GitHub Actions to access Azure subscriptions the action needs a workload identity which has access to those subscriptions.  A workload identity could also be an AWS service role attached to an EC2 instance with read-only access to an Amazon S3 bucket.
 
 In Azure Active Directory (Azure AD), workload identities are applications, service principals, and managed identities.  
 
@@ -61,7 +61,7 @@ Secure access with adaptive policies:
 
 Intelligently detect compromised identities:
 
-- Contain threats and reduce risk to workload identities using [Identity Protection](../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Detect risks (like leaked credentials), contain threats, and reduce risk to workload identities using [Identity Protection](../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
 
 Simplify lifecycle management:
 

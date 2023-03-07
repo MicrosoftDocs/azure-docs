@@ -18,7 +18,7 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Workload Identities
+  - title: About workload identities
     linkLists:
       - linkListType: overview
         links:
@@ -34,7 +34,7 @@ landingContent:
           - text: Secure workload identities
             url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   # Card
-  - title: Connect without needing to manage secrets
+  - title: Connect workloads without managing secrets
     linkLists:
       - linkListType: overview
         links:
@@ -53,21 +53,21 @@ landingContent:
   # Card
   - title: Apply Conditional Access policies to service principals
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Conditional Access for workload identities
             url: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   # Card
   - title: Enable real-time enforcement of Conditional Access location and risk policies
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Continuous access evaluation for workload identities
             url: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   # Card
   - title: Contain threats and reduce risk to workload identities
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Identity Protection
             url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
