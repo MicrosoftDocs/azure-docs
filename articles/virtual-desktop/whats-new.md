@@ -34,7 +34,7 @@ Multimedia Redirection (MMR) is now generally available. MMR enables smooth vide
 
 ### New User Interface for Azure Virtual Desktop web client now in public preview
 
-The Azure Virtual Desktop web client has a new user interface (UI) that's now in public preview. This new UI gives the web client a cleaner, more modern look and feel. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-web/ba-p/3731165) or [Use features of the Remote Desktop Web client](client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json#display-preferences).
+The Azure Virtual Desktop web client has a new user interface (UI) that's now in public preview. This new UI gives the web client a cleaner, more modern look and feel. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-web/ba-p/3731165) or [Use features of the Remote Desktop Web client](./users/client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json#display-preferences).
 
 ## January 2023
 
