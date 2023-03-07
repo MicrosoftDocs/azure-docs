@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure Batch Custom Image Pools to Azure Compute Gallery
+title: Migrate Azure Batch custom image pools to Azure Compute Gallery
 description: Learn how to migrate Azure Batch custom image pools to Azure compute gallery and plan for feature end of support.
 ms.service: batch
 ms.topic: how-to
@@ -33,7 +33,7 @@ Azure Marketplace image and install software on each compute node after allocati
 to more efficiencies in faster compute node to ready state and reproducible workloads. Additionally, you can specify multiple
 replicas for the shared image so when you create pools with many compute nodes, provisioning latencies can be lower.
 
-## Migrate Your Eligible Pools
+## Migrate your eligible pools
 
 To migrate your Batch custom image pools from managed image to shared image, review the Azure Batch guide on using
 [Azure Compute Gallery to create a custom image pool](batch-sig-images.md).

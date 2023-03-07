@@ -1,12 +1,12 @@
 ---
-title: Migrate Azure Batch pools to the Simplified compute node communication model
+title: Migrate Azure Batch pools to the simplified compute node communication model
 description: Learn how to migrate Azure Batch pools to the simplified compute node communication model and plan for feature end of support.
 ms.service: batch
 ms.topic: how-to
 ms.date: 03/07/2023
 ---
 
-# Migrate Azure Batch pools to the Simplified compute node communication model
+# Migrate Azure Batch pools to the simplified compute node communication model
 
 To improve security, simplify the user experience, and enable key future improvements, Azure Batch will retire the classic
 compute node communication model on *March 31, 2026*. Learn how to migrate your Batch pools to using the simplified compute
@@ -34,7 +34,7 @@ After *March 31, 2026*, the option to use classic compute node communication mod
 without user-specified virtual networks are generally unaffected by this change and the Batch service controls the default
 communication mode.
 
-## Alternative: Use Simplified Compute Node Communication Model
+## Alternative: Use simplified compute node communication model
 
 The simplified compute node communication mode streamlines the way Batch pool infrastructure is managed on behalf of users.
 This communication mode reduces the complexity and scope of inbound and outbound networking connections required in the
@@ -45,7 +45,7 @@ The simplified model also provides more fine-grained data exfiltration control, 
 your workflow. For example, autostorage accounts for AppPackages and other storage accounts for resource files or output files
 can be scoped appropriately.
 
-## Migrate Your Eligible Pools
+## Migrate your eligible pools
 
 To migrate your Batch pools from classic to the simplified compute node communication model, follow this document
 from the section entitled
