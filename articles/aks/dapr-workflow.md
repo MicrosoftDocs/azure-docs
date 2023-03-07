@@ -34,13 +34,14 @@ The workflow example is an ASP.NET Core project with:
 
 - An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with Owner or Admin role.
 - The latest version of the [Azure CLI][install-cli]
-- [Docker][docker]
+- Latest [Docker][docker]
+- Latest [Helm][helm]
 
 ## Set up the environment
 
 ### Download the sample project
 
-Fork and clone the example workflow application.
+Fork and clone the example workflow application. For more information on forking a repo, see GitHub's guide, [Fork a repo][gh-fork].
 
 ```sh
 git clone https://github.com/<your-repo>/dapr-workflows-aks-sample.git
@@ -78,7 +79,7 @@ Expected output:
 acrName.azurecr.io
 ```
 
-Tag the [Docker image](#prepare-the-docker-image) you prepared earlier to your new ACR using the result from the ACR query:
+Tag the [Docker image](#prepare-the-docker-image) you prepared earlier and push to your new ACR using the result from the ACR query:
 
 ```sh
 docker tag ghcr.io/<your-repo>/workflows-sample:0.1.0 acrName.azurecr.io/workflows-sample:0.1.0
@@ -103,7 +104,7 @@ For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
 ### Update the containers for deployment
 
-Navigate to the [`deployment.yaml` file in your fork of the sample project][deployment-yaml] and open in your preferred code editor.
+Navigate to the [`deployment.yaml` file][deployment-yaml] in your fork of the sample project and open in your preferred code editor.
 
 ```sh
 cd Deploy
@@ -260,3 +261,5 @@ In this guide, you deployed and ran workflows on a Dapr extension for AKS. You l
 [gh-pat]: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic
 [deployment-yaml]: https://github.com/hhunter-ms/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
 [docker]: https://docs.docker.com/get-docker/
+[helm]: https://helm.sh/docs/intro/install/
+[gh-fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
