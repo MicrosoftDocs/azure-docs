@@ -1,7 +1,7 @@
 ---
-title: Restore a cluster
-titleSuffix: Azure Cosmos DB for MongoDB (vCore)
-description: Learn how to restore a cluster in Azure Cosmos DB for MongoDB vCore.
+title: Restore a cluster backup
+titleSuffix: Azure Cosmos DB for MongoDB vCore
+description: Restore an Azure Cosmos DB for MongoDB vCore cluster from a point in time encrypted backup snapshot.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
@@ -29,11 +29,11 @@ Backup files can't be exported. They may only be used for restore operations in 
 
 The restore process creates a new cluster in the same Azure region, subscription, and resource group as the original. The new cluster has the same configuration as the original.
 
-To restore data, customers must file a support ticket. Once the support ticket is submitted, our team will guide you through the process of restoring your data from the backup. It is important to note that the backup and restore feature is designed to protect against data loss, but it does not provide a complete disaster recovery solution. Customers should ensure that they have their own disaster recovery plan in place to protect against larger scale outages.
+To restore data, customers must file a support ticket. Once the support ticket is submitted, our team guides you through the process of restoring your data from the backup. It's important to note that the backup and restore feature is designed to protect against data loss, but it doesn't provide a complete disaster recovery solution. Customers should ensure that they have their own disaster recovery plan in place to protect against larger scale outages.
 
 ## Next steps
 
-In this guide, we have covered the backup and restore features for Azure Cosmos DB for MongoDB vCore. The automatic backup feature allows point-in-time recovery without any user action required, and backups are kept for up to 35 days. During the preview phase, backup costs are free of charge.
+In this guide, we've covered the backup and restore features for Azure Cosmos DB for MongoDB vCore. The automatic backup feature allows point-in-time recovery without any user action required, and backups are kept for up to 35 days. During the preview phase, backup costs are free of charge.
 
 > [!div class="nextstepaction"]
-> [TODO: Link to another guide or concept](about:blank)
+> [Review security concepts](security.md)
