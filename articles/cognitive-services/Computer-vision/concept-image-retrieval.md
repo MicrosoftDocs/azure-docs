@@ -13,7 +13,7 @@ ms.date: 03/06/2023
 ms.author: pafarley
 ---
 
-# Image retrieval
+# Image retrieval (version 4.0 preview)
 
 Image retrieval is the process of searching a large collection of images to find those that are most similar to a given query image. Image retrieval systems have traditionally used features extracted from the images, such as content labels, tags, and image descriptors, to compare images and rank them by similarity. However, vector similarity search is gaining more popularity due to a number of benefits over traditional keyword-based search and is becoming a vital component in popular content search services.
 
@@ -43,16 +43,12 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 
 ## How does it work? 
 
-(image tbd)
-
 1. Vectorize Images and Text: the Image Retrieval APIs, **VectorizeImage** and **VectorizeText**, can be used to extract feature vectors out of an image or text respectively. The APIs return a single feature vector representing the entire input.
 - Measure similarity: Vector search systems typically use distance metrics, such as cosine distance or Euclidean distance, to compare vectors and rank them by similarity. The [Vision studio](https://portal.vision.cognitive.azure.com/) demo uses [cosine distance](./how-to/image-retrieval.md#calculate-vector-similarity) to measure similarity.  
 - Retrieve Images: Use the top _N_ vectors similar to the search query and retrieve images corresponding to those vectors from your photo library to  provide as the final result.
-
-## TBD limitaitons section
 
 ## Next steps
 
 Enable image retrieval for your search service and follow the steps to generate vector embeddings for text and images.  
 * [Call the Image retrieval APIs](./how-to/image-retrieval.md)
-* If you’re interested in developing an end-to-end image retrieval service with Azure AI for high volume data or have feedback to share, please reach out us at (tbd email)  
+
