@@ -40,10 +40,10 @@ recommendations: false
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
-| [Health insurance card](#heath-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and more information from US health insurance cards.| 
+| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
-| [Invoice](#invoice)  | Automate invoice processing for English and Spanish invoices. |
-| [Receipt](#receipt)  | Extract receipt data from English receipts.|
+| [Invoice](#invoice)  | Automate invoice invoices. |
+| [Receipt](#receipt)  | Extract receipt data from receipts.|
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
@@ -90,23 +90,20 @@ The general document model is ideal for extracting common key-value pairs from f
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
 
+### Health insurance card
 
-### Health insurance card 
+:::image type="content" source="media/studio/health-insurance-logo.png" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
 
-:::image type="content" source="media/studio/analyze-" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
-
-<!-- [:::image type="content" source="media/studio/health-insurance-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us) -->
-
-The Health Insurance Card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and more information from US health insurance cards.
+The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and other key information from US health insurance cards.
 
 ***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
 
-:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card.":::
+:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Form Recognizer Studio.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: Health insurance card model](concept-insurance-card.md)
 
-### W-2 
+### W-2
 
 [:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 

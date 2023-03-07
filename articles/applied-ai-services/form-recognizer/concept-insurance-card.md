@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 03/06/2023
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
@@ -16,9 +17,7 @@ recommendations: false
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-A health card is a health insurance identity proof that holds your personal details, policy information and financial coverage under a health insurance plan. It offers cashless payment options to pay for your medical bills arising from hospitalization and other treatment charges. When you present your health insurance card in the hospital, the hospital management will digitally analyze the financial coverage that you can avail to plan for the treatment. They can also get the expenses paid by the insurance provider directly. Health insurance card is a key document used in processes like patient onboarding, insurance claim processing, etc.
-
-Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs. The Health Insurance Card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract insurer, member, prescription, group number and more information from US health insurance cards.
+The Form Recognizer health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation.  Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 
 ***Sample health insurance card processed using Form Recognizer Studio***
 
@@ -26,7 +25,7 @@ Health insurance cards can be presented in various formats and quality including
 
 ## Development options
 
-The prebuilt health insurance card model is supported by Form Recognizer v3.0 with the following tools:
+Form Recognizer v3.0 supports the prebuilt health insurance card model with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -34,7 +33,7 @@ The prebuilt health insurance card model is supported by Form Recognizer v3.0 wi
 
 ### Try Form Recognizer
 
-See how data is extracted from health insurance cards using the Form Recognizer Studio. You'll need the following resources:
+See how data is extracted from health insurance cards using the Form Recognizer Studio. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -59,6 +58,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
 
 ## Input requirements
+
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
@@ -90,7 +90,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 |`PrescriptionInfo.RxBIN`|`string`|Prescription issued BIN number|987654|
 |`PrescriptionInfo.RxPCN`|`string`|Prescription processor control number|63200305|
 |`PrescriptionInfo.RxGrp`|`string`|Prescription group number|BCAAXYZ|
-|`PrescriptionInfo.RxId`|`string`|Prescription identification number. If not present, will default to membership id number|P97020065|
+|`PrescriptionInfo.RxId`|`string`|Prescription identification number. If not present, defaults to membership ID number|P97020065|
 |`PrescriptionInfo.RxPlan`|`string`|Prescription Plan number|A1|
 |`Pbm`|`string`|Pharmacy Benefit Manager for the plan|CVS CAREMARK|
 |`EffectiveDate`|`date`|Date from which the plan is effective|08/12/2012|
@@ -99,14 +99,13 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 |`Copays.*.Benefit`|`string`|Co-Pay Benefit name|Deductible|
 |`Copays.*.Amount`|`currency`|Co-Pay required amount|$1,500|
 |`Payer`|`object`|||
-|`Payer.Id`|`string`|Payer Id Number|89063|
-|`Payer.Address`|`address`|Payer address|123 Service St, Redmond WA, 98052|
+|`Payer.Id`|`string`|Payer ID Number|89063|
+|`Payer.Address`|`address`|Payer address|123 Service St., Redmond WA, 98052|
 |`Payer.PhoneNumber`|`phoneNumber`|Payer phone number|+1 (987) 213-5674|
 |`Plan`|`object`|||
 |`Plan.Number`|`string`|Plan number|456|
-|`Plan.Name`|`string`|Plan name - If see Medicaid -> then medicaid|HEALTH SAVINGS PLAN|
+|`Plan.Name`|`string`|Plan name - If see Medicaid -> then Medicaid|HEALTH SAVINGS PLAN|
 |`Plan.Type`|`string`|Plan type|PPO|
-
 
 ### Migration guide and REST API v3.0
 
@@ -117,6 +116,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
+
 > [!div class="checklist"]
 >
 > * [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

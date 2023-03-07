@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/06/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -368,6 +368,8 @@ See how Form Recognizer extracts data, including time and date of transactions, 
 |`Items.*.Description`|`string`|Item description|Room Charge|
 |`Items.*.Date`|`date`|Item date|27Mar21|
 |`Items.*.Category`|`string`|Item category|Room|
+
+---
 
 ::: moniker-end
 
