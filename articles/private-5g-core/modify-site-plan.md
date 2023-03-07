@@ -17,7 +17,7 @@ The *site plan* determines an allowance for the throughput and number of radio a
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Verify pricing and charges associated with the site plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for in depth pricing information.
+- Verify pricing and charges associated with the site plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for pricing information.
 
 ## Choose the new site plan
 
