@@ -2,7 +2,7 @@
 title: Microsoft Azure Monitor Application Insights JavaScript SDK
 description: Microsoft Azure Monitor Application Insights JavaScript SDK is a powerful tool for monitoring and analyzing web application performance.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/07/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -164,7 +164,7 @@ Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Microsoft Edge ✔<br>IE 8- Co
 
 #### Where can I find code examples?
 
-For runnable examples, see [Application Insights JavaScript SDK samples](https://github.com/microsoft/ApplicationInsights-JS/tree/karlie/doc/samples).
+For runnable examples, see [Application Insights JavaScript SDK samples](https://github.com/microsoft/ApplicationInsights-JS/tree/master/examples).
 
 #### How can I upgrade from the old version of Application Insights?
 
@@ -195,6 +195,10 @@ Distributed tracing can be disabled in configuration.
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+
+## Release notes
+
+Detailed release notes regarding updates and bug fixes can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-JS/releases)
 
 ## Next steps
 
