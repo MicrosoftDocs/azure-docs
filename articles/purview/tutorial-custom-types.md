@@ -554,6 +554,12 @@ They should be linked together through a 1:n relationship.
   >[!TIP]
   > If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
 
+## Limitations
+
+There are several known limitations when working with custom types which will be enhanced in future, such as:
+* Relationship tab looks different compared to built-in types
+* Custom types have no icons
+* Hierarchy is not supported 
 ## Next steps
 
 > [!div class="nextstepaction"]
