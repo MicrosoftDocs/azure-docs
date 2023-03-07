@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 02/28/2023
+ms.date: 03/07/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -15,16 +15,16 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
-| Release | Latest version | Minimum supported version | Download |
-|---------|----------------|---------------------------|--|
-| Public  | 1.2.3918       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4065       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 
-## Updates for version 1.2.4065 (Insider)
+## Updates for version 1.2.4065
 
-*Date published: February 28,2023*
+*Date published: March 8, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - General improvements to Narrator experience.
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
@@ -42,7 +42,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 *Date published: February 7, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWHz3), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWzLu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWPlp)
 
 - Fixed a bug where refreshes increased memory usage.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
@@ -58,8 +58,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 ## Updates for version 1.2.3770
 
 *Date published: December 14, 2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5ckjx), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cpnh), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cpni)
 
 In this release, we've made the following changes:
 
