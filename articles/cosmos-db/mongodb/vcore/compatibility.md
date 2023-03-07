@@ -13,7 +13,7 @@ ms.date: 03/02/2023
 
 # MongoDB compatibility and feature support with Azure Cosmos DB for MongoDB (vCore)
 
-Azure Cosmos DB is Microsoft's fully managed NoSQL and relational database, offering [multiple database APIs](../choose-api.md). You can communicate with the Azure Cosmos DB for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's fully managed NoSQL and relational database, offering [multiple database APIs](../choose-api.md). You can communicate with Azure Cosmos DB for MongoDB using the MongoDB drivers, SDKs and tools you are already familiar with. Azure Cosmos DB for MongoDB enables the use of existing client drivers by adhering to the MongoDB wire protocol.
 
 By using the Azure Cosmos DB for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides.
 
