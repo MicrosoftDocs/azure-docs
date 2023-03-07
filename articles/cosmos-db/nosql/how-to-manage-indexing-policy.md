@@ -21,7 +21,7 @@ In Azure Cosmos DB, data is indexed following [indexing policies](../index-polic
 
 ## Indexing policy examples
 
-Here are some examples of indexing policies shown in [their JSON format](../index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
+Here are some examples of indexing policies shown in [their JSON format](../index-policy.md#include-exclude-paths), which is how they're exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
 
 ### <a id="range-index"></a>Opt-out policy to selectively exclude some property paths
 
@@ -100,7 +100,7 @@ Here are some examples of indexing policies shown in [their JSON format](../inde
 
 ## <a id="composite-index"></a>Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
 
 > [!NOTE]
 > Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
@@ -132,7 +132,7 @@ In addition to including or excluding paths for individual properties, you can a
     }
 ```
 
-The above composite index on name and age is required for Query #1 and Query #2:
+The composite index on name and age is required for Query #1 and Query #2:
 
 Query #1:
 
@@ -150,7 +150,7 @@ Query #2:
     ORDER BY c.name DESC, c.age ASC
 ```
 
-This composite index will benefit Query #3 and Query #4 and optimize the filters:
+This composite index benefits Query #3 and Query #4 and optimize the filters:
 
 Query #3:
 
@@ -210,7 +210,7 @@ You can define multiple different composite indexes within the same indexing pol
 
 ### Composite index defined for (name ASC, age ASC):
 
-It is optional to specify the order. If not specified, the order is ascending.
+It's optional to specify the order. If not specified, the order is ascending.
 
 ```json
 {  
@@ -237,7 +237,7 @@ It is optional to specify the order. If not specified, the order is ascending.
 
 ### Excluding all property paths but keeping indexing active
 
-This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no additional indexes are necessary (to use Azure Cosmos DB as a pure key-value store).
+This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no other indexes are necessary (to use Azure Cosmos DB as a pure key-value store).
 
 ```json
     {
@@ -251,7 +251,7 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
 
 ### No indexing
 
-This policy will turn off indexing. If `indexingMode` is set to `none`, you cannot set a TTL on the container.
+This policy turns off indexing. If `indexingMode` is set to `none`, you can't set a TTL on the container.
 
 ```json
     {
@@ -283,11 +283,11 @@ Azure Cosmos DB containers store their indexing policy as a JSON document that t
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 
-1. Click on **Scale & Settings**.
+1. Select on **Scale & Settings**.
 
 1. Modify the indexing policy JSON document (see examples [below](#indexing-policy-examples))
 
-1. Click **Save** when you are done.
+1. Select **Save** when you're done.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
@@ -545,7 +545,7 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 # [Python SDK V3](#tab/pythonv3)
 
-When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](quickstart-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](quickstart-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it's possible to access the indexing policy and all its attributes.
 
 Retrieve the container's details
 
@@ -609,7 +609,7 @@ response = client.ReplaceContainer(containerPath, container)
 
 # [Python SDK V4](#tab/pythonv4)
 
-When using the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+When you use the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it's possible to access the indexing policy and all its attributes.
 
 Retrieve the container's details
 
