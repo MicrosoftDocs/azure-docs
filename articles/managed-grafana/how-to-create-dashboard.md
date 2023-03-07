@@ -4,8 +4,8 @@ description: Learn how to create and configure Azure Managed Grafana dashboards.
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
-ms.topic: how-to 
-ms.date: 01/02/2023
+ms.topic: how-to
+ms.date: 03/07/2023
 ---
 
 # Create a dashboard in Azure Managed Grafana
@@ -33,6 +33,7 @@ Import a dashboard template from the Grafana Labs website.
 
 1. From the Grafana Labs website, browse through [Grafana dashboards templates](https://grafana.com/grafana/dashboards/?category=azure) and select a dashboard to import.
 1. Select **Copy ID to clipboard**.
+1. For the next steps, use the Azure portal or the Azure CLI.
 
     ### [Portal](#tab/azure-portal)
 
@@ -50,9 +51,9 @@ Import a dashboard template from the Grafana Labs website.
     
     Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
 
-       ```azurecli
-       az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
-       ```
+   ```azurecli
+   az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
+   ```
 
     ---
 
