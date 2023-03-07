@@ -114,7 +114,7 @@ The default sign-in experience is the global look and feel that applies across a
 
 ### To customize self-service password reset
 
- 1. Scroll to the **Self-service password reset** section to configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. 
+1. Scroll to the **Self-service password reset** section to configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page.
 
       - **Show self-service password reset** – Select this checkbox to display the self-service password link. 
       - **Common URL** – Enter a password reset URL to use in place of the default Microsoft link. 

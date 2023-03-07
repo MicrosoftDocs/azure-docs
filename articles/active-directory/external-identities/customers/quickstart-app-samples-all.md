@@ -59,5 +59,3 @@ The following samples show an application that accesses the Microsoft Graph API 
 > | ----------- | ----------- |----------- |----------- |
 > |.NET Core| &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) <br/> &#8226; [Call web API](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi) | MSAL.NET | Client credentials grant|
 > | Node.js | [Call Microsoft Graph with secret](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console) | MSAL Node | Client credentials grant |
-
-## Next steps

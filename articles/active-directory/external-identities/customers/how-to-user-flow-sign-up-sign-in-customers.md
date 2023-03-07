@@ -71,7 +71,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
         
       The following screenshot demonstrates how to select the identity providers.
       
-   <!--   ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/18-create-user-flow.png)-->
+      <!--   ![Screenshot that shows how to select the Azure AD sign up and email accounts identity providers.](media/18-create-user-flow.png)-->
 
    1. Under **User attributes**, choose the attributes you want to collect from the user upon sign-up. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**. (Users are only prompted for attributes when they sign up for the first time.)
 
@@ -114,7 +114,7 @@ Now that your application is associated with a user flow, you can test the sign-
 
 1. Select **Sign-out** in the upper right corner of the page to sign out.
 
-## (Optional) Select the layout of the attribute collection
+## Select the layout of the attribute collection
 
 You can choose the order in which the attributes are displayed on the sign-up page.
 
@@ -132,7 +132,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 1. Select **Save**.
 
-## (Optional) Built-in and Custom Attributes  
+## Add custom attributes  
 
 User attributes are values collected from the user during self-service sign-up flow. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. Check out the define custom attributes for user flows<!--(API-reference-CIAM-user-flows.md#scenario-6-list-attributes-in-a-userflow)--> article.
 
@@ -149,7 +149,6 @@ User attributes are values collected from the user during self-service sign-up f
    - **Description** - Optionally, enter a description of the custom attribute for internal use. This description isn't visible to the user.
 
 1. Select **Create**.
-
 
 ### Add attributes to the sign-up page
 

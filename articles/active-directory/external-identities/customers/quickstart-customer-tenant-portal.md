@@ -79,5 +79,3 @@ Your new customer tenant is created. To start using your new Azure AD for custom
 1. In the Azure portal, search for and select **Azure Active Directory**. The following screenshot shows the Azure AD for customers overview screen.
 
    <!--[Screenshot that shows the customer tenant overview page.](media/7-create-tenant-overview.png)-->
-
-## Next steps

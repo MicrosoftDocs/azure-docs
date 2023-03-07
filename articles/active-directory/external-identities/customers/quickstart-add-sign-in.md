@@ -93,5 +93,3 @@ Now that you've created a customer tenant, you can use a sample JavaScript appli
 1. Follow the flow to enter your email, retrieve and enter the one-time passcode, and create new password. After you complete the sign-up steps, the page shows your newly created information.
 
 1. Select **Sign-out** in the upper right corner of the page to sign out.
-
-## Next steps
