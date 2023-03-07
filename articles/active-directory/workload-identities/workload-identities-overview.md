@@ -36,7 +36,7 @@ Here are some ways that workload identities in Azure AD are used:
 
 At a high level, there are two types of identities: human and machine/non-human identities. Workload identities and device identities together make up a group called machine (or non-human) identities.  Workload identities represent software workloads while device identities represent devices such as desktop computers, mobile, IoT sensors, and IoT managed devices. Machine identities are distinct from human identities, which represent people such as employees (internal workers and front line workers) and external users (customers, consultants, vendors, and partners).  
 
-:::image type="content" source="media/workload-identities-overview/identity-types.png" alt-text="Shows different types of machine and human identities" border="false":::
+:::image type="content" source="media/workload-identities-overview/identity-types.svg" alt-text="Shows different types of machine and human identities" border="false":::
 
 ## Need for securing workload identities
 
@@ -45,7 +45,7 @@ More and more, solutions are reliant on non-human entities to complete vital tas
 Human users typically have a single identity used to access a broad range of resources. Unlike a human user, a software workload may deal with multiple credentials to access different resources and those credentials need to be stored
 securely. It’s also hard to track when a workload identity is created or when it should be revoked. Enterprises risk their applications or services being exploited or breached because of difficulties in securing workload identities.
 
-:::image type="content" source="media/workload-identities-overview/pain-points.svg" alt-text="Shows pain points in securing workload identities." border="false":::
+:::image type="content" source="media/workload-identities-overview/pain-points.png" alt-text="Shows pain points in securing workload identities." border="false":::
 
 Most identity and access management solutions on the market today are focused only on securing human identities and not workload identities. Microsoft Entra Workload Identities helps resolve these issues when securing workload identities.
 
