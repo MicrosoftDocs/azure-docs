@@ -189,12 +189,6 @@ If you created virtual machines using an alternative method outside of Azure Vir
 - Remote Desktop Services Infrastructure Geneva Agent.
 - Remote Desktop Services SxS Network Stack.
 
-You can download the Azure Virtual Desktop Agent and the Agent Bootloader from these links:
-
-- [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-
-- [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
-
 Select the relevant tab for your scenario and follow the steps.
 
 # [GUI](#tab/gui)
