@@ -134,11 +134,16 @@ Properties of specific Trunk can be updated by overwriting the record with the s
 
 ### Removing a direct routing configuration
 
-You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes and trunks:
 
 ``` javascript
+//delete all configured voice routes
+console.log("Deleting all routes...");
+await client.setRoutes([]); 
 
-
+//delete all trunks
+console.log("Deleting all trunks...");
+await client.setTrunks([]);
 ``` 
 
 You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.

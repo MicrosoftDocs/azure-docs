@@ -166,12 +166,28 @@ sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 5063));
 
 ### Removing a direct routing configuration
 
-You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes and trunks:
 
-``` java
+Add 2 imports:
 
+```java
+import java.util.Collections;
+import java.util.List;
+``` 
 
-``` 
+Code to Delete Direct Routing config:
+
+```java
+//delete all configured voice routes
+System.out.println("Delete all routes");
+List<SipTrunkRoute> routes = Collections.<SipTrunkRoute> emptyList();
+sipRoutingAsyncClient.setRoutes(routes).block(); 
+
+//delete all trunks
+System.out.println("Delete all trunks");
+List<SipTrunk> trunks = Collections.<SipTrunk> emptyList();
+sipRoutingAsyncClient.setTrunksWithResponse(trunks).block();
+```
 
 You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
