@@ -44,7 +44,7 @@
 - name: Concepts
   items:
   - name: Azure Virtual Desktop terminology
-    href: environment-setup.md
+    href: terminology.md
   - name: Deploy
     items:
     - name: Session hosts
