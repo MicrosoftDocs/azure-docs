@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall
 
-Learn how to enable the Azure Web Application Firewall (WAF) service for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. WAF has centralized protection of web applications from common exploits and vulnerabilities.
+Learn how to enable the Azure Web Application Firewall (WAF) service for Azure Active Directory B2C (Azure AD B2C) tenant with a custom domain. WAF protects web applications from common exploits and vulnerabilities.
 
 Learn more about [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/#overview)
 
@@ -26,12 +26,12 @@ To get started, you need:
 
 * An Azure subscription
 * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* An Azure AD B2C tenant – authorization server that verifies user credentials using custom policies defined in the tenant
+* **An Azure AD B2C tenant** – authorization server that verifies user credentials using custom policies defined in the tenant
   * Also known as the identity provider (IdP)
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
-* Azure Front Door (AFD) – enables custom domains for the Azure AD B2C tenant
+* **Azure Front Door (AFD)** – enables custom domains for the Azure AD B2C tenant
   * See, [Azure Front Door and CDN documentation](../frontdoor/index.yml)
-* WAF – Manages traffic sent to the authorization server
+* **WAF** – manages traffic sent to the authorization server
   * [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/#overview)
 
 ## Azure AD B2C setup
@@ -47,7 +47,7 @@ To enable WAF, configure a WAF policy and associate it with the AFD for protecti
 
 ### Create a WAF policy
 
-Create a basic WAF policy with managed Default Rule Set (DRS):
+To create a WAF policy with Azure-managed Default Rule Set (DRS):
 
 1. Go to the [Azure portal](https://portal.azure.com). Select **Create a resource** and then search for Azure WAF. Select **Azure Web Application Firewall (WAF)** > **Create**.
 
