@@ -14,19 +14,28 @@ ms.date: 03/02/2023
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. 
 
-Both, the RU-based and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database, without the overhead of management, and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
+Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database, without the overhead of management, and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
 
 
-## Considerations when choosing between RU-based and vCore-based options
+## Choosing between RU-based and vCore-based options
 
-Here are a few key factors to consider while choosing between the two offerings:
+Here are a few key factors to help you decide which is the right architecture for you:
 
 |             | RU-based | vCore-based |
 | ----------- | ----------- | -------|
-| Throughput granularity vs easy cost and capacity estimation | &bull; Needs a good understanding of [Request Units (RUs)](../request-units.md) concept for capacity and cost estimation. <br/>&bull; Allows to control throughput values at database and container levels. <br/>&bull; Supports instantaneous autoscale and serverless modes, so you can control the throughput and costs as per your workload requirements. | &bull; Easy cost and capacity planning with familiar vCore-based cluster tier options to choose from. <br/>&bull;  Does not need an understanding of Request Units (RUs) concept. <br/>&bull; More predictable costs based on cluster tier and disk sizes. However, you will not have access to granular throughput settings such as database/container level, autoscale, serverless modes, etc. |
-| SLA guarantees | &bull; Offers upto [99.999%](../high-availability.md#slas) of availability with multi-region deployments | &bull; This offering is still in Preview and currently does not offer SLA guarantees |
-| Read & Query patterns | &bull; Works well for workloads with more point reads *(fetching a single item by its ID and shard key value)* and lesser long running queries and complex aggregation pipeline operations. | &bull; Works well irrespective of the operation types in your workload. This may include workloads with long-running queries, complex aggregation pipelines, distributed transactions, joins, etc. |
-| Latest MongoDB syntax and features | &bull; Latest MongoDB syntax and features will arrive late to this offering, as compared to vCore-based. | &bull; You can get access to the latest MongoDB syntaxes and features sooner through this offering, as compared to RU-based.|
+| What do you want to do |  &bull; Works well if you are trying to build new cloud-native MongoDB apps or refactor existing apps for all the benefits of a cloud-native offering | &bull; Works well if you are trying to lift and shift existing MongoDB apps and run them as-is on a fully supported managed service. |
+| What are your availability needs | &bull; Offers upto [99.999%](../high-availability.md#slas) of availability with multi-region deployments | &bull; Offers competitive SLA (once generally available) |
+| How do you want to scale | &bull; Offers limitless horizontal scalability, instantaneous scale up and granular throughput control. | &bull; Offers high-capacity vertical and horizontal scaling with familiar vCore-based cluster tier options to choose from. |
+| What are your top read & query patterns | &bull; Works well for workloads with more point reads *(fetching a single item by its ID and shard key value)* and lesser long running queries and complex aggregation pipeline operations. | &bull; Works well irrespective of the operation types in your workload. This may include workloads with long-running queries, complex aggregation pipelines, distributed transactions, joins, etc. |
+
+## Resource and billing differences between the options
+
+There are differences between the offerings in the way the resources are assigned and billed on the platform :
+
+|             | RU-based | vCore-based |
+| ----------- | ----------- | -------|
+| How are the resources assigned | &bull; This is a multi-tenant service that instantly assigns resources to the workload to meet its storage and throughput needs. <br/>&bull; Throughput uses the concept of [Request Units (RUs)](../request-units.md). | &bull; These are dedicated instances using preset CPU, memory and storage resources that scale to meet your needs. |
+| How are the resources billed | &bull; You pay variable fees for the RUs and consumed storage. <br/>&bull; RU charges are based on the choice of the model: provisioned throughput (standard or autoscale) or serverless. | &bull; You pay consistent flat fee based on the compute (CPU, memory and the number of nodes) and storage. | 
 
 ## Next steps
 
