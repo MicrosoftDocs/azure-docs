@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/27/2023
+ms.date: 3/6/2023
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -13,39 +13,40 @@ services: iot-edge
 
 This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-## Configuration template
+A template containing all options can be found in the *config.toml.edge.template* file within the `/etc/aziot` directory on an IoT Edge device. You have the option to copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
 
-A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device. You can copy the contents of the template over to your *config.toml* file and uncomment the sections you need.
+## Global parameters
 
-### Top of the config.toml file
-
-The `hostname`, `parent_hostname`, and `trust_bundle_cert` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they are applied correctly.
+The `hostname`, `parent_hostname`, `trust_bundle_cert`, and `allow_elevated_docker_permissions` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they are applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
 
 ### Hostname
 
-To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network.
+To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The edgeHub module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname).
 
-For the **hostname**, replace **my-device** with your device name to override the default hostname of the device. The value can be an IP address or a fully qualified domain name (FQDN). Use this setting as the gateway hostname on a IoT Edge gateway device.
+> [!NOTE]
+> When the hostname value is not set, IoT Edge attempts to determine it automatically. However, clients in the network may not be able to discover the device.
+
+For **hostname**, replace **fqdn-device-name-or-ip-address** with your device name to override the default hostname of the device. The value can be a fully qualified domain name (FQDN) or an IP address. Use this setting as the gateway hostname on a IoT Edge gateway device.
 
 ```toml
-hostname = "my-device"
-```
+hostname = "fqdn-device-name-or-ip-address"
+````
 
 ### Parent hostname
 
-Parent hostname is used when the IoT Edge device is nested. Every downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify its parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child device, it needs both parameters.
+Parent hostname is used when the IoT Edge device is part of a hierarchy, otherwise known as a *nested edge*. Every downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify its parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child device, it needs both parameters.
 
-Replace **my-parent-device** with the name of your parent device. Use a hostname shorter than 64 characters that's the character limit for a server certificate common name.
+Replace **fqdn-parent-device-name-or-ip-address** with the name of your parent device. Use a hostname shorter than 64 characters, which is the character limit for a server certificate common name.
 
 ```toml
-parent_hostname = "my-parent-device"
+parent_hostname = "fqdn-parent-device-name-or-ip-address"
 ```
 
 For more information about setting the *parent_hostname* parameter, see [Connect Azure IoT Edge devices together to create a hierarchy](how-to-connect-downstream-iot-edge-device.md#update-downstream-configuration-file).
 
-## Trust bundle certificate
+### Trust bundle certificate
 
-Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as trust bundle. If you're using a trust bundle, update the **trust_bundle_cert** parameter with the file URI to the root CA certificate on your device.
+To provide a custom certificate authority (CA) certificate as a root of trust for IoT Edge and modules, specify a **trust_bundle_cert** configuration. Replace the parameter value with the file URI to the root CA certificate on your device.
 
 ```toml
 trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
@@ -53,7 +54,7 @@ trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
 
 For more information about the IoT Edge trust bundle, see [Manage trusted root CA](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
 
-### Elevated Docker Permissions Flag
+### Elevated Docker Permissions
 
 Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
 
@@ -65,40 +66,9 @@ allow_elevated_docker_permissions = false
 
 ## Provisioning
 
-### Optional auto reprovisioning mode
+You can provision a single device or multiple devices at-scale, depending on the needs of your IoT Edge solution. The options available for authenticating communications between your IoT Edge devices and your IoT hubs depend on what provisioning method you choose. 
 
-This property specifies the conditions that the device attempts to automatically reprovision with Azure IoT. It's ignored if the device has been provisioned manually. One of the following values can be set:
-
-| Mode | Description |
-|------|-------------|
-| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is the default. |
-| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
-| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
-
-For example:
-
-```toml
-auto_reprovisioning_mode = Dynamic
-```
-
-For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-## Cloud Timeout and Retry Behavior
-
-These settings control the timeout and retries for cloud operations, such as communication with Device Provisioning Service (DPS) during provisioning or IoT Hub for module identity creation.
-
-The **cloud_timeout_sec** parameter is the deadline in seconds for a network request to cloud services. For example, an HTTP request. A response from the cloud service must be received before this deadline, or the request fails as a timeout.
-
-The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of three attempts.
-
-```toml
-cloud_timeout_sec = 10
-cloud_retries = 1
-```
-
-## Provisioning configuration
-
-You can provision with a connection string, symmetric key, X.509 certificate, identity certificate private key, or an identity certificate. DPS provisioning is included with various options. Choose one method for your provisioning. Replace the sample values with your own.
+You can provision with a connection string, symmetric key, [X.509 certificate](how-to-provision-single-device-linux-x509.md), identity certificate private key, or an identity certificate. DPS provisioning is included with various options. Choose one method for your provisioning. Replace the sample values with your own.
 
 ### Manual provisioning with connection string
 
@@ -108,9 +78,16 @@ source = "manual"
 connection_string = "HostName=example.azure-devices.net;DeviceId=my-device;SharedAccessKey=<Shared access key>"
 ```
 
+For more information about retrieving provisioning information, see [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information).
+
 ### Manual provisioning with symmetric key
 
 ```toml
+[provisioning]
+source = "manual"
+iothub_hostname = "example.azure-devices.net"
+device_id = "my-device"
+
 [provisioning.authentication]
 method = "sas"
 
@@ -118,6 +95,8 @@ device_id_pk = { value = "<Shared access key>" }     # inline key (base64), or..
 device_id_pk = { uri = "file:///var/aziot/secrets/device-id.key" }            # file URI, or...
 device_id_pk = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" } # PKCS#11 URI
 ```
+
+For more information about retrieving provisioning information, see [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information).
 
 ### Manual provisioning with X.509 certificate
 
@@ -131,6 +110,8 @@ device_id = "my-device"
 method = "x509"
 ```
 
+For more information about provisioning using X.509 certificates, see [Create and provision an IoT Edge device on Linux using X.509 certificates](how-to-provision-single-device-linux-x509.md).
+
 ### DPS provisioning with symmetric key
 
 ```toml
@@ -139,7 +120,7 @@ source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net"
 id_scope = "<DPS-ID-SCOPE>"
 
-# Use to send a custom payload during DPS registration
+# (Optional) Use to send a custom payload during DPS registration
 payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
 
 [provisioning.attestation]
@@ -151,7 +132,9 @@ symmetric_key = { uri = "file:///var/aziot/secrets/device-id.key" }             
 symmetric_key = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" }    
 ```
 
-### DPS provisioning with X.509 certificate
+For more information about DPS provisioning with symmetric key, see [Create and provision IoT Edge devices at scale on Linux using symmetric key](how-to-provision-devices-at-scale-linux-symmetric.md).
+
+### DPS provisioning with X.509 certificates
 
 ```toml
 [provisioning]
@@ -159,24 +142,18 @@ source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net/"
 id_scope = "<DPS-ID-SCOPE>"
 
-# Use to send a custom payload during DPS registration
+# (Optional) Use to send a custom payload during DPS registration
  payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
 
 [provisioning.attestation]
 method = "x509"
 registration_id = "my-device"
-```
 
-### Identity certificate private key
-
-```toml
+# Identity certificate private key
 identity_pk = "file:///var/aziot/secrets/device-id.key.pem"        # file URI, or...
 identity_pk = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" # PKCS#11 URI
-```
 
-### Identity certificate
-
-```toml
+# Identity certificate
 identity_cert = "file:///var/aziot/certs/device-id.pem"     # file URI, or...
 [provisioning.authentication.identity_cert]                 # dynamically issued via...
 method = "est"                                              # - EST
@@ -184,8 +161,7 @@ method = "local_ca"                                         # - a local CA
 common_name = "my-device"                                   # with the given common name, or...
 subject = { L = "AQ", ST = "Antarctica", CN = "my-device" } # with the given DN fields
 ```
-
-### Enable automatic renewal of the device ID certificate
+#### (Optional) Enable automatic renewal of the device ID certificate
 
 Autorenewal requires a known certificate issuance method. Set **method** to either 'est' or 'local_ca'.
 
@@ -199,7 +175,9 @@ threshold = "80%"
 retry = "4%"
 ```
 
-### DPS provisioning with TPM
+For more information about DPS provisioning with X.509 certificates, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md).
+
+### DPS provisioning with TPM (Trusted Platform Module)
 
 ```toml
 [provisioning]
@@ -207,13 +185,48 @@ source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net"
 id_scope = "<DPS-ID-SCOPE>"
 
-# Use to send a custom payload during DPS registration
+# (Optional) Use to send a custom payload during DPS registration
 payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
 
 [provisioning.attestation]
 method = "tpm"
 registration_id = "my-device"
 ```
+
+If you use DPS provisioning with TPM, and require custom configuration, see the [TPM](#tpm-trusted-platform-module) section.
+
+For more information, see [Create and provision IoT Edge devices at scale with a TPM on Linux](how-to-provision-devices-at-scale-linux-tpm.md).
+
+### Cloud Timeout and Retry Behavior
+
+These settings control the timeout and retries for cloud operations, such as communication with Device Provisioning Service (DPS) during provisioning or IoT Hub for module identity creation.
+
+The **cloud_timeout_sec** parameter is the deadline in seconds for a network request to cloud services. For example, an HTTP request. A response from the cloud service must be received before this deadline, or the request fails as a timeout.
+
+The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of three attempts.
+
+```toml
+cloud_timeout_sec = 10
+cloud_retries = 1
+```
+
+### Optional auto reprovisioning mode
+
+The `auto_reprovisioning_mode` property specifies the conditions that determine when a device attempts to automatically reprovision with Device Provisioning Service. It's ignored if the device has been provisioned manually. One of the following values can be set:
+
+| Mode | Description |
+|------|-------------|
+| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
+| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
+| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
+
+For example:
+
+```toml
+auto_reprovisioning_mode = Dynamic
+```
+
+For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 ## Certificate issuance
 
@@ -268,6 +281,33 @@ pk = "file:///var/aziot/secrets/local-ca.key.pem"      # file URI, or...
 pk = "pkcs11:slot-id=0;object=local-ca?pin-value=1234" # PKCS#11 URI
 ```
 
+## TPM (Trusted Platform Module)
+
+If you need special configuration for the TPM when using DPS TPM provisioning, use these TPM settings.
+
+For acceptable TCTI loader strings, see section 3.5 of [TCG TSS 2.0 TPM Command Transmission Interface (TCTI) API Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_TSS_TCTI_v1p0_r18_pub.pdf). 
+
+Setting this to an empty string will cause the TCTI loader library to try loading a [predefined set of TCTI modules](https://github.com/tpm2-software/tpm2-tss/blob/3.1.1/src/tss2-tcti/tctildr-dl.c#L28-L59) in order.
+
+```toml
+[tpm]
+tcti = "swtpm:port=2321"
+```
+
+The TPM index persists the DPS authentication key. The index is taken as an offset from the base address for persistent objects such as `0x81000000` and must lie in the range from `0x00_00_00` to `0x7F_FF_FF`. The default value is `0x00_01_00`.
+
+```toml
+auth_key_index = "0x00_01_00"
+```
+
+Use authorization values for endorsement and owner hierarchies, if needed. By default, these are empty strings.
+
+```toml
+[tpm.hierarchy_authorization]
+endorsement = "hello"
+owner = "world"
+```
+
 ## PKCS#11
 
 If you used any PKCS#11 URIs, use the following parameters and replace the values with your PKCS#11 configuration.
@@ -280,7 +320,7 @@ pkcs11_base_slot = "pkcs11:slot-id=0?pin-value=1234"
 
 ## Default Edge Agent
 
-If you need to override the parameters of the default Edge Agent module, use this section and replace the values with your own.
+When IoT Edge starts up the first time, it bootstraps a default Edge Agent module. If you need to override the parameters provided to the default Edge Agent module, use this section and replace the values with your own.
 
 > [!NOTE] 
 > The `agent.config.createOptions` parameter is specified as a TOML inline table. This format looks like JSON but it's not JSON. For more information, see [Inline Table](https://toml.io/en/v1.0.0#inline-table) of the TOML v1.0.0 documentation.
@@ -312,12 +352,12 @@ If you need to override the management and workload API endpoints, use this sect
 
 ```toml
 [connect]
-workload_uri = "@connect_workload_uri@"
-management_uri = "@connect_management_uri@"
+workload_uri = "unix:///var/run/iotedge/workload.sock"
+management_uri = "unix:///var/run/iotedge/mgmt.sock"
 
 [listen]
-workload_uri = "@listen_workload_uri@"
-management_uri = "@listen_management_uri@"
+workload_uri = "unix:///var/run/iotedge/workload.sock"
+management_uri = "unix:///var/run/iotedge/mgmt.sock"
 ```
 
 ## Edge Agent watchdog
@@ -331,7 +371,7 @@ max_retries = "infinite"   # the string "infinite" or a positive integer. Defaul
 
 ## Edge CA certificate
 
-If you have your own Edge CA certificate that issues all your module certificates, use one of these sections and replace the values with your own. For more information about using an EST server, see [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
+If you have your own [Edge CA](iot-edge-certs.md#why-does-iot-edge-create-certificates) certificate that issues all your module certificates, use one of these sections and replace the values with your own. 
 
 ### Edge CA certificate loaded from a file
 
@@ -349,6 +389,8 @@ pk = "pkcs11:slot-id=0;object=edge%20ca?pin-value=1234" # PKCS#11 URI
 [edge_ca]
 method = "est"
 ```
+
+For more information about using an EST server, see [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
 ### Optional EST configuration for issuing the Edge CA certificate
 
