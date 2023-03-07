@@ -17,7 +17,7 @@ zone_pivot_groups: iotedge-dev
 
 This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
-You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
+You can choose either the **Azure IoT Edge Dev Tool** command-line tool (CLI) or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
 
 Visual Studio Code supports writing IoT Edge modules in the following programming languages:
 
