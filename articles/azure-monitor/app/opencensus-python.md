@@ -541,6 +541,12 @@ For more information about how to use queries and logs, see [Logs in Azure Monit
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
+## Release Notes
+
+For the latest release notes, see [Python Azure Monitor Exporter](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
+
 ## Next steps
 
 * [Tracking incoming requests](./opencensus-python-dependency.md)
