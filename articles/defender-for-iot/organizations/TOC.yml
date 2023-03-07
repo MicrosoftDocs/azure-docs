@@ -88,6 +88,10 @@
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
       displayName: Microsoft Defender for Endpoint, MDE
+    - name: Security
+      items:
+      - name: Azure security baseline for Defender for IoT
+        href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline
 - name: How-to guides
   items:
   - name: Visualize devices
