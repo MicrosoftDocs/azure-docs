@@ -116,11 +116,11 @@ Enable Saviynt to perform user delete operations in Azure AD B2C.
 
 Learn more: [Application and service principal objects in Azure AD](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. Install the latest version of MSOnline PowerShell Module on a Windows workstation/server.
+1. Install the latest version of MSOnline PowerShell Module on a Windows workstation or server.
 
-See, [Azure Active Directory (MSOnline)](/overview?view=azureadps-1.0&preserve-view=true)
+For more information, see [Azure Active Directory (MSOnline)](/overview?view=azureadps-1.0&preserve-view=true)
 
-2. Connect to AzureAD PowerShell module and execute the following commands:
+2. Connect to the AzureAD PowerShell module and execute the following commands:
 
 ```powershell
 Connect-msolservice #Enter Admin credentials of the Azure portal
@@ -130,14 +130,10 @@ Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType ServicePrin
 
 ## Test the solution
 
-Browse to your Saviynt application tenant and test user life-cycle management and access governance use case.
+Browse to your Saviynt application tenant and test user life-cycle management and access governance use cases.
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-- [Create a web API application](./add-web-api-application.md)
+* [Azure AD B2C custom policy overview](./custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [Add a web API application to your Azure Active Directory B2C tenant](./add-web-api-application.md)
