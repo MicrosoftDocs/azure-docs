@@ -16,7 +16,7 @@ ms.date: 03/07/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-In this quickstart, you will create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
+In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
 ## Prerequisites
 
@@ -87,8 +87,6 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
    :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
----
-
 ## Get cluster credentials
 
 Get the connection string you need to connect to this cluster using your application code.
@@ -100,6 +98,12 @@ Get the connection string you need to connect to this cluster using your applica
 1. Record the value from the **---** field.
 
    :::image type="content" source="media/quickstart-portal/---.png" alt-text="Screenshot of various credentials for a cluster.":::
+
+## Clean up resources
+
+When you're done with your app and Azure Cosmos DB account, you can delete the Azure resources you created so you don't incur more charges.
+
+1. TODO
 
 ## Next steps
 
