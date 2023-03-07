@@ -11,24 +11,26 @@ services: azure-maps
 
 # Create a dataset using a GeoJson package (Preview)
 
-Azure Maps Creator enables users to import their indoor map data in GeoJSON format with [Facility Ontology 2.0][Facility Ontology], which can then be used to create a [dataset].
+Azure Maps Creator enables users to import their indoor map data in GeoJSON format with [Facility Ontology 2.0], which can then be used to create a [dataset].
 
 > [!NOTE]
 > This article explains how to create a dataset from a GeoJSON package. For information on additional steps required to complete an indoor map, see [Next steps](#next-steps).
 
 ## Prerequisites
 
-- Basic understanding of [Creator for indoor maps].
-- Basic understanding of [Facility Ontology 2.0][Facility Ontology].
-- [Azure Maps account].
-- [Azure Maps Creator resource][Creator resource].
-- [Subscription key].
-- Zip package containing all required GeoJSON files. If you don't have GeoJSON
-  files, you can download the [Contoso building sample].
+- Basic understanding of [Creator for indoor maps](creator-indoor-maps.md).
+- Basic understanding of [Facility Ontology 2.0].
+- [Azure Maps account]
+- Basic understanding of [Creator for indoor maps]
+- Basic understanding of [Facility Ontology 2.0]
+- An [Azure Maps account]
+- An Azure Maps [Creator resource].
+- A [Subscription key].
+- Zip package containing all required GeoJSON files. If you don't have GeoJSON files, you can download the [Contoso building sample].
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services].
 > - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package
@@ -76,8 +78,6 @@ To create a dataset:
 
 1. Enter the following URL to the dataset service. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status](#check-the-geojson-package-upload-status) section):
 
-<!--1. Enter the following URL to the [Dataset service][Dataset Create 2022-09-01-preview]. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status](#check-the-geojson-package-upload-status) section):-->
-
   ```http
   https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Subscription-key}
   ```
@@ -110,20 +110,20 @@ One thing to consider when adding to an existing dataset is how the feature IDs 
 
 If your original dataset was created from a GoeJSON source and you wish to add another facility created from a drawing package, you can append it to your existing dataset by referencing its `conversionId`, as demonstrated by this HTTP POST request:
 
-```http
+```shttp
 https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
 ```
 
 | Identifier   | Description                                                       |
 |--------------|-------------------------------------------------------------------|
-| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package][conversion]. |
+| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package]. |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package). |
 
 ## Geojson zip package requirements
 
 The GeoJSON zip package consists of one or more [RFC 7946] compliant GeoJSON files, one for each feature class, all in the root directory (subdirectories aren't supported), compressed with standard Zip compression and named using the `.ZIP` extension.
 
-Each feature class file must match its definition in the [Facility ontology 2.0][Facility ontology] and each feature must have a globally unique identifier.
+Each feature class file must match its definition in the [Facility Ontology 2.0] and each feature must have a globally unique identifier.
 
 Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters.
 
@@ -154,6 +154,10 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 > [!div class="nextstepaction"]
 > [Create a tileset]
 
+[Data Upload API]: /rest/api/maps/data-v2/upload
+[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
+[Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
+
 [Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
 [units]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
 [structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
@@ -165,17 +169,15 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
 [point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 
-[conversion]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
+[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Creator resource]: how-to-manage-creator.md
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
-[Facility Ontology]: creator-facility-ontology.md?pivots=facility-ontology-v2
+[Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
 [dataset]: creator-indoor-maps.md#datasets
 [Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/
-[Data Upload API]: /rest/api/maps/data-v2/upload
-[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
 [Creator for indoor maps]: creator-indoor-maps.md
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
