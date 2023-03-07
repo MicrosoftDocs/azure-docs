@@ -36,7 +36,7 @@ Here are some ways that workload identities in Azure AD are used:
 
 At a high level, there are two types of identities: human and machine/non-human identities. Workload identities and device identities together make up a group called machine (or non-human) identities.  Workload identities represent software workloads while device identities represent devices such as desktop computers, mobile, IoT sensors, and IoT managed devices. Machine identities are distinct from human identities, which represent people such as employees (internal workers and front line workers) and external users (customers, consultants, vendors, and partners).  
 
-:::image type="content" source="media/workload-identities-overview/identity-types.svg" alt-text="Shows different types of machine and human identities" border="false":::
+:::image type="content" source="media/workload-identities-overview/identity-types.png" alt-text="Shows different types of machine and human identities" border="false":::
 
 ## Need for securing workload identities
 

@@ -1,6 +1,6 @@
 ---
-title: Workload identities license plans faq
-description: Learn about workload identities license plans, features and capabilities. 
+title: Microsoft Entra Workload Identities license plans faq
+description: Learn about Microsoft Entra Workload Identities license plans, features and capabilities. 
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -11,12 +11,12 @@ ms.date: 2/21/2023
 ms.author: gasinh
 ms.reviewer: 
 ms.custom: aaddev 
-#Customer intent: I want to know about workload identities licensing plans 
+#Customer intent: I want to know about Microsoft Entra Workload Identities licensing plans 
 ---
 
-# Frequently asked questions about workload identities license plans
+# Frequently asked questions about Microsoft Entra Workload Identities license plans
 
-[Workload identities](workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
+[Microsoft Entra Workload Identities](workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
 Program](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](/azure/lighthouse/concepts/cloud-solution-provider). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
@@ -26,7 +26,7 @@ For more information, see [what are workload identities?](workload-identities-ov
 >[!NOTE]
 >Workload Identities Premium is a standalone product and isn't included in other premium product plans. All subscribers require a license to use Workload Identities Premium features.
 
-Learn more about [workload identities
+Learn more about [Workload Identities
 pricing](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).
 
 ## What features are included in Workload Identities Premium plan and which features are free? 
