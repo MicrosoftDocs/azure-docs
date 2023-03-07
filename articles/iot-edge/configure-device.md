@@ -287,7 +287,7 @@ If you need special configuration for the TPM when using DPS TPM provisioning, u
 
 For acceptable TCTI loader strings, see section 3.5 of [TCG TSS 2.0 TPM Command Transmission Interface (TCTI) API Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_TSS_TCTI_v1p0_r18_pub.pdf). 
 
-Setting this to an empty string will cause the TCTI loader library to try loading a [predefined set of TCTI modules](https://github.com/tpm2-software/tpm2-tss/blob/3.1.1/src/tss2-tcti/tctildr-dl.c#L28-L59) in order.
+Setting to an empty string causes the TCTI loader library to try loading a [predefined set of TCTI modules](https://github.com/tpm2-software/tpm2-tss/blob/3.1.1/src/tss2-tcti/tctildr-dl.c#L28-L59) in order.
 
 ```toml
 [tpm]
