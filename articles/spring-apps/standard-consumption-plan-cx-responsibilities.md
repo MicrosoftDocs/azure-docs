@@ -11,7 +11,7 @@ ms.custom: devx-trax-java
 
 # Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network
 
-**This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise
+**This article applies to:** ✔️Standard consumption (Preview) ❌Basic/Standard ❌Enterprise
 
 Use Network Security Groups (NSGs) to configure virtual networks to conform to the settings required by Kubernetes.
 
