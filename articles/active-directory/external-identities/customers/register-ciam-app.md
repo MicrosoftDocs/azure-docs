@@ -73,4 +73,4 @@ You can found the sample code for this article in the [1-Authentication/1-sign-i
 
 ## Next steps
 
-In this article you learned how to register and download a SPA application. To run and test the app, you have to add it to a [user flow](how-to-user-flow-sign-up-sign-in-customers.md). You can also [customize the app's sign-in and sign-up page branding](concept-branding-customers.md) for your customers. 
+In this article you learned how to register and download a SPA application. To run and test the app, you have to add it to a [user flow](how-to-user-flow-sign-up-sign-in-customers.md). You can also [customize the app's sign-in and sign-up page branding](how-to-customize-branding-customers.md) for your customers. 
