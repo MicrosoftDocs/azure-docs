@@ -26,52 +26,50 @@ In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. 
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/cosmosdb-free/).
 
-1. TODO
+```bicep
+@description('Azure Cosmos DB MongoDB vCore cluster name')
+@maxLength(44)
+param clusterName string = 'msdocs-${uniqueString(resourceGroup().id)}'
 
-    ```bicep
-    @description('Azure Cosmos DB MongoDB vCore cluster name')
-    @maxLength(44)
-    param clusterName string = 'msdocs-${uniqueString(resourceGroup().id)}'
-    
-    @description('Location for the cluster.')
-    param location string = resourceGroup().location
-    
-    @description('Username for admin user')
-    param adminUsername string
-    
-    @secure()
-    @description('Password for admin user')
-    @minLength(8)
-    @maxLength(128)
-    param adminPassword string
-    
-    resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
-      name: clusterName
-      location: location
-      properties: {
-        administratorLogin: adminUsername
-        administratorLoginPassword: adminPassword
-        nodeGroupSpecs: [
-            {
-                kind: 'Shard'
-                nodeCount: 1
-                sku: 'M40'
-                diskSizeGB: 128
-                enableHa: false
-            }
-        ]
-      }
-    }
-    
-    resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10-15-preview' = {
-      parent: cluster
-      name: 'AllowAllAzureServices'
-      properties: {
-        startIpAddress: '0.0.0.0'
-        endIpAddress: '0.0.0.0'
-      }
-    }
-    ```
+@description('Location for the cluster.')
+param location string = resourceGroup().location
+
+@description('Username for admin user')
+param adminUsername string
+
+@secure()
+@description('Password for admin user')
+@minLength(8)
+@maxLength(128)
+param adminPassword string
+
+resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
+  name: clusterName
+  location: location
+  properties: {
+    administratorLogin: adminUsername
+    administratorLoginPassword: adminPassword
+    nodeGroupSpecs: [
+        {
+            kind: 'Shard'
+            nodeCount: 1
+            sku: 'M40'
+            diskSizeGB: 128
+            enableHa: false
+        }
+    ]
+  }
+}
+
+resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10-15-preview' = {
+  parent: cluster
+  name: 'AllowAllAzureServices'
+  properties: {
+    startIpAddress: '0.0.0.0'
+    endIpAddress: '0.0.0.0'
+  }
+}
+```
 
 ## Deploy the Bicep file
 
@@ -79,7 +77,7 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. TODO
+1. Create shell variables for *resourceGroupName*, and *location*
 
     ```azurecli
     # Variable for resource group name and location
@@ -87,7 +85,9 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     location="eastus"
     ```
 
-1. TODO
+1. If you haven't already, sign in to the Azure CLI using the [`az login`](/cli/azure/reference-index#az-login) command.
+
+1. Use the [`az group create`](/cli/azure/group#az-group-create) command to create a new resource group in your subscription.
 
     ```azurecli
     az group create \
@@ -126,7 +126,7 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. TODO
+1. Create shell variables for *RESOURCE_GROUP_NAME*, and *LOCATION*
 
     ```azurepowershell
     # Variable for resource group name and location
@@ -134,7 +134,9 @@ Create an Azure Cosmos DB for MongoDB vCore cluster by using the Bicep template.
     $LOCATION = "East US"
     ```
 
-1. TODO
+1. If you haven't already, sign in to Azure PowerShell using the [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+1. Use the [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a new resource group in your subscription.
 
     ```azurepowershell
     $parameters = @{
