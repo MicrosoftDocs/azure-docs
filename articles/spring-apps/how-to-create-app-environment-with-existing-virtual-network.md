@@ -19,6 +19,8 @@ Furthermore, you can pick an existing virtual network created by your IT team to
 
 When you deploy frontend apps as containers in Azure Container Apps, and also deploy Spring apps in Standard consumption, they are all in the same Azure Container Apps environment.
 
+When Azure Spring Apps is created in an Azure Container Apps environment, it will share the same Virtual Network with other services and resources that dwell in the same Azure Container Apps Environment. Furthermore, you can pick an existing Virtual Network that was setup by your IT team to deploy your Azure Container Apps environment. This significantly simplifies the Virtual Network experience for running polyglot apps, when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment.
+
 ### [Azure portal](#tab/Azure-portal)
 
 The following procedure creates an Azure Container Apps Environment with a virtual network using the Azure portal.
