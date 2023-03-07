@@ -88,7 +88,7 @@ In this tutorial, you'll:
     
 ## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 
-Now that you've integrated your Log Analytics workspace with your notebook, let's look at some explore data in the workspace by running a query from the notebook:
+Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
 
 1. Check how much data you ingested into each of the tables in you Log Analytics workspace each hour over the past week.
     
@@ -152,7 +152,7 @@ To train a machine learning model on data in your Log Analytics workspace:
  
 ## Train the model
 
-1. Train and evaluate a linear regression model.
+1. Train and evaluate a [linear regression model](https://scikit-learn.org/stable/modules/linear_model.html).
 
     This script creates a machine learning pipeline that trains and evaluates a machine learning model using the `scikit-learn` library by:  
      
@@ -163,15 +163,14 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the scoring results of the linear regression model."::: 
 
-1. Now, let's train and evaluate a [gradient boosting regression](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html) model.
-
+1. Now, let's train and evaluate a [gradient boosting regression model](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html).
 
 
     The linear pipeline score for this model is: 
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-gradient-boosting-regression-score.png" alt-text="Printout of the scoring results of the gradient boosting regression model."::: 
 
-    Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - we'll use this model to score new data in our Log Analytics workspace.
+    Since the scoring of the gradient boosting regression model is better - in other words, the gradient boosting regression model has a lower error rate - let's use this model to score new data in our Log Analytics workspace.
 
 1. Save the trained gradient boosting regression model as a [pickle file](https://docs.python.org/library/pickle.html).
 
