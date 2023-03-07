@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/07/2023
 ms.author: eur
 ms.devlang: python
 keywords: speech to text, openai
