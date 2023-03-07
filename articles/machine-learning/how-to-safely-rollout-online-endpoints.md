@@ -303,6 +303,7 @@ To register the example model, follow these steps:
 1. Select __Next__ after the folder upload is completed.
 1. Enter a friendly __Name__ for the model. The steps in this article assume the model is named `model-1`.
 1. Select __Next__, and then __Register__ to complete registration.
+1. Repeat the previous steps to register a `model-2` from the `\azureml-examples\cli\endpoints\online\model-2\model` folder in the local copy of the repo you cloned or downloaded earlier.
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
@@ -417,9 +418,9 @@ You can view all your managed online endpoints in the **Endpoints** page. Go to 
 
 Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
 
-1. Select the **Test** tab in the endpoint's detail page.
-1. Use the dropdown to select the deployment you want to test.
-1. Enter sample input.
+1. Select the **Test** tab in the endpoint's detail page. The blue deployment is already selected in the dropdown menu.
+1. Copy the sample input from the [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file
+1. Paste the sample input in the test box.
 1. Select **Test**.
 
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" lightbox="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
@@ -494,7 +495,55 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here from "Add a deployment to a managed online endpoint" section of "online endpoints in studio"
+Create a new deployment to add to your managed online endpoint and name the deployment `green`.
+
+From the **Endpoint details page**
+
+1. Select **+ Add Deployment** button in the endpoint "Details" page.
+1. Select **Deploy a model**.
+1. Select **Next** to go to the "Model" page and select the model _model-2_.
+1. Select **Next** to go to the "Deployment" page and perform the following tasks:
+    1. Name the deployment "green".
+    1. Enable application insights diagnostics and data collection.
+1. Select __Next__ to go to the "Environment" page. Here, select the following options:
+    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-2\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
+    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+1. Select __Next__ to go to the "Compute" page. Here, keep the default selection for the virtual machine "Standard_DS3_v2" and change the __Instance count__ to 1.
+1. Select __Next__ to go to the "Traffic" page. Here, keep the default traffic allocation to the deployments (100% traffic to "blue" and 0% traffic to "green").
+1. Review your deployment settings and select the __Create__ button.
+
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" alt-text="A screenshot of Add deployment option from Endpoint details page.":::
+
+Alternatively, you can use the **Models** page to add a deployment:
+
+1. In the left navigation bar, select the **Models** page.
+1. Select a model by checking the circle next to the model name.
+1. Select **Deploy** > **Real-time endpoint**.
+1. Choose to deploy to an existing managed online endpoint.
+
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" alt-text="A screenshot of Add deployment option from Models page.":::
+
+### Test the new deployment
+
+Though `green` has 0% of traffic allocated, you can still invoke the endpoint and deployment with the [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_new_deployment)]
+
+Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
+
+1. Select the **Test** tab in the endpoint's detail page.
+1. Select the green deployment from the dropdown menu.
+1. Copy the sample input from the [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
+1. Paste the sample input in the test box.
+1. Select **Test**.
+
+<!-- :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" lightbox="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser."::: -->
+
+<!-- 
+> [!NOTE]
+> You can adjust the traffic balance between deployments in an endpoint when adding a new deployment.
+>
+> :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" lightbox="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" alt-text="A screenshot of how to use sliders to control traffic distribution across multiple deployments."::: -->
 
 ---
 
