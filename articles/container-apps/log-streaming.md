@@ -29,7 +29,7 @@ To troubleshoot issues in your container app environment, you can view the syste
 1. Go to your environment page in the Azure portal.
 1. Select **Log stream** under the *Monitoring* section on the sidebar menu.
 
-  :::image type="content" source="media/observability/system-log-streaming-env.png" alt-text="Screenshot of Container Apps environment system log stream page.":::
+    :::image type="content" source="media/observability/system-log-streaming-env.png" alt-text="Screenshot of Container Apps environment system log stream page.":::
 
 ### Container app log stream
 
@@ -44,7 +44,7 @@ You can view a log stream of your container app's system or console logs from yo
 
 1. To view the system log stream, select **System**. The system log stream displays the system logs for all running containers in your container app.
 
-  :::image type="content" source="media/observability/screenshot-log-stream-system-app.png" alt-text="Screenshot of Container Apps system log stream from app page.":::
+    :::image type="content" source="media/observability/screenshot-log-stream-system-app.png" alt-text="Screenshot of Container Apps system log stream from app page.":::
 
 ## View log streams via the Azure CLI
 
