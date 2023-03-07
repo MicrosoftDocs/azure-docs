@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 05/11/2022
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Azure role-based access control in Azure Cosmos DB
