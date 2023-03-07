@@ -15,6 +15,10 @@ ms.custom: devx-track-java
 
 This article describes how to create a Standard consumption plan in Azure Spring Apps for application deployment.
 
+## Standard consumption plan procedures
+
+You can use either the Azure portal or the Azure CLI to create a Standard consumption plan.
+
 ### [Azure portal](#tab/Azure-portal)
 
 The following procedure creates an instance of Azure Spring Apps using the Azure portal.
