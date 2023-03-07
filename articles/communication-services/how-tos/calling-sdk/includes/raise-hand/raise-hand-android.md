@@ -8,17 +8,17 @@ ms.author: ruslanzdor
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 > [!NOTE]
-> Raise Hand API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK
+> Raise Hand API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 
 Raise Hand is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
-```js
+```java
 import com.azure.android.communication.calling.RaiseHandFeature;
 ```
 
 Then you can get the feature API object from the call instance:
 
-```js
+```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 ```
 
@@ -26,7 +26,7 @@ RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 Raise Hand state can be used in any call type: on 1:1 calls and on calls with many participants, in ACS and in Teams calls.
 If it Teams meeting - organizer will have ability to enable or disable raise hand states for all participants.
 To change state for current participant, you can use methods:
-```js
+```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 //raise
 raiseHandFeature.raiseHand();
@@ -36,7 +36,7 @@ raiseHandFeature.lowerHand();
 
 ### Lower hands for other participants
 Currently ACS calls aren't allowed to change state of other participants, for example, lower all hands. But Teams calls allow it using these methods:
-```js
+```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 //lower all hands on the call
 raiseHandFeature.lowerHandForEveryone();
@@ -51,7 +51,7 @@ raiseHandFeature.lowerHand(identifiers);
 
 ### Handle changed states
 The `Raise Hand` API allows you to subscribe to `raiseHandChanged` events. A `raiseHandChanged` event comes from a `call` instance and contain information about participant and new state.
-```js
+```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND)
 
 // event example : {identifier: CommunicationIdentifier, isRaised: true, order:1}
@@ -62,7 +62,7 @@ call.feature(Features.RAISE_HAND).addOnRaiseHandReceivedListener(raiseHandEvent 
 
 ### List of all participants with active state
 To get information about all participants that have Raise Hand state on current call, you can use this api array is sorted by order field:
-```js
+```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 List<RaiseHand> activeStates = raiseHandFeature.getStatus();
 ```
@@ -72,7 +72,7 @@ It possible to get order of all raised hand states on the call, this order is st
 There are two ways: get all raise hand state on the call or use `raiseHandChanged` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
 
-```js
+```java
 const raiseHandFeature = call.feature(Features.RaiseHand );
 for (RaiseHand state : raiseHandFeature.getStatus() {
     CommunicationIdentifier identifier = state.getIdentifier();

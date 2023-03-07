@@ -35,6 +35,14 @@ During an active call, you may want to send or receive states from other users. 
 [!INCLUDE [Raise Hand Client-side Android](./includes/raise-hand/raise-hand-android.md)]
 ::: zone-end
 
+::: zone pivot="platform-ios"
+[!INCLUDE [Record Calls Client-side iOS](./includes/record-calls/raise-hand-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Manage Video Calls Windows](./includes/manage-video/raise-hand-windows.md)]
+::: zone-end
+
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)
