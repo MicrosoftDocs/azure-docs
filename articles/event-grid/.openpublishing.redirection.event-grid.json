@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "metrics.md",
+      "redirect_url": "/azure-monitor/essentials/metrics-supported#microsofteventgridpartnertopics",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "move-partner-namespaces-across-regions.md",
       "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
       "redirect_document_id": false
