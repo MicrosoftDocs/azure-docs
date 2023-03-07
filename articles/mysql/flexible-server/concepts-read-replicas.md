@@ -118,7 +118,7 @@ Global transaction identifier (GTID) is a unique identifier created with each co
 The following server parameters are available for configuring GTID:
 
 |**Server parameter**|**Description**|**Default Value**|**Values**|
-|--|--|--|--|
+|--------------------|---------------|-----------------|----------|
 |`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF*`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF*`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. |
 
@@ -142,7 +142,6 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 | Scenario | Limitation/Consideration |
 |:-|:-|
 | Replica on server in Burstable Pricing Tier| Not supported |
-| Cross region read replication | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |
 | Source server restart | When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |
 | New replicas | A read replica is created as a new Azure Database for MySQL flexible server. An existing server can't be made into a replica. You can't create a replica of another read replica |
