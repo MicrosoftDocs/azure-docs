@@ -28,9 +28,10 @@ This article provides a guide for importing and exporting data with Azure Cache 
 ## Compatibility
 
 - Data is exported as a RDB page blob in the _Premium_ tier. In the _Enterprise_ and _Enterprise Flash_ tiers, data is exported as a .gz block blob.
-- Exported backups from newer versions of Redis (e.g. Redis 6.0) cannot be imported into older versions of Redis (e.g. Redis 4.0)
 - Caches running Redis 4.0 support RDB version 8 and below. Caches running Redis 6.0 support RDB version 9 and below. 
-- It is possible to export data from an _Enterprise_ or _Enterprise Flash_ tier cache and import the data into a _Premium_ tier cache. You must first manually unzip the .gz file. Then you can import the file to a Premium tier cache if it is running the same version (e.g. 6.0) of Redis. 
+- Exported backups from newer versions of Redis (e.g. Redis 6.0) cannot be imported into older versions of Redis (e.g. Redis 4.0)
+- It is possible to export data from an _Enterprise_ or _Enterprise Flash_ tier cache and import the data into a _Premium_ tier cache. You must first manually unzip the .gz file. Then you can import the file to a Premium tier cache if it is running the same version (e.g. 6.0) of Redis.
+- RDB files from _Premium_ tier caches can be imported into _Enterprise_ and _Enterprise Flash_ tier caches.  
 
 ## Import
 
