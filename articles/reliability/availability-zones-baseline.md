@@ -1,6 +1,6 @@
 ---
-title: Availability zone deployment baseline
-description: Learn about availability zone deployment baseline
+title: Availability zone migration baseline
+description: Learn about availability zone migration baseline
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
@@ -10,18 +10,18 @@ ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Availability zone deployment baseline
+# Availability zone migration baseline
 
 
-This article shows you how to assess the availability-zone readiness of your application; helping you architect reliable and resilient solutions by taking advantage of availability zones.  For more information on availability zones and their configurations, see [What are Azure regions and availability zones?](availability-zones-overview.md).
+This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine which how to take advantage of availability zone support in alignment with your application and regional requirements.  For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones?](availability-zones-overview.md).
 
-Nearly all Azure services support availability zones. When creating your reliable workloads, you can choose one of the following availability zone configurations: 
+Nearly all Azure services support availability zones. When creating your reliable workloads, you generally can choose at least one of the following availability zone configurations: 
 
  - **Zonal**. A zonal configuration provides a specific, self-selected availability zone.
  
  - **Zone-redundant**.  A zone-redundant configuration provides resources that are replicated or distributed across zones automatically.
 
-In addition to the two availability zone options, zonal and zone-redundant, Azure offers **Global (always available) services**; these services are always available across geographies and so are resilient to region-wide outages. You do not need to configure or enable them.
+In addition to the two availability zone options, zonal and zone-redundant, Azure offers **Global (always available) services**; these services are always available across geographies and so are resilient to region-wide outages. You do not need to configure or enable these services.
  
 
 >[!NOTE] 
@@ -29,7 +29,7 @@ In addition to the two availability zone options, zonal and zone-redundant, Azur
 
 ## Considerations for migrating to availability zone support
 
- There are a number of possible ways to architect a reliable Azure application, both to meet SLAs and reliability targets.  Follow the steps below to choose the right approach for your needs based on technical and regulatory considerations, service capabilities, data residency, compliance requirements, and latency. 
+ There are a number of possible ways to create a reliable Azure application with availability zones, to meet both SLAs and reliability targets.  Follow the steps below to choose the right approach for your needs based on technical and regulatory considerations, service capabilities, data residency, compliance requirements, and latency. 
 
 ### Step 1: Check the product availability in the Azure region
 
