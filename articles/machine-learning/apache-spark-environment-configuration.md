@@ -28,7 +28,7 @@ In this quickstart guide, you learn how to perform interactive data wrangling us
   1. Navigate to the Azure Machine Learning studio UI
   2. In the icon section at the top right of the screen, select **Manage preview features** (megaphone icon)
   3. In the **Managed preview feature** panel, toggle the **Run notebooks and jobs on managed Spark** feature to **on**
-  :::image type="content" source="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
+  :::image type="content" source="media/apache-spark-environment-configuration/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
 
 ## Store Azure storage account credentials as secrets in Azure Key Vault
 
@@ -38,12 +38,12 @@ To store Azure storage account credentials as secrets in the Azure Key Vault usi
 1. Select **Secrets** from the left panel.
 1. Select **+ Generate/Import**.
 
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/azure-key-vault-secrets-generate-import.png" alt-text="Screenshot showing the Azure Key Vault Secrets Generate Or Import tab.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/azure-key-vault-secrets-generate-import.png" alt-text="Screenshot showing the Azure Key Vault Secrets Generate Or Import tab.":::
 
 1. At the **Create a secret** screen, enter a **Name** for the secret you want to create.
 1. Navigate to Azure Blob Storage Account, in the Azure portal, as seen in this image:
 
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/storage-account-access-keys.png" alt-text="Screenshot showing the Azure access key and connection string values screen.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/storage-account-access-keys.png" alt-text="Screenshot showing the Azure access key and connection string values screen.":::
 1. Select **Access keys** from the Azure Blob Storage Account page left panel.
 1. Select **Show** next to **Key 1**, and then **Copy to clipboard** to get the storage account access key.
     > [!Note]
@@ -59,7 +59,7 @@ To store Azure storage account credentials as secrets in the Azure Key Vault usi
 1. In the **Secret value** textbox, enter the access key credential for the Azure storage account, which was copied to the clipboard in the earlier step.
 1. Select **Create**.
 
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/create-a-secret.png" alt-text="Screenshot showing the Azure secret creation screen.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/create-a-secret.png" alt-text="Screenshot showing the Azure secret creation screen.":::
 
 > [!TIP]
 > [Azure CLI](../key-vault/secrets/quick-create-cli.md) and [Azure Key Vault secret client library for Python](../key-vault/secrets/quick-create-python.md#sign-in-to-azure) can also create Azure Key Vault secrets.
@@ -76,21 +76,21 @@ assign **Reader** and **Storage Blob Data Reader** roles to the user identity of
 1. Open the [Microsoft Azure portal](https://portal.azure.com).
 1. Search and select the **Storage accounts** service.
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/find-storage-accounts-service.png" lightbox="media/quickstart-spark-data-wrangling/find-storage-accounts-service.png" alt-text="Expandable screenshot showing Storage accounts service search and selection, in Microsoft Azure portal.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/find-storage-accounts-service.png" lightbox="media/quickstart-spark-data-wrangling/find-storage-accounts-service.png" alt-text="Expandable screenshot showing Storage accounts service search and selection, in Microsoft Azure portal.":::
 
 1. On the **Storage accounts** page, select the Azure Data Lake Storage (ADLS) Gen 2 storage account from the list. A page showing the storage account **Overview** will open.
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/storage-accounts-list.png" lightbox="media/quickstart-spark-data-wrangling/storage-accounts-list.png" alt-text="Expandable screenshot showing selection of the Azure Data Lake Storage (ADLS) Gen 2 storage account  Storage account.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/storage-accounts-list.png" lightbox="media/quickstart-spark-data-wrangling/storage-accounts-list.png" alt-text="Expandable screenshot showing selection of the Azure Data Lake Storage (ADLS) Gen 2 storage account  Storage account.":::
 
 1. Select **Access Control (IAM)** from the left panel
 1. Select **Add role assignment**
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/storage-account-add-role-assignment.png" lightbox="media/quickstart-spark-data-wrangling/storage-account-add-role-assignment.png" alt-text="Screenshot showing the Azure access keys screen.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/storage-account-add-role-assignment.png" lightbox="media/quickstart-spark-data-wrangling/storage-account-add-role-assignment.png" alt-text="Screenshot showing the Azure access keys screen.":::
 
 1. Find and select role **Storage Blob Data Contributor**
 1. Select **Next**
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/add-role-assignment-choose-role.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-choose-role.png" alt-text="Screenshot showing the Azure add role assignment screen.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/add-role-assignment-choose-role.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-choose-role.png" alt-text="Screenshot showing the Azure add role assignment screen.":::
 
 1. Select **User, group, or service principal**.
 1. Select **+ Select members**.
@@ -99,11 +99,11 @@ assign **Reader** and **Storage Blob Data Reader** roles to the user identity of
 1. Select the appropriate user identity
 1. Select **Next**
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/add-role-assignment-choose-members.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-choose-members.png" alt-text="Screenshot showing the Azure add role assignment screen Members tab.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/add-role-assignment-choose-members.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-choose-members.png" alt-text="Screenshot showing the Azure add role assignment screen Members tab.":::
 
 1. Select **Review + Assign**
 
-    :::image type="content" source="media/quickstart-spark-data-wrangling/add-role-assignment-review-and-assign.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-review-and-assign.png" alt-text="Screenshot showing the Azure add role assignment screen review and assign tab.":::
+    :::image type="content" source="media/apache-spark-environment-configuration/add-role-assignment-review-and-assign.png" lightbox="media/quickstart-spark-data-wrangling/add-role-assignment-review-and-assign.png" alt-text="Screenshot showing the Azure add role assignment screen review and assign tab.":::
 1. Repeat steps 2-13 for **Contributor** role assignment.
 
 Once the user identity has the appropriate roles assigned, data in the Azure storage account should become accessible.

@@ -135,7 +135,7 @@ To start interactive data wrangling with the user identity passthrough:
 To wrangle data by access through a service principal:
 
 1. Verify that the service principal has **Contributor** and **Storage Blob Data Contributor** [role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account.
-1. [Create Azure Key Vault secrets](#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault) for the service principal tenant ID, client ID and client secret values.
+1. [Create Azure Key Vault secrets](./apache-spark-environment-configuration.md#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault) for the service principal tenant ID, client ID and client secret values.
 1. Select Managed (Automatic) Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu
 1. To set the service principal tenant ID, client ID and client secret in the configuration, execute the following code sample.
      - The `get_secret()` call in the code depends on name of the Azure Key Vault, and the names of the Azure Key Vault secrets created for the service principal tenant ID, client ID and client secret. The corresponding property name/values to set in the configuration are as follows:
@@ -181,7 +181,7 @@ To wrangle data by access through a service principal:
 
 ### Import and wrangle data from Azure Blob storage
 
-You can access Azure Blob storage data with either the storage account access key or a shared access signature (SAS) token. You should [store these credentials in the Azure Key Vault as a secret](#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault), and set them as properties in the session configuration.
+You can access Azure Blob storage data with either the storage account access key or a shared access signature (SAS) token. You should [store these credentials in the Azure Key Vault as a secret](./apache-spark-environment-configuration.md#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault), and set them as properties in the session configuration.
 
 To start interactive data wrangling:
 1. At the Azure Machine Learning studio left panel, select **Notebooks**.
