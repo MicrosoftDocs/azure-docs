@@ -48,7 +48,7 @@ The *training script* handles the data preparation, then trains and registers a 
 >
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/quickstart/quickstart.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/quickstart.ipynb -->
 
 
 ## Connect to the workspace
@@ -137,11 +137,11 @@ except Exception:
 
 ## What is a command job?
 
-You'll create an Azure Machine Learning *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
+You'll create an Azure ML *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
 
 The *training script* handles the data preparation, training and registering of the trained model. In this tutorial, you'll create a Python training script.
 
-Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure Machine Learning Python SDK v2 to create and run the command job.
+Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure  Machine Learning Python SDK v2 to create and run the command job.
 
 After running the training job, you'll deploy the model, then use it to produce a prediction.
 
@@ -164,8 +164,6 @@ This script handles the preprocessing of the data, splitting it into test and tr
 [MLFlow](how-to-log-mlflow-models.md) will be used to log the parameters and metrics during our pipeline run. 
 
 The cell below uses IPython magic to write the training script into the directory you just created.
-
-
 
 
 ```python
@@ -332,8 +330,6 @@ The output of this job will look like this in the Azure Machine Learning studio.
 > [!IMPORTANT]
 > Wait until the status of the job is complete before returning to this notebook to continue. The job will take 2 to 3 minutes to run. It could take longer (up to 10 minutes) if the compute cluster has been scaled down to zero nodes and custom environment is still building.
 
-
-
 ## Deploy the model as an online endpoint
 
 Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
@@ -346,7 +342,7 @@ To deploy a machine learning service, you usually need:
 
 ## Create a new online endpoint
 
-Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using  [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
 
 ```python
@@ -356,11 +352,11 @@ import uuid
 online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 ```
 
-> [!NOTE]
-> Expect the endpoint creation to take approximately 6 to 8 minutes.
+Create the endpoint:
 
 
 ```python
+# Expect the endpoint creation to take a few minutes
 from azure.ai.ml.entities import (
     ManagedOnlineEndpoint,
     ManagedOnlineDeployment,
@@ -384,7 +380,10 @@ endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 print(f"Endpoint {endpoint.name} provisioning state: {endpoint.provisioning_state}")
 ```
 
-Once you've created an endpoint, you can retrieve it as below:
+> [!NOTE]
+> Expect the endpoint creation to take a few minutes.
+
+Once the endpoint has been created, you can retrieve it as below:
 
 
 ```python
@@ -399,7 +398,7 @@ print(
 
 Once the endpoint is created, deploy the model with the entry script. Each endpoint can have multiple deployments. Direct traffic to these deployments can be specified using rules. Here you'll create a single deployment that handles 100% of the incoming traffic. We have chosen a color name for the deployment, for example, *blue*, *green*, *red* deployments, which is arbitrary.
 
-You can check the **Models** page on the Azure Machine Learning studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page on the Azure Machine Learning  studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
 ```python
@@ -411,15 +410,12 @@ latest_model_version = max(
 
 Deploy the latest version of the model.  
 
-> [!NOTE]
-> Expect this deployment to take approximately 6 to 8 minutes.
-
 
 ```python
 # picking the model to deploy. Here we use the latest version of our registered model
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
-
+# Expect this deployment to take approximately 6 to 8 minutes.
 # create an online deployment.
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
@@ -432,9 +428,14 @@ blue_deployment = ManagedOnlineDeployment(
 blue_deployment = ml_client.begin_create_or_update(blue_deployment).result()
 ```
 
+> [!NOTE]
+> Expect this deployment to take approximately 6 to 8 minutes.
+
+When the deployment is done, you're ready to test it.
+
 ### Test with a sample query
 
-Now that the model is deployed to the endpoint, you can run inference with it.
+Once the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
@@ -475,14 +476,19 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 
 
 > [!NOTE]
-> Expect this step to take approximately 6 to 8 minutes.
+> Expect the complete deletion to take approximately 6 to 8 minutes.
 
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
+## Next Steps
+
+Learn more about training and deployment with the other notebooks in this folder.
+
 <!-- nbend -->
+
 
 
 ### Delete everything

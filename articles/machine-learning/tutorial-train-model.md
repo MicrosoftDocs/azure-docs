@@ -57,7 +57,7 @@ The steps are:
 
 ## Use a command job to train a model in Azure Machine Learning
 
-To train a model, you need to submit a *job*. The type of job  you'll submit in this tutorial is a *command job*. Azure Machine Learning offers several different types of jobs to train models. Users can select their method of training based on complexity of the model, data size, and training speed requirements.  In this tutorial, you'll learn how to submit a *command job* to run a *training script*. 
+To train a model, you need to submit a *job*. The type of job you'll submit in this tutorial is a *command job*. Azure Machine Learning offers several different types of jobs to train models. Users can select their method of training based on complexity of the model, data size, and training speed requirements.  In this tutorial, you'll learn how to submit a *command job* to run a *training script*. 
 
 A command job is a function that allows you to submit a custom training script to train your model. This can also be defined as a custom training job. A command job in Azure Machine Learning is a type of job that runs a script or command in a specified environment. You can use command jobs to train models, process data, or any other custom code you want to execute in the cloud. 
 
@@ -89,15 +89,16 @@ In this cell, enter your Subscription ID, Resource Group name and Workspace name
 ```python
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
+
 # authenticate
 credential = DefaultAzureCredential()
 # # Get a handle to the workspace
 ml_client = MLClient(
-     credential=credential, 
-     subscription_id="<SUBSCRIPTION_ID>",
-     resource_group_name="<RESOURCE_GROUP>",
-     workspace_name="<AML_WORKSPACE_NAME>",
-    )
+    credential=credential,
+    subscription_id="<SUBSCRIPTION_ID>",
+    resource_group_name="<RESOURCE_GROUP>",
+    workspace_name="<AML_WORKSPACE_NAME>",
+)
 ```
 
 ## Create a compute cluster to run your job
@@ -245,7 +246,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. If you would like to learn more about how MLFLow works with Azure Machine Learning [visit this link](concept-mlflow.md). 
+[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. If you would like to learn more about how MLFLow works with Azure Machine Learning [visit this link](concept-mlflow.md).  
 
 
 ```python
@@ -284,7 +285,7 @@ def main():
 
     print("input data:", args.data)
     
-    credit_df = pd.read_cvs(args.data, header=1, index_col=0)
+    credit_df = pd.read_csv(args.data, header=1, index_col=0)
 
     mlflow.log_metric("num_samples", credit_df.shape[0])
     mlflow.log_metric("num_features", credit_df.shape[1] - 1)
@@ -403,7 +404,7 @@ ml_client.create_or_update(job)
 
 ## View job output and wait for job completion
 
-View the job in Azure ML studio by selecting the link in the output of the previous cell. The output of this job looks like this in Azure ML studio. Explore the tabs for various details like metrics, outputs etc. Once the model completes, this training script registers a model in your workspace. 
+View the job in Azure ML studio by selecting the link in the output of the previous cell. The output of this job will look like this in the Azure Machine Learning studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/view-job.gif" alt-text="Screenshot shows the overview page for the job.":::
 

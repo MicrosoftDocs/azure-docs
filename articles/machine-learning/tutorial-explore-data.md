@@ -50,18 +50,18 @@ The start of a machine learning project typically involves exploratory data anal
 
 ### Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
 
 > [!NOTE]
-> This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource.
+> This tutorial depends on data placed in an Azure ML resource folder location. For this tutorial, 'local' means a folder location in that Azure ML resource. 
 
-This image shows the Azure ML files (directory) panel:
+This image shows the Azure ML files (folder) panel:
 
 :::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
 
-In the files panel, you can easily create directories, and move files between directories. Create a new directory at the directory root, and name it **get-started-notebooks**.
+In the files panel, you can easily create folders, and move files between folders. Create a new get-started-notebooks below the folder where your notebook is located, named **data**.
 
-Upload the data to the **get-started-notebooks** directory after you download it. Or, follow these steps to copy the data using the compute instance terminal.
+Upload the data to the **data** folder after you download it. Or, follow these steps to copy the data using the compute instance terminal.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
@@ -70,7 +70,8 @@ Upload the data to the **get-started-notebooks** directory after you download it
 1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
 
     ```
-    cd get-started-notebooks # cd to the location you would like to store the data
+    cd get-started-notebooks    #  modify this to the path where your notebook is located
+    cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
     ```
 
@@ -94,9 +95,9 @@ In this cell, enter your Subscription ID, Resource Group name and Workspace name
 
 ```python
 from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
 
 # authenticate
 credential = DefaultAzureCredential()
@@ -106,7 +107,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id="<SUBSCRIPTION_ID>",
     resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>"
+    workspace_name="<AML_WORKSPACE_NAME>",
 )
 ```
 
@@ -132,7 +133,7 @@ The next notebook cell creates the data asset. Here, the code sample uploads the
 # update the 'my_path' variable to match the location of where you downloaded the data on your
 # local filesystem
 
-my_path = './get-started-notebooks/default_of_credit_card_clients.csv'
+my_path = "./data/default_of_credit_card_clients.csv"
 
 # define the data asset
 
@@ -143,7 +144,7 @@ my_path = './get-started-notebooks/default_of_credit_card_clients.csv'
 # data assets, starting from 1.
 
 my_data = Data(
-    name="credit-cards",
+    name="credit-card",
     version="1",
     description="Credit card data",
     path=my_path,
@@ -177,12 +178,10 @@ However, as mentioned previously, it can become hard to remember these URIs. Add
 > [!IMPORTANT]
 > In a notebook cell, execute this code to install the `azureml-fsspec` Python library in your Jupyter kernel:
 
+
 ```python
 %pip install -U azureml-fsspec
 ```
-
-> [!NOTE]
-> You may need to restart the kernel to use updated packages.
 
 
 ```python
@@ -190,7 +189,7 @@ import pandas as pd
 
 # get a handle of the data asset and print the URI
 data_asset = ml_client.data.get(name="credit-card", version="1")
-print(f'Data asset URI: {data_asset.path}')
+print(f"Data asset URI: {data_asset.path}")
 
 # read into pandas - note that you will see 2 headers in your data frame - that is ok, for now
 
@@ -215,12 +214,12 @@ Also, compared to the CSV format, the Parquet file format becomes a better way t
 # read in data again, this time using the 2nd row as the header
 df = pd.read_csv(data_asset.path, header=1)
 # rename column
-df.rename(columns={'default payment next month': 'default'}, inplace=True)
+df.rename(columns={"default payment next month": "default"}, inplace=True)
 # remove ID column
-df.drop('ID', axis=1, inplace=True)
+df.drop("ID", axis=1, inplace=True)
 
 # write file to filesystem
-df.to_parquet('./cleaned-credit-card.parquet')
+df.to_parquet("./cleaned-credit-card.parquet")
 ```
 
 This table shows the structure of the data in the original **default_of_credit_card_clients.csv** file .CSV file downloaded in an earlier step. The uploaded data contains 23 explanatory variables and 1 response variable, as shown here:
@@ -251,11 +250,9 @@ Next, create a new _version_ of the data asset (the data automatically uploads t
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-my_path = './cleaned-credit-card.parquet'
+my_path = "./cleaned-credit-card.parquet"
 
 # Define the data asset, and use tags to make it clear the asset can be used in training
-
-# Note: we will brainstorm what's the best way to do the comment below
 
 # The version value is optional in this statement. Without it, this code
 # can re-execute this cell with the given name and version values.
@@ -267,12 +264,9 @@ my_data = Data(
     name="credit-card",
     version="2",
     description="Default of credit card clients data.",
-    tags={
-        "training_data": "true",
-        "format": "parquet"
-    },
+    tags={"training_data": "true", "format": "parquet"},
     path=my_path,
-    type=AssetTypes.URI_FILE
+    type=AssetTypes.URI_FILE,
 )
 
 ## create the data asset
@@ -291,18 +285,21 @@ data_asset_v1 = ml_client.data.get(name="credit-card", version="1")
 data_asset_v2 = ml_client.data.get(name="credit-card", version="2")
 
 # print the v1 data
-print(f'V1 Data asset URI: {data_asset_v1.path}')
+print(f"V1 Data asset URI: {data_asset_v1.path}")
 v1df = pd.read_csv(data_asset_v1.path)
 print(v1df.head(5))
 
-#print the v2 data
-print("_____________________________________________________________________________________________________________\n")
-print(f'V2 Data asset URI: {data_asset_v2.path}')
+# print the v2 data
+print(
+    "_____________________________________________________________________________________________________________\n"
+)
+print(f"V2 Data asset URI: {data_asset_v2.path}")
 v2df = pd.read_parquet(data_asset_v2.path)
 print(v2df.head(5))
 ```
 
 <!-- nbend -->
+
 
 ## Clean up resources
 

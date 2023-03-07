@@ -19,7 +19,7 @@ ms.custom: mlops #add more custom tags
 <!-- > [!TIP]
 > Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb)**. -->
 
-# Tutorial: Deploy a model as an online endpoint
+# Deploy a model as an online endpoint
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -57,7 +57,7 @@ The steps you'll take are:
     > This translates to `ceil(1.2 * 1) * 4` = `8` cores for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` cores for the `Standard_F4s_v2` VM.
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
-    * Or open the notebook by opening  **update these locations** from the [**Samples**](quickstart-create-resources.md#learn-from-sample-notebooks) section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.<!-- MA: update this location** -->
+    * Or open the notebook by opening  **update these locations** from the **Samples** section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.
 
 ## Connect to the workspace
 
@@ -97,13 +97,14 @@ The result is a handle to the workspace that you'll use to manage other resource
 
 ## Register the model
 
-If you already completed the earlier training tutorial, "Train model responsibly", you've registered an MLflow model as part of the training script and can skip to the [Confirm that the model is registered](#confirm-that-the-model-is-registered) section.
+If you already completed the earlier training tutorial, "Train a model", you've registered an MLflow model as part of the training script and can skip to the next section. 
 
 If you didn't complete the training tutorial, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
-In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. <!-- MA: update this location --to tutorials folder** -->
+In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#create-a-new-notebook), then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. 
 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
+
 
 ```python
 # Import the necessary libraries
@@ -191,7 +192,7 @@ endpoint = ManagedOnlineEndpoint(
     auth_mode="key",
     tags={
         "training_dataset": "credit_defaults",
-         },
+    },
 )
 ```
 
@@ -260,7 +261,7 @@ blue_deployment = ManagedOnlineDeployment(
     endpoint_name=online_endpoint_name,
     model=model,
     instance_type="Standard_DS3_v2",
-    instance_count=1
+    instance_count=1,
 )
 ```
 
@@ -269,7 +270,9 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 
 ```python
 # create the online deployment
-blue_deployment = ml_client.online_deployments.begin_create_or_update(blue_deployment).result()
+blue_deployment = ml_client.online_deployments.begin_create_or_update(
+    blue_deployment
+).result()
 
 # blue deployment takes 100% traffic
 # expect the deployment to take approximately 8 to 10 minutes.
@@ -286,7 +289,9 @@ You can check the status of the endpoint to see whether the model was deployed w
 endpoint = ml_client.online_endpoints.get(name=online_endpoint_name)
 
 # print a selection of the endpoint's metadata
-print(f"Name: {endpoint.name}\nStatus: {endpoint.provisioning_state}\nDescription: {endpoint.description}")
+print(
+    f"Name: {endpoint.name}\nStatus: {endpoint.provisioning_state}\nDescription: {endpoint.description}"
+)
 ```
 
 
@@ -350,13 +355,17 @@ ml_client.online_endpoints.invoke(
 Check the logs to see whether the endpoint/deployment were invoked successfully
 If you face errors, see [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md).
 
+
 ```python
-logs = ml_client.online_deployments.get_logs(name="blue", endpoint_name=online_endpoint_name, lines=50)
+logs = ml_client.online_deployments.get_logs(
+    name="blue", endpoint_name=online_endpoint_name, lines=50
+)
 print(logs)
 ```
 
 ## Create a second deployment 
 Deploy the model as a second deployment called `green`. In practice, you can create several deployments and compare their performance. These deployments could use a different version of the same model, a completely different model, or a more powerful compute instance. In our example, you'll deploy the same model version using a more powerful compute instance that could potentially improve performance.
+
 
 ```python
 # picking the model to deploy. Here we use the latest version of our registered model
@@ -373,7 +382,9 @@ green_deployment = ManagedOnlineDeployment(
 
 # create the online deployment
 # expect the deployment to take approximately 8 to 10 minutes
-green_deployment = ml_client.online_deployments.begin_create_or_update(green_deployment).result()
+green_deployment = ml_client.online_deployments.begin_create_or_update(
+    green_deployment
+).result()
 ```
 
 ## Scale deployment to handle more traffic
@@ -417,7 +428,9 @@ Show logs from the `green` deployment to check that there were incoming requests
 
 
 ```python
-logs = ml_client.online_deployments.get_logs(name="green", endpoint_name=online_endpoint_name, lines=50)
+logs = ml_client.online_deployments.get_logs(
+    name="green", endpoint_name=online_endpoint_name, lines=50
+)
 print(logs)
 ```
 
@@ -464,6 +477,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name).result()
 ```
 
 <!-- nbend -->
+
 
 
 ### Delete everything
