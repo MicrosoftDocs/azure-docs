@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 02/15/2022
+ms.date: 01/26/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -21,7 +21,9 @@ Workflows can be created and customized for common scenarios using templates, or
 
 ## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ## Create a Lifecycle workflow using a template in the Azure portal
 
@@ -42,7 +44,7 @@ If you are using the Azure portal to create a workflow, you can customize existi
 
 1. On the **configure scope** page select the **Trigger type** and execution conditions to be used for this workflow. For more information on what can be configured, see: [Configure scope](understanding-lifecycle-workflows.md#configure-scope).
 
-1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department.
+1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department. For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
 
     :::image type="content" source="media/create-lifecycle-workflow/template-scope.png" alt-text="Screenshot of Lifecycle Workflows template scope configuration options.":::
 

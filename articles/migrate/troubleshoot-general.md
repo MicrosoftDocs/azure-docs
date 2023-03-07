@@ -6,13 +6,13 @@ ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-
+ms.date: 07/01/2021
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
+[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Migration and modernization.
 
 ## How do I create or find a project?
 

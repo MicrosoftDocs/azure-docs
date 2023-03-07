@@ -3,14 +3,14 @@ title: Managing concurrency in Blob storage
 titleSuffix: Azure Storage
 description: Learn how to manage multiple writers to a blob by implementing either optimistic or pessimistic concurrency in your application. Optimistic concurrency checks the ETag value for a blob and compares it to the ETag provided. Pessimistic concurrency uses an exclusive lease to lock the blob to other writers.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
-ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.author: tamram
+ms.author: pauljewell
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -24,7 +24,7 @@ Modern applications often have multiple users viewing and updating data simultan
 
 - **Last writer wins**: An approach that allows update operations to proceed without first determining whether another application has updated the data since it was read. This approach is typically used when data is partitioned in such a way that multiple users will not access the same data at the same time. It can also be useful where short-lived data streams are being processed.
 
-Azure Storage supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency. Azure Storage was designed to embrace a strong consistency model that guarantees that after the service performs an insert or update operation, subsequent read operations return the latest update.
+Azure Storage supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency. Azure Storage was designed to embrace a strong consistency model that guarantees that after the service performs an insert or update operation, subsequent read or list operations return the latest update.
 
 In addition to selecting an appropriate concurrency strategy, developers should also be aware of how a storage platform isolates changes, particularly changes to the same object across transactions. Azure Storage uses snapshot isolation to allow read operations concurrently with write operations within a single partition. Snapshot isolation guarantees that all read operations return a consistent snapshot of the data even while updates are occurring.
 

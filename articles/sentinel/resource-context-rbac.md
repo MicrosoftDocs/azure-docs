@@ -1,16 +1,13 @@
 ---
-title: Manage access to Microsoft Sentinel data by resource | Microsoft Docs
+title: Manage access to Microsoft Sentinel data by resource
 description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Manage access to Microsoft Sentinel data by resource
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Typically, users who have access to a Microsoft Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
 

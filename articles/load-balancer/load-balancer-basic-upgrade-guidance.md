@@ -1,18 +1,19 @@
 ---
 title: Upgrading from basic Load Balancer - Guidance
-description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer
+description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/19/2022
+ms.custom: template-concept
 #customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
 # Upgrading from basic Load Balancer - Guidance
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
 
 In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 
@@ -34,8 +35,6 @@ This section lists out some key differences between these two Load Balancer SKUs
 | ---- | ---- | ---- |
 | **Backend type** | IP based, NIC based | NIC based |
 | **Protocol** | TCP, UDP | TCP, UDP |
-| **[Frontend IP configurations](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 600 configurations | Supports up to 200 configurations |
-| **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances | Supports up to 300 instances |
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probe types](load-balancer-custom-probe-overview.md#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down and on all probes down | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down |

@@ -138,6 +138,9 @@ Check that you've entered the correct [hostname](#get-ftps-endpoint) and [creden
 #### How can I connect to FTP in Azure App Service via passive mode?
 Azure App Service supports connecting via both Active and Passive mode. Passive mode is preferred because your deployment machines are usually behind a firewall (in the operating system or as part of a home or business network). See an [example from the WinSCP documentation](https://winscp.net/docs/ui_login_connection). 
 
+### How can I determine the method that was used to deploy my Azure App Service?
+Let us say you take over owning an app and you wish to find out how the Azure App Service was deployed so you can make changes and deploy them. You can determine how an Azure App Service was deployed by checking the application settings. If the app was deployed using an external package URL, you will see the WEBSITE_RUN_FROM_PACKAGE setting in the application settings with a URL value. Or if it was deployed using zip deploy, you will see the WEBSITE_RUN_FROM_PACKAGE setting with a value of 1. If the app was deployed using Azure DevOps, you will see the deployment history in the Azure DevOps portal. If Azure Functions Core Tools was used, you will see the deployment history in the Azure portal.
+
 ## More resources
 
 * [Local Git deployment to Azure App Service](deploy-local-git.md)

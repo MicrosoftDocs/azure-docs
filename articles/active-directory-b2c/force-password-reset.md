@@ -9,9 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 10/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -131,6 +132,9 @@ Content-type: application/json
 ```
 
 If you disabled the strong [password complexity](password-complexity.md), update the password policy to [DisableStrongPassword](user-profile-attributes.md#password-policy-attribute):
+
+> [!NOTE]
+> After the user resets their password, the passwordPolicies will be changed back to DisablePasswordExpiration
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>

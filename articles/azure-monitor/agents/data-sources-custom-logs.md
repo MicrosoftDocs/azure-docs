@@ -13,6 +13,9 @@ ms.reviewer: shseth
 
 The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services, such as Windows Event log or Syslog. After the data is collected, you can either parse it into individual fields in your queries or extract it during collection to individual fields.
 
+>[!IMPORTANT]
+> This article describes how to collect a text log with the Log Analytics agent. If you're using the Azure Monitor agent, then see [Collect text logs with Azure Monitor Agent](data-collection-text-log.md).
+
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ![Diagram that shows custom log collection.](media/data-sources-custom-logs/overview.png)
@@ -48,8 +51,8 @@ Use the following procedure to define a custom log file. Scroll to the end of th
 
 The Custom Log wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
-1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Settings**.
-1. Select **Custom logs**.
+1. In the Azure portal, select **Log Analytics workspaces** > your workspace.
+1. Under the **Classic** section, select **Legacy custom logs**.
 1. By default, all configuration changes are automatically pushed to all agents. For Linux agents, a configuration file is sent to the Fluentd data collector.
 1. Select **Add** to open the Custom Log wizard.
 
@@ -111,7 +114,7 @@ The entire log entry will be stored in a single property called **RawData**. You
 
 Use the following process in the Azure portal to remove a custom log that you previously defined.
 
-1. From the **Data** menu in the **Advanced Settings** for your workspace, select **Custom Logs** to list all your custom logs.
+1. On the left, under the **Classic** section for your workspace, select **Legacy custom Logs** to list all your custom logs.
 1. Select **Remove** next to the custom log to remove the log.
 
 ## Data collection
@@ -147,25 +150,25 @@ The following section walks through an example of creating a custom log. The sam
 
 We provide one of the log files and can see the events that it will be collecting. In this case, **New line** is a sufficient delimiter. If a single entry in the log could span multiple lines though, a timestamp delimiter would need to be used.
 
-![Screenshot that shows uploading and parsing a sample log.](media/data-sources-custom-logs/delimiter.png)
+:::image type="content" source="media/data-sources-custom-logs/delimiter.png" alt-text="Screenshot that shows uploading and parsing a sample log.":::
 
 ### Add log collection paths
 
 The log files will be located in *C:\MyApp\Logs*. A new file will be created each day with a name that includes the date in the pattern *appYYYYMMDD.log*. A sufficient pattern for this log would be *C:\MyApp\Logs\\\*.log*.
 
-![Screenshot that shows adding a log collection path.](media/data-sources-custom-logs/collection-path.png)
+:::image type="content" source="media/data-sources-custom-logs/collection-path.png" alt-text="Screenshot that shows adding a log collection path.":::
 
 ### Provide a name and description for the log
 
 We use a name of *MyApp_CL* and type in a **Description**.
 
-![Screenshot that shows adding a log name.](media/data-sources-custom-logs/log-name.png)
+:::image type="content" source="media/data-sources-custom-logs/log-name.png" alt-text="Screenshot that shows adding a log name.":::
 
 ### Validate that the custom logs are being collected
 
 We use a simple query of *MyApp_CL* to return all records from the collected log.
 
-![Screenshot that shows a log query with no custom fields.](media/data-sources-custom-logs/query-01.png)
+:::image type="content" source="media/data-sources-custom-logs/query-01.png" alt-text="Screenshot that shows a log query with no custom fields.":::
 
 ## Alternatives to custom logs
 

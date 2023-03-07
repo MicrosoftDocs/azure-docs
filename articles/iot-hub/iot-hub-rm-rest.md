@@ -19,7 +19,7 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
 
 ## Prerequisites
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](../cloud-shell/overview.md)
 
 * [Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman) or [cURL](https://curl.se/)
 
@@ -145,8 +145,6 @@ Since you've deployed an IoT hub using the resource provider REST API, you may w
 * Read [Azure Resource Manager overview](../azure-resource-manager/management/overview.md) to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
-
-* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
 
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 

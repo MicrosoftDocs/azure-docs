@@ -91,12 +91,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send requests. 
-
-The following links show you how to set up the request:
-
-+ [Create a search index using REST and Postman](search-get-started-rest.md)
-+ [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman desktop app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 

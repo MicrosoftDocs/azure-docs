@@ -24,6 +24,9 @@ This article details the Windows and Linux operating systems supported and syste
 ### Operating system updates
 Update management center (preview) supports operating system updates for both Windows and Linux.
 
+> [!NOTE]
+> Update management center (preview) doesn't support driver Updates. 
+
 ### First party updates on Windows
 By default, the Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. You can configure this option if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) available for Windows 2016 and later.
 
@@ -55,11 +58,15 @@ Update management center (preview) is supported in the following regions current
 
 **Geography** | **Supported Regions**
 --- | ---
-Australia | Australia East
-United States | East US </br> South Central-US </br> West Central-US </br> West US 2
-Europe | North Europe </br> West Europe
 Asia | South East Asia
-United Kingdom | UK South
+Australia | Australia East
+Canada | Canada Central
+Europe | North Europe </br> West Europe
+France | France Central
+Japan | Japan East
+Korea | Korea Central
+United Kingdom | UK South </br> UK West
+United States | East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
 ---
 

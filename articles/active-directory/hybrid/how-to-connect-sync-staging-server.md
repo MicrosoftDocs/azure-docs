@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 5/18/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -120,7 +120,7 @@ We need to ensure that only one Sync Server is syncing changes at any given time
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Staging Mode highlighted in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-menu.png)
 
-2. You will need to sign into Azure AD with Global Admin or Hybrid Identity Admin credentials:  
+2. You will need to sign into Azure AD with Global Administrator or Hybrid Identity Admin credentials:  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Sign in prompt in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sign-in.png)
@@ -224,7 +224,7 @@ A common and supported method is to run the sync engine in a virtual machine. In
 
 If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The high availability solutions supported include SQL clustering and AOA (Always On Availability Groups). Unsupported solutions include mirroring.
 
-Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
+Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, the RegisterAllProvidersIP property must be set to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
 
 ## Appendix CSAnalyzer
 

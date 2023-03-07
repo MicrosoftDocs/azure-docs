@@ -4,7 +4,7 @@ description: How to create a dynamic membership group that can contain members o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -37,7 +37,6 @@ Only administrators in the Global Administrator, Intune Administrator, or User A
 - MemberOf can't be used with other rules. For example, a rule that states dynamic group A should contain members of group B and also should contain only users located in Redmond will fail.
 - Dynamic group rule builder and validate feature can't be used for memberOf at this time.
 - MemberOf can't be used with other operators. For example, you can't create a rule that states “Members Of group A can't be in Dynamic group B.”
-- The objects specified in the rule can't be administrative units.
 
 ## Getting started
 

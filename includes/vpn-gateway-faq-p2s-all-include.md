@@ -98,6 +98,8 @@ The traffic selectors limit in Windows determines the maximum number of address 
 
 When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN client will always try IKEv2 tunnel first, but will fall back to SSTP if the IKEv2 connection isn't successful. MacOSX will only connect via IKEv2.
 
+When you have both SSTP and IKEv2 enabled on the Gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128 even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the Point to Site address range CIDR, but the two sub-range CIDRs.
+
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
 Azure supports Windows, Mac, and Linux for P2S VPN.

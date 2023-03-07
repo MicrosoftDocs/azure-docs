@@ -2,12 +2,12 @@
 title: Customize networking configurations for a failover VM  | Microsoft Docs
 description: Provides an overview of customize networking configurations for a failover VM in the replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/01/2021
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 # Customize networking configurations of the target Azure VM

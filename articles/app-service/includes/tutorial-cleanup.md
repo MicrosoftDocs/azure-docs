@@ -2,7 +2,7 @@
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.workload: identity
 ms.date: 02/16/2022
@@ -10,6 +10,7 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp azurecli
 ms.custom: azureday1
+ms.subservice: web-apps
 ---
 
 ## Clean up resources

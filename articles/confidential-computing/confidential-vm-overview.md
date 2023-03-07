@@ -80,6 +80,7 @@ Confidential VMs support the following VM sizes:
 Confidential VMs support the following OS options:
 
 - Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
 - Windows Server 2019
 - Windows Server 2022
 
@@ -105,6 +106,7 @@ Confidential VMs *don't support*:
 - Ultra disks
 - Accelerated Networking
 - Live migration
+- Screenshots under boot diagnostics
 
 
 ## Next steps

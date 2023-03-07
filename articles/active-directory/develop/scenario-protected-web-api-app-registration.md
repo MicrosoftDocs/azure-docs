@@ -1,14 +1,15 @@
 ---
 title: Protected web API app registration
 description: Learn how to build a protected web API and the information you need to register the app.
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 01/27/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---

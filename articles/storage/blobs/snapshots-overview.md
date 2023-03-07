@@ -2,7 +2,6 @@
 title: Blob snapshots
 titleSuffix: Azure Storage
 description: Understand how blob snapshots work and how they are billed.
-services: storage
 author: normesta
 
 ms.service: storage

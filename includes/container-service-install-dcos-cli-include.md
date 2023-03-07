@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Containers, Micro-services, DC/OS, Azure
 
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

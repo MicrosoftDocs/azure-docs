@@ -70,6 +70,8 @@ landingContent:
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
+        - text: Code a .NET app in Visual Studio
+          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
         - text: Code a Java Spring app
@@ -78,8 +80,8 @@ landingContent:
           url: quickstart-python.md
         - text: Azure Resource Manager template
           url: quickstart-resource-manager.md       
-        - text: Code a .NET app in Visual Studio
-          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
+        - text: Azure Container Apps
+          url: quickstart-container-apps.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -149,9 +151,11 @@ landingContent:
       - linkListType: reference
         links:
         - text: .NET Core library
-          url: /dotnet/api/microsoft.featuremanagement
+          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
         - text: .NET Core filter library
-          url: /dotnet/api/microsoft.featuremanagement.featurefilters
+          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+        - text: Java Spring Library
+          url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
   - title: Configuration SDKs and samples
     linkLists:

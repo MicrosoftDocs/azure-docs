@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about Azure Machine Learning curated environments, a set of pre-configured environments that help reduce experiment and deployment preparation times.
 services: machine-learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: osiotugo
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
@@ -39,20 +39,25 @@ This article lists the curated environments with latest framework versions in Az
 
 ### Azure Container for PyTorch (ACPT) (preview)
 
-**Name**: AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu  
+**Name**: AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu  
 **Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc. 
 
 The following configurations are supported: 
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.1 | 1.11.0 | 
-| AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.1 | 1.11.0 |
+| AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
+| AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.12.0 | 0.7.3 | 1.12.0 |
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
+
+> [!NOTE]
+> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu with cuda 11.3 can be used.
 
 ### PyTorch
 
 **Name**: AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu  
-**Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and other Python packages.  
+**Description**: An environment for deep learning with PyTorch containing the Azure Machine Learning Python SDK and other Python packages.  
 * GPU: Cuda11
 * OS: Ubuntu18.04
 * PyTorch: 1.10
@@ -66,7 +71,7 @@ Other available PyTorch environments:
 ### LightGBM
 
 **Name**: AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu  
-**Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and other packages.  
+**Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the Azure Machine Learning Python SDK and other packages.  
 * OS: Ubuntu18.04
 * Dask: 2021.6
 * LightGBM: 3.2
@@ -76,7 +81,7 @@ Other available PyTorch environments:
 
 ### Sklearn
 **Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu  
-**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other Python packages.  
+**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the Azure Machine Learning Python SDK and other Python packages.  
 * OS: Ubuntu20.04
 * Scikit-learn: 1.0
 
@@ -87,7 +92,7 @@ Other available Sklearn environments:
 ### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and other Python packages.  
+**Description**: An environment for deep learning with TensorFlow containing the Azure Machine Learning Python SDK and other Python packages.  
 * GPU: Cuda11
 * Horovod: 2.4.1
 * OS: Ubuntu18.04
@@ -96,7 +101,7 @@ Other available Sklearn environments:
 
 ## Automated ML (AutoML)
 
-Azure ML pipeline training workflows that use AutoML automatically selects a curated environment based on the compute type and whether DNN is enabled. AutoML provides the following curated environments:
+Azure Machine Learning pipeline training workflows that use AutoML automatically selects a curated environment based on the compute type and whether DNN is enabled. AutoML provides the following curated environments:
 
 | Name | Compute Type | DNN enabled |
 | --- | --- | --- |
@@ -105,7 +110,7 @@ Azure ML pipeline training workflows that use AutoML automatically selects a cur
 | AzureML-AutoML-GPU | GPU | No |
 | AzureML-AutoML-DNN-GPU | GPU | Yes |
 
-For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
+For more information on AutoML and Azure Machine Learning pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
 Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

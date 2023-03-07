@@ -2,12 +2,12 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/14/2022
+ms.date: 11/11/2022
 ms.author: mahender
 ---
 
 > [!NOTE]
-> Blob Storage, Queue Storage, and Table Storage now use separate extensions and are referenced individually. For example, to use the triggers and bindings for all three services in your .NET in-process app, you should add the following packages to your project:
+> Azure Blobs, Azure Queues, and Azure Tables now use separate extensions and are referenced individually. For example, to use the triggers and bindings for all three services in your .NET in-process app, you should add the following packages to your project:
 >
 > - [Microsoft.Azure.WebJobs.Extensions.Storage.Blobs]
 > - [Microsoft.Azure.WebJobs.Extensions.Storage.Queues]

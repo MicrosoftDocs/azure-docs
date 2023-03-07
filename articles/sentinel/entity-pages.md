@@ -4,7 +4,7 @@ description: Use entity pages to get information about entities that you come ac
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 01/17/2023
 ---
 
 # Investigate entities with entity pages in Microsoft Sentinel
@@ -22,6 +22,8 @@ More specifically, entity pages consist of three parts:
 - The center panel shows a [graphical and textual timeline](#the-timeline) of notable events related to the entity, such as alerts, bookmarks, [anomalies](soc-ml-anomalies.md), and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams, and you can now [add your own custom queries to detect activities](customize-entity-activities.md) of your choosing. 
 
 - The right-side panel presents [behavioral insights](#entity-insights) on the entity. These insights are continuously developed by Microsoft security research teams. They are based on various data sources and provide context for the entity and its observed activities, helping you to quickly identify [anomalous behavior](soc-ml-anomalies.md) and security threats.
+
+If you're investigating an incident using the **[new investigation experience](investigate-incidents.md) (now in Preview)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
 
 ## The timeline
 
@@ -76,6 +78,7 @@ Microsoft Sentinel currently offers the following entity pages:
     > The **IP address entity page** (now in preview) contains **geolocation data** supplied by the **Microsoft Threat Intelligence service**. This service combines geolocation data from Microsoft solutions and third-party vendors and partners. The data is then available for analysis and investigation in the context of a security incident. For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md).
 
 - Azure resource (**Preview**)
+- IoT device (**Preview**)
 
 ## Next steps
 

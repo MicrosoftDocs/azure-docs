@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 09/23/2022
+ms.date: 02/22/2023
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -18,21 +18,21 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
-The following effects are _deprecated_:
+## Interchanging effects
 
-- [EnforceOPAConstraint](#enforceopaconstraint)
-- [EnforceRegoPolicy](#enforceregopolicy)
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require additional details in the policy rule that aren't required for policies with effect **Audit**. The effects also behave differently. **Audit** policies will assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies will assess a resource's compliance based on a child or extension resource's properties.
 
-> [!IMPORTANT]
-> In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`. The built-in policy definitions
-> have been updated. When existing policy assignments of these built-in policy definitions are
-> modified, the _effect_ parameter must be changed to a value in the updated _allowedValues_ list.
+Below is some general guidance around interchangeable effects:
+- **Audit**, **Deny**, and either **Modify** or **Append** are often interchangeable.
+- **AuditIfNotExists** and **DeployIfNotExists** are often interchangeable.
+- **Manual** isn't interchangeable.
+- **Disabled** is interchangeable with any effect.
 
 ## Order of evaluation
 
@@ -51,7 +51,10 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is evaluated last.
+- **Audit** is evaluated.
+- **Manual** is evaluated.
+- **AuditIfNotExists** is evaluated.
+- **denyAction** is evaluated last.
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
@@ -163,7 +166,7 @@ definitions as `constraintTemplate` is deprecated.
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (deprecated)
   - Can't be used with `templateInfo`.
@@ -174,7 +177,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
 - **excludedNamespaces** (required)
   - An _array_ of
@@ -375,7 +378,7 @@ definitions as `constraintTemplate` is deprecated.
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (optional)
   - Can't be used with `templateInfo`.
@@ -386,7 +389,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces, except the ones
     defined in _excludedNamespaces_.
 - **excludedNamespaces** (required)
   - An _array_ of
@@ -450,6 +453,67 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
     }
 }
 ```
+## DenyAction
+
+`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidental deletion of critical resources.
+
+### DenyAction evaluation
+
+When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment.
+
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
+
+#### Subscription deletion
+Policy won't block removal of resources that happens during a subscription deletion.
+
+#### Resource group deletion
+Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy won't block removal of resources that don't support location and tags nor any policy with `mode:all`.
+
+#### Cascade deletion
+Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child).
+
+[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
+
+### DenyAction properties
+
+The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
+
+- **actionNames** (required)
+  - An _array_  that specifies what actions to prevent from being executed.
+  - Supported action names are: `delete`.
+- **cascadeBehaviors** (optional)
+  - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group.
+  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
+  - Allowed values are `allow` or `deny`.
+  - Default value is `deny`.
+
+### DenyAction example
+Example: Deny any delete calls targeting database accounts that have a tag environment that equals prod. Since cascade behavior is set to deny, block any DELETE call that targets a resource group with an applicable database account.
+
+```json
+{
+   "if": {
+      "allOf": [
+         {
+            "field": "type",
+            "equals": "Microsoft.DocumentDb/accounts"
+         },
+         {
+            "field": "tags.environment",
+            "equals": "prod"
+         }
+      ]
+   },
+   "then": {
+      "effect": "DenyAction",
+      "details": {
+         "actionNames": [ "delete" ],
+         "cascadeBehaviors": { "resourceGroup": "deny" }
+      }
+   }
+}
+```
 
 ## DeployIfNotExists
 
@@ -498,8 +562,7 @@ related resources to match and the template deployment to execute.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
@@ -613,144 +676,17 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## EnforceOPAConstraint
-
-This effect is used with a policy definition _mode_ of `Microsoft.Kubernetes.Data`. It's used to
-pass Gatekeeper v3 admission control rules defined with
-[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceOPAConstraint evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceOPAConstraint properties
-
-The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
-Gatekeeper v3 admission control rule.
-
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
-  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
-    `{{ .Values.<valuename> }}`. In the following example, these values are `{{ .Values.cpuLimit }}`
-    and `{{ .Values.memoryLimit }}`.
-- **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
-
-### EnforceOPAConstraint example
-
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
-Kubernetes.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "in": [
-                "Microsoft.ContainerService/managedClusters",
-                "AKS Engine"
-            ]
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "enforceOPAConstraint",
-    "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
-        "values": {
-            "cpuLimit": "[parameters('cpuLimit')]",
-            "memoryLimit": "[parameters('memoryLimit')]"
-        }
-    }
-}
-```
-
-## EnforceRegoPolicy
-
-This effect is used with a policy definition _mode_ of `Microsoft.ContainerService.Data`. It's used
-to pass Gatekeeper v2 admission control rules defined with
-[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
-[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
-[Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceRegoPolicy evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceRegoPolicy properties
-
-The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
-Gatekeeper v2 admission control rule.
-
-- **policyId** (required)
-  - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** (required)
-  - Specifies the URI of the Rego admission control rule.
-- **policyParameters** (optional)
-  - Defines any parameters and values to pass to the rego policy.
-
-### EnforceRegoPolicy example
-
-Example: Gatekeeper v2 admission control rule to allow only the specified container images in AKS.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "equals": "Microsoft.ContainerService/managedClusters"
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "EnforceRegoPolicy",
-    "details": {
-        "policyId": "ContainerAllowedImages",
-        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
-        "policyParameters": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
-        }
-    }
-}
-```
-
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
-allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you'll need to create an attestation for that compliance state.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
@@ -818,10 +754,9 @@ operations. Policy assignments with effect set as Modify require a [managed iden
 
 The following operations are supported by Modify:
 
-- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
-  _Indexed_ unless the target resource is a resource group.
+- Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
-  virtual machine scale sets.
+  Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
@@ -876,11 +811,11 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - Determines which policy definition "wins" if more than one policy definition modifies the same
     property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
-      definitions with _audit_ skip all **operations**. If more than one policy definition has
+      definitions with _audit_ skip all **operations**. If more than one policy definition has the effect
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
       of the **operations** of the conflicting policy definitions are processed.
-    - For existing resources, if more than one policy definition has _deny_, the compliance status
-      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+    - For existing resources, if more than one policy definition has the effect _deny_, the compliance status
+      is _Conflict_. If one or fewer policy definitions have the effect _deny_, each assignment returns a
       compliance status of _Non-compliant_.
   - Available values: _audit_, _deny_, _disabled_.
   - Default value is _deny_.

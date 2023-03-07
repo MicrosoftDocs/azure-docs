@@ -4,15 +4,15 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 03/02/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video
+ms.custom: references_regions, cosmos-db-video, ignite-2022
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
 
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios including:
 
@@ -33,7 +33,7 @@ The time window available for restore (also known as retention period) is the lo
 
 The selected option depends on the chosen tier of continuous backup. The point in time for restore can be any timestamp within the retention period no further back than the point when the resource was created. In strong consistency mode, backups taken in the write region are more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get the latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in a specific region. Getting the latest timestamp ensures that the resource has taken backups up to the given timestamp, and can restore in that region.
 
-Currently, you can restore an Azure Cosmos DB account (SQL API or API for MongoDB) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). Table API or Gremlin APIs are in preview and supported through [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI) and [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell).
+Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). API for Table or Gremlin are in preview and supported through [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI) and [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell).
 
 ## Backup storage redundancy
 
@@ -43,7 +43,7 @@ By default, Azure Cosmos DB stores continuous mode backup data in locally redund
 
 In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within 100 seconds. If the Azure Storage backup media is down or unavailable, the mutations are persisted locally until the media is available. Then the mutations are flushed out to prevent any loss in fidelity of operations that can be restored.
 
-You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored.
+You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored. The newly restored database account’s consistency setting will be same as the source database account’s consistency settings.  
 
 > [!NOTE]
 > With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](/azure/architecture/reliability/architect) feature enabled for that region. The restore action always restores data into a new account.
@@ -52,12 +52,12 @@ You can choose to restore any combination of provisioned throughput containers, 
 
 The following configurations aren't restored after the point-in-time recovery:
 
-* Firewall, VNET, private endpoint settings.
-* Consistency settings. By default, the account is restored with session consistency.  
+* Firewall, VNET, Data plane RBAC or private endpoint settings. 
 * Regions.
 * Stored procedures, triggers, UDFs.
+* Role-based access control assignments. These will need to be re-assigned.
 
-You can add these configurations to the restored account after the restore is completed.
+You can add these configurations to the restored account after the restore is completed. An ability to prevent public access to restored account is described [here-to-befilled with url]().
 
 ## Restorable timestamp for live accounts
 
@@ -90,7 +90,7 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 Azure Cosmos DB accounts that have continuous 30-day backup enabled will incur an extra monthly charge to *store the backup*. Both the 30-day and 7-day tier of continuous back incur charges to *restore your data*. The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
 
-The following example is based on the price for an Azure Cosmos account deployed in West US. The pricing and calculation can vary depending on the region you're using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
+The following example is based on the price for an Azure Cosmos DB account deployed in West US. The pricing and calculation can vary depending on the region you're using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
 * All accounts enabled with continuous backup policy with 30-day incur a monthly charge for backup storage that is calculated as follows:
 
@@ -107,7 +107,7 @@ For example, if you have 1 TB of data in two regions then:
 * Restore cost is calculated as (1000 \* 0.15) = $150 per restore
 
 > [!TIP]
-> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continuous 7-day tier does not incur charges for backup of the data.
+> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Azure Cosmos DB insights](insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continuous 7-day tier does not incur charges for backup of the data.
 
 ## Continuous 30-day tier vs Continuous 7-day tier
 
@@ -126,9 +126,9 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra API isn't supported now.
+* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. API for Cassandra isn't supported now.
 
-* Table API and Gremlin API are in preview and supported via PowerShell and Azure CLI.
+* API for Table and Gremlin are in preview and supported via PowerShell and Azure CLI.
 
 * Multi-regions write accounts aren't supported.
 
@@ -142,9 +142,9 @@ Currently the point in time restore functionality has the following limitations:
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies. These policies grant the permissions for the account to change any VNET, firewall configuration.
 
-* Azure Cosmos DB API for SQL or MongoDB accounts that create unique index after the container is created aren't supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb/custom-commands.md).
+* Azure Cosmos DB for MongoDB accounts with continuous backup do not support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; this is done using the create collection [extension commands](mongodb/custom-commands.md).
 
-* The point-in-time restore functionality always restores to a new Azure Cosmos account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
+* The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
 
 * After restoring, it's possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 

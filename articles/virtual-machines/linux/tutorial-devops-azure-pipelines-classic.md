@@ -26,7 +26,7 @@ In each iteration, a rolling deployment replaces instances of an application's p
 
 Using **Continuous-delivery**, you can configure rolling updates to your virtual machines within the Azure portal.
 
-[!IMPORTANT] Virtual Machine's Continuous delivery setting will be retired on March 31, 2023. [Learn more](/azure/virtual-machines/linux/tutorial-devops-azure-pipelines-classic?source=recommendations#retirement)
+[!IMPORTANT] Virtual Machine's Continuous delivery setting will be retired on March 31, 2023. [Learn more](?source=recommendations#retirement)
 
 
 1. Sign in to [Azure portal](https://portal.azure.com/) and navigate to a virtual machine.
@@ -100,6 +100,4 @@ No.  Your pipelines will still be available in Azure DevOps.
  
 How can I configure different deployment strategies? 
 
-The current experience uses [deployment groups](/azure/devops/pipelines/process/deployment-group-phases) to create deployment strategies. You can use deployment groups or release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) to build your pipeline with templates. 
-
-
+The current experience uses [deployment groups](/azure/devops/pipelines/process/deployment-group-phases) to create deployment strategies. You can use deployment groups or release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) to build your pipeline with templates.

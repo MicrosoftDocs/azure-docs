@@ -4,9 +4,9 @@ description: In this article, learn about selective disk backup and restore usin
 ms.topic: conceptual
 ms.date: 11/10/2021
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -237,23 +237,19 @@ You need to pass the above obtained **$item** object to the **–Item** paramete
 ### Modify protection for already backed up VMs with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
-```
-
-```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID  -Policy $pol
 ```
 
 ### Backup only OS disk during modify protection with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -VaultId $targetVault.ID -Policy $pol
 ```
 
 ### Reset disk exclusion setting with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID -Policy $pol
 ```
 
 > [!NOTE]

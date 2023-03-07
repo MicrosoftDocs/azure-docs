@@ -1,22 +1,16 @@
 ---
-title: Azure virtual network TAP overview | Microsoft Docs
+title: Azure virtual network TAP overview
 description: Learn about virtual network TAP. Virtual network TAP provides you a deep copy of virtual machine network traffic that can be streamed to a packet collector.
 services: virtual-network
-documentationcenter: na
-author: karthikananth
+author: asudbring
 manager: ganesr
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
-ms.author: kaanan
+ms.author: allensu
 ---
-
 
 # Virtual network TAP
 > [!IMPORTANT]
@@ -28,7 +22,7 @@ The following picture shows how virtual network TAP works. You can add a TAP con
 
 ## Prerequisites
 
-Before you create a virtual network TAP, you must have received a confirmation mail that you are enrolled in the preview, and have one or more virtual machines created using [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) deployment model  and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Azure Active Directory tenant. Additionally, the monitored network interfaces and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you are using this deployment model ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
+Before you create a virtual network TAP, you must have received a confirmation mail that you're enrolled in the preview, and have one or more virtual machines created using [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) deployment model  and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Azure Active Directory tenant. Additionally, the monitored network interfaces and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
 
 ## Permissions
 
@@ -48,7 +42,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
-- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/)
+- [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
 ### Security analytics, network/application performance management
 
@@ -62,8 +56,8 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
 - [Noname Security](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [RSA NetWitness® Platform](https://www.netwitness.com)
-- [Vectra Cognito](https://vectra.ai/microsoftazure)
+- [RSA NetWitness® Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
+- [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
 
 
 ## Next steps

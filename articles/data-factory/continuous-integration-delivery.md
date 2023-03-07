@@ -78,7 +78,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -  **Resource naming**. Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
-- **Exposure control and feature flags**.  When working on a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
+- **Exposure control and feature flags**.  When working in a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
 
     To learn how to set up a feature flag, see the below video tutorial:
 

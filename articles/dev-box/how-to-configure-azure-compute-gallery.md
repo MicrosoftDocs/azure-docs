@@ -1,12 +1,12 @@
 ---
 title: Configure an Azure Compute Gallery
-titleSuffix: Microsoft Dev Box
+titleSuffix: Microsoft Dev Box Preview
 description: 'Learn how to create a repository for managing and sharing Dev Box images.'
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/28/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ---
 
@@ -33,11 +33,17 @@ You can learn more about Azure Compute Galleries and how to create them here:
         - Hyper-V v2
         - Windows OS
         - Generalized image
+        - Single Session VM images (multi-session isn’t supported).
+        - No recovery partition.
+        - Default 64-GB OS disk size. The OS disk size will be automatically adjusted to the size specified in SKU description of the Windows 365 license.
 
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot showing the Windows 365 image requirement settings.":::
 
 > [!IMPORTANT]
 > If you have existing images that do not meet the Windows 365 image requirements, those images will not be listed for image creation.
+
+> [!NOTE]
+> Microsoft Dev Box Preview doesn't support community galleries. 
 
 ## Provide permissions for services to access the gallery
 When using an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it  meets the requirements to be provisioned for a dev box. In addition, the Dev Box service replicates the image to the regions specified in the attached network connections so the images are present in the region required for dev box creation.
@@ -45,7 +51,7 @@ When using an Azure Compute Gallery image to create a dev box definition, the Wi
 To allow the services to perform these actions, you must provide permissions to your gallery as follows:
 
 ### Add a user assigned identity to dev center
-1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
+1. Use these steps to [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, type *Dev box* and select **Dev centers** from the list.
 1. Open your DevCenter and select **Identity** from the left menu.
@@ -68,35 +74,30 @@ Follow these steps to manually assign each role:
 
 1. Select the **Access Control (IAM)** menu item.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the Role tab, select **Reader**, and then select **Next**.
-
-1. On the Members tab, select **+ Select Members**.
-
-1. In Select members, search for *Windows 365*, select **Windows 365** from the list, and then select **Select**. 
-
-1. On the Members tab, select **Next**.
-
-1. On the Review + assign tab, select **Review + assign**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Reader**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Search for and select **Windows 365**. |
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
 
 1. Select **Access Control (IAM)** from the left menu.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the Role tab, select the **Owner** role, and then select **Next**.
-
-1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
-
-1. In Select managed identities, search for and select the user assigned managed identity you created in "Create a Dev center Managed Identity" and then select 
-**Select**.
-
-1. On the Members tab, select **Next**.
-
-1. On the Review + assign tab, select **Review + assign**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Contributor**. |
+    | **Assign access to** | Select **Managed Identity**. |
+    | **Members** | Search for and select the user assigned managed identity you created in [Add a user assigned identity to dev center](#add-a-user-assigned-identity-to-dev-center). |
 
 You can use the same managed identity in multiple DevCenters and Azure Compute Galleries. Any DevCenter with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
 
@@ -149,5 +150,5 @@ You can detach galleries from dev centers so that their images can no longer be 
 The gallery will be detached from the dev center. The gallery and its images won't be deleted, and you can reattach it if necessary. 
 
 ## Next steps
-Learn more about Microsoft Dev Box:
-- [Microsoft Dev Box key concepts](./concept-dev-box-concepts.md)
+Learn more about Microsoft Dev Box Preview:
+- [Microsoft Dev Box Preview key concepts](./concept-dev-box-concepts.md)

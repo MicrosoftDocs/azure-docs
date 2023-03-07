@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/16/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -28,10 +28,8 @@ ms.custom: devx-track-csharp
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the project.
+  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the sample code later in the project.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-> [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -74,11 +72,11 @@ In the application's **Program** class, create variables for your resource's key
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/security-features.md) article.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-In the application's **Main** method, add a call to the asynchronous tasks used in this project. You'll implement them later:
+In the application's **Main** method, add a call to the asynchronous tasks used in this project:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
@@ -98,8 +96,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 `FormTrainingClient` provides operations for:
 
-* Training custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type.
-* Training custom models to analyze specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model will extract, and the estimated accuracy for each field.
+* Training custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned indicating the form types the model analyzes, and the fields it extracts for each form type.
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model extracts, and the estimated accuracy for each field.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
@@ -110,7 +108,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 ## Authenticate the client
 
-Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
+Below **Main**, create a new method named `AuthenticateClient`. You use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
 
 > [!IMPORTANT]
 > Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
@@ -119,20 +117,20 @@ Below **Main**, create a new method named `AuthenticateClient`. You'll use this 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
-Repeat the steps above for a new method that authenticates a training client.
+Repeat the steps for a new method that authenticates a training client.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth_training)]
 
 ## Get assets for testing
 
-You'll also need to add references to the URLs for your training and testing data. Add these references to the root of your **Program** class.
+You also need to add references to the URLs for your training and testing data. Add these references to the root of your **Program** class.
 
-* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and select **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
    :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
 
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
-* Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
+* Finally, save the URL of the included sample image(s) (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
@@ -424,9 +422,9 @@ Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
 This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below.
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the following method.
 
-You'll use the `StartRecognizeCustomFormsFromUri` method.
+You use the `StartRecognizeCustomFormsFromUri` method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
@@ -500,7 +498,7 @@ Field 'Azure.AI.FormRecognizer.Models.FieldValue:
 
 ## Manage custom models
 
-This section demonstrates how to manage the custom models stored in your account. You'll do multiple operations within the following method:
+This section demonstrates how to manage the custom models stored in your account. You complete multiple operations within the following method:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage)]
 
@@ -603,7 +601,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service will result in a `RequestFailedException`. They'll include the same HTTP status code that would have been returned by a REST API request.
+When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service result in a `RequestFailedException`. They include the same HTTP status code that would have been returned by a REST API request.
 
 For example, if you submit a receipt image with an invalid URI, a `400` error is returned, indicating "Bad Request".
 
@@ -618,7 +616,7 @@ catch (RequestFailedException e)
 }
 ```
 
-You'll notice that additional information, like the client request ID of the operation, is logged.
+You notice that additional information, like the client request ID of the operation, is logged.
 
 ```console
 

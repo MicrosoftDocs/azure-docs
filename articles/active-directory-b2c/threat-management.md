@@ -3,14 +3,14 @@ title: Mitigate credential attacks - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C, including smart account lockout features.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/20/2021
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -55,7 +55,7 @@ The smart lockout feature uses many factors to determine when an account should 
 - Passwords such as 12456! and 1234567! (or newAccount1234 and newaccount1234) are so similar that the algorithm interprets them as human error and counts them as a single try.
 - Larger variations in pattern, such as 12456! and ABCD2!, are counted as separate tries.
 
-When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as `https://passwordsgenerator.net/`.
+When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as `https://password-gen.com/`.
 
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 

@@ -15,20 +15,24 @@ This article provides guides and resources to troubleshoot Events.
 
 > [!IMPORTANT]
 >
-> Fast Healthcare Interoperability Resources (FHIR&#174;) resource change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource changes or when the feature is turned off.
+> Fast Healthcare Interoperability Resources (FHIR&#174;) resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
 ## Events resources for troubleshooting
 
 > [!IMPORTANT]
-> Events currently supports only the following FHIR resource operations:
+> Events currently supports only the following operations:
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
 > - **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 >
-> - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+> - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully. 
+>
+> - **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
+> 
+> - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 > 
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 

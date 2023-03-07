@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2022
+ms.date: 01/25/2023
 ms.author: jeedes
 
 ---
@@ -78,15 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. Click **Set additional URLs** and perform the following step, if you wish to configure the application in **SP** initiated mode:
+1. If you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign on URL** textbox, type a URL using one of the following patterns:
-
-    | **Sign on URL** |
-    |------------|
-    | `https://login.valid8me.com` |
-    | `https://login.valid8me.com/?idp=https://sts.windows.net/${TenantID}/` |
-    | `https://<<client_name>>.valid8me.com` |
+    In the **Sign on URL (Optional)** text box, type a URL using the following pattern:
+    `https://login.valid8me.com/?idp=https://sts.windows.net/${TenantID}/`
 
     > [!Note]
     > This value is not real. Update this value with the actual Sign on URL. Contact [valid8Me support team](mailto:support@valid8me.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

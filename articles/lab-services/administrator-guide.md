@@ -56,7 +56,7 @@ The following list highlights scenarios where more than one lab plan might be be
   When you create a lab plan, you set policies that apply to all newly created labs, such as:
 
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a license server within a virtual network.
-  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
+  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) Azure Marketplace image.
 
   If each of your labs has unique policy requirements, it might be beneficial to create separate lab plans for managing each lab separately.
 
@@ -224,16 +224,16 @@ When you're assigning roles, it helps to follow these tips:
 - Ordinarily, only administrators should be members of a lab plan Owner or Contributor role. The lab plan might have more than one Owner or Contributor.
 - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
 - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab.
+- 
+For more detail about the permissions assigned to each role, see [Azure built-in roles](../role-based-access-control/built-in-roles.md#lab-assistant)
 
 ## Content filtering
 
-Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services doesn't offer built-in support for content filtering.
+Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Azure Lab Services doesn't offer built-in support for content filtering, and doesn't support network-level filtering.
 
-Schools typically approach content filtering by installing third-party software that performs content filtering on each computer. Azure Lab Services does not support network-level filtering.
+Schools typically approach content filtering by installing third-party software that performs content filtering on each computer. To install third-party content filtering software on each computer, you should install the software on each lab's template VM. 
 
-By default, Azure Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  You'll need to use [advanced networking](how-to-connect-vnet-injection.md) in the lab plan.  Make sure to check known limitations of VNet injection before proceeding.
-
-We recommend the second approach, which is to install third-party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+There are a few key points to highlight as part of this solution:
 
 - If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you'll need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
 - You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  Adding a non-admin account must be done when creating the lab.
@@ -242,7 +242,7 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
 
 With Lab Services, if you create a lab with a template, the lab VMs will have the same SID. Even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 

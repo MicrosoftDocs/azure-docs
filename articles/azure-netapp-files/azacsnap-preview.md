@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 07/29/2022
+ms.date: 12/16/2022
 ms.author: phjensen
 ---
 
@@ -20,12 +20,15 @@ ms.author: phjensen
 
 > [!NOTE]
 > PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
-> ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+> ref:  <https://azure.microsoft.com/support/legal/preview-supplemental-terms/>
 
 This article provides a guide on set up and usage of the new features in preview for **AzAcSnap**.  This guide should be read along with the main
 documentation for AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
 
-The preview features provided with **AzAcSnap 6** are:
+The preview features provided with **AzAcSnap 7** are:
+
+- Azure NetApp Files Backup.
+- IBM Db2 Database.
 - Azure Managed Disk.
 - Azure Key Vault support for storing Service Principal.
 
@@ -33,11 +36,291 @@ The preview features provided with **AzAcSnap 6** are:
 
 Feedback on AzAcSnap, including this preview, can be provided [online](https://aka.ms/azacsnap-feedback).
 
-## Getting the AzAcSnap Preview snapshot tools
+## Using AzAcSnap Preview features
 
-Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+AzAcSnap preview features are offered together with generally available features.  Using the preview features requires the use of the `--preview` command line option to enable their usage.  To setup and install AzAcSnap refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 
-Return to this document for details on using the preview features.
+Return to this document for details on using the specific preview features.
+
+## Azure NetApp Files Backup
+
+> [!NOTE]
+> Support for Azure NetApp Files Backup is a Preview feature.  
+> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
+
+When taking snapshots with AzAcSnap on multiple volumes all the snapshots have the same name by default.  Due to the removal of the Volume name from the resource ID hierarchy when the snapshot is archived into Azure NetApp Files Backup it's necessary to ensure the Snapshot name is unique.  AzAcSnap can do this automatically when it creates the Snapshot by appending the Volume name to the normal snapshot name.  For example, for a system with two data volumes (`hanadata01`, `hanadata02`) when doing a `-c backup` with `--prefix daily` the complete snapshot names become `daily__F2AFDF98703__hanadata01` and `daily__F2AFDF98703__hanadata02`.  
+
+This can be enabled in AzAcSnap by setting `"anfBackup": "renameOnly"` in the configuration file, see the following snippet:
+
+```output
+"anfStorage": [
+  {
+    "anfBackup" : "renameOnly",
+    "dataVolume": [
+```
+
+This can also be done using the `azacsnap -c configure --configuration edit --configfile <configfilename>` and when asked to `Enter new value for 'ANF Backup (none, renameOnly)' (current = 'none'):` enter `renameOnly`.
+
+## IBM Db2 Database
+
+### Supported platforms and operating systems
+
+> [!NOTE]
+> Support for IBM Db2 is Preview feature.  
+> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) page.
+
+New database platforms and operating systems supported with this preview release.
+
+- **Databases**
+  - IBM Db2 for LUW on Linux-only is in preview as of Db2 version 10.5 (refer to [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](../virtual-machines/workloads/sap/dbms_guide_ibm.md) for details)
+
+
+### Enable communication with database
+
+> [!NOTE]
+> Support for IBM Db2 is Preview feature.  
+> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) page.
+
+This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
+
+# [IBM Db2](#tab/db2)
+
+The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable backup mode.  
+
+After putting the database in backup mode, `azacsnap` will query the IBM Db2 database to get a list of "protected paths", which are part of the database where backup-mode is active.  This list is output into an external file, which is in the same location and basename as the log file, but with a ".\<DBName>-protected-paths" extension (output filename detailed in the AzAcSnap log file).
+
+AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`.  Therefore AzAcSnap should be installed in one of the following two ways:
+
+  1. Installed onto the database server, then complete the setup with "[Local connectivity](#local-connectivity)".
+  1. Installed onto a centralized backup system, then complete the setup with "[Remote connectivity](#remote-connectivity)".
+
+#### Local connectivity
+
+If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example setup.
+
+##### `azacsnap` user permissions
+
+The `azacsnap` user should belong to the same Db2 group as the database instance user.  Here we are getting the group membership of the IBM Db2 installation's database instance user `db2tst`.
+
+```bash
+id db2tst
+```
+
+```output
+uid=1101(db2tst) gid=1001(db2iadm1) groups=1001(db2iadm1)
+```
+
+From the output we can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the `azacsnap` user to the group.
+
+```bash
+usermod -a -G db2iadm1 azacsnap
+```
+
+##### `azacsnap` user profile
+
+The `azacsnap` user will need to be able to execute the `db2` command.  By default the `db2` command will not be in the `azacsnap` user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
+
+```output
+# The following four lines have been added to allow this user to run the DB2 command line processor.
+INSTHOME="/db2inst/db2tst"
+if [ -f ${INSTHOME}/sqllib/db2profile ]; then
+    . ${INSTHOME}/sqllib/db2profile
+fi
+```
+
+Test the user can run the `db2` command line processor.
+
+```bash
+su - azacsnap
+db2
+```
+
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
+
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
+
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
+
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+Now configure azacsnap to user localhost.
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+
+
+#### Remote connectivity
+
+If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example setup.
+
+
+Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
+
+```bash
+ssh-keygen
+```
+
+```output
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/azacsnap/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/azacsnap/.ssh/id_rsa.
+Your public key has been saved in /home/azacsnap/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:4cr+0yN8/dawBeHtdmlfPnlm1wRMTO/mNYxarwyEFLU azacsnap@db2-02
+The key's randomart image is:
++---[RSA 2048]----+
+|         ... o.  |
+|          . . +. |
+|        .. E + o.|
+|       ....   B..|
+|        S. . o *=|
+|     . .  . o o=X|
+|      o. . +  .XB|
+|     .  + + + +oX|
+|      ...+ . =.o+|
++----[SHA256]-----+
+```
+
+Get the contents of the public key.
+
+```bash
+cat .ssh/id_rsa.pub
+```
+
+```output
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02
+```
+
+Log in to the IBM Db2 system as the Db2 Instance User.
+
+Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `authorized_keys` file.
+
+```bash
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02" >> ~/.ssh/authorized_keys
+```
+
+Log in to the AzAcSnap system as the `azacsnap` user and test SSH access.
+
+```bash
+ssh <InstanceUser>@<ServerAddress>
+```
+
+```output
+[InstanceUser@ServerName ~]$
+```
+
+Test the user can run the `db2` command line processor.
+
+```bash
+db2
+```
+
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
+
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
+
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
+
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+```bash
+[prj@db2-02 ~]$ exit
+
+```output
+logout
+Connection to <serverAddress> closed.
+```
+
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+
+Run the `azacsnap` test command
+
+```bash
+cd ~/bin
+azacsnap -c test --test db2 --configfile Db2.json
+```
+
+```output
+BEGIN : Test process started for 'db2'
+BEGIN : Db2 DB tests
+PASSED: Successful connectivity to Db2 DB version v11.5.7.0
+END   : Test process complete for 'db2'
+```
+
+---
+
+### Configuring the database
+
+This section explains how to configure the data base.
+
+# [IBM Db2](#tab/db2)
+
+No special database configuration is required for Db2 as we are using the Instance User's local operating system environment.
+
+---
+
+### Configuring AzAcSnap
+
+This section explains how to configure AzAcSnap for the specified database.
+
+> [!NOTE]
+> Support for Db2 is Preview feature.  
+> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
+
+### Details of required values
+
+The following sections provide detailed guidance on the various values required for the configuration file.
+
+# [IBM Db2](#tab/db2)
+
+#### Db2 Database values for configuration
+
+When adding a Db2 database to the configuration, the following values are required:
+
+- **Db2 Server's Address** = The database server hostname or IP address.
+  - If Db2 Server Address (serverAddress) matches '127.0.0.1' or 'localhost' then azacsnap will execute all `db2` commands locally (refer "Local connectivity").  Otherwise AzAcSnap will use the serverAddress as the host to connect to via SSH using the "Instance User" as the SSH login name, this can be validated with `ssh <instanceUser>@<serverAddress>` replacing instanceUser and serverAddress with the respective values (refer "Remote connectivity").
+- **Instance User** = The database System Instance User.
+- **SID** = The database System ID.
+
+---
 
 ## Azure Managed Disk
 
@@ -47,7 +330,7 @@ Return to this document for details on using the preview features.
 
 Microsoft provides many storage options for deploying databases such as SAP HANA.  Many of these options are detailed on the 
 [Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md) web page.  Additionally there's a 
-[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#cost-conscious-solution-with-azure-premium-storage).  
+[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#cost-conscious-solution-with-azure-premium-storage).  
 
 AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the set up 
 for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 

@@ -1,16 +1,13 @@
 ---
 title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel | Microsoft Docs
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: how-to
-ms.date: 12/23/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
@@ -40,7 +37,7 @@ Your machine must meet the following requirements:
     - Your Linux machine must have a minimum of **4 CPU cores and 8 GB RAM**.
 
         > [!NOTE]
-        > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+        > - A single log forwarder machine with the above hardware configuration and using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
 
 - **Operating system**
 
@@ -58,7 +55,7 @@ Your machine must meet the following requirements:
     - Syslog-ng: 2.1 - 3.22.1
 
 - **Packages**
-    - You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
 
 - **Syslog RFC support**
   - Syslog RFC 3164

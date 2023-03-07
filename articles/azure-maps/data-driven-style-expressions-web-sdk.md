@@ -1,8 +1,8 @@
 ---
 title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Web SDK to adjust styles in maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -573,12 +573,12 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 The following image demonstrates how the colors are chosen for the above expression.
- 
+
 ![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png)
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 The following pseudocode defines the structure of the `step` expression.
 

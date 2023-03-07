@@ -1,17 +1,17 @@
 ---
-title: Integrate the Azure Cosmos DB Gremlin API with Service Connector
-description: Integrate the Azure Cosmos DB Gremlin API into your application with Service Connector
+title: Integrate the Azure Cosmos DB for Apache Gremlin with Service Connector
+description: Integrate the Azure Cosmos DB for Apache Gremlin into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
-# Integrate the Azure Cosmos DB API for Gremlin with Service Connector
+# Integrate the Azure Cosmos DB for Gremlin with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB Gremlin API using Service Connector. You might still be able to connect to the Azure Cosmos DB API for Gremlin in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB for Apache Gremlin using Service Connector. You might still be able to connect to the Azure Cosmos DB for Gremlin in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute services
 
@@ -57,7 +57,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect your compute services to the Cosmos DB Gremlin API. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
+Use the connection details below to connect your compute services to the Azure Cosmos DB for Apache Gremlin. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 

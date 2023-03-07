@@ -4,8 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.author: larryfr
-author: blackmist
+ms.reviewer: mopeakande 
+author: Bozhong68
+ms.author: bozhlin
 ms.subservice: mlops
 ms.date: 08/29/2022
 ms.topic: conceptual
@@ -23,6 +24,11 @@ In this article you learn how to:
 > * Create a dashboard for your metrics
 > * Create a metric alert
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 - Deploy an Azure Machine Learning online endpoint.
@@ -30,11 +36,24 @@ In this article you learn how to:
 
 ## Metrics
 
-Use the following steps to view metrics for an online endpoint or deployment:
+You can view metrics pages for online endpoints or deployments in the Azure portal. An easy way to access these metrics pages is through links available in the Azure Machine Learning studio user interface—specifically in the **Details** tab of an endpoint's page. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment. Alternatively, you can also go into the Azure portal to search for the metrics page for the endpoint or deployment.
+
+To access the metrics pages through links available in the studio:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by clicking its name.
+1. Select **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal.
+1. Select **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
+
+    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI." lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
+
+To access metrics directly from the Azure portal:
+
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
-    online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
 

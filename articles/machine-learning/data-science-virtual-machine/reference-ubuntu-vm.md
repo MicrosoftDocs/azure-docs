@@ -135,7 +135,7 @@ The following Azure tools are installed on the VM:
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
   * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
-  * **R**: The Azure-related libraries in R are AzureML and RODBC.
+  * **R**: The Azure-related libraries in R are Azure Machine Learning and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
 ## Azure Machine Learning
@@ -144,7 +144,7 @@ Azure Machine Learning is a fully managed cloud service that enables you to buil
 
 After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
-Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](/azure/machine-learning/).
+Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](../index.yml).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 

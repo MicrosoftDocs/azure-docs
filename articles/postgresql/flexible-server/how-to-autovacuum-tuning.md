@@ -115,7 +115,7 @@ Use the following query to list the tables in a database and identify the tables
           'pg_catalog'
           ,'information_schema'
           )
-        AND N.nspname ! ~ '^pg_toast'
+        AND N.nspname !~ '^pg_toast'
       ) AS av
     ORDER BY av_needed DESC ,n_dead_tup DESC;  
 ```

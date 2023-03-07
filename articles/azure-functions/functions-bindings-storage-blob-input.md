@@ -38,7 +38,7 @@ public static void Run(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
@@ -291,7 +291,7 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -321,7 +321,7 @@ public static void Run(
 
 # [Isolated process](#tab/isolated-process)
 
-Isolated process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
+isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
 
 |Parameter | Description|
 |---------|----------------------|
@@ -376,9 +376,13 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp" 
 
-The usage of the Blob input binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The binding types supported by Blob input depend on the extension package version and the C# modality used in your function app. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
 
-[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)] 
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
+
+If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
+
+[!INCLUDE [functions-bindings-blob-storage-attribute](../../includes/functions-bindings-blob-storage-attribute.md)]
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

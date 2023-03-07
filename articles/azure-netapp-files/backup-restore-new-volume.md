@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 12/15/2022
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
@@ -32,6 +32,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
 
 * For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+
+* Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for additional considerations about using Azure NetApp Files backup.
 

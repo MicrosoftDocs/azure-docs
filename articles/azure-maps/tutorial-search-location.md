@@ -2,8 +2,8 @@
 title: 'Tutorial: Search for nearby locations on a map'
 titleSuffix:  Microsoft Azure Maps
 description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive pop-up boxes to a map.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -167,7 +167,7 @@ This section shows how to use the Maps [Search API](/rest/api/maps/search) to fi
 
     * The [searchURL](/javascript/api/azure-maps-rest/atlas.service.searchurl) represents a URL to Azure Maps [Search](/rest/api/maps/search) operations.
 
-2. Next add the following script block just below the previous code just added in the map `ready` event handler. This is the code to build the search query. It uses the [Fuzzy Search Service](/rest/api/maps/search/get-search-fuzzy), a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby gas stations within the specified radius of the provided latitude and longitude. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the maps symbol layer. The last part of this script block sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+2. Next add the following script block just below the previous code just added in the map `ready` event handler. This is the code to build the search query. It uses the [Fuzzy Search service](/rest/api/maps/search/get-search-fuzzy), a basic search API of the Search Service. Fuzzy Search service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby gas stations within the specified radius of the provided latitude and longitude. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the maps symbol layer. The last part of this script block sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
     ```JavaScript
     var query = 'gasoline-station';
@@ -200,10 +200,10 @@ This section shows how to use the Maps [Search API](/rest/api/maps/search) to fi
 
    ![A screen shot showing the map resulting from the search, which is a map showing Seattle with round-blue pins at locations of gas stations.](./media/tutorial-search-location/pins-map.png)
 
-4. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace \<Your Azure Maps Key\> with your primary key.
+4. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace `<Your Azure Maps Key>` with your primary key.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key={Your-Azure-Maps-Subscription-key}&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 At this point, the MapSearch page can display the locations of points of interest that are returned from a fuzzy search query. Let's add some interactive capabilities and more information about the locations.
@@ -222,7 +222,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    The API `*atlas.Popup` provides an information window anchored at the required position on the map.
+    The API `atlas.Popup` provides an information window anchored at the required position on the map.
 
 2. Add the following lines of code in the map `ready` event handler after the code to create an instance of a Popup and add a mouseover event to the symbol layer. This code shows a popup window with the results when you mouse over a point of interest.
 

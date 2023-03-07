@@ -6,10 +6,10 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: ruiyichen
 ---
 
-# Configure bulk-import settings (Preview)
+# Configure bulk-import settings
 
 The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
 
@@ -53,6 +53,8 @@ To get the request URL and body, browse to the Azure portal of your FHIR service
 
 [![Screenshot of Get JSON View](media/bulk-import/fhir-json-view.png)](media/bulk-import/fhir-json-view.png#lightbox)
 
+Select the API version to **2022-06-01** or later version. 
+
 Copy the URL as request URL and do following changes of the JSON as body:
 - Set enabled in importConfiguration to **true**
 - add or change the integrationDataStore with target storage account name 
@@ -65,7 +67,8 @@ After you've completed this final step, you're ready to import data using $impor
 
 You can also use the **Deploy to Azure** button below to open custom Resource Manager template that updates the configuration for $import.
 
- [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
+ [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
+
 
 ## Next steps
 

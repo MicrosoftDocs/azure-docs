@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 07/20/2022
+ms.date: 10/27/2022
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -25,7 +25,7 @@ To use a Data Flow activity in a pipeline, complete the following steps:
 1. Select the new Data Flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details. 
 
    :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
-1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Data flow activities use a guid value as checkpoint key instead of “pipelinename + activityname” so that it can always keep tracking customer’s change data capture  state even there’s any renaming actions. All existing data flow activity will use the old pattern key for backward compatibility. Checkpoint key option after publishing a new data flow activity with change data capture enabled data flow resource is shown as below. 
+1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Data flow activities use a guid value as checkpoint key instead of “pipeline name + activity name” so that it can always keep tracking customer’s change data capture  state even there’s any renaming actions. All existing data flow activity will use the old pattern key for backward compatibility. Checkpoint key option after publishing a new data flow activity with change data capture enabled data flow resource is shown as below. 
 
    :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity-checkpoint.png" alt-text="Shows the UI for a Data Flow activity with checkpoint key.":::
 3. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration. 
@@ -102,7 +102,7 @@ If you're using an Azure Synapse Analytics as a sink or source, you must choose 
 
 ## Checkpoint key
 
-When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here.
+When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here. The [naming rule](naming-rules.md) of your own checkpoint key is same as linked services, datasets, pipelines and data flows. 
 
 ## Logging level
 

@@ -4,6 +4,8 @@ description: This article describes support and requirements when deploying the 
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -27,7 +29,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 --- | ---
 CPU cores | 8
 RAM | 32 GB
-Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
+Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements
 
@@ -38,7 +40,7 @@ Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting
-FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
+FIPS (Federal Information Processing Standards) | Don't enable FIPS mode|
 
 ### Network requirements
 
@@ -47,6 +49,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |Fully qualified domain name (FQDN) | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
+|NAT | Supported |
 
 
 #### Allow URLs
@@ -60,12 +63,24 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
-  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
-  |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
+  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that the machines that need to be replicated have access to this URL. |
+  |aka.ms |Allow access to "also known as" links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
-  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
+  |`*.blob.core.windows.net `|Upload data to Azure storage, which is used to create target disks. |
+
+#### Allow URLs for government clouds
+
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.microsoftazure.us` | `login.chinacloudapi.cn/*` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `portal.azure.us`          |    `portal.azure.cn`           |Navigate to the Azure portal. | 
+  | `*.microsoftonline.us/*` <br> `management.usgovcloudapi.net` | `*.microsoftonline.cn/*` <br> `management.chinacloudapi.cn/*` | Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  | `*.hypervrecoverymanager.windowsazure.us` <br> `*.migration.windowsazure.us` <br> `*.backup.windowsazure.us` | `*.hypervrecoverymanager.windowsazure.cn` <br> `*.migration.windowsazure.cn` <br> `*.backup.windowsazure.cn` | Connect to Azure Site Recovery micro-service URLs. |
+  |`*.vault.usgovcloudapi.net`| `*.vault.azure.cn` |Manage secrets in the Azure Key Vault. Note: Ensure that the machines, which need to be replicated have access to this URL. |
 
 
 ### Folder exclusions from Antivirus program
@@ -90,7 +105,7 @@ C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
 
-#### If Antivirus software is active on Source machine
+#### If Antivirus software is active on source machine
 
 If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
 
@@ -150,7 +165,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Prepare infrastructure
 
-You need to set up an Azure Site Recovery replication appliance in the on-premises environment to enable recovery on your on-premises machine. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-modernized.md)
+You need to set up an Azure Site Recovery replication appliance in the on-premises environment to enable recovery on your on-premises machine. For detailed information on the operations performed by the appliance, [see this section](vmware-azure-architecture-modernized.md)
 
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
@@ -179,11 +194,11 @@ The OVF template spins up a machine with the required specifications.
 1. Download the OVF template to set up an appliance on your on-premises environment.
 2. After the deployment is complete, power on the appliance VM to accept Microsoft Evaluation license.
 3. In the next screen, provide password for the administrator user.
-4. Select **Finalize,** the system reboots and you can login with the administrator user account.
+4. Select **Finalize,** the system reboots and you can log in with the administrator user account.
 
 ### Set up the appliance through PowerShell
 
-In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
+If there is any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
@@ -196,33 +211,33 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
   - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-      - DisableRegistryTools value should not be equal 0.
+      - DisableRegistryTools value shouldn't be equal 0.
 
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
       - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
-      - DisableCMD value should not be equal 0.
+      - DisableCMD value shouldn't be equal 0.
 
   - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
-      - UseTrustedHandlers value should not be equal 3.
+      - UseTrustedHandlers value shouldn't be equal 3.
 
   - CheckPowershellExecutionPolicy - Turn on Script Execution.
 
       - PowerShell execution policy shouldn't be AllSigned or Restricted
-      - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
+      - Ensure the group policy 'Turn on Script Execution Attachment Manager' isn't set to Disabled or 'Allow only signed scripts'
 
 
   **Use the following steps to register the appliance**:
 
-1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 
 2. Ensure the [required URLs](#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
-3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then click **Continue**. After saving the details, proceed to choose the appliance connectivity.
+3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. After saving the details, proceed to choose the appliance connectivity.
 
 4. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
@@ -234,13 +249,13 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
   - **Azure Site Recovery replication appliance key**: Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **Site Recovery** > **VMware to Azure: Prepare Infrastructure**.
 
-  - After pasting the key, click **Login.** You will be redirected to a new authentication tab.
+  - After pasting the key, select **Login.** You'll be redirected to a new authentication tab.
 
       By default, an authentication code will be generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
 
   - Enter your Microsoft Azure credentials to complete registration.
 
-      After successful registration, you can close the tab and move to appliance configuration manager to continue the set up.
+      After successful registration, you can close the tab and move to appliance configuration manager to continue the setup.
 
       :::image type="authentication code" source="./media/deploy-vmware-azure-replication-appliance-modernized/enter-code.png" alt-text="Screenshot showing authentication code.":::
 
@@ -248,7 +263,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
       > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
 
 
-6. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can log out in case you want to change the vault. Else, select **Continue** to proceed.
+6. After successful sign in, Subscription, Resource Group and Recovery Services vault details are displayed. You can sign out in case you want to change the vault. Else, select **Continue** to proceed.
 
     :::image type="Appliance registered" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup.png" alt-text="Screenshot showing appliance registered.":::
 
@@ -281,7 +296,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 12. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
-    Ensure you do not close the browser while configuration is in progress.
+    Ensure you don't close the browser while configuration is in progress.
 
     >[!NOTE]
     > Appliance cloning is not supported with the modernized architecture. If you attempt to clone, it might disrupt the recovery flow.
@@ -291,11 +306,11 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 After successful configuration of Azure Site Recovery replication appliance, navigate to Azure portal, **Recovery Services Vault**.
 
-Select **Prepare infrastructure (Modernized)** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
+Select **Prepare infrastructure (Modernized)** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you're all set! Start protecting your source machines through this replication appliance.
 
-When you click  *Select 1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault is displayed.
+When you select  *Select 1 appliance(s)*, you'll be redirected to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault is displayed.
 
-You will also be able to see a tab for **Discovered items** that lists all of the discovered vCenter Servers/vSphere hosts."
+You'll also be able to see a tab for **Discovered items** that lists all of the discovered vCenter Servers/vSphere hosts."
 
 ![Replication appliance modernized](./media/deploy-vmware-azure-replication-appliance-modernized/discovered-items.png)
 

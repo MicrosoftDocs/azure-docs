@@ -5,34 +5,53 @@ author: apoorvanori
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 07/06/2022
+ms.date: 01/05/2023
 ms.author: apoorvanori
 ---
 
 # Integrate partner network ground stations into your Azure Orbital Ground Station solution
 
-This article describes how to integrate partner network ground stations.
+This article describes how to integrate partner network ground stations for customers with partner network contracts.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active contract with the partner network(s) you wish to integrate with Azure Orbital.
-- KSAT Lite
-- [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
+- An active contract with the partner network(s) you wish to integrate with Azure Orbital:
+   - [KSAT Lite](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kongsbergsatelliteservicesas1657024593438.ksatlite?exp=ubp8&tab=Overview)
+   - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
 
-## Request integration resource information
+## Request authorization of the new spacecraft resource
 
-1. Email the Azure Orbital Ground Station (AOGS) team at **azorbitalpm@microsoft.com** to initiate partner network integration by providing the details below:
-    - Azure Subscription ID
-    - List of partner networks you've contracted with
-    - List of ground station locations included in partner contracts
-2. The AOGS team will reply to your message with additional requested information, or, the Contact Profile resource parameters that will enable your partner network integration.
-3. Create a contact profile resource with the parameters provided by the AOGS team.
-4. Await integration confirmation prior to scheduling Contacts with the newly integrated partner network(s).
+1. Navigate to the newly created spacecraft resource's overview page.
+1. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
+1. In the **New support request** page, enter or select this information in the Basics tab:
 
-> [!NOTE]
-> It is important that the contact profile resource parameters match those provided by the AOGS team.
+| **Field** | **Value** |
+| --- | --- |
+| Summary | Request Authorization for [Spacecraft Name] |
+| Issue type |	Select **Technical** |
+| Subscription |	Select the subscription in which the spacecraft resource was created |
+| Service |	Select **My services** |
+| Service type |	Search for and select **Azure Orbital** |
+| Problem type |	Select **Spacecraft Management and Setup** |
+| Problem subtype |	Select **Spacecraft Registration** |
 
+1. Select the Details tab at the top of the page
+1. In the Details tab, enter this information in the Problem details section:
+
+| **Field** | **Value** |
+| --- | --- |
+| When did the problem start? |	Select the current date & time |
+| Description |	List your spacecraft's frequency bands and desired ground stations |
+| File upload |	Upload any pertinent licensing material, contract details, or partner POCs, if applicable |
+
+1. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
+1. Select the **Review + create** tab, or select the **Review + create** button.
+1. Select **Create**.
+
+   > [!NOTE]
+   > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
+ 
 ## Next steps
 
 - [Configure a contact profile](./contact-profile.md)

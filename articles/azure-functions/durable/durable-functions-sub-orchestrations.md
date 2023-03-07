@@ -2,7 +2,7 @@
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -21,7 +21,7 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. The following function represents the provisioning workflow that needs to be executed for each device:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -34,6 +34,25 @@ public static async Task DeviceProvisioningOrchestration(
 
     // Step 2: Notify the device that the installation package is ready.
     await context.CallActivityAsync("SendPackageUrlToDevice", Tuple.Create(deviceId, sasUrl));
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    await context.WaitForExternalEvent<bool>("DownloadCompletedAck");
+
+    // Step 4: ...
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+public static async Task DeviceProvisioningOrchestration(
+    [OrchestrationTrigger] TaskOrchestrationContext context, string deviceId)
+{
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    Uri sasUrl = await context.CallActivityAsync<Uri>("CreateInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    await context.CallActivityAsync("SendPackageUrlToDevice", (deviceId, sasUrl));
 
     // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
     await context.WaitForExternalEvent<bool>("DownloadCompletedAck");
@@ -88,22 +107,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```java
 @FunctionName("DeviceProvisioningOrchestration")
-public String deviceProvisioningOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            // Step 1: Create an installation package in blob storage and return a SAS URL.
-            String deviceId = ctx.getInput(String.class);
-            String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).await();
+public void deviceProvisioningOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    String deviceId = ctx.getInput(String.class);
+    String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).await();
 
-            // Step 2: Notify the device that the installation package is ready.
-            String[] args = { deviceId, blobUri };
-            ctx.callActivity("SendPackageUrlToDevice", args).await();
+    // Step 2: Notify the device that the installation package is ready.
+    String[] args = { deviceId, blobUri };
+    ctx.callActivity("SendPackageUrlToDevice", args).await();
 
-            // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
-            ctx.waitForExternalEvent("DownloadCompletedAck").await();
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    ctx.waitForExternalEvent("DownloadCompletedAck").await();
 
-            // Step 4: ...
-        });
+    // Step 4: ...
 }
 ```
 
@@ -113,7 +130,7 @@ This orchestrator function can be used as-is for one-off device provisioning or 
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -139,6 +156,29 @@ public static async Task ProvisionNewDevices(
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[FunctionName("ProvisionNewDevices")]
+public static async Task ProvisionNewDevices(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    string[] deviceIds = await context.CallActivityAsync<string[]>("GetNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    var provisioningTasks = new List<Task>();
+    foreach (string deviceId in deviceIds)
+    {
+        Task provisionTask = context.CallSubOrchestratorAsync("DeviceProvisioningOrchestration", deviceId);
+        provisioningTasks.Add(provisionTask);
+    }
+
+    await Task.WhenAll(provisioningTasks);
+
+    // ...
+}
+```
+
 # [JavaScript](#tab/javascript)
 
 ```javascript
@@ -162,7 +202,6 @@ module.exports = df.orchestrator(function*(context) {
     // ...
 });
 ```
-
 
 # [Python](#tab/python)
 
@@ -193,18 +232,16 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```java
 @FunctionName("ProvisionNewDevices")
-public String provisionNewDevices(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            List<?> deviceIDs = ctx.getInput(List.class);
+public void provisionNewDevices(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    List<?> deviceIDs = ctx.getInput(List.class);
 
-            // Schedule each device provisioning sub-orchestration to run in parallel
-            List<Task<Void>> parallelTasks = deviceIDs.stream()
-                .map(device -> ctx.callSubOrchestrator("DeviceProvisioningOrchestration", device))
-                .collect(Collectors.toList());
+    // Schedule each device provisioning sub-orchestration to run in parallel
+    List<Task<Void>> parallelTasks = deviceIDs.stream()
+        .map(device -> ctx.callSubOrchestrator("DeviceProvisioningOrchestration", device))
+        .collect(Collectors.toList());
 
-            // ...
-        });
+    // ...
 }
 ```
 

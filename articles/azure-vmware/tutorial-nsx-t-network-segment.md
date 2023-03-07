@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Add a network segment in Azure VMware Solution
-description: Learn how to add a network segment to use for virtual machines (VMs) in vCenter Server.
+title: Tutorial - Add an NSX-T Data Center network segment in Azure VMware Solution
+description: Learn how to add an NSX-T Data Center network segment to use for virtual machines (VMs) in vCenter Server.
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.service: azure-vmware
-ms.date: 09/24/2022
+ms.date: 10/17/2022
 ---
 
-# Tutorial: Add a network segment in Azure VMware Solution 
+# Tutorial: Add an NSX-T Data Center network segment in Azure VMware Solution 
 
 After deploying Azure VMware Solution, you can configure an NSX-T Data Center network segment from NSX-T Manager or the Azure portal. Once configured, the segments are visible in Azure VMware Solution, NSX-T Manager, and vCenter Server. NSX-T Data Center comes pre-provisioned by default with an NSX-T Data Center Tier-0 gateway in **Active/Active** mode and a default NSX-T Data Center Tier-1 gateway in **Active/Standby** mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 An Azure VMware Solution private cloud with access to the vCenter Server and NSX-T Manager interfaces. For more information, see the [Configure networking](tutorial-configure-networking.md) tutorial.
 
 
-## Use Azure portal to add an NSX-T Data Center segment
+## Use Azure portal to add an NSX-T Data Center network segment
 
 [!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
 

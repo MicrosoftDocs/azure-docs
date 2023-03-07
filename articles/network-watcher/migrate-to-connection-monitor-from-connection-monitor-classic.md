@@ -3,14 +3,13 @@ title: Migrate to Connection Monitor from Connection Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Connection Monitor.
 services: network-watcher
-documentationcenter: na
-author: vinynigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: vinigam
+ms.workload: infrastructure-services
+ms.date: 06/30/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Connection Monitor (Classic)
@@ -67,7 +66,7 @@ Below are some common errors faced during the migration :
 
 | Error  |    Reason   |
 |---|---|
-|Following Connection monitors cannot be imported as one or more Subscription/Region combination don't have network watcher enabled. Enable network watcher and click refresh to import them. List of Connection monitor - {0}   |  This error occurs when User is migrating tests from CM(classic) to Connection Monitor and Network Watcher Extension is not enabled not enabled in one or more subscriptions and regions of CM (classic). User needs to enable NW Extension in the subscription and refresh to import them before migrating again   |
+|Following Connection monitors cannot be imported as one or more Subscription/Region combination don't have network watcher enabled. Enable network watcher and click refresh to import them. List of Connection monitor - {0}   |  This error occurs when User is migrating tests from CM(classic) to Connection Monitor and Network Watcher Extension is not enabled in one or more subscriptions and regions of CM (classic). User needs to enable NW Extension in the subscription and refresh to import them before migrating again   |
 |Connection monitors having following tests cannot be imported as one or more azure virtual machines don't have network watcher extension installed. Install network watcher extension and click refresh to import them. List of tests - {0} |    This error occurs when User is migrating tests from CM(classic) to Connection Monitor and Network Watcher Extension is not installed in one or more Azure VMs of CM (classic). User needs to install NW Extension in the Azure VM and refresh before migrating again |
 |No rows to display   |  This error occurs when User is trying to migrate subscriptions from CM (Classic) to CM but no CM (classic) is created in the subscriptions |
 

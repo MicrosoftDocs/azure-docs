@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 11/17/2022
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -21,11 +21,10 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
 * The cluster must have a minimum of three worker nodes and three manager nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
-* Don't have taints that prevent OpenShift components to be scheduled.
-* Don't remove or modify the cluster Prometheus service.
-* Don't remove or modify the cluster Alertmanager service or Default receiver. It *is* supported to create additional receivers to notify external systems.
-* Don't remove Service Alertmanager rules.
-* Security groups can't be modified. Any attempt to modify security groups will be reverted.
+* Don't add taints that would prevent any default OpenShift components from being scheduled.
+* Don't remove or modify the default cluster Prometheus service, except to modify scheduling of the default Prometheus instance.
+* Don't remove or modify the default cluster Alertmanager svc, default receiver, or any default alerting rules, except to add additional receivers to notify external systems.
+* The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
@@ -129,8 +128,12 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |NC4asT4v3|Standard_NC4as_T4_v3|4|28|
+|NC6sV3|Standard_NC6s_v3|6|112|
 |NC8asT4v3|Standard_NC8as_T4_v3|8|56|
+|NC12sV3|Standard_NC12s_v3|12|224|
 |NC16asT4v3|Standard_NC16as_T4_v3|16|110|
+|NC24sV3|Standard_NC24s_v3|24|448|
+|NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
 
 ### Memory and storage optimized

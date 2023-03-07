@@ -5,18 +5,18 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 08/18/2022
+ms.date: 01/05/2023
 ms.custom: template-tutorial
 #Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get syslog data into my Log Analytics workspace to monitor my linux-based devices.
 ---
 
-# Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
+# Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
 
-In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
+In this article, we'll describe how to configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
  
 Configure your linux-based device to send data to a Linux VM. The Azure Monitor agent on the VM forwards the syslog data to the Log Analytics workspace. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a data collection rule
@@ -26,22 +26,22 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you must have the following resources and roles.
+To complete the steps in this article, you must have the following resources and roles.
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure account with the following roles to deploy the agent and create the data collection rules:
 
   |Built-in Role  |Scope  |Reason  |
   |---------|---------|---------|
-  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
+  |- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)</br>- [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
   |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
-  |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
+  |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
 - Log Analytics workspace.
 - Linux server that's running an operating system that supports Azure Monitor agent.
 
-   - [Supported Linux operating systems for Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#linux)  
-   - [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or
-   - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
+   - [Supported Linux operating systems for Azure Monitor agent](../azure-monitor/agents/agents-overview.md#linux)  
+   - [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or
+   - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
 
 - Linux-based device that generates event log data like a firewall network device.
 
@@ -185,4 +185,4 @@ Evaluate whether you still need the resources you created like the virtual machi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+> [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)

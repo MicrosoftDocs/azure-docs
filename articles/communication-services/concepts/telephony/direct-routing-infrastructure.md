@@ -27,7 +27,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |:--- |:--- |
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
 |Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters. Any Public Switched Telephony Network (PSTN) connectivity option connected to the SBC works. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
-|Azure subscription|An Azure subscription that you use to create Communication Services resource, and the configuration and connection to the SBC.|
+|Azure subscription|An Azure subscription that you use to [create Communication Services resource](../../quickstarts/create-communication-resource.md), and the configuration and connection to the SBC.|
 |Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|
@@ -48,7 +48,6 @@ The certificate must have the SBC FQDN as the common name (CN) or the subject al
 Alternatively, Communication Services direct routing supports a wildcard in the CN and/or SAN, and the wildcard must conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
 
 Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
-Domains that aren’t previously used in O365 must be provisioned.
 
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
@@ -111,8 +110,10 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 ## Media traffic: IP and Port ranges
 
-The media traffic flows to and from a separate service called Media Processor. At the moment of publishing, Media Processor for Communication Services can use any Azure IP address. 
-Download [the full list of addresses](https://www.microsoft.com/download/details.aspx?id=56519).
+The media traffic flows to and from a separate service called Media Processor. The IP address ranges for media traffic are the same as for signaling:
+
+- `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
+- `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
 
 ### Port ranges
 The port ranges of the Media Processors are shown in the following table: 
@@ -163,8 +164,11 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 - [Telephony Concept](./telephony-concept.md)
 - [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
+- [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)

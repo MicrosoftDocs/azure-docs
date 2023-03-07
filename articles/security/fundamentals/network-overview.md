@@ -308,10 +308,10 @@ Learn more:
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
 
-DDoS Protection Standard features include:
+DDoS Protection features include:
 
-* **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
-* **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection Standard is enabled. No intervention or user definition is required. DDoS Protection Standard instantly and automatically mitigates the attack, once it is detected.
+* **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection understands your resources and resource configuration.
+* **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection is enabled. No intervention or user definition is required. DDoS Protection instantly and automatically mitigates the attack, once it is detected.
 * **Always-on traffic monitoring:** Your application traffic patterns are monitored 24 hour a day, 7 days a week, looking for indicators of DDoS attacks. Mitigation is performed when protection policies are exceeded.
 * **Attack Mitigation Reports** Attack Mitigation Reports use aggregated network flow data to provide detailed information about attacks targeted at your resources.
 * **Attack Mitigation Flow Logs** Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded traffic and other attack data in near real-time during an active DDoS attack.
@@ -320,7 +320,7 @@ DDoS Protection Standard features include:
 * **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
 * **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
 * **Cost guarantee:**  Data-transfer and application scale-out service credits for documented DDoS attacks.
-* **DDoS Rapid responsive** DDoS Protection Standard customers now have access to Rapid Response team during an active attack. DRR can help with attack investigation, custom mitigations during an attack and post-attack analysis.
+* **DDoS Rapid responsive** DDoS Protection customers now have access to Rapid Response team during an active attack. DRR can help with attack investigation, custom mitigations during an attack and post-attack analysis.
 
 
 Learn more:
@@ -331,7 +331,7 @@ Learn more:
 
 Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes TLS offloading and per-HTTP/HTTPS request, application-layer processing.
 
-Front Door platform itself is protected by an Azure infrastructure-level DDoS protection. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
+Front Door platform itself is protected by an Azure infrastructure-level DDoS protection. For further protection, Azure DDoS Network Protection may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
 
 Learn more:
 

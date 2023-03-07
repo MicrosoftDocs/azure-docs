@@ -2,14 +2,14 @@
 title: "Tutorial: Call Microsoft Graph in a Node.js console app"
 description: In this tutorial, you build a console app for calling Microsoft Graph to a Node.js console app.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 12/12/2021
-ms.author: marsma
+ms.author: cwerner
 ---
 
 # Tutorial: Call the Microsoft Graph API in a Node.js console app
@@ -191,8 +191,8 @@ CLIENT_ID=Enter_the_Application_Id_Here
 CLIENT_SECRET=Enter_the_Client_Secret_Here
 
 # Endpoints
-AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
-GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here/
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here/
 ```
 
 Fill in these details with the values you obtain from Azure app registration portal:
@@ -233,7 +233,7 @@ async function callApi(endpoint, accessToken) {
     console.log('request made to web API at: ' + new Date().toString());
 
     try {
-        const response = await axios.default.get(endpoint, options);
+        const response = await axios.get(endpoint, options);
         return response.data;
     } catch (error) {
         console.log(error)

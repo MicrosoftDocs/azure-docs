@@ -1,7 +1,6 @@
 ---
 title: Uninstall the Open Service Mesh (OSM) add-on
 description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Azure CLI
-services: container-service
 ms.topic: article
 ms.date: 11/10/2021
 ms.author: pgibson
@@ -31,6 +30,9 @@ After the OSM add-on is disabled, use `osm uninstall cluster-wide-resources` to 
 ```console
 osm uninstall cluster-wide-resources
 ```
+
+> [!NOTE]
+> For version 1.1, the command is `osm uninstall mesh --delete-cluster-wide-resources`
 
 > [!IMPORTANT]
 > You must remove these additional resources after you disable the OSM add-on. Leaving these resources on your cluster may cause issues if you enable the OSM add-on again in the future.

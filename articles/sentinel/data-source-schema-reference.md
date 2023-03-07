@@ -1,16 +1,14 @@
 ---
 title: Microsoft Sentinel data source schema reference
 description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ms.date: 11/09/2021
 ---
 
 # Data source schema reference
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists supported Azure and third-party data source schemas, with links to their reference documentation.
 
@@ -52,7 +50,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	F5	| BigIP ASM|	CommonSecurityLog|	[Logging Application Security Events](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/14.html)                                                           |
 | **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
-|**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
+|**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/appendices/syslog-mapping-cef.aspx) |
 
 
 > [!NOTE]

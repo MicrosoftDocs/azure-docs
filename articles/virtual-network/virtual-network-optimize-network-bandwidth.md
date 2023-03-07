@@ -1,19 +1,14 @@
 ---
-title: Optimize VM network throughput | Microsoft Docs
+title: Optimize VM network throughput
 description: Optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
 services: virtual-network
-documentationcenter: na
-author: steveesp
+author: asudbring
 manager: Gerald DeGrace
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
-ms.author: steveesp
+ms.author: allensu
 
 ---
 

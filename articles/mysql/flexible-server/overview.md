@@ -167,6 +167,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 
 | Region | Availability | Same Zone HA | Zone redundant HA | Geo-redundant backup |
 | --- | --- | --- | --- | --- |
+| Australia Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -176,6 +177,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| China North 3 | :heavy_check_mark:  | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -189,20 +191,29 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Norway West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Qatar Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: 
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| USGov Arizona | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| USGov Texas | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+
+
+
 
 ## Contacts
 

@@ -1,23 +1,17 @@
 ---
-title: Azure glossary - Azure dictionary | Microsoft Docs
+title: Azure glossary - Azure dictionary
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
-services: na
-documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: ''
-
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/17/2021
 ms.author: monicar
-
 ---
+
 # Microsoft Azure glossary: A dictionary of cloud terminology on the Azure platform
 
 The Microsoft Azure glossary is a short dictionary of cloud terminology for the Azure platform. See also:
@@ -138,7 +132,7 @@ The collection of virtual machines in an availability set that are updated at th
 See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="vm"></a>virtual machine
-The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes. For more information, see [Virtual Machines documentation](/azure/virtual-machines/)
+The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes. For more information, see [Virtual Machines documentation](./virtual-machines/index.yml)
 
 ## <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.

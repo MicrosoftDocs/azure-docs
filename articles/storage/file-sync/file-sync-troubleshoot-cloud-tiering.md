@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure File Sync cloud tiering | Microsoft Docs
+title: Troubleshoot Azure File Sync cloud tiering
 description: Troubleshoot common issues with cloud tiering in an Azure File Sync deployment.
 author: khdownie
 ms.service: storage
@@ -78,7 +78,7 @@ If files fail to tier to Azure Files:
 | 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | The file failed to tier because it was deleted in the Azure file share. | No action required. The file should be deleted on the server when the next download sync session runs. |
 | 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
 | 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
-| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to tier due to access denied error. This error can occur if the file is located on a DFS-R read-only replication folder. | Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to tier due to access denied error. This error can occur if the file is located on a DFS-R read-only replication folder. | Azure File Sync doesn't support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
 | 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | The file failed to tier because the file size is less than the supported size. | The minimum supported file size is based on the file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. |
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | The file failed to tier due to an Azure storage issue. | If the error persists, open a support request. |
@@ -197,7 +197,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 
 This option doesn't require removing the server endpoint but requires sufficient disk space to copy the full files locally.
 
-1. [Mount](../files/storage-how-to-use-files-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) the Azure file share on the Windows Server that has orphaned tiered files.
+1. [Mount](../files/storage-how-to-use-files-windows.md?toc=/azure/storage/filesync/toc.json) the Azure file share on the Windows Server that has orphaned tiered files.
 2. Run the following PowerShell commands to list orphaned tiered files:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -240,5 +240,4 @@ If you're using a proxy, consult your proxy's documentation and ensure it is con
 - [Troubleshoot Azure File Sync sync group management](file-sync-troubleshoot-sync-group-management.md)
 - [Troubleshoot Azure File Sync sync errors](file-sync-troubleshoot-sync-errors.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files](../files/files-troubleshoot.md)

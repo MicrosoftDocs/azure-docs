@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 02/13/2022
 ms.reviewer: lualderm
 ---
 
@@ -26,6 +26,11 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 - **Destinations**: One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
+
+> [!WARNING]
+> If you need to delete a resource, you should first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
+>
+>Also, it’s a good practice to delete the diagnostic settings for a resource you're going to delete and don't plan on using again to keep your environment clean.
 
 The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time. Be aware of the following changes:
 
@@ -63,7 +68,9 @@ When you use category groups, you:
 Currently, there are two category groups:
 
 - **All**: Every resource log offered by the resource.
-- **Audit**: All resource logs that record customer interactions with data or the settings of the service.
+- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Note that Audit logs are an attempt by each resource provider to provide the most relevant audit data, but may not be considered sufficient from an auditing standards perspective.
+
+Note : Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
 
 ### Activity log
 
@@ -71,7 +78,9 @@ See the [Activity log settings](#activity-log-settings) section.
 
 ## Destinations
 
-Platform logs and metrics can be sent to the destinations listed in the following table.
+Platform logs and metrics can be sent to the destinations listed in the following table.  
+  
+To ensure the security of data in transit, we strongly encourage you to configure Transport Layer Security (TLS). All destination endpoints support TLS 1.2.
 
 | Destination | Description |
 |:---|:---|
@@ -87,6 +96,12 @@ The activity log uses a diagnostic setting but has its own user interface becaus
 ## Requirements and limitations
 
 This section discusses requirements and limitations.
+
+### Time before telemetry gets to destination
+
+Once you have set up a diagnostic setting, data should start flowing to your selected destination(s) with 90 minutes. If you get no information within 24 hours, then either 
+- no logs are being generated or 
+- something is wrong in the underlying routing mechanism. Try disabling the configuration and then reenabling it. Contact Azure support through the Azure portal if you continue to have issues. 
 
 ### Metrics as a source
 
@@ -106,9 +121,22 @@ The following table provides unique requirements for each destination including 
 | Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace doesn't need to be in the same region as the resource being monitored.|
-| Storage account | It is not recommended to use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.|
+| Storage account | Don't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.<br><br>[Azure DNS zone endpoints (preview)](../../storage/common/storage-account-overview.md#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) (locally redundant storage) storage accounts are not supported as a log or metric destination.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
+
+## Controlling costs
+
+There is a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services, 
+
+You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.
+
+Diagnostic settings don't allow granular filtering of resource logs. You might require certain logs in a particular category but not others. Or you may want to remove unneeded columns from the data. In these cases, use [transformations](data-collection-transformations.md) on the workspace to filter logs that you don't require. 
+
+
+You can also use transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
+
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
 ## Create diagnostic settings
 
@@ -179,15 +207,23 @@ After a few moments, the new setting appears in your list of settings for this r
 
 # [PowerShell](#tab/powershell)
 
-Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
+Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You can't use this method for an activity log. Instead, use [Create diagnostic setting in Azure Monitor by using an Azure Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with PowerShell.
 
-The following example PowerShell cmdlet creates a diagnostic setting by using all three destinations.
+The following example PowerShell cmdlet creates a diagnostic setting for all logs and metrics for a key vault by using Log Analytics Workspace.
 
 ```powershell
-Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+$KV= Get-AzKeyVault -ResourceGroupName <resource group name> -VaultName <key vault name>
+$Law= Get-AzOperationalInsightsWorkspace -ResourceGroupName <resource group name> -Name <workspace name>  #LAW name is case sensitive
+
+$metric = @()
+$log = @()
+$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup audit -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+New-AzDiagnosticSetting -Name 'KeyVault-Diagnostics' -ResourceId $KV.ResourceId -WorkspaceId $Law.ResourceId -Log $log -Metric $metric -Verbose
 ```
 
 # [CLI](#tab/cli)
@@ -268,6 +304,10 @@ If you receive this error, update your deployments to replace any metric categor
 ### Setting disappears because of non-ASCII characters in resourceID
 
 Diagnostic settings don't support resource IDs with non-ASCII characters. For example, consider the term Preproducción. Because you can't rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to re-create the resource.
+
+### Possibility of duplicated or dropped data
+
+Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
 
 ## Next step
 

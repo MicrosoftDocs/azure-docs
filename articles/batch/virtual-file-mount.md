@@ -29,7 +29,7 @@ Mounting the file system to the pool, instead of letting tasks retrieve their ow
 
 Consider a scenario with multiple tasks requiring access to a common set of data, like rendering a movie. Each task renders one or more frames at a time from the scene files. By mounting a drive that contains the scene files, it's easier for compute nodes to access shared data.
 
-Additionally, the underlying file system can be chosen and scaled independently based on the performance and scale (throughput and IOPS) required by the number of compute nodes concurrently accessing the data. For example, you can use an [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache to support large motion picture-scale renders with thousands of concurrent render nodes, accessing source data that is on-premises. Instead, for data that already is in cloud-based Blob storage, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) can be used to mount this data as a local file system. Blobfuse is only available on Linux nodes, though [Azure Files](../storage/files/storage-files-introduction.md) provides a similar workflow and is available on both Windows and Linux.
+Additionally, the underlying file system can be chosen and scaled independently based on the performance and scale (throughput and IOPS) required by the number of compute nodes concurrently accessing the data. For example, you can use an [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache to support large motion picture-scale renders with thousands of concurrent render nodes, accessing source data that is on-premises. Instead, for data that already is in cloud-based Blob storage, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) can be used to mount this data as a local file system. Blobfuse is only available on Linux nodes (excluding Ubuntu 22.04), though [Azure Files](../storage/files/storage-files-introduction.md) provides a similar workflow and is available on both Windows and Linux.
 
 ## Mount a virtual file system on a pool  
 
@@ -173,7 +173,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
     The specified network password is not correct.
     ```
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows Server Message Block (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md).
+1. Troubleshoot the problem using the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
 
 # [Linux](#tab/linux)
 
@@ -183,7 +183,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
 
 1. Review the error messages. For example, `mount error(13): Permission denied`.
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+1. Troubleshoot the problem using [Troubleshoot Azure Files connectivity and access issues (SMB)](../storage/files/files-troubleshoot-smb-connectivity.md).
 
 ---
 
@@ -223,7 +223,7 @@ If you can't use RDP or SSH to check the log files on the node, check the Batch 
     The specified network password is not correct.
     ```
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md) or [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+1. Troubleshoot the problem using the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
 
 If you're still unable to find the cause of the failure, you can [mount the file share manually with PowerShell](#manually-mount-file-share-with-powershell) instead.
 
@@ -447,8 +447,10 @@ Azure Batch supports the following virtual file system types for node agents pro
 
 | OS Type | Azure Files Share | Azure Blob container | NFS mount | CIFS mount |
 |---|---|---|---|---|
-| Linux | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Linux | :heavy_check_mark: | :heavy_check_mark:* | :heavy_check_mark: | :heavy_check_mark: |
 | Windows | :heavy_check_mark: | :x: | :x: | :x: |
+
+_*Azure Blob container is **not** supported on Ubuntu 22.04_
 
 ## Networking requirements
 

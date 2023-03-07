@@ -27,7 +27,7 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 | Custom domains | 2 per app | 5 per app |
 | APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
 | Authentication provider integration | [Pre-configured](authentication-authorization.md)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
-| [Assign custom roles with a function](authentication-authorization.md?tabs=function#role-management) | - | ✔ |
+| [Assign custom roles with a function](authentication-custom.md#manage-roles) | - | ✔ |
 | Private endpoints | - | ✔ |
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ |
 
@@ -48,7 +48,7 @@ See the [quotas guide](quotas.md) for limitation details.
 
 You can move between Free or Standard plans via the Azure portal.
 
-1. Navigate to your Static Web Apps resource in the Azure portal.
+1. Go to your Static Web Apps resource in the Azure portal.
 
 1. Under the _Settings_ menu, select **Hosting plan**.
 

@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
+ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
@@ -96,13 +97,11 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as a [online endpoint](concept-endpoints.md#what-are-online-endpoints). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as an [online endpoint](concept-endpoints.md#what-are-online-endpoints). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
-
-[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Publish
 

@@ -7,7 +7,7 @@ ms.topic: overview
 author: markingmyname
 ms.author: maghan
 ms.reviewer: adig
-ms.custom: Single Server deprecation
+ms.custom: Single Server deprecation announcement 
 ms.date: 09/29/2022
 ---
 
@@ -15,26 +15,26 @@ ms.date: 09/29/2022
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
+Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path** and Azure Database for MySQL - Single Server is scheduled for retirement by **September 16, 2024**.
 
-After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server. 
+As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023**. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md). Additionally, you can still use your Terraform template to create single server instances. You will still be able to create read replicas for your existing single server instance from the **Replication blade** and this will continue to be supported till the sunset date of **September 16, 2024**.
+
+After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server.
 
 Azure Database for MySQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
 
-If you currently have an Azure Database for MySQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for MySQL - Single Server servers to the Azure Database for MySQL - Flexible Server service.
-
-However, we know change can be disruptive to any environment, so we want to help you with this transition. Review the different ways using the Azure Data Migration Service to [migrate from Azure Database for MySQL - Single Server to MySQL - Flexible Server.](#migrate-from-single-server-to-flexible-server)
+If you currently have an Azure Database for MySQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for MySQL - Single Server servers to the Azure Database for MySQL - Flexible Server service free of cost using Azure Database Migration Service (classic) . Review the different ways to migrate using Azure Data Migration Service (DMS) in the section below.
 
 ## Migrate from Single Server to Flexible Server
 
-Learn how to migrate from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server using the Azure Database Migration Service (DMS).
+Learn how to migrate from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server using the Azure Database Migration Service (Classic).
 
 | Scenario | Tool(s) | Details | 
 |----------|---------|---------|
-| Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
-| Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
+| Offline | Database Migration Service (classic) and the Azure portal | [Tutorial: DMS (classic) with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
+| Online | Database Migration Service (classic) and the Azure portal | [Tutorial: DMS (classic) with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
 
-For more information on migrating from Single Server to Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
+For more information on migrating from Single Server to Flexible Server using other migration tools, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
 ## Migration Eligibility
 
@@ -43,8 +43,8 @@ To upgrade to Azure Database for MySQL Flexible Server, it's important to know w
 | Single Server configuration not supported for migration | How and when to migrate? |
 |---------------------------------------------------------|--------------------------|
 | Single servers with Private Link enabled | Private Link is on the road map for next year. You can also choose to migrate now and perform wNet injection via a point-in-time restore operation to move to private access network connectivity method. |
-| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible servers are on the road map for later this year (for paired region) and next year (for any cross-region), post, which you can migrate your single server. |
-| Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)). | Azure Database Migration Service (DMS) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS. |
+| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post, which you can migrate your single server. |
+| Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)). | Azure Database Migration Service (classic) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS (classic). |
 
 ## Frequently Asked Questions (FAQs)
 
@@ -74,11 +74,15 @@ A. Unfortunately, we don't plan to support Single Server beyond the sunset date 
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
-A. We aren't stopping new single server creations immediately, so you can provision new single servers to meet your business needs. However, we strongly recommend that you migrate to Flexible Server at the earliest so that you can start managing your Flexible Server fleet instead.
+A. As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023**. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md). Additionally, you can still use your Terraform template to create single server instances. 
+
+**Q. After the Single Server retirement announcement, what if I still need to create a new read replica for my single server instance?**
+
+A. You will still be able to create read replicas for your existing single server instance from the **Replication blade** and this will continue to be supported till the sunset date of **September 16, 2024**.
 
 **Q. Are there additional costs associated with performing the migration?**
 
-A. When running the migration, you pay for the target flexible server and the source single server. The configuration and compute of the target flexible server determines the additional costs incurred. For more information, see, [Pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). Once you've decommissioned the source single server post successful migration, you only pay for your running flexible server. There are no more costs on running the migration through the migration tooling. 
+A. When running the migration, you pay for the target flexible server and the source single server. The configuration and compute of the target flexible server determines the additional costs incurred. For more information, see, [Pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). Once you've decommissioned the source single server post successful migration, you only pay for your running flexible server. There are no costs incurred while running the migration through the Azure Database Migration Service (classic) migration tooling.
 
 **Q. Will my billing be affected by running Flexible Server as compared to Single Server?**
 
@@ -90,7 +94,7 @@ A. To limit any downtime you might incur, perform an online migration to Flexibl
 
 **Q. Will there be future updates to Single Server to support latest MySQL versions?**
 
-A. The last minor version upgrade to Single Server version 8.0 will be 8.0.28. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
+A. The last minor version upgrade to Single Server version 8.0 will be 8.0.15. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
 
 **Q. How does the flexible server’s 99.99% availability SLA differ from that of single server?**
 
@@ -98,11 +102,11 @@ A. Flexible server’s zone-redundant deployment provides 99.99% availability wi
 
 **Q. What migration options are available to help me migrate my single server to a flexible server?**
 
-A. You can use Azure Database Migration Service (DMS) to run [online](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) or [offline](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) migrations (recommended). In addition, you can use community tools such as m[ydumper/myloader together with Data-in replication](../migrate/how-to-migrate-single-flexible-minimum-downtime.md) to perform migrations.
+A. You can use Database Migration Service (classic) to run [online](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) or [offline](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) migrations (recommended). In addition, you can use community tools such as m[ydumper/myloader together with Data-in replication](../migrate/how-to-migrate-single-flexible-minimum-downtime.md) to perform migrations.
 
 **Q. My single server is deployed in a region that doesn’t support flexible server. How should I proceed with migration?**
 
-A. Azure Database Migration Service supports cross-region migration, so you can select a suitable region for your target flexible server and then proceed with DMS migration. 
+A. Azure Database Migration Service (classic) supports cross-region migration, so you can select a suitable region for your target flexible server and then proceed with DMS (classic) migration.
 
 **Q. I have private link configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
@@ -110,7 +114,7 @@ A. Flexible Server support for private link is on our road map as our highest pr
 
 **Q. I have cross-region read replicas configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
-A. Flexible Server support for cross-region read replicas is on our roadmap as our highest priority. Launch of the feature is planned in Q4 2022 (for paired region) and Q1 2023 (for any cross-region), and you have ample time to initiate your Single Server to Flexible Server migrations with cross-region read replicas configured.
+A. Flexible Server support for cross-region read replicas is on our roadmap as our highest priority. Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post, which you can migrate your single server.
 
 **Q. Is there an option to rollback a Single Server to Flexible Server migration?**
 
@@ -144,7 +148,7 @@ Yes, migration from lower version MySQL servers (v5.6 and above) to higher versi
 2. For *Issue type*, select **Technical**.
 3. For *Subscription*, select your subscription.
 4. For *Service*, select **My services**.
-5. For *Service type*, select **Azure Database for MySQL Single Server**.**
+5. For *Service type*, select **Azure Database for MySQL Single Server**.
 6. For *Resource*, select your resource.
 7. For *Problem type*, select **Migration**.
 8. For *Problem subtype*, select **Migrating from single to flexible server**
@@ -154,12 +158,12 @@ You can also reach out to the Azure Database for MySQL product team at <AskAzur
 > [!Warning]
 > This article is not for Azure Database for MySQL - Flexible Server users. It is for Azure Database for MySQL - Single Server customers who need to upgrade to MySQL - Flexible Server.
 
-Visit the **[FAQ](../../dms/faq-mysql-single-to-flex.md)** for information about using the Azure Database Migration Service (DMS) for Azure Database for MySQL - Single Server to Flexible Server migrations.
+Visit the **[FAQ](../../dms/faq-mysql-single-to-flex.md)** for information about using the Azure Database Migration Service (classic) for Azure Database for MySQL - Single Server to Flexible Server migrations.
 
 We know migrating services can be a frustrating experience, and we apologize in advance for any inconvenience this might cause you. You can choose what scenario best works for you and your environment.
 
 ## Next steps
 
-- [Frequently Asked Questions about DMS migrations](../../dms/faq-mysql-single-to-flex.md)
+- [Frequently Asked Questions about DMS (classic) migrations](../../dms/faq-mysql-single-to-flex.md)
 - [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md)
 - [What is Flexible Server](../flexible-server/overview.md)
