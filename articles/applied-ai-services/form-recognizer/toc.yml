@@ -148,6 +148,9 @@ items:
   - name: 🆕 Health insurance card model (preview)
     displayName: health, proof, hospital
     href: concept-insurance-card.md
+  - name: 🆕 Add-on capabilities (preview)
+    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md

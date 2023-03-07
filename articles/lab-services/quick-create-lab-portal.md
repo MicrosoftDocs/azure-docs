@@ -8,7 +8,7 @@ ms.custom: mode-portal
 
 # Quickstart: Create a lab using the Azure Lab Services portal
 
-Educators can create labs containing VMs for students using the Azure Lab Services portal.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).
+Educators can create labs containing VMs for students using the Azure Lab Services portal.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ The following steps show how to create a lab with Azure Lab Services.
 
         :::image type="content" source="./media/quick-create-lab-portal/new-lab-credentials.png" alt-text="Screenshot of the Virtual Machine credentials window for Azure Lab Services.":::
 
-    > [!IMPORTANT]
-    > Make a note of user name and password. They won't be shown again.
-
+        > [!IMPORTANT]
+        > Make a note of user name and password. They won't be shown again.
+    
     1. On the **Lab policies** page, leave the default selections and select **Next**.
 
         :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
@@ -73,13 +73,13 @@ The following steps show how to create a lab with Azure Lab Services.
 
 ## Clean up resources
 
-When no longer needed, you can delete the lab.  
+When no longer needed, you can delete the lab:
 
-On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
+1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-:::image type="content" source="./media/how-to-manage-labs/delete-button.png" alt-text="Screenshot of My labs page with More menu then Delete menu item highlighted.":::
+    :::image type="content" source="./media/how-to-manage-labs/delete-button.png" alt-text="Screenshot of My labs page with More menu then Delete menu item highlighted.":::
 
-On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
+1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Troubleshooting
 
