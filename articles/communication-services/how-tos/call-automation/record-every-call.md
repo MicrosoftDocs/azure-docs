@@ -56,7 +56,8 @@ The Call Started event when a call start is formatted in the following way:
 
 ```
 
-[!NOTE] Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+>[!NOTE] Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+
 
 ## Pre-requisites
 
