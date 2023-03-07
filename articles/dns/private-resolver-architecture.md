@@ -5,14 +5,14 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/07/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to optimize the DNS resolver configuration in my network.
 ---
 
 # Private resolver architecture
 
-This article discusses architectural design options that are available to resolve DNS names, including private DNS zones across your Azure network using an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in a [hub and spoke VNet topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
+This article discusses two architectural design options that are available to resolve DNS names, including private DNS zones across your Azure network using an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in a [hub and spoke VNet topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 - For an overview of the Azure DNS Private Resolver, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md). 
 - For more information about components of the private resolver, see Azure DNS Private Resolver [endpoints and rulesets](private-resolver-endpoints-rulesets.md).
@@ -39,7 +39,7 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 **DNS resolution in the spoke VNet**: The virtual network link from the ruleset to the spoke VNet enables the spoke VNet to resolve **azure.contoso.com** using the configured forwarding rule. A link from the private zone to the spoke VNet is not required here. The spoke VNet sends queries for **azure.contoso.com**, and any other namespaces that have been configured in the ruleset, to the hub VNet. DNS queries that don't match a ruleset rule use Azure-provided DNS. 
 
 > [!IMPORTANT]
-> In this example configuration, the hub VNet must be linked to the private zone, but must **not** be linked to the forwarding ruleset. Linking a forwarding ruleset that contains a rule with the inbound endpoint as a destination to the same VNet where the inbound endpoint is provisioned can cause DNS resolution loops.
+> In this example configuration, the hub VNet must be linked to the private zone, but must **not** be linked to a forwarding ruleset with an inbound endpoint forwarding rule. Linking a forwarding ruleset that contains a rule with the inbound endpoint as a destination to the same VNet where the inbound endpoint is provisioned can cause DNS resolution loops.
 
 ## Centralized DNS architecture
 
