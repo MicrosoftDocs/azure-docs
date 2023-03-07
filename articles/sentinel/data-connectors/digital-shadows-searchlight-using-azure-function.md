@@ -95,7 +95,7 @@ Use this method for automated deployment of the 'Digital Shadows Searchlight' co
 2. Select **Timer Trigger**.
 3. Enter a unique Function **Name** in the New Function field and leave the default cron schedule of every 5 minutes, then click **Create Function**.
 4. Click on the function name and click **Code + Test** from the left pane.
-5. Copy the [Function App Code](<Add GitHub link to Function App code>) and paste into the Function App `run.ps1` editor.
+5. Copy the Function App Code and paste into the Function App `run.ps1` editor.
 6. Click **Save**.
 
 3. Configure the Function App

@@ -60,34 +60,38 @@ To query data from Snowflake you need a user that is assigned to a role with suf
 
 1. Enter the Snowflake console.
 2. Switch role to SECURITYADMIN and [create a new role](https://docs.snowflake.com/en/sql-reference/sql/create-role.html):
-```
+
 USE ROLE SECURITYADMIN;
-CREATE OR REPLACE ROLE EXAMPLE_ROLE_NAME;```
+CREATE OR REPLACE ROLE EXAMPLE_ROLE_NAME;
+
 3. Switch role to SYSADMIN and [create warehouse](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse.html) and [grand access](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html) to it:
-```
+
 USE ROLE SYSADMIN;
 CREATE OR REPLACE WAREHOUSE EXAMPLE_WAREHOUSE_NAME
   WAREHOUSE_SIZE = 'SMALL' 
   AUTO_SUSPEND = 5
   AUTO_RESUME = true
   INITIALLY_SUSPENDED = true;
-GRANT USAGE, OPERATE ON WAREHOUSE EXAMPLE_WAREHOUSE_NAME TO ROLE EXAMPLE_ROLE_NAME;```
+GRANT USAGE, OPERATE ON WAREHOUSE EXAMPLE_WAREHOUSE_NAME TO ROLE EXAMPLE_ROLE_NAME;
+
 4. Switch role to SECURITYADMIN and [create a new user](https://docs.snowflake.com/en/sql-reference/sql/create-user.html):
-```
+
 USE ROLE SECURITYADMIN;
 CREATE OR REPLACE USER EXAMPLE_USER_NAME
    PASSWORD = 'example_password'
    DEFAULT_ROLE = EXAMPLE_ROLE_NAME
    DEFAULT_WAREHOUSE = EXAMPLE_WAREHOUSE_NAME
-;```
+;
+
 5. Switch role to ACCOUNTADMIN and [grant access to snowflake database](https://docs.snowflake.com/en/sql-reference/account-usage.html#enabling-account-usage-for-other-roles) for role.
-```
+
 USE ROLE ACCOUNTADMIN;
-GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE EXAMPLE_ROLE_NAME;```
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE EXAMPLE_ROLE_NAME;
+
 6. Switch role to SECURITYADMIN and [assign role](https://docs.snowflake.com/en/sql-reference/sql/grant-role.html) to user:
-```
+
 USE ROLE SECURITYADMIN;
-GRANT ROLE EXAMPLE_ROLE_NAME TO USER EXAMPLE_USER_NAME;```
+GRANT ROLE EXAMPLE_ROLE_NAME TO USER EXAMPLE_USER_NAME;
 
 >**IMPORTANT:** Save user and API password created during this step as they will be used during deployment step.
 
