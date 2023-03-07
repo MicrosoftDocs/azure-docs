@@ -4,7 +4,7 @@ description: Learn how to select and manage authentication parameters in Service
 author: maud-lv
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/07/2023
 ms.author: malev
 ---
 
@@ -32,7 +32,7 @@ Select one of the four different authentication options offered by Service Conne
 - **Connection string**: provides one or multiple key-value pairs with secrets or tokens
 - **Service principal**: creates a service principal that defines the access policy and permissions for the user/application in the Azure AD tenant
 
-Different authentication options are available for different services:
+Service Connector offers the following authentication options:
 
 | Target resource                  | System assigned managed identity     | User assigned managed identity       | Connection string                    | Service principal                    |
 |----------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
@@ -45,7 +45,7 @@ Different authentication options are available for different services:
 | Azure Cosmos DB for MongoDB      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Azure Cosmos Table               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Azure Cosmos - SQL               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Blob storage                     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Blob Storage                     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Confluent Cloud                  |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
 | Event Hubs                       | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Keyvault                         | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |
