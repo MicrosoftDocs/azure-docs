@@ -24,19 +24,19 @@ Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encr
 
 Azure Cosmos DB for MongoDB vCore uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including all backups, are encrypted on disk, including the temporary files. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on, and can't be disabled.
 
-## Network Security Options
+## Network security options
 
 This section outlines various network security options you can configure for your account.
 
-### No Access
+### No access
 
 **No Access** is the default option for a newly created cluster if public or private access isn't enabled. In this case, no computers, whether inside or outside of Azure, can connect to the database nodes.
 
-### Public IP Access with firewall
+### Public IP access with firewall
 
 In the public access option, a public IP address is assigned to the cluster, and access to the cluster is protected by a firewall.
 
-## Firewall Overview
+## Firewall overview
 
 Azure Cosmos DB for MongoDB vCore uses a server-level firewall to prevent all access to your cluster until you specify which computers have permission. The firewall grants access to the cluster based on the originating IP address of each request. To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses.
 
