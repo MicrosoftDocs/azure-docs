@@ -1,6 +1,6 @@
 ---
 title: Migrate your data
-titleSuffix: Azure Cosmos DB for MongoDB (vCore)
+titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results3.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
@@ -11,7 +11,7 @@ ms.reviewer: nayakshweta
 ms.date: 02/07/2023
 ---
 
-# Migrate data to Azure Cosmos DB for MongoDB (vCore)
+# Migrate data to Azure Cosmos DB for MongoDB vCore
 
 {TODO: Briefly describe what the customer will do in this how-to guide}
 
@@ -20,7 +20,7 @@ ms.date: 02/07/2023
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Azure Cosmos DB for MongoDB (vCore) account. [Create an API for MongoDB (vCore) account](how-to-create-account.md).
+- Azure Cosmos DB for MongoDB (vCore) account. [Create an API for MongoDB vCore account](about:blank).
 - {TODO: Any extra prerequisites}
 
 ## {TODO: First task}
