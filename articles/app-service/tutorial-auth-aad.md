@@ -238,7 +238,7 @@ The commands effectively add a `loginParameters` property with additional custom
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT token that includes the back end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
-- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#when-access-tokens-expire)).
+- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-the-front-end-token-expires)).
 
 > [!TIP]
 > - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
@@ -286,7 +286,7 @@ The frontend app needs to pass the user's authentication with the correct `user_
 
     This tutorial returns a _fake_ profile to simplify the scenario. The [next tutorial](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md) in this series demonstrates how to exchange the backend bearerToken for a new token with the scope of a downstream Azure service, such as Microsoft Graph.
 
-## <a name="call-api-securely-from-server-code"></a>Backend returns profile to frontend
+## <a name="call-api-securely-from-server-code"></a>7. Backend returns profile to frontend
 
 The App service rejects the request with a 401 HTTP error code before the request reaches your application code. When your application code is reached, extract the bearerToken to get the accessToken. 
 
@@ -312,7 +312,7 @@ if (bearerToken) {
 }
 ```
 
-## 7. Browse to the apps
+## 8. Browse to the apps
 
 1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
@@ -327,7 +327,7 @@ if (bearerToken) {
 
     The `withAuthentication` value of **true** indicates the authentication _is_ set up yet. 
 
-## 8. Clean up resources
+## 9. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. 
 
@@ -356,7 +356,7 @@ In the preceding steps, you created Azure resources in a resource group.
 
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
-## The app isn't displaying _fake_ profile, how do I debug it?
+### The app isn't displaying _fake_ profile, how do I debug it?
 
 The frontend and backend apps both have `/debug` routes to help debug the authentication when this application doesn't return the _fake_ profile. The frontend debug route provides the critical pieces to validate:
 
