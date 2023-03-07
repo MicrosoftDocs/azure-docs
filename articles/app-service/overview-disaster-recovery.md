@@ -29,8 +29,7 @@ Depending on your desired RTO and RPO metrics, three disaster recovery architect
 |Cost | $$$| $$| $|
 |Scenarios| Mission-critical apps| High-priority apps| Low-priority apps|
 |Abilility to serve multi-region user traffic| Yes| Yes/maybe| No|
-|Code deployment using CI/CD pipelines| Preferred| Preferred| Not applicable|
-|Deployment using backup/restore| Least preferred| Least preferred| Only option|
+|Code deployment | CI/CD pipelines preferred| CI/CD pipelines preferred| Backup and restore |
 |Creation of new App Service resources during downtime | Not required | Not required| Required |
 
 ## Active-Active architecture
