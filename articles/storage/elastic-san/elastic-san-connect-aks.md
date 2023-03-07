@@ -116,11 +116,13 @@ Create a storageclass.yml file, Use the following example to create a storagecla
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: manual
+  name: sanVolume
 provisioner: manual
 ```
 
-Then, create a pv.yml file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a pv.yml file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
+### Presistent volume
+
+After you've created the storage class, create a *pv.yml* file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a *pv.yml* file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
 
 ```yml
 ---
@@ -131,7 +133,7 @@ metadata:
   labels:
     name: data-iscsiplugin
 spec:
-  storageClassName: manual
+  storageClassName: sanVolume
   accessModes:
     - ReadWriteOnce
   capacity:
@@ -149,6 +151,14 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
+After creating the file, create the persistent volume with the following command:
+
+```bash
+kubectl apply -f pathtoyourfile/pv.yaml
+```
+
+### Persistent volume claim
+
 Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). Use the storage class we defined earlier with the persistent volume we defined. The following is an example of what your pvc.yml file might look like:
 
 ```yml
@@ -162,7 +172,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: manual
+  storageClassName: sanVolume
   selector:
     matchExpressions:
       - key: name
@@ -170,7 +180,20 @@ spec:
         values: ["data-iscsiplugin"]
 ```
 
-Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your pod.yml file might look like. You can use it to make your own pod manifest, replace the `name`, `image`, and `mountPath` values with your own:
+After creating the *pvc.yml* file, create a persistent volume claim.
+
+```bash
+kubectl apply -f pathtoyourfile/pvc.yaml
+```
+
+To verify your PersistentVolumeClaim is created and bound to the PersistentVolume, run the following command: 
+
+```bash
+kubectl get pvc pathtoyourfile 
+```
+
+
+Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your *pod.yml* file might look like. You can use it to make your own pod manifest, replace the `name`, `image`, and `mountPath` values with your own:
 
 ```yml
 apiVersion: v1
@@ -194,27 +217,7 @@ spec:
         claimName: iscsiplugin-pvc
 ```
 
-### Deployment
-
-Now that you've created all the necessary files, create the persistent volume with the following command:
-
-```bash
-kubectl apply -f pathtoyourfile/pv.yaml
-```
-
-Then, create a persistent volume claim.
-
-```bash
-kubectl apply -f pathtoyourfile/pvc.yaml
-```
-
-To verify your PersistentVolumeClaim is created and bound to the PersistentVolume, run the following command: 
-
-```bash
-kubectl get pvc pathtoyourfile 
-```
-
-When you've confirmed your persistent volume claim has been created, create the pod.
+After creating the *pod.yml* file, create the pod.
 
 ```bash
 kubectl apply -f pathtoyourfile/pod.yaml
@@ -227,3 +230,6 @@ kubectl get pods
 ```
 
 You've now successfully connected an Elastic SAN volume to your AKS cluster.
+
+## Next steps
+
