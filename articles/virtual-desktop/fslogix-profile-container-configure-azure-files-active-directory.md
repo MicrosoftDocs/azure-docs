@@ -195,10 +195,10 @@ To set the correct NTFS permissions on the folder:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ(truncated)== /user:Azure\fsprofile
      ```
 
-1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive and `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
+1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive and `<DOMAIN\GroupName>` with the domain and sAMAccountName of the Active Directory group that will require access to the share. You can also specify the user principal name (UPN) of a user.
 
    ```cmd
-   icacls <mounted-drive-letter>: /grant "<upn>:(M)"
+   icacls <mounted-drive-letter>: /grant "<DOMAIN\GroupName>:(M)"
    icacls <mounted-drive-letter>: /grant "Creator Owner:(OI)(CI)(IO)(M)"
    icacls <mounted-drive-letter>: /remove "Authenticated Users"
    icacls <mounted-drive-letter>: /remove "Builtin\Users"
@@ -207,7 +207,7 @@ To set the correct NTFS permissions on the folder:
    For example:
 
    ```cmd
-   icacls y: /grant "avdusers@contoso.com:(M)"
+   icacls y: /grant "CONTOSO\AVDUsers:(M)"
    icacls y: /grant "Creator Owner:(OI)(CI)(IO)(M)"
    icacls y: /remove "Authenticated Users"
    icacls y: /remove "Builtin\Users"
