@@ -15,19 +15,9 @@ Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (C
 
 You must also have a [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
 
-The cluster must have at least one node with operating system and architecture type `linux/amd64` and/or `linux/arm64`. Eligible ARM64 scenarios can be enabled using [Azure CLI](/cli/azure/install-azure-cli) installed on AMD64 machines.
+The cluster must have at least one node with operating system and architecture type `linux/amd64` and/or `linux/arm64`. Many Arc-enabled Kubernetes features and scenarios are supported on ARM64 nodes, such as [cluster connect](cluster-connect.md) and [viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md). However, these scenarios must be enabled by using  [Azure CLI](/cli/azure/install-azure-cli) installed on an AMD64 machine.
 
-Currently, no Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) are supported on ARM64-based clusters. To install and use cluster extensions, the cluster needs to have at least one node of operating system and architecture type `linux/amd64`.
-
-The following table outlines architecture requirements for Arc-enabled Kubernetes scenarios:
-
-| Scenario | AMD64 |ARM64 |
-|-----------------|----------|----------|
-|[Azure CLI installation](/cli/azure/install-azure-cli) |X | |
-|Onboarding |X |X |
-|[Cluster connect](cluster-connect.md) |X |X |
-|[Viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md) |X |X |
-|[Cluster extensions](conceptual-extensions.md) |X | |
+Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters. To install and use cluster extensions, the cluster must have at least one node of operating system and architecture type `linux/amd64`.
 
 ## Compute and memory requirements
 
@@ -38,7 +28,7 @@ The Arc agents deployed on the cluster require:
 
 For a multi-node Kubernetes cluster environment, pods can get scheduled on different nodes.
 
-## Management tools
+## Management tool requirements
 
 Connecting a cluster to Azure Arc requires [Helm 3](https://helm.sh/docs/intro/install), version 3.7.0 or earlier.
 
@@ -64,19 +54,19 @@ For Azure PowerShell:
 
 ## Azure AD identity requirements
 
-To connect your cluster to Azure Arc, you must have an Azure AD identity (user or service principal) which can be used to log in to [Azure CLI](/cli/azure/authenticate-azure-cli) or [Azure PowerShell](/powershell/azure/authenticate-azureps) and connect your cluster to Azure Arc. 
+To connect your cluster to Azure Arc, you must have an Azure AD identity (user or service principal) which can be used to log in to [Azure CLI](/cli/azure/authenticate-azure-cli) or [Azure PowerShell](/powershell/azure/authenticate-azureps) and connect your cluster to Azure Arc.
 
 This identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`). If connecting the cluster to an existing resource group (rather than a new one created by this identity), the identity must have 'Read' permission for that resource group.
 
 The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) can be used for this identity. This role is useful for at-scale onboarding, as it has only the granular permissions required to connect clusters to Azure Arc, and doesn't have permission to update, delete, or modify any other clusters or other Azure resources.
 
-## Azure resource providers
+## Azure resource provider requirements
 
 To use Azure Arc-enabled Kubernetes, the following [Azure resource providers](../../azure-resource-manager/management/resource-providers-and-types.md) must be registered in your subscription:
 
-* **Microsoft.Kubernetes**
-* **Microsoft.KubernetesConfiguration**
-* **Microsoft.ExtendedLocation**
+- **Microsoft.Kubernetes**
+- **Microsoft.KubernetesConfiguration**
+- **Microsoft.ExtendedLocation**
 
 You can register the resource providers using the following commands:
 
