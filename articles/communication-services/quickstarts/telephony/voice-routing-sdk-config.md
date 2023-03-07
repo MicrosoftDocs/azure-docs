@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Configure voice routing using SDK
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to configure Azure Communication Services direct routing programmatically.
+description: In this quickstart, you learn how to configure Azure Communication Services direct routing programmatically.
 author: nikuklic
 ms.author: nikuklic
 ms.date: 02/20/2023
@@ -26,7 +26,7 @@ Configure outbound voice routing rules for Azure Communication Services direct r
 [!INCLUDE [Java](./includes/voice-routing-sdk-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-jscript"
+::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript](./includes/voice-routing-sdk-jscript.md)]
 ::: zone-end
 
@@ -42,6 +42,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
-- Call to a telephone number [quickstart](./pstn-call.md) 
+- Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md).
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
+- Call to a telephone number [quickstart](./pstn-call.md).

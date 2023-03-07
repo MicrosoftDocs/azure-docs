@@ -12,9 +12,9 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-## Sample code
+<!-- ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/link. <<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+You can download the sample app from [GitHub](https://github.com/link.  -->
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Direct routing configuration consists of:
 
 ### Verify domain ownership
 
-[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
+In order to create a direct routing configuration, you need to verify that you control a domain that will be used for your Session Border Controller Fully Qualified Domain name (FQDN). Please refer to [domain validation how-to](../../../how-tos/telephony/domain-validation.md).
 
 ### Create or update Trunks
 
@@ -96,7 +96,7 @@ await client.SetTrunksAsync(new List<SipTrunk> { usTrunk, euTrunk });
 > [!NOTE]
 > Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
-For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern, that should match dialed phone number and FQDN of a registered trunk, where call will be routed. In this example we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`
+For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match dialed phone number and FQDN of a registered trunk where call is routed. In this example, we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`
 
 ``` csharp
 var usRoute = new SipTrunkRoute("UsRoute", "^\\+1(\\d{10})$", trunks: new List<string> { usSbcFqdn });
@@ -119,15 +119,21 @@ await client.SetTrunkAsync(usTrunk);
 
 ### Removing a direct routing configuration
 
-You can delete a single trunk (SBC), if it is not used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+
+``` csharp
+
+
+``` 
+
+
+You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ``` csharp
 await client.DeleteTrunkAsync("sbc.us.contoso.com");
 ```
 
-All direct routing configuration can be deleted by overriding routes and trunks configuration with a new configuration or an empty list. Same methods are used in "Create or Update Trunks" and "Create or Update Routes" sections.
-
-
+<!-- All direct routing configuration can be deleted by overriding routes and trunks configuration with a new configuration or an empty list. Same methods are used in "Create or Update Trunks" and "Create or Update Routes" sections. -->
 
 > [!NOTE]
 > More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).

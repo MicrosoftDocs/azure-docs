@@ -12,8 +12,9 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/TBDlink)
+<!-- ## Sample code
+
+You can download the sample app from [GitHub](https://github.com/link.  -->
 
 ## Prerequisites
 
@@ -27,13 +28,13 @@ ms.author: nikuklic
 
 ### Create a new Java application
 
-Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
+Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the **pom.xml** file is the project's Project Object Model, or POM.
+You notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the **pom.xml** file is the project's Project Object Model, or POM.
 
 ### Install the package
 
@@ -96,7 +97,7 @@ public class App
 ## Authenticate the client
 
 The SipRoutingClientBuilder is enabled to use Azure Active Directory Authentication
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
+
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
@@ -107,8 +108,8 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
     .buildClient();
 ```
 
-Alternatively, using the endpoint and access key from the communication resource to authenticate is also possible.
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
+Alternatively, use the endpoint and access key from the communication resource to authenticate.
+
 ```java
 // You can find your connection string from your resource in the Azure portal
 String connectionString = "endpoint=https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
@@ -118,24 +119,27 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
     .buildClient();
 ```
 
+## Setup direct routing configuration
 
-## Setup Direct Routing configuration
+Direct routing configuration consists of:
 
-### Verify Domain Ownership
+1. Domain ownership verification
+1. Creating trunks (adding SBCs)
+1. Creating voice routes
 
-[How To: Domain validation](../../../how-tos/telephony/domain-validation.md)
+### Verify domain ownership
+
+In order to create a direct routing configuration, you need to verify that you control a domain for your Session Border Controller Fully Qualified Domain name (FQDN). Refer to [domain validation how-to](../../../how-tos/telephony/domain-validation.md).
 
 ### Create or Update Trunks
 
-Register your SBCs by providing their fully qualified domain names and port numbers.
+Azure Communication Services direct routing allows communication with registered SBCs only. To register an SBC, you need its FQDN and port.
 
 ```java
-
 sipRoutingAsyncClient.setTrunksWithResponse(asList(
-	new SipTrunk("sbc.us.contoso.com", 1234),
-	new SipTrunk("sbc.eu.contoso.com", 1234)
+	new SipTrunk("sbc.us.contoso.com", 5061),
+	new SipTrunk("sbc.eu.contoso.com", 5061)
 )).block();
-
 ```
 
 ### Create or Update Routes
@@ -143,15 +147,13 @@ sipRoutingAsyncClient.setTrunksWithResponse(asList(
 > [!NOTE]
 > Order of routes does matter, as it determines priority of routes. The first route that matches the regex will be picked for a call.
 
-For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match destination phone number, and FQDN of registered trunk where call will be routed to when matched.
+For outbound calling routing rules should be provided. Each rule consists of two parts: regex pattern that should match dialed phone number and FQDN of a registered trunk where call is routed. In this example, we create one route for numbers that start with `+1` and a second route for numbers that start with just `+`.
 
 ```java
-
 sipRoutingAsyncClient.setRoutes(asList(
 	new SipTrunkRoute("UsRoute", "^\\+1(\\d{10})$").setTrunks(asList("sbc.us.contoso.com")),
 	new SipTrunkRoute("DefaultRoute", "^\\+\\d+$").setTrunks(asList("sbc.us.contoso.com", "sbc.eu.contoso.com"))
 )).block();
-
 ```
 
 ### Updating existing configuration
@@ -159,25 +161,28 @@ sipRoutingAsyncClient.setRoutes(asList(
 Properties of specific Trunk can be updated by overriding the record with the same FQDN. For example, you can set new SBC Port value.
 
 ``` java
-
 sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 1235));
-
 ```
 
-Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
-Therefore the same method is used to Create and update routing rules.
+> [!IMPORTANT]
+>The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
 
 ### Removing a direct routing configuration
 
-You can delete single, if it is not used in any voice route. If it is, route should be deleted first.
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
 
 ``` java
 
-sipRoutingClient.deleteTrunk("sbc.us.contoso.com");
 
+``` 
+
+You can delete single, if it isn't used in any voice route. If it is, route should be deleted first.
+
+``` java
+sipRoutingClient.deleteTrunk("sbc.us.contoso.com");
 ```
 
-All Direct Routing configuration can be deleted by overriding routes and trunks configudation with new configuration or empty lists. Same methods are used as in "Create or Update Trunks" and "Create or Update Routes" sections.
+You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 
 ### Run the code
 
@@ -198,7 +203,6 @@ Run the following mvn command to execute the app.
 ``` console
 	mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
-
 
 > [!NOTE]
 > More usage examples for SipRoutingClient can be found [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).
