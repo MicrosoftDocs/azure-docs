@@ -17,13 +17,13 @@ The *site plan* determines an allowance for the throughput and number of radio a
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Verify pricing and charges associated with the site plan to which you want to move. See the [Azure Private 5G Core Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=private-5g-core) for in depth pricing information.
+- Verify pricing and charges associated with the site plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for in depth pricing information.
 
 ## Choose the new site plan
 
 Use the following table to choose the new site plan that will best fit your requirements.
 
-| Site Plan | Throughput | Activated SIMs | RANs |
+| Site Plan | Licensed Throughput | Licensed Activated SIMs | Licensed RANs |
 |------|------|------|------|
 | G0 |  100 Mbps | 20 | 2 |
 | G1 |  1 Gbps | 100 | 5 |
