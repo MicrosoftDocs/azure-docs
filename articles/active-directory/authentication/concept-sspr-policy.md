@@ -96,7 +96,7 @@ The two-gate policy requires two pieces of authentication data, such as an email
 * A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
-You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators. Policy changes to disable or enable SSPR for administrator accounts can take up to 60 minutes to take effect. 
+You can disable the use of SSPR for administrator accounts using the [Update-MgPolicyAuthorizationPolicy](/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy) PowerShell cmdlet. The `-AllowedToUseSspr:$true|$false ` parameter enables/disables SSPR for administrators. Policy changes to enable or disable SSPR for administrator accounts can take up to 60 minutes to take effect. 
 
 ### Exceptions
 
