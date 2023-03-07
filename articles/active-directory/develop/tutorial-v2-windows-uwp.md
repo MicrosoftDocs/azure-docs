@@ -237,7 +237,7 @@ Eventually, the `AcquireTokenSilent` method fails. Reasons for failure include a
 
 ### Instantiate the Microsoft Graph Service Client by obtaining the token from the SignInUserAndGetTokenUsingMSAL method
 
-In the project, create a new file named *TokenProvider.cs*: right-click on the project, select **Add > New Item > Blank Page**.
+In the project, create a new file named *TokenProvider.cs*: right-click on the project, select **Add** > **New Item** > **Blank Page**.
 
 Add to the newly created file the following code:
 
@@ -269,9 +269,9 @@ namespace UWP_app_MSGraph {
 ```
 
 > [!TIP]
-> After pasting the code, make sure that the namespace in the *TokenProvider.cs* file, matches the namespace of your project. This will allow you to more easily reference the `TokenProvider` class in your project.
+> After pasting the code, make sure that the namespace in the *TokenProvider.cs* file matches the namespace of your project. This will allow you to more easily reference the `TokenProvider` class in your project.
 
-The `TokenProvider` class defines a custom access token provider that executes the specified delegate method to get and and return an access token.
+The `TokenProvider` class defines a custom access token provider that executes the specified delegate method to get and return an access token.
 
 Add the following new method to *MainPage.xaml.cs*:
 
