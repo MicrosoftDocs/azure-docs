@@ -37,7 +37,7 @@ Run npm `init -y` to create a package.json file with default settings.
 ``` console
    npm init -y
 ```
-Create a file called direct-routing-quickstart.js in the root of the directory you just created. Add the following snippet to it:
+Create a file called direct-routing-quickstart.js in the root of the directory you created. Add the following snippet to it:
 
 ``` javascript
 async function main() {
@@ -59,7 +59,7 @@ The `--save` option adds the library as a dependency in your package.json file.
 
 ## Authenticate the client
 
-Import the `SipRoutingClient` from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource#store-your-connection-string).
+Import the `SipRoutingClient` from the client library and instantiate it with your connection string. The code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource#store-your-connection-string).
 
 Add the following code to the `direct-routing-quickstart.js`:
 
@@ -82,7 +82,7 @@ const sipRoutingClient = new SipRoutingClient(connectionString);
 
 ### Create or update Trunks
 
-Azure Communication Services direct routing allows communication with registered SBCs only. To register an SBC you need its FQDN and port.
+Azure Communication Services direct routing allows communication with registered SBCs only. To register an SBC, you need its FQDN and port.
 
 ```javascript
   await client.setTrunks([
@@ -131,9 +131,6 @@ Properties of specific Trunk can be updated by overwriting the record with the s
 ```
 > [!IMPORTANT]
 >The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
-
-Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
-Therefore the same method is used to Create and update routing rules.
 
 ### Removing a direct routing configuration
 

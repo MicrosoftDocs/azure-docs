@@ -33,7 +33,7 @@ Open your terminal or command window and create a new directory for your app, th
 mkdir direct-routing-quickstart && cd direct-routing-quickstart
 ```
 
-Use a text editor to create a file called **direct_routing_sample.py** in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
+Use a text editor to create a file called **direct_routing_sample.py** in the project root directory and add the following code. We're adding the remaining quickstart code in the following sections.
 
 ```python
 import os
@@ -67,7 +67,7 @@ Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID
 
 For a quick ramp-up on how to get these environment variables, you can follow the [Set up service principals from CLI quickstart](../../identity/service-principal-from-cli.md).
 
-Once you have installed the `azure-identity` library, we can continue authenticating the client.
+Once you've installed the `azure-identity` library, we can continue authenticating the client.
 
 ```python
 import os
@@ -141,9 +141,6 @@ sip_routing_client.set_trunk(new_trunk)
 
 > [!IMPORTANT]
 >The same method is used to create and update routing rules. When updating routes, all routes should be sent in single update and routing configuration will be fully overwritten by the new one. 
-
-Priority of routes does matter and position of each single route depends on position of others. Therefore when updating routes, all routes should be sent in single update and routes configuration will be fully overridden by the new one.
-Therefore the same method is used to Create and update routing rules.
 
 ### Removing a direct routing configuration
 
