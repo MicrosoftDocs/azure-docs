@@ -84,6 +84,17 @@ appInsights.loadAppInsights();
 </script>
 ```
 
+## Set ConversionScope (HEART workbook)
+
+If you want to use the HEART workbook, keep the following guidance in mind.
+
+Unless you set the authenticated user context, you must select **Anonymous Users** from the **ConversionScope** dropdown in the HEART workbook to see telemetry data.
+
+If you want to set the authenticated user context:
+
+1. [Set the authenticated user id and the account id](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext).
+1. In the HEART workbook, select **Authenticated Users** from the **ConversionScope** dropdown. 
+
 ## How to effectively use the plugin
 
 1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
@@ -169,7 +180,11 @@ The following are some of the key properties captured by default when the plugin
 
 ### behaviorValidator
 
-The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
+The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. 
+
+There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
+
+Behaviors are stored in the customDimensions field within the CustomEvents table.
 
 | Name                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|

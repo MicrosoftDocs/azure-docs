@@ -36,28 +36,36 @@ These dimensions are measured independently, but they interact with each other a
 ### Prerequisites
  - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
  - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
+ - Set up the [Click Analytics Auto Collection Plugin](javascript-feature-extensions.md).
  - Instrument the below attributes to calculate HEART metrics:
 
-  | Source          | Attribute            | Description                                |
-  |-----------------|----------------------|--------------------------------------------|
-  | customEvents    | user_AuthenticatedId | Unique authenticated user identifier       |
-  | customEvents    | session_Id           | Unique session identifier                  |
-  | customEvents    | appName              | Unique Application Insights app identifier |
-  | customEvents    | itemType             | Category of customEvents record            |
-  | customEvents    | timestamp            | Datetime of event                          |
-  | customEvents    | operation_Id         | Correlate telemetry events                 |
-  | customEvents    | user_Id         	    | Unique user identifier                  	  |
-  | customEvents*   | parentId             | Name of feature                            |
-  | customEvents*   | pageName             | Name of page                               |
-  | customEvents*   | actionType           | Category of Click Analytics record         |
-  | pageViews       | user_AuthenticatedId | Unique authenticated user identifier       |
-  | pageViews       | session_Id           | Unique session identifier                  |
-  | pageViews       | appName              | Unique Application Insights app identifier |
-  | pageViews       | timestamp            | Datetime of event                          |
-  | pageViews       | operation_Id         | Correlate telemetry events                 |
-  | pageViews       | user_Id            	 | Unique user identifier                     |
+  | Source                               | Attribute            | Description                                |
+  |--------------------------------------|----------------------|--------------------------------------------|
+  | customEvents                         | session_Id           | Unique session identifier                  |
+  | customEvents                         | appName              | Unique Application Insights app identifier |
+  | customEvents                         | itemType             | Category of customEvents record            |
+  | customEvents                         | timestamp            | Datetime of event                          |
+  | customEvents                         | operation_Id         | Correlate telemetry events                 |
+  | customEvents                         | user_Id         	    | Unique user identifier                  	 |
+  | customEvents <sup>[1](#FN1)</sup>    | parentId             | Name of feature                            |
+  | customEvents <sup>[1](#FN1)</sup>    | pageName             | Name of page                               |
+  | customEvents <sup>[1](#FN1)</sup>    | actionType           | Category of Click Analytics record         |
+  | pageViews                            | user_AuthenticatedId | Unique authenticated user identifier       |
+  | pageViews                            | session_Id           | Unique session identifier                  |
+  | pageViews                            | appName              | Unique Application Insights app identifier |
+  | pageViews                            | timestamp            | Datetime of event                          |
+  | pageViews                            | operation_Id         | Correlate telemetry events                 |
+  | pageViews                            | user_Id            	 | Unique user identifier                    |
 
-*Use the [Click Analytics Auto collection plugin](javascript-feature-extensions.md) via npm to emit these attributes.
+- If you're setting up the authenticated user context, instrument the below attributes:
+
+  | Source                               | Attribute            | Description                                |
+  |--------------------------------------|----------------------|--------------------------------------------|
+  | customEvents                         | user_AuthenticatedId | Unique authenticated user identifier       |
+
+**Footnotes**
+
+<a name="FN1">1</a>: To emit these attributes, use the [Click Analytics Auto collection plugin](javascript-feature-extensions.md) via npm.
 
 >[!TIP]
 > To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-feature-extensions.md#how-to-effectively-use-the-plugin).
@@ -221,7 +229,6 @@ For more on editing workbook templates, refer to the [Azure Workbook templates](
  
 
 ## Next steps
-- Set up the [Click Analytics Auto Collection Plugin](javascript-feature-extensions.md) via npm.
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
