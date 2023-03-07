@@ -1,24 +1,24 @@
 --- 
-title: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
+title: Apache Spark - Environment Configuration
 titleSuffix: Azure Machine Learning
-description: Learn how to perform interactive data wrangling with Apache Spark in Azure Machine Learning
+description: Learn how to configure your Apache Spark environment for interactive data wrangling
 author: ynpandey
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
-ms.topic: quickstart 
-ms.date: 02/10/2023
-#Customer intent: As a Full Stack ML Pro, I want to perform interactive data wrangling in Azure Machine Learning, with Apache Spark.
+ms.topic: how-to
+ms.date: 03/06/2023
+#Customer intent: As a Full Stack ML Pro, I want to perform interactive data wrangling in Azure Machine Learning with Apache Spark.
 ---
 
 # Quickstart: Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-To handle interactive Azure Machine Learning notebook data wrangling, Azure Machine Learning integration, with Azure Synapse Analytics (preview), provides easy access to the Apache Spark framework. This access allows for Azure Machine Learning Notebook interactive data wrangling.
+To handle interactive Azure Machine Learning notebook data wrangling, Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to the Apache Spark framework. This access allows for Azure Machine Learning Notebook interactive data wrangling.
 
-In this quickstart guide, you'll learn how to perform interactive data wrangling using Azure Machine Learning Managed (Automatic) Synapse Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough.
+In this quickstart guide, you learn how to perform interactive data wrangling using Azure Machine Learning Managed (Automatic) Synapse Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough.
 
 ## Prerequisites
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
@@ -30,11 +30,48 @@ In this quickstart guide, you'll learn how to perform interactive data wrangling
   3. In the **Managed preview feature** panel, toggle the **Run notebooks and jobs on managed Spark** feature to **on**
   :::image type="content" source="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-data-wrangling/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
 
+## Store Azure storage account credentials as secrets in Azure Key Vault
+
+To store Azure storage account credentials as secrets in the Azure Key Vault using the Azure portal user interface:
+
+1. Navigate to your Azure Key Vault in the Azure portal.
+1. Select **Secrets** from the left panel.
+1. Select **+ Generate/Import**.
+
+    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/azure-key-vault-secrets-generate-import.png" alt-text="Screenshot showing the Azure Key Vault Secrets Generate Or Import tab.":::
+
+1. At the **Create a secret** screen, enter a **Name** for the secret you want to create.
+1. Navigate to Azure Blob Storage Account, in the Azure portal, as seen in this image:
+
+    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/storage-account-access-keys.png" alt-text="Screenshot showing the Azure access key and connection string values screen.":::
+1. Select **Access keys** from the Azure Blob Storage Account page left panel.
+1. Select **Show** next to **Key 1**, and then **Copy to clipboard** to get the storage account access key.
+    > [!Note]
+    > Select appropriate options to copy
+    >  - Azure Blob storage container shared access signature (SAS) tokens
+    >  - Azure Data Lake Storage (ADLS) Gen 2 storage account service principal credentials
+    >    - tenant ID
+    >    - client ID and
+    >    - secret
+    >
+    >  on the respective user interfaces while creating Azure Key Vault secrets for them.
+1. Navigate back to the **Create a secret** screen.
+1. In the **Secret value** textbox, enter the access key credential for the Azure storage account, which was copied to the clipboard in the earlier step.
+1. Select **Create**.
+
+    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/create-a-secret.png" alt-text="Screenshot showing the Azure secret creation screen.":::
+
+> [!TIP]
+> [Azure CLI](../key-vault/secrets/quick-create-cli.md) and [Azure Key Vault secret client library for Python](../key-vault/secrets/quick-create-python.md#sign-in-to-azure) can also create Azure Key Vault secrets.
+
 ## Add role assignments in Azure storage accounts
 
-We must ensure that the input and output data paths are accessible, before we start interactive data wrangling. To enable read and write access, assign **Contributor** and **Storage Blob Data Contributor** roles to the user identity of the logged-in user.
+We must ensure that the input and output data paths are accessible before we start interactive data wrangling. First, for
 
-To assign appropriate roles to the user identity:
+- the user identity of the Notebooks session logged-in user or
+- a service principal
+
+assign **Reader** and **Storage Blob Data Reader** roles to the user identity of the logged-in user. However, in certain scenarios, we might want to write the wrangled data back to the Azure storage account. The **Reader** and **Storage Blob Data Reader** roles provide read-only access to the user identity or service principal. To enable read and write access, assign **Contributor** and **Storage Blob Data Contributor** roles to the user identity or service principal. To  assign appropriate roles to the user identity:
 
 1. Open the [Microsoft Azure portal](https://portal.azure.com).
 1. Search and select the **Storage accounts** service.
@@ -71,48 +108,11 @@ To assign appropriate roles to the user identity:
 
 Once the user identity has the appropriate roles assigned, data in the Azure storage account should become accessible.
 
-## Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
-
-A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, start in the **Compute** selection menu, and select **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark**.
-
-:::image type="content" source="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" lightbox="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option, located at the Compute selection menu.":::
-
-## Interactive data wrangling with Titanic data
-
-> [!TIP]
-> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough for data access in an Azure Data Lake Storage (ADLS) Gen 2 storage account, both require the lowest number of configuration steps.
-
-The data wrangling code shown here uses the `titanic.csv` file, available [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/spark/data/titanic.csv). Upload this file to a container created in the Azure Data Lake Storage (ADLS) Gen 2 storage account. This Python code snippet shows interactive data wrangling with an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and an input/output data URI, in the `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>` format. Here, `<FILE_SYSTEM_NAME>` matches the container name.
-
-```python
-import pyspark.pandas as pd
-from pyspark.ml.feature import Imputer
-
-df = pd.read_csv(
-    "abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/data/titanic.csv",
-    index_col="PassengerId",
-)
-imputer = Imputer(inputCols=["Age"], outputCol="Age").setStrategy(
-    "mean"
-)  # Replace missing values in Age column with the mean value
-df.fillna(
-    value={"Cabin": "None"}, inplace=True
-)  # Fill Cabin column with value "None" if missing
-df.dropna(inplace=True)  # Drop the rows which still have any missing value
-df.to_csv(
-    "abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/data/wrangled",
-    index_col="PassengerId",
-)
-```
-
 > [!NOTE]
-> Only the Spark runtime version 3.2 supports `pyspark.pandas`, used in this Python code sample.
-
-:::image type="content" source="media/quickstart-spark-data-wrangling/managed-spark-interactive-data-wrangling.png" lightbox="media/quickstart-spark-data-wrangling/managed-spark-interactive-data-wrangling.png" alt-text="Screenshot showing use of a Managed (Automatic) Spark compute, for interactive data wrangling.":::
+> If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
 
 ## Next steps
 - [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
-- [Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)](./quickstart-spark-jobs.md)
 - [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
 - [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
