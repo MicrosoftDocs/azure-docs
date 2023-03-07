@@ -349,7 +349,7 @@ Once your tileset creation completes, you can get the `mapConfigurationId` using
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL to the [Tileset service (v20220901preview)], passing in the tileset ID you obtained in the previous step.
+5. Enter the following URL to the [Tileset service], passing in the tileset ID you obtained in the previous step.
 
     ```http
     https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -386,7 +386,6 @@ For more information, see [Map configuration] in the indoor maps concepts articl
 [Drawing conversion errors and warnings]: drawing-conversion-error-codes.md
 [Dataset Create API]: /rest/api/maps/v2/dataset/create
 [Dataset service]: /rest/api/maps/v2/dataset
-[Tileset service]: /rest/api/maps/v2/tileset
+[Tileset service]: /rest/api/maps/v20220901preview/tileset
 [tileset get]: /rest/api/maps/v20220901preview/tileset/get
-[Tileset service (v20220901preview)]: /rest/api/maps/v20220901preview/tileset
 [Map configuration]: creator-indoor-maps.md#map-configuration
