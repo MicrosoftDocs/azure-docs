@@ -70,8 +70,6 @@
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
-    - name: Apache Spark in Azure Machine Learning (preview)
-      href: apache-spark-azure-ml-concepts.md
 - name: Tutorials
   expanded: true
   items:
@@ -123,6 +121,8 @@
       href: concept-v2.md
     - name: Work with Data
       items:
+        - name: Apache Spark in Azure Machine Learning (preview)
+          href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly

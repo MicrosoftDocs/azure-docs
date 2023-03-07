@@ -105,7 +105,7 @@ Confidential VMs using Ephemeral OS disks by default **1 GiB** from the **OS cac
 > 
 For more information on [confidential VM](../confidential-computing/confidential-vm-overview.md)
 
-## Customer Managed key (preview)
+## Customer Managed key
 You can choose to use customer managed keys or platform managed keys when you enable end-to-end encryption for VMs using Ephemeral OS disk. Currently this option is available only via [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md), [CLI](./linux/disks-enable-customer-managed-keys-cli.md) and SDK in all regions. 
 
 > [!IMPORTANT]
