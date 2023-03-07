@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart 
 ms.date: 02/27/2023
 ms.workload: infrastructure-services
-ms.custom: template-quickstart, ignite-2022
+ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell
