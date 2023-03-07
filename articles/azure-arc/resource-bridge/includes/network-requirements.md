@@ -9,6 +9,9 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 
 ### Firewall/Proxy URL allowlist
 
+>[!Note]
+>To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](/azure/azure-arc/resource-bridge/network-requirements#additional-network-requirements).
+
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
 |SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Management machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
