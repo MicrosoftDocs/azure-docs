@@ -35,11 +35,11 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Alert processing rules**.
 
-   [![Screenshot showing the Alerts screen for an Azure Stack Edge resource. The Alert processing rules option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png#lightbox)
+   [![Screenshot showing the Alerts page for an Azure Stack Edge resource. The Alert processing rules option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png#lightbox)
 
 2. Under **Alert processing rules**, select **+ Create**. This will launch the **Create an alert processing rule** wizard.
 
-   [![Screenshot showing the command menu at the top of the Alert processing rules for an Azure Stack Edge resource. The Plus Create option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png#lightbox)
+   [![Screenshot showing the Alert processing rules page for an Azure Stack Edge resource. The Plus Create rules option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png#lightbox)
 
 3. On the **Scope** page, select **+ Select scope**.
 
@@ -47,7 +47,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 1. Select a **Subscription** and optionally filter by **Resource type**. To filter by Azure Stack Edge resources, select the **Resource type** for **Azure Stack Edge / Data Box Gateway**.
 
-   [![Screenshot showing the **Scope** menu in the **Create an alert processing rule** wizard for an Azure Stack Edge resource. The Plus Select scope option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-ssubscription-04.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png#lightbox)
+   [![Screenshot showing the **Scope** menu in the **Create an alert processing rule** wizard for an Azure Stack Edge resource. The Select subscription dropdown menu is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png#lightbox)
 
 1. The **Resource type** option will list the available resources based on your selection. Use the filter option to reduce the list of options. Select the **Checkbox** for the scope option you want to work with.
 
@@ -85,7 +85,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 1.	The new rule will be enabled by default. If you don't want to start using the rule immediately, leave the **Enable rule upon creation** option unchecked.
 
-[![Screenshot of the Select action groups page for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png#lightbox)
+[![Screenshot of the Project details page for an action rule in Azure Stack Edge. This page also shows Alert processing rule details.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png#lightbox)
 
 1. To continue, select **Review+Create**.
 
