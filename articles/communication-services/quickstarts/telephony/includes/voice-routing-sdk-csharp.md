@@ -116,13 +116,15 @@ await client.SetTrunkAsync(usTrunk);
 
 ### Removing a direct routing configuration
 
-You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes and trunks:
 
 ``` csharp
+//delete all configured voice routes
+await client.SetRoutesAsync(new List<SipTrunkRoute>());
 
-
+//delete all trunks
+await client.SetTrunksAsync(new List<SipTrunk>());
 ``` 
-
 
 You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
 

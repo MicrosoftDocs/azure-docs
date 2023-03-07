@@ -144,11 +144,16 @@ sip_routing_client.set_trunk(new_trunk)
 
 ### Removing a direct routing configuration
 
-You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes:
+You can't edit or remove single voice route. Entire voice routing configuration should be overwritten. Here's the example of an empty list that removes all the routes and trunks:
 
 ``` python
+#delete all configured voice routes
+print('Deleting all routes...')
+sip_routing_client.set_routes([]) 
 
-
+#delete all trunks
+print('Deleting all trunks...')
+sip_routing_client.set_trunks([])
 ``` 
 
 You can delete a single trunk (SBC), if it isn't used in any voice route. If SBC is listed in any voice route, that route should be deleted first.
