@@ -67,7 +67,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 ## Set up Verified ID
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
 
 To set up Verified ID, follow these steps:
 
@@ -161,7 +161,7 @@ You can choose to grant issuance and presentation permissions separately if you 
 
 After Azure Key Vault is setup, and the service have a signing key, you must complete step 2 and 3 in the setup.
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
 
 1. Navigate to the Verified ID service in the Azure portal.  
 1. From the left menu, select **Setup**.

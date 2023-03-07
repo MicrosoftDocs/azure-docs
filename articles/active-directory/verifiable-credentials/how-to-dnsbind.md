@@ -24,7 +24,7 @@ To verify domain ownership to your DID, you need to have completed the following
 
 - Complete the [Getting Started](get-started-verifiable-credentials.md) and subsequent [tutorial set](enable-your-tenant-verifiable-credentials.md).
 
-## Verify domain ownership and distribute .well-known/did-configuration.json file
+## Verify domain ownership and distribute did-configuration.json file
 
 The domain you will verify ownership of to your DID is defined in the organizational settings.
 

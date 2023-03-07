@@ -545,7 +545,7 @@ Although it is technically possible to publish multiple domains, we currently on
 
 ### Well-known DID configuration
 
-The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](how-to-dnsbind.md#distribute-well-known-config).
+The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](how-to-dnsbind.md#verify-domain-ownership-and-distribute-did-configuration.json-file).
 
 #### HTTP request
 
