@@ -39,11 +39,11 @@ Common task parameters are the non-unique parameters contained in every task. Wh
 
 ## Common email-specific task parameters
 
-Tasks, which send emails, also have specific optional parameters that can be customized. If you choose to customize the email, you're able to set the following arguments:
+Emails, sent from tasks, are able to be customized. If you choose to customize the email, you're able to set the following arguments:
 
-- **Subject**- Customizes the subject of emails sent out with the task.
-- **Message body**- Customizes the body of the emails being sent out.
-- **Email language translation**- Allows you to translate the message body of your emails. If no language is chosen, message body will default to the recipient's language settings.
+- **Subject:** Customizes the subject of emails sent out with the task.
+- **Message body:** Customizes the body of the emails being sent out.
+- **Email language translation:** Allows you to translate the message body of your emails. If no language is chosen, message body will default to the recipient's language settings.
 
 :::image type="content" source="media/lifecycle-workflow-task/customize-email-concept.png" alt-text="email customization options.":::
 
