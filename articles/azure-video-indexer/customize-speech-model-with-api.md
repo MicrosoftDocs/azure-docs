@@ -2,36 +2,33 @@
 title: Customize a speech model with Azure Video Indexer API
 description: Learn how to customize a speech model with the Azure Video Indexer API.
 ms.topic: how-to
-ms.date: ms.date: 03/06/2023
+ms.date: 03/06/2023
 ---
 
 # Customize a speech model with API
 
-> [!Note]
-> Speech model customization, including pronunciation training, is only supported in Video Indexer Azure trial accounts and Resource Manager accounts. It is not supported in classic accounts. For guidance on how to update your account type at no cost, see [](connect-classic-account-to-arm.md). For guidance on using the classic custom language experience, see [](customize-language-model-overview.md).
+[!INCLUDE [speech model](./includes/speech-model.md)]
 
-## Customize a Speech model with the Azure Video Indexer API 
+Azure Video Indexer lets you create custom language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to or aligning word or name pronunciation with how it should be written. 
 
-Azure Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to or aligning word or name pronunciation with how it should be written. 
+For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](). 
 
-For a detailed overview and best practices for custom speech models, see Customize a Speech model with Azure Video Indexer. 
-
-You can use the Azure Video Indexer APIs to create and edit custom Language models in your account, as described in this article. You can also use the website, as described in Customize Speech model using the Azure Video Indexer website. 
+You can use the Azure Video Indexer APIs to create and edit custom language models in your account, as described in [this article](). You can also use the website, as described in [Customize speech model using the Azure Video Indexer website](). 
 
 The following are descriptions of some of the parameters: 
 
 |Name   | Type |  Description |  
 |---|---|---|
-|`displayName` |  string  | The desired name of the dataset/model.|
-|`locale`  |  string   |The language code of the dataset/model. For full list, see Language support.|
-|`kind` |   integer | 0 for a plain text dataset, 1 for a pronunciation dataset.| 
-|`description`  | string   |Optional description of the dataset/model.|
-|`contentUrl`  | uri |  URL of source file used in creation of dataset.| 
-|`customProperties` | object |  Optional properties of dataset/model.| 
+|`displayName`      |string |The desired name of the dataset/model.|
+|`locale`           |string |The language code of the dataset/model. For full list, see Language support.|
+|`kind`             |integer|0 for a plain text dataset, 1 for a pronunciation dataset.| 
+|`description`      |string |Optional description of the dataset/model.|
+|`contentUrl`       |uri    |URL of source file used in creation of dataset.| 
+|`customProperties` |object |Optional properties of dataset/model.| 
 
 ## Create a speech dataset 
 
-The create speech dataset API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after its created. 
+The [create speech dataset]() API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after its created. 
 
 ### Response 
 
@@ -59,7 +56,7 @@ The response provides metadata on the newly created dataset following the format
 
 ## Create a speech model 
 
-The create a speech model  API creates and trains a custom speech model that could then be used to improve the transcription accuracy of your videos. It must contain at least one plain text dataset and can optionally have pronunciation datasets. Create it with all of the relevant dataset files as a model’s datasets can't be added or updated after its creation. 
+The [create a speech model]() API creates and trains a custom speech model that could then be used to improve the transcription accuracy of your videos. It must contain at least one plain text dataset and can optionally have pronunciation datasets. Create it with all of the relevant dataset files as a model’s datasets can't be added or updated after its creation. 
 
 ### Response 
 
@@ -85,9 +82,9 @@ The response provides metadata on the newly created model following the format o
 } 
 ```
 
-## Get Speech Dataset 
+## Get speech dataset 
 
-The get speech dataset API returns information on the specified dataset.  
+The [get speech dataset]() API returns information on the specified dataset.  
 
 ### Response 
 
@@ -113,9 +110,9 @@ The response provides metadata on the specified dataset following the format of 
 } 
 ```
 
-## Get Speech Dataset Files 
+## Get speech dataset files 
 
-The get speech dataset files API returns the files and metadata of the specified dataset. 
+The [get speech dataset files]() API returns the files and metadata of the specified dataset. 
 
 ### Response 
 
@@ -155,7 +152,7 @@ The response provides a URL with the dataset files and metadata following the fo
 }] 
 ```
 
-## Get Speech Dataset 
+## Get the specified account datasets
 
 The get speech datasets API returns information on all of the specified accounts datasets.  
 
@@ -183,9 +180,9 @@ The response provides metadata on the datasets in the specified account followin
 }] 
 ```
 
-## Get Speech Model 
+## Get the specified speech model 
 
-The get speech model API returns information on the specified model.  
+The [get speech model]() API returns information on the specified model.  
 
 ### Response 
 
@@ -212,9 +209,9 @@ The response provides metadata on the specified model following the format of th
 } 
 ```
 
-## Get Speech Models 
+## Get the specified account speech models 
 
-The get speech models API returns information on all of the models in the specified account.  
+The [get speech models]() API returns information on all of the models in the specified account.  
 
 ### Response 
 
@@ -243,7 +240,7 @@ The response provides metadata on all of the speech models in the specified acco
 
 ## Delete speech dataset 
 
-The delete speech dataset API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. 
+The [delete speech dataset]() API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. 
 
 ### Response 
 
@@ -251,7 +248,7 @@ There's no returned content when the dataset is deleted successfully.
 
 ## Delete a speech model 
 
-The delete speech model API deletes the specified speech model.  
+The [delete speech model]() API deletes the specified speech model.  
 
 ### Response 
 
