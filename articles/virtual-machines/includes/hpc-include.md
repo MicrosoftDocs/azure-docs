@@ -11,7 +11,7 @@
  ms.custom: include file
 ---
 
-## Get Started
+## Get started
 
 - [Overview](../workloads/hpc/overview.md) of HPC on InfiniBand-enabled H-series and N-series VMs.
 - [Configuring VMs](../workloads/hpc/configure.md) and supported [OS and VM Images](../workloads/hpc/configure.md#vm-images).
