@@ -1,11 +1,11 @@
 ---
 title: Best practices for the Enterprise tiers
 titleSuffix: Azure Cache for Redis
-description: Learn Azure Cache for Redis Enterprise and Enterprise Flash tiers
+description: Learn about the Azure Cache for Redis Enterprise and Enterprise Flash tiers
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/09/2023
 ms.author: franlanglois
 ---
 
@@ -30,15 +30,11 @@ Conversely, the opposite recommendation is true for the Basic, Standard, and Pre
 
 In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of virtual CPUs (vCPUs) utilized is straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. 
 
-When you use clustering, the effect is to spread data across more shards and more nodes. By increasing the number of shards, you linearly increase the number of vCPUs you use based on the number of shards in the cluster. 
-
-<!-- When you use clustering, the effect is to shard data across additional nodes, which linearly increases the number of vCPUs that can be utilized based on the number of shards in the cluster. 
-See fxl revision above -->
+When you use clustering, the effect is to spread data across more nodes with one shard per node. By increasing the number of shards, you linearly increase the number of vCPUs you use, based on the number of shards in the cluster. 
 
 Redis Enterprise, on the other hand, can use multiple vCPUs for the Redis instance itself. In other words, all tiers of Azure Cache for Redis can use multiple vCPUs for background and monitoring tasks, but only the Enterprise and Enterprise Flash tiers are able to utilize multiple vCPUs per VM for Redis shards. The table shows the number of effective vCPUs used for each SKU and capacity (that is, scale-out) configuration. 
 
-The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The tables only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance further in some usage scenarios. 
-<!-- fxl revision -->
+The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The tables only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance in some usage scenarios. 
 
 ### E10
 
@@ -123,8 +119,7 @@ For example, consider these tips:
 - Identify in advance which other cache in the geo-replication group to switch over to if a region goes down.
 - Ensure that firewalls are set so that any applications and clients can access the identified backup cache.
 - Each cache in the geo-replication group has its own access key. Determine how the application will switch access keys when targeting a backup cache. 
-- If a cache in the geo-replication group goes down, a buildup of metadata starts to occur in all the caches in the geo-replication group. The metadata can't be discarded until writes can be synced again to all caches. You can prevent the metadata build-up by force unlinking the cache that is down. Consider monitoring the available memory in the cache and unlinking if there's memory pressure, especially for write-heavy workloads.
-<!-- My revision - should the last sentence be its own bullet?  -->
+- If a cache in the geo-replication group goes down, a buildup of metadata starts to occur in all the caches in the geo-replication group. The metadata can't be discarded until writes can be synced again to all caches. You can prevent the metadata build-up by _force unlinking_ the cache that is down. Consider monitoring the available memory in the cache and unlinking if there's memory pressure, especially for write-heavy workloads.
 
 It's also possible to use a [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker). Use the pattern to automatically redirect traffic away from a cache experiencing a region outage, and towards a backup cache in the same geo-replication group. Use Azure services such as [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) or [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to enable the redirection.
 
@@ -133,10 +128,6 @@ It's also possible to use a [circuit breaker pattern](/azure/architecture/patter
 The [data persistence](cache-how-to-premium-persistence.md) feature in the Enterprise and Enterprise Flash tiers is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users.
 
 Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](cache-how-to-import-export-data.md) feature. You can export copies of cache data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools. 
-
-<!-- Not sure about this sentence - While this is a great idea, data persistence isn’t recommended to be used in this way. Instead, use the [import/export](cache-how-to-import-export-data.md) feature. 
-It's a great idea but don't do it? See my revision.
--->
 
 ## Next steps
 
