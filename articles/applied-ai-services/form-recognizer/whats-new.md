@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/06/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -42,7 +42,7 @@ Form Recognizer service updates on an ongoing basis. Bookmark this page to stay 
 > [!TIP]
 > All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
-* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30)—additional language support**:
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales)—additional language support**:
 
    The **prebuilt receipt model** now has added support for the following languages:
 
