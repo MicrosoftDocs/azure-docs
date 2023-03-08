@@ -921,6 +921,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-ai-vision-sdk",
+      "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cache-redis-samples",
       "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
       "branch": "main",

@@ -665,13 +665,17 @@
           "redirect_url": "/azure/healthcare-apis/iot/how-to-use-mapping-debugger",
           "redirect_document_id": false
       },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-monitoring-tab.md",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-monitoring-and-health-checks-tabs",
+          "redirect_document_id": false
+      },
       {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
           "redirect_document_id": false
       },
       {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
-          "redirect_document_id": true
+          "redirect_document_id": false
       }
     ]
   }

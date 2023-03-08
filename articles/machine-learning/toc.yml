@@ -126,6 +126,8 @@
       href: concept-v2.md
     - name: Work with Data
       items:
+        - name: Apache Spark in Azure Machine Learning (preview)
+          href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly

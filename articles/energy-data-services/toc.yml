@@ -98,3 +98,5 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/energy-data-services/
