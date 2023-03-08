@@ -15,9 +15,9 @@ There are two types of resources that are needed to create and manage assessment
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard evaluates. For example, specific AWS account(s).
 
-## Assign a built-in compliance standard to your AWS account
+## Assign a custom compliance standard to your AWS account
 
-**To assign a built-in compliance standard to your AWS account**:
+**To assign a custom compliance standard to your AWS account**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
