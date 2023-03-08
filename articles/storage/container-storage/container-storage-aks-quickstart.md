@@ -12,6 +12,8 @@ ms.subservice: container-storage
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
 Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS). At the end, you'll have two new storage classes that you can use for your Kubernetes workloads.
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
 ## Getting started
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -20,9 +22,7 @@ Azure Container Storage is a service built natively for containers that enables 
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 
-- If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the subscription in which you want to create the storage account and select **Create**.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+- If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription in which you want to create the storage account and select **Create**.
 
 ## Create a resource group
 
@@ -62,7 +62,7 @@ If the resource group was created successfully, you'll see output similar to thi
 
 ## Create AKS cluster
 
-First, make sure the identity you're using to create your cluster has the appropriate minimum permissions. For more details, see Access and identity options for Azure Kubernetes Service.
+First, make sure the identity you're using to create your cluster has the appropriate minimum permissions. For more details, see [Access and identity options for Azure Kubernetes Service](../../aks/concepts-identity.md).
 
 Create a Linux-based AKS cluster with a single master node using the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
 
@@ -73,7 +73,7 @@ az aks create -g myContainerStorageRG -n myAKSCluster --node-count 1 --generate-
 The deployment will take a few minutes to complete.
 
 > [!NOTE]
-> When you create a cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see Why are two resource groups created with AKS?
+> When you create a cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -124,7 +124,7 @@ azure-disk-sc-for-mayastor
 azurecontainerstorage-single-replica
 ```
 
-A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see Kubernetes Storage Classes.
+A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 ## Create a storage pool
 

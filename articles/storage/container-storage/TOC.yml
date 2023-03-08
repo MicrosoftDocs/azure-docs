@@ -8,7 +8,7 @@
 - name: Quickstarts
   items:
   - name: Use Azure Container Storage
-    href: container-storage-quickstart.md
+    href: container-storage-aks-quickstart.md
 - name: Concepts
   items:
   - name: FAQ
@@ -39,15 +39,9 @@
       href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/storage#management
-  - name: Spring Cloud Azure
-    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
-  - name: Monitoring Azure Files reference
-    href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Resources
   items:
   - name: Pricing for Azure Container Storage
