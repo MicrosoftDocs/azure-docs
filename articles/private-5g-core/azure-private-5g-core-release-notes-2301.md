@@ -37,6 +37,7 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network. This issue has been fixed in this release.   |
+  | 2 | Packet forwarding | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause them to be dropped. This issue has been fixed in this release.    |
 
 ## Known issues from previous releases
 
@@ -48,6 +49,7 @@ The following table provides a summary of known issues carried over from the pre
   | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
   | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
   | 4 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
+  | 5 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
 
 ## Next steps
 
