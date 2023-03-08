@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Upload, access and explore your data"
 titleSuffix: Azure Machine Learning
-description: Upload data to cloud storage, create an Azure ML data asset, create new versions for data assets, use the data for interactive development 
+description: Upload data to cloud storage, create an Azure Machine Learning data asset, create new versions for data assets, use the data for interactive development 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -21,7 +21,7 @@ In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Upload your data to cloud storage
-> * Create an Azure ML data asset
+> * Create an Azure Machine Learning data asset
 > * Access your data in a notebook for interactive development
 > * Create new versions of data assets
 
@@ -53,9 +53,9 @@ The start of a machine learning project typically involves exploratory data anal
 For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
 
 > [!NOTE]
-> This tutorial depends on data placed in an Azure ML resource folder location. For this tutorial, 'local' means a folder location in that Azure ML resource. 
+> This tutorial depends on data placed in an Azure Machine Learning resource folder location. For this tutorial, 'local' means a folder location in that Azure Machine Learning resource. 
 
-This image shows the Azure ML files (folder) panel:
+This image shows the Azure Machine Learning files (folder) panel:
 
 :::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
 
@@ -81,7 +81,7 @@ Upload the data to the **data** folder after you download it. Or, follow these s
 
 ## Connect to the workspace
 
-Before you dive in the code, you need to connect to your Azure ML workspace. 
+Before you dive in the code, you need to connect to your Azure Machine Learning workspace. 
 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
@@ -114,17 +114,17 @@ ml_client = MLClient(
 
 ## Upload data to cloud storage
 
-Azure ML uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats look similar to the web URLs that you use in your web browser to access web pages. For example:
+Azure Machine Learning uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats look similar to the web URLs that you use in your web browser to access web pages. For example:
 
 * Access data from public https server: `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`
 * Access data from Azure Data Lake Gen 2: `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
 
-An Azure ML data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
+An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
-Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure ML datastores, Azure Storage, public URLs, and local files.
+Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
 
 > [!TIP]
-> For smaller-size data uploads, Azure ML data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
+> For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
 
 The next notebook cell creates the data asset. Here, the code sample uploads the raw data file to the designated cloud storage resource. This upload operation requires unique **version** and **name** properties in the **my_data** block. Otherwise, the cell fails. To run this cell code more than once with the same **name** value, change the **version** value each time you run the code. As another workaround, you can also comment out the **version** value. This approach creates new data asset each time the cell runs, and it auto-increments the version numbers of those versions, starting from 1:
 
@@ -155,7 +155,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-You'll notice that the data uploads to the default Azure ML _Datastore_. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. A datastore offers these benefits:
+You'll notice that the data uploads to the default Azure Machine Learning _Datastore_. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. A datastore offers these benefits:
 
 1. A common and easy-to-use API, to interact with different storage types (Blob/Files/ADLS) and authentication methods.
 1. An easier way to discover useful datastores, when working as a team.
@@ -165,7 +165,7 @@ You'll notice that the data uploads to the default Azure ML _Datastore_. An Azur
 
 ## Access your data in a notebook
 
-Pandas directly support URIs - this example shows how to read a CSV file from an Azure ML Datastore:
+Pandas directly support URIs - this example shows how to read a CSV file from an Azure Machine Learning Datastore:
 
 ```
 import pandas as pd
@@ -320,12 +320,10 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-Read [Create data assets](how-to-create-data-assets.md) for more information about data assets.
+* Learn more about [data assets](how-to-create-data-assets.md) and [datastores](how-to-datastore.md).
 
-Read [Create datastores](how-to-datastore.md) to learn more about datastores.
-
-Now, you can train a model.
+Continue with tutorials to learn how to develop a training script.
 
 > [!div class="nextstepaction"]
-> Train a model
+> [Model development on a cloud workstation](tutorial-cloud-workstation.md)
 >

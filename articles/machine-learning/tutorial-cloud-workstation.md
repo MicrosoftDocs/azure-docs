@@ -248,8 +248,8 @@ Use these steps to gather just the cells that you need:
 1. Go back to the **Notebooks** section of your workspace.
 1. Click inside the code cell for the model you wish to use.  For this tutorial, let's select the first model, GradientBoostingClassifier.
 1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** 
-1. 
-    :::image type="content" source="media/tutorial-cloud-workstation/gather-tool.png" alt-text="Screenshot shows the gather tool above a code cell.":::.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/gather-tool.png" alt-text="Screenshot shows the gather tool above a code cell.":::
 
 1. On the **Create new Gather file** form, shorten the file name to **train**.
 1. Select **Create**.
@@ -330,5 +330,5 @@ Learn more about:
 This tutorial showed you the early steps of creating a model, prototyping on the same machine where the code resides.  For your production training, learn how to use that training script on more powerful remote compute resources:
 
 > [!div class="nextstepaction"]
-> [[Train a model](tutorial-train-model.md)
+> [Train a model](tutorial-train-model.md)
 >
