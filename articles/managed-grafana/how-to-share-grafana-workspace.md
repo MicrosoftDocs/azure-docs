@@ -11,7 +11,7 @@ ms.date: 3/08/2023
 
 # How to share access to Azure Managed Grafana
 
-A DevOps team may build dashboards to monitor and diagnose an application or infrastructure that it manages. Likewise, a support team may use a Grafana monitoring solution for troubleshooting customer issues. In these scenarios, multiple users will be accessing one Grafana instance. 
+A DevOps team may build dashboards to monitor and diagnose an application or infrastructure that it manages. Likewise, a support team may use a Grafana monitoring solution for troubleshooting customer issues. In these scenarios, multiple users are accessing one Grafana instance. 
 
 Azure Managed Grafana enables such collaboration by allowing you to set custom permissions on an instance that you own. This article explains what permissions are supported and how to grant permissions to share an Azure Managed Grafana instance with your stakeholders.
 
@@ -29,18 +29,16 @@ Azure Managed Grafana supports the Grafana Admin, Grafana Editor, and Grafana Vi
 - The Grafana Editor role provides read-write access to the dashboards in the instance.
 - The Grafana Viewer role provides read-only access to dashboards in the instance.
 
-More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles) and in .
+More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
-Grafana user roles and assignments are fully [integrated within Azure Active Directory (Azure AD)](../role-based-access-control/built-in-roles.md#grafana-admin). You can add assign a Grafana role to any Azure AD user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
+Grafana user roles and assignments are fully [integrated within Azure Active Directory (Azure AD)](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Azure AD user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
 > [!NOTE]
 > Azure Managed Grafana doesn't support personal Microsoft accounts (MSA) currently.
 
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
-
 ## Add a Grafana role assignment
+
+### [Portal](#tab/azure-portal)
 
 1. Open your Azure Managed Grafana instance.
 1. Select **Access control (IAM)** in the left menu.
@@ -57,7 +55,41 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Select **Next**, then **Review + assign** to complete the role assignment.
 
 > [!NOTE]
-> Dashboard and data source level sharing are done from within the Grafana application. For more details, refer to [Share a Grafana dashboard or panel](./how-to-share-dashboard.md). [Share a Grafana dashboard] and [Data source permissions](https://grafana.com/docs/grafana/latest/administration/data-source-management/#data-source-permissions).
+> Dashboard and data source level sharing are done from within the Grafana application. For more information, refer to [Share a Grafana dashboard or panel](./how-to-share-dashboard.md). [Share a Grafana dashboard] and [Data source permissions](https://grafana.com/docs/grafana/latest/administration/data-source-management/#data-source-permissions).
+
+### [Azure CLI](#tab/azure-cli)
+
+Assign a role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
+In the code below, replace the following placeholders:
+
+- `<assignee>`:
+  - For an Azure AD user, enter their email address or the user object ID.
+  - For a group, enter the group object ID.
+  - For a service principal, enter the service principal object ID.
+  - For a managed identity, enter the object ID.
+- `<roleNameOrId>`:
+  - For Grafana Admin, enter `Grafana Admin` or `22926164-76b3-42b3-bc55-97df8dab3e41`.
+   - For Grafana Editor, enter `Grafana Editor` or `a79a5197-3a5c-4973-a920-486035ffd60f`.
+   - For Grafana Viewer, enter `Grafana Viewer` or `60921a7e-fef1-4a43-9b16-a26c52ad4769`.
+- `<scope>`: enter the full ID of the Azure Managed Grafana instance.
+
+```azurecli
+az role assignment create --assignee "<assignee>" \
+--role "<roleNameOrId>" \
+--scope "<scope>"
+```
+
+Example:
+
+```azurecli
+az role assignment create --assignee "name@contoso.com" \
+--role "Grafana Admin" \
+--scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
+```
+For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
+
+---
 
 ## Next steps
 

@@ -15,7 +15,7 @@ By default, when a Grafana instance is created, Azure Managed Grafana grants it 
 
 This means that the new Grafana instance can access and search all monitoring data in the subscription. It can view the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
-In this article, you'll learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
+In this article, learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
 
 ## Prerequisites
 
@@ -29,7 +29,9 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Edit Azure Monitor permissions
 
-To change permissions for a specific resource, follow these steps:
+To edit permissions for a specific resource, follow these steps.
+
+### [Portal](#tab/azure-portal)
 
 1. Open a resource that contains the monitoring data you want to retrieve. In this example, we're configuring an Application Insights resource.
 1. Select **Access Control (IAM)**.
@@ -52,9 +54,37 @@ To change permissions for a specific resource, follow these steps:
 
       :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the instance.":::
 
-1. Click **Next**, then **Review + assign** to confirm the assignment of the new permission.
+1. Select **Next**, then **Review + assign** to confirm the assignment of the new permission.
 
 For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
+
+### [Azure CLI](#tab/azure-cli)
+
+Assign a role assignment using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
+In the code below, replace the following placeholders:
+
+- `<assignee>`: enter the assignee's object ID. For a managed identity, enter the managed identity's ID.
+- `<roleNameOrId>`: enter the role's name or ID. For Monitoring Reader, enter `Monitoring Reader` or `43d0d8ad-25c7-4714-9337-8ba259a9fe05`.
+- `<scope>`: enter the full ID of the resource Azure Managed Grafana needs access to.
+
+```azurecli
+az role assignment create --assignee "<assignee>" \
+--role "<roleNameOrId>" \
+--scope "<scope>"
+```
+
+Example: assigning permission for an Azure Managed Grafana instance to access an Application Insights resource using a managed identity.
+
+```azurecli
+az role assignment create --assignee "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/mygrafanaworkspace" \
+--role "Monitoring Reader" \
+--scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/microsoft.insights/components/myappinsights/
+```
+
+For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
+
+---
 
 ## Next steps
 
