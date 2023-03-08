@@ -4,7 +4,7 @@ description: Learn about service quotas and service plans for Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/14/2023
 ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
