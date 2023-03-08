@@ -120,7 +120,7 @@ Use existing views and reports in Container Insights to monitor cluster level co
 
 - Under **Monitoring**, you can select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
 
-    :::image type="content" source="media/monitor-aks/monitoring-workbooks-subnet-ip-usage" alt-text="Container Insights workbooks" lightbox="media/monitor-aks/monitoring-workbooks-subnet-ip-usage.png":::
+    :::image type="content" source="media/monitor-aks/monitoring-workbooks-subnet-ip-usage.png" alt-text="Container Insights workbooks" lightbox="media/monitor-aks/monitoring-workbooks-subnet-ip-usage.png":::
 
 For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can use the `kubectl debug` command to SSH to the AKS nodes. For more information on this process, see [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](ssh.md).
 
