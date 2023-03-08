@@ -8,8 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/08/2023
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-arm
-#Customer intent: I want to use Bicep templates to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
+ms.custom: mode-arm
 ---
 
 # Quickstart: Use Bicep templates to create a virtual network
