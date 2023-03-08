@@ -99,7 +99,7 @@ The health insurance card model combines powerful Optical Character Recognition 
 
 ***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
 
-:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Form Recognizer Studio.":::
+:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Form Recognizer Studio." lightbox="./media/studio/analyze-health-card.png":::
 
 > [!div class="nextstepaction"]
 > [Learn more: Health insurance card model](concept-insurance-card.md)
