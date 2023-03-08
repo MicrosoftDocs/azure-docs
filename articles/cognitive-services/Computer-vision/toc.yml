@@ -114,10 +114,6 @@ items:
     items:
     - name: Transparency note
       href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Integration and responsible use 
-      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
     - name: Data, privacy, and security 
       href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
     - name: Limited Access features
@@ -132,7 +128,7 @@ items:
         href: how-to/model-customization.md
       - name: Migrate a Custom Vision project to Image Analysis
         href: how-to/migrate-from-custom-vision.md
-      - name: Call the Image Retrieval APIs
+      - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
@@ -164,6 +160,8 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
+      - name: Image retrieval
+        href: concept-image-retrieval.md
       - name: Background removal
         href: concept-background-removal.md
     - name: Version 3.2

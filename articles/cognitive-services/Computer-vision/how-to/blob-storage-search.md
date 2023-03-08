@@ -25,7 +25,7 @@ To get started with the **Search photos with natural language** or **Video summa
 
 ## Create a new storage account
 
-To get started, [create a new storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+To get started, <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount"  title="create a new storage account"  target="_blank">create a new storage account</a>.
 
 :::image type="content" source="../media/storage-instructions/create-storage.png" alt-text="Screenshot of Blob storage creation.":::
 

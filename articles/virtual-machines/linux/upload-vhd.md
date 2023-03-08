@@ -7,10 +7,10 @@ ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-
 ---
 # Create a Linux VM from a custom disk with the Azure CLI
 

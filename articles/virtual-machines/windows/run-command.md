@@ -9,9 +9,8 @@ ms.author: erd
 ms.date: 10/25/2022
 ms.topic: how-to  
 ms.reviewer: erd
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Run scripts in your Windows VM by using action Run Commands
 
