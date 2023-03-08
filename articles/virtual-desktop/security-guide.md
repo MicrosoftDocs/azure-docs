@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 03/09/2023
 ms.author: helohr
 ms.service: virtual-desktop
 ms.custom: ignite-2022
@@ -221,7 +221,7 @@ The following operating systems support using Windows Defender Application Contr
 
 Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
 
-### Client updates on other OS platforms
+## Client updates on other OS platforms
 
 Software updates for the Remote Desktop clients you can use to access Azure Virtual Desktop services on other OS platforms are secured according to the security policies of their respective platforms. All client updates are delivered directly by their platforms. For more information, see the respective store pages for each app:
 
