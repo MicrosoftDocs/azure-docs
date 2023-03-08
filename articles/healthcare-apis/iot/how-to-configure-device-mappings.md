@@ -16,9 +16,11 @@ ms.author: jasteppe
 
 This article provides an overview and describes how to configure the MedTech service device mapping.
 
-The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings. The first type, device mapping, is responsible for mapping the device message data sent to the MedTech service device message event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
+The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings. 
 
-The second type, FHIR destination mapping, controls the mapping for FHIR Observation resources. The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+* The device mapping is the first type and is responsible for mapping the device message data sent to the MedTech service device message event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observation resources. 
+
+* The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 The device and FHIR destination mappings are JSON documents based on their type and composed of different templates based on requirements. These JSON documents are then added to your MedTech service through the Azure portal or ARM API (Azure Resource Manage API).
 
@@ -44,7 +46,7 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-This diagram provides an illustration of what happens during the normalization and transformation stage processes within the MedTech service.
+This diagram provides an illustration of what happens during the normalization processing stage within the MedTech service.
 
 :::image type="content" source="media/how-to-configure-device-mappings/normalization-process-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing flow." lightbox="media/how-to-configure-device-mappings/normalization-process-diagram.png":::
 
