@@ -4,6 +4,8 @@
   items:
   - name: About App Service Environment
     href: overview.md
+  - name: Version comparison
+    href: version-comparison.md
 - name: Quickstarts
   expanded: true
   items:

@@ -27,7 +27,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Dedicated host group     |No         |No         |Yes (not compatible with zone redundancy)         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
 |FTPS     |Yes         |Yes         |Yes, must be explicitly [enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
-|Remote debugging     |Yes         |Yes         |Yes, must explicitly [enable](configure-network-settings.md#remote-debugging-access)         |
+|Remote debugging     |Yes         |Yes         |Yes, must explicitly [enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 |Subnet delegation   |Not required         |Not required         |Must be delegated to `Microsoft.Web/hostingEnvironments`        |
 
@@ -48,7 +48,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |---------|---------|---------|---------|
 |Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
 |Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
-|Scaling speed     |30+ minutes for Windows, 60+ minutes for Linux         |30+ minutes for Windows, 60+ minutes for Linux         |Less than 15 minutes for both Windows and Linux         |
+|TODO: Scaling speed     |30+ minutes for Windows, 60+ minutes for Linux         |30+ minutes for Windows, 60+ minutes for Linux         |Less than 15 minutes for both Windows and Linux         |
 
 ### Pricing
 
