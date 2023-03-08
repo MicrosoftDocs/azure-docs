@@ -113,7 +113,7 @@ When you enable or disable customer-managed keys, or when you modify the key or 
 
 ## Revoke access with customer-managed keys
 
-You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, clients can't call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
+To revoke access to a storage account that uses customer-managed keys, disable the key that is currently being used. After the key has been disabled, clients can't call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
