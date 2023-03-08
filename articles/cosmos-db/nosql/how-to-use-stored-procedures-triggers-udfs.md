@@ -1,11 +1,11 @@
 ---
 title: Register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB SDKs
-description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs
+description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 03/09/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.devlang: csharp, java, javascript, python
@@ -15,25 +15,25 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 # How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-The API for NoSQL in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. Once you've defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
+The API for NoSQL in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. After you define one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
-You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (legacy)](sdk-dotnet-v2.md), [.NET v3](sdk-dotnet-v3.md), [Java](sdk-java-v2.md), [JavaScript](sdk-nodejs.md), or [Python](sdk-python.md) SDKs to perform these tasks. If you haven't worked with one of these SDKs before, see the *"Quickstart"* article for the appropriate SDK:
+You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (legacy)](sdk-dotnet-v2.md), [.NET v3](sdk-dotnet-v3.md), [Java](sdk-java-v2.md), [JavaScript](sdk-nodejs.md), or [Python](sdk-python.md) SDKs to do these tasks. If you haven't worked with one of these SDKs before, see the quickstart article for the appropriate SDK:
 
 | SDK | Getting started |
 | :--- | :--- |
-| .NET v3 | [Quickstart: Build a .NET console app to manage Azure Cosmos DB for NoSQL resources](quickstart-dotnet.md) |
+| .NET v3 | [Quickstart: Azure Cosmos DB for NoSQL client library for .NET](quickstart-dotnet.md) |
 | Java | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](quickstart-java.md)
-| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account](quickstart-nodejs.md) |
-| Python | [Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account](quickstart-python.md) |
+| JavaScript | [Quickstart: Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md) |
+| Python | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](quickstart-python.md) |
 
 ## How to run stored procedures
 
-Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos DB container. For more information on how to write stored procedures in Azure Cosmos DB, see [How to write stored procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) article.
+Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos DB container. For more information, see [How to write stored procedures](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures).
 
-The following examples show how to register and call a stored procedure by using the Azure Cosmos DB SDKs. Refer to [Create a Document](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) as the source for this stored procedure is saved as `spCreateToDoItem.js`.
+The following examples show how to register and call a stored procedure by using the Azure Cosmos DB SDKs. For the source for this stored procedure, saved as *spCreateToDoItem.js*, see [Create items using stored procedures](how-to-write-stored-procedures-triggers-udfs.md#create-an-item).
 
 > [!NOTE]
-> For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
+> For partitioned containers, when you run a stored procedure, you must provide a partition key value in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value aren't visible to the stored procedure. This principle also applies to triggers.
 
 ### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
@@ -161,7 +161,7 @@ CosmosStoredProcedureResponse response = sproc.execute(
 
 ### [JavaScript SDK](#tab/javascript-sdk)
 
-The following example shows how to register a stored procedure by using the JavaScript SDK
+The following example shows how to register a stored procedure by using the JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -234,12 +234,12 @@ result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[
 
 ## How to run pre-triggers
 
-The following examples show how to register and call a pre-trigger by using the Azure Cosmos DB SDKs. Refer to the [Pre-trigger example](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) as the source for this pre-trigger is saved as `trgPreValidateToDoItemTimestamp.js`.
+The following examples show how to register and call a pre-trigger by using the Azure Cosmos DB SDKs. For the source of this pre-trigger example, saved as *trgPreValidateToDoItemTimestamp.js*, see [Pre-triggers](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers).
 
-Pre-triggers are passed in the RequestOptions object, when executing an operation, by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object.
+When you run an operation by specifying `PreTriggerInclude` and then passing the name of the trigger in a `List` object, pre-triggers are passed in the `RequestOptions` object.
 
 > [!NOTE]
-> Even though the name of the trigger is passed as a List, you can still execute only one trigger per operation.
+> Even though the name of the trigger is passed as a `List`, you can still run only one trigger per operation.
 
 ### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
@@ -404,7 +404,7 @@ container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimes
 
 ## How to run post-triggers
 
-The following examples show how to register a post-trigger by using the Azure Cosmos DB SDKs. Refer to the [Post-trigger example](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) as the source for this post-trigger is saved as `trgPostUpdateMetadata.js`.
+The following examples show how to register a post-trigger by using the Azure Cosmos DB SDKs. For the source of this post-trigger example, saved as *trgPostUpdateMetadata.js*, see [Post-triggers](how-to-write-stored-procedures-triggers-udfs.md#post-triggers)
 
 ### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
@@ -565,7 +565,7 @@ container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTime
 
 ## How to work with user-defined functions
 
-The following examples show how to register a user-defined function by using the Azure Cosmos DB SDKs. Refer to this [User-defined function example](how-to-write-stored-procedures-triggers-udfs.md#udfs) as the source for this post-trigger is saved as `udfTax.js`.
+The following examples show how to register a user-defined function by using the Azure Cosmos DB SDKs. For the source of this user-defined function example, saved as *udfTax.js*, see [How to write user-defined functions](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
@@ -705,7 +705,5 @@ results = list(container.query_items(
 
 Learn more concepts and how-to write or use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
-- [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
-- [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md)
-- [How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md)
-- [How to write stored procedures and triggers using JavaScript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
+- [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)
+- [JavaScript query API in Azure Cosmos DB](javascript-query-api.md)
