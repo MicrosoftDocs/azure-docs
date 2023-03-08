@@ -18,6 +18,8 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 - [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - You will need Owner permission on the resource group for your Azure Stack Edge resource.
+    > [!NOTE]
+    > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
 
 ## Enter a minishell session
 
