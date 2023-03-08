@@ -51,7 +51,7 @@ First, create a csv file that describes a sales order, and then upload that file
 2. Select **Storage browser**->**Blob containers**->**Add container** and create a new container named **data**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png).
+   > ![Screenshot of creating a folder in storage browser.](./media/data-lake-storage-events/data-container.png)
 
 3. In the **data** container, create a directory named **input**.
 
