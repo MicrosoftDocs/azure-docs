@@ -5,7 +5,7 @@ author: adinastoll
 ms.author: adnegrau
 ms.service: purview
 ms.topic: tutorial
-ms.date: 02/02/2023
+ms.date: 03/08/2023
 ---
 
 
@@ -44,7 +44,7 @@ An *asset* is a metadata element that describes a digital or physical resource. 
 
 * Data sources such as databases, files, and data feed.
 * Analytical models and processes.
-* Bussiness policies and terms.
+* Business policies and terms.
 * Infrastructure like the server.
 
 Microsoft Purview provides users a flexible *type system* to expand the definition of the asset to include new kinds of resources as they become relevant. Microsoft Purview relies on the [Type System](https://atlas.apache.org/2.0.0/TypeSystem.html) from Apache Atlas. All metadata objects (assets) managed by Microsoft Purview are modeled using type definitions. Understanding the Type System is fundamental to create new custom types in Microsoft Purview.
@@ -138,41 +138,41 @@ Based on the JSON type definition, let's look at some properties:
 
 * **ServiceType** field is useful when browsing assets *by source type* in Microsoft Purview. The *service type* will be an entry point to find all assets that belong to the same *service type* - as defined on their type definition. In the below screenshot of Purview UI, the user limits the result to be the entities specified with *Azure SQL Database* in **serviceType**:
 
-:::image type="content" source="./media/tutorial-custom-types/browse-assets.png" alt-text="Screenshot of the portal showing the path from Data Catalog to Browse to By source type and the asset highlighted.":::
+   :::image type="content" source="./media/tutorial-custom-types/browse-assets.png" alt-text="Screenshot of the portal showing the path from Data Catalog to Browse to By source type and the asset highlighted.":::
 
-> [!NOTE]
-> **Azure SQL Database** is defined with the same *serviceType* as **Azure SQL Table**.
+   > [!NOTE]
+   > **Azure SQL Database** is defined with the same *serviceType* as **Azure SQL Table**.
 
 * **SuperTypes** describes the *"parent"* types you want to "*inherit*" from.
 
 * **schemaElementsAttributes** from **options** influences what appears in the **Schema** tab of your asset in Microsoft Purview.
 
-Below you can see an example of how the **Schema** tab looks like for an asset of type Azure SQL Table:
+   Below you can see an example of how the **Schema** tab looks like for an asset of type Azure SQL Table:
 
-:::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset.":::
+   :::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset.":::
 
-**relationshipAttributeDefs** are calculated through the relationship type definitions. In our JSON, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns** - which is one of elements from **relationshipAttributeDefs** array, as shown below:
+* **relationshipAttributeDefs** are calculated through the relationship type definitions. In our JSON, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns** - which is one of elements from **relationshipAttributeDefs** array, as shown below:
 
-```json
-...
-"relationshipAttributeDefs": [
-    ...
-    {
-      "name": "columns",
-      "typeName": "array<azure_sql_column>",
-      "isOptional": true,
-      "cardinality": "SET",
-      "relationshipTypeName": "azure_sql_table_columns",
-    },
-  ]
-```
+   ```json
+   ...
+   "relationshipAttributeDefs": [
+       ...
+       {
+         "name": "columns",
+         "typeName": "array<azure_sql_column>",
+         "isOptional": true,
+         "cardinality": "SET",
+         "relationshipTypeName": "azure_sql_table_columns",
+       },
+     ]
+   ```
 
-Each relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case, it's *azure_sql_table_columns*.
+   Each relationship has its own definition. The name of the definition is found in **relationshipTypeName** attribute. In this case, it's *azure_sql_table_columns*.
 
-* The **cardinality** of this relationship attribute is set to *SET, which suggests that it holds a list of related assets.
-* The related asset is of type *azure_sql_column*, as visible in the *typeName* attribute.
+   * The **cardinality** of this relationship attribute is set to *SET, which suggests that it holds a list of related assets.
+   * The related asset is of type *azure_sql_column*, as visible in the *typeName* attribute.
 
-In other words, the *columns* relationship attribute relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
+   In other words, the *columns* relationship attribute relates the Azure SQL Table to a list of Azure SQL Columns that show up in the Schema tab.
 
 ## Example of a *relationship Type definition*
 
@@ -224,30 +224,27 @@ Below you can see a simplified JSON result:
   * **cardinality** is either SINGLE, SET or LIST.
 
   * **isContainer** is a boolean and applies to containment relationship category. When set to true in one end, it indicates that this end is the container of the other end. Therefore:
-     * Ony *Composition* or *Aggregation* category relationship can and should have in one end *isContainer* set to true.
-     * *Association* category relationship should not have *isContainer* property set to true in any end.
+     * Only the *Composition* or *Aggregation* category relationships can and should have in one end *isContainer* set to true.
+     * *Association* category relationship shouldn't have *isContainer* property set to true in any end.
 
 * **endDef2** is the second end of the definition and describes, similarly to endDef1, the properties of the second part of the relationship.
 
 ## Schema tab
 
 ### What is **Schema** in Microsoft Purview?
-Schema is an important concept which reflects how data is stored and organized in the data store. It reflects the structure of the data as well as the data restrictions of the elements that construct the structure. 
+Schema is an important concept that reflects how data is stored and organized in the data store. It reflects the structure of the data and the data restrictions of the elements that construct the structure. 
 
-Elements on the same schema can be classified differently (due to their content). Also, different transformation (lineage) can happen to only a subset of elements. Due to these aspects, Purview allows to model schema and schema elements **as entities**, hence schema is usually a relationship attribute to the data asset entity. Examples of schema elements are: **columns** of a table, **json properties** of json schema, **xml elements** of xml schema etc.
+Elements on the same schema can be classified differently (due to their content). Also, different transformation (lineage) can happen to only a subset of elements. Due to these aspects, Purview can model schema and schema elements **as entities**, hence schema is usually a relationship attribute to the data asset entity. Examples of schema elements are: **columns** of a table, **json properties** of json schema, **xml elements** of xml schema etc.
 
 There are two types of schemas:
-* Intrinsic Schema:
 
-Some systems are intrinsic to schema. For example, when you create a SQL Table, the system will require you to define the columns that construct the table; in this sense, schema of a table is reflected by its columns.
+* **Intrinsic Schema** - Some systems are intrinsic to schema. For example, when you create a SQL Table, the system requires you to define the columns that construct the table; in this sense, schema of a table is reflected by its columns.
 
-For data store with predefined schema, Purview uses the corresponding relationship between the data asset and the schema elements to reflect the schema. This relationship attribute is specified by the keyword **schemaElementsAttribute** in **options** property of the entity type definition.
+   For data store with predefined schema, Purview uses the corresponding relationship between the data asset and the schema elements to reflect the schema. This relationship attribute is specified by the keyword **schemaElementsAttribute** in **options** property of the entity type definition.
 
-* Non Intrinsic Schema:
+* **Non Intrinsic Schema** - Some systems don't enforce such schema restrictions, but users can use it to store structural data by applying some schema protocols to the data. For example, Azure Blobs store binary data and do not care about the data in the binary stream. Therefore, it's unaware of any schema, but the user can serialize their data with schema protocols like json before storing it in the blob. In this sense, schema is maintained by some extra protocols and corresponding validation enforced by the user. 
 
-Some systems don't enforce such schema restrictions, but users can use it to store structural data by applying some schema protocols to the data. For example, Azure Blobs store binary data and does not care about the data in the binary stream. Therefore, it is unaware of any schema, but the user can serialize their data with schema protocols like json before storing it in the blob. In this sense, schema is maintained by some extra protocols and corresponding validation enforced by the user. 
-
-For data store without inherent schema, schema model is independent of this data store. For such cases, Purview defines an interface for schema and a relationship between DataSet and schema, called **dataset_attached_schemas** - this extends any entity type that inherits form DataSet to have an **attachedSchema** relationship attribute to link to their schema representation.
+   For data store without inherent schema, schema model is independent of this data store. For such cases, Purview defines an interface for schema and a relationship between DataSet and schema, called **dataset_attached_schemas** - this extends any entity type that inherits form DataSet to have an **attachedSchema** relationship attribute to link to their schema representation.
 
 ### Example of **Schema tab**
 The Azure SQL Table example from above has an intrinsic schema. The information that shows up in the Schema tab of the Azure SQL Table comes from the Azure SQL Column themselves.
@@ -307,7 +304,7 @@ Here's a simplified JSON result:
 
 Azure SQL Table used *schemaElementAttribute* to point to a relationship consisting of a list of Azure SQL Columns. The type definition of a column has *schemaAttributes* defined.
 
-In this way, the Schema tab in the table will display the attribute(s) listed in the *schemaAttributes* of the related assets.
+In this way, the Schema tab in the table displays the attribute(s) listed in the *schemaAttributes* of the related assets.
 
 ## Create custom type definitions
 
@@ -326,9 +323,9 @@ Now that we gained an understanding of type definitions in general, let us creat
 
 ### Scenario
 
-* In this tutorial, we would like to model a 1:n relationship between two types, called *custom_type_parent* and *custom_type_child*.
+In this tutorial, we would like to model a 1:n relationship between two types, called *custom_type_parent* and *custom_type_child*.
 
-* A *custom_type_child* should reference one parent, whereas a *custom_type_parent* can reference a list of children.
+A *custom_type_child* should reference one parent, whereas a *custom_type_parent* can reference a list of children.
 
 They should be linked together through a 1:n relationship.
 
@@ -343,7 +340,7 @@ They should be linked together through a 1:n relationship.
    POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
    ```
    
-   with the body:
+   With the body:
    
    ```json
     {
@@ -374,7 +371,7 @@ They should be linked together through a 1:n relationship.
    POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
    ```
    
-   with the body:
+   With the body:
    
    ```json
     {
@@ -405,7 +402,7 @@ They should be linked together through a 1:n relationship.
    POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
    ```
 
-   with the body:
+   With the body:
 
    ```json
    {
@@ -440,7 +437,7 @@ They should be linked together through a 1:n relationship.
    POST https://{{ENDPOINT}}.purview.azure.com/catalog/api/atlas/v2/entity
    ```
 
-   with the body:
+   With the body:
 
    ```json
    
@@ -518,48 +515,49 @@ They should be linked together through a 1:n relationship.
 1. Select *By source type*.
 1. Select *Sample-Custom-Types*.
 
-  :::image type="content" source="./media/tutorial-custom-types/custom-types-objects.png" alt-text="Screenshot showing the path from the Data Catalog to Browse assets with the filter narrowed to Sample-Custom-Types.":::
+    :::image type="content" source="./media/tutorial-custom-types/custom-types-objects.png" alt-text="Screenshot showing the path from the Data Catalog to Browse assets with the filter narrowed to Sample-Custom-Types.":::
 
 1. Select the *First_parent_object*:
 
-  :::image type="content" source="./media/tutorial-custom-types/first-parent-object.png" alt-text="Screenshot of the First_parent_object page.":::
+    :::image type="content" source="./media/tutorial-custom-types/first-parent-object.png" alt-text="Screenshot of the First_parent_object page.":::
 
 1. Select the *Properties* tab:
 
-  :::image type="content" source="./media/tutorial-custom-types/children.png" alt-text="Screenshot of the properties tab with the related assets highlighted, showing one child asset.":::
+    :::image type="content" source="./media/tutorial-custom-types/children.png" alt-text="Screenshot of the properties tab with the related assets highlighted, showing one child asset.":::
 
 1. You can see the *First_child_object* being linked there.
 
 1. Select the *First_child_object*:
 
-  :::image type="content" source="./media/tutorial-custom-types/first-child-object.png" alt-text="Screenshot of the First_child_object page, showing the overview tab.":::
+    :::image type="content" source="./media/tutorial-custom-types/first-child-object.png" alt-text="Screenshot of the First_child_object page, showing the overview tab.":::
 
 1. Select the *Properties* tab:
 
-  :::image type="content" source="./media/tutorial-custom-types/parent.png" alt-text="Screenshot of the properties page, showing the related assets with a single parent asset.":::
+    :::image type="content" source="./media/tutorial-custom-types/parent.png" alt-text="Screenshot of the properties page, showing the related assets with a single parent asset.":::
 
 1. You can see the Parent object being linked there.
 
 1. Similarly, you can select the *Related* tab and will see the relationship between the two objects:
 
-  :::image type="content" source="./media/tutorial-custom-types/relationship.png" alt-text="Screenshot of the Related tab, showing the relationship between the child and parent.":::
+    :::image type="content" source="./media/tutorial-custom-types/relationship.png" alt-text="Screenshot of the Related tab, showing the relationship between the child and parent.":::
 
 1. You can create multiple children by initializing a new child asset and inititialzing a relationship
 
-  >[!NOTE]
-  >The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
+    >[!NOTE]
+    >The *qualifiedName* is unique per asset, therefore, the second child should be called differently, such as: *custom//custom_type_child:Second_child_object* 
 
-  :::image type="content" source="./media/tutorial-custom-types/two_children.png" alt-text="Screenshot of the First_parent_object, showing the two child assets highlighted.":::
+    :::image type="content" source="./media/tutorial-custom-types/two_children.png" alt-text="Screenshot of the First_parent_object, showing the two child assets highlighted.":::
 
-  >[!TIP]
-  > If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
+    >[!TIP]
+    > If you delete the *First_parent_object* you will notice that the children will also be removed, due to the *COMPOSITION* relationship that we chose in the definition.
 
 ## Limitations
 
-There are several known limitations when working with custom types which will be enhanced in future, such as:
+There are several known limitations when working with custom types that will be enhanced in future, such as:
 * Relationship tab looks different compared to built-in types
 * Custom types have no icons
-* Hierarchy is not supported 
+* Hierarchy isn't supported
+
 ## Next steps
 
 > [!div class="nextstepaction"]
