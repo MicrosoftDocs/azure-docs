@@ -268,11 +268,11 @@ Filesystem                                                                      
 
 ## Use a persistent volume with private Azure Files storage (private endpoint)
 
-If your Azure Files resources are protected with a private endpoint, you must create your own storage class that's customized with the following parameters:
+If your Azure Files resources are protected with a private endpoint, you must create your own storage class. Make sure that you've [configured your DNS settings to resolve the private endpoint IP address to the FQDN of the connection string][azure-private-endpoint-dns].  that's customized with the following parameters:
 
 * `resourceGroup`: The resource group where the storage account is deployed.
 * `storageAccount`: The storage account name.
-* `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
+* `server`: The FQDN of the storage account's private endpoint.
 
 Create a file named `private-azure-file-sc.yaml`, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
 
@@ -286,7 +286,7 @@ allowVolumeExpansion: true
 parameters:
   resourceGroup: <resourceGroup>
   storageAccount: <storageAccountName>
-  server: <storageAccountName>.privatelink.file.core.windows.net 
+  server: <storageAccountName>.file.core.windows.net 
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
@@ -300,7 +300,7 @@ mountOptions:
   - actimeo=30  # reduce latency for metadata-heavy workload
 ```
 
-Create the storage class by using the [kubectl apply][kubectl-apply] command:
+Create the storage class by using the `kubectl apply` command:
 
 ```console
 kubectl apply -f private-azure-file-sc.yaml
@@ -512,3 +512,4 @@ The output of the commands resembles the following example:
 [access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
+[azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
