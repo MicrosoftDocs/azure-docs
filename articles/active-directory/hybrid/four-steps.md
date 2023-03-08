@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 03/08/2023
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Four steps to a strong identity foundation with Azure Active Directory
 
-Managing access to apps and data can no longer rely on the traditional network security boundary strategies such as perimeter networks and firewalls because of the rapid movement of apps to the cloud. Now organizations must trust their identity solution to control who and what has access to the organization's apps and data. More organizations are allowing employees to bring their own devices to work and use their devices from anywhere they can connect to the Internet. Ensuring those devices are compliant and secure has become an important consideration in the identity solution an organization chooses to implement. In today's digital workplace, [identity is the primary control plane](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) of any organization moving to the cloud.
+Managing access to apps and data can no longer rely on the traditional network security boundary strategies such as perimeter networks and firewalls because of the rapid movement of apps to the cloud. Now organizations must trust their identity solution to control who and what has access to the organization's apps and data. More organizations are allowing employees to bring their own devices to work and use their devices from anywhere they can connect to the Internet from. Ensuring those devices are compliant and secure has become an important consideration in the identity solution an organization chooses to implement. In today's digital workplace, [identity is the primary control plane](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) of any organization moving to the cloud.
 
-In adopting an Azure Active Directory (Azure AD) hybrid identity solution, organizations gain access to premium features that unlock productivity through automation, delegation, self-service, and single sign-on capabilities. It allows your workers to access company resources from wherever they need to do their work while allowing your IT team to govern that access by ensuring that the right people have the right access to the right resources to establish secure productivity.
+In adopting an Azure Active Directory (Azure AD) hybrid identity solution, organizations gain access to premium features that unlock productivity through automation, delegation, self-service, and single sign-on capabilities. It allows employees to access company resources from wherever they need to do their work while allowing IT teams to govern that access and ensure that the right people have the right access to the right resources for the right time to establish secure productivity.
 
 Based on our learnings, this checklist of best practices will help you quickly deploy recommended actions to build a *strong* identity foundation in your organization:
 
@@ -29,17 +29,17 @@ Based on our learnings, this checklist of best practices will help you quickly d
 
 ## Step 1 - Connect to apps easily
 
-By connecting your apps with Azure AD, you can improve end-user productivity and security by enabling single sign-on (SSO) and do user provisioning. By managing your apps in a single place, Azure AD, you can minimize administrative overhead and achieve a single point of control for your security and compliance policies.
+By connecting your apps with Azure AD, you can improve end-user productivity and security by enabling single sign-on (SSO) and performing automatic user provisioning. By managing your apps in a single place, Azure AD, you can minimize administrative overhead and achieve a single point of control for your security and compliance policies.
 
 This section covers your options for managing user access to apps, enabling secure remote access to internal apps, and the benefits of migrating your apps to Azure AD.
 
 ### Make apps available to your users seamlessly
 
-Azure AD enables administrators to [add applications](../manage-apps/add-application-portal.md) to the Enterprise applications gallery in the [Azure portal](https://portal.azure.com/). Adding applications to the Enterprise applications gallery makes it easier for you to configure applications to use Azure AD as your identity provider. It also lets you manage user access to the application with Conditional Access policies and configure single sign-on (SSO) to applications so that users don't have to enter their passwords repeatedly and are automatically signed into both on-premises and cloud-based applications.
+Azure AD enables administrators to [add applications](../manage-apps/add-application-portal.md) to the Azure AD application gallery in the [Azure portal](https://portal.azure.com/). Adding applications to the Enterprise applications gallery makes it easier for you to configure applications to use Azure AD as your identity provider. It also lets you manage user access to the application with Conditional Access policies and configure single sign-on (SSO) to applications so that users don't have to enter their passwords repeatedly and are automatically signed into both on-premises and cloud-based applications.
 
-Once applications are added to the Azure AD gallery, users can see apps that are assigned to them and search and request other apps as needed. Azure AD provides [several methods](../manage-apps/end-user-experiences.md) for users to access their apps:
+Once applications are integrated into Azure AD gallery, users can see apps that are assigned to them and search and request other apps as needed. Azure AD provides [several methods](../manage-apps/end-user-experiences.md) for users to access their apps:
 
-* Access panel/My Apps
+* My Apps portal
 * Microsoft 365 app launcher
 * Direct sign-on to federated apps
 * Direct sign-on links
@@ -55,39 +55,37 @@ Migrating single sign-on configuration from Active Directory Federation Services
 * Increasing productivity
 * Addressing compliance and governance
 
-To learn more, see the [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper) whitepaper.
-
 ### Enable secure remote access to apps
 
-[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or an internal application portal.
+[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or the My Apps portal.
 
 Azure AD Application Proxy offers the following benefits:
 
 * Extending Azure AD to on-premises resources
   * Cloud-scale security and protection
   * Features like Conditional Access and Multi-Factor Authentication that are easy to enable
-* No components in the perimeter network such as VPN and traditional reverse proxy solutions
+* No components needed in the perimeter network such as VPN and traditional reverse proxy solutions
 * No inbound connections required
 * Single sign-on (SSO) across devices, resources, and apps in the cloud and on-premises
 * Empowers end users to be productive anytime and anywhere
 
 ### Discover Shadow IT with Microsoft Defender for Cloud Apps
 
-In modern enterprises, IT departments are often not aware of all the cloud applications that are used by the users to do their work. When IT admins are asked how many cloud apps they think their employees use, on average they say 30 or 40. In reality, the average is over 1,000 separate apps being used by employees in your organization. 80% of employees use non-sanctioned apps that no one has reviewed and may not be compliant with your security and compliance policies.
+In modern enterprises, IT departments are often not aware of all cloud applications that are used by the users to do their work. When IT admins are asked how many cloud apps they think their employees use, on average they say 30 or 40. In reality, the average is over 1,000 separate apps being used by employees in your organization. 80% of employees use non-sanctioned apps that no one has reviewed and may not be compliant with your security and compliance policies.
 
-[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and Conditional Access.
+[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) can help you identify useful apps that are popular with users that IT may sanction and integrate in Azure AD so that users benefit from capabilities such as SSO and Conditional Access.
 
 <em>"**Defender for Cloud Apps** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-In addition to detecting shadow IT, Defender for Cloud Apps can also determine the risk level of apps, prevent unauthorized access to corporate data, possible data leakage, and other security risks inherent in the applications.
+In addition to detecting shadow IT, Microsoft Defender for Cloud Apps can also determine the risk level of apps, prevent unauthorized access to corporate data, possible data leakage, and other security risks inherent in the applications.
 
 ## Step 2 - Establish one identity for every user automatically
 
 Bringing on-premises and cloud-based directories together in an Azure AD hybrid identity solution will allow you to reuse your existing on-premises Active Directory investment by provisioning your existing identities in the cloud. The solution synchronizes on-premises identities with Azure AD, while IT keeps the on-premises Active Directory running with any existing governance solutions as the primary source of truth for identities. Microsoft's Azure AD hybrid identity solution spans on-premises and cloud-based capabilities, creating a common user identity for authentication and authorization to all resources regardless of their location.
 
-Integrating your on-premises directories with Azure AD makes your users more productive and prevents users from using multiple accounts across apps and services by providing a common identity for accessing both cloud and on-premises resources. Using multiple accounts is a pain point for end users and IT alike. From an end-user perspective, having multiple accounts means having to remember multiple passwords. To avoid this, many users reuse the same password for each account, which is bad from a security perspective. From an IT perspective, reuse often leads to more password resets and helpdesk costs along with the end-user complaints.
+Integrating your on-premises directories with Azure AD makes your users more productive and prevents users from using multiple accounts across apps and services by providing a common identity to access both cloud and on-premises resources. Using multiple accounts is a pain point for end users and IT alike. From an end-user perspective, having multiple accounts means having to remember multiple passwords. To avoid this, many users reuse the same password for each account, which is bad from a security perspective. From an IT perspective, reuse often leads to more password resets and helpdesk costs along with the end-user complaints.
 
-Azure AD Connect is the tool that is used for to sync your on-premises identities to Azure AD, which can then be used to access cloud applications. Once the identities are in Azure AD, they can provision to SaaS applications like Salesforce or Concur.
+Azure AD Connect is the tool that is used to synchronize your on-premises identities to Azure AD, which can then be used to access integrated applications. Once the identities are in Azure AD, they can be provisioned to SaaS applications like Salesforce or Concur.
 
 In this section, we list recommendations for providing high availability, modern authentication for the cloud, and reducing your on-premises footprint.
 
@@ -96,9 +94,9 @@ In this section, we list recommendations for providing high availability, modern
 
 ### Set up a staging server for Azure AD Connect and keep it up-to-date
 
-Azure AD Connect plays a key role in the provisioning process. If the Sync Server goes offline for any reason, changes to on-premises won't be updated in the cloud and cause access issues to users. It's important to define a failover strategy that allows administrators to quickly resume synchronization after the sync server goes offline.
+Azure AD Connect plays a key role in the provisioning process. If the Server running Azure AD Connect goes offline for any reason, changes to on-premises won't be updated in the cloud and cause access issues to users. It's important to define a failover strategy that allows administrators to quickly resume synchronization after the Azure AD Connect server goes offline.
 
-To provide high availability in the event your primary Azure AD Connect server goes offline, it's recommended that you deploy a separate [staging server](./how-to-connect-sync-staging-server.md) for Azure AD Connect. Deploying a  server allows the administrator to "promote" the staging server to production by a simple configuration switch. Having a standby server configured in staging mode also allows you to test and deploy new configuration changes and introduce a new server if decommissioning the old one.
+To provide high availability in the event your primary Azure AD Connect server goes offline, it's recommended that you deploy a separate [staging server](./how-to-connect-sync-staging-server.md) for Azure AD Connect. With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment. Deploying a stagging server allows the administrator to "promote" it to production by a simple configuration switch. Having a standby server configured in staging mode also allows you to introduce a new server if decommissioning the old one.
 
 > [!TIP]
 > Azure AD Connect is updated on a regular basis. Therefore, it's strongly recommended that you keep the staging server current in order to take advantage of the performance improvements, bug fixes, and new capabilities that each new version provides.
@@ -107,9 +105,9 @@ To provide high availability in the event your primary Azure AD Connect server g
 
 Organizations with on-premises Active Directory should extend their directory to Azure AD using Azure AD Connect and configure the appropriate authentication method. [Choosing the correct authentication method](./choose-ad-authn.md) for your organization is the first step in your journey of moving apps to the cloud. It's a critical component since it controls access to all cloud data and resources.
 
-The simplest and recommended method for enabling cloud authentication for on-premises directory objects in Azure AD is to enable [Password Hash Synchronization](./how-to-connect-password-hash-synchronization.md) (PHS). Alternatively, some organizations may consider enabling [Pass-through Authentication](./how-to-connect-pta-quick-start.md) (PTA).
+The simplest and recommended method to enable cloud authentication for on-premises directory objects in Azure AD is [Password Hash Synchronization](./how-to-connect-password-hash-synchronization.md) (PHS). Alternatively, some organizations may consider enabling [Pass-through Authentication](./how-to-connect-pta-quick-start.md) (PTA).
 
-Whether you choose PHS or PTA, don't forget to enable [Seamless Single Sign-on](./how-to-connect-sso.md) to allow users to access cloud apps without constantly entering their username and password in the app when using Windows 7 and 8 devices on your corporate network. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
+Whether you choose PHS or PTA, don't forget to consider [SSO](./how-to-connect-sso.md) to allow users to access apps without constantly entering their username and password sso can be Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
 
 For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS and Seamless SSO or PTA and Seamless SSO to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
