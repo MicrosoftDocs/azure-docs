@@ -137,7 +137,7 @@ Autoscale supports the following services.
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
 | Azure Stream Analytics                            | [Autoscale streaming units (preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
-| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](https://learn.microsoft.com/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
+| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
 | Azure Machine Learning workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |
 | Azure Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
