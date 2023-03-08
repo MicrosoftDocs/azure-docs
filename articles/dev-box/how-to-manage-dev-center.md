@@ -33,7 +33,7 @@ To create a dev center:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev centers**. In the search results, select **Dev centers** from the **Services** list.
+1. In the search box, enter **dev centers**. In the search results, select **Dev centers** from the **Services** list.
 
    :::image type="content" source="./media/how-to-manage-dev-center/search-dev-center.png" alt-text="Screenshot that shows the search box and list of services on the Azure portal.":::
 
@@ -79,13 +79,13 @@ When you're ready to delete your dev center, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev centers**. In the search results, select **Dev centers** from the **Services** list.
+1. In the search box, enter **dev centers**. In the search results, select **Dev centers** from the **Services** list.
 
-1. On the **Dev centers** page, open the dev center you want to delete.
+1. On the **Dev centers** page, open the dev center that you want to delete.
 
 1. Select **Delete**.
 
-    :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on a page for a dev center.":::
+    :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center.":::
 
 1. In the confirmation message, select **OK**.
 
@@ -95,7 +95,7 @@ You can attach existing network connections to a dev center. You must attach a n
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev centers**. In the list of results, select **Dev centers**.
+1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
 
 1. Select the dev center that you want to attach the network connection to, and then select **Networking**.
 
@@ -109,7 +109,7 @@ You can remove network connections from dev centers. Network connections can't b
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev centers**. In the list of results, select **Dev centers**.
+1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
 
 1. Select the dev center that you want to detach the network connection from, and then select **Networking**.
 
@@ -131,7 +131,7 @@ To make role assignments:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev centers**. In the list of results, select **Dev centers**.
+1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
 
 1. Select the dev center that you want to give access to.
 
@@ -145,7 +145,7 @@ To make role assignments:
     | --- | --- |
     | **Role** | Select **Owner**, **Contributor**, or **Reader**. |
     | **Assign access to** | Select **User, group, or service principal**. |
-    | **Members** | Select the users or groups you want to have access to the dev center. |
+    | **Members** | Select the users or groups that you want to be able to access the dev center. |
 
 ## Next steps
 
