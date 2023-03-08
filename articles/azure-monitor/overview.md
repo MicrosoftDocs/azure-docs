@@ -117,7 +117,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 The following sections outline methods and services that consume montoring data from the data platform.
 
-:::image type="content" source="media/overview/overview-consume.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-consume-in-context.png":::
+:::image type="content" source="media/overview/overview-consume.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-consumption-large-in-context.png":::
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
