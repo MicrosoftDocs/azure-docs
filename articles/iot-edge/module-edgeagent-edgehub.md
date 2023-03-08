@@ -30,13 +30,16 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
+| imagePullPolicy | | |
+| restartPolicy | | |
 | runtime.type | Has to be "docker" | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | No |
 | runtime.settings.registryCredentials.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br>Registry credentials are necessary for any private module images. | No |
 | runtime.settings.registryCredentials.{registryId}.password | The password for the container registry. | No |
-| runtime.settings.registryCredentials.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No |  
+| runtime.settings.registryCredentials.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No | 
+| schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes | 
+| status | | |
 | systemModules.edgeAgent.type | Has to be "docker" | Yes |
 | systemModules.edgeAgent.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | systemModules.edgeAgent.settings.image | The URI of the image of the IoT Edge agent. Currently, the IoT Edge agent isn't able to update itself. | Yes |
@@ -59,6 +62,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
+| version | The current iteration that has version, commit, and build | |
 
 ## EdgeAgent reported properties
 
@@ -77,30 +81,32 @@ The following table does not include the information that is copied from the des
 
 | Property | Description |
 | -------- | ----------- |
-| lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
 | lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
+| lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
 | runtime.platform.OS | Reporting the OS running on the device |
 | runtime.platform.architecture | Reporting the architecture of the CPU on the device |
+| schemaVersion | The IoT Edge runtime schema version |
 | systemModules.edgeAgent.runtimeStatus | The reported status of IoT Edge agent: {"running" \| "unhealthy"} |
-| systemModules.edgeAgent.statusDescription | Text description of the reported status of the IoT Edge agent. |
+| systemModules.edgeAgent.statusDescription | Text description of the reported status of the IoT Edge agent |
 | systemModules.edgeAgent.exitCode | The exit code reported by the IoT Edge agent container if the container exits |
 | systemModules.edgeAgent.lastStartTimeUtc | Time when IoT Edge agent was last started |
 | systemModules.edgeAgent.lastExitTimeUtc | Time when IoT Edge agent last exited |
 | systemModules.edgeHub.runtimeStatus | Status of IoT Edge hub: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
-| systemModules.edgeHub.statusDescription | Text description of the status of IoT Edge hub if unhealthy. |
+| systemModules.edgeHub.statusDescription | Text description of the status of IoT Edge hub if unhealthy |
 | systemModules.edgeHub.exitCode | The exit code reported by the IoT Edge hub container if the container exits |
 | systemModules.edgeHub.lastStartTimeUtc | Time when IoT Edge hub was last started |
 | systemModules.edgeHub.lastExitTimeUtc | Time when IoT Edge hub last exited |
 | systemModules.edgeHub.lastRestartTimeUtc | Time when IoT Edge hub was last restarted |
-| systemModules.edgeHub.restartCount | Number of times this module was restarted as part of the restart policy. |
+| systemModules.edgeHub.restartCount | Number of times this module was restarted as part of the restart policy |
 | modules.{moduleId}.runtimeStatus | Status of the module: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
-| modules.{moduleId}.statusDescription | Text description of the status of the module if unhealthy. |
+| modules.{moduleId}.statusDescription | Text description of the status of the module if unhealthy |
 | modules.{moduleId}.exitCode | The exit code reported by the module container if the container exits |
 | modules.{moduleId}.lastStartTimeUtc | Time when the module was last started |
 | modules.{moduleId}.lastExitTimeUtc | Time when the module last exited |
 | modules.{moduleId}.lastRestartTimeUtc | Time when the module was last restarted |
-| modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy. |
+| modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy |
+| version | The current iteration that has version, commit, and build |
 
 ## EdgeHub desired properties
 
