@@ -910,19 +910,14 @@ sections:
           - :x: : This feature is not available or not applicable.
 
       - question: |
-          Is OpenTelemetry intended for use in web browsers?
+          Can OpenTelemetry be used for web browsers?
         answer: |
-          OpenTelemetry isn’t currently intended for use in web browsers. It’s primarily designed for use with Node.JS.
+          Yes but it’s not recommended or supported by Azure. OpenTelemetry Javascript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
 
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?
         answer: |
-          The availability timeline for the OpenTelemetry SDK hasn’t been determined yet.
-      
-      - question: |
-          Will OpenTelemetry be the preferred SDK for connecting to Application Insights for third parties in the future?
-        answer: |
-          It’s not expected to be the preferred SDK for connecting to Application Insights for third parties in the near future.
+          The availability timeline for the OpenTelemetry Web SDK hasn’t been determined yet, but we are likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
 
       - question: |
           Can I test OpenTelemetry in a web browser today?
