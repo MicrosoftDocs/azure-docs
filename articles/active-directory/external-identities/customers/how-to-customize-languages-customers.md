@@ -74,8 +74,6 @@ You can create a personalized sign-in experience for users who sign in using a s
    - Turkish (Turkey)
    - Ukrainian (Ukraine)
    
-   The following screenshot shows how to select a language.
-
 5. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, and **Sign-in form** tabs. For detailed steps, refer to the section above. To customize the default sign-in experience.
 
 6. When you’re finished, select the **Next: Review** tab and review all of your language customizations. Then select **Add** if you would like to save your changes or **Previous** if you would like to continue customizing.
