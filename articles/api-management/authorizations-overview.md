@@ -135,9 +135,9 @@ An API Management authorization can use either of two OAuth 2.0 grant types: [au
 OAuth 2.0 *scopes* provide a way to limit the amount of access that is granted to an access token. Specify scopes to limit the access of any configured authorizations to a backend OAuth 2.0 API. The content and format of the scopes are specific to the identity provider and the API permissions you need. For example, you might configure a `User.Read` scope for an Azure AD authorization provider used to authorize access to user data via a Microsoft Graph API.
 
 
-### Login to grant access
+### Log in to grant access
 
-For authorizations based on the authorization code grant type, you must first manually login to the provider to consent to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. After this initial consent, API Management uses the authorization settings to manage token retrieval.
+For authorizations based on the authorization code grant type, you must first manually log in to the provider to consent to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. After this initial consent, API Management uses the authorization settings to manage token retrieval.
 
 ### Access policies
 
