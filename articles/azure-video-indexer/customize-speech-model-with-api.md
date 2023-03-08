@@ -28,7 +28,7 @@ The following are descriptions of some of the parameters:
 
 ## Create a speech dataset 
 
-The [create speech dataset]() API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after its created. 
+The [create speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Dataset) API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after its created. 
 
 ### Response 
 
@@ -56,7 +56,7 @@ The response provides metadata on the newly created dataset following the format
 
 ## Create a speech model 
 
-The [create a speech model]() API creates and trains a custom speech model that could then be used to improve the transcription accuracy of your videos. It must contain at least one plain text dataset and can optionally have pronunciation datasets. Create it with all of the relevant dataset files as a model’s datasets can't be added or updated after its creation. 
+The [create a speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Model) API creates and trains a custom speech model that could then be used to improve the transcription accuracy of your videos. It must contain at least one plain text dataset and can optionally have pronunciation datasets. Create it with all of the relevant dataset files as a model’s datasets can't be added or updated after its creation. 
 
 ### Response 
 
@@ -84,7 +84,7 @@ The response provides metadata on the newly created model following the format o
 
 ## Get speech dataset 
 
-The [get speech dataset]() API returns information on the specified dataset.  
+The [get speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Dataset) API returns information on the specified dataset.  
 
 ### Response 
 
@@ -112,7 +112,7 @@ The response provides metadata on the specified dataset following the format of 
 
 ## Get speech dataset files 
 
-The [get speech dataset files]() API returns the files and metadata of the specified dataset. 
+The [get speech dataset files](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Dataset-Files) API returns the files and metadata of the specified dataset. 
 
 ### Response 
 
@@ -154,7 +154,7 @@ The response provides a URL with the dataset files and metadata following the fo
 
 ## Get the specified account datasets
 
-The get speech datasets API returns information on all of the specified accounts datasets.  
+The [get speech datasets](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Datasets) API returns information on all of the specified accounts datasets.  
 
 ### Response 
 
@@ -182,7 +182,7 @@ The response provides metadata on the datasets in the specified account followin
 
 ## Get the specified speech model 
 
-The [get speech model]() API returns information on the specified model.  
+The [get speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Model) API returns information on the specified model.  
 
 ### Response 
 
@@ -211,7 +211,7 @@ The response provides metadata on the specified model following the format of th
 
 ## Get the specified account speech models 
 
-The [get speech models]() API returns information on all of the models in the specified account.  
+The [get speech models](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Models) API returns information on all of the models in the specified account.  
 
 ### Response 
 
@@ -240,7 +240,7 @@ The response provides metadata on all of the speech models in the specified acco
 
 ## Delete speech dataset 
 
-The [delete speech dataset]() API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. 
+The [delete speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Dataset) API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. 
 
 ### Response 
 
@@ -248,7 +248,7 @@ There's no returned content when the dataset is deleted successfully.
 
 ## Delete a speech model 
 
-The [delete speech model]() API deletes the specified speech model.  
+The [delete speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Model) API deletes the specified speech model.  
 
 ### Response 
 
