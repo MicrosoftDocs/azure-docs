@@ -15,7 +15,7 @@ In this guide, learn how to create a dashboard in Azure Managed Grafana to visua
 A Grafana dashboard contains panels and rows. You can import a Grafana dashboard and adapt it to your own scenario, create a new Grafana dashboard, or duplicate an existing dashboard.
 
 > [!NOTE]
-> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation.](https://grafana.com/docs/grafana/latest/dashboards/)
+> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation](https://grafana.com/docs/grafana/latest/dashboards/).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Import a dashboard template from the Grafana Labs website.
 
       :::image type="content" source="media/create-dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
 
-   1. Optionally update the dashboard name, folder and UID.
+   1. Optionally update the dashboard name, folder, unique identifier (UID), and other parameters.
    1. Select a datasource and select **Import**.
    1. A new dashboard is displayed. Review and edit it if necessary.
 
@@ -64,11 +64,11 @@ Follow these steps to import a JSON dashboard to Grafana:
 ### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
-1. Go to **Dashboard > Import**
-   - Select **Upload JSON file** and then **Load** to import from a JSON file
-   - Paste JSON text in the **Import via panel json** box and select **Load** to use text from your clipboard
-1. Optionally update the dashboard name, folder, unique identifier and data source
-1. Select **Import**
+1. Go to **Dashboard > Import** use a preferred import option:
+   - Select **Upload JSON file** and then **Load** to import from a JSON file.
+   - Paste JSON text in the **Import via panel json** box and select **Load** to use text from your clipboard.
+1. Optionally update the dashboard name, folder, unique identifier (UID) and other parameters.
+1. Select **Import**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -129,10 +129,10 @@ Duplicate a Grafana dashboard using your preferred method.
 
 To copy a Grafana dashboard:
 
-1. Open an existing dashboard in your Grafana instance
-1. Select **Dashboard settings**
-1. Select **Save as**
-1. Enter a new name and/or a new folder and select **Save**
+1. Open an existing dashboard in your Grafana instance.
+1. Select **Dashboard settings**.
+1. Select **Save as**.
+1. Enter a new name and/or a new folder and select **Save**.
 
    :::image type="content" source="media\create-dashboard\copy-dashboard.png" alt-text="Screenshot of the Grafana instance. Duplicate a dashboard.":::
 
@@ -193,8 +193,8 @@ To update a Grafana panel, follow the steps below.
 
 1. At the top of the page:
    1. Toggle **Table view** to display data as a table.
-   1. Switch between **Fill** and **Actual** to edit panel size
-   1. Select the time icon to update the time range
+   1. Switch between **Fill** and **Actual** to edit panel size.
+   1. Select the time icon to update the time range.
    1. Select the visualization drop-down menu to choose a visualization type that best supports your use case. Go to [visualization](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) for more information.
 
     :::image type="content" source="media/create-dashboard/panel-time-visualization-options.png" alt-text="Screenshot of the Grafana instance. Time, visualization and more options.":::
