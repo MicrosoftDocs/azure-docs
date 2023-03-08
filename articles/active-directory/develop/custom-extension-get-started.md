@@ -202,7 +202,7 @@ Create an Application Registration to authenticate your custom extension to your
 
 1. Select **Run Query** to submit the request.
 
-Copy the application ID value (*appId*) from the response. You need this value later, which is referred to as the `{authenticationeventsAPI_AppId}`. Also get the object ID of the app (*ID*), which is referred to as `{authenticationeventsAPI_ObjectId}` from the response.
+1. Copy the **Application ID** value (*appId*) from the response. You need this value later, which is referred to as the `{authenticationeventsAPI_AppId}`. Also get the object ID of the app (*ID*), which is referred to as `{authenticationeventsAPI_ObjectId}` from the response.
 
 Create a service principal in the tenant for the authenticationeventsAPI app registration:
 

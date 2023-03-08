@@ -57,25 +57,31 @@ Use the following table to diagnose an error code.
 |----|----|----|
 |1003000 | EventHandlerUnexpectedError | There was an unexpected error when processing an event handler.|
 |1003001 | CustomExtenstionUnexpectedError | There was an unexpected error while calling a custom extension API.|
-|1003002 | CustomExtensionInvalidHTTPStatus | The custom extension API returned an invalid error code. Check that the API returns an accepted status code defined for that custom extension type.|
+|1003002 | CustomExtensionInvalidHTTPStatus | The custom extension API returned an invalid HTTP status code. Check that the API returns an accepted status code defined for that custom extension type.|
 |1003003 | CustomExtensionInvalidResponseBody | There was a problem parsing the custom extension's response body. Check that the API response body is in an acceptable schema for that custom extension type.|
-|1003004 | CustomExtenstionThrottlingError | There are too many custom extension requests. This exception is thrown for custom extension API calls when throttling limits are reached.|
+|1003004 | CustomExtensionThrottlingError | There are too many custom extension requests. This exception is thrown for custom extension API calls when throttling limits are reached.|
 |1003005 | CustomExtensionTimedOut | The custom extension didn't respond within the allowed timeout. Check that your API is responding within the configured timeout for the custom extension. It can also indicate that the access token is invalid. Follow the steps to [call your REST API directly](#call-your-rest-api-directly). |
 |1003006 | CustomExtensionInvalidResponseContentType | The custom extension's response content-type isn't 'application/json'.|
-|1003007 | CustomExtensionInvalidResponseEventType | The custom extension API didn't respond with the same eventType that it was called for.|
+|1003007 | CustomExtensionNullClaimsResponse | The custom extension API responded with a null claims bag.|
 |1003008 | CustomExtensionInvalidResponseApiSchemaVersion | The custom extension API didn't respond with the same apiSchemaVersion that it was called for.|
-|1003009 | CustomExtensionNoResponse | The custom extension API response body was null when that wasn't expected.|
+|1003009 | CustomExtensionEmptyResponse | The custom extension API response body was null when that wasn't expected.|
 |1003010 | CustomExtensionInvalidNumberOfActions | The custom extension API response included a different number of actions than those supported for that custom extension type.|
 |1003011 | CustomExtensionNotFound | The custom extension associated with an event listener couldn't be found.|
 |1003012 | CustomExtensionInvalidActionType | The custom extension returned an invalid action type defined for that custom extension type.|
-|1003014 | IntermediateAccessTokenFQDNValidationFailed | ResourceId should be in the format of "api://{fully qualified domain name}/{appid}|
-|1003015 | IntermediateAccessTokenFQDNValidationFailed | The fully qualified domain name in resourceId should match that of the targetUrl|
-|1003016 | PrincipalNotFoundWithIdSpecified | The appId of the resourceId should correspond to a real service principal in the tenant.|
-|1003019 | PrincipalNotFoundWithIdSpecified | The resourceId isn't found in the IdentifierUris property of the app or is disabled.|
+|1003014 | CustomExtensionIncorrectResourceIdFormat | The _identifierUris_ property in the manifest for the application registration for the custom extension, should be in the format of "api://{fully qualified domain name}/{appid}.|
+|1003015 | CustomExtensionDomainNameDoesNotMatch | The targetUrl and resourceId of the custom extension should have the same fully qualified domain name.|
+|1003016 | CustomExtensionResourceServicePrincipalNotFound | The appId of the custom extension resourceId should correspond to a real service principal in the tenant.|
+|1003017 | CustomExtensionClientServicePrincipalNotFound | The custom extension resource service principal is not found in the tenant.|
+|1003018 | CustomExtensionClientServiceDisabled | The custom extension resource service principal is disabled in this tenant.|
+|1003019 | CustomExtensionResourceServicePrincipalDisabled | The custom extension resource service principal is disabled in this tenant.|
+|1003020 | CustomExtensionIncorrectTargetUrlFormat | The target URL is in an improper format. It's must be a valid URL that start with https.|
 |1003021 | CustomExtensionPermissionNotGrantedToServicePrincipal | The service principal doesn't have admin consent for the Microsoft Graph CustomAuthenticationExtensions.Receive.Payload app role (also known as application permission) which is required for the app to receive custom authentication extension HTTP requests.|
-|1003017 | PrincipalNotFoundWithIdSpecified | The Azure Active Directory Authentication Extensions service principal not found in tenant|
-|1003018 | InvalidResourceServicePrincipalDisabled | The Azure Active Directory Authentication Extensions service principal is disabled in this tenant|
-|1003022 | CustomExtensionMsGraphServicePrincipalNotFoundOrDisabled | The MS Graph service principal isn't found or is disabled in this tenant.|
+|1003022 | CustomExtensionMsGraphServicePrincipalDisabledOrNotFound |The MS Graph service principal is disabled or not found in this tenant.|
+|1003023 | CustomExtensionBlocked | The endpoint used for the custom extension is blocked by the service.|
+|1003024 | CustomExtensionResponseSizeExceeded | The custom extension response size exceeded the maximum limit.|
+|1003025 | CustomExtensionResponseClaimsSizeExceeded | The total size of claims in the custom extension response exceeded the maximum limit.|
+|1003026 | CustomExtensionNullOrEmptyClaimKeyNotSupported | The custom extension API responded with claims containing null or empty key'|
+|1003027 | CustomExtensionConnectionError | Error connecting to the custom extension API.|
 
 ## Call your REST API directly
 
