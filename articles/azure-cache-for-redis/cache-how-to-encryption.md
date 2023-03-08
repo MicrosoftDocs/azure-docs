@@ -1,3 +1,15 @@
+---
+title: Configure active encryption for Enterprise Azure Cache for Redis instances
+description: Learn how about encryption for your Azure Cache for Redis Enterprise instances across Azure regions.
+author: flang-msft
+
+ms.service: cache
+ms.topic: how-to
+ms.date: 03/28/2023
+ms.author: franlanglois
+
+---
+
 # Configure disk encryption for Azure Cache for Redis instances using customer managed keys
 
 The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks. Platform-managed keys (PMKs), which are also know an Microsof-managed keys (MMKs) are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. See here for more information about [key management in azure](../security/fundamentals/key-management.md) 
@@ -8,7 +20,7 @@ In this article, you learn how to configure disk encryption using Customer Manag
 
 ## Scope of availability for CMK disk encryption
 
-|Tier                         | Basic, Standard, Premium  |Enterprise, Enterprise Flash  |
+|: Tier                      :| Basic, Standard, Premium  | Enterprise, Enterprise Flash  |
 |-----------------------------|---------|---------------|
 |Microsoft managed keys (MMK) | Yes   | Yes             |
 |Customer managed keys (CMK) | No     |  Yes (preview)  |
