@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The location/url to load the YAML schema.<br>If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
-| `compute` | string | **Required.** <br>The name of the AML compute infrastructure to execute the job on. <br> The compute can be either a reference to an existing compute machine in the workspace <br>*Note:* jobs in pipeline don't support 'local' as `compute`. The 'local' here means that compute instance created in user's AzureML Studio workspace. | 1. pattern `[^azureml:<compute_name>]` to use existing compute,<br>2.`'local'` to use local execution | `'local'` |
+| `compute` | string | **Required.** <br>The name of the AML compute infrastructure to execute the job on. <br> The compute can be either a reference to an existing compute machine in the workspace <br>*Note:* jobs in pipeline don't support 'local' as `compute`. The 'local' here means that compute instance created in user's Azure Machine Learning Studio workspace. | 1. pattern `[^azureml:<compute_name>]` to use existing compute,<br>2.`'local'` to use local execution | `'local'` |
 | `limits` | object | Represents a dictionary object consisting of limit configurations of the Automated ML tabular job.<br>The key is name for the limit within the context of the job and the value is limit value. See [limits](#limits) to find out the properties of this object.|  |  |
 | `name` | string |  The name of the submitted Automated ML job.<br>It must be unique across all jobs in the workspace. If not specified, Azure Machine Learning autogenerates a GUID for the name. | | |
 | `description` | string | The description of the Automated ML job. | | |
@@ -38,11 +38,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `experiment_name` | string | The name of the experiment.<br>Experiments are records of your ML training jobs on Azure. Experiments contain the results of your runs, along with logs, charts, and graphs. Each job's run record is organized under the corresponding experiment in the studio's "Experiments" tab. | | Name of the working directory in which it was created|
 | `environment_variables` | object | A dictionary object of environment variables to set on the process where the command is being executed. |  |  |
 | `outputs` | object | Represents a dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. See [job output](#job-outputs) to find out properties of this object.|  |  |  
-| `log_files` | object | A dictionary object containing logs of AutoML job execution | | |
+| `log_files` | object | A dictionary object containing logs of an Automated ML job execution | | |
 | `log_verbosity` | string | The level of log verbosity for writing to the log file.<br>The acceptable values are defined in the Python [logging library](https://docs.python.org/3/library/logging.html).| `'not_set'`, `'debug'`, `'info'`, `'warning'`, `'error'`, `'critical'` | `'info'` |
 | `type` | const | **Required.** <br>The type of job. | `automl` | `automl` |
-| `task` | const | **Required.** <br>The type of AutoML task to execute.| `forecasting` | `forecasting` |
-| `target_column_name` | string |  **Required.** <br>Represents the name of the column to be forecasted. The AutoMl job raises an error if not specified.|  |  |
+| `task` | const | **Required.** <br>The type of Automated ML task to execute.| `forecasting` | `forecasting` |
+| `target_column_name` | string |  **Required.** <br>Represents the name of the column to be forecasted. The Automated ML job raises an error if not specified.|  |  |
 | `featurization` | object | A dictionary object defining the configuration of custom featurization. In case it isn't created, the Automated ML config applies auto featurization. See [featurization](#featurization) to see the properties of this object. |  |  |
 | `forecasting` | object | A dictionary object defining the settings of forecasting job. See [forecasting](#forecasting) to find out the properties of this object.|  |  |
 | `n_cross_validations` | string or integer | The number of cross validations to perform during model/pipeline selection if `validation_data` isn't specified.<br>In case both `validation_data` and this parameter isn't provided or set to `None`, then Automated ML job set it to `auto` by default. In case `distributed_featurization` is enabled and `validation_data` isn't specified, then it's set to 2 by default.  | `'auto'`, [int] | `None` |
@@ -141,13 +141,13 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 
 
-### How to run AutoML forecasting job via CLI
+### How to run forecasting job via CLI
 ```
 az ml job create --file [YOUR_CLI_YAML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
 ### Quick links for further reference:
 1. [Install and use the CLI (v2)](how-to-configure-cli.md)
-2. [How to run AutoML job via CLI]()
+2. [How to run an Automated ML job via CLI]()
 2. [How to auto train forecasts](./how-to-auto-train-forecast.md)
 3. CLI Forecasting examples:<br><ul><li>[Orange Juice Sale Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-orange-juice-sales)</li><li>[Energy Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-energy-demand)</li><li>[Bike Share Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-bike-share)</li><li>[GitHub Daily Active Users Forecast](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-github-dau)
