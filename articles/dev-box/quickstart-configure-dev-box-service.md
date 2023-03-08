@@ -262,7 +262,7 @@ To create a dev box pool that's associated with a project:
   
    :::image type="content" source="./media/quickstart-configure-dev-box-service/select-project.png" alt-text="Screenshot that shows the list of existing projects.":::
 
-1. Select **Dev box pools**, and then select **+ Create**.
+1. Select **Dev box pools**, and then select **Create**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool.png" alt-text="Screenshot of an empty list of dev box pools within a project, along with selections to start creating a pool.":::
 
