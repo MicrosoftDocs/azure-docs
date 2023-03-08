@@ -64,16 +64,27 @@ Then add the following dependency elements to the group of dependencies. The **a
 
 ```xml
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
 </dependency>
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
 </dependency>
 <dependency>
-    <groupId>com.azure.resourcemanager</groupId>
-    <artifactId>azure-resourcemanager-storage</artifactId>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.24.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-storage</artifactId>
+  <version>2.24.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-management</artifactId>
+  <version>1.10.2</version>
 </dependency>
 ```
 
@@ -94,7 +105,6 @@ Install the following packages using `pip install`:
 ```console
 pip install azure-identity
 pip install azure-storage-blob
-pip install azure-mgmt-resource
 pip install azure-mgmt-storage
 ```
 
@@ -102,7 +112,7 @@ pip install azure-mgmt-storage
 
 ### Set up the app code
 
-Add the necessary `using` or `import` directives to the code. Note that the code examples may split out functionality between files, but here we list all the directives together.
+Add the necessary `using` or `import` directives to the code. Note that the code examples may split out functionality between files, but in this section all directives are listed together.
 
 ## [.NET](#tab/dotnet)
 
@@ -120,6 +130,8 @@ using Azure.ResourceManager.Storage;
 
 ## [Java](#tab/java)
 
+Add the following `import` directives:
+
 ```java
 import com.azure.identity.*;
 import com.azure.storage.blob.*;
@@ -132,6 +144,8 @@ import com.azure.core.management.profile.*;
 
 ## [JavaScript](#tab/javascript)
 
+Add the following `require` statements to load the modules:
+
 ```javascript
 const {
   BlobServiceProperties,
@@ -142,6 +156,8 @@ const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
 ## [Python](#tab/python)
+
+Add the following `import` statements:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -170,13 +186,25 @@ To get the properties for a specified storage account, use the following method 
 
 ## [Python](#tab/python)
 
+---
+
 ## Create a client object using the service endpoint
 
 Once you have the blob service endpoint for a storage account, you can instantiate a client object to work with the data resources.
 
+## [.NET](#tab/dotnet)
+
 The following code sample creates a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object using the endpoint we retrieved in the earlier example:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint" highlight="12":::
+
+## [Java](#tab/java)
+
+## [JavaScript](#tab/javascript)
+
+## [Python](#tab/python)
+
+---
 
 ## Next steps
 
