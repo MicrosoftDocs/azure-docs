@@ -39,7 +39,7 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case the best option is to deploy a **Cloud Witness**.
 
-Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/en-us/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
+Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
 
 ## Migrate Microsoft SQL Server Always-On cluster
 
@@ -97,21 +97,21 @@ Full details about quorum configuration and management can be consulted in [Fail
       - Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
 
-During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For more details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-vmware/create-placement-policy) article. 
+During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For more details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy) article. 
 
 ## Next steps 
 
-[Enable SQL Azure hybrid benefit for Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-vmware/enable-sql-azure-hybrid-benefit).  
+[Enable SQL Azure hybrid benefit for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/enable-sql-azure-hybrid-benefit).  
 
-[Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-vmware/create-placement-policy)   
+[Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy)   
 
-[Windows Server Failover Clustering Documentation](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview) 
+[Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) 
 
-[Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver15) 
+[Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/) 
 
-[Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16) 
+[Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/) 
 
-[Windows Server Technical Documentation](https://learn.microsoft.com/en-us/windows-server/) 
+[Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/) 
 
 [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf) 
 

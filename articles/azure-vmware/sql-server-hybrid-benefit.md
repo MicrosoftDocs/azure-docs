@@ -41,7 +41,7 @@ VMware HCX over VPN is supported in Azure VMware Solution for workload migration
 Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. The table below indicates the downtime for each Microsoft SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
-|:---:|:---:|:---:|
+|:---|:-----|:-----|
 | **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it is not recommended to commit any critical data during it. |
 | **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
