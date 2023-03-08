@@ -256,12 +256,17 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
+  - name: User-defined data types (type)
+    displayName: custom
+    href: user-defined-data-types.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
   - name: Variables (var)
     href: variables.md
     displayName: configuration
+  - name: Import (import)
+    href: bicep-import-providers.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -354,6 +359,10 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Bicep extensibility
+      items:
+      - name: Kubernetes provider
+        href: ./bicep-extensibility-kubernetes-provider.md
     - name: Patterns
       items:
       - name: Configuration set

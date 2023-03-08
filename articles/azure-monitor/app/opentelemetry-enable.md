@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 02/22/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
@@ -79,7 +79,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.8/applicationinsights-agent-3.4.8.jar) file.
+Download the [applicationinsights-agent-3.4.10.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.10/applicationinsights-agent-3.4.10.jar) file.
 
 > [!WARNING]
 >
@@ -181,7 +181,7 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.10.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -303,7 +303,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
     
-- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.10.jar` with the following content:
     
    ```json
    {
@@ -675,7 +675,7 @@ Dependencies
 
 Autocollected metrics
 
-* Micrometer, including Spring Boot Actuator metrics
+* Micrometer Metrics, including Spring Boot Actuator metrics
 * JMX Metrics
 
 #### [Node.js](#tab/nodejs)
@@ -748,7 +748,7 @@ The following table represents the currently supported custom telemetry types:
 | **Java**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Logback, Log4j, JUL     |               |                |              | Yes        |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;Micrometer              |               | Yes            |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;Micrometer Metrics      |               | Yes            |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
@@ -835,7 +835,22 @@ public class Program
 
 #### [Java](#tab/java)
 
-Coming soon.
+```java
+import io.opentelemetry.api.GlobalOpenTelemetry;
+import io.opentelemetry.api.metrics.DoubleHistogram;
+import io.opentelemetry.api.metrics.Meter;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+        DoubleHistogram histogram = meter.histogramBuilder("histogram").build();
+        histogram.record(1.0);
+        histogram.record(100.0);
+        histogram.record(30.0);
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -932,7 +947,31 @@ public class Program
 
 #### [Java](#tab/java)
 
-Coming soon.
+```Java
+import io.opentelemetry.api.GlobalOpenTelemetry;
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.common.Attributes;
+import io.opentelemetry.api.metrics.LongCounter;
+import io.opentelemetry.api.metrics.Meter;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+
+        LongCounter myFruitCounter = meter
+                .counterBuilder("MyFruitCounter")
+                .build();
+
+        myFruitCounter.add(1, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "red"));
+        myFruitCounter.add(2, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
+        myFruitCounter.add(1, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
+        myFruitCounter.add(2, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "green"));
+        myFruitCounter.add(5, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "red"));
+        myFruitCounter.add(4, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -1026,7 +1065,26 @@ public class Program
 
 #### [Java](#tab/java)
 
-Coming soon.
+```Java
+import io.opentelemetry.api.GlobalOpenTelemetry;
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.common.Attributes;
+import io.opentelemetry.api.metrics.Meter;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+
+        meter.gaugeBuilder("gauge")
+                .buildWithCallback(
+                        observableMeasurement -> {
+                            double randomNumber = Math.floor(Math.random() * 100);
+                            observableMeasurement.record(randomNumber, Attributes.of(AttributeKey.stringKey("testKey"), "testValue"));
+                        });
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -1360,7 +1418,7 @@ This is not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.8</version>
+      <version>3.4.10</version>
     </dependency>
     ```
 

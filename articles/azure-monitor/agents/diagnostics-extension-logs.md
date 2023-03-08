@@ -46,7 +46,7 @@ For information on how to install and configure the diagnostics extension, see [
 To enable collection of diagnostics extension data from an Azure Storage account:
 
 1. In the Azure portal, go to **Log Analytics Workspaces** and select your workspace.
-1. Select **Storage accounts logs** in the **Workspace Data Sources** section of the menu.
+1. Select **Legacy storage account logs** in the **Classic** section of the menu.
 1. Select **Add**.
 1. Select the **Storage account** that contains the data to collect.
 1. Select the **Data Type** you want to collect.

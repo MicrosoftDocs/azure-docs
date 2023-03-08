@@ -142,5 +142,5 @@ P1v3  | 16
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.

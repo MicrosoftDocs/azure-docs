@@ -58,7 +58,7 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-On Azure AD joined and hybrid Azure AD joined devices, unlocking the device, or signing in interactively will only refresh the Primary Refresh Token (PRT) every 4 hours. The last refresh timestamp recorded for PRT compared with the current timestamp must be within the time allotted in SIF policy for PRT to satisfy SIF and grant access to a PRT that has an existing MFA claim. On [Azure AD registered devices](/active-directory/devices/concept-azure-ad-register), unlock/sign-in would not satisfy the SIF policy because the user is not accessing an Azure AD registered device via an Azure AD account. However, the [Azure AD WAM](../develop/scenario-desktop-acquire-token-wam.md) plugin can refresh a PRT during native application authentication using WAM.
+On Azure AD joined and hybrid Azure AD joined devices, unlocking the device, or signing in interactively will only refresh the Primary Refresh Token (PRT) every 4 hours. The last refresh timestamp recorded for PRT compared with the current timestamp must be within the time allotted in SIF policy for PRT to satisfy SIF and grant access to a PRT that has an existing MFA claim. On [Azure AD registered devices](/azure/active-directory/devices/concept-azure-ad-register), unlock/sign-in would not satisfy the SIF policy because the user is not accessing an Azure AD registered device via an Azure AD account. However, the [Azure AD WAM](../develop/scenario-desktop-acquire-token-wam.md) plugin can refresh a PRT during native application authentication using WAM.
 
 Note: The timestamp captured from user log-in is not necessarily the same as the last recorded timestamp of PRT refresh because of the 4-hour refresh cycle. The case when it is the same is when a PRT has expired and a user log-in refreshes it for 4 hours. In the following examples, assume SIF policy is set to 1 hour and PRT is refreshed at 00:00.
 
@@ -101,7 +101,7 @@ Supported scenarios:
 
 - Require user reauthentication during [Intune device enrollment](/mem/intune/fundamentals/deployment-guide-enrollment), regardless of their current MFA status.
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
-- Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
+- Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multifactor-authentication) grant control.
 
 When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
 

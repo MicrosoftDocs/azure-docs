@@ -7,8 +7,6 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Resource logs for Azure Web Application Firewall
 

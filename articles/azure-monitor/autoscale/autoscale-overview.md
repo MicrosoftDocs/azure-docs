@@ -6,9 +6,8 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 08/01/2022
-ms.reviewer: 
-
+ms.date: 03/08/2023
+ms.reviewer:
 ---
 
 # Overview of autoscale in Microsoft Azure
@@ -107,9 +106,9 @@ Autoscale uses the following terminology and structure. The UI and JSON
 
 | UI               | JSON/CLI     | Description                                                                                                                                                                                                                                                                   |
 |------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scale conditions | profiles     | A collection of rules, instance limits and schedules, based on a metric or time. You can define one or more scale conditions or profiles.                                                                                                                                                                                             |
-| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale-in and scale-out actions.                                                                                                                                                                                                         |
-| Instance limits  | capacity     | Each scale condition or profile defines th default, max, and min number of instances that can run under that profile.                                                                                                                                                                                                                                    |
+| Scale conditions | profiles     | A collection of rules, instance limits and schedules, based on a metric or time. You can define one or more scale conditions or profiles.  Define up to 20 profiles per autoscale setting.                                                                                                                                                               |
+| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale-in and scale-out actions.  Define up to a total of 10 rules per profile.                                                                                                                                                                                                       |
+| Instance limits  | capacity     | Each scale condition or profile defines the default, max, and min number of instances that can run under that profile.                                                                                                                                                                                                                                    |
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day, or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                                 |
 
@@ -139,7 +138,7 @@ The following services are supported by autoscale:
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer Clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
 | Azure Stream Analytics                            | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
-| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](https://learn.microsoft.com/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
+| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
 | Azure Machine Learning Workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |
 | Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
@@ -159,3 +158,4 @@ To learn more about autoscale, see the following resources:
 * [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
 * [PowerShell Az.Monitor Reference](/powershell/module/az.monitor/#monitor)
 * [REST API reference. Autoscale Settings](/rest/api/monitor/autoscale-settings).
+

@@ -17,7 +17,7 @@ For steps, see [Create Azure Monitor log alert rules and manage alert instances]
 
 ## Resource logs
 
-The following resource logs are available in Azure:
+The following resource logs are available* in Azure:
 
 |***Name*** | ***Description*** |
 |--- | --- |
@@ -26,6 +26,8 @@ The following resource logs are available in Azure:
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
 |IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
 |P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway. Connection source info is provided for IKEv2 and OpenVPN connections only |
+
+*Note that for Policy Based gateways, only GatewayDiagnosticLog and RouteDiagnosticLog are available.
 
 ## Next steps
 

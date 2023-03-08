@@ -103,7 +103,7 @@ For the network requirements for the Linux agent, see [Log Analytics agent overv
 
 ### Workspace ID and key
 
-Regardless of the installation method used, you need the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Under the **Settings** section, select **Agents management**.
+Regardless of the installation method used, you need the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Under the **Settings** section, select **Agents**.
 
 [![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
@@ -209,10 +209,10 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command that provides the workspace ID and primary key copied earlier:
+1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Azure China cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
 
     ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d <domain name>
     ```
 
 To install the agent packages and configure the agent to report to a specific Log Analytics workspace at a later time, run:

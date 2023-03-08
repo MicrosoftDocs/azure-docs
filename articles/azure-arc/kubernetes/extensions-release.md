@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 02/21/2023
+ms.date: 03/02/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -78,6 +78,8 @@ For more information, see [App Service, Functions, and Logic Apps on Azure Arc (
 
 ## Azure Event Grid on Kubernetes
 
+- **Supported distributions**: AKS, Red Hat OpenShift
+
 Event Grid is an event broker used to integrate workloads that use event-driven architectures. This extension lets you create and manage Event Grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters.
 
 For more information, see [Event Grid on Kubernetes with Azure Arc (Preview)](../../event-grid/kubernetes/overview.md).
@@ -115,6 +117,12 @@ For more information, see [Introduction to Kubernetes compute target in AzureML]
 For more information, see [Tutorial: Deploy applications using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
+
+### 1.6.4 (February 2023)
+
+Changes made for this version:
+
+- Disabled extension reconciler (which attempts to restore the Flux extension if it fails). This resolves a potential bug where, if the reconciler is unable to recover a failed Flux extension and `prune` is set to `true`, the extension and deployed objects may be deleted.
 
 ### 1.6.3 (December 2022)
 

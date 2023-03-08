@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 

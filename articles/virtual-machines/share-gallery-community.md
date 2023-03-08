@@ -9,9 +9,8 @@ ms.workload: infrastructure
 ms.date: 07/07/2022
 ms.author: saraic
 ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.custom: template-how-to
 ms.devlang: azurecli
-
 ---
 
 # Share images using a community gallery (preview)
@@ -24,7 +23,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). We will follow up within 5 business days after submitting the form. Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). It will take up to 10 business days after submitting the form to approve the feature. Creating VMs from the community gallery is open to all Azure users.
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 > 
@@ -133,6 +132,3 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 Create an [image definition and an image version](image-version.md).
 
 Create a VM from a [generalized](vm-generalized-image-version.md#community-gallery) or [specialized](vm-specialized-image-version.md#community-gallery) image in a community gallery.
-
-
-

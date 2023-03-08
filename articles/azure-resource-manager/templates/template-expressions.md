@@ -2,7 +2,7 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 02/22/2023
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -65,6 +65,23 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+To escape single quotes in an ARM expression output, double up the single quotes. The output of the following template will result in JSON value `{"abc":"'quoted'"}`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [],
+  "outputs": {
+    "foo": {
+      "type": "object",
+      "value": "[createObject('abc', '''quoted''')]"
+    }
+  }
+}
 ```
 
 When passing in parameter values, the use of escape characters depends on where the parameter value is specified. If you set a default value in the template, you need the extra left bracket.
