@@ -20,14 +20,14 @@ This article describes how to create alert processing rules in the Azure portal.
 
 An alert processing rule can trigger or suppress alert notifications. The alert processing rule is added to an *action group*, a set of notification preferences used to notify users to act on alerts triggered in different contexts.
 
-For more information about alert processing rules, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+For more information about alert processing rules, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
 ## Create an alert processing rule
 
 Use the following steps in the Azure portal to create an alert processing rule for your Azure Stack Edge device.
 
 > [!NOTE]
-> These steps create an alert processing rule that sends notifications to an action group. For details about creating an alert processing rule to suppress notifications, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
+> These steps create an alert processing rule that sends notifications to an action group. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal).
 
 1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Alert processing rules**.
 
@@ -55,7 +55,7 @@ Use the following steps in the Azure portal to create an alert processing rule f
    
 1. On the **Add filters** pane, under **Filters**, add each filter you want to apply. For each filter, select the **Filter** type, **Operator**, and **Value**.
 
-   For a list of filter options, see [Filter criteria](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#filter-criteria).
+   For a list of filter options, see [Filter criteria](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal##scope-and-filters-for-alert-processing-rules).
 
    The filters in the following example apply to all alerts at Severity levels 2, 3, and 4 that the Monitor service raises for Azure Stack Edge resources. 
 
@@ -65,10 +65,10 @@ Use the following steps in the Azure portal to create an alert processing rule f
 
    Select an option to **+ Select action group** for an existing group or **+ Create action group** to create a new one.
 
-    To create a new action group, select **+ Create action group** and follow the steps in [Create an action group by using the Azure portal](../azure-monitor/alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal).
+    To create a new action group, select **+ Create action group** and follow the steps in [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md#add-action-groups-to-all-alert-types).
 
    >[!NOTE]
-   >Select the **Suppress notifications** option if you don't want to invoke notifications for alerts. For more information, see [Configuring an action rule](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#configuring-an-action-rule).
+   >Select the **Suppress notifications** option if you don't want to invoke notifications for alerts. For more information, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#suppress-notifications-during-planned-maintenance).
 
    [![Screenshot of the rule setting options for rule type and action group options for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png#lightbox)
 
