@@ -34,14 +34,14 @@ To get started, you need:
 * **WAF** – manages traffic sent to the authorization server
   * [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/#overview)
 
-## Azure AD B2C setup
+## Custom domains in Azure AD B2C
 
 To use custom domains in Azure AD B2C, use the custom domain features in AFD. See, [Enable custom domains for Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow).  
 
-> [!IMPORTANT]
-> After you configure the custom domain, see [Test your custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain).  
+   > [!IMPORTANT]
+   > After you configure the custom domain, see [Test your custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain).  
 
-## Onboard with WAF
+## Enable WAF
 
 To enable WAF, configure a WAF policy and associate it with the AFD for protection.
 
@@ -72,7 +72,7 @@ Create a WAF policy with Azure-managed default rule set (DRS). See, [Web Applica
 21. Select **Review + create**.
 22. Select **Create**.
 
-### Change policy mode from detection to prevention
+### Detection and Prevention modes
 
 When you create WAF policy, the policy is in Detection mode. We recommend you don't disable Detection mode. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged in the WAF logs. 
 
@@ -88,7 +88,7 @@ Review the WAF logs to determine if policy rules cause false positives. Then, ex
 
 Learn more: [Define exclusion rules based on Web Application Firewall logs](../web-application-firewall/afds/waf-front-door-exclusion.md#define-exclusion-based-on-web-application-firewall-logs)
 
-#### Switch to prevention mode
+#### Switching modes
 
 To see WAF operating, select **Switch to prevention mode**, which changes the mode from Detection to Prevention. Requests that match the rules in the DRS are blocked and logged in the WAF logs.
 
