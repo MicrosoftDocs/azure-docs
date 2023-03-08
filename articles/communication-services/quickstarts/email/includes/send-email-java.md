@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
 
-## Understanding the Email Object model
+## Understanding the email object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
 
@@ -34,8 +34,7 @@ EmailSendResult returns the following status on the email operation performed.
 | IN_PROGRESS | The email send operation is currently in progress and being processed. |
 | SUCCESSFULLY_COMPLETED | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
 | FAILED | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| USER_CANCELLED | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+| USER_CANCELLED | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
 
 ## Prerequisites
 
@@ -45,6 +44,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../create-communication-resource.md).
 - Create an [Azure Email Communication Services resource](../create-email-communication-resource.md) to start sending emails.
 - A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal.md?pivot="programming-language-java").
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 > Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
 
@@ -117,7 +118,7 @@ EmailClient emailClient = new EmailClientBuilder()
 
 ### Option 2: Authenticate using an AzureKeyCredential
 
-Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure Portal](https://portal.azure.com/).
+Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
 ```java
 String endpoint = "https://<resource-name>.communication.azure.com";
@@ -135,7 +136,7 @@ A `DefaultAzureCredential` object must be passed to the `EmailClientBuilder` via
 The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
 ```java
-// You can find your endpoint and access key from your resource in the Azure Portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
 EmailClient emailClient = new EmailClientBuilder()
     .endpoint(endpoint)
@@ -146,7 +147,7 @@ EmailClient emailClient = new EmailClientBuilder()
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Basic Email Sending 
+## Basic email sending 
 
 To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
 
@@ -192,7 +193,7 @@ Make these replacements in the code:
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
-## Advanced Sending
+## Advanced sending
 
 ### Send an email message to multiple recipients
 
