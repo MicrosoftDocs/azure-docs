@@ -17,6 +17,8 @@ ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 
 In this article, learn how to troubleshoot common problems you may encounter with environment image builds.
 
+If you navigated to this page via the Environment Log Analysis feature and have any feedback on it, or on this documentation, please [let us know](https://aka.ms/azureml/environment/log-analysis-feedback).
+
 ## Azure Machine Learning environments
 
 Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens.
