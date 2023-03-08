@@ -2,16 +2,15 @@
 title: "Quickstart: Create an instance using the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service.
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, mode-ui
-ms.topic: quickstart
 ms.date: 01/29/2021
+ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - seo-lt-2019
+  - mode-ui
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
