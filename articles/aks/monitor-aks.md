@@ -113,7 +113,7 @@ The cluster level includes the following component:
 Use existing views and reports in Container Insights to monitor cluster level components.
 
 - Use the **Cluster** view to see the performance of the nodes in your cluster, including CPU and memory utilization.
-- Use the **Nodes** view to see the health of each node and the health and performance of the pods running on them. For more information on anaylzing node health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md).
+- Use the **Nodes** view to see the health of each node and the health and performance of the pods running on them. For more information on analyzing node health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md).
 - Under **Reports**, use the **Node Monitoring** workbooks to analyze disk capacity, disk IO, and GPU usage. For more information about these workbooks, see [Node Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#node-monitoring-workbooks).
 
     :::image type="content" source="media/monitor-aks/container-insights-cluster-view.png" alt-text="Container Insights cluster view" lightbox="media/monitor-aks/container-insights-cluster-view.png":::
@@ -244,7 +244,7 @@ For example, if you want an alert when an application workload is consuming exce
 
 ### Metric alert rules
 
-Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the mtrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](monitor-aks-reference.md#metrics) for metric alert rules.
+Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the metrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](monitor-aks-reference.md#metrics) for metric alert rules.
 
 Container Insights includes a feature that creates a recommended set of metric alert rules for your AKS cluster. This feature creates new metric values used by the alert rules that you can also use in the Metrics explorer. For more information, see [Recommended metric alerts (preview) from Container Insights](../azure-monitor/containers/container-insights-metric-alerts.md).
 
