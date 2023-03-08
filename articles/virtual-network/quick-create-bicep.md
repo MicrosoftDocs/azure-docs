@@ -21,11 +21,31 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- To deploy the Bicep files, either PowerShell or Azure CLI installed.
+
+   # [CLI](#tab/CLI)
+
+  [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+
+- Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+
+   # [PowerShell](#tab/PowerShell)
+
+  [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+
+- Run `Connect-AzAccount` to connect to Azure.
+
+   # [Portal]((#tab/azure-portal))
+
+   To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
+
+---
 
 ## Create the virtual network and VMs
 
-To create the virtual network, resource subnet, and VMs, use the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates). The Bicep template defines the following Azure resources:
+To create the virtual network, resource subnet, and VMs, use the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates). The Bicep template defines the following Azure resources:
 
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
@@ -58,7 +78,7 @@ Review the Bicep file:
    New-AzResourceGroupDeployment -ResourceGroupName TestRG -TemplateFile main.bicep
    ```
 
-   # [Portal](#tab/portal)
+   # [Portal]((#tab/azure-portal))
 
    To create the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
@@ -70,7 +90,7 @@ Review the Bicep file:
 
 Azure Bastion lets you use your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
-Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
+Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an AzureBastionSubnet subnet.
 - [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
@@ -132,7 +152,7 @@ Review the Bicep file:
    New-AzResourceGroupDeployment -ResourceGroupName TestRG -TemplateFile bastion.bicep
    ```
 
-   # [Portal](#tab/portal)
+   # [Portal](#tab/azure-portal)
 
    To create the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
@@ -156,7 +176,7 @@ az resource list --resource-group TestRG
 Get-AzResource -ResourceGroupName TestRG
 ```
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, search for and select *resource groups*, and on the **Resource groups** page, select **TestRG** from the list of resource groups.
 1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Azure Bastion host.
@@ -248,7 +268,7 @@ az group delete --name TestRG
 Remove-AzResourceGroup -Name TestRG
 ```
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, on the **Resource groups** page, select the **TestRG** resource group.
 1. At the top of the **TestRG** page, select **Delete resource group**.
@@ -261,6 +281,6 @@ Remove-AzResourceGroup -Name TestRG
 
 In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Advance to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs is unrestricted in a virtual network. Advance to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

@@ -86,7 +86,7 @@ Create two VMs named *VM1* and *VM2* in the virtual network.
   
 1. On the **Networking** page, enter or select the following values:
 
-   - **Virtual network**: Select **VNet1** if not already selected.
+   - **Virtual network**: Select **VNet** if not already selected.
    - **Subnet**: Select **default** if not already selected.
    - **Public IP**: Select **None**.
 
@@ -183,6 +183,6 @@ When you're done using the virtual network and VMs, you can delete the resource 
 
 In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Advance to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs is unrestricted in a virtual network. Advance to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
