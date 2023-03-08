@@ -313,7 +313,7 @@ For information on creating an environment in the studio, see [Create an environ
 
 Use the Azure Machine Learning studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
-One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
+One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register your model](#register-your-model) section:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
@@ -698,7 +698,7 @@ Use the following steps to delete an individual deployment from a managed online
 # [Studio](#tab/azure-studio)
 
 > [!NOTE]
-> You cannot delete a deployment that has traffic allocated to it. You must first [set traffic allocation](#Send-all-traffic-to-your-new-deployment) for the deployment to 0% before deleting it.
+> You cannot delete a deployment that has traffic allocated to it. You must first [set traffic allocation](#send-all-traffic-to-your-new-deployment) for the deployment to 0% before deleting it.
 
 1. In the endpoint Details page, find the blue deployment.
 1. Select the **delete icon** next to the deployment name.
@@ -735,7 +735,6 @@ Alternatively, you can delete a managed online endpoint directly by selecting th
 ## Next steps
 - [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
-- [Create and use online endpoints  in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
