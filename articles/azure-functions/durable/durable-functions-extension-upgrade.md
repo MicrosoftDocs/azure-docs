@@ -48,10 +48,10 @@ func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 
 Because applications normally use more than one extension, it's recommended that you run just `func extensions install` to get **all** the latest extensions supported by Azure Functions, which would include the Durable Functions extension.  
 
-Changes to the Durable Functions extension can be found in our [release notes](https://github.com/Azure/azure-functions-durable-extension/releases). You can also receive notifications whenever there's a new extension release by going to the Releases page -> Watch -> check “Releases”:
+Changes to the Durable Functions extension can be found in the repo's [release notes](https://github.com/Azure/azure-functions-durable-extension/releases). You can also receive notifications whenever there's a new extension release by going to the Releases page -> Watch -> check “Releases”:
 
-    :::image type="content" source="media/durable-functions-best-practice/watch-releases-1.png" alt-text="Screenshot of step 1 to set up release notifications.":::
+:::image type="content" source="media/durable-functions-best-practice/watch-releases-1.png" alt-text="Screenshot of step 1 to set up release notifications.":::
 
-    :::image type="content" source="media/durable-functions-best-practice/watch-releases-2.png" alt-text="Screenshot of step 2 to set up release notifications.":::
+:::image type="content" source="media/durable-functions-best-practice/watch-releases-2.png" alt-text="Screenshot of step 2 to set up release notifications.":::
 
 
