@@ -8,7 +8,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 5/11/2021
 ms.author: mbaldwin 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Configure Azure Key Vault networking settings
 
