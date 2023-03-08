@@ -13,7 +13,7 @@ This chapter documents the options for the model conversion.
 
 ## Settings file
 
-If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide extra configuration for the model conversion process.
+If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it's used to provide extra configuration for the model conversion process.
 For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
 
 The contents of the file should satisfy the following json schema:
@@ -101,6 +101,9 @@ For example, if a model is defined in centimeters, then applying a scale of 0.01
 Some source data formats (for example .fbx) provide a unit scaling hint, in which case the conversion implicitly scales the model to meter units. The implicit scaling provided by the source format will be applied on top of the scaling parameter.
 The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
 
+> [!IMPORTANT]
+> Showcase and ARRT tool may compensate for any conversion-time scaling because they have a built-in auto-scaling feature. See also [this entry](../../resources/troubleshoot.md#scaling-value-in-the-conversion-settings-isnt-applied-to-the-model) in the troubleshooting guide.
+
 * `recenterToOrigin` - States that a model should be converted so that its bounding box is centered at the origin.
 If a source model is displaced far from the origin, floating point precision issues may cause rendering artifacts.
 Centering the model can help in this situation.
@@ -138,7 +141,7 @@ If a model is defined using gamma space, then these options should be set to tru
 
 Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it's necessary to move many parts or large subgraphs simultaneously, for example for an 'explosion view' animation.
 
-The `static` mode also exports the full scene graph. [Spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It's ideal for large scenes where you need per-object inspection, occasional transform changes on individual parts, but no object reparenting.
+The `static` mode also exports the full scene graph. [Spatial queries](../../overview/features/spatial-queries.md) return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It's ideal for large scenes where you need per-object inspection, occasional transform changes on individual parts, but no object reparenting.
 
 The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects isn't possible in this mode. Use cases are, for example, photogrammetry models that don't have a meaningful scene graph in the first place.
 
@@ -147,12 +150,12 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Physics parameters
 
-* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. Collision mesh generation does not add any extra conversion time and also does not increase the output file size. Furthermore, the loading time and runtime cost of a model with collision meshes is only insignificantly higher.
+* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. Collision mesh generation doesn't add any extra conversion time and also doesn't increase the output file size. Furthermore, the loading time and runtime cost of a model with collision meshes is only insignificantly higher.
 Accordingly this flag can be left to default (enabled) unless there are strong reasons to exclude a model from spatial queries.
 
 ### Unlit materials
 
-* `unlitMaterials` - By default the conversion will prefer to create [PBR materials](../../overview/features/pbr-materials.md). This option tells the converter to treat all materials as [color materials](../../overview/features/color-materials.md) instead. If you have data that already incorporates lighting, such as models created through photogrammetry, this option allows you to quickly enforce the correct conversion for all materials, without the need to [override each material](override-materials.md) individually.
+* `unlitMaterials` - By default the conversion prefers to create [PBR materials](../../overview/features/pbr-materials.md). This option tells the converter to treat all materials as [color materials](../../overview/features/color-materials.md) instead. If you have data that already incorporates lighting, such as models created through photogrammetry, this option allows you to quickly enforce the correct conversion for all materials, without the need to [override each material](override-materials.md) individually.
 
 ### Converting from older FBX formats, with a Phong material model
 
@@ -160,7 +163,7 @@ Accordingly this flag can be left to default (enabled) unless there are strong r
 
 ### Coordinate system overriding
 
-* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting the Y-axis direction.
+* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` exchanges the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting the Y-axis direction.
 
 ### Node meta data
 
@@ -234,13 +237,13 @@ The memory footprints of the formats are as follows:
 * `normal`, `tangent`, `binormal`: Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there's no reason to increase their accuracy. In some cases, though, these components can be set to **NONE**:
   * `normal`, `tangent`, and `binormal` are only needed when at least one material in the model should be lit. In ARR this is the case when a [PBR material](../../overview/features/pbr-materials.md) is used on the model at any time.
   * `tangent` and `binormal` are only needed when any of the lit materials uses a normal map texture.
-* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2048 x 2048 pixels. If those limits are exceeded, the quality of texture mapping will suffer.
+* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2048 x 2048 pixels. If those limits are exceeded, the quality of texture mapping suffers.
 
 #### Example
 
 Assume you have a photogrammetry model, which has lighting baked into the textures. All that is needed to render the model are :::no-loc text="vertex"::: positions and texture coordinates.
 
-By default the converter has to assume that you may want to use PBR materials on a model at some time, so it will generate `normal`, `tangent`, and `binormal` data for you. So, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices"::: resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance and you may even run out of memory.
+By default the converter has to assume that you may want to use PBR materials on a model at some time, so it generates `normal`, `tangent`, and `binormal` data for you. So, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices"::: resulting in models that can take up multiple gigabytes of memory. Such large amounts of data affect performance and you may even run out of memory.
 
 Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per :::no-loc text="vertex":::. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
@@ -252,7 +255,7 @@ The properties that do have an effect on point cloud conversion are:
 
 * `scaling` - same meaning as for triangular meshes.
 * `recenterToOrigin` - same meaning as for triangular meshes.
-* `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
+* `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data is rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
 * `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY, LAS, LAZ and XYZ) is true.
 
 * `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md).
