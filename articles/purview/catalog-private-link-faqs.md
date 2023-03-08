@@ -78,11 +78,9 @@ In this case, to open the Microsoft Purview governance portal, either use a mach
 
 ### Is it possible to restrict access to the Microsoft Purview managed storage account and event hub namespace (for private endpoint ingestion only) but keep portal access enabled for users across the web?
 
-Not in production. When you set **Public network access** to **Deny**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for private endpoint ingestion only. When you set **Public network access** to **Allow**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for **All Networks**. You can't modify the private endpoint ingestion manually for the managed storage account or event hub namespace manually.
+Yes. You can configure Microsoft Purview firewall setting to Disabled for ingestion only (Preview). By choosing this option, public network access to your Microsoft Purview account through API and Microsoft Purview governance portal is allowed, however public network access is set to disabled on your Microsoft Purview account's Managed storage account and event hub.
 
-There is a [diabled for ingestion only preview feature that allows you to set restrictions for ingestion endpoints only so your users can still access the portal.](catalog-firewall.md)
-
-### If public network access is set to Allow, does it mean the managed storage account and event hub namespace can be publicly accessible?
+### If public network access is set to Allow, does it mean the managed storage account and event hub namespace are accessible by anyone?
 
 No. As protected resources, access to the Microsoft Purview managed storage account and event hub namespace is restricted to Microsoft Purview only. These resources are deployed with a deny assignment to all principals, which prevents any applications, users, or groups from gaining access to them.
 
