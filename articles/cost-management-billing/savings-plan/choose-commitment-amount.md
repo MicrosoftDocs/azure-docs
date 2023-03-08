@@ -36,6 +36,28 @@ Note the following points:
 
 Savings plan purchases are calculated by the recommendations engine for the selected term and scope, based on last 30 days of usage. Recommendations are provided through [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the savings plan purchase experience in [Azure portal](https://portal.azure.com/), and through the [savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
+## Savings plan purchase recommendations for customers using Management groups
+Currently Azure portal doesn't provide Savings plan recommendations for Management groups, But customers can calculate on their own per hour commitment for Management group using the following Steps, until Azure portal provides Management group level recommendations.
+- Download Usage Detail report from EA portal or Azure portal to get the accurate usage and cost.
+    - From EA portal - By logging into ea.azure.com and navigating to Reports section, and download Usage Details report for current month and past 2 months
+    - From Azure portal - By logging into Azure portal and search for cost management and billing. Under Billing click on Usage + charges and click on download against the month to download current and past 2 months.
+- Open the downloaded file in Excel. If the file size is huge open it in Power BI.
+- Created cost column by multiplying PayG Price * Quantity (i.e. calculated cost).
+- Filter Charge Type = "Usage".
+- Filter Meter Category = "Virtual Machines", "App Service", "Functions", "Container Instance" - As the SP is applied on only these services.
+- Filter ProductOrderName = Blank 
+- Filter Quantity >= 23 to consider only items which ran 24 hours as SP is per hour commitment, and we have the granularity of per day and not per hour. This will avoid any sparse compute.
+- Filter Months for current and previous 2 months. 
+- If you are doing this in Power BI export the data to .csv file and copy into excel. 
+- Now copy the subscriptions names which belongs to management group on which you want to apply Savings plan on in excel sheet.
+- Do a Vlookup against the internal subscriptions against the filter data. 
+- Divided calculated cost with 24 hours to get per hour cost
+- Created pivot to group the data by subscription by month and day, copy this pivot data into new sheet.
+- Multiplied per hour cost with .4. Reason for this is you will get discount on the usage Example, you have committed 100 rupees you will be charged based on 1 or 3 year Savings plan discount applicable for SKU hence your cost per hour will be less than 100 hours and hence you will be needing more cost of compute to get the value of 100. 40% is the safe limit. 
+- Now see the range of cost per hour per day and per month to get view of the sage commitment you can make.
+ 
+
+
 ## Need help? Contact us
 
 If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
