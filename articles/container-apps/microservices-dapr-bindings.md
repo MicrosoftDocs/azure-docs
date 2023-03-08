@@ -35,6 +35,8 @@ The service listens to input binding events from a system CRON and then outputs 
 
 ## Run the Dapr application locally with Node.js
 
+Before deploying the application to Azure Container Apps, start by running the PostgreSQL container and JavaScript service locally with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
+
 ### Prepare the project
 
 1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) to your local machine.
@@ -50,8 +52,6 @@ The service listens to input binding events from a system CRON and then outputs 
    ```
 
 ### Run the Dapr application using the Dapr CLI
-
-Start by running the PostgreSQL container and JavaScript service with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
 1. From the sample's root directory, change directories to `db`.
 
@@ -111,7 +111,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 
 ## Deploy the Dapr application template using `azd`
 
-Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres using [`azd`](/developer/azure-developer-cli/overview.md).
+Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [Azure Postgres](../postgresql/single-server/overview.md) and [`azd`](/developer/azure-developer-cli/overview.md).
 
 ### Prepare the project
 
