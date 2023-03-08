@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Install Global Secure Access Connector
-description: Learn how to install the Global Secure Access connector.
+title: What is Entra Global Secure Access?
+description: Entra Global Secure Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 01/31/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Quickstart - Install Global Secure Access Connector
+# What is Entra Global Secure Access?
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

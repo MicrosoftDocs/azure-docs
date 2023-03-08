@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Entra Network Access documentation
-summary: Entra Network Access provides secure network access for both public Internet and private clouds.
+title: Entra Global Secure Access documentation
+summary: Entra Global Secure Access provides secure network access for both public Internet and private clouds.
 
 metadata: 
-   title: Entra Network Access documentation
-   description: Entra Network Access provides secure network access for both public Internet and private clouds.
+   title: Entra Global Secure Access documentation
+   description: Entra Global Secure Access provides secure network access for both public Internet and private clouds.
    ms.service: network-access
    ms.subservice: app-proxy
    ms.workload: identity
@@ -16,18 +16,18 @@ metadata:
    manager: amycolannino
 
 landingContent:
-  - title: About Entra Network Access
+  - title: About Entra Global Secure Access
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Entra Network Access?
-            url: overview-what-is-network-access.md
+          - text: What is Entra Global Secure Access?
+            url: overview-what-is-global-secure-access.md
 
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Install Network Access connector
+          - text: Install Global Secure Access connector
             url: quickstart-install-connector.md
 
   - title: Security at the edge

@@ -1,15 +1,15 @@
 items:
-- name: Entra Network Access documentation
+- name: Entra Global Secure Access documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Entra Network Access?
-    href: overview-what-is-network-access.md
+  - name: What is Entra Global Secure Access?
+    href: overview-what-is-global-secure-access.md
 - name: Quickstarts
   expanded: false
   items:
-  - name: Install the Network Access Connector
+  - name: Install the Global Secure Access Connector
     href: quickstart-install-connector.md
 - name: Tutorials
   expanded: false
@@ -19,7 +19,7 @@ items:
 - name: Samples
   expanded: false
   items:
-  - name: Configure tenant for Entra Network Access
+  - name: Configure tenant for Entra Global Secure Access
     href: sample-configure-tenant.md
 - name: Concepts
   expanded: false
@@ -31,7 +31,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Get Started with Entra Network Access
+  - name: Get Started with Entra Global Secure Access
     href: how-to-get-started-with-network-access.md
   - name: Connect
     expanded: false
@@ -74,9 +74,9 @@ items:
 - name: Reference
   expanded: false
   items:
-  - name: Entra Network Access FAQ
+  - name: Entra Global Secure Access FAQ
     href: reference-network-access-faq.md
-  - name: Troubleshoot Entra Network Access
+  - name: Troubleshoot Entra Global Secure Access
     href: /troubleshoot
 - name: Resources
   expanded: false
@@ -84,5 +84,5 @@ items:
   - name: Training videos
     expanded: false
     items:
-    - name: Get started with Entra Network Access training videos
+    - name: Get started with Entra Global Secure Access training videos
       href: resource-network-access-training-videos.md
