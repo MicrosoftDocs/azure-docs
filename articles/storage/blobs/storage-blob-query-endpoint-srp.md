@@ -208,8 +208,13 @@ The following code sample creates a [BlobServiceClient](/dotnet/api/azure.storag
 
 ## Next steps
 
-- [View the code sample (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/dotnet/BlobQueryEndpoint)
-- To learn more about creating client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+View the full code samples (GitHub):
+- [.NET](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/dotnet/BlobQueryEndpoint)
+- [Java]()
+- [JavaScript]()
+- [Python]()
+
+To learn more about creating client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
 
 
