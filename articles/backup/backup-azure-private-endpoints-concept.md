@@ -28,7 +28,8 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only.
 
-- You can't create private endpoints using static IP.
+  >[!Note]
+  >You can't create private endpoints using static IP.
 
 - You can't upgrade vaults (that contains private endpoints) created using the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the v2 experience. 
 
@@ -41,6 +42,8 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 - You need to re-register the Recovery Services resource provider with the subscription, if you've registered it before *May 1, 2020*. To re-register the provider, go to *your subscription* in the Azure portal > **Resource provider**, and then select **Microsoft.RecoveryServices** > **Re-register**.
 
 - [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported, if the vault has private endpoints enabled.
+
+- You can create DNS across subscriptions.
 
 ## Recommended and supported scenarios
 
