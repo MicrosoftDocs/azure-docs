@@ -1,6 +1,6 @@
 ---
-title: Customer responsibilities running Azure Spring Apps in a virtual network
-description: Describes customer responsibilities when running Azure Spring Apps in a virtual network.
+title:  "Customer responsibilities running Azure Spring Apps in a virtual network"
+description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article includes specifications for the use of Azure Spring Apps in a virtual network.
 
@@ -31,13 +31,13 @@ The following list shows the resource requirements for Azure Spring Apps service
   - Don't block Azure Spring Apps from updating resources in these resource groups.
 - Don't modify subnets used by Azure Spring Apps.
 - Don't create more than one Azure Spring Apps service instance in the same subnet.
-- When using a firewall to control traffic, don't block the egress traffic to Azure Spring Apps components that operate, maintain, and support the service instance.
+- When using a firewall to control traffic, don't block the following egress traffic to Azure Spring Apps components that operate, maintain, and support the service instance.
 
 ## Azure Spring Apps network requirements
 
 | Destination Endpoint                                                                                                                                                    | Port             | Use                                       | Note                                                                                                                                                            |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | Obtain information about the service instance "requiredTraffics" in the resource payload, under "networkProfile" section.                                          |
+| \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section.                                          |
 | \*:123 *or* ntp.ubuntu.com:123                                                                                                                                          | UDP:123          | NTP time synchronization on Linux nodes.  |                                                                                                                                                                 |
 | \*.azurecr.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                      | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                               | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).            |
@@ -45,7 +45,7 @@ The following list shows the resource requirements for Azure Spring Apps service
 
 ## Azure Spring Apps FQDN requirements/application rules
 
-The Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the configurations described in the following table.
+Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
 
 | Destination FQDN                  | Port      | Use                                                                          |
 |-----------------------------------|-----------|------------------------------------------------------------------------------|
@@ -68,11 +68,11 @@ The Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify 
 
 | Destination FQDN                   | Port       | Use                                                                                                                                                                                                  |
 |------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <i>collector*.newrelic.com</i>     | TCP:443/80 | The required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
-| <i>collector*.eu01.nr-data.net</i> | TCP:443/80 | The required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
-| <i>*.live.dynatrace.com</i>        | TCP:443    | The required network of Dynatrace APM agents.                                                                                                                                                            |
-| <i>*.live.ruxit.com</i>            | TCP:443    | The required network of Dynatrace APM agents.                                                                                                                                                            |
-| <i>*.saas.appdynamics.com</i>      | TCP:443/80 | The required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges).                                              |
+| <i>collector*.newrelic.com</i>     | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+| <i>collector*.eu01.nr-data.net</i> | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+| <i>*.live.dynatrace.com</i>        | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
+| <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
+| <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges).                                              |
 
 ## Next steps
 
