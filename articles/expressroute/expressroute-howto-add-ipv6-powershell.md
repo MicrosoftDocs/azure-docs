@@ -4,6 +4,7 @@ description: Learn how to add IPv6 support to connect to Azure deployments using
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau

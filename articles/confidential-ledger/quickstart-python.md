@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Microsoft Azure confidential ledger client library for Python
