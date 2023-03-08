@@ -79,8 +79,8 @@ When you create WAF policy, the policy is in Detection mode. We recommend you do
 Learn more: [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
 
 The following query shows the requests blocked by the WAF policy in the past 24 hours. The details include, rule name, request data, action taken by the policy, and the policy mode.
-
-   ![Screenshot of blocked requests](./media/partner-azure-web-application-firewall/blocked-requests-query.png)
+   
+   ![Screenshot of blocked requests.](./media/partner-azure-web-application-firewall/blocked-requests-query.png)
 
    ![Screenshot of blocked requests details, such as Rule ID, Action, Mode, etc.](./media/partner-azure-web-application-firewall/blocked-requests-details.png)
 
