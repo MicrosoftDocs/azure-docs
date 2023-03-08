@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with BlokSec
+title: Tutorial to configure Azure Active Directory B2C with BlokSec for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with BlokSec for Passwordless authentication
 services: active-directory-b2c
@@ -25,70 +25,59 @@ Learn more: [User flows and custom policies overview](user-flow-overview.md)
 
 ## Azure AD B2C and BlokSec
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BlokSec](https://bloksec.com/). BlokSec simplifies the end-user login experience by providing customers passwordless authentication and tokenless multifactor authentication (MFA). BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
+Learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with BlokSec Decentralized Identity Router. The BlokSec solution simplifies user sign-in with passwordless authentication and tokenless multi-factor authentication. The solution protects customers from identity-related attacks such as password stuffing, phishing, and man-in-the-middle.
+
+To learn more, go to bloksec.com: [BlokSec Technologies Inc.](https://bloksec.com/)
 
 ## Scenario description
 
 BlokSec integration includes the following components:
 
-- **Azure AD B2C** – Configured as the authorization server/identity provider for any B2C application.
+* **Azure AD B2C** – authorization server and identity provider (IdP) for B2C applications
+* **BlokSec Decentralized Identity Router** – gateway for services that apply BlokSec DIaaS to route authentication and authorization requests to user Personal Identity Provider (PIdP) applications
+  * It's an OpenID Connect (OIDC) identity provider in Azure AD B2C
+* **BlokSec SDK-based mobile app** – user PIdP in the decentralized authentication scenario. 
+  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec)
 
-- **BlokSec Decentralized Identity Router** – Acts as a gateway for services that wish to apply BlokSec’s DIaaS™ to route authentication and authorization requests to end users’ Personal Identity Provider (PIdP) applications; configured as an OpenID Connect (OIDC) identity provider in Azure AD B2C.
-
-- **BlokSec SDK-based mobile app** – Acts as the users’ PIdP in the decentralized authentication scenario. The freely downloadable [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec) application can be used if your organization prefers not to develop your own mobile applications using the BlokSec SDKs.
 The following architecture diagram shows the implementation.
 
-![image shows the architecture diagram](./media/partner-bloksec/partner-bloksec-architecture-diagram.png)
+   ![Diagram of the sign-up, sign-in flow in the BlokSec solution implementation.](./media/partner-bloksec/partner-bloksec-architecture-diagram.png)
 
-|Steps| Description|
-|:---------------|:----------------|
-|1.| User attempts to log in to an Azure AD B2C application and is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.|
-|2.| Azure AD B2C redirects the user to the BlokSec decentralized identity router using the OIDC authorization code flow.|
-|3.| The BlokSec decentralized router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request.|
-|4.| The user reviews the authentication challenge, if accepted the user is prompted for biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.|
-|5.| The response is digitally signed with the user’s unique digital key. Final authentication response provides proof of possession, presence, and consent. The respond is returned to the BlokSec decentralized identity router.|
-|6.| The BlokSec decentralized identity router verifies the digital signature against the user’s immutable unique public key that is stored in a distributed ledger, then replies to Azure AD B2C with the authentication result.|
-|7.| Based on the authentication result user is granted/denied access.|
+1. User signs in to an Azure AD B2C application and is forwarded to Azure AD B2C sign-in and sign-up policy
+2. Azure AD B2C redirects user to the BlokSec decentralized identity router using the OIDC authorization code flow.
+3. The BlokSec router sends a push notification to the user mobile app with authentication and authorization request details.
+4. User reviews the authentication challenge. An accepted user is prompted for biometry such as fingerprint or facial scan.
+5. The response is digitally signed with the user's unique digital key. The authentication response provides proof of possession, presence, and consent. The respond returns to the router.
+6. The router verifies the digital signature against the user’s immutable unique public key stored in a distributed ledger. The router replies to Azure AD B2C with the authentication result.
+7. User is granted or denied access.
 
-## Onboard to BlokSec
+## Enable BlokSec
 
-Request a demo tenant with BlokSec by filling out [the form](https://bloksec.com/). In the message field indicates that you would like to onboard with Azure AD B2C. Download and install the free BlokSec yuID mobile app from the app store. Once your demo tenant has been prepared, you'll receive an email. On your mobile device where the BlokSec application is installed, select the link to register your admin account with your yuID app.
-
-::: zone pivot="b2c-user-flow"
-
-## Prerequisites
-
-To get started, you'll need:
-
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
-
-- A BlokSec [trial account](https://bloksec.com/).
-
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+1. Go to bloksec.com and select **Request a demo** tenant. 
+2. In the message field, indicate you want to onboard with Azure AD B2C. 
+3. Download and install the free BlokSec yuID mobile app. 
+4. After the demo tenant is prepared, an email arrives. 
+5. On the mobile device with the BlokSec application, select the link to register your admin account with your yuID app.
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure AD subscription
+  * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
+* An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
+* A BlokSec [demo](https://bloksec.com/)
+* Register a web application
+  * [Tutorial: Register a web application in Azure AD B2C](./tutorial-register-applications.md)
 
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
+See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-- A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
+### Create an application registration in BlokSec
 
-- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-::: zone-end
+In the account registration email received when you onboard to BlokSec.
 
-### Part 1 - Create an application registration in BlokSec
-
-1. Sign in to the BlokSec admin portal. A link will be included as part of your account registration email received when you onboard to BlokSec.
+1. Sign in to the BlokSec admin portal. 
 
 2. On the main dashboard, select **Add Application > Create Custom**
 
