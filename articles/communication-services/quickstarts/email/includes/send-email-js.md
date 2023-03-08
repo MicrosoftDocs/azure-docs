@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
 
-## Understanding the Email Object model
+## Understanding the email object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for JavaScript.
 
@@ -56,7 +56,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 - In a terminal or command window, run `node --version` to check that Node.js is installed.
 - To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
-## Setting up
+## Set up the application environment
 
 ### Create a new Node.js Application
 First, open your terminal or command window, create a new directory for your app, and navigate to it.
@@ -127,7 +127,7 @@ const client = new EmailClient(endpoint, credential);
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Basic Email Sending 
+## Basic email sending 
 
 ### Send an email message
 
@@ -179,7 +179,7 @@ node ./send-email.js
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
 
-## Advanced Sending
+## Advanced sending
 
 ### Send an email message to multiple recipients
 
