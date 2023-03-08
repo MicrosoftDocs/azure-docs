@@ -18,7 +18,7 @@ To temporarily revoke access to a storage account that is using customer-managed
 
 To disable a customer-managed key with the Azure portal, follow these steps:
 
-1. Navigate to your keu vault that contains the CMK.
+1. Navigate to the key vault that contains the CMK.
 1. Under **Objects** select **Keys**.
 1. Right-click the key and select **Disable**.
 
