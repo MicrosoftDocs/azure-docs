@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/referencemanaged-online-endpoints-vm-sku-list.md",
+        "redirect_url": "/articles/machine-learning/reference-managed-online-endpoints-vm-sku-list",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/quickstart-spark-data-wrangling.md",
         "redirect_url": "/azure/machine-learning/apache-spark-environment-configuration",
         "redirect_document_id": true
