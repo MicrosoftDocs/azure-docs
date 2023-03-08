@@ -96,6 +96,26 @@ Use the Docker documentation to install on your development machine:
 
 ## Set up tools
 
+::: zone pivot="iotedge-dev-cli"
+
+Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to debug, run, and test your IoT Edge solution.
+
+[Python 3.6 or 3.7](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required for the *Azure IoT Edge Tool*. Install the prerequisites first if needed.
+
+```bash
+pip3 install iotedgedev
+```
+
+> [!NOTE]
+>
+> If you have multiple Python versions, including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you use `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
+>
+> For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+
+To stay current on the testing environment for IoT Edge, see the [test-coverage](https://github.com/Azure/iotedgedev/blob/main/docs/test-coverage.md) list.
+
+::: zone-end
+
 ::: zone pivot="iotedge-dev-ext"
 
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions offer project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
@@ -112,9 +132,11 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 1. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT Hub that you selected through the command palette.
 
-:::image type="content" source="./media/tutorial-develop-for-linux/view-iot-hub-devices.png" alt-text="Screenshot that shows your devices in the Azure I o T Hub section of the Explorer menu.":::
+   :::image type="content" source="./media/tutorial-develop-for-linux/view-iot-hub-devices.png" alt-text="Screenshot that shows your devices in the Azure I o T Hub section of the Explorer menu.":::
 
 ::: zone-end
+
+### Language specific tools
 
 Install tools specific to the language you're developing in:
 
@@ -144,24 +166,6 @@ Install tools specific to the language you're developing in:
 - Install the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 ---
-
-::: zone pivot="iotedge-dev-cli"
-
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) with the following command to enable you to debug, run, and test your IoT Edge solution. [Python (3.6/3.7)](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required.
-
-    ```bash
-    pip3 install iotedgedev
-    ```
-    
-    > [!NOTE]
-    >
-    > If you have multiple Python versions, including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you use `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
-
-   To stay current on the testing environment for IoT Edge, see the [test-coverage](https://github.com/Azure/iotedgedev/blob/main/docs/test-coverage.md) list.
-
-::: zone-end
 
 [!INCLUDE [iot-edge-create-container-registry](includes/iot-edge-create-container-registry.md)]
 
