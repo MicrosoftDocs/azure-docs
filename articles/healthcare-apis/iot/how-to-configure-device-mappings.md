@@ -44,7 +44,7 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-Below is an example of what happens during the  normalization and transformation stage processes within the MedTech service.
+This diagram provides an illustration of what happens during the normalization and transformation stage processes within the MedTech service.
 
 :::image type="content" source="media/how-to-configure-device-mappings/normalization-process-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing flow." lightbox="media/how-to-configure-device-mappings/normalization-process-diagram.png":::
 
@@ -214,7 +214,7 @@ JSONPath allows matching on and extracting values from a device message.
 |TypeMatchExpression|The JSONPath expression that is evaluated against the EventData payload. If a matching JToken is found, the template is considered a match. All later expressions are evaluated against the extracted JToken matched here.|`$..[?(@heartRate)]`|
 |DeviceIdExpression|The JSONPath expression to extract the device identifier.|`$.matchedToken.deviceId`|
 |TimestampExpression|The JSONPath expression to extract the timestamp value for the measurement's OccurrenceTimeUtc.|`$.matchedToken.endDate`|
-|PatientIdExpression|*Required* when IdentityResolution is in **Create** mode and *Optional* when IdentityResolution is in **Lookup** mode. The expression to extract the patient identifier.|`$.matchedToken.patientId`|
+|PatientIdExpression|*Required* when IdentityResolution is in **Create** mode and *optional* when IdentityResolution is in **Lookup** mode. The expression to extract the patient identifier.|`$.matchedToken.patientId`|
 |EncounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
 |CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
 |Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
@@ -227,8 +227,8 @@ You can define one or more templates within the MedTech service device mapping. 
 
 |Template Type|Description|
 |-------------|-----------|   
-|[CalculatedContent](how-to-use-calculatedcontent-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JMESPath functions.|
-|[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
+|[CalculatedContent](how-to-use-calculatedcontent-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of [JMESPath functions](https://jmespath.org/specification.html#built-in-functions).|
+|[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from [Azure IoT Hub](/azure/iot-hub/) or the [Legacy Export Data feature of Azure IoT Central](/azure/iot-central/core/howto-export-data-legacy).
  
 > [!TIP]
 > See [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md) for assistance fixing common MedTech service deployment errors.  
