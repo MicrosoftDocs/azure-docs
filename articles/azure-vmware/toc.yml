@@ -88,7 +88,7 @@
         href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
-      - name: Backup with Azure Backup Server
+    - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
         href: set-up-backup-server-for-azure-vmware-solution.md
@@ -183,7 +183,7 @@
     - name: Migrate SQL Server failover cluster to Azure VMware Solution
       href: migrate-sqlserver-failover-cluster.md
     - name: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
-       href: migrate-sqlserver-always-on-cluster.md
+      href: migrate-sqlserver-always-on-cluster.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
