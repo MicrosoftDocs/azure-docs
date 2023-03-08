@@ -16,7 +16,7 @@ ms.reviewer: etbasser
 ms.collection: M365-identity-device-management
 ---
 
-# Securing workload identities with Identity Protection
+# Securing workload identities
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
 

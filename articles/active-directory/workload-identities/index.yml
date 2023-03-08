@@ -27,7 +27,7 @@ landingContent:
           - text: Frequently asked questions about license plans
             url: workload-identities-faqs.md
   # Card
-  - title: Detect risks, identity risky workload identities, and enforce access controls
+  - title: Secure risky workload identities
     linkLists:
       - linkListType: overview
         links:
