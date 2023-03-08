@@ -47,15 +47,15 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, click **Assess**.
+2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
 
     ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. In **Assess servers** > **Assessment type**, select **Azure VM**.
+3. In **Assess servers** > **Assessment type** > **Azure VM**.
 4. In **Discovery source**:
 
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
