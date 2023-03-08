@@ -37,7 +37,7 @@ Authorizations consist of two parts, **management** and **runtime**.
 
 The management part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations. 
 
-The following image summarizes the process flow for creating an authorization in API Management that uses the authorization code grant type. 
+The following image summarizes the process flow for creating an authorization in API Management that uses the authorization code grant type. For configuration details, see [How to configure authorizations?](#how-to-configure-authorizations)
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Diagram showing process flow for creating authorizations." border="false":::
 
@@ -135,18 +135,19 @@ An API Management authorization can use either of two OAuth 2.0 grant types: [au
 OAuth 2.0 *scopes* provide a way to limit the amount of access that is granted to an access token. Specify scopes to limit the access of any configured authorizations to a backend OAuth 2.0 API. The content and format of the scopes are specific to the identity provider and the API permissions you need. For example, you might configure a `User.Read` scope for an Azure AD authorization provider used to authorize access to user data via a Microsoft Graph API.
 
 
-### Login to grant access
+### Log in to grant access
 
-For authorizations based on the authorization code grant type, you must first manually login to the provider to consent to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. After this initial consent, API Management uses the authorization settings to manage token retrieval.
+For authorizations based on the authorization code grant type, you must first manually log in to the provider to consent to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. After this initial consent, API Management uses the authorization settings to manage token retrieval.
 
 ### Access policies
 
-You configure one or more *access policies* for each authorization. The access policies determine which identities are permitted to access that authorization's tokens for API access. The supported identities are as follows:
+You configure one or more *access policies* for each authorization. The access policies determine which [Azure AD identities](../active-directory/develop/app-objects-and-service-principals.md) are permitted to access that authorization's tokens for API access. The supported identities are as follows:
 
 
-* **Managed identities** - System- or user-assigned identities for the API Management instance that is being used   
-* **Service principals** - Applications in the same Azure AD tenant as the API Management instance
-<!-- What are scenarios for using managed identities vs service principals? -->
+|Identity  |Description  |
+|---------|---------|
+|Managed identity     |  System- or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for the API Management instance that's being used.<br/><br/>Simplest way to access authorization. However, identity is tied to specific Azure infrastructure, and anyone with contributor access to your Azure API Management instance can access any authorization granting managed identity permissions.        |
+|Service principal     |   Identity of an Azure AD application in the same Azure AD tenant as the API Management instance, with access to the instance. <br/><br/>Permits more tightly scoped access control to authorization, and is not tied to specific API Management instance. However, getting the [authorization context](get-authorization-context-policy.md) requires you to manage Azure AD credentials.     |
 
 ## Security considerations
 
