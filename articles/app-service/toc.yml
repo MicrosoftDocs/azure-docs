@@ -114,14 +114,15 @@
       items:
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service-as-user.md
-        - name: App to app authentication
-          href: tutorial-auth-aad.md
-        - name: App to App to Microsoft Graph authentication
+        - name: App to Microsoft Graph authentication
           items: 
             - name: .NET
               href: scenario-secure-app-access-microsoft-graph-as-user.md
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
+        - name: App to app authentication
+          href: tutorial-auth-aad.md
+
 
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
