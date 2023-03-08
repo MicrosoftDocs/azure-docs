@@ -8,21 +8,30 @@ ms.reviewer: mopeakande
 author: Bozhong68
 ms.author: bozhlin
 ms.subservice: mlops
-ms.date: 08/29/2022
+ms.date: 03/07/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
 # Monitor online endpoints
 
-In this article, you learn how to monitor [Azure Machine Learning online endpoints](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your online endpoints.
+Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics, customize dashboard and configure alerts based on metrics, query from log tables and push the logs to supported targets. You can also use Application Insights (legacy) to analyze events from user containers.
+
+* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes etc can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking thie Metrics in charts and setting up dashboards and alerts for further analysis.
+
+* **Logs**: You can send Metrics to the Log Analytics Workspace where you can query the logs using rich Kusto query syntax. You can also send Metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for events, traffic, and console (container) logs. Kusto query allows complex analysis joining multiple tables.
+
+* **Application insights**: Curated environments include the integration with Application Insights, and you can simply enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance. 
 
 In this article you learn how to:
 
 > [!div class="checklist"]
+> * Choose the right method to view and track metrics and logs
 > * View metrics for your online endpoint
 > * Create a dashboard for your metrics
 > * Create a metric alert
+> * View logs for your online endpoint
+> * Use application insights (legacy) to track metrics and logs 
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -242,6 +251,8 @@ The following tables provide details on the data stored in each log:
 | Name | The name of the event. 
 | Message | The content of the event. 
 
+
+## Using application insights
 
 
 ## Next steps
