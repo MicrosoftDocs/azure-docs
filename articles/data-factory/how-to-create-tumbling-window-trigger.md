@@ -7,7 +7,7 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
-ms.custom: synapse, devx-track-azurecli
+ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 08/09/2022
 ---
