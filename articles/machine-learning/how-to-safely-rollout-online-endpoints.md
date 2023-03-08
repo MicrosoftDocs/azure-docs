@@ -217,7 +217,7 @@ To create an online endpoint:
 
 ### Create the 'blue' deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. In this article, you'll use the *endpoints/online/managed/sample/blue-deployment.yml* file to configure the key aspects of the deployment:<!-- [link to "define the deployment" section in Deploy article] -->. The following snippet shows the contents of the file:
+A deployment is a set of resources required for hosting the model that does the actual inferencing. In this article, you'll use the *endpoints/online/managed/sample/blue-deployment.yml* file to configure the key aspects of the deployment<!-- [link to "define the deployment" section in Deploy article] -->. The following snippet shows the contents of the file:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
@@ -311,7 +311,7 @@ For information on creating an environment in the studio, see [Create an environ
 
 ### Create a managed online endpoint and the 'blue' deployment
 
-Use the Azure machine learning studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
+Use the Azure Machine Learning studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
 One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
 
@@ -450,7 +450,14 @@ Using the `MLClient` created earlier, we'll get a handle to the deployment. The 
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here from "Update deployment instance count" section of "online endpoints in studio"
+Use the following instructions to scale the deployment up or down by adjusting the number of instances:
+
+1. In the endpoint Details page. Find the card for the blue deployment.
+1. Select the **edit icon** in the header of the blue deployment's card.
+1. Change the instance count to 2.
+1. Select **Update**.
+
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/scale-blue-deployment.png" alt-text="A screenshot showing how to adjust the number of instances used by the blue deployment." lightbox="media/how-to-safely-rollout-managed-endpoints/scale-blue-deployment.png":::
 
 ---
 
@@ -462,7 +469,7 @@ Create a new deployment named `green`:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
-Since we haven't explicitly allocated any traffic to `green`, it will have zero traffic allocated to it. You can verify that using the command:
+Since we haven't explicitly allocated any traffic to `green`, it has zero traffic allocated to it. You can verify that using the command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
 
@@ -534,19 +541,12 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 1. Paste the sample input in the test box.
 1. Select **Test**.
 
-
-<!-- 
-> [!NOTE]
-> You can adjust the traffic balance between deployments in an endpoint when adding a new deployment.
->
-> :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" lightbox="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" alt-text="A screenshot of how to use sliders to control traffic distribution across multiple deployments."::: -->
-
 ---
 
 ## Test the deployment with mirrored traffic (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Once you've tested your `green` deployment, you can 'mirror' (or copy) a percentage of the live traffic to it. Mirroring traffic (also called shadowing) doesn't change the results returned to clients. Requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients; for example, to check if latency is within acceptable bounds and that there are no HTTP errors. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/). The deployment receiving the mirrored traffic (in this case, the `green` deployment) can also be called the shadow deployment.
+Once you've tested your `green` deployment, you can 'mirror' (or copy) a percentage of the live traffic to it. Mirroring traffic (also called shadowing) doesn't change the results returned to clients. Requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, you can use mirroring to check if latency is within acceptable bounds or to check that there are no HTTP errors. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/). The deployment receiving the mirrored traffic (in this case, the `green` deployment) can also be called the shadow deployment.
 
 > [!WARNING]
 > Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
@@ -586,7 +586,7 @@ The studio doesn't support mirrored traffic. See the Azure CLI or Python tabs fo
 Mirroring has the following limitations:
 * You can only mirror traffic to one deployment.
 * Mirror traffic isn't currently supported for Kubernetes online endpoints.
-* The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
+* The maximum mirrored traffic you can configure is 50%. This limit is to reduce the effect on your endpoint bandwidth quota.
 
 Also note the following behavior:
 * A deployment can only be set to live or mirror traffic, not both.
@@ -685,7 +685,7 @@ Once you're fully satisfied with your `green` deployment, switch all traffic to 
 
 ## Remove the old deployment
 
-Use the following steps to delete an individual deployment from a managed online endpoint. This does affect the other deployments in the managed online endpoint:
+Use the following steps to delete an individual deployment from a managed online endpoint. Deleting an individual deployment does affect the other deployments in the managed online endpoint:
 
 # [Azure CLI](#tab/azure-cli)
 
