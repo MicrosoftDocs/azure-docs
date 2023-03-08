@@ -7,9 +7,7 @@ ms.date: 11/28/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: "mvc, devx-track-csharp"
-
-
+ms.custom: mvc, devx-track-csharp, devx-track-azurecli
 # Solution developer
 ---
 
