@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Create Azure Spring Apps in Azure Container Apps Environment with an existing virtual network
 
-**This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise  
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise  
 
 This article describes how create an Azure Spring Apps instance in an Azure Container Apps Environment with an existing virtual network. When Azure Spring Apps is created in an Azure Container Apps environment, it will share the same virtual network with other services and resources that reside in the same Azure Container Apps Environment.
 

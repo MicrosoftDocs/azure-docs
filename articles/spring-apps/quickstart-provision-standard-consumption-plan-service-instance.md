@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Provision an Azure Spring Apps Standard Consumption plan service instance
 
-**This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to create a Standard consumption plan in Azure Spring Apps for application deployment.
 
