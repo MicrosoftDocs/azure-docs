@@ -1,6 +1,6 @@
 ---
-title: "Dynamics365 connector for Microsoft Sentinel"
-description: "Learn how to install the connector Dynamics365 to connect your data source to Microsoft Sentinel."
+title: "Dynamics 365 connector for Microsoft Sentinel"
+description: "Learn how to install the connector Dynamics 365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 03/06/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Dynamics365 connector for Microsoft Sentinel
+# Dynamics 365 connector for Microsoft Sentinel
 
 The Dynamics 365 Common Data Service (CDS) activities connector provides insight into admin, user, and support activities, as well as Microsoft Social Engagement logging events. By connecting Dynamics 365 CRM logs into Microsoft Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com//fwlink/p/?linkid=2226719&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
