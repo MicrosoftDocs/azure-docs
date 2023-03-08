@@ -102,7 +102,7 @@ Some source data formats (for example .fbx) provide a unit scaling hint, in whic
 The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
 
 > [!IMPORTANT]
-> Showcase and ARRT tool may compensate for any conversion-time scaling because they have a built-in auto-scaling feature. See also [this entry](../../resources/troubleshoot.md#scaling-value-in-the-conversion-settings-isnt-applied-to-the-model) in the troubleshooting guide.
+> Showcase and Quickstart may compensate for any conversion-time scaling because they have a built-in auto-scaling feature. See also [this entry](../../resources/troubleshoot.md#scaling-value-in-the-conversion-settings-isnt-applied-to-the-model) in the troubleshooting guide.
 
 * `recenterToOrigin` - States that a model should be converted so that its bounding box is centered at the origin.
 If a source model is displaced far from the origin, floating point precision issues may cause rendering artifacts.

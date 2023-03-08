@@ -106,9 +106,10 @@ If these two steps didn't help, it's required to find out whether video frames a
 
 ## Scaling value in the conversion settings isn't applied to the model
 
-If a model shows up in Showcase or ARRT with unchanged scaling albeit a scaling is applied as part of the [conversion settings' geometry parameters](../how-tos/conversion/configure-model-conversion.md#geometry-parameters), then this is probably because of the tool's auto-scaling feature. That is, the tool scales the model for best fit into the view frustum, regardless of its input scaling.
+If a model shows up in Showcase or Quickstart with unchanged scaling albeit a scaling is applied as part of the [conversion settings' geometry parameters](../how-tos/conversion/configure-model-conversion.md#geometry-parameters), then this is probably because of the sample's built-in auto-scaling feature. That is, the sample scales the model for best fit into the view frustum, regardless of its input scaling.
 
-In case of Showcase, auto-scaling can be disabled by specifying a `MaxSize` of zero in the model's `Transform` section inside the models.xml file. This data-driven approach requires that the model is loaded through the xml in the first place, because in all other cases the `MaxSize` defaults to 1 meter. For more information about ways to load models in Showcase, see the [Adding 3D Model Assets to ARR Showcase](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase/.documents/adding-3d-model-assets-to-application.md) chapter of the Showcase documentation.
+In case of Showcase, auto-scaling can be disabled by specifying a `MaxSize` of zero in the model's `Transform` section inside the models.xml file. This data-driven approach requires that the model is loaded through the XML in the first place, because in all other cases the `MaxSize` defaults to 1 meter. There is also a `MinSize` property which defaults to 0.5 meter, causing all smaller models to be scaled up.
+For more information about ways to load models in Showcase, see the [Adding 3D Model Assets to ARR Showcase](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase/.documents/adding-3d-model-assets-to-application.md) chapter of the Showcase documentation.
 
 ### Common client-side issues
 
