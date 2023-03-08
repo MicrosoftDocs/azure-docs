@@ -123,7 +123,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ### [REST API with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](https://learn.microsoft.com/rest/api/monitor/diagnostic-settings/create-or-update?tabs=HTTP).
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update?tabs=HTTP).
 
 #### Request
 
@@ -165,7 +165,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ### [REST API with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](https://learn.microsoft.com/rest/api/monitor/diagnostic-settings/create-or-update?tabs=HTTP).
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update?tabs=HTTP).
 
 #### Request
 
