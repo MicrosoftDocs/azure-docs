@@ -4,6 +4,7 @@ description: Code to cloud deploying your application to Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 05/11/2022
 ms.author: cshoe
