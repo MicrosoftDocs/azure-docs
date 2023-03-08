@@ -58,9 +58,10 @@ Enterprise IoT network sensors can detect the following protocols when identifyi
 |**ASHRAE**     |   BACnet BACapp     |
 | **Cisco** | CDP |
 | **IANA** | SIP |
-| **IETF** | BROWSE <br> DHCP <br> DNS <br> HTTP <br> LLDP <br> MDNS <br> SNMP<br> SSDP |
+| **IETF** | BROWSE <br> DHCP <br> DNS <br> HTTP <br> LLDP <br> MDNS <br> SNMP<br> SSDP <br> SMB <br> FTP <br> TELNET <br> ARP |
 |**Medical**     |DICOM <br>HL7 <br>POCT1        |
 | **SWARM** | swarm |
+| **HP** | PJL |
 
 ## Don't see your protocol here? 
 
