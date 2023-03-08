@@ -161,9 +161,9 @@
         href: database-azure-cosmosdb.md
       - name: Azure SQL
         href: database-azure-sql.md
-      - name: MySQL
+      - name: Azure Database for MySQL
         href: database-mysql.md
-      - name: PostgreSQL
+      - name: Azure Database for PostgreSQL
         href: database-postgresql.md
     - name: Add a database with Mongoose.js and Azure Cosmos DB
       href: add-mongoose.md
