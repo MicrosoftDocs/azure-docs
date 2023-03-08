@@ -51,7 +51,11 @@ It's inevitable that functions will be added, removed, and changed over the life
 
 You can run into memory issues if you have large inputs and outputs to Durable Functions APIs. 
 
-One common mistake Durable Functions users make is passing in large values to and from activity functions. These values get persisted into orchestrator history when they enter or exit orchestrator functions. Over time, this history grows and loading it into memory during [replay](durable-functions-orchestrations.md#reliability) could cause out of memory exceptions. If you need to work with large objects, splitting your activity functions across more orchestration or suborchestration functions would reduce the size of the orchestration history, which could prevent out of memory exceptions. Another approach could be storing your large data in an external store like Azure Blob Storage under a given ID, then retrieve that data with the ID inside an activity function. 
+Inputs and outputs to Durable Functions APIs are serialized into the orchestration history. This means that large inputs and outputs can, over time, greatly contribute to an orchestrator history growing unbounded, which risks causing memory exceptions during [replay](durable-functions-orchestrations.md#reliability).
+
+To mitigate the impact of large inputs and outputs to APIs, you may choose to delegate some work to sub-orchestrators. This helps load balance the history memory burden from a single orchestrator to multiple ones, therefore keeping the memory footprint of individual histories small.
+
+That said the best practice for dealing with _large_ data is to keep it in external storage and to only materialize that data inside Activities, when needed. When taking this approach, instead of communicating the data itself as inputs and/or outputs of Durable Functions APIs, you can pass in some lightweight identifier that allows you to retrieve that data from external storage when needed in your Activities.
 
 ### Fine tune your concurrency settings
 
