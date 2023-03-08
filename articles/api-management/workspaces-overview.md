@@ -1,13 +1,13 @@
 ---
 title: Workspaces in Azure API Management | Microsoft Docs
-description: Learn about workspaces in Azure API Management. Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
+description: Learn about workspaces (preview) in Azure API Management. Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
 services: api-management
 documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/07/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -20,6 +20,8 @@ In API Management, *workspaces* allow decentralized API development teams to man
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
+> * This feature is being released during March and April 2023.
+> * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 
@@ -81,9 +83,9 @@ The following resources can be managed in the workspaces preview.
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned both a service-level role and a workspace-level role. The service-level role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+Workspace members must be assigned both a service-level role and a workspace-level role, or granted equivalent permissions using custom roles. The service-level role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
 
-## Workspace constraints
+## Workspaces and other API Management features
 
 * **Infrastructure features** - API Management platform infrastructure features are managed on the service level only, not at the workspace level. These features include:
 
@@ -112,9 +114,13 @@ The following resources aren't currently supported in workspaces:
 
 * Client certificates 
 
+* Current DevOps tooling for API Management
+
 * Diagnostics 
 
 * Loggers 
+
+* Synthetic GraphQL APIs
 
 * User-assigned managed identity 
 
@@ -133,5 +139,3 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 ## Next steps
 
 * [Create a workspace](how-to-create-workspace.md)
-
-* Migrate API Management resources to a workspace
