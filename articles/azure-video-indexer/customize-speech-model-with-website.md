@@ -41,44 +41,30 @@ As all custom models must contain a dataset, we'll start with the process of how
 
 Once a Dataset has been uploaded, you might need to review it or perform any number of updates to it. This section covers how to view, download, troubleshoot, and delete a dataset. 
 
-### View dataset:
- 
-You can view a dataset and its properties by either clicking on the dataset name or when hovering over the dataset or clicking on the ellipsis and selecting **View Dataset**.  
+**View dataset**: You can view a dataset and its properties by either clicking on the dataset name or when hovering over the dataset or clicking on the ellipsis and selecting **View Dataset**.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/customize-speech-model/view-dataset.png" alt-text="This image shows how to view dataset.":::
 
 You'll then view the name, description, language and status of the dataset plus the following properties: 
 
-### Number of lines: 
-
-**Number of lines** indicates the number of lines successfully loaded out of the total number of lines in the file. If the entire file is loaded successfully the numbers will match (for example, 10 of 10 normalized). If the numbers don't match (for example, 7 of 10 normalized), this means that only some of the lines successfully loaded and the rest had errors. The most common cause of errors are formatting issues with a line, such as not spacing a tab between each word in a pronunciation file.  Reviewing the plain text and pronunciation data for training articles should be helpful in finding the issue. To troubleshoot the cause, review the error details, which are contained in the report.  Select **View report** to view the error details regarding the lines that didn't load successfully (errorKind). This can also be viewed by selecting the **Report** tab.   
+**Number of lines**:  indicates the number of lines successfully loaded out of the total number of lines in the file. If the entire file is loaded successfully the numbers will match (for example, 10 of 10 normalized). If the numbers don't match (for example, 7 of 10 normalized), this means that only some of the lines successfully loaded and the rest had errors. The most common cause of errors are formatting issues with a line, such as not spacing a tab between each word in a pronunciation file.  Reviewing the plain text and pronunciation data for training articles should be helpful in finding the issue. To troubleshoot the cause, review the error details, which are contained in the report.  Select **View report** to view the error details regarding the lines that didn't load successfully (errorKind). This can also be viewed by selecting the **Report** tab.   
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/customize-speech-model/report-tab.png" alt-text="The image shows how to view by selecting report tab.":::
 
-### Dataset ID: 
+**Dataset ID**: Each dataset has a unique GUID, which is needed when using the API for operations that reference the dataset. 
 
-Each dataset has a unique GUID, which is needed when using the API for operations that reference the dataset. 
+**Plain text (normalized)**: This contains the normalized text of the loaded dataset file. Normalized text is the recognized text in plain form without formatting. 
 
-### Plain text (normalized): 
-
-This contains the normalized text of the loaded dataset file. Normalized text is the recognized text in plain form without formatting. 
-
-### Edit Details: 
-
-To edit a dataset's name or description, when hovering over the dataset, click on the ellipsis and then select Edit details. You're then able to edit the dataset name and description. 
+**Edit Details**: To edit a dataset's name or description, when hovering over the dataset, click on the ellipsis and then select Edit details. You're then able to edit the dataset name and description. 
 
 > [!Note]
 > The data in a dataset can't be edited or updated once the dataset has been uploaded. If you need to edit or update the data in a dataset, download the dataset, perform the edits, save the file, and upload the new dataset file. 
 
-### Download: 
+**Download**: To download a dataset file, when hovering over the dataset, click on the ellipsis and then select Download. Alternatively, when viewing the dataset, you can select Download and then have the option of downloading the dataset file or the upload report in JSON form. 
 
-To download a dataset file, when hovering over the dataset, click on the ellipsis and then select Download. Alternatively, when viewing the dataset, you can select Download and then have the option of downloading the dataset file or the upload report in JSON form. 
-
-### Delete: 
-
-To delete a dataset, when hovering over the dataset, click on the ellipsis and then select Delete.  
+**Delete**: To delete a dataset, when hovering over the dataset, click on the ellipsis and then select Delete.  
 
 ## Create a custom speech model 
 
@@ -116,30 +102,30 @@ There are two ways to train a model – through the dataset tab and through the 
 
 ## Model review and update 
 
-1. Once a Model has been created, you might need to review its datasets, edits its name, or delete it.  
+Once a Model has been created, you might need to review its datasets, edits its name, or delete it.  
 
-    View Model: You can view a model and its properties by either clicking on the model’s name or when hovering over the model, clicking on the ellipsis and then selecting View Model.  
+**View Model**: You can view a model and its properties by either clicking on the model’s name or when hovering over the model, clicking on the ellipsis and then selecting View Model.  
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/customize-speech-model/view-model.png" alt-text="The image shows how to review and update a model.":::
     
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/view-model.png" alt-text="The image shows how to review and update a model.":::
-     
-    
-    You'll then see in the Details tab the name, description, language and status of the model plus the following properties: 
-    
-    Model ID: Each model has a unique GUID, which is needed when using the API for operations that reference the model. 
-    
-    Created on: The date the model was created. 
-    
-Edit Details: To edit a model’s name or description, when hovering over the model, click on the ellipsis and then select Edit details. You're then able to edit the model’s name and description. 
+You'll then see in the Details tab the name, description, language and status of the model plus the following properties: 
+
+**Model ID**: Each model has a unique GUID, which is needed when using the API for operations that reference the model. 
+
+**Created on**: The date the model was created. 
+
+**Edit Details**: To edit a model’s name or description, when hovering over the model, click on the ellipsis and then select Edit details. You're then able to edit the model’s name and description. 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/customize-speech-model/create-model.png" alt-text="Hover over the model.":::
 
-Note: Only the model’s name and description can be edited. If you want to make any changes to its datasets or add datasets, a new model must be created. 
+> [!Note] 
+> Only the model’s name and description can be edited. If you want to make any changes to its datasets or add datasets, a new model must be created. 
 
-Delete: To delete a model, when hovering over the dataset, click on the ellipsis and then select Delete.  
+**Delete**: To delete a model, when hovering over the dataset, click on the ellipsis and then select Delete.  
 
-Included datasets: Click on the Included datasets tab to view the model’s datasets. 
+**Included datasets**: Click on the Included datasets tab to view the model’s datasets. 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/customize-speech-model/included-datasets.png" alt-text="This image shows how to delete the model.":::
