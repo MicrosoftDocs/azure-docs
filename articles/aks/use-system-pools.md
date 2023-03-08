@@ -38,7 +38,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods. 
+For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
+
 You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
 
 System node pools have the following restrictions:
@@ -61,6 +62,7 @@ You can do the following operations with node pools:
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
 * If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
+* Use [node affinity][node-affinity] to *require* or *prefer* which nodes can be scheduled based on node labels. You can set `key` to `kubernetes.azure.com`, `operator` to `In`, and `values` of either `user` or `system` to your YAML, applying this definition using `kubectl apply -f yourYAML.yaml`.
 
 ## Create a new AKS cluster with a system node pool
 
@@ -104,7 +106,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools. 
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
@@ -143,7 +145,7 @@ $myAKSCluster | Set-AzAksCluster
 
 ## Show details for your node pool
 
-You can check the details of your node pool with the following command. 
+You can check the details of your node pool with the following command.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -354,3 +356,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: /start-stop-nodepools.md
+[node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity
