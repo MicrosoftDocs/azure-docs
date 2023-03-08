@@ -968,7 +968,7 @@ The SCIM endpoint must have an HTTP address and server authentication certificat
 * WoSign
 * DST Root CA X3
 
-The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
+The .NET Core SDK includes an HTTPS development certificate that is used during development. The certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it listens to a different port:
 
 * Microsoft.SCIM.WebHostSample: `https://localhost:5001`
 * IIS Express: `https://localhost:44359`
@@ -1351,10 +1351,10 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 
 ## Publish your application to the Azure AD application gallery
 
-If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. It's easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
+If you're building an application used by more than one tenant, make it available in the Azure AD application gallery. It's easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft works with you to integrate your application into the gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers.
 
 ### Gallery onboarding checklist
-Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
+Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information is gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
 > * Support a [SCIM 2.0](#understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
@@ -1418,7 +1418,7 @@ Best practices (recommended, but not required):
 > [!NOTE]
 > While it's not possible to setup OAuth on the non-gallery applications, you can manually generate an access token from your authorization server and input it as the secret token to a non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD Provisioning Service before onboarding to the app gallery, which does support the OAuth code grant.  
 
-**Long-lived OAuth bearer tokens:** If your application doesn't support the OAuth authorization code grant flow, instead generate a long lived OAuth bearer token that an administrator can use to set up the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires.
+**Long-lived OAuth bearer tokens:** If your application doesn't support the OAuth authorization code grant flow, instead generate a long lived OAuth bearer token that an administrator can use to set up the provisioning integration. The token should be perpetual, or else the provisioning job is [quarantined](application-provisioning-quarantine-status.md) when the token expires.
 
 For more authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
