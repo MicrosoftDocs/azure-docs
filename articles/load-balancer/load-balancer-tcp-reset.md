@@ -48,15 +48,7 @@ TCP keep-alive works for scenarios where battery life isn't a constraint. It isn
 
 ## Order of precedence
 
-It is important to take into account how the idle timeout values set for different IPs could potentially interact.  The chart below ranks the idle timeout priority (starting at 1 for highest) different methods of inbound/outbound.  (For outbound specifically - this also aligns to the priority of the outbound method that will be used, i.e NAT Gateway before Public IP attached to backend pool node before a load balancer outbound rule.)
-
-| Resource w/Idle Timeout Value | Inbound Priority | Outbound Priority|
-| --- | --- | --- |
-| Public IP (attached to load balancer frontend) | 1 | 4 |
-| Load Balancer Inbound Rule | 2 | N/A |
-| Load Balancer Outbound Rule | N/A | 3 |
-| Public IP (attached to backend pool node) | 3 | 2 |
-| NAT Gateway | N/A | 1 |
+It is important to take into account how the idle timeout values set for different IPs could potentially interact.
 
 ### Inbound
 
