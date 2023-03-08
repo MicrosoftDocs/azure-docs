@@ -47,12 +47,16 @@ items:
     href: sample-powershell.md
 - name: Concepts
   items:
+    - name: Azure Firewall Basic features
+      href: basic-features.md
     - name: Azure Firewall Standard features
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
     - name: Azure Firewall preview features
       href: firewall-preview.md
+    - name: Choose an Azure Firewall SKU
+      href: choose-firewall-sku.md
     - name: IDPS signature rule categories
       href: idps-signature-categories.md
     - name: Azure Firewall Premium in the portal
