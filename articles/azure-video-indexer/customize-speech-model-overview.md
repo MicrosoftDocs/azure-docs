@@ -119,7 +119,7 @@ Let's say you plan on indexing sports content and anticipate transcript accuracy
 
 1. Review the transcript and note all the incorrectly transcribed names. They could fall into two groups:  
 
-    - Names not in the pronunciation file  
+    - Names not in the pronunciation file.  
     - Names in the pronunciation file but they're still incorrectly transcribed. 
 2. Create a new dataset file. Either download the pronunciation dataset file or modify your locally saved original. For group A, add the new names to the file with how they were incorrectly transcribed (Michael Mikel). For group B, add additional lines with each line having the correct name and a unique example of how it was incorrectly transcribed. For example: 
 

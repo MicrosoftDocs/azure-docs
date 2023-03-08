@@ -9,15 +9,15 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
  
-Azure Video Indexer lets you create custom speech models to customize speech recognition by uploading datasets that are used to create a speech model. This article goes through the steps to do so through the Video Indexer website. You can also use the API, as described in [Customize speech model using API](). 
+Azure Video Indexer lets you create custom speech models to customize speech recognition by uploading datasets that are used to create a speech model. This article goes through the steps to do so through the Video Indexer website. You can also use the API, as described in [Customize speech model using API](customize-speech-model-with-api.md). 
 
-For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](). 
+For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](customize-speech-model-overview.md). 
 
 ## Create a dataset 
 
 As all custom models must contain a dataset, we'll start with the process of how to create and manage datasets. 
 
-1. Go to the [Azure Video Indexer website]() and sign in. 
+1. Go to the [Azure Video Indexer website](https://www.videoindexer.ai/) and sign in. 
 1. Select the Model customization button on the left of the page. 
 1. Select the Speech (new) tab. Here you'll begin the process of uploading datasets that are used to train the speech models.  
 
