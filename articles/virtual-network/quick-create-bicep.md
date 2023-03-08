@@ -37,7 +37,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - Run `Connect-AzAccount` to connect to Azure.
 
-   # [Portal]((#tab/azure-portal))
+   # [Portal](#tab/azure-portal)
 
    To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
@@ -78,7 +78,7 @@ Review the Bicep file:
    New-AzResourceGroupDeployment -ResourceGroupName TestRG -TemplateFile main.bicep
    ```
 
-   # [Portal]((#tab/azure-portal))
+   # [Portal](#tab/azure-portal)
 
    To create the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
