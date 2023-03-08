@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 02/20/2023
+ms.date: 03/08/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -27,6 +27,8 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses the use of private endpoints for Azure Backup only.
 
 - You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only.
+
+- You can't create private endpoints using static IP.
 
 - You can't upgrade vaults (that contains private endpoints) created using the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the v2 experience. 
 
@@ -144,9 +146,6 @@ For a private endpoint enabled vault, the Azure Backup service creates private e
 In addition to the Azure Backup cloud services, the workload extension and agent require connectivity to the Azure Storage accounts and Azure Active Directory (Azure AD).
 
 As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). Recovery Services vault searches for private DNS zones in the resource groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault; otherwise, you must create them manually.
-
->[!Note]
->Integration with private DNS zone present in different subscriptions is unsupported in this experience.
 
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 

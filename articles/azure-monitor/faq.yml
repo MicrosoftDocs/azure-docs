@@ -910,6 +910,26 @@ sections:
           - :x: : This feature is not available or not applicable.
 
       - question: |
+          Is OpenTelemetry intended for use in web browsers?
+        answer: |
+          OpenTelemetry isn’t currently intended for use in web browsers. It’s primarily designed for use with Node.JS.
+
+      - question: |
+          When can we expect the OpenTelemetry SDK to be available for use in web browsers?
+        answer: |
+          The availability timeline for the OpenTelemetry SDK hasn’t been determined yet.
+      
+      - question: |
+          Will OpenTelemetry be the preferred SDK for connecting to Application Insights for third parties in the future?
+        answer: |
+          It’s not expected to be the preferred SDK for connecting to Application Insights for third parties in the near future.
+
+      - question: |
+          Can I test OpenTelemetry in a web browser today?
+        answer: |
+          The [OpenTelemetry Web Sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser, but it is not yet possible to send telemetry to Application Insights or 1DS Collector. Additionally, the SDK does not currently have defined general client events.
+
+      - question: |
           How do I determine if OpenTelemetry is right for me?
         answer: |
           The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
