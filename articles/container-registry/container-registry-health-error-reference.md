@@ -108,7 +108,7 @@ This error means that the CLI is not compatible with the currently installed ver
 
 ## CONNECTIVITY_TOOMANYREQUESTS_ERROR
 
-This error means that the user has sent too many requests in a short period causing the authentication system to block further requests to prevent overload. This error can also occur by reaching a configured limit in the user's registry service tier or environment. We recommend waiting for a moment to allow the authentication system's block to lift and then try sending a request again later.  
+This error means that the user has sent too many requests in a short period causing the authentication system to block further requests to prevent overload. This error occurs by reaching a configured limit in the user's registry service tier or environment. We recommend waiting for a moment before sending another request. This will allow the authentication system's block to lift and you can try sending a request again.  
 
 ## Next steps
 
