@@ -943,7 +943,7 @@ groups:
   - id: platform-linux
     title: Linux
   - id: platform-sphere
-    title: Sphere
+    title: Azure Sphere
 - id: app-service-platform-environment
   title: App Service platform and development tool
   prompt: Choose a hosting platform and development tool

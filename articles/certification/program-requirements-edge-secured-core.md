@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ## Edge Secured-Core certification requirements ##
 
 ### Program purpose ###
-Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux or Windows 10 IoT.This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
+Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux, Windows 10 IoT or Azure Sphere OS. This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
 
 1. Hardware-based device identity 
 2. Capable of enforcing system integrity 
@@ -25,7 +25,6 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 6. Built in security agent and hardening
 
 
-Overview content
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
@@ -492,191 +491,186 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ::: zone pivot="platform-sphere"
 
 ## Azure Sphere platform Support
-The Mediatek MT3620AN must be included in your design. For any component that can connect to the internet directly from your hardware product outside of this chip, including cellular modems, additional certification details may be required.
-
-All operating systems on device must meet Secured Core requirements
-
-Additional considerations for Azure Sphere are provided as an application note here: [Azure Sphere application notes](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)
+The Mediatek MT3620AN must be included in your design. Additional guidance for building secured Azure Sphere applications can be within the [Azure Sphere application notes](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview).
 
 
-## Sphere Hardware/Firmware Requirements
+## Azure Sphere Hardware/Firmware Requirements
 
 ---
-|Name|SecuredCore.Hardware.Identity|Sphere|
+|Name|SecuredCore.Hardware.Identity|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.||
+|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.||
 |Validation Type|Pre-validated, no additional validation is required||
 |Validation|Provided by Microsoft||
-|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)||
 
 ---
 </br>
 
-|Name|SecuredCore.Hardware.MemoryProtection|Sphere|
+|Name|SecuredCore.Hardware.MemoryProtection|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
 </br>
 
 ---
-|Name|SecuredCore.Firmware.Protection|Sphere|
+|Name|SecuredCore.Firmware.Protection|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
 ---
 </br>
 
-|Name|SecuredCore.Firmware.SecureBoot|Sphere|
+|Name|SecuredCore.Firmware.SecureBoot|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the boot integrity of the device.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
 ---
 </br>
 
-|Name|SecuredCore.Firmware.Attestation|Sphere|
+|Name|SecuredCore.Firmware.Attestation|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
 ---
 </br>
 
-|Name|SecuredCore.Hardware.SecureEnclave|Sphere|
+|Name|SecuredCore.Hardware.SecureEnclave|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this reqiurement is to validate hardware security that is accessible from a secure operating system.|
-|Validation Type|Automated|
+|Description|The purpose of this requirement is to validate hardware security that is accessible from a secure operating system.|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
-## Sphere OS Configuration Requirements
+## Azure Sphere OS Configuration Requirements
 
 ---
-|Name|SecuredCore.Encryption.Storage|Sphere|
+|Name|SecuredCore.Encryption.Storage|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this reqiurement is to validate that sensitive data can be encrypted on non-volatile storage.|
-|Validation Type|Automated|
+|Description|The purpose of this requirement is to validate that sensitive data can be encrypted on non-volatile storage.|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 |Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
 
 ---
 </br>
 
-|Name|SecuredCore.Encryption.TLS|Sphere|
+|Name|SecuredCore.Encryption.TLS|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
 
 ---
 </br>
 
-|Name|SecuredCore.Protection.CodeIntegrity|Sphere|
+|Name|SecuredCore.Protection.CodeIntegrity|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 ---
 </br>
 
-|Name|SecuredCore.Protection.NetworkServices|Sphere|
+|Name|SecuredCore.Protection.NetworkServices|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 ---
 </br>
 
-|Name|SecuredCore.Protection.NetworkFirewall|Sphere|
+|Name|SecuredCore.Protection.NetworkFirewall|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate that applications cannot connect to endpoints that have not been authorized.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
-## Sphere Software/Service Requirements
+## Azure Sphere Software/Service Requirements
 ---
-|Name|SecuredCore.Built-in.Security|Sphere|
+|Name|SecuredCore.Built-in.Security|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
-|Validation Type|Automated|
+|Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service.|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 |Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
 </br>
 
-|Name|SecuredCore.Manageability.Configuration|Sphere|
+|Name|SecuredCore.Manageability.Configuration|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this requirement is to validate the device supports remote adiministration via service-based configuration control.|
-|Validation Type|Automated|
+|Description|The purpose of this requirement is to validate the device supports remote administration via service-based configuration control.|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 ---
 </br>
 
-|Name|SecuredCore.Update|Sphere|
+|Name|SecuredCore.Update|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 ---
 </br>
 
-|Name|SecuredCore.Protection.Baselines|Sphere|
+|Name|SecuredCore.Protection.Baselines|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 ---
 </br>
 
-|Name|SecuredCore.Protection.SignedUpdates|Sphere|
+|Name|SecuredCore.Protection.SignedUpdates|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that updates must be signed.|
-|Validation Type|Automated|
+|Validation Type|Pre-validated, no additioanl validation is required|
 |Validation|Provided by Microsoft|
 
 
 
-## Sphere Policy Requirements
+## Azure Sphere Policy Requirements
 ---
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the policy requires that debug functionality on the device is disabled.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
+|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation|Provided by Microsoft|
 
 
 ---
@@ -685,9 +679,9 @@ Additional considerations for Azure Sphere are provided as an application note h
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
+|Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configurations), b) Restore device to last known good in the case of an update causing issues.|
+|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation|Provided by Microsoft|
 
 
 ---
@@ -697,8 +691,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that the device remains secure.|
-|Validation Type|Manual|
-|Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
+|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation|Provided by Microsoft|
 
 
 ---
@@ -708,9 +702,10 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-
+|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation|Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
+|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](https://learn.microsoft.com/azure-sphere/product-overview/whats-new)</li><li>
+[Azure Sphere CVEs](https://learn.microsoft.com/azure-sphere/deployment/azure-sphere-cves)|</li></ul>
 
 ---
 </br>
@@ -719,8 +714,8 @@ Additional considerations for Azure Sphere are provided as an application note h
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
+|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation|Provided by Microsoft|
 
 
 </br>
