@@ -80,7 +80,7 @@ At the moment, the following countries have the local data residence option:
 
 |If you're in  | What to do  |
 |-------------|---------|
-| Australia | If you've existing Azure AD B2C tenant that you created since **April 2021**, your data is resident in Australia. You need to opt in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
+| Australia | If you've an existing Azure AD B2C tenant that you created since **April 2021**, then your data is resident in Australia. You need to opt in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
 | Japan | You can enable Go-Local add-on when you create a new Azure AD B2C tenant. |
 
 
