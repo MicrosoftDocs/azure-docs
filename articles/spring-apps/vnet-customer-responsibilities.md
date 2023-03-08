@@ -1,6 +1,6 @@
 ---
-title:  Customer responsibilities running Azure Spring Apps in a virtual network
-description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
+title: Customer responsibilities running Azure Spring Apps in a virtual network
+description: Describes customer responsibilities when running Azure Spring Apps in a virtual network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️Basic/Standard ✔️Enterprise
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article includes specifications for the use of Azure Spring Apps in a virtual network.
 
@@ -45,7 +45,7 @@ The following list shows the resource requirements for Azure Spring Apps service
 
 ## Azure Spring Apps FQDN requirements/application rules
 
-The Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the  configurations described in the following table.
+The Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the configurations described in the following table.
 
 | Destination FQDN                  | Port      | Use                                                                          |
 |-----------------------------------|-----------|------------------------------------------------------------------------------|
