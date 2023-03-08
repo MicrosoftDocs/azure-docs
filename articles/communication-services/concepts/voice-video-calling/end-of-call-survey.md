@@ -102,18 +102,6 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
-
-
-| API Values | Cutoff Value* | Input Range | Comments |
-| ----------- | ----------- | -------- | -------- | 
-|    |       |       |      |
-|    |       |       |      |
-|    |       |       |      |
-|    |       |       |      |
-|    |       |       |      |
-
-
-
 -	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ### API Tags by Value
