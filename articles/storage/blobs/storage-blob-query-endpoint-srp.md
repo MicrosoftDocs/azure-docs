@@ -125,6 +125,9 @@ import com.azure.identity.*;
 import com.azure.storage.blob.*;
 
 import com.azure.resourcemanager.*;
+import com.azure.resourcemanager.storage.models.*;
+import com.azure.core.management.*;
+import com.azure.core.management.profile.*;
 ```
 
 ## [JavaScript](#tab/javascript)
