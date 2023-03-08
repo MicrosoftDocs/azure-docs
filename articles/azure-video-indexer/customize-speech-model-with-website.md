@@ -13,7 +13,7 @@ Azure Video Indexer lets you create custom speech models to customize speech rec
 
 For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](). 
 
-## Create a Dataset 
+## Create a dataset 
 
 As all custom models must contain a dataset, we will start with the process of how to create and manage datasets. 
 
@@ -22,7 +22,7 @@ As all custom models must contain a dataset, we will start with the process of h
 1. Select the Speech (new) tab. Here you will begin the process of uploading datasets which are used to train the speech models.  
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="":::
+    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="The image of uploading datasets which are used to train the speech models.":::
 1. Select Upload dataset. 
 1. Select either Plain text or Pronunciation from the Dataset type dropdown menu. Every speech model must have a plain text dataset and can optionally have a pronunciation dataset. To learn more about each type, see Customize a speech model with Azure Video Indexer. 
 1. Select Browse which will open the File Explorer. You can only use one file in each dataset. Choose the relevant text file. 
@@ -31,11 +31,11 @@ As all custom models must contain a dataset, we will start with the process of h
 1. You can optionally add a description of the dataset. This could be helpful to distinguish each dataset if you expect to have multiple datasets. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/dataset-type.png" alt-text="":::
+    > :::image type="content" source="./media/customize-speech-model/dataset-type.png" alt-text="The image of multiple datasets.":::
 1. Once you are ready, select Upload. You will then see a list of all of your datasets and their properties, including the type, language, status, number of lines, and creation date. Once the status is complete, it can be used in the training and creation or new models. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/datasets.png" alt-text="":::
+    > :::image type="content" source="./media/customize-speech-model/datasets.png" alt-text="The image of a new model.":::
 
 ### Dataset review and update 
 
@@ -44,7 +44,7 @@ Once a Dataset has been uploaded, you might need to review it or perform any num
 View Dataset: You can view a dataset and its properties by either clicking on the dataset name or when hovering over the dataset, clicking on the ellipsis and then selecting View Dataset.  
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/view-dataset.png" alt-text="":::x`
+> :::image type="content" source="./media/customize-speech-model/view-dataset.png" alt-text="":::
 
 You will then view the name, description, language and status of the dataset plus the following properties: 
 
