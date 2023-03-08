@@ -1,28 +1,25 @@
 ---
-title: How to work with the ChatGPT model (preview)
+title: How to work with the Chat Markup Language (preview)
 titleSuffix: Azure OpenAI
-description: Learn how to work with the ChatGPT model (preview)
+description: Learn how to work with Chat Markup Language (preview)
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/01/2023
+ms.date: 03/09/2023
 manager: nitinme
 keywords: ChatGPT
 ---
 
-# Learn how to work with the ChatGPT model (preview)
+# Learn how to work with Chat Markup Language (preview)
 
-The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
+The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat. While the prompt format was designed specifically for multi-turn conversations, you'll find it can also work well for non-chat scenarios too.
 
-The ChatGPT model uses the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
+The ChatGPT model can be used with the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format known as Chat Markup Language (ChatML). It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
 ## Working with the ChatGPT model
 
 The following code snippet shows the most basic way to use the ChatGPT model. We also have a UI driven experience that you can learn about in the [ChatGPT Quickstart](../chatgpt-quickstart.md).
-
-> [!NOTE]  
-> OpenAI continues to improve the ChatGPT model and release new versions. During the preview of this model, we'll continue updating to the latest version of the model in place. This means that you may see small changes in the behavior of the model during the preview.
 
 ```python
 import os
@@ -36,25 +33,39 @@ response = openai.Completion.create(
   engine="gpt-35-turbo",
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
-  max_tokens=800,
+  max_tokens=500,
   top_p=0.5,
   stop=["<|im_end|>"])
 
 print(response['choices'][0]['text'])
 ```
+> [!NOTE]  
+> The following parameters aren't available with the gpt-35-turbo model: `logprobs`, `best_of`, and `echo`. If you set any of these parameters to a value other than their default, you'll get an error.
 
-The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. When you include the `<|im_end|>` token as a stop sequence, this ensures that the model stops generating text when it reaches the end of the message.
+The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. You can read more about the special tokens in the [Chat Markup Language (ChatML)](# working-with-chat-markup-language-(chatml)) section.
 
-Consider setting `max_tokens` to a slightly higher value than normal such as 500 or 800. This ensures that the model doesn't stop generating text before it reaches the end of the message.
+Consider setting `max_tokens` to a slightly higher value than normal such as 300 or 500. This ensures that the model doesn't stop generating text before it reaches the end of the message.
 
-## ChatGPT prompt format
+## Model versioning
 
 > [!NOTE]  
-> OpenAI continues to improve the ChatGPT model and the prompt format may change or evolve in the future. We'll keep this document updated with the latest information.
+> `gpt-35-turbo` is equivalent to the `gpt-3.5-turbo` model from OpenAI.
 
-OpenAI trained the ChatGPT model on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
+Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model will continue to be updated. When creating a [deployment](../create-resource.md#deploy-a-model) of `gpt-35-turbo`, you'll also need to specify a model version.
 
-When starting a conversation, you should have a prompt that looks similar to the following code block:
+Currently, only version `"0301"` is available. This is equivalent to the `gpt-3.5-turbo-0301` model from OpenAI. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../models.md) page.
+
+One thing that's important to note is that Chat Markup Language (ChatML) will continue to evolve with the new versions of the model. You may need to make updates to your prompts when you upgrade to a new version of the model.
+
+
+## Working with Chat Markup Language (ChatML)
+
+> [!NOTE]  
+> OpenAI continues to improve the `gpt-35-turbo` model and the Chat Markup Language used with the model will continue to evolve in the future. We'll keep this document updated with the latest information.
+
+OpenAI trained the gpt-35-turbo model on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
+
+The format of a basic ChatML prompt is as follows:
 
 ```
 <|im_start|>system 
@@ -68,12 +79,12 @@ The user’s message goes here
 
 ### System message
 
-The system message is included at the beginning of the prompt between the `<|im_start|>system` and `<|im_end|>` tokens. This message provides the initial instructions to the model. You can provide a variety of information including:
+The system message is included at the beginning of the prompt between the `<|im_start|>system` and `<|im_end|>` tokens. This message provides the initial instructions to the model. You can provide various information in the system message including:
 
 * A brief description of the assistant
-* The personality of the assistant
-* Instructions for the assistant
-* Data or information needed for the model
+* Personality traits of the assistant
+* Instructions or rules you would like the instructions to follow
+* Data or information needed for the model, such as relevant questions from an FAQ
 
 You can customize the system message for your use case or just include a basic system message. The system message is optional, but it's recommended to at least include a basic one to get the best results.
 
@@ -120,14 +131,14 @@ Instructions:
 - If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.
 <|im_end|>
 <|im_start|>user
-What is the IRS?
+When are my taxes due?
 <|im_end|>
 <|im_start|>assistant
 ```
 
 #### Using data for grounding
 
-You can also include relevant data or information in the system message to give the model additional context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
+You can also include relevant data or information in the system message to give the model extra context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
 
 ```
 <|im_start|>system
@@ -142,12 +153,11 @@ Context:
 What is Azure OpenAI Service?
 <|im_end|>
 <|im_start|>assistant
-
 ```
 
-#### Few shot learning with ChatGPT
+#### Few shot learning with ChatML
 
-You can also give few shot examples to the model. The approach for few shot learning has changed slightly because of the new prompt format. You can now include a series of messages between the user and the assistant in the prompt as few shot examples. These examples can be used to seed answers to common questions to prime the model.
+You can also give few shot examples to the model. The approach for few shot learning has changed slightly because of the new prompt format. You can now include a series of messages between the user and the assistant in the prompt as few shot examples. These examples can be used to seed answers to common questions to prime the model or teach particular behaviors to the model.
 
 This is only one example of how you can use few shot learning with ChatGPT. You can experiment with different approaches to see what works best for your use case.
 
@@ -169,9 +179,40 @@ You can check the status of your tax refund by visiting https://www.irs.gov/refu
 <|im_end|>
 ```
 
+#### Using Chat Markup Language for non-chat scenarios
+
+ChatML is designed to make multi-turn conversations easier to manage, but it also works well for non-chat scenarios.
+
+For example, for an entity extraction scenario, you might use the following prompt:
+
+```
+<|im_start|>system
+You are an assistant designed to extract entities from text. Users will paste in a string of text and you will respond with entities you've extracted from the text as a JSON object. Here's an example of your output format:
+{
+   "name": "",
+   "company": "",
+   "phone_number": ""
+}
+<|im_end|>
+<|im_start|>user
+Hello. My name is Robert Smith. I’m calling from Contoso Insurance, Delaware. My colleague mentioned that you are interested in learning about our comprehensive benefits policy. Could you give me a call back at (555) 346-9322 when you get a chance so we can go over the benefits?
+<|im_end|>
+<|im_start|>assistant
+```
+
+
+## Preventing unsafe user inputs
+
+It's important to add mitigations into your application to ensure safe use of the Chat Markup Language.
+
+We recommend that you prevent end-users from being able to include special tokens in their input such as `<|im_start|>` and `<|im_end|>`. We also recommend that you include additional validation to ensure the prompts you're sending to the model are well formed and follow the Chat Markup Language format as described in this document.
+
+You can also provide instructions in the system message to guide the model on how to respond to certain types of user inputs. For example, you can instruct the model to only reply to messages about a certain subject. You can also reinforce this behavior with few shot examples.
+
+
 ## Managing conversations with ChatGPT
 
-The token limit of the ChatGPT model is 4096 tokens. This limit includes the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under 4096 or you'll receive an error.
+The token limit for `gpt-35-turbo` is 4096 tokens. This limit includes the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under 4096 or you'll receive an error.
 
 It’s your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the token limit.
 
@@ -194,8 +235,8 @@ def create_prompt(system_message, messages):
     return prompt
 
 # defining the user input and the system message
-user_input = "--the user's message--" # allow user input
-system_message = f"<|im_start|>system\n{'--your system message--'}\n<|im_end|>"
+user_input = "<your user input>" 
+system_message = f"<|im_start|>system\n{'<your system message>'}\n<|im_end|>"
 
 # creating a list of messages to track the conversation
 messages = [{"sender": "user", "text": user_input}]
@@ -203,7 +244,7 @@ messages = [{"sender": "user", "text": user_input}]
 response = openai.Completion.create(
     engine="gpt-35-turbo",
     prompt=create_prompt(system_message, messages),
-    temperature=1,
+    temperature=0.5,
     max_tokens=250,
     top_p=0.9,
     frequency_penalty=0,
@@ -221,7 +262,7 @@ The simplest approach to staying under the token limit is to truncate the oldest
 
 You can choose to always include as many tokens as possible while staying under the limit or you could always include a set number of previous messages assuming those messages stay within the limit. It's important to keep in mind that longer prompts take longer to generate a response and incur a higher cost than shorter prompts.
 
-You can estimate the number of tokens in a string by using the [tiktoken](https://github.com/openai/tiktoken) Python library. While the exact encoding used by ChatGPT isn't supported yet in tiktoken, you can recreate it yourself by building off of the cl100k_base encoding.
+You can estimate the number of tokens in a string by using the [tiktoken](https://github.com/openai/tiktoken) Python library as shown below.
 
 ```python
 import tiktoken 
@@ -235,8 +276,7 @@ enc = tiktoken.Encoding(
     special_tokens={ 
         **cl100k_base._special_tokens, 
         "<|im_start|>": 100264, 
-        "<|im_end|>": 100265, 
-        "<|im_sep|>": 100266, 
+        "<|im_end|>": 100265
     } 
 ) 
 

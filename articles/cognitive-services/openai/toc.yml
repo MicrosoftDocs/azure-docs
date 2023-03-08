@@ -32,7 +32,7 @@ items:
   items:
     - name: Create a resource
       href: ./how-to/create-resource.md
-    - name: ChatGPT
+    - name: Use Chat Markup Language (ChatML)
       href: ./how-to/chatgpt.md
     - name: Completions
       href: ./how-to/completions.md
