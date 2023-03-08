@@ -19,8 +19,8 @@ The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) de
 
 This article does *not* include information on the following scenarios:
 
-- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc-enabled Kubernetes.
-- Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights.
+- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc-enabled Kubernetes
+- Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights
 
 > [!NOTE]
 > Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Microsoft Sentinel](../sentinel/overview.md) and [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
@@ -112,13 +112,13 @@ The cluster level includes the following component:
 
 Use existing views and reports in Container Insights to monitor cluster level components.
 
-    * Use the **Cluster** view to see the performance of the nodes in your cluster, including CPU and memory utilization.
-    * Use the **Nodes** view to see the health of each node and the health and performance of the pods running on them. For more information on anaylzing node health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md).
-    * Under **Reports**, use the **Node Monitoring** workbooks to analyze disk capacity, disk IO, and GPU usage. For more information about these workbooks, see [Node Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#node-monitoring-workbooks).
+- Use the **Cluster** view to see the performance of the nodes in your cluster, including CPU and memory utilization.
+- Use the **Nodes** view to see the health of each node and the health and performance of the pods running on them. For more information on anaylzing node health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md).
+- Under **Reports**, use the **Node Monitoring** workbooks to analyze disk capacity, disk IO, and GPU usage. For more information about these workbooks, see [Node Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#node-monitoring-workbooks).
 
     :::image type="content" source="media/monitor-aks/container-insights-cluster-view.png" alt-text="Container Insights cluster view" lightbox="media/monitor-aks/container-insights-cluster-view.png":::
 
-    * Under **Monitoring**, you can select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
+- Under **Monitoring**, you can select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
 
     :::image type="content" source="media/monitor-aks/monitoring-workbooks-subnet-ip-usage" alt-text="Container Insights workbooks" lightbox="media/monitor-aks/monitoring-workbooks-subnet-ip-usage.png":::
 
@@ -135,12 +135,12 @@ The managed AKS level includes the following components:
 
 Azure Monitor and Container Insights don't provide full monitoring for the API server.
 
-    * Under **Monitoring**, you can select **Metrics** to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of the API server performance. This includes such values as request latency and workqueue processing time.
-    * To see critical metrics for the API server, see [Grafana Labs](https://grafana.com/grafana/dashboards/12006) to set up a dashboard on your existing Grafana server or set up a new Grafana server in Azure using [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
+- Under **Monitoring**, you can select **Metrics** to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of the API server performance. This includes such values as request latency and workqueue processing time.
+- To see critical metrics for the API server, see [Grafana Labs](https://grafana.com/grafana/dashboards/12006) to set up a dashboard on your existing Grafana server or set up a new Grafana server in Azure using [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
     :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
-    * Under **Reports**, use the **Kubelet** workbook to see the health and performance of each kubelet. For more information about these workbooks, see [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks). For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md).
+- Under **Reports**, use the **Kubelet** workbook to see the health and performance of each kubelet. For more information about these workbooks, see [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks). For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md).
 
 ### Resource logs
 
@@ -158,12 +158,12 @@ The Kubernetes objects and workloads level includes the following components:
 
 Use existing views and reports in Container Insights to monitor containers and pods.
 
-    * Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
-    * Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
+- Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
+- Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](../azure-monitor/containers/container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
 
     :::image type="content" source="media/monitor-aks/container-insights-containers-view.png" alt-text="Container Insights containers view" lightbox="media/monitor-aks/container-insights-containers-view.png":::
 
-    * Under **Reports**, use the **Deployments** workbook to see deployment metrics. For more information, ee [Deployment & HPA metrics with Container Insights](../azure-monitor/containers/container-insights-deployment-hpa-metrics.md).
+- Under **Reports**, use the **Deployments** workbook to see deployment metrics. For more information, ee [Deployment & HPA metrics with Container Insights](../azure-monitor/containers/container-insights-deployment-hpa-metrics.md).
 
     :::image type="content" source="media/monitor-aks/container-insights-deployments-workbook.png" alt-text="Container Insights deployments workbook" lightbox="media/monitor-aks/container-insights-deployments-workbook.png":::
 
@@ -185,9 +185,9 @@ Application Insights provides complete monitoring of applications running on AKS
 
 If you want complete monitoring, you should configure code-based monitoring depending on your application:
 
-- [ASP.NET Applications](../azure-monitor/app/asp-net.md)
-- [ASP.NET Core Applications](../azure-monitor/app/asp-net-core.md)
-- [.NET Console Applications](../azure-monitor/app/console.md)
+- [ASP.NET applications](../azure-monitor/app/asp-net.md)
+- [ASP.NET Core applications](../azure-monitor/app/asp-net-core.md)
+- [.NET Console applications](../azure-monitor/app/console.md)
 - [Java](../azure-monitor/app/opentelemetry-enable.md?tabs=java)
 - [Node.js](../azure-monitor/app/nodejs.md)
 - [Python](../azure-monitor/app/opencensus-python.md)
