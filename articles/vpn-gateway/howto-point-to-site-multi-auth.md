@@ -89,7 +89,13 @@ In this section, you configure authentication type and tunnel type. On the **Poi
 
 ### <a name="tunneltype"></a>Tunnel type
 
-On the **Point-to-site configuration** page, select **OpenVPN (SSL)** as the tunnel type.
+On the **Point-to-site configuration** page, select the desired types. Options are:
+
+* OpenVPN (SSL)
+* SSTP (SSL)
+* IKEv2
+* IKEv2 and OpenVPN (SSL)
+* IKEv2 and SSTP (SSL)
 
 ### <a name="authenticationtype"></a>Authentication type
 
@@ -99,7 +105,11 @@ For **Authentication type**, select the desired types. Options are:
 * RADIUS
 * Azure Active Directory
 
-Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
+Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. See the below table to check what authentication mechanisms are compatible with corresponding tunnel types.
+
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
+
+Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
 
 For more information about authentication type, see:
 
