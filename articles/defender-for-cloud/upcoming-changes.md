@@ -119,9 +119,6 @@ The following security recommendations will be released as GA and replace the V1
 
 The following security recommendations will be deprecated as part of this change:
 
-The following security recommendations will be deprecated as part of this change:
- 
-
 | Recommendation | Assessment Key |
 |--|--|
 | MFA should be enabled on accounts with owner permissions on subscriptions | 94290b00-4d0c-d7b4-7cea-064a9554e681 |
