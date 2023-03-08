@@ -6,6 +6,7 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 04/18/2022
 ---

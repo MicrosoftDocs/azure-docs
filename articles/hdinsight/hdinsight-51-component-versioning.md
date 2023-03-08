@@ -18,7 +18,7 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
-| Apache Spark     | 3.3 **             | 3.1.2         |
+| Apache Spark     | 3.3 *              | 3.1.3         |
 | Apache Hive      | 3.1.2 *             | 3.1.2         |
 | Apache Kafka     | 3.2.0  **            | 2.4.1         |
 | Apache Hadoop with YARN    | 3.3.4 *             | 3.1.1         |
@@ -28,7 +28,7 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 | Apache HBase     | 2.4.11  **           | -             |
 | Apache Sqoop     | 1.5.0  *            | 1.5.0         |
 | Apache Oozie     | 5.2.1  *            | 4.3.1         |
-| Apache Zookeeper | 3.6.3  **             | 3.4.6         |
+| Apache Zookeeper | 3.6.3  *             | 3.4.6         |
 | Apache Livy      | 0.7.1  *            | 0.5           |
 | Apache Ambari    | 2.7.0  **            | 2.7.0         |
 | Apache Zeppelin  | 0.10.0 *             | 0.8.0         |
@@ -46,7 +46,7 @@ Apache Spark versions supported in Azure HDIinsight
 |--|--|--|--|--|--|
 |2.4|July 8, 2019|End of Life Announced (EOLA)| Feb10,2023| Aug 10,2023|Feb 10,2024|
 |3.1|March 11,2022|GA |-|-|-|
-|3.3|March 22,2023|Public Preview|-|-|-|
+|3.3|To be announced for Public Preview|-|-|-|-|
 
 ## Apache Spark 2.4 to Spark 3.x Migration Guides 
 
