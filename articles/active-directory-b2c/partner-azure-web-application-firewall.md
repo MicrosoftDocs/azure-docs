@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Learn how to enable the Azure Web Application Firewall (WAF) service for an Azure Active Directory B2C (Azure AD B2C) tenant, with a custom domain. WAF protects web applications from common exploits and vulnerabilities.
 
-Learn more about [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
+See, [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
 
 ## Prerequisites
 
