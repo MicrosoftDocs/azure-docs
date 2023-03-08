@@ -6,10 +6,10 @@ author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 11/14/2022
 ms.author: mbaldwin
-
 ---
 
 # Manage a Managed HSM using the Azure CLI
