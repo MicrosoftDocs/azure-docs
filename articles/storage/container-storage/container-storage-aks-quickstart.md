@@ -20,13 +20,13 @@ Azure Container Storage is a service built natively for containers that enables 
 
 - Sign up for the public preview.
 
-- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription in which you want to create the storage account and select **Create**.
 
 ## Create a resource group
 
-An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -39,32 +39,32 @@ The following example creates a resource group named *myContainerStorageRG* in t
    az account set --subscription <your-subscription-id>
    ```
 
-2. Create a resource group using the [az group create][az-group-create] command.
+2. Create a resource group using the `az group create` command.
 
    ```azurecli-interactive
    az group create --name myContainerStorageRG --location eastus
    ```
 
-If the resource group was created successfully, you'll see output similar to this:
-
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "myContainerStorageRG",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
+   If the resource group was created successfully, you'll see output similar to this:
+   
+   ```json
+   {
+     "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
+     "location": "eastus",
+     "managedBy": null,
+     "name": "myContainerStorageRG",
+     "properties": {
+       "provisioningState": "Succeeded"
+     },
+     "tags": null
+   }
+   ```
 
 ## Create AKS cluster
 
 First, make sure the identity you're using to create your cluster has the appropriate minimum permissions. For more details, see [Access and identity options for Azure Kubernetes Service](../../aks/concepts-identity.md).
 
-Create a Linux-based AKS cluster with a single master node using the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
+Create a Linux-based AKS cluster with a single master node using the `az aks create` command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
 
 ```azurecli-interactive
 az aks create -g myContainerStorageRG -n myAKSCluster --node-count 1 --generate-ssh-keys
@@ -77,18 +77,18 @@ The deployment will take a few minutes to complete.
 
 ## Connect to the cluster
 
-To connect to the cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-1. Configure `kubectl` to connect to your cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:
+1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
     * Downloads credentials and configures the Kubernetes CLI to use them.
-    * Uses `~/.kube/config`, the default location for the [Kubernetes configuration file][kubeconfig-file]. Specify a different location for your Kubernetes configuration file using *--file* argument.
+    * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. Specify a different location for your Kubernetes configuration file using *--file* argument.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myContainerStorageRG --name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+2. Verify the connection to your cluster using the `kubectl get` command. This command returns a list of the cluster nodes.
 
     ```azurecli-interactive
     kubectl get nodes
