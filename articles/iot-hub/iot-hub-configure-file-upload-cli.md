@@ -4,6 +4,7 @@ description: How to configure file uploads to Azure IoT Hub using the cross-plat
 author: kgremban
 
 ms.service: iot-hub
+ms.custom: devx-track-azurecli
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
