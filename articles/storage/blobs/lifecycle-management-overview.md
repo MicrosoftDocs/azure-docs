@@ -177,7 +177,7 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
-<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob.
+<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. If the last access time tracking feature is enabled later on, blobs will have last access time updated only when the blob is read. If the blob doesn't get accessed after the access time tracking is enabled, the value would be null upon a rest api call to check the LAT. You would have to access those blob(s) for a date to be assigned to LAT. You would have to access the blobs or modify the policy with lesser date for it to work.
 
 ## Lifecycle policy completed event
 
