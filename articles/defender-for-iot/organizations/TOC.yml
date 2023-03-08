@@ -91,7 +91,7 @@
     - name: Security
       items:
       - name: Azure security baseline for Defender for IoT
-        href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline
+        href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline?bc=%2fazure%2defender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json        
 - name: How-to guides
   items:
   - name: Visualize devices
