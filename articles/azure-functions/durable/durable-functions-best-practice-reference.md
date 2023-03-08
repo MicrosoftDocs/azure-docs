@@ -36,7 +36,7 @@ The language runtime you select may impose strict concurrency restrictions on yo
 * [PowerShell](../functions-reference-powershell.md#concurrency)
 * [Python](../python-scale-performance-reference.md)
 
-### Make sure task hubs have unique names when multiple apps share one storage account
+### Guarantee unique Task Hub names per app
 
 Multiple Durable Function apps can share the same storage account. By default, the name of the app is used as the task hub name, which ensures that accidental sharing of task hubs won't happen. If you need to explicitly configure task hub names for your apps in host.json, you must ensure that the names are [*unique*](durable-functions-task-hubs.md#multiple-function-apps). Otherwise, the multiple apps will compete for messages, which could result in undefined behavior, including orchestrations getting unexpectedly "stuck" in the Pending or Running state. 
 
