@@ -26,5 +26,3 @@
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
-    - name: Migrate data
-      href: how-to-migrate-data.md

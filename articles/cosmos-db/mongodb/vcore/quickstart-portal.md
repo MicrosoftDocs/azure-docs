@@ -125,4 +125,4 @@ When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete 
 In this guide, you learned how to create an Azure Cosmos DB for MongoDB vCore cluster. You can now migrate data to your cluster.
 
 > [!div class="nextstepaction"]
-> [Migrate data to Azure Cosmos DB for MongoDB vCore](how-to-migrate-data.md)
+> [Migrate data to Azure Cosmos DB for MongoDB vCore](migration-options.md)
