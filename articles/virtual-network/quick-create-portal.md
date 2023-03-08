@@ -16,7 +16,7 @@ ms.custom: mode-ui
 
 # Quickstart: Use the Azure portal to create a virtual network
 
-This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, securely connect to the VMs from the internet, and communicate privately between the VMs.
+This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, deploy Azure Bastion to securely connect to the VMs from the internet, and communicate privately between the VMs.
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
@@ -36,7 +36,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
    - **Subscription**: Keep the default or select a different subscription.
    - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Virtual network name**: Enter *VNet1*.
+   - **Virtual network name**: Enter *VNet*.
    - **Region**: Keep the default or select a different region for the network and all its resources.
 
    :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
@@ -89,10 +89,12 @@ Create two VMs named *VM1* and *VM2* in the virtual network.
    - **Virtual network**: Select **VNet1** if not already selected.
    - **Subnet**: Select **default** if not already selected.
    - **Public IP**: Select **None**.
-   
-1. Select **Review + create**. Review the settings, and then select **Create**.
 
-1. After the VM is created, select **Create another VM** to create a second VM named *VM2* with the same settings.
+   :::image type="content" source="./media/quick-create-portal/azure-virtual-machine-networking.png" alt-text="Screenshot of the networking settings for a VM.":::
+
+1. Leave the other settings at their defaults, and select **Review + create**. Review the settings, and then select **Create**.
+
+1. After the VM creation finishes, you can select **Create another VM** to create the second VM. Name the VM *VM2*, with all the same settings.
 
 >[!NOTE]
 >VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
@@ -103,24 +105,24 @@ Create two VMs named *VM1* and *VM2* in the virtual network.
 
 1. On the **Virtual machines** page, select **VM1**.
 
-1. At the top of the **VM1** page, select **Connect**.
+1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
    :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
 
-1. On the **Connect** page, select the **Bastion** tab and then select **Use Bastion**.
-
-1. Enter the username and password you created for the VM, and then select **Connect**.
+1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
 For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
 ## Communicate between VMs
 
-1. From the desktop of VM1, open a command prompt and enter `ping myVM2`. You get a reply similar to the following message:
+1. From the desktop of VM1, open PowerShell.
 
-   ```cmd
-   C:\windows\system32>ping VM2
+1. Enter `ping myVM2`. You get a reply similar to the following message:
+
+   ```powershell
+   PS C:\Users\VM1> ping VM2
    
-   Pinging VM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data:
+   Pinging VM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data
    Request timed out.
    Request timed out.
    Request timed out.
@@ -134,34 +136,34 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 1. To allow ICMP to inbound through Windows firewall on this VM, enter the following command:
 
-   ```cmd
-   netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol=icmpv4:8,any dir=in action=allow
+   ```powershell
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
-1. Close the Azure Bastion connection.
+1. Close the Bastion connection to VM1.
 
-1. Connect to VM2 the same way you connected to VM1.
+1. Repeat the steps in [Connect to a VM](#connect-to-a-vm) to connect to VM2.
 
-1. On VM2, from a command prompt, enter `ping VM1`.
+1. From PowerShell on VM2, enter `ping VM1`.
 
    This time you get a success reply similar to the following message, because you allowed ICMP through the firewall on VM1.
 
    ```cmd
-   C:\windows\system32>ping VM1
+   PS C:\Users\VM2> ping VM1
    
    Pinging VM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
    Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-
+   
    Ping statistics for 10.0.0.4:
        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
    Approximate round trip times in milli-seconds:
        Minimum = 0ms, Maximum = 2ms, Average = 0ms
    ```
 
-1. Close the Azure Bastion connection.
+1. Close the Bastion connection to VM2.
 
 ## Clean up resources
 
@@ -179,7 +181,7 @@ When you're done using the virtual network and VMs, you can delete the resource 
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You connected to the VMs from the internet through Azure Bastion, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 Advance to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
