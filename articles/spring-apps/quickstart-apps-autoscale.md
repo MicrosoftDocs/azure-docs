@@ -2,7 +2,7 @@
 title: Set up autoscale for Standard Consumption plan applications
 description: Learn how to set up autoscale for Standard Consumption plan applications.
 author: karlerickson
-ms.author: rambotzhong
+ms.author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/8/2023
@@ -19,11 +19,11 @@ The Azure Spring Standard Consumption plan uses Azure Container Apps to host you
 
 - Support all the scaling rules which Azure Container App supports.
 
-For more information see [Azure Container Apps documentation](https://learn.microsoft.com/en-us/azure/container-apps/)
+For more information see [Azure Container Apps documentation](/azure/container-apps/)
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - A deployed Azure Spring Apps service instance.
 
@@ -42,7 +42,7 @@ Scaling is defined by the combination of limits and rules.
 
   By default, the minimum instance number of your spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
 
-- Rules are the criteria that the autoscaling abide by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in [Set scaling rules in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/scale-app?pivots=azure-cli#scale-rules).
+- Rules are the criteria that the autoscaling abide by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in [Set scaling rules in Azure Container Apps](https://learn.microsoft.com/azure/container-apps/scale-app?pivots=azure-cli#scale-rules).
 
   If you define more than one scale rule, the autoscaling begins when the first condition of any rule is met.
 
@@ -66,7 +66,7 @@ You can set up autoscale settings for your application using the Azure portal or
 1. Set up the instance limits of your deployment.
 1. Select **Add** to add your scale rules. To define your custom rules, see [Keda scalers](https://keda.sh/docs/2.9/scalers/).
 
-:::image type="content" source="media/quickstart-apps-autoscale/autoscale-setting.png" alt-text="Screenshot of the Azure portal preview version showing the Scale out page for an app in an Azure Spring Apps instance." lightbox="edia/quickstart-apps-autoscale/autoscale-setting.png":::
+:::image type="content" source="media/quickstart-apps-autoscale/autoscale-setting.png" alt-text="Screenshot of the Azure portal preview version showing the Scale out page for an app in an Azure Spring Apps instance." lightbox="media/quickstart-apps-autoscale/autoscale-setting.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
