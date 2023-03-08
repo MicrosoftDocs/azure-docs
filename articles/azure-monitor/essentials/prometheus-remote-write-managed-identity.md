@@ -96,7 +96,11 @@ This step isn't required if you're using an AKS identity since it will already h
 			remoteWrite:
 			- url: 'http://localhost:8081/api/v1/write'
 
-		##	Azure Managed Prometheus currently exports some default mixins in Grafana. These mixins are compatible with Azure Monitor agent on    		      ##      your Azure Kubernetes Service cluster. However, these mixins aren't compatible with Prometheus metrics scraped by the Kube 			##	Prometheus stack. In order to make these mixins compatible, uncomment remote write relabel configuration below:
+		##	Azure Managed Prometheus currently exports some default mixins in Grafana. 
+		##      These mixins are compatible with Azure Monitor agent on your Azure Kubernetes Service cluster. 
+		##      However, these mixins aren't compatible with Prometheus metrics scraped by the Kube Prometheus stack. 
+		##      In order to make these mixins compatible, uncomment remote write relabel configuration below:
+		
 
 		##	writeRelabelConfigs:
 		##	  - sourceLabels: [metrics_path]
