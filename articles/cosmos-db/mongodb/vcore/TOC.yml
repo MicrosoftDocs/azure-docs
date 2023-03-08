@@ -4,6 +4,12 @@
   items:
     - name: What is vCore-based Azure Cosmos DB for MongoDB?
       href: introduction.md
+- name: Quickstarts
+  items:
+    - name: Create resources - Azure portal
+      href: quickstart-portal.md
+    - name: Create resources - Bicep template
+      href: quickstart-bicep.md
 - name: Tutorials
   items:
     - name: Build web applications
@@ -22,8 +28,6 @@
       href: security.md
 - name: How to
   items:
-    - name: Create account
-      href: how-to-create-account.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster

@@ -33,4 +33,4 @@ Cosmos DB for MongoDB vCore is built with flexibility for developers at the cent
 
 - Read more about [feature compatibility with MongoDB](compatibility.md).
 - Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](migration-options.md)
-- Get started by [creating an account](how-to-create-account.md).
+- Get started by [creating an account](quickstart-portal.md).
