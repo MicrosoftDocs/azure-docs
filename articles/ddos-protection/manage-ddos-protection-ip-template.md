@@ -6,9 +6,9 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, ignite-2022
+ms.custom: mode-arm
 ms.author: abell
-ms.date: 03/01/2023
+ms.date: 03/08/2023
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using ARM template
@@ -17,21 +17,23 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## Prerequisites
-
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json)
 
+
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
 ## Review the template
 
-This template creates a single Standard SKU public IP with DDoS IP Protection enabled. The template used in this quickstart is from [Azure Quickstart Templates](../samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
+This template creates a single Standard SKU public IP with DDoS IP Protection enabled. The template used in this quickstart is from [Azure Quickstart Templates](~/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/pip-with-ddos-ip-protection/azuredeploy.json":::
 
-The template defines one resources:
+The template defines one resource:
 
 - [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/change-log/publicipaddresses)
 
@@ -43,7 +45,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json)
 
-1. Enter the values to create a new resource group, DDoS protection plan, and VNet name.
+1. Enter the values to create a new resource group, Public IP address, and enable DDoS IP Protection.
 
     :::image type="content" source="media/manage-ddos-protection-template/ddos-template-ip.png" alt-text="Screenshot of DDoS IP Protection ARM quickstart template.":::
 
@@ -73,11 +75,10 @@ To copy the Azure CLI or Azure PowerShell command, select the **Copy** button. T
 #Gets the public IP address
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
 
-#Checks the status of the public IP address
-$protectionMode = $publicIp.DdosSettings.ProtectionMode
+#Checks and returns the status of the public IP address
+ $publicIp
 
-#Returns the status of the pubic IP address
-$protectionMode
+
 ```
 
 # [CLI](#tab/CLI)
@@ -94,7 +95,25 @@ The output shows the new resource and *protectionModeDDoS* shows IP Protection i
 # [PowerShell](#tab/PowerShell)
 
 ```Output
-Enabled
+Name                     : myStandardPublicIP
+ResourceGroupName        : MyResourceGroup
+Location                 : eastus
+Id                       : /subscriptions/abcdefgh-1111-2222-bbbb-987654321098/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP
+Etag                     : W/"abcdefgh-1111-2222-bbbb-987654321098"
+ResourceGuid             : abcdefgh-1111-2222-bbbb-987654321098
+ProvisioningState        : Succeeded
+Tags                     : 
+PublicIpAllocationMethod : Static
+IpAddress                : 20.168.244.236
+PublicIpAddressVersion   : IPv4
+IdleTimeoutInMinutes     : 4
+IpConfiguration          : null
+DnsSettings              : null
+DdosSettings             : {"ProtectionMode": "Enabled"}
+Zones                    : {}
+Sku                      : {"Name": "Standard","Tier": "Regional"}
+IpTags                   : []
+ExtendedLocation         : null
 ```
 
 # [CLI](#tab/CLI)
