@@ -1,5 +1,5 @@
 ---
-title: Consolidate solution content by deploying Microsoft essential solutions for Microsoft Sentinel
+title: Microsoft essential solutions for Microsoft Sentinel
 description: Learn about the Microsoft essential solutions for Microsoft Sentinel that span across different ASIM schemas like networks, DNS, and web sessions.
 author: cwatson-cat
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: cwatson
 #Customer intent: As a security engineer, I want to minimize the amount of solution content I have to deploy and manage by using Microsoft essential solutions for Microsoft Sentinel.
 ---
 
-## Consolidate solution content by deploying Microsoft essential solutions for Microsoft Sentinel
+# Microsoft essential solutions for Microsoft Sentinel
 
 Microsoft essential solutions are a collection of solutions that....provide centralized content for specific domain categories...?  Essential solutions use the normalization technique Advanced Security Information Model (ASIM) to normalize the data at query time or ingestion time. The ingestion time normalization results can be ingested into following normalized table:
 
@@ -19,9 +19,10 @@ For more information, see [Ingest time normalization](/azure/sentinel/normalizat
 
 ## Why Microsoft essential solutions
 
-Today, we have over 280 product solutions in the content hub. There are multiple product solutions for different domain categories like Security - Network. For example, Azure Firewall, Palo Alto Firewall, and Corelight have product solutions for the Security-Network domain category. These solutions have differing data ingest components by design. But there’s a certain pattern to the analytics, hunting, workbooks, and other content within the same domain category.
+Today, we have over 280 product solutions in the content hub. There are multiple product solutions for different domain categories like Security - Network. For example, Azure Firewall, Palo Alto Firewall, and Corelight have product solutions for the Security-Network domain category. 
 
-For example, most of the major network products have a common basic set of firewall alerts that includes malicious threats coming from unusual IP addresses. The analytic rule template is, in general, duplicated for each of the Security - Network category of product solutions. If you're running multiple network products, you need to check and configure multiple analytic rules individually, which is inefficient. You'd also get alerts for each rule configured and might end up with alert fatigue.
+- These solutions have differing data ingest components by design. But there’s a certain pattern to the analytics, hunting, workbooks, and other content within the same domain category.
+- Most of the major network products have a common basic set of firewall alerts that includes malicious threats coming from unusual IP addresses. The analytic rule template is, in general, duplicated for each of the Security - Network category of product solutions. If you're running multiple network products, you need to check and configure multiple analytic rules individually, which is inefficient. You'd also get alerts for each rule configured and might end up with alert fatigue.
 
 If you have duplicative hunting queries, you might have less performant hunting experiences with the run-all mode of hunting. These duplicative hunting queries also introduce inefficiencies for threat hunters to select-run similar queries.
 
@@ -45,9 +46,9 @@ For more information, see [Advanced Security Information Model (ASIM) schemas](/
 
 The essential solutions don't have a connector of their own. They depend on the source specific connectors to pull in the logs. Then the solutions use the ASIM parsers in their built in analytic rules, hunting queries, and workbooks to identify anomalies. The ASIM parsers provide a consolidated report or dashboard view for all the source specific solutions that were part of prerequisite lists.
 
-## Network session essentials
+## Network session essentials solution
 
-One of the first solutions available in the essentials series is the network session essential solution. This solution doesn't have a connector of its own. Instead, it uses the ASIM parsers for query time parsing. This solution comes with 7 analytic rules, 4 hunting queries, 1 workbook, 1 playbook, and watchlists.
+One of the first solutions available in the essentials series is the network session essential solution. This solution doesn't have a connector of its own. Instead, it uses the ASIM parsers for query time parsing. This solution comes with seven analytic rules, four hunting queries, one playbook, one workbook, and watchlists.
 
 Analytics rules included:
 
@@ -68,6 +69,13 @@ Hunting queries included:
 - Detect multiple users with same MAC address
 - Destination App and associated standard port mismatch
 
+Playbook: Summarization playbook
+
+- The playbook summarizes end point security events and stores them in a pre-defined table. 
+- This playbook is helpful where you have a high number of end points security events. For example, you might have a high number of events in a large organization where network traffic is being monitoring by multiple source specific network solutions.
+
+- By default, this playbook is available as a template. If you have a high number of end point security events on your network and you notice a performance issue when loading the workbook, then enable the playbook template.
+
 Workbook:
 The workbook covers details for the following listed events.
 
@@ -75,10 +83,3 @@ The workbook covers details for the following listed events.
 - Security visibility
 - Policy rule
 - Network security event viewer
-
-Playbook: Summarization playbook
-
-The playbook summarizes end point security events and stores them in a pre-defined table. This playbook is helpful where you have a high number of end points security events. For example, you might have a high number of events in a large organization where network traffic is being monitoring by multiple source specific network solutions.
-
-By default, this playbook is available as a template. If you have a high number of end point security events on your network and you notice a performance issue when loading the workbook, then enable the playbook template.
-
