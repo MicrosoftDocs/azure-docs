@@ -235,7 +235,7 @@ southeastasia - 20.24.186.80
 
 ### Update expired RHUI client certificate on a VM
 
-If you experience problem with RHUI certificates from your Azure RHEL PAYG VM, refer to the following troubleshooting article.
+If you experience RHUI certificate issues from your Azure RHEL PAYG VM, reference the [troubleshooting guidance for RHUI certificate issues in Azure](/troubleshoot/azure/virtual-machines/troubleshoot-linux-rhui-certificate-issues).
 
 > * [Troubleshoot RHUI certificate issues in Azure](/troubleshoot/azure/virtual-machines/troubleshoot-linux-rhui-certificate-issues)
  
