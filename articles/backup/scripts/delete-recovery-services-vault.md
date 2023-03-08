@@ -4,6 +4,7 @@ description: Learn about how to use a PowerShell script to delete a Recovery Ser
 ms.topic: sample
 ms.date: 03/06/2023
 ms.service: backup
+ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
 ---
