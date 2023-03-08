@@ -185,7 +185,7 @@ sections:
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
       
       - question: |
-          Can I change the backup performance by editing the "parallel_backup_using_backint" property in SAP HANA *global.ini* file?
+          Can I change the backup performance by editing the "parallel_backup_using_backint" property in SAP HANA "global.ini" file?
         answer: |
           Currently, Azure Backup for SAP HANA accepts *1* as the value of the *parallel_backup_using_backint* property. However, Azure Backup splits that single stream in multiple streams for better performance.
 
