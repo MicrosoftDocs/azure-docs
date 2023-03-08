@@ -370,11 +370,15 @@ items:
   - name: Developer Tools
     items:
       - name: Network Diagnostic Tool 
-        href: concepts/developer-tools/network-diagnostic.md 
-  - name: Data residency and user privacy
-    href: concepts/privacy.md
-  - name: Azure Government
-    href: concepts/government.md
+        href: concepts/developer-tools/network-diagnostic.md
+  - name: Privacy and Compliance
+    items:
+    - name: Data residency and user privacy
+      href: concepts/privacy.md
+    - name: European Union Data Boundary
+      href: concepts/european-union-data-boundary.md
+    - name: Azure Government
+      href: concepts/government.md
   - name: Pricing
     items:
       - name: Pricing overview
