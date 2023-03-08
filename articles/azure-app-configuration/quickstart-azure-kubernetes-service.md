@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Azure App Configuration with Azure Kubernetes Service | Microsoft Docs
-description: "In this quickstart, make an Azure Functions app with Azure App Configuration and C#. Create and connect to an App Configuration store. Test the function locally."
+description: "In this quickstart, make an Azure Kubernetes Service with an Asp.net core web app workload. Create an AzureAppConfigurationProvider to connect App Configuration store, the app can load the configurations from App Configuration store. "
 services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
@@ -12,7 +12,7 @@ ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 # Quickstart: Create an AKS workload with configuration settings from Azure App Configuration (Preview)
-In this quickstart, you will incorporate the Azure App Configuration service into a workload in Azure Kubernetes Service to centralize storage and management of all your application settings separate from your code.
+In this quickstart, you'll incorporate the Azure App Configuration service into a workload in Azure Kubernetes Service to centralize storage and management of all your application settings separate from your code.
 
 ## Prerequisites
 
@@ -38,11 +38,11 @@ Leave **Label** and **Content type** empty for now. Select **Apply**.
 
 ## Create a Container Registry and AKS cluster
 
-Create an Azure Container Registry (ACR) by following this [doc](https://learn.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry)
+Create an Azure Container Registry (ACR) by following this [doc](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry)
 
-Create an Azure Kubernetes Service (AKS) cluster which integrates with the ACR you created by following this [doc](https://learn.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster)
+Create an Azure Kubernetes Service (AKS) cluster, which integrates with the ACR you created by following this [doc](/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster)
 
-Run the following command to set environment variables, set **ACR_Name** with the name of ACR you just created, **AKS_Name** with the name of AKS you just created, **AKS_Resource_Group** with the resource group of AKS you just created:
+Run the following command to set environment variables, set **ACR_Name** with the name of ACR you created, **AKS_Name** with the name of AKS you created, **AKS_Resource_Group** with the resource group of AKS you created:
 
 ```bash
 export ACR_Name='name-of-acr-you-just-created'
@@ -50,19 +50,19 @@ export AKS_Name='name-of-aks-you-just-created'
 export AKS_Resource_Group='resource-group-of-aks-you-just-created'
 ```
 
-Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
 ## Enable System Assigned Managed Identity of AKS VMSS NodePool
 
-Go to the corresponding Virtual Machine Scale Unit (VMSS) resource of AKS, and enable system-assigned managed identity on the VMSS by following this [doc](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set)
+Go to the corresponding Virtual Machine Scale Sets (VMSS) resource of AKS, and enable system-assigned managed identity on the VMSS by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set)
 
 ## System Assigned Managed Identity role assignment
 
-Once the system-assigned managed identity has been enabled, you will need to grant it read access to Azure AppConfiguration. To do this, follow the instructions in  this [doc](https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration)
+Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration)
 
 ## Install App Configuration Kubernetes Provider to your AKS cluster
 
-Install the Azure App Configuration Kubernetes Provider to your AKS cluster which was created in the previous step.
+Install the Azure App Configuration Kubernetes Provider to your AKS cluster, which was created in the previous step.
 1. Get the credential to manage your AKS cluster
     ```bash
     az aks get-credentials --name $AKS_Name --resource-group $AKS_Resource_Group
@@ -81,7 +81,7 @@ Run the following command to create an ASP.NET Core web app in a new TestAppConf
 ``` dotnetcli
 dotnet new webapp --output TestAppConfig --framework net6.0
 ```
-Do several updates to the web app project you just created.
+Do several updates to the web app project you created.
 1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed Settings class for the configuration you're going to use. Replace the namespace with the name of your project.
     ``` csharp
     namespace TestAppConfig
@@ -177,12 +177,12 @@ Do several updates to the web app project you just created.
     ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
     ```
 
-2. Login Azure Container Registry to have permission to push image.
+2. Sign in Azure Container Registry to have permission to push image.
     ```bash
     az acr login -n $ACR_Name
     ```
 
-3. Run the following command to build the docker image under the directory of your project root, as well as push it to the Azure Container Registry which created in the previous step
+3. Run the following command to build the docker image under the directory of your project root, and push it to the Azure Container Registry that created in the previous step
     ```bash
     docker build . -t $ACR_Name.azurecr.io/testappconfig
     docker push $ACR_Name.azurecr.io/testappconfig
@@ -251,7 +251,7 @@ kubectl create namespace quickstart-appconfig
 kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
 ```
 
-To check the synchronization status of AppConfigurationProvider, run the following command in your terminal, if the `phase` property in the `status` section of the output is `COMPLETE` ,means the key-value pairs have been successfully synced from Azure App Configuration. 
+To check the synchronization status of AppConfigurationProvider, run the following command in your terminal, if the `phase` property in the `status` section of the output is `COMPLETE` , means the key-value pairs have been successfully synced from Azure App Configuration. 
 ``` bash
 kubectl get AppConfigurationProvider appconfigurationprovider-sample -n quickstart-appconfig -o yaml
 ```
@@ -262,11 +262,11 @@ kubectl get AppConfigurationProvider appconfigurationprovider-sample -n quicksta
 > ```   
 >
  
-You will see a configMap *demo-configmap* created in *quickstart-appconfig* namespace
+There's a configMap *demo-configmap* being created in *quickstart-appconfig* namespace
 ``` bash
 kubectl get configmap demo-configmap -n quickstart-appconfig
 ```
-Run following command, you will get the External IP that exposed by the LoadBalancer service, use it to visit the web app, you will see the configuration settings in Azure AppConfiguration are taking effect on page.
+Run the following command, you get the External IP that exposed by the LoadBalancer service, use it to visit the web app, you'll see the configuration settings in Azure AppConfiguration are taking effect on page.
 ``` bash
 kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
