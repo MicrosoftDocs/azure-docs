@@ -270,6 +270,7 @@ Use the following steps to create a connection between the Static Web Apps insta
     |---|---|
     | Database Type | Select your database type from the dropdown list. |
     | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Group | Select or create a resource group for your database. |
     | Resource Name | Select the database server name that has your desired database. |
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select **Connection string**, and enter the Azure SQL user name and password. |
@@ -285,10 +286,11 @@ Once you've connected your database to your static web app and the site is finis
 1. In the *Essentials* section, select the **URL** of your Static Web Apps resource to navigate to your static web app.
 
 1. Select the **List** button to list all items.
-	
-	    The output should resemble what's shown in this screenshot.
-	    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
-	    
+
+    The output should resemble what's shown in this screenshot.
+
+    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+
 ## Clean up resources
 
 If you want to remove the resources created during this tutorial, you need to unlink the database and remove the sample data.
