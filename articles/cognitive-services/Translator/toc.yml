@@ -80,14 +80,11 @@ items:
     - name: Use the Translator container
       items:
       - name: Install and run containers
-        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing, disconnected
         href: containers/translator-how-to-install-container.md
       - name: Configure containers
         displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
         href: containers/translator-container-configuration.md
-      - name: Use containers in disconnected environments
-        displayName: text,docker,pull,mcr,registry,commitment,parameters
-        href: containers/translator-disconnected-containers.md
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md

@@ -81,6 +81,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/translator/containers/translator-disconnected-containers.md",
+            "redirect_url": "/azure/cognitive-services/translator/containers/translator-how-to-instal-container",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/openai/concepts/engines.md",
             "redirect_url": "/azure/cognitive-services/openai/concepts/models",
             "redirect_document_id": true
