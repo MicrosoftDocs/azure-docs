@@ -2,7 +2,7 @@
 title: Set up autoscale for Standard Consumption plan applications
 description: Learn how to set up autoscale for Standard Consumption plan applications.
 author: karlerickson
-ms.author: rambotzhong
+ms.author: haojianzhong
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/8/2023
