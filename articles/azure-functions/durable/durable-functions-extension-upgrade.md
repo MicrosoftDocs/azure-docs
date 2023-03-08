@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Upgrade Durable Functions extension version
 
-Some issues users experience with Durable Functions can be resolved by upgrading to the latest version of the extension which contains important bug fixes and performance improvements. You can do the following to get the latest version of the Durable Functions extension. 
+Many issues users experience with Durable Functions can be resolved simply by upgrading to the latest version of the extension, which often contains important bug fixes and performance improvements. You can do the following to get the latest version of the Durable Functions extension. 
 
 ## Reference the latest NuGet packages (.NET apps only)
 .NET apps can get the latest version of the Durable Functions extension by referencing the latest NuGet package: 
