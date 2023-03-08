@@ -9,9 +9,9 @@ ms.author: azfuncdf
 
 # Durable Functions Rosyln Analyzer (C# only)
 
-The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific [code constraints](./durable-functions-code-constraints.md). This analyzer is enabled by default to check your Durable Functions code and generate warnings and errors when there's any. The analyzer works only if you're using the .NET in-process worker; it doesn't support the isolated-worker now. 
+The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific [code constraints](./durable-functions-code-constraints.md). This analyzer is enabled by default to check your Durable Functions code and generate warnings and errors when there's any. Currently, the analyzer is only supported the .NET in-process worker.
 
-For more detailed information on the analyzer (diagnostic information, releases, bug fixes, etc.), see these [release notes](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0).
+For more detailed information on the analyzer (improvements, releases, bug fixes, etc.), see its [release notes page](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0).
 
 
 ## Configuration
@@ -26,7 +26,7 @@ Depending on the version of Visual Studio, you may also see "Enable full solutio
 
 :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-2.png" alt-text="Screenshot of configuring Roslyn Analyzer in another version of Visual Studio.":::
 
-For information to disable the analyzer, refer to these [instructions](/visualstudio/code-quality/in-source-suppression-overview.md). 
+To disable the analyzer, refer to these [instructions](/visualstudio/code-quality/in-source-suppression-overview.md). 
 
 ### Visual Studio Code
 

@@ -29,7 +29,7 @@ If you're using the Netherite or MSSQL [storage providers](durable-functions-sto
 
 Most non-.NET applications rely on extension bundles to gain access to various triggers and bindings. The [latest bundle release](https://github.com/Azure/azure-functions-extension-bundles) often contains the latest version of the Durable Functions extension with critical bug fixes and performance improvements. Therefore, it's important that your app uses the latest version of extension bundles. You can check your host.json file to see whether the version range you're using includes the latest extension bundle version. 
 
-## Upgrade the Durable Functions extension 
+## Manually upgrade the Durable Functions extension
 If upgrading the extension bundle didn't resolve your problem, and you noticed a newer release of the Durable Functions extension containing a potential fix to your problem, then you could try to manually upgrade the extension itself. Note this is only intended for advanced scenarios or when time-sensitive fixes are necessary since there are many drawbacks to manually managing extensions. For example, you may have to deal to .NET errors when the extensions you use are incompatible with each other. You also need to manually upgrade extensions to get the latest fixes and patches instead of getting them automatically through the extension bundle.
 
 First, remove the `extensionBundle` section from your host.json file.

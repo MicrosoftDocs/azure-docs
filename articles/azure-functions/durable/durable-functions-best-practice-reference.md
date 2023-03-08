@@ -9,11 +9,11 @@ ms.author: azfuncdf
 
 # Durable Functions best practices and diagnostic tools
 
-This article details some best practices when using Durable Functions. It also describes various tools to help diagnose problems during development and testing and when running your app in production.
+This article details some best practices when using Durable Functions. It also describes various tools to help diagnose problems during development, testing, production use.
 
 ## Best practices
 
-### Use the latest version of Durable Functions extension and SDK
+### Use the latest version of the Durable Functions extension and SDK
 
 There are two components that a function app uses to execute Durable Functions. One is the *Durable Functions SDK* that allows you to write orchestrator, activity, and entity functions using your target programming language. The other is the *Durable extension*, which is the runtime component that actually executes the code. With the exception of .NET in-process apps, the SDK and the extension are versioned independently.
     
@@ -49,7 +49,7 @@ It's inevitable that functions will be added, removed, and changed over the life
 
 ### Keep function inputs and outputs as small as possible
 
-You can run into memory issues if you have large inputs and outputs to Durable Functions APIs. 
+You can run into memory issues if you provide large inputs and outputs to and from Durable Functions APIs. 
 
 Inputs and outputs to Durable Functions APIs are serialized into the orchestration history. This means that large inputs and outputs can, over time, greatly contribute to an orchestrator history growing unbounded, which risks causing memory exceptions during [replay](durable-functions-orchestrations.md#reliability).
 
@@ -59,14 +59,14 @@ That said the best practice for dealing with _large_ data is to keep it in exter
 
 ### Fine tune your concurrency settings
 
-A single worker instance can execute multiple work items concurrently to increase efficiency. However, if a worker tries to process too many work items simultaneously, it could exhaust its resources like CPU load, network connections, etc. Usually, this shouldn’t be a concern because scaling and limiting work items are handled automatically for you. However, if you’re experiencing performance issues (such as orchestrators taking too long to finish, are stuck in pending, etc.) or are doing performance testing, you could [configure concurrency limits](durable-functions-perf-and-scale.md#configuration-of-throttles) in the host.json file.
+A single worker instance can execute multiple work items concurrently to increase efficiency. However, processing too many work items concurrently risks exhausting resources like CPU capacity, network connections, etc. In many cases, this shouldn’t be a concern because scaling and limiting work items are handled automatically for you. That said, if you’re experiencing performance issues (such as orchestrators taking too long to finish, are stuck in pending, etc.) or are doing performance testing, you could [configure concurrency limits](durable-functions-perf-and-scale.md#configuration-of-throttles) in the host.json file.
  
  
 ## Diagnostic tools
 
 There are several tools available to help you diagnose problems.
 
-### Configuration for more logs
+### Durable Functions and Durable Task Framework Logs
 
 #### Durable Functions Extension
 The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the logger (Functions 1.x) or logging (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
@@ -93,7 +93,7 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 
 ## Support
 
-If you have any questions, open an issue in one of the GitHub repos below. Including information such as instance IDs, time ranges in UTC, app name (if possible), deployment region would help facilitate investigations. 
+For questions and support, you may open an issue in one of the GitHub repos below. When reporting a bug in Azure, including information such as affected instance IDs, time ranges in UTC showing the problem, the application name (if possible) and deployment region will greatly speed up investigations.
 - [Durable Functions extension and .NET in-process SDK](https://github.com/Azure/azure-functions-durable-extension/issues)
 - [.NET isolated SDK](https://github.com/microsoft/durabletask-dotnet/issues)
 - [Durable Functions for Java](https://github.com/microsoft/durabletask-java/issues)
