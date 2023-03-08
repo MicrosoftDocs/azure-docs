@@ -1478,8 +1478,6 @@ items:
       href: app/statsbeat.md
     - name: Release notes
       items:
-      - name: Code-based monitoring SDKs
-        href: app/release-notes.md
       - name: Snapshot Debugger
         href: snapshot-debugger/snapshot-collector-release-notes.md
     - name: Data model

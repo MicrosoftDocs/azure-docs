@@ -7,8 +7,8 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/14/2022
 ms.author: cherylmc
+ms.custom: ignite-fall-2021, devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
-ms.custom: ignite-fall-2021
 ---
 
 # Deploy Bastion using Azure PowerShell
