@@ -34,7 +34,7 @@ The following example images illustrate what the Image Analysis service returns 
 
 
 |Original image  |With background removed  |Alpha matte  |
-|---------|---------|---------|
+|:---------:|:---------:|:---------:|
 
 | | | |
 |---------|---------|---------|

@@ -108,12 +108,14 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [How to create a feature stateset]
 
 [datasets]: /rest/api/maps/v2/dataset
 [WFS API]: /rest/api/maps/v2/wfs
- [Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
+[Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
 [Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services
