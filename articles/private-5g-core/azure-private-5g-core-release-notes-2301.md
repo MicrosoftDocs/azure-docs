@@ -37,7 +37,6 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network. This issue has been fixed in this release.   |
-  | 2 | Packet forwarding | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause them to be dropped. This issue has been fixed in this release.    |
 
 ## Known issues from previous releases
 
