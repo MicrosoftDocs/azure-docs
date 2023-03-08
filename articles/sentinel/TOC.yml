@@ -411,8 +411,8 @@
         href: data-connectors/digital-shadows-searchlight-using-azure-function.md
       - name: DNS
         href: data-connectors/dns.md
-      - name: Dynamics365
-        href: data-connectors/dynamics365.md
+      - name: Dynamics 365
+        href: data-connectors/dynamics-365.md
       - name: Dynatrace Attacks
         href: data-connectors/dynatrace-attacks.md
       - name: Dynatrace Audit Logs
