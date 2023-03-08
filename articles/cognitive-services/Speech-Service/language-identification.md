@@ -496,6 +496,9 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
+> [!NOTE]
+> Language detection with custom models can be used in OnLine transcription only. Batch transcription supports language detection for base models. 
+
 ::: zone pivot="programming-language-csharp"
 This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
@@ -583,6 +586,35 @@ var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fr
 ```
 
 ::: zone-end
+
+### Using Speech-to-text batch transcription
+
+To identify languages in [Batch transcription](batch-transcription.md), you need to use `languageIdentification` property in the body of your [transcription REST request](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create). The example in this section shows the usage of `languageIdentification` property with four candidate languages.
+
+> [!WARNING]
+> Batch transcription supports language identification for base models only. If both language identification and custom model usage are specified in the transcription request, the service will automatically fall back to the base models for the specified candidate languages. This may result in unexpected recognition results.
+>
+> If your scenario requires both language identification and custom models, use [OnLine transcription](#using-speech-to-text-custom-models).
+
+```json
+{
+	<...>
+	
+	"properties": {		
+		<...>
+		
+		"languageIdentification": {
+			"candidateLocales": [
+				"en-US",
+				"ja-JP",
+				"zh-CN",
+				"hi-IN"
+			]
+		},	
+		<...>
+	}
+}
+```
 
 ## Speech translation
 

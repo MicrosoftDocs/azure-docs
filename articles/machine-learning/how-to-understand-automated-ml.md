@@ -23,11 +23,15 @@ For example, automated ML generates the following charts based on experiment typ
 | ----------------------------------------------------------- | --------------------------------------------------------|
 | [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)                       |
 | [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true)                |
-| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon (preview)](#forecast-horizon) |
+| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon](#forecast-horizon) |
 | [Lift curve](#lift-curve)                                   |                                                         |
 | [Cumulative gains curve](#cumulative-gains-curve)           |                                                         |
 | [Calibration curve](#calibration-curve)                     |                     
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

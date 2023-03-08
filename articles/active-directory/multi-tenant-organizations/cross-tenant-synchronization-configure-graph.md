@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: multi-tenant-organizations
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: rolyon
@@ -27,7 +26,7 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 ## Prerequisites
 
-### Source tenant
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 - Azure AD Premium P1 or P2 license
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
@@ -35,7 +34,7 @@ This article describes the key steps to configure cross-tenant synchronization u
 - [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions
 
-### Target tenant
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 - Azure AD Premium P1 or P2 license
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings

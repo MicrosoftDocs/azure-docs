@@ -30,7 +30,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |   | Persistent OS Disk | Ephemeral OS Disk |
 |---|---|---|
-| **Size limit for OS disk** | 2 TiB | Cache size or temp size for the VM size or 2040 GiB, whichever is smaller. For the **cache or temp size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
+| **Size limit for OS disk** | 4* TiB | Cache size or temp size for the VM size or 2040 GiB, whichever is smaller. For the **cache or temp size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
 | **VM sizes supported** | All | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 |
 | **Disk type support**| Managed and unmanaged OS disk| Managed OS disk only|
 | **Region support**| All regions| All regions|
@@ -44,6 +44,8 @@ Key differences between persistent and ephemeral OS disks:
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
 | **Maintenance of VM/VMSS using [healing](understand-vm-reboots.md#unexpected-downtime)** | OS disk data is preserved | OS disk data is not preserved  | 
 | **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates.md#live-migration)** | OS disk data is preserved | OS disk data is preserved  | 
+
+\* 4 TiB is the maximum supported OS disk size for managed (persistent) disks. However, many OS disks are partitioned with master boot record (MBR) by default and because of this are limited to 2 TiB. For details, see [OS disk](managed-disks-overview.md#os-disk).
 
 ## Placement options for Ephemeral OS disks
 Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
@@ -103,7 +105,7 @@ Confidential VMs using Ephemeral OS disks by default **1 GiB** from the **OS cac
 > 
 For more information on [confidential VM](../confidential-computing/confidential-vm-overview.md)
 
-## Customer Managed key (preview)
+## Customer Managed key
 You can choose to use customer managed keys or platform managed keys when you enable end-to-end encryption for VMs using Ephemeral OS disk. Currently this option is available only via [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md), [CLI](./linux/disks-enable-customer-managed-keys-cli.md) and SDK in all regions. 
 
 > [!IMPORTANT]
