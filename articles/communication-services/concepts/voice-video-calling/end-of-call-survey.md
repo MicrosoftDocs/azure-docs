@@ -145,7 +145,7 @@ Here are our recommended API survey flows and suggested question prompts for con
 **Question 1:** How did the users perceive their overall call quality experience?
 Separating the first and seconds questions helps only collect responses to Audio, Video, and Screen Share issues if they are related to a call if a survey participant indicates they experienced call quality issues with a score at or below your cutoff value. 
 
--	Suggested prompt: “How was the call quality?” 
+-	Suggested prompt: “How was the call quality?”
 -	API Question Values: Overall Call
 
 **Question 2:** Did the user perceive any Audio, Video, or Screensharing issues in the call?
@@ -172,35 +172,70 @@ You can choose to collect each of the four API values or only the ones you find 
 
 **TODO - To Invoke**
 
-## Privacy
-
 TODO – are there any privacy things to note?
 
 
-## Retrieve Survey Data Options:
--	1. Analyze through an Azure Log Analytics workspace.
--	2. Export results and analyze with PowerBI query.
--	3. Export results for your own for analysis.
+## View Survey Data:
+
+> [!IMPORTANT]
+> You must enable a Diagnostic Setting in Azure Monitor to send log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
+
+	
+
+### View survey data with a Log Analytics workspace
+
+You need to enable a Log Analytics Workspace to both store survey data and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “CALL DIAGNOSTICS???” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
 
 
-### Analyze through an Azure Log Analytics workspace?
-
-Create a log analytics workspace and analyze your survey results with this sample query.
-
-•	Prerequisites:?
-
-Azure Communication Services-Enable Azure Monitor - An Azure Communication Services concept document | Microsoft Learn
 
 
-Azure Communication Services - Call Logs - An Azure Communication Services concept document | Microsoft Learn
+### Default survey analytics query/s: NEED to add to default query pack in azure.
 
-Azure Communication Services - Log Analytics Preview - An Azure Communication Services concept document | Microsoft Learn
+You can use the following sample query in your Log Analytics workspace.
+
+#### End of Call Survey Summary
+
+```
+ACS Account ID
+Start date 
+end date
+survey response count for overall = XX
+
+-	get the API Value overall: cutoff value, input range, average score, median score, score standard deviation, count of survey responses, total calls, percentage of total calls to two decimal places
+
+-	Same as above but for Audio, video, and screenshare …
+
+-	% of calls with tag A, B, C – print in pie chart, (count, description, percentage of total calls to three decimal places)
 
 
--	Use this log analytics query?
+| summarize API Value = respondents () by Y?
+| summarize =percentage of total respondents () by X
+| order by Input range (e.g. 1-5, 0-100)
+| render columnchart title="End of Call Survey Summary – Overall"
+|Y axis = percentage of total respondents, 
+| chart 2 Y axis = axis is number of responses.
+```
+
+Do we need to provide data example? Or is that somewhere else?
+
+To learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+
+To create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+
 
 
 ### Export results and analyze with Power BI query.
+
+You must first  
+
+To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
+
+Consume survey logs with Azure Monitor  - [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+
+
+
+
+
 
 -	Call Quality Survey data can be retrieved from Azure Monitor?
 
