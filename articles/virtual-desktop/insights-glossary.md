@@ -170,7 +170,7 @@ When monitoring time to connect, keep in mind the following things:
   For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe). The time for a remote application to launch would be measured based on the time taken to launch the first instance of the shell app for a connection.
   
 >[!NOTE]
->It is possible for multiple shell app execution events to happen in the context of one connection if a user launches more than one remote application. To ensure an accurate representation of the time to connect, only the first execution checkpoint to occur in the connection should be used for a given connection.
+>If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
 Example query:
 
