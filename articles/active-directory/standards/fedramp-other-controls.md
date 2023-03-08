@@ -1,5 +1,5 @@
 ---
-title: Configure additional controls to meet FedRAMP High Impact
+title: Configure additional controls to meet FedRAMP High Impact level
 description: Detailed guidance on how to configure additional controls to meet FedRAMP High Impact levels.
 services: active-directory 
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure additional controls to achieve FedRAMP High Impact level
+# Configure additional controls to meet FedRAMP High Impact level
 
 The following list of controls (and control enhancements) might require configuration in your Azure Active Directory (Azure AD) tenant.
 
