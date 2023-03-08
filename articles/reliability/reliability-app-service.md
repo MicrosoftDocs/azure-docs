@@ -48,16 +48,44 @@ Availability zone support is a property of the App Service plan. The following a
 
 - For dedicated environments, your App Service Environment must be v3. 
 
-    >[!IMPORTANT]
-    >[App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](azure/app-service/environment/overview). If you're currently using App Service Environment v2 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
-     
-     App Service Environment v1 doesn't support availability zones. 
+-  App Service Environment v1 doesn't support availability zones.  
 
+    >[!IMPORTANT]
+    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](azure/app-service/environment/overview). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+     
 - Minimum instance count of three zones is enforced. The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
     
-- Azure App Services must be running in a region that supports availability zones. To see which regions support availability zones, see [Regions](/azure/app-service/environment/overview#regions).
+- The following reg ions support Azure App Services running on multi-tenant environments:
+
+    - Australia East
+    - Brazil South
+    - Canada Central
+    - Central India
+    - Central US
+    - East Asia
+    - East US
+    - East US 2
+    - France Central
+    - Germany West Central
+    - Japan East
+    - North Europe
+    - Norway East
+    - Qatar Central
+    - South Africa North
+    - South Central US
+    - Southeast Asia
+    - Sweden Central
+    - Switzerland North
+    - UAE North
+    - UK South
+    - West Europe
+    - West US 2
+    - West US 3 
+
+
+- To see which regions support App Services for dedicated environments v3, see [Regions](/azure/app-service/environment/overview#regions).
 
 ### Create a resource with availability zone enabled
 
